@@ -619,6 +619,121 @@
   color: var(--ink);
 }
 
+/* ── Infrastructure grid (modal overview tab) ── */
+.hospital-intro {
+  font-size: 0.9rem;
+  color: var(--ink2);
+  line-height: 1.65;
+}
+
+.infra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.infra-item {
+  background: var(--faint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+}
+
+.infra-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.2rem;
+}
+
+.infra-value {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── Famous for list ── */
+.famous-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--ink2);
+  line-height: 1.7;
+}
+
+/* ── Accreditations row ── */
+.accreditations-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.badge-verified {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+/* ── Verified notes & notable gaps boxes ── */
+.verified-notes-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+}
+
+.notable-gaps-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+}
+
+/* ── Compare button on card ── */
+.card-compare-btn {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  color: var(--ink2);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.card-compare-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.card-compare-btn.in-compare {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.card-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
 /* ── Sources panel ── */
 .source-item {
   display: flex;
@@ -797,14 +912,16 @@
   margin-bottom: 0.2rem;
 }
 
-.intel-card h3 {
+.intel-card h3,
+.intel-card-title {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.3;
 }
 
-.intel-card p {
+.intel-card p,
+.intel-card-desc {
   font-size: 0.8rem;
   color: var(--muted);
   line-height: 1.5;

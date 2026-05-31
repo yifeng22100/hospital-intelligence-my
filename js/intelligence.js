@@ -265,13 +265,16 @@ window.HI = window.HI || {};
     if (!section) return;
     var body = section.querySelector('.collapsible-body');
     if (!body) return;
+    var card = document.getElementById(sectionId + '-card');
     var isOpen = body.style.display !== 'none';
     if (isOpen) {
       body.style.display = 'none';
       section.classList.remove('open');
+      if (card) card.classList.remove('active');
     } else {
       body.style.display = '';
       section.classList.add('open');
+      if (card) card.classList.add('active');
       var contentEl = document.getElementById(sectionId + '-content');
       if (contentEl && !contentEl.getAttribute('data-rendered')) {
         renderSection(sectionId, contentEl);
