@@ -280,9 +280,9 @@ window.HI = window.HI || {};
     if (!el) return;
 
     // Ensure parent panel is visible
-    var panel = document.getElementById('panel-intel');
+    var panel = document.getElementById('panel-intelligence');
     if (panel && panel.classList.contains('hidden')) {
-      window.HI.showPanel('intel');
+      window.HI.showPanel('intelligence');
     }
 
     el.classList.remove('hidden');
