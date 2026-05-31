@@ -102,5 +102,94 @@ var HOSPITALS_LABUAN = [
     officialSources: [
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
+  },
+  {
+    id: "labuan-specialist",
+    name: "Labuan Specialist & Medical Centre",
+    nameShort: "Labuan Specialist",
+    sector: "private",
+    tier: "tertiary",
+    state: "Labuan",
+    city: "Labuan",
+    intro: "Labuan Specialist & Medical Centre is a small private specialist clinic and hospital in Labuan, providing outpatient specialist consultations and basic inpatient care. It is the only private medical facility of note in Labuan FT. For complex specialist care, residents typically travel to Kota Kinabalu or Kuala Lumpur. Note: No major private hospital group (KPJ, Pantai, IHH, Sunway) currently operates a hospital in Labuan.",
+    famousFor: ["Only private specialist facility in Labuan FT", "Outpatient specialist consultations for Labuan residents"],
+    infrastructure: {
+      yearEstablished: 2005,
+      totalBeds: 20,
+      icuBeds: 2,
+      nicuBeds: 0,
+      operatingTheatres: 1,
+      area: "~1 acre",
+      buildings: "Main clinic building",
+      helipad: false,
+      parkingBays: "~40 bays",
+      parkingRate: "Free"
+    },
+    contact: {
+      address: "Labuan Town Centre, 87000 Wilayah Persekutuan Labuan",
+      mainLine: "+6087-414 500 (verify)",
+      emergencyLine: "N/A — use Hospital Labuan for emergencies",
+      appointmentLine: "+6087-414 500 (verify)",
+      website: "https://www.moh.gov.my",
+      mapQuery: "Labuan Specialist Medical Centre Labuan"
+    },
+    transport: {
+      nearest: "Labuan Town Centre — 5 min walk",
+      bus: "Limited public transport on island",
+      highway: "N/A (island)",
+      landmark: "Labuan town centre area"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: false,
+      atm: "Available in town",
+      surau: false,
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: false,
+      patientTransport: false
+    },
+    visitingHours: {
+      general: "Clinic hours: 8:00–17:00 weekdays",
+      icu: "N/A",
+      paediatric: "As per ward policy",
+      maternity: "N/A",
+      notes: "Primarily an outpatient specialist clinic. For emergencies, go to Hospital Labuan (public)."
+    },
+    specialtyCoverage: {
+      available: ["Outpatient specialist consultations (selected specialties)", "Basic inpatient care", "General Medicine", "Surgery (minor)"],
+      notAvailable: [
+        { specialty: "Emergency Medicine", transferTo: "Hospital Labuan (public)", note: "No emergency department — go to Hospital Labuan" },
+        { specialty: "Most specialist surgery", transferTo: "Hospital Queen Elizabeth (KK) or KL hospitals", note: "Very limited surgical capability — airlift for complex cases" }
+      ],
+      byReferral: ["Complex cases — Hospital Labuan or airlift to KK/KL"]
+    },
+    transferPathway: {
+      summary: "Very small private facility. All complex cases refer to Hospital Labuan (public) or airlift to Kota Kinabalu.",
+      routes: [
+        { condition: "All complex cases", to: "Hospital Queen Elizabeth (KK) or KL hospitals", reason: "Nearest full private/tertiary care", distanceKm: 110 }
+      ],
+      howToTransfer: "Specialist referral. Air ambulance for critical cases."
+    },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "Only private medical facility in Labuan FT. Very limited capacity. No major private hospital group operates in Labuan as of 2025. Residents requiring private specialist care typically travel to KK or KL.",
+    notableGaps: "No major private hospital in Labuan. Very limited private specialist services. Residents must travel to KK or KL for comprehensive private care.",
+    primaryExcellence: "Limited private outpatient specialist clinic — Labuan FT",
+    secondarySpecialties: "Outpatient consultations",
+    fullSpecialties: ["General Medicine"],
+    roomRate: "RM 150 – RM 400+/night (est.)",
+    roomRateRaw: 200,
+    insurance: "Some insurance panels (verify).",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Very small facility. No emergency. No specialist surgery. Residents must travel for real private specialist care.",
+    robotics: "Basic imaging.",
+    doctorQualifications: "MMC-registered doctors (verify specialist credentials).",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: null,
+    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   }
 ];

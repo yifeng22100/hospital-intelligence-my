@@ -1143,4 +1143,77 @@ var HOSPITALS_SABAH = [
       { label: "Official Website", url: "https://www.damaispecialist.com.my" }
     ]
   }
+,
+  {
+    id: "hsemporna", name: "Hospital Semporna", nameShort: "Hsp. Semporna",
+    sector: "public", tier: "district", state: "Sabah", city: "Semporna",
+    intro: "Hospital Semporna serves the coastal and island communities of the Semporna district, gateway to the Semporna Archipelago and Sipadan diving area. Handles diving-related emergencies and maritime accidents.",
+    famousFor: ["Gateway to Sipadan diving area", "Diving-related emergency care", "Serves Bajau Laut sea nomad communities"],
+    infrastructure: { yearEstablished: 1980, totalBeds: 100, icuBeds: 6, nicuBeds: 2, operatingTheatres: 2, area: "~5 acres", buildings: "Main Block", helipad: true, parkingBays: "~100 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 91300 Semporna, Sabah", mainLine: "+6089-781 666", emergencyLine: "+6089-781 666 ext. A&E", appointmentLine: "+6089-781 666", website: "https://www.moh.gov.my", mapQuery: "Hospital Semporna Sabah" },
+    transport: { nearest: "Semporna town — 5 min drive", bus: "Local van/bus from Tawau", highway: "Via Lahad Datu–Semporna road", landmark: "Semporna town" },
+    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Semporna town", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance and boat transfer" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Diving Medicine (basic)"],
+      notAvailable: [{ specialty: "Hyperbaric chamber", transferTo: "Hospital QE Kota Kinabalu", note: "No hyperbaric facility" }],
+      byReferral: ["Complex cases → Hospital Queen Elizabeth KK"]
+    },
+    transferPathway: { summary: "District hospital with diving emergency capability. Complex cases → Hospital Lahad Datu or Hospital QE.", routes: [], howToTransfer: "MOH referral or air medevac." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Semporna coastal communities", secondarySpecialties: "Diving emergency, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No hyperbaric chamber.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~100 beds (est.). District hospital serving Semporna and islands.", notableGaps: "No hyperbaric. Air medevac available."
+  },
+  {
+    id: "hranau", name: "Hospital Ranau", nameShort: "Hsp. Ranau",
+    sector: "public", tier: "district", state: "Sabah", city: "Ranau",
+    intro: "Hospital Ranau serves the highland Ranau district, gateway to Mount Kinabalu. Handles trekking and altitude-related emergencies for climbers on Malaysia's highest peak.",
+    famousFor: ["Proximity to Mount Kinabalu", "Altitude sickness and trekking emergency care", "Gateway district for Kinabalu climbers"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 100, icuBeds: 6, nicuBeds: 2, operatingTheatres: 2, area: "~5 acres", buildings: "Main Block", helipad: true, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 89307 Ranau, Sabah", mainLine: "+6088-878 311", emergencyLine: "+6088-878 311 ext. A&E", appointmentLine: "+6088-878 311", website: "https://www.moh.gov.my", mapQuery: "Hospital Ranau Sabah" },
+    transport: { nearest: "Ranau town — 5 min walk", bus: "Bus from KK (~2.5 hrs)", highway: "Via Kota Belud–Ranau road", landmark: "Ranau town, near Kinabalu Park" },
+    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Ranau town", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance, air medevac" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Altitude sickness management"],
+      notAvailable: [{ specialty: "Complex specialties", transferTo: "Hospital Queen Elizabeth KK", note: "District hospital" }],
+      byReferral: ["All complex cases → Hospital QE KK"]
+    },
+    transferPathway: { summary: "District hospital. Complex cases → Hospital Queen Elizabeth or Hospital Keningau.", routes: [], howToTransfer: "MOH referral or air medevac." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Ranau / Mount Kinabalu gateway", secondarySpecialties: "Altitude emergency, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No complex surgery on-site.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~100 beds (est.). Handles mountain rescue and altitude emergencies.", notableGaps: "No advanced surgery. Air medevac available."
+  },
+  {
+    id: "hbeaufort", name: "Hospital Beaufort", nameShort: "Hsp. Beaufort",
+    sector: "public", tier: "district", state: "Sabah", city: "Beaufort",
+    intro: "Hospital Beaufort serves the Beaufort district in southwest Sabah, an agricultural and rail-connected town. The hospital serves communities along the Padas River valley.",
+    famousFor: ["District hospital for Beaufort/Padas River valley", "Serves interior Sabah communities"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 80, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 89800 Beaufort, Sabah", mainLine: "+6087-211 621", emergencyLine: "+6087-211 621 ext. A&E", appointmentLine: "+6087-211 621", website: "https://www.moh.gov.my", mapQuery: "Hospital Beaufort Sabah" },
+    transport: { nearest: "Beaufort town — 5 min walk", bus: "Bus/train from KK (~2 hrs)", highway: "Via Papar–Beaufort road", landmark: "Beaufort town" },
+    facilities: { pharmacy24h: false, cafeteria: "Canteen", atm: "Beaufort town", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "Hospital Queen Elizabeth KK", note: "Small district hospital" }],
+      byReferral: ["Complex cases → Hospital QE KK"]
+    },
+    transferPathway: { summary: "Small district hospital. Complex cases → Hospital QE Kota Kinabalu.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Beaufort, Southwest Sabah", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No advanced specialties.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~80 beds (est.). Small district hospital serving Southwest Sabah.", notableGaps: "Limited specialists."
+  }
 ];

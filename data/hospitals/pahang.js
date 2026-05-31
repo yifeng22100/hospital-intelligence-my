@@ -107,6 +107,65 @@ var HOSPITALS_PAHANG = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
+    id: "hrompin",
+    name: "Hospital Rompin",
+    nameShort: "Hospital Rompin",
+    sector: "public", tier: "district", state: "Pahang", city: "Rompin",
+    intro: "Hospital Rompin serves the Rompin district on the southern Pahang coast, near the Endau-Rompin National Park area.",
+    famousFor: ["District hospital for Rompin / southern Pahang coast"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 80, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 26800 Rompin, Pahang", mainLine: "+609-414 2000 (verify)", emergencyLine: "+609-414 2000 ext. A&E (verify)", appointmentLine: "+609-414 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Rompin Pahang" },
+    transport: { nearest: "Rompin town — 5 min walk", bus: "Local bus routes", highway: "Route 3 coastal road", landmark: "Rompin town, southern Pahang" },
+    facilities: { pharmacy24h: false, cafeteria: "Limited", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (very basic)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HTAA Kuantan", note: "Small district hospital" }],
+      byReferral: ["Most specialties — HTAA Kuantan"]
+    },
+    transferPathway: { summary: "Small district hospital. Complex cases → HTAA Kuantan.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~80 beds (est.). District hospital for Rompin.", notableGaps: "Very limited services.",
+    primaryExcellence: "District hospital — Rompin, southern Pahang", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "hcameron",
+    name: "Hospital Cameron Highlands",
+    nameShort: "Hospital Cameron Highlands",
+    sector: "public", tier: "district", state: "Pahang", city: "Tanah Rata",
+    intro: "Hospital Cameron Highlands is a small district hospital serving Malaysia's famous highland resort area at approximately 1,500m altitude. Due to its remote high-altitude location, complex cases require transfer to Ipoh or Kuantan. Note: altitude limits certain emergency response capabilities.",
+    famousFor: ["District hospital for Cameron Highlands resort area", "High-altitude hospital (est. 1,500m above sea level)", "Serves international and domestic highland tourists"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 50, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: true, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 39000 Tanah Rata, Cameron Highlands, Pahang", mainLine: "+605-491 1966 (verify)", emergencyLine: "+605-491 1966 ext. A&E (verify)", appointmentLine: "+605-491 1966 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Cameron Highlands Tanah Rata Pahang" },
+    transport: { nearest: "Tanah Rata town — 5 min walk. Road access only via highland winding roads.", bus: "Limited — Cameron Highlands bus routes from Ipoh/KL", highway: "Route 59 — Tapah to Cameron Highlands (65km winding road)", landmark: "Tanah Rata town, Cameron Highlands" },
+    facilities: { pharmacy24h: false, cafeteria: "Limited", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Ambulance — lengthy road transfer to Ipoh for complex cases" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward. Very limited services — serious cases should go to Ipoh or Kuantan." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (very basic)", "General Medicine", "General Surgery (basic)", "Obstetrics (basic)", "Paediatrics (basic)"],
+      notAvailable: [
+        { specialty: "Most specialist services", transferTo: "HRPB Ipoh (90km) or HTAA Kuantan (250km)", note: "Very small district hospital — limited capability" },
+        { specialty: "Complex surgery", transferTo: "HRPB Ipoh", note: "Remote location — long transfer time" }
+      ],
+      byReferral: ["Most specialist care — refer to HRPB Ipoh (nearest full hospital)"]
+    },
+    transferPathway: {
+      summary: "Very small high-altitude district hospital. Complex or serious cases must be transferred to HRPB Ipoh (~90km, 2+ hours by road) or airlifted.",
+      routes: [{ condition: "All complex or critical cases", to: "HRPB Ipoh", reason: "Nearest full-service hospital", distanceKm: 90 }],
+      howToTransfer: "MOH ambulance transfer or air evacuation for critical cases. Road journey is 2+ hours on winding highland road."
+    },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~50 beds (est.). Very small district hospital in high-altitude Cameron Highlands. Limited specialist capability. Helipad available for air evacuation.", notableGaps: "Very limited services. Remote high-altitude location. Long transfer time to nearest full hospital.",
+    primaryExcellence: "District hospital — Cameron Highlands (high-altitude location)", secondarySpecialties: "Emergency stabilisation",
+    fullSpecialties: ["General Medicine", "Surgery (basic)", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services. No specialist care. High-altitude remote location. Transfer to Ipoh required.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
     id: "kpj-pahang",
     name: "KPJ Pahang Specialist Hospital",
     nameShort: "KPJ Pahang",

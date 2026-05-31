@@ -55,6 +55,32 @@ var HOSPITALS_MELAKA = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
+    id: "hmerlimau",
+    name: "Hospital Merlimau",
+    nameShort: "Hospital Merlimau",
+    sector: "public", tier: "district", state: "Melaka", city: "Merlimau",
+    intro: "Hospital Merlimau serves the Merlimau area in the Jasin district of Melaka, providing basic district healthcare for rural communities.",
+    famousFor: ["District hospital for Merlimau / rural Melaka"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 77300 Merlimau, Melaka", mainLine: "+606-528 2000 (verify)", emergencyLine: "+606-528 2000 ext. A&E (verify)", appointmentLine: "+606-528 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Merlimau Melaka" },
+    transport: { nearest: "Merlimau town — 5 min walk", bus: "Local bus routes", highway: "North-South Highway — Exit Jasin/Merlimau", landmark: "Merlimau town, Melaka" },
+    facilities: { pharmacy24h: false, cafeteria: "Limited", atm: "Available in town", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (very basic)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "Hospital Melaka or Hospital Jasin", note: "Small district hospital" }],
+      byReferral: ["Most specialties — Hospital Melaka or Hospital Jasin"]
+    },
+    transferPathway: { summary: "Small district hospital. Most cases → Hospital Jasin or Hospital Melaka.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~60 beds (est.). Small district hospital for Merlimau.", notableGaps: "Very limited services.",
+    primaryExcellence: "District hospital — Merlimau, Melaka", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
     id: "mahkota",
     name: "Mahkota Medical Centre",
     nameShort: "Mahkota Medical",

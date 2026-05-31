@@ -355,4 +355,54 @@ var HOSPITALS_PENANG = [
     imageUrl: null, imageCredit: "N/A",
     officialSources: [{ label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }]
   }
+,
+  {
+    id: "hbalik-pulau", name: "Hospital Balik Pulau", nameShort: "Hsp. Balik Pulau",
+    sector: "public", tier: "district", state: "Penang", city: "Balik Pulau",
+    intro: "Hospital Balik Pulau serves rural and agricultural communities in Barat Daya district on Penang island. The only public hospital on the island's western side.",
+    famousFor: ["Only public hospital serving Balik Pulau and Barat Daya communities"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 80, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 11000 Balik Pulau, Pulau Pinang", mainLine: "+604-866 2333", emergencyLine: "+604-866 2333 ext. A&E", appointmentLine: "+604-866 2333", website: "https://www.moh.gov.my", mapQuery: "Hospital Balik Pulau Penang" },
+    transport: { nearest: "Balik Pulau town centre — 5 min walk", bus: "Rapid Penang route 401E", highway: "Via Jln Balik Pulau or Jln Thean Teik", landmark: "Balik Pulau town" },
+    facilities: { pharmacy24h: false, cafeteria: "Canteen", atm: "Nearby town", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most sub-specialties", transferTo: "Hospital Pulau Pinang or Seberang Jaya", note: "District hospital" }],
+      byReferral: ["All complex cases → Hospital Pulau Pinang"]
+    },
+    transferPathway: { summary: "District hospital. Complex cases → Hospital Pulau Pinang.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Balik Pulau", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam / Socso.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No advanced specialties on-site.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~80 beds (est.). District hospital serving western Penang island.", notableGaps: "Limited specialists."
+  },
+  {
+    id: "lam-wah-ee", name: "Lam Wah Ee Hospital (Penang Adventist)", nameShort: "Lam Wah Ee",
+    sector: "private", tier: "secondary", state: "Penang", city: "Georgetown",
+    intro: "Lam Wah Ee Hospital, operated by the Seventh-day Adventist Church, is one of Penang's oldest private hospitals. Known for community-focused care and affordable charges.",
+    famousFor: ["Adventist-run community hospital", "Long history in Penang healthcare", "Affordable private care"],
+    infrastructure: { yearEstablished: 1924, totalBeds: 200, icuBeds: 12, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Heritage and new blocks", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1–2/hr" },
+    contact: { address: "460 Jalan Burma, 10350 Georgetown, Penang", mainLine: "+604-222 7200", emergencyLine: "+604-222 7200 ext. A&E", appointmentLine: "+604-222 7200", website: "https://www.lwehospital.com", mapQuery: "Lam Wah Ee Hospital Georgetown Penang" },
+    transport: { nearest: "Burma Road — 2 min walk", bus: "Rapid Penang 101, 102", highway: "Georgetown city centre", landmark: "Jalan Burma, Georgetown" },
+    facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: true, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
+    visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Cardiology", "Orthopaedics", "ENT"],
+      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "Gleneagles or Island Hospital", note: "Refer for complex cardiac surgery" }],
+      byReferral: ["Advanced oncology", "Neurosurgery"]
+    },
+    transferPathway: { summary: "Community private hospital. Complex cases → Island Hospital or Gleneagles Penang.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {}, accreditations: ["MSQH Accredited", "Seventh-day Adventist Health System"],
+    primaryExcellence: "Community private hospital — Georgetown Penang", secondarySpecialties: "Cardiology, Obstetrics, Surgery",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology", "Orthopaedics", "ENT"],
+    roomRate: "RM 160 – RM 450/night", roomRateRaw: 250, insurance: "Most major panels accepted.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery, no bone marrow transplant.", robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists.", imageUrl: null, imageCredit: "N/A",
+    officialSources: [{ label: "Lam Wah Ee Hospital", url: "https://www.lwehospital.com" }],
+    verifiedNotes: "~200 beds. Historic Adventist hospital in Georgetown.", notableGaps: "No cardiothoracic surgery."
+  }
 ];

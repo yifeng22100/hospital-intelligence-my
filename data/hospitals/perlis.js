@@ -52,4 +52,30 @@ var HOSPITALS_PERLIS = [
       { label: "Note: For specialist care, nearest full centre is HSB Alor Setar", url: "https://hsb.moh.gov.my" }
     ]
   }
+,
+  {
+    id: "kpj-perlis", name: "KPJ Perlis Specialist Hospital", nameShort: "KPJ Perlis",
+    sector: "private", tier: "secondary", state: "Perlis", city: "Kangar",
+    intro: "KPJ Perlis Specialist Hospital provides private specialist healthcare in Kangar, the capital of Malaysia's smallest state. It serves Perlis residents seeking private care without travelling to Kedah or Penang.",
+    famousFor: ["Only major private specialist hospital in Perlis", "KPJ Healthcare Group presence in Malaysia's smallest state"],
+    infrastructure: { yearEstablished: 2010, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hr" },
+    contact: { address: "Jalan Jubli Perak, 01000 Kangar, Perlis", mainLine: "+604-979 3888", emergencyLine: "+604-979 3888 ext. A&E", appointmentLine: "+604-979 3888", website: "https://www.kpj.com.my", mapQuery: "KPJ Perlis Specialist Hospital Kangar" },
+    transport: { nearest: "Kangar town centre — 5 min drive", bus: "Local bus from Kangar", highway: "Via E1 North-South Highway Exit Kangar", landmark: "Kangar city, Perlis" },
+    facilities: { pharmacy24h: true, cafeteria: "Café", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
+    visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology (non-invasive)", "Orthopaedics"],
+      notAvailable: [{ specialty: "Complex cardiac intervention, Neurosurgery", transferTo: "Hospital Sultanah Bahiyah Alor Setar or Penang", note: "Small private hospital in smallest state" }],
+      byReferral: ["Complex cardiac surgery", "Neurosurgery", "Bone marrow transplant"]
+    },
+    transferPathway: { summary: "Private specialist hospital in Perlis. Complex cases → Alor Setar or Penang.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {}, accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
+    primaryExcellence: "Private hospital — Perlis (Malaysia's smallest state)", secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology", "Orthopaedics"],
+    roomRate: "RM 170 – RM 500/night", roomRateRaw: 260, insurance: "KPJ group panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No complex cardiac surgery or neurosurgery.", robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists.", imageUrl: null, imageCredit: "N/A",
+    officialSources: [{ label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }],
+    verifiedNotes: "~120 beds (est.). Primary private hospital in Perlis.", notableGaps: "Complex cases to Kedah/Penang."
+  }
 ];

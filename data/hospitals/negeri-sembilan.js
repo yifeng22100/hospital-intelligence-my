@@ -55,6 +55,32 @@ var HOSPITALS_NS = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
+    id: "htampin",
+    name: "Hospital Tampin",
+    nameShort: "Hospital Tampin",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Tampin",
+    intro: "Hospital Tampin serves the Tampin district in southern Negeri Sembilan, near the Melaka border.",
+    famousFor: ["District hospital for Tampin / southern Negeri Sembilan"],
+    infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 73000 Tampin, Negeri Sembilan", mainLine: "+606-441 2000 (verify)", emergencyLine: "+606-441 2000 ext. A&E (verify)", appointmentLine: "+606-441 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Tampin Negeri Sembilan" },
+    transport: { nearest: "Tampin KTM Station — 10 min taxi", bus: "Local bus routes", highway: "North-South Highway — Exit Tampin", landmark: "Tampin town, southern Negeri Sembilan" },
+    facilities: { pharmacy24h: false, cafeteria: "Limited", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HTJ Seremban", note: "District hospital" }],
+      byReferral: ["Most specialties — HTJ Seremban"]
+    },
+    transferPathway: { summary: "District hospital → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~80 beds (est.). District hospital for Tampin.", notableGaps: "Very limited specialist services.",
+    primaryExcellence: "District hospital — Tampin, Negeri Sembilan", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
     id: "kpj-seremban",
     name: "KPJ Seremban Specialist Hospital",
     nameShort: "KPJ Seremban",
@@ -143,5 +169,30 @@ var HOSPITALS_NS = [
     fppScheme: false, fppDeposit: "N/A",
     gaps: "Small hospital.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }]
+  }
+,
+  {
+    id: "hkuala-pilah", name: "Hospital Kuala Pilah", nameShort: "Hsp. Kuala Pilah",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Kuala Pilah",
+    intro: "Hospital Kuala Pilah serves the Kuala Pilah district in central Negeri Sembilan, an area known for its Minangkabau cultural heritage and agriculture.",
+    famousFor: ["District hospital for Kuala Pilah", "Serves Minangkabau heartland of Negeri Sembilan"],
+    infrastructure: { yearEstablished: 1965, totalBeds: 120, icuBeds: 8, nicuBeds: 2, operatingTheatres: 2, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 72000 Kuala Pilah, Negeri Sembilan", mainLine: "+606-481 2333", emergencyLine: "+606-481 2333 ext. A&E", appointmentLine: "+606-481 2333", website: "https://www.moh.gov.my", mapQuery: "Hospital Kuala Pilah Negeri Sembilan" },
+    transport: { nearest: "Kuala Pilah town — 5 min walk", bus: "Bus from Seremban (~45 min)", highway: "Via Jalan KL–Kuala Pilah", landmark: "Kuala Pilah town centre" },
+    facilities: { pharmacy24h: false, cafeteria: "Canteen", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "Hospital Tuanku Ja'afar Seremban", note: "District hospital" }],
+      byReferral: ["Complex cases → Hospital Tuanku Ja'afar Seremban"]
+    },
+    transferPathway: { summary: "District hospital. Complex cases → Hospital Tuanku Ja'afar Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Kuala Pilah, Negeri Sembilan", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No advanced specialties.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~120 beds (est.). District hospital for Kuala Pilah.", notableGaps: "Limited specialists."
   }
 ];

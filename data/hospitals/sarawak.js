@@ -1131,4 +1131,78 @@ var HOSPITALS_SARAWAK = [
       { label: "Official Website", url: "https://www.columbiaasia.com/kuching" }
     ]
   }
+,
+  {
+    id: "hsarikei", name: "Hospital Sarikei", nameShort: "Hsp. Sarikei",
+    sector: "public", tier: "district", state: "Sarawak", city: "Sarikei",
+    intro: "Hospital Sarikei is the main public hospital serving the Sarikei division of Sarawak, an agricultural district known for its pepper production.",
+    famousFor: ["Main hospital for Sarikei Division", "Serves pepper farming communities of central Sarawak"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 2, area: "~6 acres", buildings: "Main Block", helipad: true, parkingBays: "~120 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 96100 Sarikei, Sarawak", mainLine: "+6384-655 333", emergencyLine: "+6384-655 333 ext. A&E", appointmentLine: "+6384-655 333", website: "https://www.moh.gov.my", mapQuery: "Hospital Sarikei Sarawak" },
+    transport: { nearest: "Sarikei town — 5 min drive", bus: "Bus from Sibu (~1.5 hrs)", highway: "Via Pan Borneo Highway", landmark: "Sarikei town centre" },
+    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance and boat transfers" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Internal Medicine"],
+      notAvailable: [{ specialty: "Advanced subspecialties", transferTo: "Hospital Sibu or Hospital Umum Sarawak", note: "District-level hospital" }],
+      byReferral: ["Complex cases → Hospital Sibu or Kuching"]
+    },
+    transferPathway: { summary: "District hospital for Sarikei Division. Complex cases → Hospital Sibu.", routes: [], howToTransfer: "MOH referral or air medevac." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Sarikei Division", secondarySpecialties: "General Medicine, Surgery, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No advanced specialties.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~120 beds (est.). Main hospital for Sarikei Division.", notableGaps: "No complex surgery."
+  },
+  {
+    id: "hsamarahan", name: "Hospital Samarahan", nameShort: "Hsp. Samarahan",
+    sector: "public", tier: "district", state: "Sarawak", city: "Kota Samarahan",
+    intro: "Hospital Samarahan serves Kota Samarahan — Sarawak's university city and administrative hub, home to UNIMAS. The hospital supports the growing student and government worker population.",
+    famousFor: ["Serves UNIMAS university city population", "Fast-growing Samarahan district"],
+    infrastructure: { yearEstablished: 1995, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 3, area: "~8 acres", buildings: "Main Block", helipad: true, parkingBays: "~200 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Datu Patinggi Haji Abdul Rahman, 94300 Kota Samarahan, Sarawak", mainLine: "+6082-665 333", emergencyLine: "+6082-665 333 ext. A&E", appointmentLine: "+6082-665 333", website: "https://www.moh.gov.my", mapQuery: "Hospital Samarahan Sarawak" },
+    transport: { nearest: "Kota Samarahan — 5 min drive", bus: "Bus from Kuching (~30 min)", highway: "Via Jalan Kuching–Samarahan", landmark: "Near UNIMAS campus" },
+    facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Internal Medicine", "Orthopaedics"],
+      notAvailable: [{ specialty: "Cardiothoracic surgery, Neurosurgery", transferTo: "Hospital Umum Sarawak Kuching", note: "Secondary district hospital" }],
+      byReferral: ["Complex cases → Hospital Umum Sarawak"]
+    },
+    transferPathway: { summary: "District hospital near Kuching. Complex cases → Hospital Umum Sarawak.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Kota Samarahan / UNIMAS area", secondarySpecialties: "General Medicine, Surgery, Obstetrics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No cardiothoracic or neurosurgery.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~150 beds (est.). District hospital near UNIMAS university.", notableGaps: "Refer complex cases to Kuching."
+  },
+  {
+    id: "miri-city-mc", name: "Miri City Medical Centre", nameShort: "Miri City MC",
+    sector: "private", tier: "secondary", state: "Sarawak", city: "Miri",
+    intro: "Miri City Medical Centre is a private hospital serving the oil and gas hub of Miri, northern Sarawak. It provides private specialist care for the city's energy sector workforce.",
+    famousFor: ["Private hospital for Miri oil and gas community", "Key private healthcare provider in northern Sarawak"],
+    infrastructure: { yearEstablished: 2000, totalBeds: 150, icuBeds: 12, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1–2/hr" },
+    contact: { address: "Jalan Hokkien, 98000 Miri, Sarawak", mainLine: "+6085-426 622", emergencyLine: "+6085-426 622 ext. A&E", appointmentLine: "+6085-426 622", website: "https://www.miricitymedical.com", mapQuery: "Miri City Medical Centre Sarawak" },
+    transport: { nearest: "Miri city centre — 5 min drive", bus: "Local city bus", highway: "Via Pan Borneo Highway Miri section", landmark: "Miri city" },
+    facilities: { pharmacy24h: true, cafeteria: "Café", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
+    visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "Surgery", "Obstetrics", "Cardiology", "Orthopaedics", "ENT", "Ophthalmology"],
+      notAvailable: [{ specialty: "Bone marrow transplant, complex neurosurgery", transferTo: "Hospital Miri (public) or KL", note: "Secondary private hospital" }],
+      byReferral: ["Bone marrow transplant", "Complex neurosurgery"]
+    },
+    transferPathway: { summary: "Private hospital in Miri. Complex cases → Hospital Miri (public) or referral to KL.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {}, accreditations: ["MSQH Accredited (verify)"],
+    primaryExcellence: "Private hospital — Miri oil and gas community", secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Cardiology", "Orthopaedics", "ENT", "Ophthalmology"],
+    roomRate: "RM 180 – RM 500/night", roomRateRaw: 280, insurance: "Major panels; oil company corporate panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No bone marrow transplant or complex neurosurgery.", robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists.", imageUrl: null, imageCredit: "N/A",
+    officialSources: [{ label: "Miri City Medical Centre", url: "https://www.miricitymedical.com" }],
+    verifiedNotes: "~150 beds (est.). Private hospital for Miri energy sector.", notableGaps: "No bone marrow transplant."
+  }
 ];
