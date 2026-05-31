@@ -1,0 +1,389 @@
+/* ============================================================
+   animations.css — Keyframes and animation classes
+   Hospital Intelligence MY
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════
+   MODAL ANIMATIONS
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+}
+
+.modal-enter {
+  animation: modalIn 0.2s ease forwards;
+}
+
+.modal-exit {
+  animation: modalOut 0.18s ease forwards;
+}
+
+/* Backdrop fade */
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes backdropOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.backdrop-enter {
+  animation: backdropIn 0.2s ease forwards;
+}
+
+.backdrop-exit {
+  animation: backdropOut 0.18s ease forwards;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PANEL TRANSITIONS
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panelFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.panel-enter {
+  animation: panelFadeIn 0.22s ease forwards;
+}
+
+.panel-exit {
+  animation: panelFadeOut 0.18s ease forwards;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CARD HOVER (defined here for reference, applied in components.css)
+   ══════════════════════════════════════════════════════════ */
+
+/* Cards use: transition: box-shadow 0.15s ease, transform 0.15s ease */
+/* Defined here as utility class for reuse */
+.card-hover-lift {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.card-hover-lift:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* ══════════════════════════════════════════════════════════
+   TOAST ANIMATION
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastSlideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.toast-enter {
+  animation: toastSlideUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.toast-exit {
+  animation: toastSlideDown 0.2s ease forwards;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SPINNER
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+.spinner-sm {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+
+.spinner-lg {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+/* Loading state overlay */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, .7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  z-index: 5;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FADE IN (Onboarding, sections)
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.35s ease forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.25s ease forwards;
+}
+
+/* Staggered children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 40ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 280ms; }
+.stagger-children > *:nth-child(9) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(10) { animation-delay: 360ms; }
+
+/* ══════════════════════════════════════════════════════════
+   NAV TAB INDICATOR SLIDE
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes tabIndicatorSlide {
+  from {
+    transform: translateX(-50%) scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+}
+
+.nav-tab.active::after {
+  animation: tabIndicatorSlide 0.2s ease forwards;
+  transform-origin: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PULSE (notifications, alerts)
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Emergency pulse for 999 button */
+@keyframes emergencyPulse {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(225, 29, 72, .35);
+  }
+  50% {
+    box-shadow: 0 4px 28px rgba(225, 29, 72, .6);
+  }
+}
+
+.btn-emergency-999 {
+  animation: emergencyPulse 2.5s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SHIMMER / SKELETON LOADING
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 25%,
+    #e2e8f0 50%,
+    #f1f5f9 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+  height: 0.875rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+}
+
+.skeleton-text.w-75 { width: 75%; }
+.skeleton-text.w-50 { width: 50%; }
+.skeleton-text.w-33 { width: 33%; }
+.skeleton-text.w-full { width: 100%; }
+
+.skeleton-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.skeleton-card-image {
+  height: 160px;
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 25%,
+    #cbd5e1 50%,
+    #e2e8f0 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ACCORDION (FPP navigator etc.)
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes accordionOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion-body-open {
+  animation: accordionOpen 0.18s ease forwards;
+}
+
+/* ══════════════════════════════════════════════════════════
+   REDUCE MOTION OVERRIDE
+   ══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
