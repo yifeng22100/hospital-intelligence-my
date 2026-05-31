@@ -4,6 +4,101 @@
    ============================================================ */
 
 /* ══════════════════════════════════════════════════════════
+   COLLAPSIBLE INTEL SECTIONS
+   ══════════════════════════════════════════════════════════ */
+
+.collapsible-section {
+  cursor: default;
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  user-select: none;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+
+.collapsible-header:hover {
+  background: var(--faint);
+  margin: 0 -0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.collapsible-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.collapse-chevron {
+  font-size: 0.75rem;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-md);
+  display: inline-block;
+}
+
+.collapsible-section.open .collapse-chevron {
+  transform: rotate(180deg);
+}
+
+.collapsible-section.open {
+  box-shadow: var(--shadow-md);
+}
+
+.collapsible-body {
+  padding-top: 1rem;
+}
+
+.section-intro {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Intel card active state when its section is open */
+.intel-card.active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* ── Verify grid ── */
+.verify-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.verify-card {
+  background: var(--faint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+}
+
+.verify-card h4 {
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.verify-step {
+  font-size: 0.8rem;
+  color: var(--ink2);
+  padding: 0.2rem 0;
+}
+
+/* ══════════════════════════════════════════════════════════
    TIER EXPLAINER DIAGRAM
    ══════════════════════════════════════════════════════════ */
 

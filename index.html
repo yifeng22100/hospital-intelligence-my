@@ -86,14 +86,14 @@
       <div class="lang-switcher-wrap" style="position:relative;">
         <button id="lang-btn" class="lang-btn" aria-label="Change language">
           <span>&#127760;</span>
-          <span id="lang-label">简体</span>
+          <span id="lang-label">EN</span>
           <span style="font-size:0.6rem;color:var(--muted);">&#9660;</span>
         </button>
         <div id="lang-menu" class="lang-menu hidden" role="menu">
-          <button data-lang="zh_s" role="menuitem">简体中文</button>
-          <button data-lang="zh_t" role="menuitem">繁體中文</button>
           <button data-lang="en"   role="menuitem">English</button>
           <button data-lang="bm"   role="menuitem">Bahasa Malaysia</button>
+          <button data-lang="zh_s" role="menuitem">简体中文</button>
+          <button data-lang="zh_t" role="menuitem">繁體中文</button>
         </div>
       </div>
 
@@ -363,134 +363,136 @@
           <p data-i18n="intel_subtitle">Deep knowledge to make confident healthcare decisions in Malaysia.</p>
         </div>
 
-        <!-- Quick-access grid -->
+        <!-- Quick-access grid — click a card to expand/collapse the section below -->
         <div class="intel-grid" id="intel-quick-grid">
-          <div class="intel-card" onclick="scrollToSection('intel-tier-system')">
+          <div class="intel-card" id="intel-tier-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-tier')">
             <div class="intel-card-icon">&#127970;</div>
             <div class="intel-card-title" data-i18n="intel_tier_title">Hospital Tier System</div>
             <div class="intel-card-desc" data-i18n="intel_tier_desc">Understand Quaternary to District levels</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-insurance')">
+          <div class="intel-card" id="intel-insurance-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-insurance')">
             <div class="intel-card-icon">&#128179;</div>
             <div class="intel-card-title" data-i18n="intel_insurance_title">Insurance Navigator</div>
             <div class="intel-card-desc" data-i18n="intel_insurance_desc">Panel hospitals, cashless &amp; FPP explained</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-cost')">
+          <div class="intel-card" id="intel-cost-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-cost')">
             <div class="intel-card-icon">&#128200;</div>
             <div class="intel-card-title" data-i18n="intel_cost_title">Cost Reference</div>
             <div class="intel-card-desc" data-i18n="intel_cost_desc">Benchmark costs for common procedures</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-rights')">
+          <div class="intel-card" id="intel-rights-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-rights')">
             <div class="intel-card-icon">&#9878;&#65039;</div>
-            <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights</div>
+            <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights &amp; Complaints</div>
             <div class="intel-card-desc" data-i18n="intel_rights_desc">Your legal rights as a patient in Malaysia</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-verify')">
+          <div class="intel-card" id="intel-verify-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-verify')">
             <div class="intel-card-icon">&#10003;</div>
             <div class="intel-card-title" data-i18n="intel_verify_title">Verify a Facility</div>
             <div class="intel-card-desc" data-i18n="intel_verify_desc">Check licences and accreditation status</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-doctor')">
+          <div class="intel-card" id="intel-doctor-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-doctor')">
             <div class="intel-card-icon">&#128104;&#8205;&#9877;&#65039;</div>
             <div class="intel-card-title" data-i18n="intel_doctor_title">Doctor Verification</div>
             <div class="intel-card-desc" data-i18n="intel_doctor_desc">How to check a doctor's qualifications</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-trial')">
+          <div class="intel-card" id="intel-trial-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-trial')">
             <div class="intel-card-icon">&#128300;</div>
             <div class="intel-card-title" data-i18n="intel_trial_title">Clinical Trials</div>
             <div class="intel-card-desc" data-i18n="intel_trial_desc">Access experimental treatments in Malaysia</div>
           </div>
-          <div class="intel-card" onclick="scrollToSection('intel-night')">
+          <div class="intel-card" id="intel-night-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-night')">
             <div class="intel-card-icon">&#127769;</div>
             <div class="intel-card-title" data-i18n="intel_night_title">Night Cover Guide</div>
             <div class="intel-card-desc" data-i18n="intel_night_desc">After-hours &amp; 24h service availability</div>
           </div>
         </div>
 
-        <!-- Section: Hospital Tier System -->
-        <div class="intel-section" id="intel-tier-system">
-          <h3 data-i18n="intel_tier_title">&#127970; Hospital Tier System</h3>
-          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.5rem;" data-i18n="tier_intro">Malaysia's public hospitals are classified in a tiered referral pyramid. Private hospitals use similar but informal designations.</p>
-          <div class="tier-diagram" id="tier-diagram"></div>
-        </div>
-
-        <!-- Section: Insurance Navigator -->
-        <div class="intel-section" id="intel-insurance">
-          <h3 data-i18n="intel_insurance_title">&#128179; Insurance Navigator</h3>
-          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.5rem;" data-i18n="insurance_intro">Check which hospitals are on your insurer's panel and understand cashless vs. pay-and-claim.</p>
-          <div class="insurance-qualifier" id="insurance-qualifier">
-            <div class="insurance-qualifier-title" data-i18n="insq_title">Quick Panel Check</div>
-            <div class="insurance-qualifier-sub" data-i18n="insq_sub">Select your insurer and state to find panel hospitals.</div>
-            <div class="insurance-form-row">
-              <div class="insurance-form-group">
-                <label data-i18n="insq_insurer">Insurer</label>
-                <select id="insq-insurer">
-                  <option value="" data-i18n="select_insurer">Select insurer…</option>
-                </select>
-              </div>
-              <div class="insurance-form-group">
-                <label data-i18n="insq_state">State</label>
-                <select id="insq-state">
-                  <option value="" data-i18n="all_states">All States</option>
-                  <option value="Kuala Lumpur">Kuala Lumpur</option>
-                  <option value="Selangor">Selangor</option>
-                  <option value="Penang">Penang</option>
-                  <option value="Johor">Johor</option>
-                  <option value="Perak">Perak</option>
-                  <option value="Sabah">Sabah</option>
-                  <option value="Sarawak">Sarawak</option>
-                </select>
-              </div>
-              <button class="insurance-submit-btn" id="insq-submit" data-i18n="insq_check">Check Panels</button>
-            </div>
-            <div id="insq-results" class="insurance-results hidden"></div>
+        <!-- Collapsible intel sections — start hidden, toggled by card clicks -->
+        <div class="intel-section collapsible-section" id="intel-tier">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-tier')">
+            <h3>&#127970; <span data-i18n="intel_tier_title">Hospital Tier System</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
           </div>
-          <div style="margin-top:1.5rem;" id="intel-fpp">
-            <h4 style="margin-bottom:0.75rem;" data-i18n="fpp_title">&#127963; FPP (Fee Per Procedure) Scheme Guide</h4>
-            <div class="fpp-intro" data-i18n="fpp_intro">The Fee Per Procedure scheme is a cashless arrangement used by many private insurers at panel hospitals. This guide explains how it works and what to watch for.</div>
-            <div class="fpp-steps" id="fpp-steps"></div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="tier_intro">Malaysia's public hospitals are classified in a tiered referral pyramid.</p>
+            <div id="intel-tier-content"></div>
           </div>
         </div>
 
-        <!-- Section: Cost Reference -->
-        <div class="intel-section" id="intel-cost">
-          <h3 data-i18n="intel_cost_title">&#128200; Cost Reference</h3>
-          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:0.5rem;" data-i18n="cost_disclaimer_short">Approximate 2023–2024 estimates. Actual costs vary — always obtain a written itemised estimate from the hospital.</p>
-          <div id="cost-reference-content"></div>
+        <div class="intel-section collapsible-section" id="intel-insurance">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-insurance')">
+            <h3>&#128179; <span data-i18n="intel_insurance_title">Insurance Navigator</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="insurance_intro">Check which hospitals are on your insurer's panel.</p>
+            <div id="intel-insurance-content"></div>
+          </div>
         </div>
 
-        <!-- Section: Patient Rights -->
-        <div class="intel-section" id="intel-rights">
-          <h3 data-i18n="intel_rights_title">&#9878;&#65039; Patient Rights &amp; Complaints</h3>
-          <div id="rights-content"></div>
+        <div class="intel-section collapsible-section" id="intel-cost">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-cost')">
+            <h3>&#128200; <span data-i18n="intel_cost_title">Cost Reference</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="cost_disclaimer_short">Approximate 2023–2024 estimates. Actual costs vary.</p>
+            <div id="intel-cost-content"></div>
+          </div>
         </div>
 
-        <!-- Section: Verify a Facility -->
-        <div class="intel-section" id="intel-verify">
-          <h3 data-i18n="intel_verify_title">&#10003; Verify a Facility</h3>
-          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.25rem;" data-i18n="verify_intro">Use official government portals to check a hospital's licence, accreditation and specialist credentials.</p>
-          <div class="verify-tools" id="verify-tools-grid"></div>
+        <div class="intel-section collapsible-section" id="intel-rights">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-rights')">
+            <h3>&#9878;&#65039; <span data-i18n="intel_rights_title">Patient Rights &amp; Complaints</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <div id="intel-rights-content"></div>
+          </div>
         </div>
 
-        <!-- Section: Doctor Verification -->
-        <div class="intel-section" id="intel-doctor">
-          <h3 data-i18n="intel_doctor_title">&#128104;&#8205;&#9877;&#65039; Doctor Verification</h3>
-          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.25rem;" data-i18n="doctor_intro">Before seeing a specialist, verify their registration and qualifications through these official steps.</p>
-          <div id="doctor-verify-content"></div>
+        <div class="intel-section collapsible-section" id="intel-verify">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-verify')">
+            <h3>&#10003; <span data-i18n="intel_verify_title">Verify a Facility</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="verify_intro">Use official portals to check a hospital's licence and accreditation.</p>
+            <div id="intel-verify-content"></div>
+          </div>
         </div>
 
-        <!-- Section: Clinical Trials -->
-        <div class="intel-section" id="intel-trial">
-          <h3 data-i18n="intel_trial_title">&#128300; Clinical Trials in Malaysia</h3>
-          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.25rem;" data-i18n="trial_intro">Access experimental treatments through registered clinical trials at major Malaysian hospitals.</p>
-          <div id="trial-content"></div>
+        <div class="intel-section collapsible-section" id="intel-doctor">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-doctor')">
+            <h3>&#128104;&#8205;&#9877;&#65039; <span data-i18n="intel_doctor_title">Doctor Verification</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="doctor_intro">Verify a doctor's registration and qualifications.</p>
+            <div id="intel-doctor-content"></div>
+          </div>
         </div>
 
-        <!-- Section: Night Cover Guide -->
-        <div class="intel-section" id="intel-night">
-          <h3 data-i18n="intel_night_title">&#127769; Night Cover Guide</h3>
-          <div class="night-intro" data-i18n="night_intro">After hours, not every specialty is staffed. Here's what you can typically expect at each hospital type — and what to do if your hospital can't help.</div>
-          <div id="night-cover-content"></div>
+        <div class="intel-section collapsible-section" id="intel-trial">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-trial')">
+            <h3>&#128300; <span data-i18n="intel_trial_title">Clinical Trials</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="trial_intro">Access experimental treatments through registered clinical trials.</p>
+            <div id="intel-trial-content"></div>
+          </div>
+        </div>
+
+        <div class="intel-section collapsible-section" id="intel-night">
+          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-night')">
+            <h3>&#127769; <span data-i18n="intel_night_title">Night Cover Guide</span></h3>
+            <span class="collapse-chevron">&#9660;</span>
+          </div>
+          <div class="collapsible-body" style="display:none">
+            <p class="section-intro" data-i18n="night_intro">After hours, not every specialty is staffed.</p>
+            <div id="intel-night-content"></div>
+          </div>
         </div>
 
       </div>
