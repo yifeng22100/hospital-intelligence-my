@@ -1,1279 +1,720 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malaysia Master Healthcare Match Mapping</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink: #0f172a;
-      --ink2: #1e293b;
-      --muted: #64748b;
-      --faint: #f1f5f9;
-      --border: #e2e8f0;
-      --accent: #3b5bdb;
-      --accent-light: #eef2ff;
-      --emerald: #059669;
-      --amber: #d97706;
-      --rose: #e11d48;
-      --public: #1d4ed8;
-      --private: #7c3aed;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f8fafc;
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-    }
-    .mono { font-family: 'DM Mono', monospace; }
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="马来西亚医院情报 — 覆盖全马16州所有主要公立与私立医院的综合数据库，含专科、费用、保险、急诊指引及系统攻略。" />
+  <meta property="og:title" content="Hospital Intelligence MY | 马来西亚医院情报" />
+  <meta property="og:description" content="马来西亚最全面的医院数据库与就医导航平台，专为华文患者设计。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="theme-color" content="#3b5bdb" />
+  <title>Hospital Intelligence MY | 马来西亚医院情报</title>
 
-    /* Table hover glow */
-    tbody tr:hover { background: #f8fafc; }
-    tbody tr { transition: background 0.12s ease; cursor: pointer; }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap"
+    rel="stylesheet"
+  />
 
-    /* Badge styles */
-    .badge-public { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
-    .badge-private { background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
-    .badge-spec { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; font-size: 10px; }
-    .badge-verified { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; font-size: 10px; }
-    .badge-caution { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; font-size: 10px; }
-
-    /* Modal anim */
-    #modal-inner { transition: transform 0.2s cubic-bezier(.16,1,.3,1), opacity 0.2s ease; }
-    #modal-inner.hidden-scale { transform: scale(0.96) translateY(8px); opacity: 0; }
-    #modal-inner.show-scale { transform: scale(1) translateY(0); opacity: 1; }
-
-    /* Compare card hover */
-    .compare-card:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,91,219,0.1); }
-
-    /* Star rating dots */
-    .rank-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-
-    /* Sticky header */
-    .sticky-header { position: sticky; top: 0; z-index: 30; background: #f8fafc; }
-
-    /* Accordion  */
-    details > summary { cursor: pointer; list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
-    details[open] summary .chevron-icon { transform: rotate(180deg); }
-    .chevron-icon { transition: transform 0.2s ease; }
-  </style>
+  <!-- App CSS (order matters) -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/intelligence.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
-<body class="min-h-screen">
+<body>
 
-  <div class="max-w-[1380px] mx-auto px-4 sm:px-6 xl:px-8 py-8">
-
-    <!-- ─── Header ─── -->
-    <header class="mb-8">
-      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-5">
-        <div>
-          <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-blue-600 mb-2">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-            Malaysia Health Resource Matrix · Verified 2025 Data
-          </div>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Master Healthcare<br class="sm:hidden"> Match Mapping
-          </h1>
-          <p class="text-slate-500 mt-2 text-sm max-w-2xl leading-relaxed">
-            An evidence-based clinical directory comparing public and private tertiary &amp; quaternary hospitals across the Klang Valley and greater Malaysia. Bed counts, specialties, technology, and insurance compatibility — all verified against official 2024/2025 data.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="badge-verified px-2.5 py-1 rounded-full font-semibold">✓ MOH-Verified Sources</span>
-            <span class="badge-verified px-2.5 py-1 rounded-full font-semibold">✓ Newsweek Best Hospitals 2024–2026 Referenced</span>
-            <span class="badge-caution px-2.5 py-1 rounded-full font-semibold">⚠ Corrections Applied: Bed counts, Serdang Heart Centre status, THKD capacity</span>
-          </div>
-        </div>
-        <div class="flex gap-2.5 flex-wrap self-start mt-1">
-          <button onclick="toggleCompareMode()" id="compare-toggle-btn"
-            class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 font-semibold transition text-sm shadow-sm">
-            <i data-lucide="columns-3" class="w-4 h-4"></i>
-            Compare (<span id="compare-count">0</span>)
-          </button>
-          <a href="#insider-knowledge"
-            class="flex items-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 font-semibold transition text-sm shadow-sm">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            System Hacks
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- ─── Stats Bar ─── -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-7">
-      <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3">
-        <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl flex-shrink-0"><i data-lucide="landmark" class="w-5 h-5"></i></div>
-        <div><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Public Hubs</p><p class="text-lg font-bold">4 Major Tertiary</p></div>
-      </div>
-      <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3">
-        <div class="p-2.5 bg-violet-50 text-violet-600 rounded-xl flex-shrink-0"><i data-lucide="building-2" class="w-5 h-5"></i></div>
-        <div><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Private Centres</p><p class="text-lg font-bold">12 Ranked</p></div>
-      </div>
-      <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3">
-        <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl flex-shrink-0"><i data-lucide="cpu" class="w-5 h-5"></i></div>
-        <div><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Robotic Surgery Sites</p><p class="text-lg font-bold">8 Facilities</p></div>
-      </div>
-      <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3">
-        <div class="p-2.5 bg-amber-50 text-amber-600 rounded-xl flex-shrink-0"><i data-lucide="credit-card" class="w-5 h-5"></i></div>
-        <div><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Insurance Mapped</p><p class="text-lg font-bold">Full Coverage</p></div>
-      </div>
-    </div>
-
-    <!-- ─── Filter & Controls ─── -->
-    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 sm:p-5 mb-6">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-5 border-b border-slate-100">
-        <div class="flex bg-slate-100 p-1 rounded-xl self-start">
-          <button onclick="setSector('all')" id="tab-all" class="px-4 py-2 text-sm font-semibold rounded-lg bg-white text-slate-800 shadow-sm transition-all">All</button>
-          <button onclick="setSector('public')" id="tab-public" class="px-4 py-2 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-800 transition-all">Public</button>
-          <button onclick="setSector('private')" id="tab-private" class="px-4 py-2 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-800 transition-all">Private</button>
-        </div>
-        <div class="flex flex-wrap items-center gap-2.5">
-          <div class="relative min-w-[220px] flex-1 lg:flex-initial lg:w-72">
-            <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="search-input" oninput="handleSearch()" placeholder="Hospital, location, or specialty…"
-              class="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-          </div>
-          <div class="relative min-w-[160px] flex-1 lg:flex-initial">
-            <select id="specialty-filter" onchange="handleFilters()"
-              class="w-full pl-3 pr-8 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white">
-              <option value="">All Specialties</option>
-              <option value="Cardiology">Cardiology / Heart</option>
-              <option value="Oncology">Oncology / Cancer</option>
-              <option value="Obstetrics & Gynaecology (O&G)">Obstetrics & Gynaecology</option>
-              <option value="Pediatrics">Pediatrics & Neonatology</option>
-              <option value="Neurosurgery">Neurosurgery & Brain</option>
-              <option value="Orthopedics">Orthopedics & Joints</option>
-              <option value="Infectious Diseases">Infectious Diseases</option>
-              <option value="Fertility/IVF">Fertility / IVF</option>
-              <option value="Nephrology">Nephrology & Dialysis</option>
-              <option value="Hematology">Hematology / Blood</option>
-              <option value="Nuclear Medicine">Nuclear Medicine</option>
-            </select>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-          </div>
-          <div class="relative min-w-[140px] flex-1 lg:flex-initial">
-            <select id="sort-filter" onchange="handleFilters()"
-              class="w-full pl-3 pr-8 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white">
-              <option value="">Sort: Default</option>
-              <option value="beds-desc">Beds: Most First</option>
-              <option value="beds-asc">Beds: Fewest First</option>
-              <option value="price-asc">Price: Lowest</option>
-              <option value="price-desc">Price: Highest</option>
-            </select>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Compare mode alert -->
-      <div id="compare-instructions" class="hidden mt-4 p-3 bg-blue-50 text-blue-800 border border-blue-100 rounded-xl flex items-center justify-between text-xs sm:text-sm">
-        <div class="flex items-center gap-2">
-          <i data-lucide="info" class="w-4 h-4 text-blue-600 flex-shrink-0"></i>
-          <span><strong>Compare Mode:</strong> Tick up to 3 hospitals for a side-by-side deep-dive.</span>
-        </div>
-        <button onclick="clearCompareSelection()" class="text-blue-900 underline font-semibold hover:text-blue-950 whitespace-nowrap ml-4">Clear</button>
-      </div>
-
-      <!-- Table -->
-      <div class="overflow-x-auto mt-5">
-        <table class="w-full text-left border-collapse min-w-[1200px]">
-          <thead>
-            <tr class="border-b border-slate-200 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
-              <th class="py-3 px-3 w-10 text-center" id="checkbox-header" style="display:none">✓</th>
-              <th class="py-3 px-4">Hospital</th>
-              <th class="py-3 px-4">Peak Specialty</th>
-              <th class="py-3 px-4">Secondary Strengths</th>
-              <th class="py-3 px-4 text-center">Beds</th>
-              <th class="py-3 px-4">Specialties (top 3)</th>
-              <th class="py-3 px-4 text-right">Room / Night</th>
-              <th class="py-3 px-4">Key Tech / Robotics</th>
-              <th class="py-3 px-4">Insurance</th>
-              <th class="py-3 px-4 text-center">Info</th>
-            </tr>
-          </thead>
-          <tbody id="hospital-table-body" class="divide-y divide-slate-100 text-sm"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- ─── Compare Matrix ─── -->
-    <section id="compare-matrix-section" class="hidden bg-white rounded-2xl border-2 border-blue-500 shadow-md p-5 mb-8">
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
-        <div class="flex items-center gap-3">
-          <div class="p-2 bg-blue-500 text-white rounded-lg"><i data-lucide="git-compare" class="w-5 h-5"></i></div>
-          <div>
-            <h2 class="text-lg font-bold text-slate-900">Side-by-Side Clinical Analysis</h2>
-            <p class="text-xs text-slate-400">Comparing selected hospitals across all dimensions</p>
-          </div>
-        </div>
-        <button onclick="toggleCompareMode(false)" class="text-slate-400 hover:text-slate-700 p-1.5 hover:bg-slate-100 rounded-lg transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="compare-grid"></div>
-    </section>
-
-    <!-- ─── Insider Knowledge Hub ─── -->
-    <section id="insider-knowledge" class="rounded-3xl text-white p-7 sm:p-10 mb-8 shadow-xl relative overflow-hidden"
-      style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #1e293b 100%);">
-      <div class="absolute inset-0 opacity-5 pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)"/></svg>
-      </div>
-      <div class="relative z-10 max-w-5xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-bold uppercase tracking-wider mb-5 border border-blue-500/30">
-          <i data-lucide="zap" class="w-3 h-3"></i> Operational Intelligence — What Nobody Tells You
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">System Hacks &amp; Hidden Pathways</h2>
-        <p class="text-slate-300 text-sm leading-relaxed mb-8 max-w-3xl">These are the structural gaps, financial loopholes, and clinical pathways that experienced patients and savvy medical navigators know — but rarely appear in any brochure.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">01</div>
-            <div>
-              <h4 class="font-bold text-white">The Full-Paying Patient (FPP) Scheme</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">Public hospitals like Hospital Serdang, HTAR Klang, and UMMC operate an <strong class="text-white">FPP Scheme</strong> that gives you access to senior consultants, private single rooms, and priority scheduling — at roughly 20–30% of equivalent private hospital fees. You choose your specialist. You get a single room. You pay a flat upfront deposit. This is arguably the most underused value-access mechanism in Malaysian healthcare.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">02</div>
-            <div>
-              <h4 class="font-bold text-white">Pre-Admission Expense Claim (30–90 Day Window)</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">Most Malaysian medical insurance policies do not support cashless outpatient specialist visits. However, if those visits lead to an <strong class="text-white">inpatient admission within 30–90 days</strong>, all prior outpatient bills — scans, diagnostics, specialist consults — become claimable as "Pre-Admission Medical Expenses." Keep every receipt. This rule is standard across AIA, Prudential, Great Eastern, and Allianz.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-violet-500/20 text-violet-300 border border-violet-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">03</div>
-            <div>
-              <h4 class="font-bold text-white">The Stabilize &amp; Transfer Protocol</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">In catastrophic emergencies — mass trauma, severe burns, organ failure — private hospitals will stabilize you, then initiate a government-hospital transfer. Public apex facilities (Hospital Sungai Buloh for burns &amp; infectious disease, HTAR for mass trauma, Serdang Heart Centre for cardiac emergencies) carry subsidized ICU capacity and specialist depth that no private hospital can replicate at scale. This is not failure — it is the designed system architecture.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">04</div>
-            <div>
-              <h4 class="font-bold text-white">Academic-Hybrid Pricing Arbitrage</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">UMSC (UM Specialist Centre)</strong> and <strong class="text-white">UKM Specialist Centre (UKMSC)</strong> are private-wing hospitals embedded within major universities. Their consultants are full professors and associate professors. Their surgical standards match or exceed most corporate chains. But their pricing remains 30–50% below equivalent-tier luxury hospitals because they are not optimizing for hospitality — they are optimizing for medicine. This is where you get professor-grade care at registrar-grade fees.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">05</div>
-            <div>
-              <h4 class="font-bold text-white">The Serdang Heart Centre Caveat (2024)</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">The new Pusat Jantung Hospital Serdang (opened Dec 2022, RM546M, 262 beds) suffered significant operating theatre failures through mid-2024 — all four cardiothoracic OTs were non-functional due to electrical and humidity defects. Emergency cardiac surgeries ran at the old building (1 OT). MOH confirmed phased OT restoration by June–September 2024. <strong class="text-white">Verify current OT operational status before elective cardiac referrals.</strong></p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-pink-500/20 text-pink-300 border border-pink-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">06</div>
-            <div>
-              <h4 class="font-bold text-white">Gleneagles Budget Card Exclusion</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">Gleneagles KL (376 beds, 40+ specialties) is fully cashless for most major panels — but entry-level and budget-tier medical cards from certain local insurers explicitly <strong class="text-white">exclude</strong> Gleneagles due to its premium room rate tiers. Before admission, confirm your Letter of Guarantee (LOG) limit covers their room and ICU rates. Many patients have been surprised at point of discharge.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">07</div>
-            <div>
-              <h4 class="font-bold text-white">ESMO Designation = Clinical Trials Access</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">Both <strong class="text-white">Beacon Hospital</strong> and <strong class="text-white">Sunway Medical Centre</strong> hold the European Society for Medical Oncology (ESMO) Designated Centre accreditation. This means access to international Phase II/III cancer clinical trials — often providing cutting-edge therapies before they reach commercial markets, sometimes at zero drug cost to the patient. Ask your oncologist specifically if you qualify for any active trials.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-xl flex items-center justify-center font-extrabold text-sm">08</div>
-            <div>
-              <h4 class="font-bold text-white">HTAR: Highest Outpatient Volume in Malaysia</h4>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">HTAR Klang (1,094 beds) is officially Malaysia's <strong class="text-white">highest-volume outpatient facility nationwide</strong> and second busiest for inpatient admissions. Its Nephrology department is a national clinical research prime site. Its A&amp;E has helicopter landing access for maritime and industrial trauma (Klang port proximity). If you are in Klang and critically injured — HTAR A&amp;E is your fastest lifeline, bar none.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Correction Log ─── -->
-    <section class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8">
-      <div class="flex items-start gap-3">
-        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"></i>
-        <div>
-          <h3 class="font-bold text-amber-900 text-sm mb-2">Corrections Applied in This Version</h3>
-          <ul class="text-xs text-amber-800 space-y-1.5 leading-relaxed">
-            <li><strong>Hospital Sungai Buloh:</strong> Bed count corrected to 1,037 (not 620 — the 620 figure was the original 1999 build; the hospital now has 1,037 licensed beds per Clinical Research Malaysia 2025). Designated Centre of Excellence for Infectious Disease, Emergency &amp; Trauma, and Neurosurgery confirmed by official MOH HSGB handbook 2025.</li>
-            <li><strong>Hospital Serdang (HSIS):</strong> The dedicated Serdang Heart Centre is a separate 8-storey, 262-bed cardiac facility opened December 2022 (RM546M). However, all 4 cardiothoracic OTs were non-functional from late 2023 through mid-2024 due to electrical/humidity defects. Phased restoration confirmed from June 2024 onwards. This critical operational reality was omitted from the original.</li>
-            <li><strong>HTAR Klang:</strong> Bed count corrected to 1,094 (not 890). HTAR is confirmed as Malaysia's most active outpatient facility nationally per Clinical Research Malaysia.</li>
-            <li><strong>UMMC:</strong> Bed count confirmed at 1,617 (Wikipedia/official; original listed 1,600 — minor). UMMC unveiled Malaysia's first teaching-hospital Phase I Clinical Investigation Unit in October 2025.</li>
-            <li><strong>Sunway Medical Centre:</strong> Bed expansion to 1,100 in progress (new towers completing 2023). Accreditations confirmed: JCI, ACHS, MSQH (first Malaysian hospital with all 3). ESMO Designated Centre 2025–2027. Also has Leksell Gamma Knife Icon (not only Gleneagles). Robotics include da Vinci Xi 4th Gen (first in Malaysia, Jan 2022), Mako SmartRobotics, and ROSA Knee System.</li>
-            <li><strong>Gleneagles Hospital KL:</strong> Bed count corrected to 376 licensed beds (not 370). 40+ specialties, 200+ specialist doctors confirmed. Also has EksoNR Robotic Rehabilitation for stroke recovery — a detail not in original. Room count: 150 private, 13 VIP.</li>
-            <li><strong>Thomson Hospital KD (THKD):</strong> Bed count corrected — one verified source states 559 beds (not 500). TMC Fertility has delivered over 6,400 IVF babies. RTAC accreditation confirmed (international, from Fertility Society of Australia). AI embryo selection now in use.</li>
-            <li><strong>Beacon Hospital:</strong> Now part of Asia OneHealthcare (August 2024). First in Southeast Asia with Varian Halcyon 4.0 (not just CyberKnife). Also has TrueBeam 4.1 and IORT. Only Malaysian private hospital with ESMO Designated Centre accreditation (2024–2026). 120+ doctors, 45 specialties. Newsweek Top 20 Best Hospitals Malaysia 2024, 2025, 2026.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Footer ─── -->
-    <footer class="border-t border-slate-200 pt-6 text-xs text-slate-400">
-      <div class="flex flex-col sm:flex-row sm:justify-between gap-5">
-        <div>
-          <p class="font-semibold text-slate-600 mb-2">Sources Verified:</p>
-          <ul class="space-y-1 text-[11px] leading-relaxed">
-            <li>• Official MOH Malaysia — HSGB Pathology Services Handbook 2025; JKN Selangor clinical directories</li>
-            <li>• Clinical Research Malaysia portfolio: Hospital Sungai Buloh, HTAR Klang (Feb 2025)</li>
-            <li>• The Star, The Malaysian Insight, CodeBlue — Serdang Heart Centre OT crisis coverage (May 2024)</li>
-            <li>• Sunway Medical Centre official site; ESMO Designation Registry 2025–2027</li>
-            <li>• Gleneagles Hospital KL official site; clinicsoncall.com licensed bed data</li>
-            <li>• Thomson Hospital THKD LinkedIn; TMC Life Sciences corporate; ezyhealthcare.net (559 beds)</li>
-            <li>• Beacon Hospital official site 2026; Asia OneHealthcare announcement Aug 2024</li>
-            <li>• Wikipedia: UMMC (1,617 beds), UMSC (99 beds); Newsweek Best Hospitals Asia Pacific 2024–2026</li>
-          </ul>
-        </div>
-        <div class="sm:text-right max-w-xs">
-          <p class="font-semibold text-slate-600 mb-1">Disclaimer</p>
-          <p class="text-[10px] leading-relaxed">This directory is for educational and navigational reference only. Clinical decisions, insurance verification, and specialist selection must always be made in direct consultation with qualified medical professionals. All pricing and bed data are approximate and subject to change.</p>
-        </div>
-      </div>
-      <div class="text-center mt-6 pt-4 border-t border-slate-100 text-slate-300 text-[11px]">
-        © 2026 Malaysia Health Resource Matrix · Data verified to Q1 2025 · Edwin's Personal Reference
-      </div>
-    </footer>
-  </div>
-
-  <!-- ─── Modal ─── -->
-  <div id="hospital-modal" class="hidden fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div id="modal-inner" class="hidden-scale bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl relative">
-      <!-- Modal Header -->
-      <div class="sticky top-0 bg-white border-b border-slate-100 px-6 py-5 flex items-start justify-between z-10">
-        <div>
-          <span id="modal-sector-badge" class="px-2.5 py-1 text-xs font-bold rounded-lg uppercase tracking-wider"></span>
-          <h3 id="modal-name" class="text-2xl font-extrabold text-slate-900 mt-2"></h3>
-          <p class="text-slate-400 text-sm mt-1 flex items-center gap-1.5">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-300"></i>
-            <span id="modal-location-text"></span>
-          </p>
-        </div>
-        <button onclick="closeModal()" class="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-50 rounded-xl transition flex-shrink-0">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="p-6 space-y-6">
-
-        <!-- Verified Bed count & accreditations -->
-        <div id="modal-accreditations" class="flex flex-wrap gap-2"></div>
-
-        <!-- Peak + Secondary -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-            <h5 class="font-bold text-blue-900 text-xs mb-2 flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-blue-500"></i> Peak Specialization</h5>
-            <p id="modal-primary" class="text-slate-800 text-sm font-semibold leading-snug"></p>
-          </div>
-          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-            <h5 class="font-bold text-slate-700 text-xs mb-2 flex items-center gap-1.5"><i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-500"></i> Secondary Strengths</h5>
-            <p id="modal-secondary" class="text-slate-600 text-xs leading-relaxed"></p>
-          </div>
-        </div>
-
-        <!-- Clinical Rank Table -->
-        <div>
-          <h4 class="font-bold text-slate-800 flex items-center gap-2 mb-3 text-sm">
-            <i data-lucide="shield-check" class="w-4 h-4 text-blue-600"></i> Clinical Department Rankings
-          </h4>
-          <div class="border border-slate-100 rounded-2xl overflow-hidden">
-            <div class="grid grid-cols-3 bg-slate-50 px-3 py-2.5 text-[10px] font-bold text-slate-400 tracking-widest uppercase">
-              <div>Department</div><div>Standing</div><div>Clinical Scope</div>
-            </div>
-            <div id="modal-rank-table" class="divide-y divide-slate-50 text-xs bg-white"></div>
-          </div>
-        </div>
-
-        <!-- Full Specialty Badges -->
-        <div>
-          <h4 class="font-bold text-slate-800 flex items-center gap-2 mb-2.5 text-sm">
-            <i data-lucide="stethoscope" class="w-4 h-4 text-slate-400"></i> All Registered Specialties
-          </h4>
-          <div class="flex flex-wrap gap-1.5" id="modal-specialties-container"></div>
-        </div>
-
-        <!-- Qualifications + Robotics -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-            <h5 class="font-bold text-slate-800 text-xs mb-2 flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-blue-500"></i> Consultant Profiles</h5>
-            <p id="modal-doctor-qualifications" class="text-xs text-slate-600 leading-relaxed"></p>
-          </div>
-          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-            <h5 class="font-bold text-slate-800 text-xs mb-2 flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-500"></i> Technology &amp; Robotics</h5>
-            <p id="modal-robotics" class="text-xs text-slate-600 leading-relaxed"></p>
-          </div>
-        </div>
-
-        <!-- Insurance & Pricing -->
-        <div class="bg-amber-50/30 p-4 rounded-2xl border border-amber-100/60 space-y-2">
-          <h4 class="font-bold text-amber-900 text-sm flex items-center gap-1.5">
-            <i data-lucide="credit-card" class="w-4 h-4 text-amber-600"></i> Pricing & Insurance
-          </h4>
-          <p class="text-xs text-slate-700"><strong>Room Rate (Single Ward):</strong> <span id="modal-price" class="font-bold text-slate-900"></span></p>
-          <p class="text-xs text-slate-700"><strong>Insurance:</strong> <span id="modal-insurance" class="text-slate-600"></span></p>
-        </div>
-
-        <!-- Verified Notes -->
-        <div id="modal-verified-notes-block" class="hidden bg-emerald-50/40 p-4 rounded-2xl border border-emerald-100">
-          <h4 class="font-bold text-emerald-900 text-sm flex items-center gap-1.5 mb-1.5">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Verified 2024/2025 Updates
-          </h4>
-          <p id="modal-verified-notes" class="text-xs text-slate-600 leading-relaxed"></p>
-        </div>
-
-        <!-- Gaps -->
-        <div class="bg-rose-50/40 p-4 rounded-2xl border border-rose-100/50">
-          <h4 class="font-bold text-rose-900 text-sm flex items-center gap-1.5 mb-1.5">
-            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-500"></i> Specialty Gaps &amp; Limitations
-          </h4>
-          <p id="modal-gaps" class="text-xs text-slate-600 leading-relaxed"></p>
-        </div>
-
-      </div>
+  <!-- ════════════════════════════════════════════════
+       DISCLAIMER BANNER
+       ════════════════════════════════════════════════ -->
+  <div id="disclaimer-banner" role="alert">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-4">
+      <span id="disclaimer-text" class="text-xs">
+        本平台仅供参考，不构成医疗建议。所有医院信息均基于公开资料，可能存在更新延迟。如遇紧急情况，请立即拨打999。
+      </span>
+      <button id="disclaimer-dismiss" class="text-xs underline whitespace-nowrap">
+        Dismiss
+      </button>
     </div>
   </div>
 
-  <!-- ─── JS ─── -->
-  <script>
-  const hospitals = [
-    {
-      id: "hsb",
-      name: "Hospital Sungai Buloh (HSGB)",
-      sector: "public",
-      location: "Sungai Buloh, Selangor",
-      primaryExcellence: "Infectious Diseases & Burns/Trauma (Designated National Centre of Excellence)",
-      secondarySpecialties: "Neurosurgery, Emergency & Trauma, Maxillofacial Surgery",
-      fullSpecialties: [
-        "Infectious Diseases","Neurosurgery","Emergency Medicine & Trauma","Burns & Reconstructive Surgery",
-        "General Surgery","Orthopedics","Obstetrics & Gynaecology (O&G)","Pediatrics","Nephrology",
-        "Maxillofacial Surgery","Internal Medicine","Dermatology","Psychiatry","Radiology","Pathology"
-      ],
-      beds: 1037,
-      accreditations: ["MOH Major Specialist Hospital","National Centre of Excellence: Infectious Disease, Emergency & Trauma, Neurosurgery","Clinical Research Centre (CRC) under ICR/NIH"],
-      verifiedNotes: "Bed count corrected to 1,037 (MOH-verified; original 620 figure was the 1999 build phase). HSGB is officially designated a Centre of Excellence for Infectious Diseases, Emergency & Trauma, and Neurosurgery per MOH HSGB Pathology Handbook 2025. Clinical Research Centre conducts Phase III–IV trials in Infectious Diseases, Neurology, Nephrology, and General Surgery. Serves approximately 2.18 million residents across Gombak, Petaling, and Kuala Selangor districts.",
-      specialtyRanks: {
-        "Infectious Diseases": { rank: "National Rank #1 (Public)", desc: "The national apex referral centre for epidemic containment, rare zoonotic infections, experimental virology, and biosafety Level 3 research. National Leprosy Control Centre (PKKN) is also sited here." },
-        "Burns & Reconstructive Surgery": { rank: "National Rank #1 (Public)", desc: "Premier public burn rescue programme handling full-thickness grafts, donor-site management, and systemic resuscitation protocols at scale." },
-        "Emergency Medicine & Trauma": { rank: "National Top 3 (Public)", desc: "Designated MOH Emergency & Trauma centre. High-throughput A&E servicing industrial, road, and community trauma across North Selangor." },
-        "Neurosurgery": { rank: "National Rank #2 (Public)", desc: "Elite cranial and spinal neurosurgery suites with intraoperative CT integration. CRC conducts active neurology investigator-sponsored research." },
-        "Nephrology": { rank: "Active Research Site", desc: "Active clinical trials under new PI; long-running renal research programme since 2015 under ICR." },
-        "Orthopedics": { rank: "Active Tertiary", desc: "High-volume skeletal reconstruction, emergency fracture management, and orthopedic ISR research." },
-        "Pediatrics": { rank: "Active Tertiary", desc: "Covers high-risk pediatric infectious syndromes; conducted COVID-19 pediatric vaccine studies from 2020." }
-      },
-      roomRate: "RM 3 – RM 80 (Subsidized Public)",
-      roomRateRaw: 5,
-      efficiency: "Extremely rapid triage for burns, trauma, and infectious disease emergencies. Standard outpatient appointments carry significant wait times due to catchment volume (~2.18M residents).",
-      doctorQualifications: "Senior MOH clinical consultants with extensive emergency and research credentials. CRC team includes 6 research medical officers and active ISR principal investigators.",
-      robotics: "No commercial surgical robotics. Focus on specialized intraoperative neural imaging suites, advanced negative-pressure wound therapy for burns, and Phase III pharmaceutical trial infrastructure.",
-      insurance: "Commercial cashless medical cards do not apply. Heavily government-subsidized billing. FPP (Full-Paying Patient) scheme accepted — allows senior consultant selection, single-room admission, and manual insurance claim.",
-      gaps: "Private luxury accommodation, elective wellness screening packages, cosmetic/aesthetic procedures. No PET-CT or da Vinci robotic surgery."
-    },
-    {
-      id: "htar",
-      name: "Hospital Tengku Ampuan Rahimah (HTAR Klang)",
-      sector: "public",
-      location: "Klang, Selangor",
-      primaryExcellence: "Mass Tertiary Referral, Nephrology & Emergency Trauma",
-      secondarySpecialties: "Public Pediatrics & Neonatology, Breast Cancer Navigation, Clinical Trials",
-      fullSpecialties: [
-        "General Medicine","General Surgery","Emergency Medicine & Trauma","Obstetrics & Gynaecology (O&G)",
-        "Pediatrics","Neonatology","Nephrology","Orthopedics","Anaesthesiology & Intensive Care","Psychiatry",
-        "Diagnostic Imaging","Ophthalmology","ENT","Rehabilitation Medicine","Dermatology","Pathology",
-        "Oral & Maxillofacial Surgery","Cardiology","Oncology (Surgical)"
-      ],
-      beds: 1094,
-      accreditations: ["Malaysia's Highest Outpatient Volume Hospital (National)","2nd Busiest Inpatient Hospital (National)","Prime ICR Clinical Trials Site — Nephrology Lead"],
-      verifiedNotes: "Bed count corrected to 1,094 (Clinical Research Malaysia, Feb 2025). HTAR is confirmed as Malaysia's most active outpatient facility nationally and 2nd busiest for inpatient admissions. CRC HTAR (est. 2006) is a prime site for clinical trials, led by Dr. Norleen Zulkarnain Sim (Nephrologist). The hospital launched a breast cancer patient navigation programme in 2015, reducing default rates from 11% to 4% within one year — a nationally noted intervention.",
-      specialtyRanks: {
-        "Emergency Medicine & Trauma": { rank: "Regional Rank #1", desc: "Dedicated helicopter landing pad; primary A&E for Klang port industrial accidents and maritime trauma. Covers Sabak Bernam, Klang, Kuala Langat, Kuala Selangor, and Sepang districts." },
-        "Nephrology": { rank: "National Prime Research Site", desc: "One of Malaysia's leading nephrology clinical trial sites under ICR. Active kidney disease mapping, dialysis protocols, and pharmaceutical trial programmes since 2007." },
-        "Pediatrics & Neonatology": { rank: "State Rank #2", desc: "High-volume pediatric wards managing acute childhood illness for South-West Selangor's dense population." },
-        "Breast Cancer Navigation": { rank: "National Recognition", desc: "Patient navigation programme launched 2015; reduced treatment default rate from 11% to 4% — a nationally cited clinical innovation." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "General Public Care", desc: "Extremely high case volumes giving trainees and consultants unmatched practical labor complication experience." },
-        "General Surgery": { rank: "Active Tertiary", desc: "High-throughput abdominal, oncological, and laparoscopic surgery across all general disciplines." }
-      },
-      roomRate: "RM 3 – RM 80 (Subsidized Public)",
-      roomRateRaw: 5,
-      efficiency: "A&E extremely fast for helicopter-triaged trauma cases. Standard outpatient queues remain long due to enormous catchment population. STAR project (digital triage) has shown partial improvement in green zone case diversion.",
-      doctorQualifications: "Senior public specialists who lead nationwide nephrology clinical protocols and coordinate large registrar training cohorts. CRC team conducts active ICR-linked research.",
-      robotics: "Focus on high-capacity dialysis technology, state-of-the-art emergency ventilators, and research-grade pharmaceutical trial equipment rather than surgical robotics.",
-      insurance: "Cashless commercial cards do not apply directly. Highly subsidized. FPP scheme available for manual claims.",
-      gaps: "Premium private birthing suites, robotic orthopedic surgery, same-day walk-in specialist clinics, advanced nuclear imaging."
-    },
-    {
-      id: "serdang",
-      name: "Hospital Sultan Idris Shah — Serdang (HSIS) & Pusat Jantung",
-      sector: "public",
-      location: "Serdang, Selangor",
-      primaryExcellence: "National Cardiac Referral Centre (Cardiology & Cardiothoracic Surgery)",
-      secondarySpecialties: "Nephrology, Vascular Medicine, General Tertiary",
-      fullSpecialties: [
-        "Cardiology","Cardiothoracic Surgery","Vascular Medicine","Nephrology","General Surgery",
-        "Internal Medicine","Obstetrics & Gynaecology (O&G)","Pediatrics","Emergency Medicine",
-        "Orthopedics","Anaesthesiology","Intensive Care Medicine","Haematology"
-      ],
-      beds: 800,
-      accreditations: ["National Tertiary Cardiac Referral Centre","Pusat Jantung HSIS — 262 dedicated cardiac beds (8-storey facility, RM546M)","Hybrid Operating Theatre (First under MOH)","3.0T Cardiac MRI (4x clarity vs standard MRI)"],
-      verifiedNotes: "The dedicated Pusat Jantung Hospital Serdang (Serdang Heart Centre) opened December 2022 in a separate 8-storey building with 262 beds, funded at RM546M (RM311M construction + RM235M equipment). CRITICAL NOTE: All 4 cardiothoracic operating theatres were non-functional from late 2023 through mid-2024 due to electrical supply and humidity defects, placing 1,000+ patients on waiting lists. MOH confirmed phased restoration from June 2024. Emergency cardiac procedures continued at the old building (1 OT operational). Serdang Heart Centre sees ~160,000 cardiac patients per year — the largest cardiac volume in Southeast Asia. Only 10% of Malaysia's ~400 cardiologists work in MOH; this understaffing explains chronic waiting times.",
-      specialtyRanks: {
-        "Cardiology": { rank: "National Rank #1 (Public)", desc: "Largest cardiac outpatient volume in Southeast Asia (~160,000 patients/year). 24-hour cardiac catheterization laboratory. National referral for complex cases." },
-        "Cardiothoracic Surgery": { rank: "National Rank #1 (Public)", desc: "High-volume CABG (2–3 surgeries/day at old building during OT crisis). Dedicated paediatric intensive cardiothoracic care unit. First MOH hybrid operating theatre." },
-        "Nephrology": { rank: "State Rank #2", desc: "Active renal replacement, vascular access management, and hypertension research programmes." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "General Public Care", desc: "Particularly skilled in managing high-risk cardiac pregnancies — a natural extension of the hospital's cardiac specialization." },
-        "Intensive Care Medicine": { rank: "Active Tertiary", desc: "Dedicated coronary care unit, ICU, paediatric ICU, and intensive cardiothoracic care unit within the Heart Centre." }
-      },
-      roomRate: "RM 3 – RM 80 (Subsidized Public)",
-      roomRateRaw: 5,
-      efficiency: "Rapid triage for STEMI/acute MI via dedicated cardiac emergency pathway. However, elective cardiothoracic surgery waiting times can still be 9–18 months post-OT restoration. Angiogram services remained uninterrupted through the 2024 OT crisis.",
-      doctorQualifications: "MOH's leading cardiovascular specialists, structural cardiac interventionists, and paediatric cardiothoracic surgeons. University of Malaysia collaboration for cardiac research.",
-      robotics: "Houses advanced cardiac catheterization labs, intra-aortic balloon pumps, ECMO capability, 3.0T cardiac MRI, and the first MOH hybrid operating theatre. No commercial robotic surgery arms (da Vinci).",
-      insurance: "Not applicable for cashless commercial cards. Subsidized direct public billing. Post-treatment manual claims via FPP scheme.",
-      gaps: "High-end private rooms, elective cosmetic procedures, walk-in specialist clinics. Cardiothoracic OT capacity remains a vulnerability until full 4-OT restoration is confirmed."
-    },
-    {
-      id: "ummc",
-      name: "University Malaya Medical Centre (UMMC / PPUM)",
-      sector: "public",
-      location: "Lembah Pantai, Kuala Lumpur",
-      primaryExcellence: "Academic Multi-Specialty Teaching Hospital & Phase I Clinical Research (National Rank #1)",
-      secondarySpecialties: "Oncology & Radiotherapy, Complex Pediatrics, Gynaecological Oncology",
-      fullSpecialties: [
-        "Internal Medicine","Oncology","Radiotherapy","Haematology","Rheumatology","Pediatrics","Neonatology",
-        "Cardiology","Cardiothoracic Surgery","Neurology","Neurosurgery","Orthopedics","Rehabilitation Medicine",
-        "Obstetrics & Gynaecology (O&G)","Gynaecological Oncology","Gastroenterology","Urology","Psychiatry",
-        "Emergency Medicine","Ophthalmology","ENT","Dermatology","Nephrology","Respiratory Medicine","Pathology","Radiology"
-      ],
-      beds: 1617,
-      accreditations: ["MSQH Accredited","Malaysia's Oldest & Largest Teaching Hospital (est. 1968)","Malaysia's Second Largest Hospital by Beds","First Teaching Hospital in Malaysia with Phase I Clinical Investigation Unit (Oct 2025)"],
-      verifiedNotes: "UMMC has 1,617 beds (Wikipedia/official data). In October 2025, UMMC unveiled Malaysia's first teaching-hospital Phase I Clinical Investigation Unit (CIC), enabling first-in-human drug trials. Flagship specialty is Oncology (Phase I unit), supported by Rheumatology, Neurology, Haematology, Respiratory Medicine, Nephrology, and Cardiology. Cardiac catheterization services operational 24/7 since 1971 — one of the longest-running in Malaysia. Gynaecological oncology and maternal-fetal medicine among the most comprehensive in the country.",
-      specialtyRanks: {
-        "Oncology & Clinical Trials": { rank: "National Rank #1 (Academic)", desc: "First teaching hospital with a Phase I Clinical Investigation Unit (Oct 2025). Leader in first-in-human drug studies, rare cancer trials, and complex chemotherapy for patients with no commercial treatment options." },
-        "Pediatrics": { rank: "National Rank #1 (Academic)", desc: "Extensive sub-specialized pediatric units — child neurology, metabolic medicine, pediatric oncology, neonatology, and congenital surgery." },
-        "Gynaecological Oncology": { rank: "National Rank #1 (Academic)", desc: "Premier academic service for complex female reproductive cancers, cervical cancer staging, and ovarian cancer resections." },
-        "Cardiology": { rank: "National Rank #2 (Academic)", desc: "24/7 invasive cardiovascular laboratory. Structural valve interventions, complex angioplasty, pacemakers, cardiac MRI since 1971." },
-        "Neurology & Rehabilitation": { rank: "State Rank #1", desc: "Pioneering stroke treatment research, neuro-rehabilitation programmes, and complex spinal neurology." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "National Rank #1 (Academic)", desc: "Premier maternal-fetal medicine for high-risk pregnancies, alongside a nationally recognized gynaecological oncology programme." }
-      },
-      roomRate: "RM 30 – RM 250 (Semi-subsidized University Wards)",
-      roomRateRaw: 100,
-      efficiency: "Triaged strictly by clinical urgency. Phase I research cases prioritized. Standard outpatient clinics move systematically but slowly due to heavy student training volume. Emergency department is high-acuity. Telehealth platforms being expanded (2025).",
-      doctorQualifications: "Full academic professors, associate professors, and clinical educators — many with international subspecialty board certifications (MRCP, MRCOG, FRCS, etc.) and active research publication records.",
-      robotics: "Advanced clinical oncology radiation systems, surgical microscopes. Phase I CIC equipped with specialized pharmacokinetic monitoring. No commercial da Vinci robotic surgery.",
-      insurance: "Accepts major corporate panels and specific local insurances under pay-and-claim. Expanding cashless university-wing billing. FPP scheme available.",
-      gaps: "Hotel-grade private room ambience, same-day direct walk-in specialist access, commercial wellness packages. Long waits for non-urgent specialist appointments."
-    },
-    {
-      id: "smc",
-      name: "Sunway Medical Centre (SMC)",
-      sector: "private",
-      location: "Sunway City, Petaling Jaya, Selangor",
-      primaryExcellence: "Oncology, Nuclear Medicine & Multi-Platform Robotic Surgery (National Rank #1 Private)",
-      secondarySpecialties: "Haematology/BMT, Fertility (IVF), Robotics-Assisted Gynaecology, Pediatric Surgery",
-      fullSpecialties: [
-        "Oncology","Haematology","Nuclear Medicine","Obstetrics & Gynaecology (O&G)","Fertility/IVF",
-        "Pediatrics","Pediatric Surgery","Cardiology","Cardiothoracic Surgery","Gastroenterology","Orthopedics",
-        "Urology","Neurology","Neurosurgery","Ophthalmology","ENT","Dermatology","Psychiatry","Plastic Surgery",
-        "Rehabilitation Medicine","Palliative Care"
-      ],
-      beds: 1100,
-      accreditations: ["JCI (Joint Commission International)","ACHS (Australian Council on Healthcare Standards)","MSQH — First Malaysian hospital with all 3 major accreditations simultaneously","ESMO Designated Centre of Integrated Oncology & Palliative Care 2025–2027","Newsweek Best Specialized Hospitals Asia Pacific 2024","Frost & Sullivan 2024 Malaysia Market Leadership Award"],
-      verifiedNotes: "Bed count updated — three new towers completing in 2023, bringing total to 1,100 beds (the original 720 was pre-expansion). Sunway was the first Malaysian hospital to install the da Vinci Xi 4th Generation (Jan 2022) and performed the first robotic-assisted R-VNOTES hysterectomy. Nuclear medicine services include 4D PET/CT, Digital PET/CT, SPECT/CT, PRRT, RAI-131, PSMA, and SIRT. Also has Leksell Gamma Knife Icon (brain tumour radiosurgery without surgery). Also houses Radixact-X9 Tomotherapy and Varian TrueBeam STx. Mako SmartRobotics AND ROSA Knee System both present — first in Malaysia for robotic joint surgery.",
-      specialtyRanks: {
-        "Oncology & Nuclear Medicine": { rank: "National Rank #1 (Private)", desc: "ESMO-designated centre 2025–2027. Nuclear arsenal: 4D PET/CT, Digital PET/CT, SPECT/CT, PRRT, PSMA, SIRT, RAI-131. Leksell Gamma Knife Icon for non-invasive brain radiosurgery." },
-        "Robotics Surgery": { rank: "National Rank #1 (Private)", desc: "da Vinci Xi 4th Gen (first in Malaysia, 2022), Mako SmartRobotics, ROSA Knee System. First in Malaysia to perform robotic total hip/knee arthroplasty (200+ procedures)." },
-        "Haematology & BMT": { rank: "National Rank #1 (Private)", desc: "Accredited Special Haematology Facility. Bone marrow transplants, cellular therapies, and complex blood cancer management." },
-        "Fertility / IVF": { rank: "National Rank #2 (Private)", desc: "Advanced PGT embryo testing laboratory, evidence-based protocols, and multidisciplinary reproductive endocrinology." },
-        "Pediatrics & Pediatric Surgery": { rank: "National Rank #3 (Private)", desc: "Comprehensive child health from NICU to complex pediatric surgery, including child oncology under the integrated cancer programme." }
-      },
-      roomRate: "RM 350 – RM 700 (Standard Single Ward)",
-      roomRateRaw: 525,
-      efficiency: "Highly efficient. Fully integrated EMR, rapid online pre-admission, automated LOG processing. Minimal outpatient clinic wait times due to capacity expansion.",
-      doctorQualifications: "200+ highly specialized consultants; majority hold senior postgraduate fellowships (FRCP, FRCS, FRCOG, FRCR) from UK, Australia, or USA. Many hold dual consultant-academic roles.",
-      robotics: "da Vinci Xi 4th Gen Surgical System, Mako SmartRobotics (joints), ROSA Knee System, Leksell Gamma Knife Icon (brain), Radixact-X9 Tomotherapy, Varian TrueBeam STx.",
-      insurance: "100% cashless inpatient for all major insurers (AIA, Great Eastern, Prudential, Allianz, Tokio Marine, etc.) with automated LOG. Comprehensive international coverage.",
-      gaps: "Premium pricing — not suitable for patients on basic-tier or entry-level medical cards without sufficient annual limits."
-    },
-    {
-      id: "sjmc",
-      name: "Subang Jaya Medical Centre (SJMC / Ramsay Sime Darby)",
-      sector: "private",
-      location: "Subang Jaya, Selangor",
-      primaryExcellence: "Haematology, Bone Marrow Transplants & Breast Cancer Care (National Rank #1 Private)",
-      secondarySpecialties: "Pediatric Neonatology, Adult Interventional Cardiology",
-      fullSpecialties: [
-        "Oncology","Haematology","Obstetrics & Gynaecology (O&G)","Breast & Endocrine Surgery",
-        "Pediatrics","Neonatology","General Surgery","Orthopedics","Urology","Cardiology","Neurology",
-        "Neurosurgery","Gastroenterology","Ophthalmology","ENT","Dermatology","Psychiatry","Rheumatology"
-      ],
-      beds: 440,
-      accreditations: ["JCI Accredited","MSQH Accredited","Ramsay Sime Darby Health Care Group"],
-      verifiedNotes: "SJMC is widely recognized as the national private-sector benchmark for bone marrow transplants and blood cancers. The breast health programme with multidisciplinary tumour boards and oncoplastic reconstruction is highly acclaimed. NICU handles extreme prematurity and complex congenital anomalies. Part of Ramsay Sime Darby Health Care — a joint venture between Australia's Ramsay Health Care and Sime Darby Berhad.",
-      specialtyRanks: {
-        "Haematology & Bone Marrow Transplants": { rank: "National Rank #1 (Private)", desc: "The definitive private referral for complex blood cancers, allogeneic/autologous bone marrow transplants, CAR-T-ready preparation, and long-term cellular therapy." },
-        "Breast Cancer Care": { rank: "National Rank #1 (Private)", desc: "Acclaimed multidisciplinary breast health programme — oncoplastic surgery, genetic BRCA counselling, targeted therapy, post-mastectomy reconstruction." },
-        "Pediatrics & Neonatology": { rank: "National Rank #2 (Private)", desc: "High-acuity NICU managing extreme prematurity, congenital heart corrections (paediatric cardiology), and complex neonatal anomalies." },
-        "Cardiology": { rank: "State Rank #2 (Private)", desc: "Comprehensive adult interventional cardiology — complex stenting, cardiac rhythm ablation, and structural heart procedures." },
-        "Orthopedics": { rank: "State Rank #2 (Private)", desc: "Advanced joint replacements (Mako robotics), athletic cartilage procedures, and high-precision spine surgery." }
-      },
-      roomRate: "RM 280 – RM 550 (Standard Single)",
-      roomRateRaw: 415,
-      efficiency: "Excellent. Day-care chemotherapy and minor surgery optimized for rapid patient throughput. Discharge processes are systematic.",
-      doctorQualifications: "Senior consultants — many founding private practitioners with 20–30 years of specialized experience. Strong fellowship credentials from Australian, UK, and US institutions.",
-      robotics: "Mako SmartRobotics for joints; da Vinci robotic system for urology and gynaecology; advanced flow cytometry for haematology diagnostics.",
-      insurance: "Widely cashless across almost all local and international panels. Automated LOG desk with most major insurers.",
-      gaps: "High-complexity experimental quaternary procedures (e.g., multi-organ transplantation) referred to public centres. Parking challenging during peak hours."
-    },
-    {
-      id: "gleneagles",
-      name: "Gleneagles Hospital Kuala Lumpur (IHH Healthcare)",
-      sector: "private",
-      location: "Ampang, Kuala Lumpur",
-      primaryExcellence: "Neuroscience, Gamma Knife Radiosurgery & Joint Robotics (National Rank #1 Private)",
-      secondarySpecialties: "Complex Cardiology, Bariatric Surgery, Hepatobiliary Surgery",
-      fullSpecialties: [
-        "Neurosurgery","Neurology","Orthopedics","Spine Surgery","Cardiology","Cardiothoracic Surgery",
-        "Oncology","Obstetrics & Gynaecology (O&G)","Fertility/IVF","Pediatrics","General Surgery",
-        "Urology","Ophthalmology","ENT","Plastic & Reconstructive Surgery","Rheumatology","Gastroenterology",
-        "Bariatric Surgery","Hepatobiliary Surgery","Endocrinology","Dermatology","Rehabilitation Medicine"
-      ],
-      beds: 376,
-      accreditations: ["JCI Accredited (Gold Seal)","Gamma Knife Icon — Only radiosurgery brain tumour system of its type in Malaysia","International Hospital of the Year — IMTJ 2018","Newsweek Best Hospitals Malaysia listed"],
-      verifiedNotes: "Bed count corrected to 376 licensed beds (MyaCare/ClinicsOnCall verified). Gleneagles KL has 40+ specialties, 200+ specialist doctors, 150 private rooms, and 13 VIP rooms. The Gamma Knife Icon treats brain tumours and AVMs without surgery — a non-invasive ablation system. Also has EksoNR Robotic Rehabilitation — an exoskeleton-based wearable robot for stroke survivors and neurological patients regaining mobility. Comprehensive imaging including 3T MRI, CT, angiography, and mammography on-site. Part of IHH Healthcare — Asia's largest private hospital group.",
-      specialtyRanks: {
-        "Neuroscience & Gamma Knife": { rank: "National Rank #1 (Private)", desc: "Gamma Knife Icon (non-invasive brain radiosurgery for tumours, AVMs, trigeminal neuralgia). Elite neurosurgical team for brain and spinal conditions across all ages." },
-        "Orthopedics & Joint Robotics": { rank: "National Rank #1 (Private)", desc: "Mako SmartRobotics and da Vinci Si for precision joint replacements and complex spine procedures. 29+ years of orthopaedic heritage." },
-        "Cardiology": { rank: "National Rank #2 (Private)", desc: "Complex multi-vessel CABG and structural heart interventions. Senior interventional cardiologists with international credentials." },
-        "Bariatric & Hepatobiliary Surgery": { rank: "State Rank #1 (Private)", desc: "Advanced laparoscopic bariatric and liver surgery. Prof. Chin Kin Fah — one of Malaysia's most cited gastrointestinal-endocrine surgeons." },
-        "Rehabilitation Medicine": { rank: "State Rank #1 (Private)", desc: "EksoNR wearable robotic exoskeleton for post-stroke and neurological mobility rehabilitation — unique in private sector." }
-      },
-      roomRate: "RM 400 – RM 900 (Standard Single Room)",
-      roomRateRaw: 650,
-      efficiency: "Superb. Premium concierge nursing, executive health screening same-day availability. Rapid specialist appointment turnaround within IHH network.",
-      doctorQualifications: "Top-tier senior consultants — predominantly FRCP, FRCS, MRCPCH, FRCOG from UK Royal Colleges and international boards. 200+ registered specialists.",
-      robotics: "Gamma Knife Icon (brain tumour), da Vinci Si (urological/gynaecological), Mako SmartRobotics (joints), EksoNR Robotic Exoskeleton (neuro-rehabilitation), 3T MRI (cardiac-grade).",
-      insurance: "Fully cashless for major panels. Important caveat: entry-level and budget-tier medical cards often have LOG limits below Gleneagles room rates — verify before admission. Premium international health policies fully covered.",
-      gaps: "Budget-tier patients will find costs prohibitive. Limited publicly subsidized fallback pathways."
-    },
-    {
-      id: "kpj",
-      name: "KPJ Group — Damansara & DSH2 Flagships",
-      sector: "private",
-      location: "Petaling Jaya (KPJ Damansara) & TTDI (DSH2), Kuala Lumpur",
-      primaryExcellence: "Paediatrics, O&G & Preventive Cardiology (State Rank #1 Private)",
-      secondarySpecialties: "Bariatric Surgery, Executive Health Screening, Endocrinology",
-      fullSpecialties: [
-        "Pediatrics","Neonatology","Obstetrics & Gynaecology (O&G)","Orthopedics","Bariatric Surgery",
-        "Cardiology","General Surgery","Internal Medicine","Urology","Ophthalmology","ENT","Gastroenterology",
-        "Dermatology","Endocrinology","Rheumatology"
-      ],
-      beds: 300,
-      accreditations: ["MSQH Accredited","KPJ Healthcare Berhad — Malaysia's largest domestic private hospital group","JCI accreditation in progress for DSH2"],
-      verifiedNotes: "KPJ Healthcare Berhad operates 28+ hospitals nationally, making it Malaysia's largest domestic private hospital group. KPJ Damansara is the group's flagship for family-focused paediatrics and obstetrics. KPJ Damansara Specialist Hospital 2 (DSH2) operates with a luxury hotel-grade workflow — automated digital check-in, concierge-style patient navigation — and focuses on preventive cardiology and executive health diagnostics. Bariatric surgery programme nationally recognized.",
-      specialtyRanks: {
-        "Paediatrics": { rank: "National Rank #1 (Private)", desc: "KPJ Damansara's child health programme is among the most praised in the nation for outpatient pediatric coverage and child-friendly ward design." },
-        "Preventive Cardiology & Executive Screening": { rank: "State Rank #1 (Private)", desc: "DSH2 offers sophisticated non-invasive vascular screening, CT coronary angiograms, and full-day executive health packages." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "State Rank #2 (Private)", desc: "Trusted regional choice for family-focused deliveries and gynaecological care — strong community reputation built over decades." },
-        "Bariatric Surgery": { rank: "National Rank #3 (Private)", desc: "Recognized metabolic and weight-loss surgery programme with integrated post-op nutritional and psychological support." }
-      },
-      roomRate: "RM 250 – RM 600 (Standard Single)",
-      roomRateRaw: 425,
-      efficiency: "Highly reliable. DSH2 operates with hotel-grade workflow automation — rapid check-ins and minimal queuing. Strong community accessibility across KPJ's network.",
-      doctorQualifications: "Extensive network of senior private practitioners across the KPJ group. Supported by KPJ International University College (healthcare education arm).",
-      robotics: "High-accuracy cardiovascular catheterization diagnostic setups; standard laparoscopic surgical tools. Limited heavy robotics (da Vinci) at Damansara; capabilities expanding.",
-      insurance: "Fully integrated. Accepted across nearly all standard and corporate medical cards in Malaysia — one of the widest panel coverages of any private group.",
-      gaps: "Highly complex quaternary quaternary procedures (multi-organ transplants, proton therapy) referred to larger hubs."
-    },
-    {
-      id: "kpjklang",
-      name: "KPJ Klang Specialist Hospital",
-      sector: "private",
-      location: "Klang, Selangor",
-      primaryExcellence: "Community Women & Child Private Care (Klang Private Rank #1–2)",
-      secondarySpecialties: "Laparoscopic Gynaecology, Gastroenterology, Nephrology",
-      fullSpecialties: [
-        "Obstetrics & Gynaecology (O&G)","Pediatrics","Child Development & Health","Cardiology",
-        "Nephrology","Urology","Gastroenterology","Plastic Surgery","Orthopedics","Ophthalmology","ENT","Oncology"
-      ],
-      beds: 150,
-      accreditations: ["MSQH Accredited","KPJ Healthcare Berhad network"],
-      verifiedNotes: "KPJ Klang serves as the most accessible private specialist option for the Klang district — complementing (and sometimes referring to/from) the massive HTAR public hospital. Particularly strong for pediatric walk-in emergencies and routine O&G. Nephrology programme reflects the high chronic kidney disease burden in industrial Klang.",
-      specialtyRanks: {
-        "Paediatrics": { rank: "Klang Rank #1 (Private)", desc: "Go-to private pediatric emergency walk-in in Klang. Reliable for acute childhood infections, asthma management, and developmental checks." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "Klang Rank #2 (Private)", desc: "Private birthing packages, laparoscopic gynaecological interventions, and fertility-related gynae consultations." },
-        "Gastroenterology": { rank: "Regional Rank #3 (Private)", desc: "Colonoscopies, endoscopies, and routine GI condition management for the Klang community." }
-      },
-      roomRate: "RM 220 – RM 450 (Standard Single)",
-      roomRateRaw: 335,
-      efficiency: "Fast outpatient turnarounds. Pediatric A&E intake is notably efficient. Lower volume than corporate flagship hospitals.",
-      doctorQualifications: "Competent local specialists with established community practices. Good continuity of care given stable patient relationships.",
-      robotics: "Standard laparoscopic (minimally invasive) tools. No heavy robotic arms. Reliable diagnostic ultrasound and endoscopy suites.",
-      insurance: "Fully cashless for most local insurance plans and corporate employee health coverages.",
-      gaps: "Complex quaternary neurology, brain radiosurgery, or major organ transplantation referred to larger hubs."
-    },
-    {
-      id: "princecourt",
-      name: "Prince Court Medical Centre",
-      sector: "private",
-      location: "Kuala Lumpur City Centre",
-      primaryExcellence: "Plastic & Reconstructive Surgery, Private Burns Care & Medical Tourism",
-      secondarySpecialties: "Premium IVF & Fertility, Executive International Patient Services",
-      fullSpecialties: [
-        "Plastic & Reconstructive Surgery","Burns Care","Obstetrics & Gynaecology (O&G)","Fertility/IVF",
-        "Cardiology","Cardiothoracic Surgery","Oncology","Orthopedics","Urology","Nephrology","Gastroenterology",
-        "Pediatrics","Aesthetic Medicine","Internal Medicine"
-      ],
-      beds: 270,
-      accreditations: ["JCI Accredited","Only standalone private burns unit in Malaysia","Global Medical Tourism Program (international concierge)"],
-      verifiedNotes: "Prince Court remains the only private hospital in Malaysia with a dedicated, standalone burns treatment and rehabilitation unit. Globally recognized for inbound medical tourism — primarily serving Middle Eastern and South Asian private patients. The hospital's plastic and reconstructive microsurgery programme is internationally referenced. Previously owned by PETRONAS; now under Columbia Asia Group management.",
-      specialtyRanks: {
-        "Plastic & Reconstructive Surgery": { rank: "National Rank #1 (Private)", desc: "Elite microsurgical reconstructions, flap surgeries, post-oncology reconstruction, and aesthetic surgery under globally recognized plastic surgeons." },
-        "Burns Care": { rank: "National Rank #1 (Private)", desc: "The only private hospital in Malaysia with a dedicated burns unit — skin rehabilitation, graft management, and scar revision." },
-        "Medical Tourism": { rank: "National Rank #1 (Private)", desc: "International certified concierge programmes. High nurse-to-patient ratios. Multi-language clinical coordinators. Particularly favoured by Middle Eastern patients." },
-        "Fertility / IVF": { rank: "State Rank #2 (Private)", desc: "Advanced embryology laboratory, hormone replacement therapy, and preimplantation genetic diagnosis." }
-      },
-      roomRate: "RM 500 – RM 1,000+ (Premium Standard Single)",
-      roomRateRaw: 750,
-      efficiency: "Outstanding. Fast executive-grade medical assessments, high nurse ratios, personalized care coordinators for international patients.",
-      doctorQualifications: "Distinguished senior clinicians — many serving as international medical association advisors. Strong in plastic surgery subspecialties.",
-      robotics: "State-of-the-art reconstructive microsurgery suites. da Vinci robotic console for precision abdominal and gynaecological procedures.",
-      insurance: "Fully cashless for premium international health insurance and corporate executive policies. Basic local medical cards may have insufficient LOG limits for Prince Court's premium tier.",
-      gaps: "High-volume local community care, subsidized options entirely unavailable. Not suited for budget-constrained patients."
-    },
-    {
-      id: "ukmsc",
-      name: "UKM Specialist Centre (UKMSC)",
-      sector: "private",
-      location: "Cheras, Kuala Lumpur",
-      primaryExcellence: "Gynaecological Oncology & High-Risk Maternal-Fetal Medicine (National Rank #1 Private-Academic)",
-      secondarySpecialties: "Academic Urology, Complex ENT, Endocrinology",
-      fullSpecialties: [
-        "Obstetrics & Gynaecology (O&G)","Gyne-Oncology","Maternal Fetal Medicine","Urology","ENT",
-        "Breast & Endocrine Surgery","Cardiology","Cardiothoracic Surgery","Gastroenterology","Neurology",
-        "Oncology","Orthopedics","Rheumatology","Psychiatry"
-      ],
-      beds: 100,
-      accreditations: ["Healthcare Asia Awards: Quaternary Hospital of the Year 2023","BrandLaureate 2021/2022 — Brand of the Year (Tertiary Medical Centre)","Talentbank 2022 — Top 10 Employer in Healthcare","Adjacent to HUKM national teaching hospital complex"],
-      verifiedNotes: "UKMSC has 99–100 beds and is operated as a private specialist centre adjacent to the massive HUKM (Hospital UKM) government teaching complex. This proximity gives UKMSC access to university professor-grade consultants who cross-practice between the public academic hospital and private wing. Won Healthcare Asia Awards: Quaternary Hospital of the Year 2023. Pricing is significantly below corporate luxury chains for equivalent clinical sophistication.",
-      specialtyRanks: {
-        "Gyne-Oncology & Complex O&G": { rank: "National Rank #1 (Private-Academic)", desc: "Highly specialized centre for cervical, ovarian, and endometrial cancers. Complex maternal-fetal medicine including perinatology and fetal interventions." },
-        "Urology": { rank: "State Rank #2 (Private-Academic)", desc: "Elite urological biopsy, prostate disease management, and minimally invasive urological surgeries." },
-        "ENT & Audiology": { rank: "State Rank #3 (Private-Academic)", desc: "Advanced microsurgical ENT including middle ear reconstruction, cochlear support, and complex sinus conditions." }
-      },
-      roomRate: "RM 250 – RM 450 (Standard Private Wing)",
-      roomRateRaw: 350,
-      efficiency: "Systematic and well-organized clinical assessments. Administrative discharge can be slower due to academic physician scheduling. Excellent for planned elective admissions.",
-      doctorQualifications: "University professors, associate professors, and clinical tutors — many internationally certified subspecialists. Research-active with national and ASEAN publications.",
-      robotics: "University research-grade diagnostic imaging, academic cancer mapping tools. Limited commercial surgical robotics — procedures requiring robotics referred to UMMC.",
-      insurance: "Cashless for major corporate panels and specific local carriers. Others via pay-and-claim. Competitive pricing for academic-equivalent care.",
-      gaps: "Hospital is embedded within the HUKM academic complex — no standalone hotel-lobby ambience. Commercial branding is minimal."
-    },
-    {
-      id: "thomson",
-      name: "Thomson Hospital Kota Damansara (THKD)",
-      sector: "private",
-      location: "Kota Damansara, Petaling Jaya, Selangor",
-      primaryExcellence: "IVF & Reproductive Medicine — TMC Fertility (National Rank #1 Private)",
-      secondarySpecialties: "Nuclear Medicine, Oncology, Stroke & Neurology Care",
-      fullSpecialties: [
-        "Fertility/Reproductive Medicine","Oncology","Nuclear Medicine","Neurology","Neurosurgery",
-        "Obstetrics & Gynaecology (O&G)","Pediatrics","General Surgery","Orthopedics","Urology","Cardiology",
-        "Gastroenterology","Internal Medicine","Emergency Medicine"
-      ],
-      beds: 559,
-      accreditations: ["MSQH Accredited","ACHS EQuIP Accredited (hospital-wide)","RTAC Accredited — TMC Fertility (Reproductive Technology Accreditation Committee, Australia)","Financial Times High-Growth Companies Asia-Pacific 2024","First Malaysian private hospital with Abbott AlinIQ lab automation (ISO-accredited)","TMC Life Sciences: MSWG NACGSA 2025 Overall Excellence Award"],
-      verifiedNotes: "Bed count corrected from 500 to 559 (verified via Malaysia Medical Tourism directory). THKD is the flagship of TMC Life Sciences Berhad — celebrating 30 years in 2024. TMC Fertility has delivered over 6,400 IVF babies since inception and now uses AI embryo selection plus advanced genetic testing (PGT-A, PGT-M). RTAC certification is international (Fertility Society of Australia) — a rare distinction in Malaysia. Nuclear medicine services include PET-CT and SPECT plus radionuclide therapies. Direct MRT access (Kota Damansara station). First Malaysian private hospital to implement Abbott AlinIQ lab automation system (ISO-accredited).",
-      specialtyRanks: {
-        "Fertility & Reproductive Medicine (TMC)": { rank: "National Rank #1 (Private)", desc: "6,400+ IVF babies delivered. AI embryo selection. RTAC-certified international standards. Class 100 laminar flow laboratory. Multiple branches (Puchong, Kepong, Ipoh, Penang, JB)." },
-        "Nuclear Medicine": { rank: "National Rank #2 (Private)", desc: "PET-CT and SPECT diagnostic imaging plus radionuclide therapies for cancer, cardiac, and neurological disease staging." },
-        "Oncology": { rank: "State Rank #3 (Private)", desc: "Integrated oncology programme with day-care chemotherapy, tumour board meetings, and nuclear medicine support." },
-        "Neurology & Stroke": { rank: "State Rank #3 (Private)", desc: "Dedicated stroke rescue imaging and clot-busting protocols. Neurosurgical support on-site." }
-      },
-      roomRate: "RM 250 – RM 500 (Standard Single)",
-      roomRateRaw: 375,
-      efficiency: "Modern, digitally optimized workflows. Abbott lab automation delivers rapid diagnostics. MRT-direct access reduces patient logistics friction. Fertility-specific patient coordination teams.",
-      doctorQualifications: "Renowned high-volume fertility specialists (Associate Professors from UKM). 100+ trained medical and surgical consultants across specialties.",
-      robotics: "Advanced diagnostic nuclear medicine imaging (PET-CT, SPECT). Cardiac and vascular catheterization labs. First ISO-accredited lab automation system (Abbott AlinIQ).",
-      insurance: "Widely accepted across local and corporate panels with cashless LOG. RTAC certification enables access to select international reproductive health coverage.",
-      gaps: "Not optimised for high-volume emergency mass trauma or major open-heart surgery. Budget-only patients may find pricing challenging for fertility cycles."
-    },
-    {
-      id: "beacon",
-      name: "Beacon Hospital",
-      sector: "private",
-      location: "Section 51, Petaling Jaya, Selangor",
-      primaryExcellence: "Cancer Radiotherapy — CyberKnife, Varian Halcyon 4.0 & TrueBeam (National Rank #1 Oncology)",
-      secondarySpecialties: "Neurosurgery, Brain & Spine, Executive Health Screening",
-      fullSpecialties: [
-        "Oncology (Radiation, Medical, Surgical)","Haematology","Clinical Radiology","Nuclear Medicine",
-        "Neurosurgery","Orthopedics","Obstetrics & Gynaecology (O&G)","General Surgery","Internal Medicine",
-        "Ophthalmology","ENT","Urology","Palliative Care","Clinical Research"
-      ],
-      beds: 100,
-      accreditations: ["ESMO Designated Centre of Integrated Oncology & Palliative Care (2024–2026) — Malaysia's only private hospital with this accreditation","IROC Houston benchmark against MD Anderson Cancer Center standards","Newsweek Top 20 Best Hospitals Malaysia: 2024, 2025, 2026 (3 consecutive years)","Asia OneHealthcare member (Aug 2024)","First Southeast Asia: Varian Halcyon 4.0 radiotherapy system"],
-      verifiedNotes: "Beacon Hospital joined Asia OneHealthcare (group of 5 super-specialty hospitals) in August 2024. The hospital is Malaysia's ONLY ESMO Designated Centre for Integrated Oncology and Palliative Care — a standard benchmarked against international cancer centres. Their radiotherapy programme has been independently validated against MD Anderson Cancer Center standards by IROC Houston. As of 2026: Malaysia's only private oncology centre with this ESMO designation. New technology additions: Varian Halcyon 4.0 (first in SEA), TrueBeam 4.1, and Intraoperative Radiation Therapy (IORT). CyberKnife remains — Malaysia's only CyberKnife provider. Beacon also functions as an international clinical trial site (Phase II/III) under ESMO designation. Team: 10 consultant oncologists, 2 haematologists, 2 palliative care specialists, 50+ surgeons.",
-      specialtyRanks: {
-        "Oncology & Radiotherapy": { rank: "National Rank #1 (Private)", desc: "37+ cancer types treated. ESMO-designated. CyberKnife (only in Malaysia), Varian Halcyon 4.0 (first in SEA), TrueBeam 4.1, IORT. IROC Houston MD Anderson benchmark-validated." },
-        "Clinical Cancer Research": { rank: "National Rank #1 (Private)", desc: "Active ESMO-designated Phase II/III clinical trial site. Patients can access novel cancer therapies not yet commercially available." },
-        "Neurosurgery & Brain/Spine": { rank: "State Rank #2 (Private)", desc: "Brain & Spine Centre with CyberKnife for non-invasive brain tumour radiosurgery. Dr Tho Lye Mun — pioneer in stereotactic radiosurgery (SRS) and CyberKnife outcomes research in Malaysia." },
-        "Nuclear Medicine": { rank: "State Rank #2 (Private)", desc: "PET-CT for early and follow-up cancer staging. Advanced tumour microenvironment mapping." }
-      },
-      roomRate: "RM 250 – RM 500 (Standard Single)",
-      roomRateRaw: 375,
-      efficiency: "Highly focused oncology pathways. Chemotherapy day-care workflows optimized. Streamlined treatment delivery via Halcyon 4.0 (9-step workflow reduces treatment time). Small hospital size = personalized navigation.",
-      doctorQualifications: "Senior oncologists and radiologists — many thought leaders in Malaysian oncology. Dr Tho Lye Mun: published 40+ articles; first to publish CyberKnife SRS brain metastases outcomes in Malaysia (2015). Active Lancet Oncology and Annals of Oncology publications.",
-      robotics: "CyberKnife Robotic Radiosurgery (only in Malaysia), Varian Halcyon 4.0 (first in SEA), TrueBeam 4.1, IORT (intraoperative radiation).",
-      insurance: "Excellent cooperation with major insurers. Dedicated cancer riders and oncology approval support. RM1M PJ Radiotherapy Welfare Fund for underprivileged cancer patients.",
-      gaps: "Limited by 100-bed capacity — not suited for high-volume surgical emergencies or neonatal ICU needs. No paediatric development centre."
-    },
-    {
-      id: "parkcity",
-      name: "ParkCity Medical Centre (IHH Healthcare)",
-      sector: "private",
-      location: "Desa ParkCity, Kuala Lumpur",
-      primaryExcellence: "Paediatrics & Child Development (National Rank #1 Private Child-Centric Care)",
-      secondarySpecialties: "High-End Family O&G, Dermatology & Aesthetic Medicine",
-      fullSpecialties: [
-        "Pediatrics","Child Development Health","Obstetrics & Gynaecology (O&G)","General Surgery",
-        "Internal Medicine","Orthopedics","ENT","Ophthalmology","Dermatology","Aesthetics","Cardiology"
-      ],
-      beds: 100,
-      accreditations: ["JCI Accredited (IHH Healthcare network)","MSQH Accredited"],
-      verifiedNotes: "ParkCity Medical Centre is purpose-built as a child-centred and family-focused private hospital in the affluent Desa ParkCity township. Its child development programme — including developmental paediatrics, learning disability assessment, motor therapy, and speech therapy — is among the most comprehensive in KL's private sector. Part of IHH Healthcare (Asia's largest private hospital group), giving it network access to IHH's clinical standards.",
-      specialtyRanks: {
-        "Paediatrics & Child Development": { rank: "National Rank #1 (Private Child-Centric)", desc: "Dedicated child development counselling, motor learning therapy, speech and language pathology, occupational therapy, and comprehensive paediatric health screening." },
-        "Dermatology & Aesthetics": { rank: "State Rank #2 (Private)", desc: "Sophisticated laser skin rejuvenation and management of rare chronic dermatological conditions. Full aesthetic medicine suite." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "State Rank #3 (Private)", desc: "Beautifully designed birthing suites, low-intervention birth programmes, and postnatal support services." }
-      },
-      roomRate: "RM 280 – RM 500 (Standard Single)",
-      roomRateRaw: 390,
-      efficiency: "Superb. Child-friendly environments with rapid digital administrative workflows. Short outpatient waiting times. Concierge-style service.",
-      doctorQualifications: "Highly approachable, family-focused paediatricians and neonatologists. Obstetricians trained in gentle, evidence-based birth management.",
-      robotics: "Advanced non-invasive diagnostic paediatric imaging. Gentle paediatric treatment technologies. Limited surgical robotics — complex procedures referred to Gleneagles KL (same IHH group).",
-      insurance: "Fully cashless for inpatient services. Wide commercial panel support. IHH group billing integration.",
-      gaps: "High-volume adult cardiac surgery, emergency mass trauma, or complex adult oncology — referred within IHH network to Gleneagles KL."
-    },
-    {
-      id: "assunta",
-      name: "Assunta Hospital",
-      sector: "private",
-      location: "Petaling Jaya, Selangor",
-      primaryExcellence: "Affordable Private General Care (National Rank #1 Private-Affordable Category)",
-      secondarySpecialties: "General Orthopedics, General Family O&G, Ethical Community Medicine",
-      fullSpecialties: [
-        "General Surgery","Internal Medicine","Obstetrics & Gynaecology (O&G)","Pediatrics",
-        "Orthopedics","Urology","Ophthalmology","ENT","Cardiology","Gastroenterology","Nephrology","Dermatology"
-      ],
-      beds: 240,
-      accreditations: ["Catholic Mission Hospital — established 1954","MSQH Accredited","Longest-operating private hospital in Petaling Jaya"],
-      verifiedNotes: "Assunta Hospital (est. 1954) is Malaysia's oldest Catholic mission hospital, operated by the Sisters of St Paul de Chartres. It occupies a unique niche as a non-profit, ethically-driven, affordable private hospital. Its room rates are among the lowest in the PJ private sector. Long-established reputation for honest medical practice and community-oriented care. Not optimized for premium amenities or cutting-edge technology, but extremely reliable for routine medicine and surgery.",
-      specialtyRanks: {
-        "General Medicine (Affordable Private)": { rank: "National Rank #1 (Private-Affordable)", desc: "Highly ethical community-centric model providing lower-cost private internal medicine. Transparent billing, no upselling culture." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "State Rank #3 (Private)", desc: "One of PJ's most affordable and long-trusted private maternity delivery centres. Strong continuity of care over decades of practice." },
-        "Orthopedics": { rank: "State Rank #3 (Private)", desc: "Comprehensive adult joint realignments, fracture settings, and standard spinal decompressions at accessible price points." }
-      },
-      roomRate: "RM 180 – RM 300 (Affordable Standard Single)",
-      roomRateRaw: 240,
-      efficiency: "Moderate pace. Community-focused, friendly, and systematic. Not rushed, but not rapid. Best suited for routine and non-time-critical care.",
-      doctorQualifications: "Long-established community specialists with strong ethical reputations. Many longstanding patient-doctor relationships spanning decades.",
-      robotics: "Standard laparoscopy, endoscopy, and diagnostic radiology. No surgical robotics. Focus on accessible, proven clinical tools.",
-      insurance: "Excellent — widely recognized as a highly cost-effective cashless panel hospital for all local medical cards. One of the most insurance-friendly hospitals in PJ.",
-      gaps: "Advanced robotic surgery, cancer radiosurgery, fertility IVF programmes, premium VIP suites. Not designed for cutting-edge quaternary care."
-    },
-    {
-      id: "columbia",
-      name: "Columbia Asia Hospital (Bukit Rimau, Shah Alam)",
-      sector: "private",
-      location: "Bukit Rimau, Shah Alam, Selangor",
-      primaryExcellence: "Community-Tier General Healthcare & Paediatrics (Regional Rank #1)",
-      secondarySpecialties: "General O&G, General Orthopedics",
-      fullSpecialties: [
-        "Obstetrics & Gynaecology (O&G)","Pediatrics","Pediatric Surgery","General Surgery",
-        "Internal Medicine","Orthopedics","Ophthalmology","ENT","Cardiology","Urology","Dermatology"
-      ],
-      beds: 100,
-      accreditations: ["MSQH Accredited","Columbia Asia Group (formerly Columbia Asia, now Ramsay-affiliated)"],
-      verifiedNotes: "Columbia Asia Bukit Rimau serves the dense residential areas of Bukit Rimau, Kota Kemuning, and central Shah Alam. It is a purposefully efficient community hospital — designed for rapid outpatient turnaround and accessible specialist care for the local catchment. Not positioned as a quaternary referral centre. Part of the Columbia Asia group, which operates multiple Klang Valley community-tier hospitals.",
-      specialtyRanks: {
-        "Paediatrics": { rank: "Regional Rank #1 (Private)", desc: "Reliable community paediatric programme — common childhood infections, asthma management, vaccination, and school health screenings." },
-        "Obstetrics & Gynaecology (O&G)": { rank: "Regional Rank #2 (Private)", desc: "Zero-fuss family-centred birth packages. Popular for straightforward deliveries in a comfortable community setting." },
-        "Orthopedics": { rank: "Regional Rank #3 (Private)", desc: "Knee arthroscopy, basic trauma stabilization, and standard joint procedures." }
-      },
-      roomRate: "RM 220 – RM 350 (Standard Single)",
-      roomRateRaw: 285,
-      efficiency: "Exceptionally fast. Efficient patient-flow layout. Short outpatient waiting times by design.",
-      doctorQualifications: "Experienced community physicians and senior registrars. Approachable, practical focus rather than academic specialization.",
-      robotics: "Standard minimally invasive laparoscopic tools and diagnostic ultrasound. No heavy robotics.",
-      insurance: "Universally accepted across all major local medical insurance plans with seamless cashless processing.",
-      gaps: "Open-heart surgery, radiosurgery, major organ transplantation, oncology clinical trials — referred to larger hubs."
-    },
-    {
-      id: "imuhospital",
-      name: "IMU Hospital",
-      sector: "private",
-      location: "Bukit Jalil, Kuala Lumpur",
-      primaryExcellence: "Integrative & Preventive Medicine — Smart Hospital Model (National Rank #1 Integrative)",
-      secondarySpecialties: "Family Medicine, Child Developmental Health, Traditional Chinese & Chiropractic Care",
-      fullSpecialties: [
-        "Family Medicine","Internal Medicine","Pediatrics","Child Developmental Health","Obstetrics & Gynaecology (O&G)",
-        "Orthopedics","Ophthalmology","ENT","Psychiatry","Chiropractic","Traditional Chinese Medicine (TCM)",
-        "Dialysis Services","Palliative Medicine"
-      ],
-      beds: 150,
-      accreditations: ["IMU (International Medical University) affiliated","Smart Hospital digital infrastructure","First Malaysian private hospital integrating evidence-based Traditional & Complementary Medicine with conventional care"],
-      verifiedNotes: "IMU Hospital is Malaysia's first hospital to systematically integrate conventional medical care with evidence-based Traditional and Complementary Medicine (TCM, chiropractic) under one roof — with academic oversight from the International Medical University. It operates a tech-forward smart-hospital platform with digital registration, EMR-linked pharmacy, and intelligent patient queuing. Particularly strong for families seeking integrative family medicine, child developmental monitoring, and chronic disease management with lifestyle coaching.",
-      specialtyRanks: {
-        "Integrative & Preventive Medicine": { rank: "National Rank #1 (Private)", desc: "Bridges modern family medicine with TCM, chiropractic, and acupuncture — all within an evidence-based, academically supervised framework." },
-        "Family Medicine": { rank: "National Rank #1 (Private)", desc: "Comprehensive primary screening, early-detection protocols, and longitudinal chronic disease management (diabetes, hypertension, metabolic syndrome)." },
-        "Child Developmental Health": { rank: "State Rank #2 (Private)", desc: "Developmental milestone tracking, early intervention for motor and language delays, child psychology, and school readiness assessments." }
-      },
-      roomRate: "RM 250 – RM 450 (Standard Single)",
-      roomRateRaw: 350,
-      efficiency: "Highly efficient. Smart-hospital digital infrastructure reduces check-in and queuing friction significantly. Short average consult wait times.",
-      doctorQualifications: "IMU faculty educators, academic family medicine specialists, and certified integrative healthcare practitioners.",
-      robotics: "Advanced digital screening technology, non-invasive therapeutic lasers, and high-configuration dialysis systems. No conventional surgical robotics.",
-      insurance: "Rapidly expanding cashless panel list as a newer, modern facility. Most major local insurers accepted.",
-      gaps: "Major emergency trauma, open-heart surgery, organ transplantation, and advanced oncology radiosurgery — not in scope."
-    }
-  ];
-
-  let currentSector = 'all';
-  let compareMode = false;
-  let compareSelected = [];
-
-  window.onload = () => {
-    lucide.createIcons();
-    renderTable();
-  };
-
-  function renderTable() {
-    const tbody = document.getElementById('hospital-table-body');
-    tbody.innerHTML = '';
-    const searchVal = document.getElementById('search-input').value.toLowerCase();
-    const specialtyVal = document.getElementById('specialty-filter').value;
-    const sortVal = document.getElementById('sort-filter').value;
-
-    let filtered = hospitals.filter(h => {
-      if (currentSector !== 'all' && h.sector !== currentSector) return false;
-      if (specialtyVal && !h.fullSpecialties.includes(specialtyVal)) return false;
-      if (searchVal) {
-        const combined = [h.name, h.location, h.primaryExcellence, ...h.fullSpecialties].join(' ').toLowerCase();
-        if (!combined.includes(searchVal)) return false;
-      }
-      return true;
-    });
-
-    if (sortVal === 'beds-desc') filtered.sort((a,b) => b.beds - a.beds);
-    else if (sortVal === 'beds-asc') filtered.sort((a,b) => a.beds - b.beds);
-    else if (sortVal === 'price-asc') filtered.sort((a,b) => a.roomRateRaw - b.roomRateRaw);
-    else if (sortVal === 'price-desc') filtered.sort((a,b) => b.roomRateRaw - a.roomRateRaw);
-
-    if (filtered.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="10" class="py-10 text-center text-slate-400 text-sm">No hospitals match your filters.</td></tr>`;
-      lucide.createIcons();
-      return;
-    }
-
-    filtered.forEach(h => {
-      const isChecked = compareSelected.includes(h.id);
-      const row = document.createElement('tr');
-      row.className = "hover:bg-slate-50/80 transition duration-100 align-middle";
-      row.onclick = (e) => { if (!e.target.closest('.cb-cell')) showModal(h.id); };
-
-      const sectorBadge = h.sector === 'public'
-        ? '<span class="badge-public px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide">Public</span>'
-        : '<span class="badge-private px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide">Private</span>';
-
-      const topSpecs = h.fullSpecialties.slice(0, 3).map(s =>
-        `<span class="badge-spec px-1.5 py-0.5 rounded font-medium">${s}</span>`
-      ).join(' ') + (h.fullSpecialties.length > 3 ? ` <span class="text-[10px] text-blue-500 font-bold">+${h.fullSpecialties.length - 3}</span>` : '');
-
-      // Determine key tech
-      const techShort = h.robotics.length > 80 ? h.robotics.substring(0, 80) + '…' : h.robotics;
-
-      // Insurance capsule
-      let insIcon = '🔵';
-      if (h.sector === 'public') insIcon = '🟡';
-      else if (h.insurance.toLowerCase().includes('cashless')) insIcon = '🟢';
-
-      row.innerHTML = `
-        <td class="py-3.5 px-3 text-center cb-cell" style="${compareMode ? '' : 'display:none;'}">
-          <input type="checkbox" ${isChecked ? 'checked' : ''}
-            onchange="toggleCompareSelect('${h.id}')"
-            class="w-4 h-4 text-blue-600 rounded border-slate-300 cursor-pointer">
-        </td>
-        <td class="py-3.5 px-4 min-w-[200px]">
-          <div class="font-bold text-slate-900 text-sm leading-tight">${h.name}</div>
-          <div class="flex items-center gap-2 mt-1.5">
-            ${sectorBadge}
-            <span class="text-[10px] text-slate-400">${h.location}</span>
-          </div>
-        </td>
-        <td class="py-3.5 px-4 text-xs font-semibold text-blue-800 leading-snug max-w-[200px]">
-          ${h.primaryExcellence}
-        </td>
-        <td class="py-3.5 px-4 text-[11px] text-slate-500 max-w-[180px] leading-relaxed">
-          ${h.secondarySpecialties}
-        </td>
-        <td class="py-3.5 px-4 text-center">
-          <span class="font-bold text-slate-800 text-sm mono">${h.beds.toLocaleString()}</span>
-        </td>
-        <td class="py-3.5 px-4">
-          <div class="flex flex-wrap gap-1">${topSpecs}</div>
-        </td>
-        <td class="py-3.5 px-4 text-right min-w-[130px]">
-          <div class="font-bold text-slate-800 text-xs leading-tight mono">${h.roomRate.split('(')[0].trim()}</div>
-          <div class="text-[10px] text-slate-400">${h.roomRate.includes('(') ? h.roomRate.match(/\(([^)]+)\)/)?.[1] || '' : ''}</div>
-        </td>
-        <td class="py-3.5 px-4 text-[11px] text-slate-500 max-w-[200px] leading-relaxed">
-          ${techShort}
-        </td>
-        <td class="py-3.5 px-4 text-[11px]">
-          <span class="whitespace-nowrap">${insIcon} ${h.sector === 'public' ? 'Subsidized / FPP' : h.insurance.includes('cashless') || h.insurance.includes('Cashless') ? '✓ Cashless' : 'Pay & Claim'}</span>
-        </td>
-        <td class="py-3.5 px-4 text-center">
-          <button onclick="showModal('${h.id}'); event.stopPropagation();"
-            class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-600 rounded-lg text-xs font-semibold transition">
-            View
-          </button>
-        </td>
-      `;
-      tbody.appendChild(row);
-    });
-    lucide.createIcons();
-  }
-
-  function setSector(s) {
-    currentSector = s;
-    ['all','public','private'].forEach(id => {
-      const btn = document.getElementById(`tab-${id}`);
-      btn.className = id === s
-        ? 'px-4 py-2 text-sm font-semibold rounded-lg bg-white text-slate-800 shadow-sm transition-all'
-        : 'px-4 py-2 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-800 transition-all';
-    });
-    renderTable();
-  }
-
-  function handleSearch() { renderTable(); }
-  function handleFilters() { renderTable(); }
-
-  function toggleCompareMode(forceState = null) {
-    compareMode = forceState !== null ? forceState : !compareMode;
-    document.getElementById('checkbox-header').style.display = compareMode ? '' : 'none';
-    const inst = document.getElementById('compare-instructions');
-    const btn = document.getElementById('compare-toggle-btn');
-    const matrix = document.getElementById('compare-matrix-section');
-    if (compareMode) {
-      inst.classList.remove('hidden');
-      btn.className = 'flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-semibold transition text-sm shadow-sm';
-      if (compareSelected.length > 0) { matrix.classList.remove('hidden'); renderCompareMatrix(); }
-    } else {
-      inst.classList.add('hidden');
-      btn.className = 'flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 font-semibold transition text-sm shadow-sm';
-      matrix.classList.add('hidden');
-    }
-    renderTable();
-  }
-
-  function toggleCompareSelect(id) {
-    const idx = compareSelected.indexOf(id);
-    if (idx > -1) { compareSelected.splice(idx, 1); }
-    else {
-      if (compareSelected.length >= 3) { showToast('Max 3 hospitals at once'); renderTable(); return; }
-      compareSelected.push(id);
-    }
-    document.getElementById('compare-count').innerText = compareSelected.length;
-    const matrix = document.getElementById('compare-matrix-section');
-    if (compareSelected.length > 0 && compareMode) { matrix.classList.remove('hidden'); renderCompareMatrix(); }
-    else { matrix.classList.add('hidden'); }
-  }
-
-  function clearCompareSelection() {
-    compareSelected = [];
-    document.getElementById('compare-count').innerText = 0;
-    document.getElementById('compare-matrix-section').classList.add('hidden');
-    renderTable();
-  }
-
-  function renderCompareMatrix() {
-    const grid = document.getElementById('compare-grid');
-    grid.innerHTML = '';
-    compareSelected.forEach(id => {
-      const h = hospitals.find(x => x.id === id);
-      if (!h) return;
-      const isPublic = h.sector === 'public';
-      const card = document.createElement('div');
-      card.className = `compare-card p-4 rounded-2xl border ${isPublic ? 'border-blue-200 bg-blue-50/20' : 'border-violet-200 bg-violet-50/10'} transition duration-200`;
-
-      let topRanks = '';
-      Object.entries(h.specialtyRanks).slice(0,3).forEach(([sp, data]) => {
-        topRanks += `<div class="text-xs mb-1.5"><span class="font-semibold text-slate-800">${sp}:</span> <span class="text-blue-600 font-semibold">${data.rank}</span></div>`;
-      });
-
-      let accBadges = (h.accreditations || []).slice(0,2).map(a =>
-        `<span class="badge-verified px-2 py-0.5 rounded-full inline-block mb-1">${a}</span>`
-      ).join('');
-
-      card.innerHTML = `
-        <div class="flex items-start justify-between mb-3">
-          <span class="${isPublic ? 'badge-public' : 'badge-private'} px-2 py-0.5 rounded-md text-[10px] font-bold uppercase">${h.sector}</span>
-          <button onclick="toggleCompareSelect('${h.id}')" class="text-slate-300 hover:text-rose-400 transition p-0.5">
-            <i data-lucide="x" class="w-4 h-4"></i>
-          </button>
+  <!-- ════════════════════════════════════════════════
+       APP HEADER
+       ════════════════════════════════════════════════ -->
+  <header id="app-header">
+    <div class="header-inner">
+      <!-- Logo -->
+      <div class="header-logo">
+        <div class="logo-icon">🏥</div>
+        <div>
+          <div class="site-title" id="site-title-text">Hospital Intelligence MY</div>
+          <div class="site-tagline" id="site-tagline-text"></div>
         </div>
-        <h3 class="font-extrabold text-slate-900 text-base leading-tight mb-1">${h.name}</h3>
-        <p class="text-[11px] text-slate-400 mb-3 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i>${h.location}</p>
-        <div class="mb-3">${accBadges}</div>
-        <div class="space-y-3 border-t border-slate-100 pt-3">
-          <div>
-            <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">Top Ranked Specialties</div>
-            ${topRanks}
-          </div>
-          <div>
-            <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Verified Bed Count</div>
-            <div class="text-sm font-bold text-slate-800 mono">${h.beds.toLocaleString()} beds</div>
-          </div>
-          <div>
-            <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Room Rate</div>
-            <div class="text-xs font-bold text-slate-800">${h.roomRate}</div>
-          </div>
-          <div>
-            <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Key Technology</div>
-            <div class="text-[11px] text-slate-600 leading-relaxed">${h.robotics.substring(0,120)}…</div>
-          </div>
-          <div>
-            <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Insurance</div>
-            <div class="text-[11px] text-slate-600 leading-relaxed">${h.insurance.substring(0,100)}…</div>
-          </div>
-        </div>
-        <button onclick="showModal('${h.id}')" class="w-full mt-4 py-2 bg-slate-900 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition">
-          Full Profile
+      </div>
+
+      <!-- Desktop nav (hidden on mobile) -->
+      <nav id="app-nav" class="desktop-nav" aria-label="Main navigation">
+        <button class="nav-tab active" data-panel="directory" id="nav-tab-directory">
+          目录
         </button>
-      `;
-      grid.appendChild(card);
-    });
-    lucide.createIcons();
-  }
+        <button class="nav-tab" data-panel="find" id="nav-tab-find">
+          找医院
+        </button>
+        <button class="nav-tab" data-panel="intel" id="nav-tab-intel">
+          情报中心
+        </button>
+        <button class="nav-tab" data-panel="emergency" id="nav-tab-emergency">
+          紧急情况
+        </button>
+        <button class="nav-tab" data-panel="support" id="nav-tab-support">
+          支援与NGO
+        </button>
+      </nav>
 
-  function showModal(id) {
-    const h = hospitals.find(x => x.id === id);
-    if (!h) return;
+      <!-- Language switcher -->
+      <div class="lang-switcher-wrap" style="position: relative;">
+        <button id="lang-btn" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          🌐 <span id="lang-label">简体</span>
+        </button>
+        <div id="lang-menu" class="lang-menu hidden" role="menu">
+          <button data-lang="zh_s" role="menuitem">简体中文</button>
+          <button data-lang="zh_t" role="menuitem">繁體中文</button>
+          <button data-lang="en"   role="menuitem">English</button>
+          <button data-lang="bm"   role="menuitem">Bahasa Malaysia</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    document.getElementById('modal-name').innerText = h.name;
-    document.getElementById('modal-location-text').innerText = h.location;
-    document.getElementById('modal-primary').innerText = h.primaryExcellence;
-    document.getElementById('modal-secondary').innerText = h.secondarySpecialties;
-    document.getElementById('modal-price').innerText = h.roomRate;
-    document.getElementById('modal-insurance').innerText = h.insurance;
-    document.getElementById('modal-gaps').innerText = h.gaps;
-    document.getElementById('modal-doctor-qualifications').innerText = h.doctorQualifications;
-    document.getElementById('modal-robotics').innerText = h.robotics;
+  <!-- ════════════════════════════════════════════════
+       MOBILE BOTTOM NAV
+       ════════════════════════════════════════════════ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <button class="nav-tab active" data-panel="directory">
+      🏥<span>目录</span>
+    </button>
+    <button class="nav-tab" data-panel="find">
+      🔍<span>找医院</span>
+    </button>
+    <button class="nav-tab" data-panel="intel">
+      💡<span>情报</span>
+    </button>
+    <button class="nav-tab" data-panel="emergency">
+      🚨<span>紧急</span>
+    </button>
+    <button class="nav-tab" data-panel="support">
+      🤝<span>支援</span>
+    </button>
+  </nav>
 
-    // Sector badge
-    const sb = document.getElementById('modal-sector-badge');
-    sb.className = h.sector === 'public'
-      ? 'badge-public px-2.5 py-1 text-xs font-bold rounded-lg uppercase tracking-wider'
-      : 'badge-private px-2.5 py-1 text-xs font-bold rounded-lg uppercase tracking-wider';
-    sb.innerText = h.sector === 'public' ? 'Public Sector Hospital' : 'Private Sector Hospital';
+  <!-- ════════════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════════════ -->
+  <main id="app-main">
 
-    // Accreditations
-    const accDiv = document.getElementById('modal-accreditations');
-    accDiv.innerHTML = '';
-    (h.accreditations || []).forEach(a => {
-      const span = document.createElement('span');
-      span.className = 'badge-verified px-2.5 py-1 rounded-full font-semibold text-[10px]';
-      span.innerText = a;
-      accDiv.appendChild(span);
-    });
-    // Bed count badge
-    const bedSpan = document.createElement('span');
-    bedSpan.className = 'bg-slate-100 text-slate-700 border border-slate-200 px-2.5 py-1 rounded-full font-bold text-[10px]';
-    bedSpan.innerText = `${h.beds.toLocaleString()} Beds (Verified)`;
-    accDiv.appendChild(bedSpan);
+    <!-- ══ DIRECTORY PANEL ══ -->
+    <div id="panel-directory" class="panel active">
+      <div class="panel-inner">
 
-    // Verified notes
-    const vnBlock = document.getElementById('modal-verified-notes-block');
-    const vnText = document.getElementById('modal-verified-notes');
-    if (h.verifiedNotes) {
-      vnBlock.classList.remove('hidden');
-      vnText.innerText = h.verifiedNotes;
-    } else {
-      vnBlock.classList.add('hidden');
-    }
+        <!-- Stats bar -->
+        <div id="stats-bar" class="stats-bar">
+          <div class="stat-card">
+            <div class="stat-icon public">🏛️</div>
+            <div>
+              <div class="stat-label" data-i18n="stat_public">公立医院</div>
+              <div class="stat-value" id="stat-public-count">—</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon private">🏥</div>
+            <div>
+              <div class="stat-label" data-i18n="stat_private">私立医院</div>
+              <div class="stat-value" id="stat-private-count">—</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon emerald">⚕️</div>
+            <div>
+              <div class="stat-label" data-i18n="stat_states">州属覆盖</div>
+              <div class="stat-value">16</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon amber">🔬</div>
+            <div>
+              <div class="stat-label" data-i18n="stat_robotics">机器人手术</div>
+              <div class="stat-value" id="stat-robotics-count">—</div>
+            </div>
+          </div>
+        </div>
 
-    // Rank table
-    const rt = document.getElementById('modal-rank-table');
-    rt.innerHTML = '';
-    Object.entries(h.specialtyRanks).forEach(([sp, data]) => {
-      const row = document.createElement('div');
-      row.className = 'grid grid-cols-3 px-3 py-2.5 hover:bg-slate-50/80 transition';
-      row.innerHTML = `
-        <div class="font-bold text-slate-900 text-xs leading-snug pr-2">${sp}</div>
-        <div class="font-semibold text-blue-700 text-xs pr-2">${data.rank}</div>
-        <div class="text-[11px] text-slate-500 leading-relaxed">${data.desc}</div>
-      `;
-      rt.appendChild(row);
-    });
+        <!-- Scope note -->
+        <div id="scope-note" class="scope-note">
+          <span>ℹ️</span>
+          <span data-i18n="scope_note">
+            本目录涵盖全马16州及联邦直辖区的所有主要公立医院及100床以上的私立医院。基层诊所（Klinik Kesihatan）不在本目录范围内。
+          </span>
+        </div>
 
-    // Specialties
-    const sc = document.getElementById('modal-specialties-container');
-    sc.innerHTML = '';
-    h.fullSpecialties.forEach(spec => {
-      const b = document.createElement('span');
-      b.className = 'badge-spec px-2.5 py-1 rounded-lg font-medium';
-      b.innerText = spec;
-      sc.appendChild(b);
-    });
+        <!-- Filters bar -->
+        <div class="filters-bar" role="search" aria-label="Hospital search filters">
+          <!-- Search -->
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="text"
+              id="search-input"
+              data-i18n-placeholder="search_placeholder"
+              placeholder="搜索医院、专科、城市…"
+              autocomplete="off"
+              aria-label="Search hospitals"
+            />
+          </div>
 
-    // Show modal
-    const modal = document.getElementById('hospital-modal');
-    const inner = document.getElementById('modal-inner');
-    modal.classList.remove('hidden');
-    inner.classList.add('hidden-scale');
-    inner.classList.remove('show-scale');
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        inner.classList.remove('hidden-scale');
-        inner.classList.add('show-scale');
-      });
-    });
-    lucide.createIcons();
-  }
+          <!-- State filter -->
+          <select id="filter-state" aria-label="Filter by state">
+            <option value="">全部州属</option>
+            <option value="Kuala Lumpur">吉隆坡</option>
+            <option value="Putrajaya">布特拉再也</option>
+            <option value="Labuan">纳闽</option>
+            <option value="Selangor">雪兰莪</option>
+            <option value="Penang">槟城</option>
+            <option value="Johor">柔佛</option>
+            <option value="Perak">霹雳</option>
+            <option value="Kedah">吉打</option>
+            <option value="Kelantan">吉兰丹</option>
+            <option value="Terengganu">登嘉楼</option>
+            <option value="Pahang">彭亨</option>
+            <option value="Negeri Sembilan">森美兰</option>
+            <option value="Melaka">马六甲</option>
+            <option value="Perlis">玻璃市</option>
+            <option value="Sarawak">砂拉越</option>
+            <option value="Sabah">沙巴</option>
+          </select>
 
-  function closeModal() {
-    const inner = document.getElementById('modal-inner');
-    inner.classList.remove('show-scale');
-    inner.classList.add('hidden-scale');
-    setTimeout(() => { document.getElementById('hospital-modal').classList.add('hidden'); }, 200);
-  }
+          <!-- Sector filter -->
+          <select id="filter-sector" aria-label="Filter by sector">
+            <option value="">全部类型</option>
+            <option value="public">公立</option>
+            <option value="private">私立</option>
+          </select>
 
-  document.getElementById('hospital-modal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
+          <!-- Specialty filter -->
+          <select id="filter-specialty" aria-label="Filter by specialty">
+            <option value="">全部专科</option>
+            <!-- Populated by JS from specialties-reference.js -->
+          </select>
 
-  function showToast(msg) {
-    const t = document.createElement('div');
-    t.className = 'fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2 text-sm transition-all duration-300 translate-y-10 opacity-0';
-    t.innerHTML = `<i data-lucide="info" class="w-4 h-4 text-blue-400"></i> ${msg}`;
-    document.body.appendChild(t);
-    lucide.createIcons();
-    setTimeout(() => { t.classList.remove('translate-y-10','opacity-0'); }, 50);
-    setTimeout(() => { t.classList.add('translate-y-10','opacity-0'); setTimeout(() => t.remove(), 300); }, 3500);
-  }
-  </script>
+          <!-- Tier filter -->
+          <select id="filter-tier" aria-label="Filter by tier">
+            <option value="">全部级别</option>
+            <option value="district">县级医院</option>
+            <option value="state">州级医院</option>
+            <option value="tertiary">三级医院</option>
+            <option value="quaternary">四级医院</option>
+            <option value="academic">学术医院</option>
+          </select>
+
+          <!-- Sort -->
+          <select id="sort-select" aria-label="Sort hospitals">
+            <option value="name">排序：名称</option>
+            <option value="beds-desc">床位：最多</option>
+            <option value="beds-asc">床位：最少</option>
+            <option value="price-asc">价格：低→高</option>
+            <option value="price-desc">价格：高→低</option>
+          </select>
+
+          <!-- View toggle -->
+          <div class="view-toggle" role="group" aria-label="View mode">
+            <button id="view-grid-btn" class="active" title="Grid view" aria-pressed="true">⊞</button>
+            <button id="view-table-btn" title="Table view" aria-pressed="false">☰</button>
+          </div>
+        </div>
+
+        <!-- Results count -->
+        <div id="results-count" class="results-count" aria-live="polite" aria-atomic="true"></div>
+
+        <!-- Hospital grid -->
+        <div id="hospital-grid" role="list" aria-label="Hospital cards"></div>
+
+        <!-- Hospital table (hidden by default) -->
+        <div id="hospital-table" class="hidden">
+          <table class="hospital-table" aria-label="Hospital directory table">
+            <thead id="table-head">
+              <tr>
+                <th class="py-3 px-4">医院</th>
+                <th class="py-3 px-4">州属</th>
+                <th class="py-3 px-4">重点专科</th>
+                <th class="py-3 px-4" style="text-align:center;">床位</th>
+                <th class="py-3 px-4">专科列表</th>
+                <th class="py-3 px-4" style="text-align:right;">住院/晚</th>
+                <th class="py-3 px-4">保险</th>
+                <th class="py-3 px-4" style="text-align:center;">详情</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+
+        <!-- No results -->
+        <div id="no-results" class="hidden no-results" aria-live="polite">
+          <p data-i18n="no_results">没有符合筛选条件的医院。</p>
+        </div>
+
+      </div>
+    </div><!-- #panel-directory -->
+
+    <!-- ══ FIND MY HOSPITAL PANEL ══ -->
+    <div id="panel-find" class="panel hidden">
+      <div class="panel-inner">
+        <div class="panel-header">
+          <h2 data-i18n="nav_find">找医院</h2>
+          <p data-i18n="find_subtitle">回答两个问题，我们为您匹配最合适的医院。</p>
+        </div>
+
+        <!-- Step 1: Intent -->
+        <div id="find-step-1" class="find-step">
+          <h3 data-i18n="onboarding_step1">您的就医目的是？</h3>
+          <div class="intent-grid" id="intent-grid">
+            <!-- Populated by JS from intent options -->
+          </div>
+        </div>
+
+        <!-- Step 2: State -->
+        <div id="find-step-2" class="find-step hidden">
+          <h3 data-i18n="onboarding_step2">您在哪个州属？</h3>
+          <div class="state-grid" id="state-grid">
+            <!-- Populated by JS -->
+          </div>
+          <button id="find-back-btn" class="btn-secondary" data-i18n="onboarding_back">
+            ← 返回
+          </button>
+        </div>
+
+        <!-- Step 3: Results -->
+        <div id="find-step-3" class="find-step hidden">
+          <div id="find-results-header"></div>
+          <div id="find-results-grid"></div>
+          <button id="find-restart-btn" class="btn-secondary">重新开始</button>
+        </div>
+
+      </div>
+    </div><!-- #panel-find -->
+
+    <!-- ══ INTELLIGENCE HUB PANEL ══ -->
+    <div id="panel-intel" class="panel hidden">
+      <div class="panel-inner">
+        <div class="panel-header">
+          <h2 data-i18n="intel_title">情报中心</h2>
+          <p data-i18n="intel_subtitle">马来西亚医疗体系中没有人告诉你的事。</p>
+        </div>
+
+        <!-- Intelligence card grid -->
+        <div class="intel-grid">
+
+          <!-- System Hacks -->
+          <div class="intel-card" id="hacks-trigger-card" onclick="window.HI && window.HI.openHacksDialog()" role="button" tabindex="0">
+            <div class="intel-card-icon">⚡</div>
+            <h3 data-i18n="intel_hacks">系统攻略</h3>
+            <p data-i18n="intel_hacks_desc">12个有经验的就医者才知道的内幕，任何宣传册都不会告诉你。</p>
+            <div class="intel-card-cta">打开 →</div>
+          </div>
+
+          <!-- Healthcare Tier Explainer -->
+          <div class="intel-card" id="tier-trigger-card" onclick="window.HI && window.HI.openTierDialog()" role="button" tabindex="0">
+            <div class="intel-card-icon">🏗️</div>
+            <h3 data-i18n="intel_tier">医疗层级解析</h3>
+            <p data-i18n="intel_tier_desc">从全科诊所到四级医院，转介体系的运作方式全解析。</p>
+            <div class="intel-card-cta">了解 →</div>
+          </div>
+
+          <!-- Insurance Pre-Qualifier -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-insurance-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">💳</div>
+            <h3 data-i18n="intel_insurance">保险预筛查</h3>
+            <p data-i18n="intel_insurance_desc">在入院前先确认您的保险公司承保哪些医院。</p>
+            <div class="intel-card-cta">查询 →</div>
+          </div>
+
+          <!-- Cost Intelligence -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-cost-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">💰</div>
+            <h3 data-i18n="intel_cost">费用参考</h3>
+            <p data-i18n="intel_cost_desc">公立、中档及顶级医院各类手术的实际费用基准。</p>
+            <div class="intel-card-cta">查看 →</div>
+          </div>
+
+          <!-- FPP Navigator -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-fpp-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">🏛️</div>
+            <h3 data-i18n="intel_fpp">FPP导航</h3>
+            <p data-i18n="intel_fpp_desc">以全自费病人身份进入公立医院并自选专科医生的完整指南。</p>
+            <div class="intel-card-cta">查看指南 →</div>
+          </div>
+
+          <!-- Night Cover Guide -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-night-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">🌙</div>
+            <h3 data-i18n="intel_night">夜间医护指南</h3>
+            <p data-i18n="intel_night_desc">哪些医院夜间有专科医生驻院，哪些只有医疗官（MO）。</p>
+            <div class="intel-card-cta">查看 →</div>
+          </div>
+
+          <!-- Patient Rights & Complaints -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-rights-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">⚖️</div>
+            <h3 data-i18n="intel_rights">患者权益与投诉</h3>
+            <p data-i18n="intel_rights_desc">何时投诉、向谁投诉、如何升级处理，以及您的法律权利。</p>
+            <div class="intel-card-cta">了解权益 →</div>
+          </div>
+
+          <!-- Legal Support -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-legal-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">🏛️</div>
+            <h3 data-i18n="intel_legal">法律支援</h3>
+            <p data-i18n="intel_legal_desc">医疗疏失、事故、家庭暴力及免费法律援助机构目录。</p>
+            <div class="intel-card-cta">查看目录 →</div>
+          </div>
+
+          <!-- Clinical Trial Guide -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-trial-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">🔬</div>
+            <h3 data-i18n="intel_trial">临床试验指南</h3>
+            <p data-i18n="intel_trial_desc">如何查找进行中的临床试验，以及如何向医生咨询参与资格。</p>
+            <div class="intel-card-cta">探索 →</div>
+          </div>
+
+          <!-- Doctor Verification -->
+          <div class="intel-card" onclick="window.HI && window.HI.scrollToSection('intel-doctor-section')" role="button" tabindex="0">
+            <div class="intel-card-icon">👨‍⚕️</div>
+            <h3 data-i18n="intel_doctor">医生资质查验</h3>
+            <p data-i18n="intel_doctor_desc">如何查验任何医生的注册状态及其资历字母代号的含义。</p>
+            <div class="intel-card-cta">查验 →</div>
+          </div>
+
+        </div><!-- .intel-grid -->
+
+        <!-- Expanded intelligence sections (populated / shown by JS) -->
+        <div id="intel-insurance-section" class="intel-section hidden"></div>
+        <div id="intel-cost-section"      class="intel-section hidden"></div>
+        <div id="intel-fpp-section"       class="intel-section hidden"></div>
+        <div id="intel-night-section"     class="intel-section hidden"></div>
+        <div id="intel-rights-section"    class="intel-section hidden"></div>
+        <div id="intel-legal-section"     class="intel-section hidden"></div>
+        <div id="intel-trial-section"     class="intel-section hidden"></div>
+        <div id="intel-doctor-section"    class="intel-section hidden"></div>
+
+      </div>
+    </div><!-- #panel-intel -->
+
+    <!-- ══ EMERGENCY PANEL ══ -->
+    <div id="panel-emergency" class="panel hidden">
+      <div class="panel-inner">
+        <div class="panel-header emergency-header">
+          <h2 data-i18n="emergency_title">紧急快速查找</h2>
+          <p data-i18n="emergency_subtitle">选择您的情况及所在州属，获取即时就医指引。</p>
+          <div class="emergency-call-999">
+            <a href="tel:999" class="btn-emergency-999">📞 拨打 999</a>
+            <span data-i18n="emergency_999_note">
+              任何危及生命的紧急情况——先拨 999，再使用本指南。
+            </span>
+          </div>
+        </div>
+
+        <h3 data-i18n="select_condition" style="margin-bottom: 1rem;">选择症状类型</h3>
+        <div id="emergency-conditions"></div>
+
+        <div id="emergency-state-wrap" class="hidden" style="margin-top: 1rem;">
+          <h3 data-i18n="select_state" style="margin-bottom: 0.75rem;">选择所在州属</h3>
+          <select id="emergency-state-sel" aria-label="Select state for emergency">
+            <option value="">-- 选择州属 --</option>
+            <option value="Kuala Lumpur">吉隆坡</option>
+            <option value="Putrajaya">布特拉再也</option>
+            <option value="Labuan">纳闽</option>
+            <option value="Selangor">雪兰莪</option>
+            <option value="Penang">槟城</option>
+            <option value="Johor">柔佛</option>
+            <option value="Perak">霹雳</option>
+            <option value="Kedah">吉打</option>
+            <option value="Kelantan">吉兰丹</option>
+            <option value="Terengganu">登嘉楼</option>
+            <option value="Pahang">彭亨</option>
+            <option value="Negeri Sembilan">森美兰</option>
+            <option value="Melaka">马六甲</option>
+            <option value="Perlis">玻璃市</option>
+            <option value="Sarawak">砂拉越</option>
+            <option value="Sabah">沙巴</option>
+          </select>
+        </div>
+
+        <div id="emergency-result" class="hidden" aria-live="polite"></div>
+
+      </div>
+    </div><!-- #panel-emergency -->
+
+    <!-- ══ SUPPORT & NGO PANEL ══ -->
+    <div id="panel-support" class="panel hidden">
+      <div class="panel-inner">
+        <div class="panel-header">
+          <h2 data-i18n="support_title">支援与NGO</h2>
+          <p data-i18n="support_subtitle">经济援助、非政府组织、无陪护就医途径及医疗机构查验。</p>
+        </div>
+
+        <!-- Sub-navigation tabs -->
+        <div class="support-subnav" role="tablist" aria-label="Support sections">
+          <button class="support-tab active" data-section="ngo"       data-i18n="support_ngo"       role="tab" aria-selected="true">NGO 目录</button>
+          <button class="support-tab"        data-section="caretaker" data-i18n="support_caretaker" role="tab" aria-selected="false">无陪护就医</button>
+          <button class="support-tab"        data-section="financial" data-i18n="support_financial" role="tab" aria-selected="false">经济援助</button>
+          <button class="support-tab"        data-section="verify"    data-i18n="support_verify"    role="tab" aria-selected="false">查验机构</button>
+          <button class="support-tab"        data-section="legal"     data-i18n="intel_legal"       role="tab" aria-selected="false">法律支援</button>
+        </div>
+
+        <!-- NGO section -->
+        <div id="support-ngo-section" class="support-section" role="tabpanel">
+          <div id="ngo-filter-btns" class="ngo-filters" aria-label="Filter NGOs by category"></div>
+          <div id="ngo-grid" class="ngo-grid" aria-live="polite"></div>
+        </div>
+
+        <!-- Caretaker pathway -->
+        <div id="support-caretaker-section" class="support-section hidden" role="tabpanel"></div>
+
+        <!-- Financial aid -->
+        <div id="support-financial-section" class="support-section hidden" role="tabpanel"></div>
+
+        <!-- Verify a facility -->
+        <div id="support-verify-section" class="support-section hidden" role="tabpanel"></div>
+
+        <!-- Legal (in support panel) -->
+        <div id="support-legal-section" class="support-section hidden" role="tabpanel"></div>
+
+      </div>
+    </div><!-- #panel-support -->
+
+  </main><!-- #app-main -->
+
+  <!-- ════════════════════════════════════════════════
+       COMPARE BAR (fixed bottom, hidden until 2+ selected)
+       ════════════════════════════════════════════════ -->
+  <div id="compare-bar" class="hidden" role="status" aria-live="polite">
+    <span>
+      <strong id="compare-count">0</strong>
+      <span data-i18n="selected"> 家已选</span>
+    </span>
+    <div class="compare-bar-actions">
+      <button id="compare-clear-btn" data-i18n="compare_clear">清除</button>
+      <button id="compare-go-btn" data-i18n="compare_run">立即对比</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       COMPARE PANEL (shown above footer when active)
+       ════════════════════════════════════════════════ -->
+  <div id="compare-panel" class="hidden">
+    <div class="compare-panel-inner">
+      <div class="compare-header">
+        <h2 data-i18n="compare_title">医院对比</h2>
+        <button id="compare-close-btn" data-i18n="close_compare">✕ 关闭</button>
+      </div>
+      <div id="compare-grid"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════ -->
+  <footer id="app-footer">
+    <div class="footer-inner">
+      <div class="footer-disclaimer">
+        <strong data-i18n="footer_disclaimer">免责声明</strong>
+        <p id="footer-disclaimer-text" data-i18n="disclaimer_full">
+          本平台所有信息仅供参考，不构成任何医疗诊断、建议或治疗方案。医院数据来源于公开资料（2024–2025），可能存在更新延迟。就医决策请咨询持牌医疗专业人员。如遇紧急情况，请立即拨打999。
+        </p>
+      </div>
+      <div class="footer-meta">
+        <span data-i18n="footer_built">为马来西亚患者而建</span>
+        <span>·</span>
+        <span data-i18n="data_note">数据来源 2024–2025</span>
+        <span>·</span>
+        <a
+          href="https://github.com/yifeng22100/hospital-intelligence-my"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="footer_github"
+        >GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════
+       HOSPITAL DETAIL MODAL
+       ════════════════════════════════════════════════ -->
+  <div id="hospital-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div id="modal-inner">
+
+      <!-- Modal header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-badges">
+            <span id="modal-sector-badge"></span>
+            <span id="modal-tier-badge"></span>
+            <span id="modal-state-badge"></span>
+          </div>
+          <h2 id="modal-name"></h2>
+          <p id="modal-city-line" class="modal-city"></p>
+        </div>
+        <button
+          id="modal-close-btn"
+          onclick="window.HI && window.HI.closeModal()"
+          aria-label="Close hospital details"
+        >✕</button>
+      </div>
+
+      <!-- Modal tab nav -->
+      <div class="modal-tabs" id="modal-tabs" role="tablist" aria-label="Hospital detail sections">
+        <button class="modal-tab-btn active" data-tab="1" role="tab" aria-selected="true"  aria-controls="modal-panel-1" data-i18n="tab_overview">概览</button>
+        <button class="modal-tab-btn"        data-tab="2" role="tab" aria-selected="false" aria-controls="modal-panel-2" data-i18n="tab_specialties">专科</button>
+        <button class="modal-tab-btn"        data-tab="3" role="tab" aria-selected="false" aria-controls="modal-panel-3" data-i18n="tab_facilities">设施与交通</button>
+        <button class="modal-tab-btn"        data-tab="4" role="tab" aria-selected="false" aria-controls="modal-panel-4" data-i18n="tab_insurance">保险与费用</button>
+        <button class="modal-tab-btn"        data-tab="5" role="tab" aria-selected="false" aria-controls="modal-panel-5" data-i18n="tab_sources">资料来源</button>
+      </div>
+
+      <!-- Modal tab panels -->
+      <div id="modal-panel-1" class="modal-tab-panel active" data-panel="1" role="tabpanel">
+        <!-- Populated by modal.js -->
+      </div>
+      <div id="modal-panel-2" class="modal-tab-panel hidden" data-panel="2" role="tabpanel"></div>
+      <div id="modal-panel-3" class="modal-tab-panel hidden" data-panel="3" role="tabpanel"></div>
+      <div id="modal-panel-4" class="modal-tab-panel hidden" data-panel="4" role="tabpanel"></div>
+      <div id="modal-panel-5" class="modal-tab-panel hidden" data-panel="5" role="tabpanel"></div>
+
+    </div><!-- #modal-inner -->
+  </div><!-- #hospital-modal -->
+
+  <!-- ════════════════════════════════════════════════
+       SYSTEM HACKS DIALOG
+       ════════════════════════════════════════════════ -->
+  <div id="hacks-dialog" class="hidden" role="dialog" aria-modal="true" aria-labelledby="hacks-dialog-title">
+    <div id="hacks-dialog-inner">
+      <div class="hacks-header">
+        <div>
+          <span class="hacks-badge">⚡ Operational Intelligence</span>
+          <h2 id="hacks-dialog-title" data-i18n="intel_hacks">系统攻略与隐藏途径</h2>
+          <p data-i18n="intel_hacks_subtitle">有经验的就医者才知道的事——任何宣传册都不会告诉你。</p>
+        </div>
+        <button id="hacks-dialog-close" aria-label="Close system hacks dialog">✕</button>
+      </div>
+      <div id="hacks-content">
+        <!-- Populated by intelligence.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       TIER EXPLAINER DIALOG
+       ════════════════════════════════════════════════ -->
+  <div id="tier-dialog" class="hidden" role="dialog" aria-modal="true" aria-labelledby="tier-dialog-title">
+    <div id="tier-dialog-inner">
+      <div class="tier-header">
+        <h2 id="tier-dialog-title" data-i18n="intel_tier">医疗层级解析</h2>
+        <button id="tier-dialog-close" aria-label="Close tier explainer">✕</button>
+      </div>
+      <div id="tier-content">
+        <!-- Populated by intelligence.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       ONBOARDING OVERLAY (first visit)
+       ════════════════════════════════════════════════ -->
+  <div id="onboarding-overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+    <div id="onboarding-box">
+      <button id="onboarding-skip" class="onboarding-skip" data-i18n="onboarding_skip">
+        稍后再说
+      </button>
+
+      <!-- Step 1: Intent -->
+      <div id="onboarding-step-1">
+        <div class="onboarding-step-num">1 / 2</div>
+        <h2 id="onboarding-title" data-i18n="onboarding_title">欢迎使用马来西亚医院情报</h2>
+        <p data-i18n="onboarding_step1">您的就医目的是？</p>
+        <div id="intent-grid-onboard" class="intent-grid"></div>
+      </div>
+
+      <!-- Step 2: State -->
+      <div id="onboarding-step-2" class="hidden">
+        <div class="onboarding-step-num">2 / 2</div>
+        <h2 data-i18n="onboarding_step2">您在哪个州属？</h2>
+        <div id="state-grid-onboard" class="state-grid"></div>
+        <button id="onboard-back-btn" class="btn-secondary" data-i18n="onboarding_back">← 返回</button>
+      </div>
+
+      <!-- Step 3: Results preview -->
+      <div id="onboarding-step-3" class="hidden">
+        <div id="onboard-result-header"></div>
+        <div id="onboard-result-grid"></div>
+        <button id="onboard-done-btn" class="btn-primary" data-i18n="onboarding_done">
+          查看推荐医院
+        </button>
+      </div>
+
+    </div><!-- #onboarding-box -->
+  </div><!-- #onboarding-overlay -->
+
+  <!-- ════════════════════════════════════════════════
+       TOAST
+       ════════════════════════════════════════════════ -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ════════════════════════════════════════════════
+       DATA FILES  (define global window vars; order matters)
+       ════════════════════════════════════════════════ -->
+  <script src="data/translations.js"></script>
+  <script src="data/specialties-reference.js"></script>
+  <script src="data/emergency-protocols.js"></script>
+
+  <!-- Hospital data by state -->
+  <script src="data/hospitals/kuala-lumpur.js"></script>
+  <script src="data/hospitals/putrajaya.js"></script>
+  <script src="data/hospitals/labuan.js"></script>
+  <script src="data/hospitals/selangor.js"></script>
+  <script src="data/hospitals/penang.js"></script>
+  <script src="data/hospitals/johor.js"></script>
+  <script src="data/hospitals/perak.js"></script>
+  <script src="data/hospitals/kedah.js"></script>
+  <script src="data/hospitals/kelantan.js"></script>
+  <script src="data/hospitals/terengganu.js"></script>
+  <script src="data/hospitals/pahang.js"></script>
+  <script src="data/hospitals/negeri-sembilan.js"></script>
+  <script src="data/hospitals/melaka.js"></script>
+  <script src="data/hospitals/perlis.js"></script>
+  <script src="data/hospitals/sarawak.js"></script>
+  <script src="data/hospitals/sabah.js"></script>
+
+  <!-- Support & reference data -->
+  <script src="data/ngo-support.js"></script>
+  <script src="data/insurance-panels.js"></script>
+  <script src="data/legal-support.js"></script>
+  <script src="data/verify-guide.js"></script>
+  <script src="data/cost-reference.js"></script>
+
+  <!-- ════════════════════════════════════════════════
+       APP JS  (order matters — app.js must be last)
+       ════════════════════════════════════════════════ -->
+  <script src="js/i18n.js"></script>
+  <script src="js/directory.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/onboarding.js"></script>
+  <script src="js/emergency.js"></script>
+  <script src="js/intelligence.js"></script>
+  <script src="js/support.js"></script>
+  <script src="js/verify.js"></script>
+  <script src="js/app.js"></script>
+
 </body>
 </html>

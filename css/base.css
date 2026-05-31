@@ -1,0 +1,417 @@
+/* ============================================================
+   base.css — CSS custom properties, reset, typography
+   Hospital Intelligence MY
+   ============================================================ */
+
+/* ── Custom Properties ── */
+:root {
+  /* Text colors */
+  --ink:            #0f172a;
+  --ink2:           #1e293b;
+  --muted:          #64748b;
+  --faint:          #f1f5f9;
+
+  /* Borders & backgrounds */
+  --border:         #e2e8f0;
+  --bg-page:        #f8fafc;
+  --bg-card:        #ffffff;
+
+  /* Brand accent */
+  --accent:         #3b5bdb;
+  --accent-hover:   #2f4ac7;
+  --accent-light:   #eef2ff;
+  --accent-dark:    #1e3a8a;
+
+  /* Semantic colors */
+  --emerald:        #059669;
+  --emerald-light:  #ecfdf5;
+  --amber:          #d97706;
+  --amber-light:    #fffbeb;
+  --rose:           #e11d48;
+  --rose-light:     #fff1f2;
+
+  /* Sector colors */
+  --public:         #1d4ed8;
+  --public-light:   #eff6ff;
+  --private:        #7c3aed;
+  --private-light:  #f5f3ff;
+  --academic:       #0d9488;
+  --academic-light: #f0fdfa;
+
+  /* Tier colors */
+  --tier-district:  #64748b;
+  --tier-state:     #0369a1;
+  --tier-tertiary:  #7c3aed;
+  --tier-quaternary:#be185d;
+  --tier-academic:  #0d9488;
+
+  /* Radius */
+  --radius:         12px;
+  --radius-sm:      8px;
+  --radius-lg:      20px;
+  --radius-xl:      28px;
+
+  /* Shadows */
+  --shadow-sm:      0 1px 3px rgba(0, 0, 0, .08);
+  --shadow-md:      0 4px 16px rgba(0, 0, 0, .10);
+  --shadow-lg:      0 8px 32px rgba(0, 0, 0, .12);
+  --shadow-xl:      0 16px 48px rgba(0, 0, 0, .15);
+
+  /* Transitions */
+  --transition:     0.15s ease;
+  --transition-md:  0.25s ease;
+
+  /* Z-index scale */
+  --z-header:       40;
+  --z-mobile-nav:   40;
+  --z-compare-bar:  30;
+  --z-modal:        50;
+  --z-overlay:      60;
+  --z-toast:        70;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ── Monospace ── */
+.mono,
+code,
+pre,
+kbd,
+samp {
+  font-family: 'DM Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+/* ── Typography ── */
+h1 {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+h3 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink2);
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink2);
+}
+
+h5 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink2);
+}
+
+h6 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--ink2);
+}
+
+small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ── Links ── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Interactive elements ── */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  transition: background var(--transition), color var(--transition),
+              box-shadow var(--transition), transform var(--transition);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.925rem;
+  color: var(--ink);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+  cursor: pointer;
+}
+
+/* ── Images ── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Lists ── */
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
+  line-height: 1.6;
+}
+
+/* ── Horizontal rule ── */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+/* ── Tables ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* ── Utility: visually hidden (for a11y) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Utility: hidden ── */
+.hidden {
+  display: none !important;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--faint);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 var(--faint);
+}
+
+/* ── Reusable button primitives ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(59, 91, 219, .35);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  background: var(--faint);
+  color: var(--ink2);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.btn-secondary:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  background: var(--rose);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-danger:hover {
+  background: #be123c;
+}
+
+/* ── Text utilities ── */
+.text-muted  { color: var(--muted); }
+.text-xs     { font-size: 0.75rem; }
+.text-sm     { font-size: 0.875rem; }
+.text-base   { font-size: 1rem; }
+.text-lg     { font-size: 1.125rem; }
+.text-xl     { font-size: 1.25rem; }
+.font-bold   { font-weight: 700; }
+.font-medium { font-weight: 500; }
+
+/* ── Color utilities ── */
+.text-emerald { color: var(--emerald); }
+.text-amber   { color: var(--amber); }
+.text-rose    { color: var(--rose); }
+.text-accent  { color: var(--accent); }
