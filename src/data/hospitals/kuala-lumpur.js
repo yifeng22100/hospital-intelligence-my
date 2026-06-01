@@ -31,8 +31,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Jalan Pahang"
     },
     transport: {
-      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 5 min via covered walkway into HKL compound; Titiwangsa interchange (PY17, MRT Putrajaya + LRT Ampang + LRT Sri Petaling + Monorail) — 8 min walk",
-      bus: "Rapid KL Bus Route 250, 260",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — Entrance A is inside HKL grounds (0–5 min via walkalator); Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — ~7 min walk; KL Monorail Chow Kit — ~4 min walk",
+      bus: "Bus stops: KL55 (Hospital KL Barat) — 1 min walk; KL54 (Hospital KL Opp) — 3 min. Routes: 100, 103, 200, 202, 220, 250, 251, 254, 302, 402, GOKL-03/04/05/08, ML81, ML83",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Opposite Chow Kit Market, near Putra World Trade Centre (PWTC)"
     },
@@ -147,8 +147,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Psychiatric Jalan Pahang"
     },
     transport: {
-      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 8 min walk; Titiwangsa interchange (PY17) — 10 min walk",
-      bus: "Rapid KL Route 250, 260",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 8 min walk; Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 10 min walk",
+      bus: "Bus stops: KL55 (Hospital KL Barat) / KL54 (Hospital KL Opp) — shared with HKL campus. Routes: 100, 103, 200, 250, 260, 302, GOKL-03/04",
       highway: "MRR2 — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur main campus"
     },
@@ -253,8 +253,8 @@ export const HOSPITALS_KL = [
       mapQuery: "UMMC University Malaya Medical Centre Petaling Jaya"
     },
     transport: {
-      nearest: "Universiti LRT (KJ12, Kelana Jaya Line) — feeder bus T789/T790 direct to UMMC (no practical walking route; ~22 min walk in heat not recommended)",
-      bus: "Feeder bus T789/T790 from Universiti LRT; Rapid KL Route 12, U88",
+      nearest: "Universiti LRT (Kelana Jaya Line) — feeder bus T789/T790 direct to UMMC gate (~5 min ride; no practical walking — ~22 min uphill in heat)",
+      bus: "Feeder buses T789, T790 from Universiti LRT to UMMC gate. Routes also: 710, 750, 770, 780, P701 (from Bangsar/Jalan Universiti area)",
       highway: "NPE — Exit UM/Jalan Universiti",
       landmark: "Inside University of Malaya campus, off Jalan Universiti"
     },
@@ -369,8 +369,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Gleneagles Hospital Kuala Lumpur Jalan Ampang"
     },
     transport: {
-      nearest: "Ampang Park MRT Station (Putrajaya Line) — 5 min walk",
-      bus: "Rapid KL Bus along Jalan Ampang",
+      nearest: "Ampang Park MRT (PY20, Putrajaya Line) — 5 min walk along Jalan Ampang",
+      bus: "Bus stop: KL893 (Gleneagles Hospital) — 2 min. Routes: 220, 300, 303, T224, GOKL-02/04",
       highway: "AKLEH — Exit Jalan Ampang",
       landmark: "Jalan Ampang near Ampang Park, opposite KLCC area"
     },
@@ -481,7 +481,7 @@ export const HOSPITALS_KL = [
     },
     transport: {
       nearest: "Conlay MRT (PY22, Putrajaya Line) — 8 min walk; Tun Razak Exchange MRT (PY23, Putrajaya + Kajang Lines) — 11 min walk",
-      bus: "Rapid KL along Jalan Ampang / Jalan Kia Peng",
+      bus: "Routes: 400, 402, 421, GOKL-02/04; bus stops along Jalan Kia Peng / Jalan Ampang",
       highway: "AKLEH — Exit KLCC",
       landmark: "39 Jalan Kia Peng, near KLCC Twin Towers"
     },
@@ -587,8 +587,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Pantai Hospital Kuala Lumpur Bukit Pantai"
     },
     transport: {
-      nearest: "Kerinchi LRT Station (Kelana Jaya Line) — 10 min walk or short taxi",
-      bus: "Rapid KL Bus along Jalan Bangsar",
+      nearest: "Kerinchi LRT (KJ13, Kelana Jaya Line) — 10 min walk; Abdullah Hukum LRT (KJ14) — 12 min walk",
+      bus: "Routes: 750, 751, 772, 780, T791, GOKL-06; bus stops along Jalan Kerinchi / Jalan Bangsar",
       highway: "Sprint Highway — Exit Bangsar/Pantai",
       landmark: "Near Bangsar, off Jalan Kerinchi"
     },
@@ -885,8 +885,8 @@ export const HOSPITALS_KL = [
       mapQuery: "ParkCity Medical Centre Desa ParkCity Kuala Lumpur"
     },
     transport: {
-      nearest: "Kepong Baru MRT Station — 15 min by taxi/ride-share",
-      bus: "Rapid KL bus routes (Kepong area)",
+      nearest: "Kepong Sentral MRT (PY08, Putrajaya Line) — ~12 min by taxi; no direct bus-walk route from rail",
+      bus: "Feeder routes T108, T109, T115 (Kepong area); no direct stop at hospital — exit at Kepong Sentral then feeder",
       highway: "DUKE/MRR2 — Exit Desa ParkCity / Kepong",
       landmark: "Inside Desa ParkCity township, near The Waterfront"
     },
@@ -981,8 +981,8 @@ export const HOSPITALS_KL = [
       mapQuery: "UKMSC UKM Specialist Centre Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Bandar Tun Razak LRT (Sri Petaling Line) — 10 min walk; Taman Mutiara interchange (MRT Kajang + Sri Petaling LRT) — 10 min walk",
-      bus: "Rapid KL bus routes (Cheras area)",
+      nearest: "Bandar Tun Razak LRT (Sri Petaling Line) — 10 min walk; Taman Mutiara interchange (MRT Kajang Line + LRT Sri Petaling) — 12 min walk",
+      bus: "Bus stops: KL349 (Pusat Belia Antarabangsa) — 2 min; KL1983 (UKM campus area) — 4 min. Routes: 400, 450, GOKL-11, T400, T402",
       highway: "KESAS/MRR2 — Exit Cheras/Bandar Tun Razak",
       landmark: "UKM Medical Campus, Bandar Tun Razak Cheras"
     },
@@ -1075,8 +1075,8 @@ export const HOSPITALS_KL = [
       mapQuery: "IMU Hospital Bukit Jalil Kuala Lumpur"
     },
     transport: {
-      nearest: "Awan Besar LRT Station (Kelana Jaya Line) — 15 min by taxi",
-      bus: "Rapid KL bus routes (Bukit Jalil area)",
+      nearest: "Bukit Jalil LRT (Sri Petaling Line) — ~15 min walk or 5 min taxi; Sri Petaling LRT — ~10 min taxi",
+      bus: "Bus stop: IMU Bukit Jalil area. Routes: 651, 652, T563, T580 (Bukit Jalil / Sri Petaling area)",
       highway: "LDP — Exit Bukit Jalil",
       landmark: "IMU campus area, Bukit Jalil"
     },
@@ -1554,7 +1554,7 @@ export const HOSPITALS_KL = [
       website: "https://www.pusrawi.com.my",
       mapQuery: "Hospital Pusrawi Kuala Lumpur Jalan Tun Razak"
     },
-    transport: { nearest: "Dato' Keramat LRT Station — 10 min walk", bus: "Rapid KL bus (Jalan Tun Razak area)", highway: "DUKE — Exit Jalan Tun Razak", landmark: "Off Jalan Tun Razak, near Gleneagles KL" },
+    transport: { nearest: "LRT KLCC (KJ13, Kelana Jaya Line) — ~10 min walk; Ampang Park MRT (PY20, Putrajaya Line) — ~12 min walk", bus: "Routes: 170, 173, 402, T202, GOKL-05; bus stops along Jalan Tun Razak / Jalan Ampang", highway: "DUKE — Exit Jalan Tun Razak", landmark: "No. 2 Jalan Indah, Off Jalan Tun Razak, near Gleneagles KL" },
     facilities: { pharmacy24h: true, cafeteria: "Halal-certified cafeteria, 7am–9pm", atm: "Lobby", surau: "Multiple surau on all floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Islamic prayer times respected — visiting may be adjusted during prayer times." },
     specialtyCoverage: {
@@ -1655,7 +1655,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Private hospital — Jalan Pahang area, Kuala Lumpur", "Long-established private hospital in KL"],
     infrastructure: { yearEstablished: 1985, totalBeds: 200, icuBeds: 12, nicuBeds: 6, operatingTheatres: 6, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 2/hour" },
     contact: { address: "No. 202-A, Jalan Pahang, 53000 Kuala Lumpur", mainLine: "+603-4023 3599", emergencyLine: "+603-4023 3599 ext. A&E", appointmentLine: "+603-4023 3599", website: "https://www.tawakal.com.my", mapQuery: "KPJ Tawakkal Specialist Hospital Kuala Lumpur" },
-    transport: { nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 4 min walk (~271m from entrance); Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 8 min walk", bus: "RapidKL bus routes (250, 260)", highway: "MRR2 / Jalan Pahang", landmark: "1 Jalan Pahang Barat, near Titiwangsa lake" },
+    transport: { nearest: "KL Monorail Chow Kit — ~4 min walk (nearest station); Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — ~5 min walk; Titiwangsa interchange (PY17, MRT + LRT + Monorail) — ~8 min walk", bus: "Bus stop: KL668 (KPJ Tawakkal HC) — 4 min. Routes: 170, 200, 201, 250, 260, GOKL-03/08, T180", highway: "MRR2 / Jalan Pahang", landmark: "Jalan Pahang, near Chow Kit / Titiwangsa lake" },
     facilities: { pharmacy24h: true, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1707,7 +1707,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Private tertiary hospital — Bangsar South urban hub KL", "IHH network hospital in south KL"],
     infrastructure: { yearEstallished: 2018, totalBeds: 250, icuBeds: 18, nicuBeds: 8, operatingTheatres: 8, area: "~5 acres", buildings: "Main Block, Tower", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
     contact: { address: "Bangsar South, 59200 Kuala Lumpur", mainLine: "+603-2241 9999 (verify)", emergencyLine: "+603-2241 9999 ext. A&E", appointmentLine: "+603-2241 9999 (verify)", website: "https://www.pantai.com.my", mapQuery: "Pantai Hospital Bangsar South KL" },
-    transport: { nearest: "Kerinchi MRT — 5 min walk", bus: "RapidKL bus / Go KL", highway: "Federal Highway / Sprint", landmark: "Bangsar South / KL Eco City" },
+    transport: { nearest: "Abdullah Hukum LRT (KJ14, Kelana Jaya Line) — ~7 min walk; KTM KL Eco City — ~8 min walk", bus: "Routes: 750, 751, 772, 780, T788-T791, GOKL-06; bus stops along Jalan Bangsar South", highway: "Federal Highway / Sprint", landmark: "Bangsar South / KL Eco City" },
     facilities: { pharmacy24h: true, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1761,8 +1761,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Tunku Azizah Jalan Pahang Kuala Lumpur"
     },
     transport: {
-      nearest: "Raja Uda MRT (PY19, Putrajaya Line) — ~3 min walk; Hospital Kuala Lumpur MRT (PY18) — 6 min walk via shared campus",
-      bus: "Rapid KL Bus Route 250, 260",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 5 min walk via HKL shared campus; Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 8 min walk",
+      bus: "Bus stops: KL55 (Hospital KL Barat) / KL54 (Hospital KL Opp) — shared with HKL campus. Routes: 100, 103, 200, 250, 260, 302, GOKL-03/04",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur, Jalan Pahang — near PWTC"
     },
@@ -1883,8 +1883,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Institut Jantung Negara IJN Jalan Tun Razak Kuala Lumpur"
     },
     transport: {
-      nearest: "Raja Uda MRT (PY19, Putrajaya Line) — ~6 min walk via Entrance B; Ampang Park MRT (PY20) — 10 min walk along Jalan Tun Razak",
-      bus: "Rapid KL Bus along Jalan Tun Razak",
+      nearest: "Ampang Park MRT (PY20, Putrajaya Line) — ~8 min walk along Jalan Tun Razak; Conlay MRT (PY22) — ~12 min walk",
+      bus: "Bus stops: KL271 (IJN Barat) — 2 min; KL1638 (IJN Timur) — 3 min. Routes: 220, 302, 402, GOKL-05",
       highway: "DUKE / AKLEH — Exit Jalan Tun Razak",
       landmark: "Jalan Tun Razak, near Hospital Kuala Lumpur and PWTC"
     },
