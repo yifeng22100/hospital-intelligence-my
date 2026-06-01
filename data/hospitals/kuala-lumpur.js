@@ -109,7 +109,7 @@ var HOSPITALS_KL = [
     gaps: "No liver transplant. Outpatient waiting times long. Parking can be difficult.",
     robotics: "Da Vinci Robotic Surgery System available for selected procedures. Radiation therapy with linear accelerators. Nuclear medicine SPECT/CT.",
     doctorQualifications: "All consultants hold MMC-registered specialist qualifications. Many hold fellowships from UK Royal Colleges, American Boards, and Australian Colleges. Senior consultants are professors at local medical schools.",
-    imageUrl: null,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/83/Kuala_Lumpur_Hospital.JPG",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://hkl.moh.gov.my" },
@@ -216,7 +216,7 @@ var HOSPITALS_KL = [
     gaps: "No medical/surgical capability. Commercial insurance often excludes or limits psychiatric coverage.",
     robotics: "N/A",
     doctorQualifications: "All psychiatrists hold MMC-registered specialist qualifications (MRCPsych or equivalent). Many are professors at local medical schools.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women_and_children_health_complex.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
@@ -331,7 +331,7 @@ var HOSPITALS_KL = [
     gaps: "No liver transplant. Long outpatient waits. Parking can be congested on weekdays.",
     robotics: "Da Vinci Robotic Surgery System. PET-CT. Linear accelerators for radiation therapy. 3T MRI.",
     doctorQualifications: "Professors, Associate Professors, and Senior Lecturers who are MMC-registered specialists. All hold higher specialist qualifications (MRCP, FRCS, FRCOG, etc.). Many are internationally recognized researchers.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gleneagles_Hospital_and_Medical_Centre_2,_Jul_06.JPG",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://www.ummc.edu.my" },
@@ -550,7 +550,7 @@ var HOSPITALS_KL = [
     gaps: "Premium pricing. No radiation oncology (full suite). No liver transplant.",
     robotics: "Robotic surgery available. 3T MRI. PET-CT.",
     doctorQualifications: "All specialists MMC-registered with higher specialist qualifications. Many are top-ranked in their fields in Malaysia.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pantai_Hospital_at_Night.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://www.princecourt.com" }
@@ -848,7 +848,7 @@ var HOSPITALS_KL = [
     gaps: "Cancer-focused only. No proton therapy in Malaysia. Premium cost for cancer treatment.",
     robotics: "TrueBeam STx Radiotherapy System. Elekta Linear Accelerators. CyberKnife (verify). PET-CT.",
     doctorQualifications: "All oncologists and haematologists are MMC-registered subspecialists. Many have fellowship training at MD Anderson, Princess Margaret, RMH London.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beacon_Hospital_Picture.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://www.beaconhospital.com.my" }

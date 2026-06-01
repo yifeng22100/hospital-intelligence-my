@@ -204,7 +204,7 @@ var HOSPITALS_PENANG = [
     gaps: "No liver transplant.",
     robotics: "Radiation therapy. 3T MRI.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null, imageCredit: "N/A",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gleneagles_Hospital,_George_Town,_Penang.jpg", imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.gleneagles.com.my/penang" }]
   },
   {
@@ -315,7 +315,7 @@ var HOSPITALS_PENANG = [
     gaps: "No cardiothoracic surgery.",
     robotics: "Standard imaging.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null, imageCredit: "N/A",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pantai_Hospital_in_George_Town,_Penang.jpg", imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.pantai.com.my/penang" }]
   },
   {

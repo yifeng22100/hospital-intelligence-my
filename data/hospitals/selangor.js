@@ -104,7 +104,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "No liver transplant. Very busy hospital — overcrowding common.",
     robotics: "Radiation therapy equipment. Standard imaging — 3T MRI, CT.",
     doctorQualifications: "MOH specialists — MMC-registered. Many trained at UK Royal Colleges.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Klang_TAR_hospital_main_building.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://htar.moh.gov.my" },
@@ -433,7 +433,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "No cardiothoracic surgery. No heart transplant.",
     robotics: "Laparoscopic liver surgery systems. Advanced imaging for transplant.",
     doctorQualifications: "MOH hepatobiliary and transplant surgeons — many fellowship-trained overseas at top liver transplant centres.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hospital_Selayang_04.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://hselayang.moh.gov.my" },
@@ -740,7 +740,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "Premium pricing. No liver transplant.",
     robotics: "Gamma Knife Radiosurgery. Da Vinci Robotic Surgery. PET-CT. 3T MRI. Hybrid cath lab.",
     doctorQualifications: "MMC-registered specialists with higher qualifications. Many internationally trained.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunway_Medical_Centre_(220711)_01.jpg",
     imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
   },
@@ -1005,7 +1005,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "No liver transplant. No Gamma Knife.",
     robotics: "Radiation therapy. Standard imaging — 3T MRI, CT. Da Vinci robotic surgery.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hospital_Thomson_Kota_Damansara.jpg",
     imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.thomsonhospital.com" }]
   },

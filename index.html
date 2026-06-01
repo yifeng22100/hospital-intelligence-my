@@ -393,46 +393,103 @@
 
         <!-- Topic card grid — click to load content in the panel below -->
         <div class="intel-grid" id="intel-quick-grid">
+
           <div class="intel-card" id="intel-tier-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-tier')">
-            <div class="intel-card-icon">&#127970;</div>
-            <div class="intel-card-title" data-i18n="intel_tier_title">Hospital Tier System</div>
-            <div class="intel-card-desc" data-i18n="intel_tier_desc">Understand Quaternary to District levels</div>
+            <div class="intel-card-icon-wrap" style="background:#dbeafe;color:#1d4ed8">&#127970;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_tier_title">Hospital Tier System</div>
+              <div class="intel-card-desc" data-i18n="intel_tier_desc">Understand Quaternary to District levels</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_tier_hint">4 tiers · Public & Private</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-insurance-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-insurance')">
-            <div class="intel-card-icon">&#128179;</div>
-            <div class="intel-card-title" data-i18n="intel_insurance_title">Insurance Navigator</div>
-            <div class="intel-card-desc" data-i18n="intel_insurance_desc">Panel hospitals, cashless &amp; FPP explained</div>
+            <div class="intel-card-icon-wrap" style="background:#ede9fe;color:#7c3aed">&#128179;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_insurance_title">Insurance Navigator</div>
+              <div class="intel-card-desc" data-i18n="intel_insurance_desc">Panel hospitals, cashless &amp; FPP explained</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_insurance_hint">9 insurers · Cashless guide</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-cost-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-cost')">
-            <div class="intel-card-icon">&#128200;</div>
-            <div class="intel-card-title" data-i18n="intel_cost_title">Cost Reference</div>
-            <div class="intel-card-desc" data-i18n="intel_cost_desc">Benchmark costs for common procedures</div>
+            <div class="intel-card-icon-wrap" style="background:#ccfbf1;color:#0d9488">&#128200;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_cost_title">Cost Reference</div>
+              <div class="intel-card-desc" data-i18n="intel_cost_desc">Benchmark costs for common procedures</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_cost_hint">50+ procedures benchmarked</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-rights-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-rights')">
-            <div class="intel-card-icon">&#9878;&#65039;</div>
-            <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights &amp; Complaints</div>
-            <div class="intel-card-desc" data-i18n="intel_rights_desc">Your legal rights as a patient in Malaysia</div>
+            <div class="intel-card-icon-wrap" style="background:#fee2e2;color:#dc2626">&#9878;&#65039;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights &amp; Complaints</div>
+              <div class="intel-card-desc" data-i18n="intel_rights_desc">Your legal rights as a patient in Malaysia</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_rights_hint">MOH complaints & legal rights</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-verify-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-verify')">
-            <div class="intel-card-icon">&#10003;</div>
-            <div class="intel-card-title" data-i18n="intel_verify_title">Verify a Facility</div>
-            <div class="intel-card-desc" data-i18n="intel_verify_desc">Check licences and accreditation status</div>
+            <div class="intel-card-icon-wrap" style="background:#dcfce7;color:#16a34a">&#10003;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_verify_title">Verify a Facility</div>
+              <div class="intel-card-desc" data-i18n="intel_verify_desc">Check licences and accreditation status</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_verify_hint">MOH licence + MSQH check</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-doctor-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-doctor')">
-            <div class="intel-card-icon">&#128104;&#8205;&#9877;&#65039;</div>
-            <div class="intel-card-title" data-i18n="intel_doctor_title">Doctor Verification</div>
-            <div class="intel-card-desc" data-i18n="intel_doctor_desc">How to check a doctor's qualifications</div>
+            <div class="intel-card-icon-wrap" style="background:#cffafe;color:#0891b2">&#128104;&#8205;&#9877;&#65039;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_doctor_title">Doctor Verification</div>
+              <div class="intel-card-desc" data-i18n="intel_doctor_desc">How to check a doctor's qualifications</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_doctor_hint">MMC register + specialist boards</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-trial-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-trial')">
-            <div class="intel-card-icon">&#128300;</div>
-            <div class="intel-card-title" data-i18n="intel_trial_title">Clinical Trials</div>
-            <div class="intel-card-desc" data-i18n="intel_trial_desc">Access experimental treatments in Malaysia</div>
+            <div class="intel-card-icon-wrap" style="background:#ede9fe;color:#5b21b6">&#128300;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_trial_title">Clinical Trials</div>
+              <div class="intel-card-desc" data-i18n="intel_trial_desc">Access experimental treatments in Malaysia</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_trial_hint">NMRR-registered Malaysian trials</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-night-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-night')">
-            <div class="intel-card-icon">&#127769;</div>
-            <div class="intel-card-title" data-i18n="intel_night_title">Night Cover Guide</div>
-            <div class="intel-card-desc" data-i18n="intel_night_desc">After-hours &amp; 24h service availability</div>
+            <div class="intel-card-icon-wrap" style="background:#ffedd5;color:#ea580c">&#127769;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_night_title">Night Cover Guide</div>
+              <div class="intel-card-desc" data-i18n="intel_night_desc">After-hours &amp; 24h service availability</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_night_hint">Who covers you after 10pm</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
         </div>
 
         <!-- Single content panel — rendered when a card is clicked -->
