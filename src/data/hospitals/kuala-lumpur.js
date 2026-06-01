@@ -1602,7 +1602,7 @@ export const HOSPITALS_KL = [
     intro: "KL Sports Medicine Centre (Pusat Perubatan Sukan KL) is a specialist public facility for sports medicine, rehabilitation and athlete healthcare.",
     famousFor: ["National sports medicine centre", "Serves national athletes"],
     infrastructure: { yearEstablished: 1990, totalBeds: 50, icuBeds: 0, nicuBeds: 0, operatingTheatres: 3, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Stadium Negara, Jalan Stadium, 50470 Kuala Lumpur", mainLine: "+603-2698 5555 (verify)", emergencyLine: "N/A", appointmentLine: "+603-2698 5555 (verify)", website: "https://www.moh.gov.my", mapQuery: "KL Sports Medicine Centre Kuala Lumpur" },
+    contact: { address: "Stadium Negara, Jalan Stadium, 50470 Kuala Lumpur", mainLine: "+603-2698 5555 (verify)", emergencyLine: "N/A", appointmentLine: "+603-2698 5555 (verify)", website: "https://jknkl.moh.gov.my/", mapQuery: "KL Sports Medicine Centre Kuala Lumpur" },
     transport: { nearest: "Stadium Negara — 5 min walk", bus: "RapidKL bus routes", highway: "MRR2 / SMART Tunnel", landmark: "Stadium Negara, Kuala Lumpur" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "N/A" },
     visitingHours: { general: "Office hours", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Appointment required." },
@@ -1619,32 +1619,6 @@ export const HOSPITALS_KL = [
     gaps: "No emergency care. No general medicine.", robotics: "None.", doctorQualifications: "MOH sports medicine specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~50 beds (est.). National sports medicine centre.", notableGaps: "No emergency or general inpatient care."
-  },
-  {
-    id: "normah-kl",
-    name: "Hospital Kuala Lumpur Orang Asli Gombak",
-    nameShort: "Hospital Orang Asli Gombak",
-    sector: "public", tier: "secondary", state: "Kuala Lumpur", city: "Gombak",
-    intro: "Hospital Orang Asli Gombak (HOA) is a specialised public hospital dedicated to providing healthcare for the Orang Asli indigenous communities of Peninsular Malaysia.",
-    famousFor: ["Dedicated hospital for Orang Asli indigenous communities", "Specialised tropical disease care", "Covers entire Peninsular Malaysia indigenous populations"],
-    infrastructure: { yearEstablished: 1958, totalBeds: 150, icuBeds: 6, nicuBeds: 0, operatingTheatres: 3, area: "~8 acres", buildings: "Main Block", helipad: true, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Km 16, Jalan Pahang, 53000 Gombak, Selangor", mainLine: "+603-6189 2533 (verify)", emergencyLine: "+603-6189 2533 ext. A&E", appointmentLine: "+603-6189 2533 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Orang Asli Gombak" },
-    transport: { nearest: "Batu Caves — 15 min taxi", bus: "RapidKL bus routes (Gombak)", highway: "Route 1 / Middle Ring Road 2 (MRR2)", landmark: "Gombak, near Batu Caves" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Tropical Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Infectious Disease"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Hospital Kuala Lumpur", note: "Community hospital for Orang Asli" }],
-      byReferral: ["Complex → HKL"]
-    },
-    transferPathway: { summary: "Dedicated Orang Asli hospital. Complex → HKL.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "Dedicated hospital for Orang Asli indigenous communities", secondarySpecialties: "Tropical Medicine, General Medicine",
-    fullSpecialties: ["General Medicine", "Surgery", "Tropical Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MOH-funded. Free for Orang Asli.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH specialists with community health training.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~150 beds (est.). Dedicated hospital for Orang Asli communities.", notableGaps: "Complex subspecialties → HKL."
   },
   {
     id: "tawakal-kl",
@@ -1671,58 +1645,6 @@ export const HOSPITALS_KL = [
     gaps: "No transplant services.", robotics: "Standard imaging.", doctorQualifications: "MOH-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Tawakkal Specialist Hospital", url: "https://www.tawakal.com.my" }],
     verifiedNotes: "~200 beds (est.). Private hospital, Jalan Pahang KL.", notableGaps: "No transplant services."
-  },
-  {
-    id: "dsh-kl",
-    name: "DSH Medical Centre",
-    nameShort: "DSH Medical Centre",
-    sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Kuala Lumpur",
-    intro: "DSH Medical Centre (formerly Damansara Specialist Hospital) serves the residential communities of Damansara and northern KL with comprehensive private specialist care.",
-    famousFor: ["Established private specialist hospital — Damansara area", "Long-established private hospital serving northern KL"],
-    infrastructure: { yearEstablished: 1990, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block, Specialist Wing", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "Damansara, Kuala Lumpur", mainLine: "+603-7722 2692 (verify)", emergencyLine: "+603-7722 2692 ext. A&E", appointmentLine: "+603-7722 2692 (verify)", website: "https://www.moh.gov.my", mapQuery: "DSH Medical Centre Damansara KL" },
-    transport: { nearest: "Bandar Utama LRT (Kelana Jaya Line) — 10 min taxi; no direct walking route", bus: "RapidKL bus routes", highway: "LDP / Penchala Link", landmark: "Damansara area, northern Kuala Lumpur" },
-    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Orthopaedics", "Obstetrics", "Paediatrics", "ENT"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Gleneagles KL / Prince Court", note: "Community private hospital" }],
-      byReferral: ["Complex → Gleneagles KL or UKMSC"]
-    },
-    transferPathway: { summary: "Private hospital. Complex → Gleneagles KL.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private specialist — Damansara area, northern KL", secondarySpecialties: "General Medicine, Orthopaedics",
-    fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
-    roomRate: "RM 180–450/night", roomRateRaw: 280, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "Standard imaging.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~150 beds (est.). Private specialist, Damansara KL.", notableGaps: "Complex → Gleneagles KL."
-  },
-  {
-    id: "wh-bangsar",
-    name: "Pantai Hospital Bangsar South",
-    nameShort: "Pantai Bangsar South",
-    sector: "private", tier: "tertiary", state: "Kuala Lumpur", city: "Kuala Lumpur",
-    intro: "Pantai Hospital Bangsar South is a private tertiary hospital in the Bangsar South commercial hub, serving the growing population of urban south KL.",
-    famousFor: ["Private tertiary hospital — Bangsar South urban hub KL", "IHH network hospital in south KL"],
-    infrastructure: { yearEstablished: 2018, totalBeds: 250, icuBeds: 18, nicuBeds: 8, operatingTheatres: 8, area: "~5 acres", buildings: "Main Block, Tower", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "Bangsar South, 59200 Kuala Lumpur", mainLine: "+603-2241 9999 (verify)", emergencyLine: "+603-2241 9999 ext. A&E", appointmentLine: "+603-2241 9999 (verify)", website: "https://www.pantai.com.my", mapQuery: "Pantai Hospital Bangsar South KL" },
-    transport: { nearest: "Abdullah Hukum LRT (KJ14, Kelana Jaya Line) — ~7 min walk; KTM KL Eco City — ~8 min walk", bus: "Routes: 750, 751, 772, 780, T788-T791, GOKL-06; bus stops along Jalan Bangsar South", highway: "Federal Highway / Sprint", landmark: "Bangsar South / KL Eco City" },
-    facilities: { pharmacy24h: true, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "Cardiology", "General Surgery", "Orthopaedics", "Oncology", "Neurology", "Obstetrics", "Paediatrics", "ENT", "Ophthalmology"],
-      notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre" }],
-      byReferral: ["Complex national → public centres"]
-    },
-    transferPathway: { summary: "Private tertiary. Complex national → public centres.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private tertiary — Bangsar South, KL", secondarySpecialties: "Cardiology, Oncology, Orthopaedics",
-    fullSpecialties: ["Cardiology", "Surgery", "Oncology", "Orthopaedics", "Obstetrics"],
-    roomRate: "RM 250–650/night", roomRateRaw: 380, insurance: "Major panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
-    gaps: "No transplant services.", robotics: "Selected equipment.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Hospital", url: "https://www.pantai.com.my" }],
-    verifiedNotes: "~250 beds (est.). Private tertiary, Bangsar South KL.", notableGaps: "No transplant services."
   },
   {
     id: "hospital-tunku-azizah", // Hospital Tunku Azizah
@@ -2763,5 +2685,110 @@ export const HOSPITALS_KL = [
       { label: "iHEAL Medical Centre", url: "https://www.iheal.com.my" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
-  }
+  },
+{
+    id: "hrc-cheras",
+    name: "Hospital Rehabilitasi Cheras (HRC)",
+    nameShort: "HRC Cheras",
+    sector: "public",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Cheras, Kuala Lumpur",
+    intro: "Hospital Rehabilitasi Cheras (HRC) is Malaysia's national public rehabilitation specialist hospital, dedicated exclusively to rehabilitation medicine. Located in Cheras, it is the country's primary centre for physical medicine and rehabilitation following stroke, spinal cord injury, traumatic brain injury, and major orthopaedic procedures.",
+    famousFor: ["Malaysia's national public rehabilitation specialist hospital", "Stroke rehabilitation centre", "Spinal cord injury and traumatic brain injury rehab", "Physical medicine and rehabilitation excellence"],
+    infrastructure: {
+      yearEstablished: 1987,
+      totalBeds: 200,
+      icuBeds: 0,
+      nicuBeds: 0,
+      operatingTheatres: 0,
+      area: "~10 acres",
+      buildings: "Rehabilitation Wards Block, Therapy Block, Outpatient Block",
+      helipad: false,
+      parkingBays: "~200 bays",
+      parkingRate: "Free"
+    },
+    contact: {
+      address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur (WRONG JURISDICTION — HRC is under JKN Kuala Lumpur, not Putrajaya)",
+      mainLine: "+603-9145 3400",
+      emergencyLine: "+603-9145 7000 (no emergency dept — refer to HKL or HCTM)",
+      appointmentLine: "+603-9145 7000 (verify)",
+      website: "https://jknkl.moh.gov.my/hrc/",
+      mapQuery: "Hospital Rehabilitasi Cheras HRC Kuala Lumpur"
+    },
+    transport: {
+      nearest: "No direct rail station; Taman Midah MRT (KG11, Kajang Line) — 25 min walk or short taxi; bus T401/T400 from Cheras area stops ~5 min walk from hospital — Grab from any MRT is the practical choice",
+      bus: "Rapid KL Bus routes (Cheras area)",
+      highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
+      landmark: "Cheras, near UKM Medical Campus (HCTM/UKMMC)"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Available daytime",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Limited",
+      patientTransport: "Patient transport for outpatient therapy available"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "N/A",
+      paediatric: "As per ward policy",
+      maternity: "N/A",
+      notes: "Rehabilitation hospital — visiting hours may be flexible to support family involvement in rehabilitation. Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Physical Medicine & Rehabilitation (PMR)",
+        "Stroke Rehabilitation",
+        "Spinal Cord Injury Rehabilitation",
+        "Traumatic Brain Injury Rehabilitation",
+        "Orthopaedic Rehabilitation",
+        "Amputation Rehabilitation & Prosthetics",
+        "Neurological Rehabilitation",
+        "Paediatric Rehabilitation",
+        "Occupational Therapy",
+        "Physiotherapy",
+        "Speech Language Therapy",
+        "Psychology (rehabilitation)",
+        "Social Work (rehabilitation)"
+      ],
+      notAvailable: [
+        { specialty: "Emergency Medicine (A&E)", transferTo: "Hospital Kuala Lumpur (HKL) or HCTM", note: "No emergency department — rehabilitation hospital only" },
+        { specialty: "Acute Medical/Surgical Care", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Rehabilitation hospital — no acute care" }
+      ],
+      byReferral: ["All admissions via referral from acute hospitals only"]
+    },
+    transferPathway: {
+      summary: "HRC is a national specialist rehabilitation hospital. All admissions are by referral from acute hospitals. Medical emergencies in HRC patients are managed at HKL or HCTM.",
+      routes: [
+        { condition: "Medical emergency in inpatient", to: "Hospital Kuala Lumpur (HKL)", reason: "Nearest acute hospital", distanceKm: 5 }
+      ],
+      howToTransfer: "Admission requires referral from acute treating hospital. Patient must be medically stable before transfer to HRC."
+    },
+    specialtyRanks: {
+      "Rehabilitation Medicine": { rank: "National #1 (Public)", desc: "Malaysia's designated national public rehabilitation specialist hospital" }
+    },
+    accreditations: ["MSQH Accredited", "MOH National Rehabilitation Hospital Designation"],
+    verifiedNotes: "~200 beds (est.). National public rehabilitation specialist hospital in Cheras KL. Admission by referral only — not a walk-in or emergency hospital.",
+    notableGaps: "No emergency department. No acute medical or surgical care. Admission by referral only.",
+    primaryExcellence: "National public rehabilitation specialist hospital — stroke, spinal, TBI rehabilitation",
+    secondarySpecialties: "Prosthetics, Paediatric Rehabilitation, Neurological Rehabilitation",
+    fullSpecialties: ["Physical Medicine & Rehabilitation", "Stroke Rehab", "Spinal Cord Injury Rehab", "TBI Rehab", "Paediatric Rehab"],
+    roomRate: "RM 5 – RM 20 (Subsidised Public)",
+    roomRateRaw: 5,
+    insurance: "Government subsidised. FPP scheme may apply.",
+    fppScheme: true,
+    fppDeposit: "RM 200–500",
+    gaps: "No emergency care. No acute surgery. Admission by referral only. Limited private room availability.",
+    robotics: "Rehabilitation equipment. Basic imaging.",
+    doctorQualifications: "MOH physical medicine and rehabilitation (PMR) specialists — MMC-registered with PMR fellowship training.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: null,
+    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
 ];

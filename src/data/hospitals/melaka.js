@@ -55,32 +55,6 @@ export const HOSPITALS_MELAKA = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
-    id: "hmerlimau",
-    name: "Hospital Merlimau",
-    nameShort: "Hospital Merlimau",
-    sector: "public", tier: "district", state: "Melaka", city: "Merlimau",
-    intro: "Note: No standalone MOH hospital named 'Hospital Merlimau' is confirmed in official MOH records. The three MOH hospitals in Melaka are Hospital Melaka, Hospital Alor Gajah, and Hospital Jasin. Merlimau falls in the Jasin district and is served by Klinik Kesihatan Merlimau (06-263 1533) and Hospital Jasin. This entry may be erroneous.",
-    famousFor: ["Health services for Merlimau area — verify existence before visiting"],
-    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 77300 Merlimau, Melaka", mainLine: "+606-528 2000 (UNVERIFIED)", emergencyLine: "Unverified — call 999 for emergencies", appointmentLine: "+606-528 2000 (UNVERIFIED)", website: "https://www.moh.gov.my", mapQuery: "Hospital Merlimau Melaka" },
-    transport: { nearest: "Merlimau town — 5 min walk", bus: "Local bus routes", highway: "North-South Highway — Exit Jasin/Merlimau", landmark: "Merlimau town, Melaka" },
-    facilities: { pharmacy24h: false, cafeteria: "Limited", atm: "Available in town", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU (very basic)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Most specialties", transferTo: "Hospital Melaka or Hospital Jasin", note: "Small district hospital" }],
-      byReferral: ["Most specialties — Hospital Melaka or Hospital Jasin"]
-    },
-    transferPathway: { summary: "Small district hospital. Most cases → Hospital Jasin or Hospital Melaka.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    verifiedNotes: "EXISTENCE UNVERIFIED — No 'Hospital Merlimau' confirmed in MOH hospital registry. Likely a Klinik Kesihatan only. Nearest hospital: Hospital Jasin.", notableGaps: "May not be a full hospital — verify before visiting.",
-    primaryExcellence: "District hospital — Merlimau, Melaka", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
     id: "mahkota",
     name: "Mahkota Medical Centre",
     nameShort: "Mahkota Medical",
@@ -145,35 +119,6 @@ export const HOSPITALS_MELAKA = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Group", url: "https://www.pantai.com.my" }]
   },
   {
-    id: "columbia-melaka",
-    name: "Columbia Asia Hospital Melaka",
-    nameShort: "Columbia Asia Melaka",
-    sector: "private", tier: "tertiary", state: "Melaka", city: "Melaka",
-    intro: "Note: Columbia Asia Hospital Melaka does not appear in Columbia Asia / Asia OneHealthcare's verified hospital list for Malaysia. No Columbia Asia branch in Melaka has been confirmed. This entry may be erroneous — the nearest confirmed Columbia Asia is in Seremban (Negeri Sembilan).",
-    famousFor: ["UNVERIFIED — no confirmed Columbia Asia hospital in Melaka"],
-    infrastructure: { yearEstablished: 2009, totalBeds: 100, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1.50/hour" },
-    contact: { address: "Jalan Pandan Indah, 75400 Melaka", mainLine: "+606-288 6888 (UNVERIFIED)", emergencyLine: "Unverified — call 999 for emergencies", appointmentLine: "+606-288 6888 (UNVERIFIED)", website: "https://www.columbiaasia.com/malaysia/", mapQuery: "Columbia Asia Hospital Melaka" },
-    transport: { nearest: "Melaka town — 10 min taxi", bus: "Melaka bus routes", highway: "North-South Highway — Exit Melaka town", landmark: "Melaka city" },
-    facilities: { pharmacy24h: false, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
-    visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT"],
-      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Hospital Melaka or Mahkota", note: "Refer to larger centres" }],
-      byReferral: ["Complex cases — Mahkota or Hospital Melaka"]
-    },
-    transferPathway: { summary: "Community private hospital.", routes: [], howToTransfer: "Specialist referral." },
-    specialtyRanks: {}, accreditations: ["MSQH Accredited", "Columbia Asia Group"],
-    verifiedNotes: "EXISTENCE UNVERIFIED — Columbia Asia / Asia OneHealthcare does not list a hospital in Melaka. This entry should be removed.",
-    notableGaps: "Small hospital.",
-    primaryExcellence: "Affordable private care — Melaka", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "RM 120 – RM 350+/night", roomRateRaw: 180,
-    insurance: "Some insurance panels.",
-    fppScheme: false, fppDeposit: "N/A",
-    gaps: "Small hospital.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Group", url: "https://www.columbiaasia.com" }]
-  },
-  {
     id: "halor-gajah",
     name: "Hospital Alor Gajah",
     nameShort: "Hospital Alor Gajah",
@@ -200,32 +145,6 @@ export const HOSPITALS_MELAKA = [
     verifiedNotes: "~130 beds (est.). District hospital for Alor Gajah.", notableGaps: "Specialist referral to Hospital Melaka."
   },
   {
-    id: "pantai-premier-melaka",
-    name: "Pantai Premier Hospital Melaka",
-    nameShort: "Pantai Premier Melaka",
-    sector: "private", tier: "secondary", state: "Melaka", city: "Melaka",
-    intro: "Note: 'Pantai Premier Hospital Melaka' is NOT an official Pantai/IHH brand. There is only ONE Pantai hospital in Melaka — Pantai Hospital Melaka (Ayer Keroh). This entry appears to be a duplicate or fictitious listing. The phone +606-283 9999 is WRONG for Pantai Melaka (correct number is +606-231 9999). Refer to the Pantai Hospital Melaka entry (KM 8, Lebuh Ayer Keroh).",
-    famousFor: ["DUPLICATE/FICTITIOUS — refer to Pantai Hospital Melaka (Ayer Keroh) instead"],
-    infrastructure: { yearEstablished: 1995, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "No. 24, Jalan Tun Ali, 75400 Melaka", mainLine: "WRONG — see Pantai Hospital Melaka +606-231 9999", emergencyLine: "+606-231 3610 (Pantai Hospital Melaka A&E)", appointmentLine: "+606-231 9999", website: "https://www.pantai.com.my/melaka", mapQuery: "Pantai Hospital Melaka Ayer Keroh" },
-    transport: { nearest: "Melaka city centre — 5 min taxi", bus: "Local bus routes", highway: "North-South Highway — Ayer Keroh exit", landmark: "Melaka historic city area" },
-    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "Mahkota Medical Centre", note: "Refer for complex cases" }],
-      byReferral: ["Complex → Mahkota Medical Centre"]
-    },
-    transferPathway: { summary: "Private specialist. Complex → Mahkota Medical Centre.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private specialist — Melaka city", secondarySpecialties: "General Medicine, Orthopaedics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Group", url: "https://www.pantai.com.my" }],
-    verifiedNotes: "DUPLICATE — this is NOT a separate hospital. The only Pantai hospital in Melaka is Pantai Hospital Melaka (Ayer Keroh), at KM 8, Lebuh Ayer Keroh, +606-231 9999.", notableGaps: "Refer to Pantai Hospital Melaka (pantai-ayer-keroh) entry."
-  },
-  {
     id: "hmelaka-manipal",
     name: "Melaka Manipal Medical College Hospital",
     nameShort: "MMMC Hospital",
@@ -250,32 +169,6 @@ export const HOSPITALS_MELAKA = [
     gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists and clinical faculty.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Manipal Academy", url: "https://www.manipal.edu.my" }],
     verifiedNotes: "~100 beds (est.). Teaching hospital of MMMC.", notableGaps: "Complex → Mahkota Medical Centre."
-  },
-  {
-    id: "hmelaka-tengah",
-    name: "Hospital Tengah Melaka",
-    nameShort: "Hospital Tengah",
-    sector: "public", tier: "district", state: "Melaka", city: "Melaka",
-    intro: "Note: 'Hospital Tengah Melaka' does not exist as a separate MOH hospital. Melaka Tengah is a district name, and Hospital Melaka (the state hospital) is located within this district. This entry likely duplicates Hospital Melaka and should be removed.",
-    famousFor: ["DOES NOT EXIST as a separate hospital — refer to Hospital Melaka"],
-    infrastructure: { yearEstablished: 1978, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Melaka Tengah, Melaka", mainLine: "UNVERIFIED — see Hospital Melaka", emergencyLine: "999 or Hospital Melaka +606-289 2344", appointmentLine: "UNVERIFIED", website: "https://jknmelaka.moh.gov.my/hmelaka/", mapQuery: "Hospital Melaka" },
-    transport: { nearest: "Melaka city — 10 min taxi", bus: "Local bus routes", highway: "North-South Highway — Ayer Keroh exit", landmark: "Melaka city area" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Melaka", note: "District hospital" }],
-      byReferral: ["Specialist → Hospital Melaka"]
-    },
-    transferPathway: { summary: "District hospital. Complex → Hospital Melaka.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Melaka Tengah", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "DOES NOT EXIST as a separate hospital. Hospital Melaka IS the state hospital located in Melaka Tengah district. This entry is a duplicate/error.", notableGaps: "Use Hospital Melaka instead."
   },
   {
     id: "kpj-melaka",

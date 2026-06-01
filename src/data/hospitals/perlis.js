@@ -78,30 +78,4 @@ export const HOSPITALS_PERLIS = [
     officialSources: [{ label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }],
     verifiedNotes: "~120 beds (est.). Primary private hospital in Perlis.", notableGaps: "Complex cases to Kedah/Penang."
   },
-  {
-    id: "hkangsar-perlis",
-    name: "Hospital Kangar",
-    nameShort: "Hospital Kangar",
-    sector: "public", tier: "district", state: "Perlis", city: "Kangar",
-    intro: "Hospital Kangar is a district-level facility in Kangar supporting Hospital Tuanku Fauziah for lower-acuity cases in the Perlis state capital.",
-    famousFor: ["District support hospital — Kangar, Perlis state capital"],
-    infrastructure: { yearEstablished: 1960, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Tun Abdul Razak, 01000 Kangar, Perlis (NOTE: Hospital Kangar = Hospital Tuanku Fauziah — same facility, duplicate entry)", mainLine: "See Hospital Tuanku Fauziah (+604-973 8000)", emergencyLine: "See HTF", appointmentLine: "See HTF", website: "https://jknperlis.moh.gov.my/htf/", mapQuery: "Hospital Tuanku Fauziah Kangar Perlis" },
-    transport: { nearest: "Kangar town — 5 min walk", bus: "Local Perlis bus", highway: "North-South Highway — Arau exit", landmark: "Kangar town centre" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["General Medicine", "Basic procedures"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Tuanku Fauziah", note: "Support facility" }],
-      byReferral: ["Specialist → Hospital Tuanku Fauziah"]
-    },
-    transferPathway: { summary: "Support district facility. Complex → HTF.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District support hospital — Kangar, Perlis", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~60 beds (est.). District support hospital for Kangar.", notableGaps: "Complex → Hospital Tuanku Fauziah."
-  }
 ];

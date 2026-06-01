@@ -222,32 +222,6 @@ export const HOSPITALS_NS = [
     verifiedNotes: "~60 beds (est.). District hospital for Rembau.", notableGaps: "Specialist referral to HTJ Seremban."
   },
   {
-    id: "hgemencheh",
-    name: "Hospital Gemencheh",
-    nameShort: "Hospital Gemencheh",
-    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Gemencheh",
-    intro: "Note: This facility is listed in some directories as a health clinic (Klinik Kesihatan Gemencheh) rather than a standalone district hospital. Cross-referencing with MOH hospital registry shows no confirmed standalone Hospital Gemencheh. Serves the Gemencheh area in Tampin district.",
-    famousFor: ["Health services for Gemencheh area, Tampin district"],
-    infrastructure: { yearEstablished: 1972, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~40 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 73400 Gemencheh, Negeri Sembilan", mainLine: "+606-699 2222 (unverified)", emergencyLine: "Unverified — call 999 for emergencies", appointmentLine: "+606-699 2222 (unverified)", website: "https://www.moh.gov.my", mapQuery: "Hospital Gemencheh Negeri Sembilan" },
-    transport: { nearest: "Gemencheh town — 5 min walk", bus: "Local bus routes", highway: "North-South Highway — Gemas exit", landmark: "Gemencheh town" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Tampin / HTJ Seremban", note: "District hospital" }],
-      byReferral: ["Specialist → HTJ Seremban"]
-    },
-    transferPathway: { summary: "District hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Gemencheh", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "Existence as a standalone hospital UNVERIFIED — likely a Klinik Kesihatan (health clinic) rather than a hospital. Phone unverified. Nearest hospital: Hospital Tampin.", notableGaps: "May not be a full hospital — verify before visiting."
-  },
-  {
     id: "hjelebu",
     name: "Hospital Jelebu",
     nameShort: "Hospital Jelebu",
@@ -272,58 +246,6 @@ export const HOSPITALS_NS = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~60 beds (est.). District hospital for Jelebu.", notableGaps: "Specialist referral to HTJ Seremban."
-  },
-  {
-    id: "columbia-ns",
-    name: "Columbia Asia Hospital Nilai",
-    nameShort: "Columbia Asia Nilai",
-    sector: "private", tier: "secondary", state: "Negeri Sembilan", city: "Nilai",
-    intro: "Note: Columbia Asia Hospital Nilai does not appear in Columbia Asia / Asia OneHealthcare's verified hospital list for Malaysia. No Columbia Asia hospital in Nilai is confirmed. This entry may be erroneous. Nearest confirmed Columbia Asia is in Seremban.",
-    famousFor: ["UNVERIFIED — no confirmed Columbia Asia hospital in Nilai, NS"],
-    infrastructure: { yearEstablished: 2010, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Nilai, Negeri Sembilan", mainLine: "+606-799 9999 (verify)", emergencyLine: "+606-799 9999 ext. A&E", appointmentLine: "+606-799 9999 (verify)", website: "https://www.columbiaasia.com", mapQuery: "Columbia Asia Hospital Nilai" },
-    transport: { nearest: "Nilai KTM station — 10 min taxi", bus: "Bus from Seremban (~30 min)", highway: "ELITE Highway — Nilai exit", landmark: "Nilai town, near KLIA" },
-    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "KPJ Seremban / Nilai Medical Centre", note: "Refer" }],
-      byReferral: ["Complex → KPJ Seremban"]
-    },
-    transferPathway: { summary: "Private hospital. Complex → KPJ Seremban.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private hospital — Nilai, N. Sembilan", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia", url: "https://www.columbiaasia.com" }],
-    verifiedNotes: "UNVERIFIED — Columbia Asia / Asia OneHealthcare does not list a hospital in Nilai, NS. This entry should be removed or verified directly with Columbia Asia.", notableGaps: "Existence unconfirmed."
-  },
-  {
-    id: "hgemas",
-    name: "Hospital Gemas",
-    nameShort: "Hospital Gemas",
-    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Gemas",
-    intro: "Note: No standalone MOH hospital named 'Hospital Gemas' is confirmed in the official MOH hospital registry. Gemas (rail junction town, Tampin district) is served by Klinik Kesihatan Gemas and Hospital Tampin as the nearest district hospital.",
-    famousFor: ["Health services for Gemas rail junction town, Tampin district"],
-    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 73400 Gemas, Negeri Sembilan", mainLine: "+606-798 2222 (unverified)", emergencyLine: "Unverified — call 999 for emergencies", appointmentLine: "+606-798 2222 (unverified)", website: "https://www.moh.gov.my", mapQuery: "Hospital Gemas Negeri Sembilan" },
-    transport: { nearest: "Gemas KTM Junction — 10 min walk", bus: "Bus from Seremban (~1.5 hrs)", highway: "North-South Highway — Gemas exit", landmark: "Gemas rail junction town" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Tampin / HTJ Seremban", note: "District hospital" }],
-      byReferral: ["Specialist → HTJ Seremban"]
-    },
-    transferPathway: { summary: "District hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Gemas", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "Existence as a standalone hospital UNVERIFIED — likely a Klinik Kesihatan rather than a hospital. Phone unverified. Nearest hospital: Hospital Tampin.", notableGaps: "May not be a full hospital — verify before visiting."
   },
   {
     id: "hserting",
