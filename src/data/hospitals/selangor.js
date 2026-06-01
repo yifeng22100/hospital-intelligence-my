@@ -138,7 +138,7 @@ export const HOSPITALS_SELANGOR = [
       mainLine: "+603-6156 0111",
       emergencyLine: "+603-6156 0111 ext. A&E",
       appointmentLine: "+603-6156 0111",
-      website: "https://hsgb.moh.gov.my",
+      website: "https://hsgbuloh.moh.gov.my",
       mapQuery: "Hospital Sungai Buloh Selangor"
     },
     transport: {
@@ -214,7 +214,7 @@ export const HOSPITALS_SELANGOR = [
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [
-      { label: "Official Website", url: "https://hsgb.moh.gov.my" },
+      { label: "Official Website", url: "https://hsgbuloh.moh.gov.my" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
   },
@@ -596,7 +596,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Kajang is the main public hospital for the Kajang and Nilai corridor, serving a rapidly growing population in southern Selangor. It provides comprehensive secondary care services.",
     famousFor: ["Main public hospital for Kajang / southern Selangor", "Serves the Kajang-Nilai growth corridor"],
     infrastructure: { yearEstablished: 1966, totalBeds: 400, icuBeds: 20, nicuBeds: 8, operatingTheatres: 8, area: "~10 acres", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Jalan Sungai Jelok, 43000 Kajang, Selangor", mainLine: "+603-8736 6500", emergencyLine: "+603-8736 6500 ext. A&E", appointmentLine: "+603-8736 6500", website: "https://www.moh.gov.my", mapQuery: "Hospital Kajang Selangor" },
+    contact: { address: "Jalan Sungai Jelok, 43000 Kajang, Selangor", mainLine: "+603-8736 6500", emergencyLine: "+603-8736 6500 ext. A&E", appointmentLine: "+603-8736 6500", website: "http://hkjg.moh.gov.my/", mapQuery: "Hospital Kajang Selangor" },
     transport: { nearest: "Kajang MRT/KTM Station — 10 min taxi", bus: "Rapid KL Bus routes (Kajang)", highway: "SILK — Exit Kajang", landmark: "Kajang town centre" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Limited" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner: unrestricted", notes: "Confirm with ward." },

@@ -149,7 +149,7 @@ export const HOSPITALS_NS = [
     intro: "Nilai Medical Centre serves the Nilai township, which is rapidly growing with the KLIA and Bandar Enstek development.",
     famousFor: ["Private hospital serving Nilai / KLIA corridor"],
     infrastructure: { yearEstablished: 2005, totalBeds: 100, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1.50/hour" },
-    contact: { address: "Persiaran Nilai Perdana 1, Nilai, 71800 Negeri Sembilan", mainLine: "+606-850 6888 (verify)", emergencyLine: "+606-850 6888 ext. A&E (verify)", appointmentLine: "+606-850 6888 (verify)", website: "https://www.moh.gov.my", mapQuery: "Nilai Medical Centre Negeri Sembilan" },
+    contact: { address: "Persiaran Nilai Perdana 1, Nilai, 71800 Negeri Sembilan", mainLine: "+606-850 6888 (verify)", emergencyLine: "+606-850 6888 ext. A&E (verify)", appointmentLine: "+606-850 6888 (verify)", website: "https://www.nilaimc.com/", mapQuery: "Nilai Medical Centre Negeri Sembilan" },
     transport: { nearest: "Nilai KTM Komuter Station — 10 min taxi", bus: "Local bus routes (Nilai)", highway: "North-South Highway — Exit Nilai/KLIA", landmark: "Nilai town centre" },
     facilities: { pharmacy24h: false, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
     visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },

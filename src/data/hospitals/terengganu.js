@@ -229,7 +229,7 @@ export const HOSPITALS_TERENGGANU = [
     intro: "KMC (Kuala Terengganu Medical Centre) is a private hospital providing specialist care in the Kuala Terengganu area.",
     famousFor: ["Private specialist hospital — Kuala Terengganu"],
     infrastructure: { yearEstablished: 2005, totalBeds: 80, icuBeds: 5, nicuBeds: 2, operatingTheatres: 3, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Kuala Terengganu, Terengganu", mainLine: "+609-624 0000 (verify)", emergencyLine: "+609-624 0000 ext. A&E", appointmentLine: "+609-624 0000 (verify)", website: "https://www.moh.gov.my", mapQuery: "KMI Kuala Terengganu Medical Centre" },
+    contact: { address: "Kuala Terengganu, Terengganu", mainLine: "+609-624 0000 (verify)", emergencyLine: "+609-624 0000 ext. A&E", appointmentLine: "+609-624 0000 (verify)", website: "https://kmihealthcare.com/home/our-hospitals/kmi-kuala-terengganu-medical-center/", mapQuery: "KMI Kuala Terengganu Medical Centre" },
     transport: { nearest: "Kuala Terengganu town — taxi recommended", bus: "Local bus routes", highway: "Route 3 East Coast Highway", landmark: "Kuala Terengganu town" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
