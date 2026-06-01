@@ -332,7 +332,7 @@ export const HOSPITALS_NS = [
     sector: "public", tier: "district", state: "Negeri Sembilan", city: "Bahau",
     intro: "Hospital Serting serves the Bahau area in the Jempol district of Negeri Sembilan, an interior agricultural community.",
     famousFor: ["District hospital for Bahau / Jempol district"],
-    infrastructure: { yearEstallished: 1972, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1972, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
     contact: { address: "Bahau, 72100 Jempol, Negeri Sembilan", mainLine: "+606-454 2222 (verify)", emergencyLine: "+606-454 2222 ext. A&E", appointmentLine: "+606-454 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Bahau Negeri Sembilan" },
     transport: { nearest: "Bahau KTM station — 10 min walk", bus: "Bus from Seremban (~1.5 hrs)", highway: "Route 9 / interior road", landmark: "Bahau town, Jempol district" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },

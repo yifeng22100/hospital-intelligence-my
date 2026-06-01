@@ -511,7 +511,7 @@ export const HOSPITALS_PERAK = [
     sector: "public", tier: "district", state: "Perak", city: "Tanjong Malim",
     intro: "Hospital Tanjong Malim serves the Muallim district in southern Perak, which is home to Proton City and a growing population near the Selangor border.",
     famousFor: ["District hospital for Tanjong Malim — Proton City and southern Perak", "Near Selangor-Perak border"],
-    infrastructure: { yearEstallished: 1968, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1968, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
     contact: { address: "Jalan Hospital, 35900 Tanjong Malim, Perak", mainLine: "+605-459 2222 (verify)", emergencyLine: "+605-459 2222 ext. A&E", appointmentLine: "+605-459 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Tanjong Malim Perak" },
     transport: { nearest: "Tanjong Malim KTM station — 5 min walk", bus: "Bus from Ipoh or KL (~1.5 hrs)", highway: "North-South Highway — Tanjong Malim exit", landmark: "Tanjong Malim town / Proton City" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },

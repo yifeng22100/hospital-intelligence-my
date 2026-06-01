@@ -207,7 +207,9 @@ function OverviewTab({ h }) {
             {h.contact.emergencyLine && (
               <p>
                 <span className="font-medium text-ink">Emergency: </span>
-                <span className="text-ink-secondary">{h.contact.emergencyLine}</span>
+                <a href={`tel:${h.contact.emergencyLine.replace(/[\s\-()]/g, '').replace(/ext\..*/i, '').trim()}`} className="text-red-600 hover:underline font-medium">
+                  {h.contact.emergencyLine}
+                </a>
               </p>
             )}
             {h.contact.website && (

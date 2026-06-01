@@ -441,7 +441,7 @@ export const HOSPITALS_PAHANG = [
     sector: "public", tier: "secondary", state: "Pahang", city: "Kuantan",
     intro: "Hospital Rehabilitasi Kuantan is a public rehabilitation hospital serving patients who need physical and medical rehabilitation after injury or surgery in Pahang.",
     famousFor: ["Public rehabilitation hospital for Pahang state"],
-    infrastructure: { yearEstallished: 1995, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1995, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
     contact: { address: "Kuantan, Pahang", mainLine: "+609-516 2222 (verify)", emergencyLine: "N/A — rehabilitation only", appointmentLine: "+609-516 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Rehabilitasi Kuantan Pahang" },
     transport: { nearest: "Kuantan town — 15 min taxi", bus: "Local bus routes", highway: "Kuantan-Gambang Highway (ECE)", landmark: "Kuantan, Pahang" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },

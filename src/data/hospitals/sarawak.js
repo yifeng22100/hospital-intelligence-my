@@ -1524,7 +1524,7 @@ export const HOSPITALS_SARAWAK = [
     sector: "public", tier: "district", state: "Sarawak", city: "Bintangor",
     intro: "Hospital Binatang (also referred to as Hospital Bintangor) serves the Binatang/Bintangor area in the Sarikei Division of central Sarawak.",
     famousFor: ["District hospital for Bintangor / Binatang area, Sarikei Division"],
-    infrastructure: { yearEstallished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
     contact: { address: "Jalan Hospital, 96600 Bintangor, Sarawak", mainLine: "+6084-690 222 (verify)", emergencyLine: "+6084-690 222 ext. A&E", appointmentLine: "+6084-690 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Bintangor Sarawak" },
     transport: { nearest: "Bintangor town — 5 min walk", bus: "Bus from Sibu (~1.5 hrs)", highway: "Pan Borneo Highway", landmark: "Bintangor town, Rajang river area" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
