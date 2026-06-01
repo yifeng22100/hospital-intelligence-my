@@ -6,7 +6,7 @@ import { VERIFY_GUIDE } from '../data/verify-guide'
 import { EMERGENCY_PROTOCOLS } from '../data/emergency-protocols'
 import { GLOSSARY } from '../data/glossary'
 import { NGO_SUPPORT } from '../data/ngo-support'
-import { SPECIALTIES_REFERENCE, SPECIALTY_CATEGORIES } from '../data/specialties-reference'
+import { SPECIALTIES_REFERENCE } from '../data/specialties-reference'
 
 const TOPICS = [
   { id: 'hacks',      icon: '💡', label: 'Insider Tips',      desc: '12 things most patients don\'t know' },
@@ -1145,15 +1145,13 @@ function NgoSection() {
 
   const sectionConfig = [
     { key: 'cancer',       label: '🎗️ Cancer Support',          color: '#dc2626' },
+    { key: 'heart',        label: '❤️ Heart & Cardiac',          color: '#e11d48' },
     { key: 'kidney',       label: '🫘 Kidney & Dialysis',        color: '#7c3aed' },
-    { key: 'cardiac',      label: '❤️ Heart & Cardiac',          color: '#e11d48' },
-    { key: 'mental',       label: '🧘 Mental Health',             color: '#0891b2' },
+    { key: 'mentalHealth', label: '🧘 Mental Health',             color: '#0891b2' },
     { key: 'disability',   label: '♿ Disability & Rehab',       color: '#16a34a' },
     { key: 'financial',    label: '💰 Financial Assistance',      color: '#d97706' },
-    { key: 'palliative',   label: '🕊️ Palliative & Hospice',     color: '#64748b' },
-    { key: 'children',     label: '👶 Children & Paediatric',    color: '#2563eb' },
-    { key: 'women',        label: '👩 Women & Maternal Health',  color: '#9333ea' },
-    { key: 'rare',         label: '🔬 Rare & Chronic Diseases',  color: '#0d9488' },
+    { key: 'elderly',      label: '👴 Elderly & Geriatric',      color: '#64748b' },
+    { key: 'general',      label: '🏥 General Patient Support',  color: '#0d9488' },
   ]
 
   const availableSections = sectionConfig.filter(s => NGO_SUPPORT[s.key]?.length > 0)
@@ -1246,25 +1244,27 @@ function NgoSection() {
 /* ─── Specialties Guide ──────────────────────────────────────────── */
 
 function SpecialtiesSection() {
-  const [cat, setCat] = useState('all')
+  const [search, setSearch] = useState('')
   const [openSpec, setOpenSpec] = useState(null)
 
-  const filtered = cat === 'all' ? SPECIALTIES_REFERENCE : SPECIALTIES_REFERENCE.filter(s => s.category === cat)
+  const filtered = SPECIALTIES_REFERENCE.filter(s => {
+    const q = search.toLowerCase()
+    return !q || s.name.toLowerCase().includes(q) || s.description?.toLowerCase().includes(q)
+  })
 
   return (
     <div className="space-y-5">
       <p className="text-ink-secondary text-[14px] max-w-[640px]">
-        Where to go in Malaysia for each medical speciality — best public and private centres, cost guide, insurance tips, and typical wait times.
+        22 medical specialties — when to see each specialist, what they do, top centres in Malaysia, and what to expect.
       </p>
 
-      <div className="flex flex-wrap gap-2">
-        {SPECIALTY_CATEGORIES.map(c => (
-          <button key={c.id} onClick={() => setCat(c.id)}
-            className={`px-3 py-1.5 rounded-full text-[12px] font-medium border transition-colors ${
-              cat === c.id ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-            }`}>{c.label}</button>
-        ))}
-      </div>
+      <input
+        type="search"
+        placeholder="Search specialties… (e.g. heart, cancer, eye)"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        className="w-full sm:max-w-sm border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
+      />
 
       <div className="space-y-2">
         {filtered.map(spec => {
@@ -1277,7 +1277,7 @@ function SpecialtiesSection() {
                   <span className="text-[20px]">{spec.icon}</span>
                   <div>
                     <p className="font-semibold text-ink text-[14px]">{spec.name}</p>
-                    <p className="text-ink-tertiary text-[12px] mt-0.5">{spec.overview.substring(0, 80)}…</p>
+                    <p className="text-ink-tertiary text-[12px] mt-0.5 line-clamp-1 max-w-[480px]">{spec.description?.substring(0, 85)}…</p>
                   </div>
                 </div>
                 <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-3 ${isOpen ? 'rotate-180' : ''}`}
@@ -1288,13 +1288,33 @@ function SpecialtiesSection() {
 
               {isOpen && (
                 <div className="px-4 pb-5 border-t border-ink-quaternary pt-4 space-y-5">
-                  <p className="text-ink-secondary text-[13px] leading-relaxed">{spec.overview}</p>
+                  {spec.emergencyNote && (
+                    <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2.5">
+                      <p className="font-semibold text-red-900 text-[12px] mb-0.5">🚨 Emergency</p>
+                      <p className="text-red-800 text-[12px] leading-relaxed">{spec.emergencyNote}</p>
+                    </div>
+                  )}
 
-                  {spec.keyProcedures?.length > 0 && (
+                  <p className="text-ink-secondary text-[13px] leading-relaxed">{spec.description}</p>
+
+                  {spec.symptoms?.length > 0 && (
                     <div>
-                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">Key Procedures / Treatments</h5>
+                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">When to See This Specialist</h5>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                        {spec.symptoms.map((s, i) => (
+                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                            <span className="text-brand mt-0.5 flex-shrink-0">•</span>{s}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {spec.commonProcedures?.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">Common Procedures / Investigations</h5>
                       <div className="flex flex-wrap gap-1.5">
-                        {spec.keyProcedures.map((p, i) => (
+                        {spec.commonProcedures.map((p, i) => (
                           <span key={i} className="bg-surface-secondary text-ink-secondary text-[11px] px-2.5 py-1 rounded-full border border-ink-quaternary">{p}</span>
                         ))}
                       </div>
@@ -1302,29 +1322,25 @@ function SpecialtiesSection() {
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {spec.publicCentres?.length > 0 && (
+                    {spec.topPublicCentres?.length > 0 && (
                       <div>
                         <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">🏥 Top Public Centres</h5>
-                        <div className="space-y-1.5">
-                          {spec.publicCentres.map((c, i) => (
-                            <div key={i} className="text-[12px]">
-                              <span className="font-medium text-ink">{c.name}</span>
-                              <span className="text-ink-tertiary ml-1">— {c.city}</span>
-                              <p className="text-ink-secondary leading-snug">{c.note}</p>
+                        <div className="space-y-1">
+                          {spec.topPublicCentres.map((c, i) => (
+                            <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                              <span className="text-brand mt-0.5 flex-shrink-0">✓</span>{c}
                             </div>
                           ))}
                         </div>
                       </div>
                     )}
-                    {spec.privateCentres?.length > 0 && (
+                    {spec.topPrivateCentres?.length > 0 && (
                       <div>
                         <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">🏢 Top Private Centres</h5>
-                        <div className="space-y-1.5">
-                          {spec.privateCentres.map((c, i) => (
-                            <div key={i} className="text-[12px]">
-                              <span className="font-medium text-ink">{c.name}</span>
-                              <span className="text-ink-tertiary ml-1">— {c.city}</span>
-                              <p className="text-ink-secondary leading-snug">{c.note}</p>
+                        <div className="space-y-1">
+                          {spec.topPrivateCentres.map((c, i) => (
+                            <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                              <span className="text-ink-tertiary mt-0.5 flex-shrink-0">›</span>{c}
                             </div>
                           ))}
                         </div>
@@ -1332,24 +1348,10 @@ function SpecialtiesSection() {
                     )}
                   </div>
 
-                  {spec.costGuide && (
-                    <div className="bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5">
-                      <p className="font-semibold text-amber-900 text-[12px] mb-1">💰 Cost Guide</p>
-                      <p className="text-amber-800 text-[12px] leading-relaxed">{spec.costGuide}</p>
-                    </div>
-                  )}
-
-                  {spec.insuranceTip && (
-                    <div className="bg-brand/5 border border-brand/20 rounded-xl px-3 py-2.5">
-                      <p className="font-semibold text-brand text-[12px] mb-1">🛡️ Insurance Tip</p>
-                      <p className="text-brand/80 text-[12px] leading-relaxed">{spec.insuranceTip}</p>
-                    </div>
-                  )}
-
-                  {spec.waitTimesPublic && (
+                  {spec.notes && (
                     <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
-                      <p className="font-semibold text-ink text-[12px] mb-1">⏱️ Public Hospital Wait Times</p>
-                      <p className="text-ink-secondary text-[12px] leading-relaxed">{spec.waitTimesPublic}</p>
+                      <p className="font-semibold text-ink text-[12px] mb-0.5">ℹ️ Notes</p>
+                      <p className="text-ink-secondary text-[12px] leading-relaxed">{spec.notes}</p>
                     </div>
                   )}
                 </div>
@@ -1357,6 +1359,9 @@ function SpecialtiesSection() {
             </div>
           )
         })}
+        {filtered.length === 0 && (
+          <p className="text-center text-ink-tertiary text-[13px] py-8">No specialties match your search.</p>
+        )}
       </div>
     </div>
   )
