@@ -1676,33 +1676,6 @@ var HOSPITALS_SELANGOR = [
     verifiedNotes: "~100 beds (est.). Private hospital, Rawang.", notableGaps: "Complex → Hospital Selayang."
   },
   {
-    id: "hsg-buloh",
-    name: "Hospital Sungai Buloh",
-    nameShort: "Hospital Sungai Buloh",
-    sector: "public", tier: "tertiary", state: "Selangor", city: "Sungai Buloh",
-    intro: "Hospital Sungai Buloh is a major public tertiary hospital serving the Petaling and Gombak districts, and is also Malaysia's national centre for leprosy and dermatology.",
-    famousFor: ["National leprosarium and dermatology centre", "Major public tertiary hospital serving NW Selangor and northern KL", "COVID-19 designated hospital during pandemic"],
-    infrastructure: { yearEstallished: 1930, totalBeds: 750, icuBeds: 40, nicuBeds: 12, operatingTheatres: 15, area: "~40 acres", buildings: "Multiple blocks", helipad: true, parkingBays: "~500 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 47000 Sungai Buloh, Selangor", mainLine: "+603-6145 9000", emergencyLine: "+603-6145 9000 ext. A&E", appointmentLine: "+603-6145 9000", website: "https://www.moh.gov.my", mapQuery: "Hospital Sungai Buloh Selangor" },
-    transport: { nearest: "Sungai Buloh MRT — 5 min taxi", bus: "Rapid KL bus T107", highway: "SPRINT / NKVE / Damansara-Shah Alam Elevated Expressway (DASH)", landmark: "Sungai Buloh town, northwest of KL" },
-    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Lobby", surau: "Multiple floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "ICU/HDU", "General Medicine", "General Surgery", "Cardiology", "Dermatology (National Centre)", "Leprosy (National Centre)", "Neurology", "Orthopaedics", "Obstetrics", "Paediatrics", "Respiratory Medicine", "Infectious Disease"],
-      notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre" }],
-      byReferral: ["Liver transplant → Hospital Selayang"]
-    },
-    transferPathway: { summary: "Major public tertiary. Complex national → specialist centres.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: { "Dermatology / Leprosy": { rank: "National #1", desc: "Malaysia's national centre for dermatology and leprosy" } },
-    accreditations: ["MOH Accredited", "MSQH Accredited"],
-    primaryExcellence: "National dermatology and leprosy centre; major public tertiary", secondarySpecialties: "Cardiology, Infectious Disease, Respiratory Medicine",
-    fullSpecialties: ["Emergency", "Cardiology", "Dermatology", "Neurology", "Obstetrics", "Paediatrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam / Socso.", fppScheme: true, fppDeposit: "N/A",
-    gaps: "No liver transplant.", robotics: "None.", doctorQualifications: "MOH specialists — dermatology and infectious disease specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~750 beds. Major public tertiary and national dermatology/leprosy centre.", notableGaps: "Liver transplant → Hospital Selayang."
-  },
-  {
     id: "kpj-klang-2",
     name: "Columbia Asia Hospital Klang",
     nameShort: "Columbia Asia Klang",
