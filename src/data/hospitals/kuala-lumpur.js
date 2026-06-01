@@ -1883,7 +1883,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Institut Jantung Negara IJN Jalan Tun Razak Kuala Lumpur"
     },
     transport: {
-      nearest: "Ampang Park MRT (PY20, Putrajaya Line) — ~8 min walk along Jalan Tun Razak; Conlay MRT (PY22) — ~12 min walk",
+      nearest: "Raja Uda MRT (PY19, Putrajaya Line) — ~6 min walk via Entrance B; Ampang Park MRT (PY20) — 10 min walk along Jalan Tun Razak",
       bus: "Bus stops: KL271 (IJN Barat) — 2 min; KL1638 (IJN Timur) — 3 min. Routes: 220, 302, 402, GOKL-05",
       highway: "DUKE / AKLEH — Exit Jalan Tun Razak",
       landmark: "Jalan Tun Razak, near Hospital Kuala Lumpur and PWTC"
