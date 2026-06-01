@@ -460,4 +460,30 @@ export const HOSPITALS_PAHANG = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). Public rehabilitation hospital, Kuantan.", notableGaps: "Acute cases → HTAA Kuantan."
   },
+  {
+    id: "hjengka",
+    name: "Hospital Jengka",
+    nameShort: "Hospital Jengka",
+    sector: "public", tier: "district", state: "Pahang", city: "Bandar Tun Abdul Razak Jengka",
+    intro: "Hospital Jengka is a MOH district hospital serving the Jengka township and surrounding FELDA plantation communities in the Maran district of Pahang. Operational since 1 August 1994, it is a 70-bed non-specialist hospital providing outpatient and inpatient services.",
+    famousFor: ["District hospital for Jengka FELDA township and plantation communities", "Non-specialist district hospital for central Pahang corridor"],
+    infrastructure: { yearEstablished: 1994, totalBeds: 70, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "26400 Bandar Tun Abdul Razak Jengka, Pahang", mainLine: "+609-466 2333", emergencyLine: "+609-466 2333 ext. A&E", appointmentLine: "+609-466 2333", website: "https://www.moh.gov.my", mapQuery: "Hospital Jengka Pahang" },
+    transport: { nearest: "Jengka township — 5 min walk", bus: "Bus from Temerloh (~1 hr) or Kuantan (~2 hrs)", highway: "Via Route 12 — Kuantan-Temerloh corridor", landmark: "Bandar Tun Abdul Razak Jengka township, Maran district" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)", "Paediatrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sultan Haji Ahmad Shah Temerloh / HTAA Kuantan", note: "Non-specialist district hospital" }],
+      byReferral: ["Specialist → Hospital Temerloh or HTAA Kuantan"]
+    },
+    transferPathway: { summary: "Non-specialist district hospital. Complex → Hospital Temerloh or HTAA Kuantan.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Jengka FELDA township, Maran district", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Non-specialist. Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "70 beds. Non-specialist district hospital, Jengka. Operational since 1 August 1994. Phone: +609-466 2333.", notableGaps: "Specialist referral to Hospital Temerloh or HTAA Kuantan."
+  }
 ];
