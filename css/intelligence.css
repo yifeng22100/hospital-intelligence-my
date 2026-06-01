@@ -1223,7 +1223,7 @@
    ══════════════════════════════════════════════════════════ */
 
 .intel-topic-panel {
-  margin-top: 1.75rem;
+  margin-top: 0;
   background: #fff;
   border: 1.5px solid var(--accent);
   border-radius: var(--radius-lg);

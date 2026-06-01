@@ -416,7 +416,7 @@
   z-index: 10;
   background: #fff;
   border-bottom: 1px solid var(--border);
-  padding: 1.5rem 2rem 1rem;
+  padding: 1.75rem 2.25rem 1.25rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -474,7 +474,7 @@
 .modal-tabs {
   display: flex;
   gap: 0.25rem;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 2.25rem;
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
   scrollbar-width: none;
@@ -513,7 +513,7 @@
 
 /* Modal tab panels */
 .modal-tab-panel {
-  padding: 1.75rem 2rem 2.5rem;
+  padding: 2rem 2.25rem 3rem;
   flex: 1;
 }
 
@@ -685,19 +685,83 @@
   letter-spacing: 0.03em;
 }
 
-/* ── Verified notes & notable gaps boxes ── */
+/* ── Verified notes & notable gaps ── */
 .verified-notes-box {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: var(--radius);
-  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left: 4px solid #16a34a;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.verified-notes-box::before {
+  content: '✔';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: #16a34a;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 900;
+  margin-top: 0.1rem;
+}
+.verified-notes-box h4 {
+  color: #15803d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+.verified-notes-box p {
+  font-size: 0.83rem;
+  color: #166534;
+  line-height: 1.55;
+  margin: 0;
 }
 
 .notable-gaps-box {
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  border-radius: var(--radius);
-  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-left: 4px solid #ea580c;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.notable-gaps-box::before {
+  content: '⚠';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: #ea580c;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 900;
+  margin-top: 0.1rem;
+}
+.notable-gaps-box h4 {
+  color: #c2410c;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+.notable-gaps-box p {
+  font-size: 0.83rem;
+  color: #7c2d12;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* ── Compare button on card ── */
@@ -1420,11 +1484,11 @@
 
   .modal-header {
     border-radius: 20px 20px 0 0;
-    padding: 1.25rem 1.25rem 0.75rem;
+    padding: 1.5rem 1.5rem 1rem;
   }
 
   .modal-tab-panel {
-    padding: 1.25rem 1.25rem 2rem;
+    padding: 1.5rem 1.5rem 2.5rem;
   }
 
   .spec-grid {
@@ -1792,19 +1856,151 @@
 
 #find-results-grid, #onboard-result-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
   margin-top: 1rem;
 }
+
+/* Find result card — redesigned with image, badges, clean layout */
 .find-result-card {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
   transition: box-shadow var(--transition), transform var(--transition);
+  box-shadow: var(--shadow-sm);
 }
-.find-result-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.find-result-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+/* Image section */
+.find-card-image {
+  height: 100px;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.find-card-image-public  { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #60a5fa 100%); }
+.find-card-image-private { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 60%, #a78bfa 100%); }
+.find-card-image-icon { font-size: 2rem; opacity: 0.55; }
+
+/* Card body */
+.find-card-body {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+/* Badges row */
+.find-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+.find-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.find-badge-public  { background: #dbeafe; color: #1d4ed8; }
+.find-badge-private { background: #ede9fe; color: #6d28d9; }
+.find-badge-tier    { background: #f1f5f9; color: #475569; }
+
+/* Hospital name */
+.find-card-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+/* Location */
+.find-card-location {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+/* Famous-for / reason */
+.find-card-reason {
+  font-size: 0.75rem;
+  color: var(--ink2);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* View Profile button */
+.find-card-btn {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+  padding: 0.4rem 0.9rem;
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.find-card-btn:hover { background: #334155; }
+
+/* No results */
+.find-no-results {
+  color: var(--muted);
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+  padding: 1.5rem 0;
+}
+/* Results header meta text */
+.results-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+.results-context {
+  font-size: 0.9rem;
+  color: var(--ink2);
+  margin-top: 0.2rem;
+}
+/* "View all N in directory" button */
+.find-more-btn {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 0.65rem 1.25rem;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+  margin-top: 0.25rem;
+  text-align: center;
+}
+.find-more-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+/* Legacy selectors (keep for backward compat) */
 .find-result-name { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
 .find-result-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; }
 .find-result-intro { font-size: 0.8rem; color: var(--ink2); line-height: 1.5; margin-bottom: 0.6rem; }

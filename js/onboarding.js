@@ -93,30 +93,40 @@ window.HI = window.HI || {};
     var matched = matchHospitals(allH, selectedIntent, selectedState);
 
     if (headerEl) {
+      var countText = HI.t('hospitals_matched').replace('{n}', matched.length);
       headerEl.innerHTML =
         '<h3>' + HI.t('onboarding_step3') + '</h3>' +
         '<p class="results-context">' + getIntentLabel(selectedIntent) + (selectedState ? ' &middot; ' + selectedState : '') + '</p>' +
-        '<p class="results-meta text-sm text-slate-500">' + matched.length + ' hospitals matched</p>';
+        '<p class="results-meta">' + countText + '</p>';
     }
     if (gridEl) {
       gridEl.innerHTML = '';
       var toShow = matched.slice(0, 6);
       if (toShow.length === 0) {
-        gridEl.innerHTML = '<p class="text-slate-500">No hospitals found for this selection. Try a different category or state.</p>';
+        gridEl.innerHTML = '<p class="find-no-results">' + HI.t('no_hospitals_found') + '</p>';
       }
       toShow.forEach(function(h) {
         var card = document.createElement('div');
         card.className = 'find-result-card';
+        var sectorLabel = HI.t('sector_' + h.sector) || h.sector;
+        var tierLabel = HI.t('tier_' + h.tier) || h.tier;
+        var reasonText = (h.famousFor && h.famousFor[0]) ? h.famousFor[0] : (h.primaryExcellence || '');
+        var imgSection = h.imageUrl
+          ? '<div class="find-card-image" style="background-image:url(\'' + h.imageUrl + '\')"></div>'
+          : '<div class="find-card-image find-card-image-' + h.sector + '"><span class="find-card-image-icon">&#127973;</span></div>';
         card.innerHTML =
-          '<div class="find-card-badges">' +
-            '<span class="badge-sector badge-' + h.sector + '">' + h.sector + '</span>' +
-            '<span class="badge-tier">' + h.tier + '</span>' +
-          '</div>' +
-          '<div class="find-card-name">' + h.name + '</div>' +
-          '<div class="find-card-state">' + h.state + ' &middot; ' + h.city + '</div>' +
-          '<div class="find-card-reason">' + (h.famousFor && h.famousFor[0] ? h.famousFor[0] : h.primaryExcellence) + '</div>' +
-          '<button class="btn-primary view-profile-btn" data-id="' + h.id + '">View Profile</button>';
-        card.querySelector('.view-profile-btn').addEventListener('click', function() {
+          imgSection +
+          '<div class="find-card-body">' +
+            '<div class="find-card-badges">' +
+              '<span class="find-badge find-badge-' + h.sector + '">' + sectorLabel + '</span>' +
+              '<span class="find-badge find-badge-tier">' + tierLabel + '</span>' +
+            '</div>' +
+            '<div class="find-card-name">' + h.name + '</div>' +
+            '<div class="find-card-location">&#128205; ' + h.city + ', ' + h.state + '</div>' +
+            (reasonText ? '<div class="find-card-reason">' + reasonText + '</div>' : '') +
+            '<button class="find-card-btn" data-id="' + h.id + '">' + HI.t('view_profile') + ' &#8594;</button>' +
+          '</div>';
+        card.querySelector('.find-card-btn').addEventListener('click', function() {
           window.HI.openModal(h.id);
           if (context === 'onboard') dismissOnboarding();
         });
@@ -125,8 +135,8 @@ window.HI = window.HI || {};
 
       if (matched.length > 6) {
         var moreBtn = document.createElement('button');
-        moreBtn.className = 'btn-secondary find-more-btn';
-        moreBtn.textContent = 'View all ' + matched.length + ' results in Directory';
+        moreBtn.className = 'find-more-btn';
+        moreBtn.textContent = HI.t('see_all_in_dir').replace('{n}', matched.length);
         moreBtn.addEventListener('click', function() {
           window.HI.showPanel('directory');
           window.HI.filterByIntent(selectedIntent, selectedState);
@@ -139,42 +149,77 @@ window.HI = window.HI || {};
 
   function matchHospitals(all, intent, state) {
     var intentSpecMap = {
-      'emergency': ['Emergency Medicine', 'Trauma', 'ICU'],
-      'surgery': ['General Surgery', 'Cardiothoracic', 'Neurosurgery', 'Orthopaedic', 'Robotic'],
-      'cancer': ['Oncology', 'Haematology', 'Cancer', 'Radiation', 'Clinical Oncology'],
-      'heart': ['Cardiology', 'Cardiothoracic', 'Cardiac'],
-      'maternity': ['Obstetrics', 'Gynaecology', 'Maternity', 'O&G'],
-      'fertility': ['Fertility', 'IVF', 'Reproductive'],
-      'child': ['Paediatric', 'Neonatology', 'Child', 'NICU'],
+      'emergency': ['Emergency', 'Trauma', 'ICU', 'A&E', 'Accident'],
+      'surgery': ['Surgery', 'Cardiothoracic', 'Neurosurgery', 'Orthopaedic', 'Robotic', 'Surgical'],
+      'cancer': ['Oncology', 'Haematology', 'Cancer', 'Radiation', 'Chemotherapy'],
+      'heart': ['Cardiology', 'Cardiothoracic', 'Cardiac', 'Heart', 'IJN'],
+      'maternity': ['Obstetrics', 'Gynaecology', 'Maternity', 'O&G', 'Midwifery'],
+      'fertility': ['Fertility', 'IVF', 'Reproductive', 'ART'],
+      'child': ['Paediatric', 'Neonatology', 'Child', 'NICU', 'Pediatric'],
       'specialist': [],
       'affordable': [],
       'insurance': [],
-      'trial': ['Clinical Research', 'Clinical Trial', 'Research'],
-      'elder': ['Geriatric', 'Elder', 'Palliative'],
-      'mental': ['Psychiatry', 'Psychology', 'Mental'],
+      'trial': ['Clinical Research', 'Clinical Trial', 'Research', 'NMRR', 'Trial'],
+      'elder': ['Geriatric', 'Geriatrics', 'Elder', 'Palliative', 'Rehabilitation'],
+      'mental': ['Psychiatry', 'Psychology', 'Mental', 'Psychiatric'],
       'explore': []
     };
     var specs = intentSpecMap[intent] || [];
-    var scored = all.map(function(h) {
+
+    // Filter to state first (mandatory) — unless no state selected
+    var pool = state ? all.filter(function(h) { return h.state === state; }) : all;
+
+    // If pool is empty (unlikely), fall back to all
+    if (pool.length === 0) pool = all;
+
+    var scored = pool.map(function(h) {
       var score = 0;
-      if (state && h.state === state) score += 10;
+      // Tier bonuses — prefer higher-capability hospitals for clinical intents
+      var tierBonus = { quaternary: 6, academic: 6, tertiary: 4, state: 2, secondary: 1, district: 0 };
+      score += (tierBonus[h.tier] || 0);
+
       if (intent === 'affordable') {
-        score += (1000 - (h.roomRateRaw || 500));
-        if (h.sector === 'public') score += 15;
+        // Public sector strongly preferred, then lower room rate
+        if (h.sector === 'public') score += 20;
+        score += Math.max(0, 5000 - (h.roomRateRaw || 3000)) / 1000;
+      }
+      if (intent === 'insurance') {
+        // Private hospitals more relevant for insurance usage
+        if (h.sector === 'private') score += 15;
+        if (h.insurance && h.insurance !== 'N/A') score += 5;
+      }
+      if (intent === 'specialist') {
+        // Academic and private tertiary hospitals are best for specialist access
+        if (h.tier === 'academic' || h.tier === 'quaternary' || h.tier === 'tertiary') score += 10;
+        if (h.sector === 'private') score += 5;
       }
       if (h.sector === 'public' && intent === 'trial') score += 5;
+
+      // Specialty match scoring
       specs.forEach(function(spec) {
-        (h.fullSpecialties || []).forEach(function(s) {
-          if (s.toLowerCase().includes(spec.toLowerCase())) score += 3;
+        var specL = spec.toLowerCase();
+        // Match in famousFor (most meaningful signal)
+        (h.famousFor || []).forEach(function(f) {
+          if (f.toLowerCase().includes(specL)) score += 8;
         });
-        if (h.primaryExcellence && h.primaryExcellence.toLowerCase().includes(spec.toLowerCase())) score += 5;
-        if (Object.keys(h.specialtyRanks || {}).some(function(k) {
-          return k.toLowerCase().includes(spec.toLowerCase());
-        })) score += 4;
-        if ((h.famousFor || []).some(function(f) { return f.toLowerCase().includes(spec.toLowerCase()); })) score += 3;
+        // Match in specialty coverage
+        var cov = h.specialtyCoverage || {};
+        var available = (cov.available || []).concat(cov.byReferral || []);
+        available.forEach(function(s) {
+          if (s.toLowerCase().includes(specL)) score += 4;
+        });
+        // Match in specialty ranks
+        Object.keys(h.specialtyRanks || {}).forEach(function(k) {
+          if (k.toLowerCase().includes(specL)) score += 6;
+        });
+        // Match in primaryExcellence / intro
+        if (h.primaryExcellence && h.primaryExcellence.toLowerCase().includes(specL)) score += 6;
+        if (h.intro && h.intro.toLowerCase().includes(specL)) score += 2;
       });
+
       return { h: h, score: score };
     });
+
     scored.sort(function(a, b) { return b.score - a.score; });
     return scored.map(function(x) { return x.h; });
   }

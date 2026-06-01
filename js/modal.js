@@ -122,8 +122,8 @@ window.HI = window.HI || {};
         '<div class="infra-grid">' + infraHtml + '</div>' +
       '</div>' +
       (accs ? '<div class="modal-section"><h4>' + window.HI.t('accreditations') + '</h4><div class="accreditations-row">' + accs + '</div></div>' : '') +
-      (h.verifiedNotes ? '<div class="modal-section verified-notes-box"><h4>' + window.HI.t('verified_notes') + '</h4><p>' + h.verifiedNotes + '</p></div>' : '') +
-      (h.notableGaps ? '<div class="modal-section notable-gaps-box"><h4>' + window.HI.t('notable_gaps') + '</h4><p>' + h.notableGaps + '</p></div>' : '');
+      (h.verifiedNotes ? '<div class="modal-section verified-notes-box"><div><h4>' + window.HI.t('verified_notes') + '</h4><p>' + h.verifiedNotes + '</p></div></div>' : '') +
+      (h.notableGaps ? '<div class="modal-section notable-gaps-box"><div><h4>' + window.HI.t('notable_gaps') + '</h4><p>' + h.notableGaps + '</p></div></div>' : '');
   }
 
   // Panel 2: Specialties
