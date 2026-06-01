@@ -349,31 +349,6 @@ export const HOSPITALS_PENANG = [
     verifiedNotes: "~80 beds (est.). District hospital serving western Penang island.", notableGaps: "Limited specialists."
   },
   {
-    id: "lam-wah-ee", name: "Lam Wah Ee Hospital (Penang Adventist)", nameShort: "Lam Wah Ee",
-    sector: "private", tier: "secondary", state: "Penang", city: "Georgetown",
-    intro: "Lam Wah Ee Hospital, operated by the Seventh-day Adventist Church, is one of Penang's oldest private hospitals. Known for community-focused care and affordable charges.",
-    famousFor: ["Adventist-run community hospital", "Long history in Penang healthcare", "Affordable private care"],
-    infrastructure: { yearEstablished: 1924, totalBeds: 200, icuBeds: 12, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Heritage and new blocks", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1–2/hr" },
-    contact: { address: "460 Jalan Burma, 10350 Georgetown, Penang", mainLine: "+604-222 7200", emergencyLine: "+604-222 7200 ext. A&E", appointmentLine: "+604-222 7200", website: "https://www.lwehospital.com", mapQuery: "Lam Wah Ee Hospital Georgetown Penang" },
-    transport: { nearest: "Burma Road — 2 min walk", bus: "Rapid Penang 101, 102", highway: "Georgetown city centre", landmark: "Jalan Burma, Georgetown" },
-    facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: true, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
-    visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Cardiology", "Orthopaedics", "ENT"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "Gleneagles or Island Hospital", note: "Refer for complex cardiac surgery" }],
-      byReferral: ["Advanced oncology", "Neurosurgery"]
-    },
-    transferPathway: { summary: "Community private hospital. Complex cases → Island Hospital or Gleneagles Penang.", routes: [], howToTransfer: "Specialist referral." },
-    specialtyRanks: {}, accreditations: ["MSQH Accredited", "Seventh-day Adventist Health System"],
-    primaryExcellence: "Community private hospital — Georgetown Penang", secondarySpecialties: "Cardiology, Obstetrics, Surgery",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology", "Orthopaedics", "ENT"],
-    roomRate: "RM 160 – RM 450/night", roomRateRaw: 250, insurance: "Most major panels accepted.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "No cardiothoracic surgery, no bone marrow transplant.", robotics: "Standard imaging.",
-    doctorQualifications: "MMC-registered specialists.", imageUrl: null, imageCredit: "N/A",
-    officialSources: [{ label: "Lam Wah Ee Hospital", url: "https://www.lwehospital.com" }],
-    verifiedNotes: "~200 beds. Historic Adventist hospital in Georgetown.", notableGaps: "No cardiothoracic surgery."
-  },
-  {
     id: "hkepala-batas",
     name: "Hospital Kepala Batas",
     nameShort: "Hospital Kepala Batas",
