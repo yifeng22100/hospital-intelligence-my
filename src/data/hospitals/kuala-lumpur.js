@@ -1350,12 +1350,12 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "Jalan Tun Razak, Titiwangsa, 50400 Kuala Lumpur (exact number: verify via pusrawi.com.my)",
+      address: "149, Jalan Tun Razak, 50400 Kuala Lumpur",
       mainLine: "+603-2687 5000",
       emergencyLine: "+603-2687 5181",
       appointmentLine: "+603-2687 5000",
       website: "https://www.pusrawi.com.my",
-      mapQuery: "Hospital Pusrawi Titiwangsa Jalan Tun Razak Kuala Lumpur"
+      mapQuery: "Hospital Pusrawi 149 Jalan Tun Razak Kuala Lumpur"
     },
     transport: { nearest: "Titiwangsa LRT (KJ12 / SP12) — ~8 min walk; Jelatek LRT (AMP6) — ~10 min walk", bus: "RapidKL routes along Jalan Tun Razak", highway: "DUKE Highway — Jalan Tun Razak exit", landmark: "Opposite Institut Jantung Negara (IJN), Jalan Tun Razak, Titiwangsa" },
     facilities: { pharmacy24h: true, cafeteria: "Halal-certified cafeteria, 7am–9pm", atm: "Lobby", surau: "Multiple surau on all floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
@@ -1399,29 +1399,29 @@ export const HOSPITALS_KL = [
   },
   {
     id: "kl-sports-mc",
-    name: "KL Sports Medicine Centre",
-    nameShort: "KL Sports MC",
-    sector: "public", tier: "tertiary", state: "Kuala Lumpur", city: "Bukit Damansara, Kuala Lumpur",
-    intro: "KL Sports Medicine Centre (Pusat Perubatan Sukan KL) is a specialist public facility for sports medicine, rehabilitation and athlete healthcare.",
-    famousFor: ["National sports medicine centre", "Serves national athletes"],
-    infrastructure: { yearEstablished: 1990, totalBeds: 50, icuBeds: 0, nicuBeds: 0, operatingTheatres: 3, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Bukit Damansara, 50490 Kuala Lumpur (exact address: verify)", mainLine: "+603-2698 5555 (verify)", emergencyLine: "N/A", appointmentLine: "+603-2698 5555 (verify)", website: "https://jknkl.moh.gov.my/", mapQuery: "KL Sports Medicine Centre Bukit Damansara Kuala Lumpur" },
-    transport: { nearest: "Taxi recommended from Bangsar LRT (KJ11) or Semantan LRT (KJ14)", bus: "RapidKL bus routes (Bukit Damansara area)", highway: "SPRINT Highway / Federal Highway — Bukit Damansara exit", landmark: "Bukit Damansara, Kuala Lumpur" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "N/A" },
-    visitingHours: { general: "Office hours", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Appointment required." },
+    name: "KL Sports Medicine Centre (KLSMC)",
+    nameShort: "KLSMC",
+    sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Damansara Heights, Kuala Lumpur",
+    intro: "KL Sports Medicine Centre (KLSMC) is a private specialist centre for sports injuries, orthopaedic surgery and physiotherapy, located at Wisma Perintis, Damansara Heights. Founded in 2005 by a group of orthopaedic specialists, it provides one-stop sports medicine care including arthroscopic surgery, MRI imaging, and hydrotherapy.",
+    famousFor: ["Private one-stop sports medicine and orthopaedic centre", "Arthroscopic surgery — knee, shoulder, spine, hip", "MRI imaging and hydrotherapy on-site", "Founded by specialist orthopaedic surgeons (2005)"],
+    infrastructure: { yearEstablished: 2005, totalBeds: 20, icuBeds: 0, nicuBeds: 0, operatingTheatres: 2, area: "~0.5 acres (multi-floor)", buildings: "7th–8th Floor, Wisma Perintis", helipad: false, parkingBays: "Building parking", parkingRate: "Paid" },
+    contact: { address: "7th Floor, Wisma Perintis, 47 Jalan Dungun, Damansara Heights, 50490 Kuala Lumpur", mainLine: "+603-2096 1033", emergencyLine: "N/A — emergency to UMMC or Gleneagles KL", appointmentLine: "+603-2096 1033", website: "https://klsmc.com", mapQuery: "KLSMC KL Sports Medicine Centre 47 Jalan Dungun Damansara Heights" },
+    transport: { nearest: "Semantan LRT (KJ14) — ~10 min walk; Bangsar LRT (KJ11) — ~15 min walk", bus: "RapidKL routes along Jalan Damansara", highway: "SPRINT Highway — Damansara Heights exit", landmark: "Wisma Perintis, 47 Jalan Dungun, Damansara Heights" },
+    facilities: { pharmacy24h: false, cafeteria: "Building facilities", atm: "Building lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "N/A" },
+    visitingHours: { general: "Mon–Fri 9:00am–5:00pm; Sat 8:00am–1:00pm", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Closed Sundays and public holidays. Appointment required." },
     specialtyCoverage: {
-      available: ["Sports Medicine", "Physiotherapy", "Orthopaedic Sports Surgery", "Exercise Science"],
-      notAvailable: [{ specialty: "General emergency", transferTo: "Hospital KL", note: "Specialist centre only" }],
-      byReferral: ["General acute → HKL"]
+      available: ["Sports Medicine", "Orthopaedic Surgery (knee, shoulder, hip, spine, hand, foot)", "Arthroscopic Surgery", "Physiotherapy", "MRI Imaging", "Hydrotherapy"],
+      notAvailable: [{ specialty: "General emergency / A&E", transferTo: "UMMC or Gleneagles KL", note: "Specialist centre only — no A&E" }],
+      byReferral: ["Complex trauma → UMMC or Gleneagles KL"]
     },
-    transferPathway: { summary: "Specialist sports medicine. Emergency → HKL.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "National sports medicine centre — Kuala Lumpur", secondarySpecialties: "Physiotherapy, Sports Orthopaedics",
-    fullSpecialties: ["Sports Medicine", "Physiotherapy", "Orthopaedics"],
-    roomRate: "Subsidised (public)", roomRateRaw: 5, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "No emergency care. No general medicine.", robotics: "None.", doctorQualifications: "MOH sports medicine specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~50 beds (est.). National sports medicine centre.", notableGaps: "No emergency or general inpatient care."
+    transferPathway: { summary: "Private sports medicine specialist. No A&E. Emergency → UMMC or Gleneagles KL.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private sports medicine & orthopaedic specialist — Damansara Heights KL", secondarySpecialties: "Arthroscopic Surgery, Physiotherapy",
+    fullSpecialties: ["Sports Medicine", "Orthopaedics", "Physiotherapy"],
+    roomRate: "Private rates — outpatient & day surgery; inpatient wards available", roomRateRaw: 400, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No A&E. No general medicine. No maternity.", robotics: "Arthroscopic surgery available.", doctorQualifications: "Fellowship-trained orthopaedic surgeons.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KLSMC Official", url: "https://klsmc.com" }],
+    verifiedNotes: "Private specialist. 7th–8th Floor, Wisma Perintis, 47 Jalan Dungun, Damansara Heights. Founded 2005. Phone +603-2096 1033.", notableGaps: "No A&E or general inpatient services."
   },
   {
     id: "tawakal-kl",
@@ -2016,12 +2016,12 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Pudu, 55100 Kuala Lumpur (adjacent to Tung Shin Hospital; exact number: verify via cmhkl.com.my)",
-      mainLine: "+603-4042 2800",
-      emergencyLine: "+603-4042 2800 ext. A&E",
-      appointmentLine: "+603-4042 2800",
+      address: "106, Jalan Pudu, 55100 Kuala Lumpur",
+      mainLine: "+603-2078 2055",
+      emergencyLine: "+603-2078 2055 ext. A&E",
+      appointmentLine: "+603-2078 2055",
       website: "https://www.cmhkl.com.my",
-      mapQuery: "Chinese Maternity Hospital Jalan Pudu Kuala Lumpur"
+      mapQuery: "Chinese Maternity Hospital 106 Jalan Pudu Kuala Lumpur"
     },
     transport: {
       nearest: "Maharajalela LRT (AMP4) — ~5 min walk; Hang Tuah LRT/Monorail Interchange (KJ14/AMP3) — ~8 min walk",
