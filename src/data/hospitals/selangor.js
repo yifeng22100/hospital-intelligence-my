@@ -27,7 +27,7 @@ export const HOSPITALS_SELANGOR = [
       mainLine: "+603-3375 7000",
       emergencyLine: "+603-3375 7000 ext. A&E",
       appointmentLine: "+603-3375 7000",
-      website: "https://htar.moh.gov.my",
+      website: "https://jknselangor.moh.gov.my/htar/",
       mapQuery: "Hospital Tengku Ampuan Rahimah HTAR Klang"
     },
     transport: {
@@ -107,7 +107,7 @@ export const HOSPITALS_SELANGOR = [
     imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Klang_TAR_hospital_main_building.jpg",
     imageCredit: "N/A",
     officialSources: [
-      { label: "Official Website", url: "https://htar.moh.gov.my" },
+      { label: "Official Website", url: "https://jknselangor.moh.gov.my/htar/" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
   },
