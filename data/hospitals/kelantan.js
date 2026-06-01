@@ -252,5 +252,57 @@ var HOSPITALS_KELANTAN = [
     robotics: "Standard imaging.",
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "hjeli",
+    name: "Hospital Jeli",
+    nameShort: "Hospital Jeli",
+    sector: "public", tier: "district", state: "Kelantan", city: "Jeli",
+    intro: "Hospital Jeli serves the remote Jeli district in the interior of Kelantan, bordering Perak and Terengganu.",
+    famousFor: ["District hospital for Jeli — interior Kelantan"],
+    infrastructure: { yearEstablished: 1980, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 17600 Jeli, Kelantan", mainLine: "+609-945 2222 (verify)", emergencyLine: "+609-945 2222 ext. A&E", appointmentLine: "+609-945 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Jeli Kelantan" },
+    transport: { nearest: "Jeli town — 5 min walk", bus: "Limited bus routes", highway: "Route 8 / East-West Highway", landmark: "Jeli town, border of Kelantan/Perak" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Raja Perempuan Zainab II Kota Bharu", note: "Remote district hospital" }],
+      byReferral: ["Specialist → HRPZII Kota Bharu"]
+    },
+    transferPathway: { summary: "Remote district hospital. Complex → HRPZII Kota Bharu.", routes: [], howToTransfer: "MOH referral / air medevac." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Jeli", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited — remote location.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). Remote district hospital.", notableGaps: "Complex cases require long transfer to Kota Bharu."
+  },
+  {
+    id: "hbachok",
+    name: "Hospital Bachok",
+    nameShort: "Hospital Bachok",
+    sector: "public", tier: "district", state: "Kelantan", city: "Bachok",
+    intro: "Hospital Bachok serves the coastal Bachok district of Kelantan, near the South China Sea shoreline.",
+    famousFor: ["District hospital for Bachok coastal district"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 16300 Bachok, Kelantan", mainLine: "+609-778 2222 (verify)", emergencyLine: "+609-778 2222 ext. A&E", appointmentLine: "+609-778 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Bachok Kelantan" },
+    transport: { nearest: "Bachok town — 5 min walk", bus: "Bus from Kota Bharu (~30 min)", highway: "Route 3 East Coast Highway", landmark: "Bachok town, east coast Kelantan" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Subspecialties", transferTo: "HRPZII Kota Bharu", note: "District hospital" }],
+      byReferral: ["Specialist → HRPZII Kota Bharu"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HRPZII Kota Bharu.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Bachok", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~100 beds (est.). District hospital for Bachok.", notableGaps: "Specialist referral to HRPZII Kota Bharu."
   }
 ];

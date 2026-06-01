@@ -372,9 +372,11 @@ window.HI = window.HI || {};
 
     var fppHtml = '';
     if (h.fppScheme) {
+      var fppDesc = (typeof h.fppScheme === 'string') ? h.fppScheme
+        : 'This hospital offers the Full-Paying Patient (FPP) scheme — access specialist care at government hospital rates, typically 30–60% below private hospitals. Ask at the FPP Unit for a written cost estimate.';
       fppHtml = '<div class="modal-section fpp-block">' +
         '<h4>&#127963; ' + window.HI.t('fpp_scheme') + '</h4>' +
-        '<p>' + h.fppScheme + '</p>' +
+        '<p>' + fppDesc + '</p>' +
         (h.fppDeposit ? '<div class="fpp-deposit"><strong>' + window.HI.t('fpp_deposit') + ':</strong> ' + h.fppDeposit + '</div>' : '') +
       '</div>';
     }

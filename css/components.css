@@ -1279,7 +1279,7 @@
   animation: modalIn 0.2s ease;
 }
 
-.tier-header {
+#tier-dialog .tier-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1468,3 +1468,394 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   MODAL PANEL 2 — SPECIALTIES
+   ══════════════════════════════════════════════════════════ */
+
+.spec-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.spec-count {
+  font-size: 0.7rem;
+  background: var(--faint);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.05rem 0.45rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.spec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.spec-chip {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.spec-chip.available {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+.spec-chip.referral {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.rank-badge {
+  font-size: 0.65rem;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 4px;
+  padding: 0 4px;
+  margin-left: 3px;
+  font-weight: 700;
+}
+/* Specialty N/A table */
+.spec-na-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+.spec-na-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.spec-na-table th {
+  background: var(--faint);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+}
+.spec-na-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.spec-na-table tr:last-child td { border-bottom: none; }
+.spec-na-name { color: var(--rose); font-weight: 500; }
+.transfer-label { font-size: 0.7rem; color: var(--muted); }
+/* Transfer pathway */
+.transfer-summary {
+  font-size: 0.875rem;
+  color: var(--ink2);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+.transfer-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.transfer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.transfer-table th {
+  background: var(--faint);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+}
+.transfer-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.transfer-table tr:last-child td { border-bottom: none; }
+.how-to-transfer-box {
+  margin-top: 0.75rem;
+  background: var(--accent-light);
+  border: 1px solid #c7d7fd;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.83rem;
+  color: var(--ink2);
+}
+/* Rank list */
+.rank-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.rank-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--faint);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 0.83rem;
+}
+.rank-name { font-weight: 600; color: var(--ink); flex: 1; }
+.rank-val { font-weight: 700; color: var(--accent); font-size: 0.75rem; background: var(--accent-light); border-radius: 4px; padding: 0.1rem 0.4rem; }
+.rank-desc { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+
+/* ══════════════════════════════════════════════════════════
+   MODAL PANEL 3 — FACILITIES & ACCESS
+   ══════════════════════════════════════════════════════════ */
+
+.contact-block { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem; }
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--ink2);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--faint);
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.address-row { align-items: flex-start; }
+.contact-icon { flex-shrink: 0; font-size: 1rem; }
+.contact-label { color: var(--muted); font-size: 0.78rem; font-weight: 600; }
+.contact-text { flex: 1; }
+.contact-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+.contact-link:hover { text-decoration: underline; }
+.emergency-link { color: var(--rose) !important; font-weight: 700; }
+.emergency-line-row { background: #fff1f2; border-color: #fecdd3; }
+.btn-map {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: #1d4ed8; color: #fff; border-radius: 8px;
+  padding: 0.45rem 0.9rem; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+}
+.btn-map:hover { background: #1e40af; }
+.copy-addr-btn {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 0.72rem; font-weight: 600; color: var(--accent);
+  background: var(--accent-light); border: 1px solid #c7d7fd;
+  border-radius: 6px; padding: 0.2rem 0.55rem; cursor: pointer;
+}
+/* Transport */
+.transport-block { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.25rem; }
+.transport-row {
+  font-size: 0.875rem; color: var(--ink2);
+  padding: 0.5rem 0.75rem; background: var(--faint);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+}
+/* Parking */
+.parking-block {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.parking-block > div {
+  font-size: 0.875rem; color: var(--ink2);
+  padding: 0.5rem 0.75rem; background: var(--faint);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+}
+/* Facilities grid */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.facility-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 0.75rem; border-radius: var(--radius-sm);
+  font-size: 0.82rem; border: 1px solid var(--border);
+}
+.fac-yes { background: #f0fdf4; border-color: #bbf7d0; }
+.fac-no  { background: #fff1f2; border-color: #fecdd3; opacity: 0.75; }
+.fac-icon { font-size: 1rem; flex-shrink: 0; }
+.fac-label { flex: 1; color: var(--ink2); font-weight: 500; }
+.fac-status { font-weight: 700; font-size: 0.9rem; }
+.fac-yes .fac-status { color: #16a34a; }
+.fac-no  .fac-status { color: var(--rose); }
+/* Visiting hours */
+.visiting-hours-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.25rem;
+}
+.vh-item {
+  padding: 0.55rem 0.75rem; background: var(--faint);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+}
+.vh-label { font-size: 0.68rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.2rem; }
+.vh-value { font-size: 0.82rem; color: var(--ink2); }
+.vh-notes-box {
+  margin-top: 0.5rem; padding: 0.55rem 0.75rem;
+  background: var(--amber-light); border: 1px solid #fde68a;
+  border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--ink2);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MODAL PANEL 4 — COST & INSURANCE
+   ══════════════════════════════════════════════════════════ */
+
+.room-rate-box {
+  padding: 1rem 1.25rem; background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 1px solid #bae6fd; border-radius: var(--radius);
+  margin-top: 0.25rem;
+}
+.room-rate-value { font-size: 1.2rem; font-weight: 700; color: var(--ink); }
+.room-rate-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+.insurance-text { font-size: 0.875rem; color: var(--ink2); line-height: 1.6; margin-top: 0.25rem; }
+.fpp-block { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius); padding: 1rem 1.25rem; }
+.fpp-deposit { margin-top: 0.5rem; font-size: 0.83rem; color: var(--ink2); }
+.gaps-block { background: #fff7ed; border: 1px solid #fed7aa; border-radius: var(--radius); padding: 1rem 1.25rem; }
+.gaps-list { margin: 0.5rem 0 0 1.2rem; font-size: 0.875rem; color: var(--ink2); line-height: 1.8; }
+.data-note-box { background: var(--faint); border-radius: var(--radius); padding: 0.75rem 1rem; }
+
+/* ══════════════════════════════════════════════════════════
+   MODAL PANEL 5 — SOURCES
+   ══════════════════════════════════════════════════════════ */
+
+.sources-list { list-style: none; padding: 0; margin: 0.25rem 0 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.source-link { color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
+.source-link:hover { text-decoration: underline; }
+.image-credit-text { font-size: 0.82rem; color: var(--muted); }
+
+/* ══════════════════════════════════════════════════════════
+   COMPARE PANEL — proper column layout
+   ══════════════════════════════════════════════════════════ */
+
+.compare-col {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.compare-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.btn-remove-compare {
+  background: var(--faint); border: 1px solid var(--border);
+  border-radius: 50%; width: 26px; height: 26px;
+  cursor: pointer; font-size: 0.7rem; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-remove-compare:hover { background: #fee2e2; color: var(--rose); border-color: #fecdd3; }
+.compare-name {
+  font-size: 1rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.25rem; line-height: 1.3;
+}
+.compare-state {
+  font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem;
+}
+.compare-accs {
+  display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem;
+}
+.compare-section {
+  padding: 0.55rem 0; border-bottom: 1px solid var(--border);
+}
+.compare-section:last-of-type { border-bottom: none; }
+.compare-label {
+  font-size: 0.65rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.15rem;
+}
+.compare-val {
+  font-size: 0.875rem; color: var(--ink2); line-height: 1.4;
+}
+.compare-rank {
+  font-size: 0.82rem; color: var(--ink2); padding: 0.25rem 0;
+}
+.btn-view-full {
+  margin-top: 1rem; width: 100%;
+  padding: 0.6rem; background: var(--accent); color: #fff;
+  border: none; border-radius: 10px; font-weight: 600;
+  font-size: 0.85rem; cursor: pointer;
+}
+.btn-view-full:hover { background: var(--accent-hover); }
+
+/* ══════════════════════════════════════════════════════════
+   FIND MY HOSPITAL PANEL — result cards
+   ══════════════════════════════════════════════════════════ */
+
+#find-results-grid, #onboard-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.find-result-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.find-result-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.find-result-name { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+.find-result-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; }
+.find-result-intro { font-size: 0.8rem; color: var(--ink2); line-height: 1.5; margin-bottom: 0.6rem; }
+
+/* ══════════════════════════════════════════════════════════
+   EMERGENCY PANEL — result styling
+   ══════════════════════════════════════════════════════════ */
+
+.emergency-result-section { margin-top: 1.5rem; }
+.emergency-result-title {
+  font-size: 1.05rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.emergency-critical-note {
+  background: #fee2e2; border: 1px solid #fca5a5; border-radius: var(--radius);
+  padding: 0.6rem 0.9rem; font-size: 0.83rem; color: #991b1b;
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.emergency-step-list {
+  counter-reset: step-counter;
+  list-style: none; padding: 0; margin: 0.5rem 0;
+}
+.emergency-step-list li {
+  counter-increment: step-counter;
+  display: flex; align-items: flex-start; gap: 0.65rem;
+  padding: 0.5rem 0; font-size: 0.875rem; color: var(--ink2);
+  border-bottom: 1px solid var(--border);
+}
+.emergency-step-list li:last-child { border-bottom: none; }
+.emergency-step-list li::before {
+  content: counter(step-counter);
+  flex-shrink: 0;
+  width: 22px; height: 22px; background: var(--accent); color: #fff;
+  border-radius: 50%; font-size: 0.68rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.emergency-symptom-list {
+  list-style: none; padding: 0; margin: 0.5rem 0;
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.emergency-symptom-list li {
+  background: #fff7ed; border: 1px solid #fed7aa;
+  border-radius: 999px; padding: 0.2rem 0.65rem;
+  font-size: 0.78rem; color: #92400e;
+}
+.emergency-go-to-box {
+  margin-top: 1rem;
+  background: var(--accent-light); border: 1px solid #c7d7fd;
+  border-radius: var(--radius); padding: 0.85rem 1.1rem;
+}
+.emergency-go-to-name { font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
+.emergency-go-to-phone { font-size: 0.85rem; }
+.emergency-go-to-phone a { color: var(--accent); font-weight: 600; }
+.emergency-go-to-desc { font-size: 0.8rem; color: var(--ink2); margin-top: 0.25rem; }

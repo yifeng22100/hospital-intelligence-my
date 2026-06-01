@@ -260,29 +260,67 @@ window.HI = window.HI || {};
 
   // ─── SECTION RENDERING ───────────────────────────────────────────────────────
 
-  function toggleIntelSection(sectionId) {
-    var section = document.getElementById(sectionId);
-    if (!section) return;
-    var body = section.querySelector('.collapsible-body');
-    if (!body) return;
-    var card = document.getElementById(sectionId + '-card');
-    var isOpen = body.style.display !== 'none';
-    if (isOpen) {
-      body.style.display = 'none';
-      section.classList.remove('open');
-      if (card) card.classList.remove('active');
-    } else {
-      body.style.display = '';
-      section.classList.add('open');
-      if (card) card.classList.add('active');
-      var contentEl = document.getElementById(sectionId + '-content');
-      if (contentEl && !contentEl.getAttribute('data-rendered')) {
-        renderSection(sectionId, contentEl);
-        contentEl.setAttribute('data-rendered', '1');
-      }
-      setTimeout(function() { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+  var activeTopicId = null;
+
+  var topicLabels = {
+    'intel-tier':      { icon: '&#127970;', title: 'Hospital Tier System' },
+    'intel-insurance': { icon: '&#128179;', title: 'Insurance Navigator' },
+    'intel-cost':      { icon: '&#128200;', title: 'Cost Reference' },
+    'intel-rights':    { icon: '&#9878;&#65039;', title: 'Patient Rights & Complaints' },
+    'intel-verify':    { icon: '&#10003;', title: 'Verify a Facility' },
+    'intel-doctor':    { icon: '&#128104;&#8205;&#9877;&#65039;', title: 'Doctor Verification' },
+    'intel-trial':     { icon: '&#128300;', title: 'Clinical Trials' },
+    'intel-night':     { icon: '&#127769;', title: 'Night Cover Guide' }
+  };
+
+  function selectIntelTopic(topicId) {
+    var panel = document.getElementById('intel-topic-panel');
+    var body = document.getElementById('intel-topic-body');
+    var labelEl = document.getElementById('intel-topic-label');
+    if (!panel || !body) return;
+
+    // Deactivate all cards
+    var allCards = document.querySelectorAll('.intel-card');
+    for (var i = 0; i < allCards.length; i++) allCards[i].classList.remove('active');
+
+    // Toggle off if same topic
+    if (activeTopicId === topicId) {
+      activeTopicId = null;
+      panel.classList.add('hidden');
+      return;
     }
+
+    activeTopicId = topicId;
+
+    // Activate the clicked card
+    var card = document.getElementById(topicId + '-card');
+    if (card) card.classList.add('active');
+
+    // Update label
+    var meta = topicLabels[topicId] || { icon: '', title: topicId };
+    if (labelEl) labelEl.innerHTML = meta.icon + ' ' + meta.title;
+
+    // Render content
+    body.innerHTML = '';
+    renderSection(topicId, body);
+
+    // Show panel
+    panel.classList.remove('hidden');
+    setTimeout(function() {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
   }
+
+  function closeIntelTopic() {
+    var panel = document.getElementById('intel-topic-panel');
+    if (panel) panel.classList.add('hidden');
+    var allCards = document.querySelectorAll('.intel-card');
+    for (var i = 0; i < allCards.length; i++) allCards[i].classList.remove('active');
+    activeTopicId = null;
+  }
+
+  // Keep backward-compat alias
+  function toggleIntelSection(sectionId) { selectIntelTopic(sectionId); }
 
   function renderSection(sectionId, el) {
     switch (sectionId) {
@@ -740,7 +778,9 @@ window.HI = window.HI || {};
     '</div>';
   }
 
-  window.HI.toggleIntelSection = toggleIntelSection;
+  window.HI.selectIntelTopic = selectIntelTopic;
+  window.HI.closeIntelTopic = closeIntelTopic;
+  window.HI.toggleIntelSection = selectIntelTopic; // backward compat
   window.HI.openHacksDialog = openHacksDialog;
   window.HI.openTierDialog = openTierDialog;
   window.HI.initIntelligence = initIntelligence;
