@@ -376,31 +376,5 @@ var HOSPITALS_TERENGGANU = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). District hospital, Chukai.", notableGaps: "Specialist referral to Hospital Kemaman."
-  },
-  {
-    id: "hbesut",
-    name: "Hospital Besut",
-    nameShort: "Hospital Besut",
-    sector: "public", tier: "district", state: "Terengganu", city: "Besut",
-    intro: "Hospital Besut is a MOH district hospital serving Besut district in northern Terengganu, near the Kelantan border.",
-    famousFor: ["District hospital — Besut district, northern Terengganu", "Healthcare for communities near Kelantan border"],
-    infrastructure: { yearEstablished: 1980, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jerteh, 22000 Besut, Terengganu", mainLine: "+609-697 2222 (verify)", emergencyLine: "+609-697 2222 ext. A&E", appointmentLine: "+609-697 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Besut Jerteh Terengganu" },
-    transport: { nearest: "Jerteh town — 5 min walk", bus: "Bus from Kuala Terengganu (~1.5 hrs)", highway: "Route 3 East Coast Highway", landmark: "Jerteh / Besut town" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Kuala Terengganu", note: "District hospital" }],
-      byReferral: ["Specialist → HSNZ / Hospital KT"]
-    },
-    transferPathway: { summary: "District hospital. Complex → HSNZ Kuala Terengganu.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Besut, Terengganu", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~80 beds (est.). District hospital, Besut.", notableGaps: "Specialist referral to Hospital KT."
   }
 ];

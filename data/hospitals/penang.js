@@ -433,7 +433,7 @@ var HOSPITALS_PENANG = [
   },
   {
     id: "sunway-mc-penang",
-    name: "Sunway Medical Centre Velocity Penang",
+    name: "Sunway Medical Centre Penang",
     nameShort: "Sunway MC Penang",
     sector: "private", tier: "tertiary", state: "Penang", city: "Penang",
     intro: "Sunway Medical Centre Penang is a comprehensive private tertiary hospital on Penang island offering full specialist services.",
@@ -612,31 +612,5 @@ var HOSPITALS_PENANG = [
     gaps: "Some subspecialties refer to Island hospital.", robotics: "None.", doctorQualifications: "MOH specialists and consultants.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~640 beds (est.). Major public hospital, Seberang Perai.", notableGaps: "Complex subspecialties → Hospital Pulau Pinang."
-  },
-  {
-    id: "hbalik-pulau",
-    name: "Hospital Balik Pulau",
-    nameShort: "Hospital Balik Pulau",
-    sector: "public", tier: "district", state: "Penang", city: "Balik Pulau",
-    intro: "Hospital Balik Pulau is a MOH district hospital on Penang Island's southwest, serving the rural agricultural communities of Balik Pulau and Bayan Lepas hinterland.",
-    famousFor: ["District hospital — Balik Pulau, southwest Penang Island", "Healthcare for Penang island's rural communities"],
-    infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Balik Pulau, 11000 Penang", mainLine: "+604-866 2222 (verify)", emergencyLine: "+604-866 2222 ext. A&E", appointmentLine: "+604-866 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Balik Pulau Penang" },
-    transport: { nearest: "Balik Pulau town — 5 min walk", bus: "Rapid Penang island bus", highway: "Penang coastal road to Balik Pulau", landmark: "Balik Pulau town, Penang Island" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Pulau Pinang", note: "District hospital" }],
-      byReferral: ["Specialist → Hospital Pulau Pinang"]
-    },
-    transferPathway: { summary: "District hospital. Complex → Hospital Pulau Pinang.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Balik Pulau, Penang Island", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~80 beds (est.). District hospital, Balik Pulau.", notableGaps: "Specialist referral to Hospital Pulau Pinang."
   }
 ];

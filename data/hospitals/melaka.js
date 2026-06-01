@@ -278,32 +278,6 @@ var HOSPITALS_MELAKA = [
     verifiedNotes: "~80 beds (est.). District hospital for Melaka Tengah.", notableGaps: "Specialist referral to Hospital Melaka."
   },
   {
-    id: "hjasin",
-    name: "Hospital Jasin",
-    nameShort: "Hospital Jasin",
-    sector: "public", tier: "district", state: "Melaka", city: "Jasin",
-    intro: "Hospital Jasin is a MOH district hospital serving Jasin district in southeastern Melaka, providing basic healthcare to agricultural and rural communities.",
-    famousFor: ["District hospital — Jasin district, southeastern Melaka", "Healthcare hub for Merlimau-Jasin corridor"],
-    infrastructure: { yearEstablished: 1979, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Jasin, 77000 Melaka", mainLine: "+606-529 2222 (verify)", emergencyLine: "+606-529 2222 ext. A&E", appointmentLine: "+606-529 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Jasin Melaka" },
-    transport: { nearest: "Jasin town — 5 min walk", bus: "Bus from Melaka (~45 min)", highway: "North-South Highway — Ayer Keroh exit then Route 23", landmark: "Jasin town" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Melaka", note: "District hospital" }],
-      byReferral: ["Specialist → Hospital Melaka"]
-    },
-    transferPathway: { summary: "District hospital. Complex → Hospital Melaka.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Jasin, Melaka", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~80 beds (est.). District hospital, Jasin.", notableGaps: "Specialist referral to Hospital Melaka."
-  },
-  {
     id: "kpj-melaka",
     name: "KPJ Melaka Specialist Hospital",
     nameShort: "KPJ Melaka",

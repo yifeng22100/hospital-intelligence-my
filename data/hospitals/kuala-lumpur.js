@@ -1829,32 +1829,6 @@ var HOSPITALS_KL = [
     verifiedNotes: "~350 beds (est.). Malaysia's national BMT centre.", notableGaps: "No general surgery — refer to HKL."
   },
   {
-    id: "thomson-kl",
-    name: "Thomson Hospital Kota Damansara",
-    nameShort: "Thomson Kota Damansara",
-    sector: "private", tier: "tertiary", state: "Kuala Lumpur", city: "Petaling Jaya",
-    intro: "Thomson Hospital Kota Damansara (formerly known as Thomson Hospital) is a private tertiary hospital in the Kota Damansara area offering comprehensive specialist services.",
-    famousFor: ["Private tertiary hospital — Kota Damansara", "Thomson medical group in Malaysia"],
-    infrastructure: { yearEstablished: 2015, totalBeds: 240, icuBeds: 20, nicuBeds: 8, operatingTheatres: 8, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "No. 11, Jalan Teknologi, Kota Damansara, 47810 Petaling Jaya, Selangor", mainLine: "+603-6287 1111 (verify)", emergencyLine: "+603-6287 1111 ext. A&E", appointmentLine: "+603-6287 1111 (verify)", website: "https://www.thomsonhospitals.com.my", mapQuery: "Thomson Hospital Kota Damansara" },
-    transport: { nearest: "Kota Damansara MRT — 5 min taxi", bus: "RapidKL T707", highway: "Damansara-Puchong (LDP) Highway", landmark: "Kota Damansara, Petaling Jaya" },
-    facilities: { pharmacy24h: true, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "Cardiology", "General Surgery", "Orthopaedics", "Oncology", "Neurology", "Obstetrics", "Paediatrics", "ENT", "Ophthalmology"],
-      notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre" }],
-      byReferral: ["Complex national → public hospitals"]
-    },
-    transferPathway: { summary: "Private tertiary. Complex national cases → public centres.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private tertiary — Kota Damansara", secondarySpecialties: "Cardiology, Oncology, Orthopaedics",
-    fullSpecialties: ["Cardiology", "Surgery", "Oncology", "Orthopaedics", "Obstetrics"],
-    roomRate: "RM 250–650/night", roomRateRaw: 350, insurance: "Major panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
-    gaps: "No transplant services.", robotics: "Selected imaging.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Thomson Hospitals", url: "https://www.thomsonhospitals.com.my" }],
-    verifiedNotes: "~240 beds (est.). Private tertiary, Kota Damansara.", notableGaps: "No transplant services."
-  },
-  {
     id: "normah-kl",
     name: "Hospital Kuala Lumpur Orang Asli Gombak",
     nameShort: "Hospital Orang Asli Gombak",

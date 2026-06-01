@@ -253,31 +253,6 @@ var HOSPITALS_KEDAH = [
     fppScheme: false, fppDeposit: "N/A",
     gaps: "Small hospital.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Group", url: "https://www.columbiaasia.com" }]
-  }
-,
-  {
-    id: "hlangkawi", name: "Hospital Sultan Abdul Halim Langkawi", nameShort: "Hsp. Langkawi",
-    sector: "public", tier: "district", state: "Kedah", city: "Langkawi",
-    intro: "Hospital Sultan Abdul Halim Langkawi serves the tourist island of Langkawi — a UNESCO Global Geopark. As the only public hospital on the island, it handles both local population and tourist emergencies.",
-    famousFor: ["Only public hospital on Langkawi island", "Tourist emergency and marine accident care", "UNESCO Geopark island healthcare"],
-    infrastructure: { yearEstablished: 1980, totalBeds: 130, icuBeds: 10, nicuBeds: 4, operatingTheatres: 3, area: "~6 acres", buildings: "Main Block", helipad: true, parkingBays: "~200 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 07000 Kuah, Langkawi, Kedah", mainLine: "+604-966 3333", emergencyLine: "+604-966 3333 ext. A&E", appointmentLine: "+604-966 3333", website: "https://www.moh.gov.my", mapQuery: "Hospital Langkawi Kedah" },
-    transport: { nearest: "Kuah town — 10 min drive", bus: "Local bus from Langkawi ferry terminal", highway: "Island road network; accessible by ferry or flight", landmark: "Kuah town, Langkawi" },
-    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance; air medevac to mainland" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics", "Internal Medicine"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery, Neurosurgery", transferTo: "Hospital Sultanah Bahiyah Alor Setar", note: "Island hospital — air medevac to mainland" }],
-      byReferral: ["Complex cardiac and neuro cases → mainland Kedah"]
-    },
-    transferPathway: { summary: "Only public hospital on Langkawi island. Complex cases air-medevaced to Hospital Sultanah Bahiyah in Alor Setar.", routes: [], howToTransfer: "MOH referral; air medevac for critical." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "Island hospital — Langkawi UNESCO Geopark", secondarySpecialties: "Tourist emergency, Obstetrics, Orthopaedics",
-    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
-    gaps: "No cardiothoracic or neurosurgery; air medevac required.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~130 beds (est.). Key hospital for Langkawi island including tourist emergencies.", notableGaps: "Air medevac to Alor Setar for complex cases."
   },
   {
     id: "hkubang-pasu",
@@ -512,31 +487,5 @@ var HOSPITALS_KEDAH = [
     gaps: "Some subspecialties refer to Alor Setar.", robotics: "None.", doctorQualifications: "MOH specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~350 beds (est.). Major secondary hospital, Sungai Petani.", notableGaps: "Complex → Hospital Sultanah Bahiyah."
-  },
-  {
-    id: "kpj-kedah",
-    name: "KPJ Kedah Medical Centre",
-    nameShort: "KPJ Kedah",
-    sector: "private", tier: "tertiary", state: "Kedah", city: "Alor Setar",
-    intro: "KPJ Kedah Medical Centre is a private specialist hospital in Alor Setar, providing comprehensive specialist services to Kedah residents seeking private healthcare.",
-    famousFor: ["KPJ private specialist hospital — Alor Setar", "Main private specialist centre for Kedah"],
-    infrastructure: { yearEstablished: 1995, totalBeds: 200, icuBeds: 14, nicuBeds: 4, operatingTheatres: 6, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Jalan Tunku Abdul Halim, 05250 Alor Setar, Kedah", mainLine: "+604-730 7000", emergencyLine: "+604-730 7000 ext. A&E", appointmentLine: "+604-730 7000", website: "https://www.kpjkmc.com.my", mapQuery: "KPJ Kedah Medical Centre Alor Setar" },
-    transport: { nearest: "Alor Setar KTM station — 10 min taxi", bus: "Local Alor Setar bus routes", highway: "North-South Highway — Alor Setar exit", landmark: "Alor Setar city centre, near Padang Besar Road" },
-    facilities: { pharmacy24h: true, cafeteria: "Café", atm: "Lobby ATM", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "Cardiology", "General Surgery", "Orthopaedics", "Obstetrics", "Paediatrics", "ENT", "Ophthalmology", "Oncology"],
-      notAvailable: [{ specialty: "Highly complex procedures", transferTo: "Penang specialists / KL", note: "Refer" }],
-      byReferral: ["Complex → Penang specialists"]
-    },
-    transferPathway: { summary: "Private specialist. Complex → Penang or KL specialists.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed", "MSQH Accredited"],
-    primaryExcellence: "Private specialist hospital — Alor Setar / Kedah", secondarySpecialties: "Cardiology, Orthopaedics",
-    fullSpecialties: ["Cardiology", "Surgery", "Orthopaedics", "Obstetrics", "Paediatrics", "ENT", "Ophthalmology", "Oncology"],
-    roomRate: "RM 180–450/night", roomRateRaw: 280, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
-    gaps: "Some subspecialties limited.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Kedah", url: "https://www.kpjkmc.com.my" }],
-    verifiedNotes: "~200 beds (est.). KPJ private specialist, Alor Setar.", notableGaps: "Complex → Penang specialists."
   }
 ];
