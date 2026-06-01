@@ -797,7 +797,7 @@ export const HOSPITALS_JOHOR = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). District hospital for Ayer Hitam.", notableGaps: "Specialist referral to Hospital Kluang."
-  }  },
+  },
   {
     id: "hpermai",
     name: "Hospital Permai",
