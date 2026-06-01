@@ -1496,6 +1496,102 @@ export const HOSPITALS_SABAH = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "49 beds. Small district hospital for Tambunan, Sabah interior.", notableGaps: "Specialist referral to Hospital Keningau or HQE KK."
+  },
+  {
+    id: "hbeluran", name: "Hospital Beluran", nameShort: "Hospital Beluran",
+    sector: "public", tier: "district", state: "Sabah", city: "Beluran",
+    intro: "Hospital Beluran is a non-specialist district hospital serving the Beluran district on the east coast of Sabah, providing essential primary and emergency healthcare to the local community. With 52 beds, it offers basic inpatient and outpatient services before referring specialist cases to Hospital Duchess of Kent in Sandakan. Beluran is primarily an agricultural and rural district, and the hospital plays a vital role in delivering frontline healthcare to its population.",
+    famousFor: ["District hospital for Beluran — east coast Sabah", "First point of care for Beluran's rural and agricultural community"],
+    infrastructure: { yearEstablished: 1985, totalBeds: 52, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Beg Berkunci 2, 90109 Beluran, Sabah", mainLine: "+6089-511233", emergencyLine: "+6089-511333", appointmentLine: "+6089-511233", website: "https://jknsabah.moh.gov.my", mapQuery: "Hospital Beluran Sabah" },
+    transport: { nearest: "Beluran town — 5 min walk", bus: "Bus from Sandakan (~2 hrs)", highway: "Jalan Sandakan–Beluran", landmark: "Beluran town, east coast Sabah" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Duchess of Kent, Sandakan", note: "Non-specialist district hospital — referral to Sandakan" }],
+      byReferral: ["All specialist cases → Hospital Duchess of Kent, Sandakan"]
+    },
+    transferPathway: { summary: "Non-specialist district hospital for Beluran. Specialist and complex cases transfer to Hospital Duchess of Kent in Sandakan.", routes: [{ condition: "Specialist / complex cases", to: "Hospital Duchess of Kent, Sandakan", reason: "Regional specialist referral centre for East Sabah", distanceKm: 90 }], howToTransfer: "MOH referral letter from treating medical officer." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Beluran, east coast Sabah", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Non-specialist facility — all specialist cases to Hospital Duchess of Kent, Sandakan.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Sabah Health Department", url: "https://jknsabah.moh.gov.my" }, { label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "52 beds. Non-specialist district hospital for Beluran, east coast Sabah. Year est. ~1985 (est.). Main line +6089-511233, alt +6089-511333.", notableGaps: "No specialist services on site — referral to Hospital Duchess of Kent, Sandakan."
+  },
+  {
+    id: "htuaran", name: "Hospital Tuaran", nameShort: "Hospital Tuaran",
+    sector: "public", tier: "district", state: "Sabah", city: "Tuaran",
+    intro: "Hospital Tuaran is a district hospital serving the Tuaran district north of Kota Kinabalu, opened on 8 April 1994. With 82 beds, it provides essential district-level healthcare to the Tuaran community, including its Kadazan-Dusun population and coastal fishing villages, before referring specialist cases to Hospital Queen Elizabeth in Kota Kinabalu. Tuaran is a growing semi-urban district on the outskirts of Kota Kinabalu.",
+    famousFor: ["District hospital for Tuaran — north of Kota Kinabalu", "Serves Tuaran's Kadazan-Dusun and coastal communities"],
+    infrastructure: { yearEstablished: 1994, totalBeds: 82, icuBeds: 2, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Peti Surat 996, 89207 Tuaran, Sabah", mainLine: "+6088-797100", emergencyLine: "+6088-797100 ext. A&E", appointmentLine: "+6088-797100", website: "https://jknsabah.moh.gov.my", mapQuery: "Hospital Tuaran Sabah" },
+    transport: { nearest: "Tuaran town — 5 min walk", bus: "Bus from Kota Kinabalu (~45 min)", highway: "Jalan Kota Kinabalu–Tuaran (Jalan Tuaran)", landmark: "Tuaran town, north of Kota Kinabalu" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Queen Elizabeth (HQE), Kota Kinabalu", note: "District hospital — referral to KK" }],
+      byReferral: ["All specialist cases → Hospital Queen Elizabeth, Kota Kinabalu"]
+    },
+    transferPathway: { summary: "District hospital for Tuaran, north of Kota Kinabalu. Specialist cases transfer to Hospital Queen Elizabeth KK (~40 km).", routes: [{ condition: "Specialist / complex cases", to: "Hospital Queen Elizabeth (HQE), Kota Kinabalu", reason: "Apex quaternary hospital for Sabah", distanceKm: 40 }], howToTransfer: "MOH referral letter from treating medical officer." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Tuaran, north of Kota Kinabalu", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Non-specialist facility — all specialist cases to HQE Kota Kinabalu.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Sabah Health Department", url: "https://jknsabah.moh.gov.my" }, { label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "82 beds. Opened 8 April 1994. District hospital for Tuaran, north of Kota Kinabalu. Referral to HQE KK for specialist care.", notableGaps: "No specialist services — referral to HQE Kota Kinabalu."
+  },
+  {
+    id: "kmi-tawau", name: "KMI Tawau Medical Centre", nameShort: "KMI Tawau",
+    sector: "private", tier: "secondary", state: "Sabah", city: "Tawau",
+    intro: "KMI Tawau Medical Centre is a private specialist hospital in Tawau, Sabah, operated by KMI Healthcare Group (a subsidiary of TDM Berhad). Formerly known as Tawau Specialist Hospital, it was acquired by KMI Healthcare Group in 2022 and rebranded as KMI Tawau Medical Centre. It provides multi-discipline specialist care for the Tawau community and is distinct from the separately operated Tawau Specialist Medical Centre (TSMC).",
+    famousFor: ["Formerly Tawau Specialist Hospital — rebranded under KMI Healthcare Group in 2022", "Part of KMI Healthcare Group (TDM Berhad)", "Private specialist care for Tawau, southern Sabah"],
+    infrastructure: { yearEstablished: 2022, totalBeds: 100, icuBeds: 6, nicuBeds: 0, operatingTheatres: 3, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "TB 4551, Jalan Abaca, Bandar Tawau, 91000 Tawau, Sabah", mainLine: "+608-977 1873", emergencyLine: "+608-977 1873", appointmentLine: "+608-977 1873", website: "https://kmihealthcare.com.my", mapQuery: "KMI Tawau Medical Centre Sabah" },
+    transport: { nearest: "Tawau town centre — 10 min taxi", bus: "Local Tawau bus routes", highway: "Jalan Abaca, Bandar Tawau", landmark: "Bandar Tawau, southern Sabah" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology", "Emergency"],
+      notAvailable: [{ specialty: "Complex cardiothoracic / neurosurgery", transferTo: "Hospital Queen Elizabeth (HQE), Kota Kinabalu", note: "Complex cases refer to HQE KK" }],
+      byReferral: ["Complex specialist cases → Hospital Tawau (public) or HQE Kota Kinabalu"]
+    },
+    transferPathway: { summary: "Private specialist hospital in Tawau. Complex specialist cases transfer to Hospital Tawau (public) or HQE Kota Kinabalu.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed Private Hospital"],
+    primaryExcellence: "Private specialist hospital — Tawau, southern Sabah (KMI Healthcare Group)", secondarySpecialties: "General Surgery, Internal Medicine, Obstetrics",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics"],
+    roomRate: "RM 180 – RM 350/night (est.)", roomRateRaw: 250, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery. ~100 beds (est.).", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KMI Healthcare Group", url: "https://kmihealthcare.com.my" }],
+    verifiedNotes: "~100 beds (est.). Formerly Tawau Specialist Hospital — acquired by KMI Healthcare Group (TDM Berhad) in 2022 and rebranded. NOT the same as Tawau Specialist Medical Centre (TSMC). Address: TB 4551, Jalan Abaca, Bandar Tawau.", notableGaps: "~100 beds est. Confirm current specialist list with hospital directly."
+  },
+  {
+    id: "tsmc-tawau", name: "Tawau Specialist Medical Centre", nameShort: "TSMC",
+    sector: "private", tier: "secondary", state: "Sabah", city: "Tawau",
+    intro: "Tawau Specialist Medical Centre (TSMC) is the largest private hospital in Tawau, Sabah, with 122 beds. Located along Jalan Bunga Raya off Apas Road, TSMC offers multi-discipline specialist and surgical services for the Tawau community. It is a completely separate hospital from KMI Tawau Medical Centre (formerly Tawau Specialist Hospital) and operates its own website at tsmc.my.",
+    famousFor: ["Largest private hospital in Tawau (122 beds)", "Independent specialist centre — distinct from KMI Tawau", "Serves Tawau and surrounding districts including Semporna"],
+    infrastructure: { yearEstablished: 2000, totalBeds: 122, icuBeds: 8, nicuBeds: 0, operatingTheatres: 4, area: "N/A", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "Mile 2.5, Tinagat Plaza, Jalan Bunga Raya, Off Apas Road, Tawau, Sabah", mainLine: "N/A — refer to tsmc.my", emergencyLine: "N/A — refer to tsmc.my", appointmentLine: "N/A — refer to tsmc.my", website: "https://tsmc.my", mapQuery: "Tawau Specialist Medical Centre TSMC Sabah" },
+    transport: { nearest: "Tawau town — ~10 min taxi", bus: "Local Tawau bus routes", highway: "Jalan Bunga Raya / Apas Road, Tawau", landmark: "Tinagat Plaza, Mile 2.5, Apas Road, Tawau" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with hospital — refer to tsmc.my." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Radiology", "Emergency"],
+      notAvailable: [{ specialty: "Complex cardiothoracic / neurosurgery", transferTo: "Hospital Tawau (public) or HQE Kota Kinabalu", note: "Complex cases transfer to public sector" }],
+      byReferral: ["Complex cases → Hospital Tawau (public) or HQE KK"]
+    },
+    transferPathway: { summary: "Largest private hospital in Tawau. Complex cases transfer to Hospital Tawau (public) or HQE Kota Kinabalu.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed Private Hospital"],
+    primaryExcellence: "Largest private hospital in Tawau — 122 beds, multi-discipline specialist centre", secondarySpecialties: "General Surgery, Obstetrics, Orthopaedics",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology"],
+    roomRate: "RM 180 – RM 350/night (est.)", roomRateRaw: 250, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "TSMC Official Website", url: "https://tsmc.my" }],
+    verifiedNotes: "122 beds. Largest private hospital in Tawau. SEPARATE from KMI Tawau Medical Centre (formerly Tawau Specialist Hospital). Website: tsmc.my. Address: Mile 2.5, Tinagat Plaza, Jalan Bunga Raya, Off Apas Road, Tawau.", notableGaps: "Confirm current specialist list and contact numbers at tsmc.my."
   }
 
 ];
