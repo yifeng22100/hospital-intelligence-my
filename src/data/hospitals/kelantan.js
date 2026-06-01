@@ -382,5 +382,57 @@ export const HOSPITALS_KELANTAN = [
     gaps: "No general medicine. No emergency A&E.", robotics: "None.", doctorQualifications: "MOH orthopaedic specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~200 beds (est.). Specialist orthopaedic hospital, KB.", notableGaps: "General emergency → HRPZII."
+  },
+  {
+    id: "htumpat",
+    name: "Hospital Tumpat",
+    nameShort: "Hospital Tumpat",
+    sector: "public", tier: "district", state: "Kelantan", city: "Tumpat",
+    intro: "Hospital Tumpat serves the Tumpat district at the northeastern tip of Kelantan, a densely populated district bordering Thailand. It is a non-specialist district hospital providing essential inpatient and emergency services to communities near the Malaysian-Thai border.",
+    famousFor: ["District hospital for Tumpat — near Malaysia-Thailand border", "Non-specialist hospital serving dense northeast Kelantan"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 119, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Kelaboran, 16200 Tumpat, Kelantan", mainLine: "+609-726 3000", emergencyLine: "+609-726 3000 ext. A&E", appointmentLine: "+609-726 3000", website: "https://jknkelantan.moh.gov.my/htumpat/", mapQuery: "Hospital Tumpat Kelantan" },
+    transport: { nearest: "Tumpat town — 5 min walk", bus: "Local bus from Kota Bharu (~30 min)", highway: "Route 3 East Coast Highway — Exit Tumpat", landmark: "Near Tumpat Railway Station (KTMB end-of-line)" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "HRPZII Kota Bharu", note: "Non-specialist district hospital" }],
+      byReferral: ["Specialist → HRPZII Kota Bharu"]
+    },
+    transferPathway: { summary: "Non-specialist district hospital. Complex → HRPZII Kota Bharu (~20 km).", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Tumpat, northeast Kelantan", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No specialist services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Kelantan — Hospital Tumpat", url: "https://jknkelantan.moh.gov.my/htumpat/" }],
+    verifiedNotes: "119 beds. Non-specialist district hospital. Phone: +609-726 3000.", notableGaps: "Specialist referral to HRPZII Kota Bharu."
+  },
+  {
+    id: "kbmc",
+    name: "Kota Bharu Medical Centre (KBMC)",
+    nameShort: "KBMC",
+    sector: "private", tier: "secondary", state: "Kelantan", city: "Kota Bharu",
+    intro: "Kota Bharu Medical Centre (KBMC) is the first private specialist hospital established in Kelantan, operating since December 1997. Located in the Lundang area of Kota Bharu, it offers in-house specialist and outpatient services to the Kelantan community as an independent private medical centre.",
+    famousFor: ["First private specialist hospital in Kelantan", "Independent private medical centre — Kota Bharu"],
+    infrastructure: { yearEstablished: 1997, totalBeds: 80, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~1 acre", buildings: "Main Block (3-storey)", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Lot 179-184, Jalan Sultan Yahya Petra, Lundang, 15200 Kota Bharu, Kelantan", mainLine: "+609-743 3399", emergencyLine: "+609-743 3399 ext. A&E", appointmentLine: "+609-743 3399", website: "https://kbmc.com.my", mapQuery: "Kota Bharu Medical Centre Lundang Kota Bharu Kelantan" },
+    transport: { nearest: "Kota Bharu city centre — 10 min taxi", bus: "Local Kota Bharu bus routes", highway: "East Coast Highway — Exit Kota Bharu", landmark: "Lundang area, Kota Bharu" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "KPJ Perdana Specialist Hospital or HRPZII", note: "Small private hospital" }],
+      byReferral: ["Complex cases → KPJ Kota Bharu or HRPZII"]
+    },
+    transferPathway: { summary: "Small independent private hospital. Complex → KPJ KB or HRPZII.", routes: [], howToTransfer: "Private specialist referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Independent private hospital — Kota Bharu (first private specialist in Kelantan)", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KBMC Official Website", url: "https://kbmc.com.my" }],
+    verifiedNotes: "~80 beds (est.). First private specialist hospital in Kelantan, est. 1997. Phone: +609-743 3399.", notableGaps: "Limited subspecialties — complex cases to KPJ KB or HRPZII."
   }
 ];
