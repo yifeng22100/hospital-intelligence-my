@@ -33,38 +33,6 @@ var HOSPITALS_PENANG = [
     officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
-    id: "hseberang-jaya",
-    name: "Hospital Seberang Jaya",
-    nameShort: "Hospital Seberang Jaya",
-    sector: "public",
-    tier: "state",
-    state: "Penang",
-    city: "Seberang Jaya",
-    intro: "Hospital Seberang Jaya serves Seberang Perai (mainland Penang) with 600 beds and comprehensive secondary-tertiary services for the rapidly industrialising Penang mainland.",
-    famousFor: ["Main public hospital for Penang mainland (Seberang Perai)", "Serves large manufacturing and industrial workforce"],
-    infrastructure: { yearEstablished: 1981, totalBeds: 600, icuBeds: 30, nicuBeds: 10, operatingTheatres: 10, area: "~12 acres", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Jalan Tun Hussein Onn, 13700 Prai, Pulau Pinang", mainLine: "+604-382 3333 (verify)", emergencyLine: "+604-382 3333 ext. A&E (verify)", appointmentLine: "+604-382 3333 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Seberang Jaya Prai Penang" },
-    transport: { nearest: "Prai KTM Station — 10 min taxi", bus: "Rapid Penang Bus routes (Seberang Perai)", highway: "North-South Highway — Exit Juru/Prai", landmark: "Seberang Jaya town area, mainland Penang" },
-    facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Available" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner: unrestricted", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU", "NICU", "General Surgery", "Cardiology", "Neurology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Nephrology", "Gastroenterology", "Respiratory Medicine", "Psychiatry", "Dermatology", "ENT", "Ophthalmology"],
-      notAvailable: [{ specialty: "Neurosurgery", transferTo: "HPP Georgetown", note: "Refer to main HPP" }, { specialty: "Cardiothoracic Surgery", transferTo: "HPP Georgetown", note: "Refer to HPP" }],
-      byReferral: ["Complex cases — refer to HPP Georgetown"]
-    },
-    transferPathway: { summary: "State secondary-tertiary hospital for mainland Penang. Complex cases to HPP.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited"],
-    verifiedNotes: "600 beds. Main hospital for Seberang Perai.",
-    notableGaps: "No neurosurgery. No cardiothoracic surgery.",
-    primaryExcellence: "Public hospital — mainland Penang (Seberang Perai)",
-    secondarySpecialties: "General Medicine, Obstetrics, Cardiology",
-    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 3 – RM 80", roomRateRaw: 5, insurance: "Heavily subsidised.", fppScheme: true, fppDeposit: "RM 500–1,500",
-    gaps: "No neurosurgery. No cardiothoracic.", robotics: "Standard imaging.", doctorQualifications: "MOH specialists.", imageUrl: null, imageCredit: "N/A",
-    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
     id: "hbukit-mertajam",
     name: "Hospital Bukit Mertajam",
     nameShort: "Hospital Bukit Mertajam",
