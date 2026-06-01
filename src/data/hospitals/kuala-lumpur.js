@@ -117,112 +117,6 @@ export const HOSPITALS_KL = [
     ]
   },
   {
-    id: "hklp",
-    name: "Hospital Kuala Lumpur Psychiatric (HKLP)",
-    nameShort: "HKLP",
-    sector: "public",
-    tier: "quaternary",
-    state: "Kuala Lumpur",
-    city: "Kuala Lumpur",
-    intro: "Hospital Kuala Lumpur Psychiatric is Malaysia's largest dedicated public psychiatric hospital, providing inpatient, outpatient, and forensic mental health services. It is the national referral centre for complex psychiatric cases and forensic psychiatry.",
-    famousFor: ["Malaysia's largest public psychiatric hospital", "National forensic psychiatry centre", "Full range of inpatient psychiatric services", "Addiction medicine and detoxification programme"],
-    infrastructure: {
-      yearEstablished: 1910,
-      totalBeds: 900,
-      icuBeds: 0,
-      nicuBeds: 0,
-      operatingTheatres: 2,
-      area: "~15 acres",
-      buildings: "Acute Admission Block, Chronic Care Block, Forensic Block, OPD Building",
-      helipad: false,
-      parkingBays: "~200 bays",
-      parkingRate: "RM 1/hour"
-    },
-    contact: {
-      address: "Jalan Pahang, 50586 Kuala Lumpur (adjacent to HKL)",
-      mainLine: "+603-2615 5555 (via HKL main)",
-      emergencyLine: "+603-2615 5555",
-      appointmentLine: "+603-2615 5555",
-      website: "https://hkl.moh.gov.my",
-      mapQuery: "Hospital Kuala Lumpur Psychiatric Jalan Pahang"
-    },
-    transport: {
-      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 8 min walk; Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 10 min walk",
-      bus: "Bus stops: KL55 (Hospital KL Barat) / KL54 (Hospital KL Opp) — shared with HKL campus. Routes: 100, 103, 200, 250, 260, 302, GOKL-03/04",
-      highway: "MRR2 — Exit Jalan Pahang",
-      landmark: "Adjacent to Hospital Kuala Lumpur main campus"
-    },
-    facilities: {
-      pharmacy24h: false,
-      cafeteria: "Available during daytime",
-      atm: "Nearby at HKL main lobby",
-      surau: "Available on campus",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Limited",
-      patientTransport: "Shared with HKL"
-    },
-    visitingHours: {
-      general: "12:00–14:00, 17:00–19:00 (strictly enforced)",
-      icu: "N/A",
-      paediatric: "N/A",
-      maternity: "N/A",
-      notes: "Visiting may be restricted based on patient's clinical status. Confirm with ward before visiting."
-    },
-    specialtyCoverage: {
-      available: [
-        "General Adult Psychiatry (inpatient & outpatient)",
-        "Child & Adolescent Psychiatry",
-        "Forensic Psychiatry",
-        "Addiction Medicine & Detoxification",
-        "Geriatric Psychiatry",
-        "Community Psychiatry",
-        "ECT (Electroconvulsive Therapy)",
-        "Psychology & Neuropsychology",
-        "Occupational Therapy (psychiatric)",
-        "Social Work (psychiatric)"
-      ],
-      notAvailable: [
-        { specialty: "General Medical / Surgical Care", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Medical emergencies transferred to HKL campus" }
-      ],
-      byReferral: [
-        "Neuropsychiatric disorders — co-managed with HKL Neurology",
-        "Eating disorders — specialist programme at private hospitals"
-      ]
-    },
-    transferPathway: {
-      summary: "HKLP handles all psychiatric admissions. Medical co-morbidities managed in liaison with HKL across the road.",
-      routes: [
-        { condition: "Medical emergencies in psychiatric patients", to: "Hospital Kuala Lumpur (HKL)", reason: "Shared campus — medical emergencies transferred within minutes", distanceKm: 0.2 }
-      ],
-      howToTransfer: "Referral for psychiatric admission via GP, A&E, or community psychiatry. Walk-in to HKLP OPD or present to HKL A&E for crisis assessment."
-    },
-    specialtyRanks: {
-      "Forensic Psychiatry": { rank: "National #1 (Public)", desc: "National forensic psychiatric service for court-ordered assessments" },
-      "General Psychiatry": { rank: "Largest (Public)", desc: "Highest-volume public psychiatric hospital in Malaysia" }
-    },
-    accreditations: ["MSQH Accredited", "MOH Designated National Forensic Psychiatric Centre"],
-    verifiedNotes: "Dedicated psychiatric hospital adjacent to HKL. Handles MOH-ordered psychiatric detention and court-ordered psychiatric evaluation.",
-    notableGaps: "No general medical or surgical wards — purely psychiatric. Long waiting list for community follow-up. Limited private room options.",
-    primaryExcellence: "National public psychiatric and forensic mental health centre",
-    secondarySpecialties: "Addiction Medicine, Child Psychiatry, Geriatric Psychiatry",
-    fullSpecialties: ["General Psychiatry", "Child & Adolescent Psychiatry", "Forensic Psychiatry", "Addiction Medicine", "Geriatric Psychiatry"],
-    roomRate: "RM 3 – RM 10 (Subsidised Public)",
-    roomRateRaw: 3,
-    insurance: "Subsidised public hospital. Commercial insurance coverage very limited for psychiatric admissions — verify with insurer.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "No medical/surgical capability. Commercial insurance often excludes or limits psychiatric coverage.",
-    robotics: "N/A",
-    doctorQualifications: "All psychiatrists hold MMC-registered specialist qualifications (MRCPsych or equivalent). Many are professors at local medical schools.",
-    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women_and_children_health_complex.jpg",
-    imageCredit: "N/A",
-    officialSources: [
-      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
-    ]
-  },
-  {
     id: "ummc",
     name: "Pusat Perubatan Universiti Malaya (UMMC)",
     nameShort: "UMMC",
@@ -981,66 +875,6 @@ export const HOSPITALS_KL = [
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.umsc.com.my" }]
-  },
-  {
-    id: "columbia-asia-pandan",
-    name: "Columbia Asia Hospital Pandan Indah",
-    nameShort: "Columbia Asia PJ",
-    sector: "private",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Pandan Indah, Kuala Lumpur",
-    intro: "Columbia Asia Hospital Pandan Indah is a modern private hospital serving the Pandan Indah, Ampang and Cheras communities. Part of the Columbia Asia group, it offers affordable specialist care with a focus on accessibility.",
-    famousFor: ["Affordable private care in KL east", "Columbia Asia group — regional chain with consistent standards"],
-    infrastructure: {
-      yearEstablished: 2003,
-      totalBeds: 120,
-      icuBeds: 10,
-      nicuBeds: 4,
-      operatingTheatres: 5,
-      area: "~2 acres",
-      buildings: "Main hospital building",
-      helipad: false,
-      parkingBays: "~150 bays",
-      parkingRate: "RM 1.50/hour"
-    },
-    contact: {
-      address: "No. 10A, Jalan Pandan Indah 4/7A, Pandan Indah, 55100 Kuala Lumpur",
-      mainLine: "+603-4296 0888",
-      emergencyLine: "+603-4296 0888 ext. A&E",
-      appointmentLine: "+603-4296 0888",
-      website: "https://www.columbiaasia.com/pandan-indah",
-      mapQuery: "Columbia Asia Hospital Pandan Indah Kuala Lumpur"
-    },
-    transport: { nearest: "Pandan Jaya LRT Station — 10 min walk", bus: "Rapid KL bus routes (Pandan Indah area)", highway: "BESRAYA — Exit Pandan Indah", landmark: "Pandan Indah township, east KL" },
-    facilities: { pharmacy24h: false, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
-    visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "General Surgery", "Cardiology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology"],
-      notAvailable: [
-        { specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles KL or Prince Court", note: "Refer to tertiary centre" }
-      ],
-      byReferral: ["Complex oncology — refer to Beacon or Gleneagles KL"]
-    },
-    transferPathway: { summary: "Community private hospital — complex cases refer to tertiary centres.", routes: [], howToTransfer: "Specialist referral." },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "Columbia Asia Group"],
-    verifiedNotes: "Columbia Asia group hospital in Pandan Indah.",
-    notableGaps: "Limited complex surgery. No cardiothoracic.",
-    primaryExcellence: "Affordable community private hospital — east KL",
-    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 120 – RM 350+/night",
-    roomRateRaw: 180,
-    insurance: "Accepts major Malaysian insurance panels.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "No cardiothoracic surgery. Smaller specialist range.",
-    robotics: "Standard imaging.",
-    doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null,
-    imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.columbiaasia.com/pandan-indah" }]
   },
   {
     id: "tung-shin",
@@ -2494,6 +2328,175 @@ export const HOSPITALS_KL = [
     wikiLink: null,
     officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
+
+  {
+    id: "alty-ortho",
+    name: "ALTY Orthopaedic Hospital",
+    nameShort: "ALTY",
+    sector: "private", tier: "tertiary", state: "Kuala Lumpur", city: "Ampang, Kuala Lumpur",
+    intro: "ALTY Orthopaedic Hospital is a dedicated orthopaedic specialist hospital located in Menara ALTY on Jalan Ampang, Kuala Lumpur. It focuses exclusively on musculoskeletal care including sports injuries, joint replacement, spine surgery, and trauma.",
+    famousFor: ["Dedicated orthopaedic specialist hospital in KL", "Sports injury and joint replacement specialist"],
+    infrastructure: { yearEstablished: null, totalBeds: 60, icuBeds: 6, nicuBeds: 0, operatingTheatres: 4, area: "N/A", buildings: "Menara ALTY", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 2/hour (est.)" },
+    contact: { address: "Ground Floor, Menara ALTY, 187, Jalan Ampang, Taman U Thant, 50450 Kuala Lumpur", mainLine: "+603-2787 0500", emergencyLine: "+603-2787 0500", appointmentLine: "+603-2787 0500", website: "https://altyortho.com", mapQuery: "ALTY Orthopaedic Hospital Menara ALTY Jalan Ampang Kuala Lumpur" },
+    transport: { nearest: "KLCC LRT (Kelana Jaya Line) — ~8 min taxi via Jalan Ampang", bus: "Rapid KL routes along Jalan Ampang", highway: "MRR2 — Jalan Ampang access", landmark: "Taman U Thant, Jalan Ampang corridor; near KLCC" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "N/A", notes: "Specialist orthopaedic hospital. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Orthopaedic Surgery", "Sports Medicine", "Joint Replacement Surgery", "Spine Surgery", "Hand & Upper Limb Surgery", "Foot & Ankle Surgery", "Paediatric Orthopaedics", "Physiotherapy & Rehabilitation"],
+      notAvailable: [{ specialty: "General Medicine", transferTo: "Gleneagles KL or KLCC area hospitals", note: "Orthopaedic specialist only" }, { specialty: "Obstetrics & Gynaecology", transferTo: "Nearest general hospital", note: "Not available" }],
+      byReferral: ["Complex medical co-morbidities — refer to nearest general hospital"]
+    },
+    transferPathway: { summary: "Dedicated orthopaedic specialist hospital. Non-orthopaedic cases refer to nearby general hospitals.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "~60 beds (est.). Dedicated orthopaedic specialist hospital at Menara ALTY, Jalan Ampang. Confirmed active.", notableGaps: "Orthopaedic specialist only — no general medical or obstetric services.",
+    primaryExcellence: "Dedicated orthopaedic and musculoskeletal specialist hospital", secondarySpecialties: "Sports injury, Joint replacement, Spine surgery",
+    fullSpecialties: ["Orthopaedics", "Sports Medicine", "Spine Surgery", "Physiotherapy"],
+    roomRate: "RM 250 – RM 600/night", roomRateRaw: 350, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Orthopaedic specialist only.", robotics: "Standard orthopaedic imaging (X-ray, MRI, CT).", doctorQualifications: "MMC-registered orthopaedic specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://altyortho.com" }]
+  },
+
+  {
+    id: "cengild-gi",
+    name: "Cengild G.I. Medical Centre",
+    nameShort: "Cengild",
+    sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Bangsar South, Kuala Lumpur",
+    intro: "Cengild G.I. Medical Centre is a specialist centre established in October 2017, focused on gastrointestinal, hepatobiliary, metabolic and surgical care. Located in the Nexus building at Bangsar South, it provides advanced endoscopy, minimally invasive GI surgery, and metabolic surgery.",
+    famousFor: ["GI/liver specialist centre", "Metabolic surgery"],
+    infrastructure: { yearEstablished: 2017, totalBeds: 40, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "N/A", buildings: "Nexus, Bangsar South", helipad: false, parkingBays: "~100 bays (Nexus building)", parkingRate: "RM 2/hour (est.)" },
+    contact: { address: "Unit 2-3 & 2-4, Nexus, 7 Jalan Kerinchi, Bangsar South, 59200 Kuala Lumpur", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://cengild.com", mapQuery: "Cengild GI Medical Centre Bangsar South Kuala Lumpur" },
+    transport: { nearest: "Kerinchi LRT (Kelana Jaya Line) — ~5 min walk", bus: "Rapid KL routes to Bangsar South / Kerinchi", highway: "SPRINT Highway — Bangsar South exit", landmark: "Bangsar South, Nexus building; near Mid Valley / Kerinchi LRT" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Building lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "N/A", maternity: "N/A", notes: "Specialist GI centre. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Gastroenterology & Hepatology", "GI Endoscopy", "Minimally Invasive Surgery", "Metabolic & Bariatric Surgery", "Hepatobiliary Surgery", "Colorectal Surgery", "General Surgery"],
+      notAvailable: [{ specialty: "Cardiology", transferTo: "Pantai KL or Gleneagles KL", note: "GI specialist centre only" }, { specialty: "Obstetrics", transferTo: "Nearest general hospital", note: "Not available" }],
+      byReferral: ["Complex systemic conditions — refer to general hospital"]
+    },
+    transferPathway: { summary: "GI specialist centre. Non-GI cases refer to nearby general hospitals.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "~40 beds (est.). Established October 2017. GI, liver, metabolic and surgical specialist centre at Bangsar South.", notableGaps: "GI/surgery specialist only — no cardiac, obstetric, or general medical services.",
+    primaryExcellence: "Gastrointestinal, hepatobiliary and metabolic surgery specialist centre", secondarySpecialties: "Endoscopy, Minimally invasive GI surgery",
+    fullSpecialties: ["Gastroenterology", "Hepatology", "Metabolic Surgery", "Colorectal Surgery", "General Surgery"],
+    roomRate: "RM 200 – RM 500/night", roomRateRaw: 280, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "GI specialist only.", robotics: "Advanced endoscopy. Laparoscopic surgery.", doctorQualifications: "MMC-registered gastroenterology and surgical specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://cengild.com" }]
+  },
+
+  {
+    id: "cvskl",
+    name: "Cardiac Vascular Sentral Kuala Lumpur",
+    nameShort: "CVSKL",
+    sector: "private", tier: "tertiary", state: "Kuala Lumpur", city: "KL Sentral, Kuala Lumpur",
+    intro: "Cardiac Vascular Sentral Kuala Lumpur (CVSKL) is a 60-bed dedicated cardiac and vascular specialist hospital located at KL Sentral. It is a MHTC-featured (Malaysia Healthcare Travel Council) hospital focusing exclusively on heart and vascular conditions, offering interventional cardiology, cardiac surgery, and vascular surgery.",
+    famousFor: ["Dedicated cardiac and vascular specialist hospital", "60-bed heart hospital at KL Sentral"],
+    infrastructure: { yearEstablished: null, totalBeds: 60, icuBeds: 12, nicuBeds: 0, operatingTheatres: 4, area: "N/A", buildings: "KL Sentral specialist tower", helipad: false, parkingBays: "~100 bays (KL Sentral)", parkingRate: "RM 3/hour (est.)" },
+    contact: { address: "Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://cvskl.com", mapQuery: "Cardiac Vascular Sentral Kuala Lumpur CVSKL KL Sentral" },
+    transport: { nearest: "KL Sentral (KTM Komuter, LRT Kelana Jaya, KLIA Ekspres, MRT Putrajaya Line, Monorail) — ~5 min walk", bus: "Multiple Rapid KL bus routes at KL Sentral hub", highway: "Federal Highway / KESAS — KL Sentral access", landmark: "KL Sentral transport hub; near Nu Sentral Mall" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted (cardiac ICU)", paediatric: "N/A", maternity: "N/A", notes: "Dedicated cardiac hospital. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Cardiology", "Interventional Cardiology", "Cardiac Electrophysiology", "Cardiac Surgery", "Cardiothoracic Surgery", "Vascular Surgery", "Cardiac Rehabilitation", "Cardiac ICU"],
+      notAvailable: [{ specialty: "General Medicine (non-cardiac)", transferTo: "Pantai KL or Sunway Medical", note: "Cardiac specialist only" }, { specialty: "Obstetrics", transferTo: "Nearest general hospital", note: "Not available" }],
+      byReferral: ["Heart Transplant — refer to IJN"]
+    },
+    transferPathway: { summary: "Dedicated cardiac and vascular specialist hospital. Non-cardiac cases refer to general hospitals. Heart transplant → IJN.", routes: [{ condition: "Heart transplant", to: "Institut Jantung Negara (IJN)", reason: "IJN performs heart transplants", distanceKm: 5 }], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed", "MHTC Featured Hospital"],
+    verifiedNotes: "60 beds. Dedicated cardiac and vascular specialist hospital at KL Sentral. MHTC-featured hospital.", notableGaps: "Cardiac specialist only — no general medical, obstetric, or non-cardiac surgical services.",
+    primaryExcellence: "Dedicated cardiac and vascular specialist hospital", secondarySpecialties: "Interventional cardiology, Cardiac surgery, Vascular surgery",
+    fullSpecialties: ["Cardiology", "Cardiac Surgery", "Vascular Surgery", "Cardiac Rehabilitation"],
+    roomRate: "RM 250 – RM 600/night", roomRateRaw: 350, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Cardiac specialist only.", robotics: "Catheterisation laboratory. Cardiac imaging.", doctorQualifications: "MMC-registered cardiologists and cardiac surgeons.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://cvskl.com" }, { label: "MHTC", url: "https://mhtc.org.my" }]
+  },
+
+  {
+    id: "global-doctors-kl",
+    name: "Global Doctors Hospital",
+    nameShort: "Global Doctors",
+    sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Mont Kiara, Kuala Lumpur",
+    intro: "Global Doctors Hospital is a multi-specialty ambulatory hospital serving the Mont Kiara, Hartamas, and Bukit Damansara expatriate and professional community. Located in Mont Kiara, it provides accessible private specialist care for residents of northwest KL.",
+    famousFor: ["Serving Mont Kiara and expatriate community", "Multi-specialty ambulatory care"],
+    infrastructure: { yearEstablished: null, totalBeds: 50, icuBeds: 6, nicuBeds: 0, operatingTheatres: 3, area: "N/A", buildings: "Mont Kiara specialist block", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 2/hour (est.)" },
+    contact: { address: "18, Jalan Kiara 3, Mont Kiara, 50480 Kuala Lumpur", mainLine: "+603-6203 0999", emergencyLine: "+603-6203 0999", appointmentLine: "+603-6203 0999", website: "https://globaldoctorshospital.com", mapQuery: "Global Doctors Hospital Mont Kiara Kuala Lumpur" },
+    transport: { nearest: "Semantan MRT (Putrajaya Line) — ~10 min taxi; Sri Hartamas area", bus: "Rapid KL routes to Mont Kiara", highway: "NKVE / Sprint — Mont Kiara access", landmark: "Mont Kiara; near 1 Mont Kiara Mall and Sri Hartamas" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private ambulatory hospital. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Cardiology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology", "Dermatology"],
+      notAvailable: [{ specialty: "Neurosurgery", transferTo: "Gleneagles KL or Sunway Medical", note: "Refer to larger centre" }, { specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles KL or Sunway Medical", note: "Refer to larger centre" }],
+      byReferral: ["Complex tertiary cases — refer to larger KL hospitals"]
+    },
+    transferPathway: { summary: "Community specialist hospital for Mont Kiara. Complex cases → Gleneagles KL or Sunway Medical.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "~50 beds (est.). Multi-specialty ambulatory hospital serving Mont Kiara, Hartamas, and Bukit Damansara corridor.", notableGaps: "No neurosurgery or cardiothoracic surgery.",
+    primaryExcellence: "Community specialist hospital — Mont Kiara, northwest KL", secondarySpecialties: "Obstetrics, Paediatrics, Cardiology",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology"],
+    roomRate: "RM 200 – RM 500/night", roomRateRaw: 280, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited tertiary specialist range.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://globaldoctorshospital.com" }]
+  },
+
+  {
+    id: "kmi-taman-desa",
+    name: "KMI Taman Desa Medical Centre",
+    nameShort: "KMI Taman Desa",
+    sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Taman Desa, Kuala Lumpur",
+    intro: "KMI Taman Desa Medical Centre is part of the KMI Healthcare Group (TDM Berhad), with 39 beds and 27 doctors. It serves the Taman Desa and Old Klang Road corridor, providing full inpatient specialist care in a community hospital setting.",
+    famousFor: ["KMI Healthcare Group hospital — Old Klang Road/Taman Desa corridor"],
+    infrastructure: { yearEstablished: null, totalBeds: 39, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "N/A", buildings: "Taman Desa medical block", helipad: false, parkingBays: "~80 bays", parkingRate: "RM 2/hour (est.)" },
+    contact: { address: "45, Jalan Desa, Taman Desa, Off Jalan Klang Lama, 58100 Kuala Lumpur", mainLine: "+603-7982 6500", emergencyLine: "+603-7982 6500", appointmentLine: "+603-7982 6500", website: "https://kmihealthcare.com", mapQuery: "KMI Taman Desa Medical Centre Jalan Klang Lama Kuala Lumpur" },
+    transport: { nearest: "Jalan Klang Lama area — taxi/ride-hailing; ~20 min from KL Sentral", bus: "Rapid KL routes along Jalan Klang Lama / Old Klang Road", highway: "KESAS / Federal Highway — Old Klang Road access", landmark: "Taman Desa, off Old Klang Road (Jalan Klang Lama)" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Community private hospital. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E", "General Medicine", "General Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology"],
+      notAvailable: [{ specialty: "Tertiary specialist services", transferTo: "Pantai KL or Sunway Medical", note: "Community hospital — refer complex cases" }],
+      byReferral: ["Complex cases — refer to larger KL hospitals"]
+    },
+    transferPathway: { summary: "Community hospital for Taman Desa / Old Klang Road area. Complex cases → larger KL hospitals.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed", "KMI Healthcare Group (TDM Berhad)"],
+    verifiedNotes: "39 beds, 27 doctors. KMI Healthcare Group (TDM Berhad). Full inpatient facility in Taman Desa / Old Klang Road area.", notableGaps: "Limited tertiary specialist range.",
+    primaryExcellence: "Community specialist hospital — Taman Desa, Old Klang Road", secondarySpecialties: "Obstetrics, General Surgery, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 180 – RM 450/night", roomRateRaw: 250, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited tertiary specialist range.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://kmihealthcare.com" }]
+  },
+
+  {
+    id: "htabtah-ukm",
+    name: "Hospital Tunku Ampuan Besar Tuanku Aishah Rohani",
+    nameShort: "HTABTAH / UKM Children's",
+    sector: "public", tier: "tertiary", state: "Kuala Lumpur", city: "Cheras, Kuala Lumpur",
+    intro: "Hospital Tunku Ampuan Besar Tuanku Aishah Rohani (HTABTAH) is Malaysia's first smart specialist children's hospital and the second teaching hospital under Universiti Kebangsaan Malaysia (UKM). Renamed in March 2022 (formerly known as UKM Specialist Children's Hospital / HPKK UKM), it is entirely separate from UKMSC (the private adult specialist centre). Located at the UKM Medical Centre campus in Cheras, it provides comprehensive paediatric subspecialty care with 200+ beds.",
+    famousFor: ["Malaysia's first smart specialist children's hospital", "Second UKM teaching hospital", "Renamed March 2022 (formerly HPKK UKM)"],
+    infrastructure: { yearEstablished: 2019, totalBeds: 200, icuBeds: 20, nicuBeds: 16, operatingTheatres: 8, area: "~5 acres (UKM Medical Centre campus)", buildings: "Specialist Children's Hospital Block", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 1/hour (public hospital)" },
+    contact: { address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur", mainLine: "+603-9174 8888", emergencyLine: "+603-9174 8888 ext. A&E", appointmentLine: "+603-9174 8888", website: "https://hpkk.ukm.edu.my", mapQuery: "Hospital Tunku Ampuan Besar Tuanku Aishah Rohani UKM Cheras Kuala Lumpur" },
+    transport: { nearest: "Bandar Tun Razak MRT (Putrajaya Line) — ~10 min taxi; Cheras area", bus: "Rapid KL routes to Bandar Tun Razak / Cheras", highway: "MRR2 — Bandar Tun Razak / Cheras exit", landmark: "UKM Medical Centre campus, Bandar Tun Razak, Cheras; near Hospital Canselor Tuanku Muhriz (HCTM)" },
+    facilities: { pharmacy24h: true, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free (hospital guest)", patientTransport: "Available" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "11:30–12:00, 17:30–18:00 (max 2 visitors)", paediatric: "Parents: unrestricted", maternity: "N/A", notes: "Children's hospital — parents unrestricted. Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Paediatric A&E (24/7)", "Neonatal ICU (NICU)", "Paediatric ICU (PICU)", "General Paediatrics", "Paediatric Surgery", "Paediatric Cardiology", "Paediatric Neurology", "Paediatric Haematology/Oncology", "Paediatric Nephrology", "Paediatric Gastroenterology", "Paediatric Respiratory Medicine", "Paediatric Orthopaedics", "Paediatric ENT", "Paediatric Ophthalmology", "Paediatric Endocrinology", "Developmental Paediatrics"],
+      notAvailable: [{ specialty: "Adult Medicine", transferTo: "HCTM (Hospital Canselor Tuanku Muhriz)", note: "Children's hospital only" }],
+      byReferral: ["Complex paediatric cardiac surgery — refer to IJN or HKL", "Paediatric organ transplant — refer to Hospital Selayang or UMMC"]
+    },
+    transferPathway: { summary: "Dedicated children's specialist hospital under UKM. Adult cases → HCTM. Complex paediatric surgery → IJN or HKL.", routes: [{ condition: "Paediatric cardiac surgery (complex)", to: "Institut Jantung Negara (IJN)", reason: "National cardiac centre", distanceKm: 8 }], howToTransfer: "MOH or UKM academic referral." },
+    specialtyRanks: { "UKM Children's Hospital": { rank: "National", desc: "Malaysia's first smart specialist children's hospital" } },
+    accreditations: ["MSQH Accredited", "UKM Teaching Hospital"],
+    verifiedNotes: "200+ beds. Malaysia's first smart specialist children's hospital. Second UKM teaching hospital. Renamed March 2022 from HPKK UKM. Entirely separate from UKMSC (adult private specialist centre).", notableGaps: "Children's hospital only — no adult services.",
+    primaryExcellence: "Malaysia's first smart specialist children's hospital (UKM)", secondarySpecialties: "Paediatric surgery, Paediatric cardiology, Paediatric haematology/oncology",
+    fullSpecialties: ["Paediatrics", "Paediatric Surgery", "Paediatric Cardiology", "Neonatology", "Paediatric Haematology/Oncology"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "Subsidised. Malaysian citizens covered under MOH/UKM.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Adult services not available.", robotics: "Smart hospital technology. Standard paediatric imaging.", doctorQualifications: "UKM academic specialists and MOH specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://hpkk.ukm.edu.my" }]
+  },
+  {
     {
     id: "kpj-dsh2",
     name: "Damansara Specialist Hospital 2 (DSH2)",
@@ -2501,6 +2504,28 @@ export const HOSPITALS_KL = [
     sector: "private",
     tier: "tertiary",
     state: "Kuala Lumpur",
+    city: "Bukit Lanjan, Kuala Lumpur",
+    intro: "Damansara Specialist Hospital 2 (DSH2) is a modern KPJ Healthcare hospital in Bukit Lanjan, providing additional specialist capacity for the Damansara, Petaling Jaya, and northwest KL communities. Opened around 2020, it is distinct from KPJ Damansara Specialist Hospital (DSH1) in Petaling Jaya.",
+    famousFor: ["KPJ expansion hospital — Bukit Lanjan, northwest KL", "Modern tertiary private hospital serving Damansara/PJ corridor"],
+    infrastructure: { yearEstablished: 2020, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "New specialist tower", helipad: false, parkingBays: "~250 bays", parkingRate: "RM 3/hr; max/day RM 7; inpatient RM 7/day; valet RM 15/day" },
+    contact: { address: "No. 1, Jalan Bukit Lanjan 3, Bukit Lanjan, 60000 Kuala Lumpur", mainLine: "+603-7717 3000", emergencyLine: "+603-7717 3000", appointmentLine: "+603-7717 3000", website: "https://kpjhealth.com.my/damansara2/", mapQuery: "Damansara Specialist Hospital 2 DSH2 Bukit Lanjan Kuala Lumpur" },
+    transport: { nearest: "MRT Mutiara Damansara (Putrajaya Line) via feeder bus T810; ~8 min walk from bus stop", bus: "Rapid KL 780, 801, PJ06, T810 (Bukit Lanjan area)", highway: "NKVE — Bukit Lanjan interchange (Persiaran Bukit Lanjan)", landmark: "Bukit Lanjan; near Empire City Damansara (~980 m)" },
+    facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "General Surgery", "Cardiology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology"],
+      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical Centre or SJMC", note: "Refer to larger centre" }],
+      byReferral: ["Complex cases — KPJ Damansara (DSH1) or Sunway Medical"]
+    },
+    transferPathway: { summary: "Modern KPJ tertiary private hospital. Complex cases refer to KPJ Damansara (DSH1) or Sunway Medical.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
+    verifiedNotes: "200 beds. KPJ Healthcare group expansion hospital in Bukit Lanjan, state: Kuala Lumpur. Opened ~2020.", notableGaps: "Newer hospital — verify full specialist coverage with hospital.",
+    primaryExcellence: "KPJ private hospital — Damansara 2, Bukit Lanjan northwest KL", secondarySpecialties: "Obstetrics, Cardiology, Paediatrics",
+    fullSpecialties: ["General Medicine", "General Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Cardiology", "ENT", "Ophthalmology"],
+    roomRate: "RM 180 – RM 500+/night", roomRateRaw: 280, insurance: "KPJ group insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Newer — verify specialist availability.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/damansara2/" }]
     city: "Kuala Lumpur",
     intro: "Damansara Specialist Hospital 2 (DSH2) is a modern KPJ Healthcare hospital in Bukit Lanjan, providing additional specialist capacity for the Damansara, Petaling Jaya, and northwest KL communities.",
     famousFor: ["Modern KPJ expansion hospital in Bukit Lanjan", "Additional specialist capacity for Damansara/PJ/northwest KL"],

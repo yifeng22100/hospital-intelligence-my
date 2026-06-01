@@ -145,58 +145,6 @@ export const HOSPITALS_MELAKA = [
     verifiedNotes: "~130 beds (est.). District hospital for Alor Gajah.", notableGaps: "Specialist referral to Hospital Melaka."
   },
   {
-    id: "hmelaka-manipal",
-    name: "Melaka Manipal Medical College Hospital",
-    nameShort: "MMMC Hospital",
-    sector: "private", tier: "secondary", state: "Melaka", city: "Melaka",
-    intro: "The Manipal University College Malaysia (MUCM, formerly Melaka Manipal Medical College / MMMC) has a clinical teaching facility at Bukit Baru. Note: This is a medical university campus, not a standalone public hospital — clinical training is done at Hospital Melaka and affiliated sites. The phone +606-284 6600 is unconfirmed.",
-    famousFor: ["Teaching hospital of Melaka Manipal Medical College", "Academic clinical training facility in Melaka"],
-    infrastructure: { yearEstablished: 2004, totalBeds: 100, icuBeds: 6, nicuBeds: 0, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block, Teaching Wing", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Jalan Batu Hampar, Bukit Baru, 75150 Melaka", mainLine: "+606-289 6662 (campus; unconfirmed for hospital)", emergencyLine: "Not a standalone hospital — call 999 or Hospital Melaka +606-289 2344", appointmentLine: "+606-284 6600 (verify)", website: "https://manipal.edu.my/", mapQuery: "Manipal University College Malaysia Bukit Baru Melaka" },
-    transport: { nearest: "Melaka city — 10 min taxi", bus: "Local bus routes", highway: "North-South Highway — Ayer Keroh exit", landmark: "Bukit Baru, Melaka" },
-    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Hospital Melaka / Mahkota MC", note: "Teaching hospital" }],
-      byReferral: ["Complex → Mahkota Medical Centre"]
-    },
-    transferPathway: { summary: "Teaching hospital. Complex → Mahkota Medical Centre.", routes: [], howToTransfer: "Medical referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Teaching hospital — Melaka Manipal Medical College", secondarySpecialties: "General Medicine, Surgery",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "RM 150–400/night", roomRateRaw: 200, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists and clinical faculty.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Manipal Academy", url: "https://www.manipal.edu.my" }],
-    verifiedNotes: "~100 beds (est.). Teaching hospital of MMMC.", notableGaps: "Complex → Mahkota Medical Centre."
-  },
-  {
-    id: "kpj-melaka",
-    name: "KPJ Melaka Specialist Hospital",
-    nameShort: "KPJ Melaka",
-    sector: "private", tier: "tertiary", state: "Melaka", city: "Melaka",
-    intro: "KPJ Melaka Specialist Hospital is a private specialist hospital in Melaka city, part of the KPJ Healthcare network, serving both locals and medical tourists visiting Melaka.",
-    famousFor: ["KPJ private specialist hospital in Melaka city", "Medical tourism hub in historic Melaka"],
-    infrastructure: { yearEstablished: 1994, totalBeds: 170, icuBeds: 12, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour (announced 2025)" },
-    contact: { address: "Jalan Mufti Haji Khalil, 75450 Melaka", mainLine: "+606-285 8888", emergencyLine: "+606-285 8888 ext. A&E", appointmentLine: "+606-285 8888", website: "https://www.kpjmelaka.com.my", mapQuery: "KPJ Melaka Specialist Hospital" },
-    transport: { nearest: "Melaka Sentral — 10 min taxi", bus: "Rapid Melaka routes", highway: "North-South Highway — Ayer Keroh exit", landmark: "Melaka city centre" },
-    facilities: { pharmacy24h: true, cafeteria: "Café & Food Court", atm: "Lobby ATM", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "Cardiology", "General Surgery", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Oncology"],
-      notAvailable: [{ specialty: "Highly complex subspecialties", transferTo: "Hospital Melaka / KL hospitals", note: "Refer" }],
-      byReferral: ["Complex subspecialties → Hospital Melaka / KL"]
-    },
-    transferPathway: { summary: "Private specialist. Complex → Hospital Melaka or KL.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed", "MSQH Accredited"],
-    primaryExcellence: "Private specialist hospital — Melaka city", secondarySpecialties: "Cardiology, Orthopaedics, Oncology",
-    fullSpecialties: ["Cardiology", "Surgery", "Orthopaedics", "Obstetrics", "Paediatrics", "ENT", "Ophthalmology", "Oncology"],
-    roomRate: "RM 180–500/night", roomRateRaw: 280, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
-    gaps: "Some subspecialties limited.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Melaka", url: "https://www.kpjmelaka.com.my" }],
-    verifiedNotes: "Operational status as of mid-2026 UNCERTAIN — KPJ Melaka does not appear in KPJ Healthcare's official hospital list and website kpjmelaka.com.my was not resolving. Verify before visiting: call KPJ group +603-2711 1966.", notableGaps: "Existence confirmation required."
-  },
-  {
     id: "putra-melaka",
     name: "Putra Specialist Hospital Melaka",
     nameShort: "Putra Specialist Melaka",
@@ -228,5 +176,38 @@ export const HOSPITALS_MELAKA = [
     fppScheme: false, fppDeposit: "N/A",
     gaps: "No liver transplant.", robotics: "64-slice CT scanner. Standard imaging.", doctorQualifications: "MMC-registered specialists. Many internationally trained.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Putra Specialist Hospital Melaka", url: "https://putrahospitalmelaka.com" }]
+  },
+  {
+    id: "oriental-melaka",
+    name: "Oriental Melaka Straits Medical Centre",
+    nameShort: "OMSMC",
+    sector: "private",
+    tier: "tertiary",
+    state: "Melaka",
+    city: "Melaka",
+    intro: "Oriental Melaka Straits Medical Centre (OMSMC) is a full-service private tertiary hospital serving Melaka, located in the Klebang area. It provides comprehensive specialist services including 24/7 emergency care and a wide range of inpatient and outpatient specialist disciplines.",
+    famousFor: ["Full-service private tertiary hospital in Melaka (Klebang area)", "24/7 emergency and specialist services", "Comprehensive private specialist care in Melaka"],
+    infrastructure: { yearEstablished: 2010, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "~250 bays", parkingRate: "RM 2/hour" },
+    contact: { address: "427 Jalan Klebang Besar, Pusat Perubatan Klebang, 75200 Melaka", mainLine: "+606-315 8888", emergencyLine: "+606-315 8930", appointmentLine: "+606-225 2888", website: "https://www.orientalmedical.com.my", mapQuery: "Oriental Melaka Straits Medical Centre Klebang Melaka" },
+    transport: { nearest: "Melaka Sentral bus terminal — 15 min taxi", bus: "Melaka bus routes (Klebang area)", highway: "North-South Highway — Exit Ayer Keroh, via coastal road to Klebang", landmark: "Klebang area, northwestern Melaka" },
+    facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU", "General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Gastroenterology", "Nephrology (Haemodialysis)", "Urology", "ENT", "Ophthalmology", "Oncology (selected)", "Rehabilitation Medicine"],
+      notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }],
+      byReferral: ["Complex oncology — Mahkota Medical Centre or Beacon KL"]
+    },
+    transferPathway: { summary: "Full-service private tertiary hospital in Melaka. Complex transplant cases → national centres.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "Full-service private tertiary hospital in Klebang, Melaka. Phone: +606-315 8888 (main), +606-315 8930 (emergency), +606-225 2888 (alt).",
+    notableGaps: "No liver transplant.",
+    primaryExcellence: "Full-service private tertiary hospital — Klebang, Melaka",
+    secondarySpecialties: "Cardiology, Obstetrics, Orthopaedics",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "Gastroenterology", "Nephrology", "Urology", "ENT", "Ophthalmology"],
+    roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No liver transplant.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A",
+    officialSources: [{ label: "Official Website", url: "https://www.orientalmedical.com.my" }]
   }
 ];

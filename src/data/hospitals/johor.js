@@ -601,5 +601,88 @@ export const HOSPITALS_JOHOR = [
     fppScheme: false, fppDeposit: "N/A",
     gaps: "Smaller capacity than larger JB private hospitals.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Puteri Official Website", url: "https://www.kpjputeri.com" }, { label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }]
+  },
+  {
+    id: "hpenawar",
+    name: "Hospital Penawar",
+    nameShort: "Hospital Penawar",
+    sector: "public",
+    tier: "district",
+    state: "Johor",
+    city: "Pasir Gudang",
+    intro: "Hospital Penawar is a MOH government district hospital serving the Pasir Gudang industrial township in eastern Johor. Pasir Gudang is a separate industrial township distinct from Kota Tinggi, with a large industrial and port workforce. Complex cases are referred to Hospital Sultan Ismail, Johor Bahru.",
+    famousFor: ["District hospital for Pasir Gudang industrial township", "Serves large industrial and port worker population in eastern Johor"],
+    infrastructure: {
+      yearEstablished: 1985,
+      totalBeds: 200,
+      icuBeds: 10,
+      nicuBeds: 4,
+      operatingTheatres: 4,
+      area: "~6 acres",
+      buildings: "Main Block",
+      helipad: false,
+      parkingBays: "~150 bays",
+      parkingRate: "Free"
+    },
+    contact: {
+      address: "Jalan Penawar, 81700 Pasir Gudang, Johor",
+      mainLine: "N/A — confirm via MOH",
+      emergencyLine: "N/A — confirm via MOH",
+      appointmentLine: "N/A — confirm via MOH",
+      website: "https://jknjohor.moh.gov.my",
+      mapQuery: "Hospital Penawar Pasir Gudang Johor"
+    },
+    transport: {
+      nearest: "Pasir Gudang town — 5 min taxi",
+      bus: "Local Pasir Gudang bus routes",
+      highway: "Via Pasir Gudang Highway from JB",
+      landmark: "Pasir Gudang industrial township, eastern Johor"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Available",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Limited",
+      patientTransport: "MOH ambulance"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "Restricted",
+      paediatric: "Parents: unrestricted",
+      maternity: "Standard",
+      notes: "Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Subspecialties", transferTo: "Hospital Sultan Ismail Johor Bahru", note: "District hospital — refer complex cases" }],
+      byReferral: ["Complex cases — Hospital Sultan Ismail JB"]
+    },
+    transferPathway: {
+      summary: "District hospital for Pasir Gudang. Complex cases → Hospital Sultan Ismail Johor Bahru.",
+      routes: [{ condition: "Complex or specialist cases", to: "Hospital Sultan Ismail Johor Bahru", reason: "State tertiary hospital", distanceKm: 25 }],
+      howToTransfer: "MOH inter-hospital referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MOH Accredited"],
+    verifiedNotes: "~200 beds (est.). MOH district hospital in Pasir Gudang industrial township. NOT in Kota Tinggi — Pasir Gudang is a separate industrial township in eastern Johor. Complex cases refer to Hospital Sultan Ismail JB.",
+    notableGaps: "District hospital — limited specialist services.",
+    primaryExcellence: "District hospital — Pasir Gudang industrial township, Johor",
+    secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)",
+    roomRateRaw: 0,
+    insurance: "Heavily subsidised. MyCard / MySalam.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Limited specialist services. District level only.",
+    robotics: "Basic imaging.",
+    doctorQualifications: "MOH medical officers.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }, { label: "JKN Johor", url: "https://jknjohor.moh.gov.my" }]
   }
 ];

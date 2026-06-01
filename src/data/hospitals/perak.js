@@ -395,32 +395,6 @@ export const HOSPITALS_PERAK = [
     verifiedNotes: "~130 beds (est.). District hospital for Tapah.", notableGaps: "Specialist referral to HRPB Ipoh."
   },
   {
-    id: "hbatang-kali",
-    name: "Hospital Tanjong Malim",
-    nameShort: "Hospital Tanjong Malim",
-    sector: "public", tier: "district", state: "Perak", city: "Tanjong Malim",
-    intro: "Hospital Tanjong Malim serves the Muallim district in southern Perak, which is home to Proton City and a growing population near the Selangor border.",
-    famousFor: ["District hospital for Tanjong Malim — Proton City and southern Perak", "Near Selangor-Perak border"],
-    infrastructure: { yearEstablished: 1968, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 35900 Tanjong Malim, Perak", mainLine: "+605-459 2222 (verify)", emergencyLine: "+605-459 2222 ext. A&E", appointmentLine: "+605-459 2222 (verify)", website: "https://jknperak.moh.gov.my/htanjongmalim/", mapQuery: "Hospital Tanjong Malim Perak" },
-    transport: { nearest: "Tanjong Malim KTM station — 5 min walk", bus: "Bus from Ipoh or KL (~1.5 hrs)", highway: "North-South Highway — Tanjong Malim exit", landmark: "Tanjong Malim town / Proton City" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Subspecialties", transferTo: "HRPB Ipoh", note: "District hospital" }],
-      byReferral: ["Specialist → HRPB Ipoh or Hospital Selayang"]
-    },
-    transferPathway: { summary: "District hospital. Complex → HRPB Ipoh or Hospital Selayang.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Tanjong Malim / Muallim", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~130 beds (est.). District hospital for Tanjong Malim.", notableGaps: "Specialist referral to HRPB Ipoh."
-  },
-  {
     id: "hkampar",
     name: "Hospital Kampar",
     nameShort: "Hospital Kampar",
@@ -445,32 +419,6 @@ export const HOSPITALS_PERAK = [
     gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~100 beds (est.). District hospital, Kampar.", notableGaps: "Specialist referral to HRPB Ipoh."
-  },
-  {
-    id: "hsg-siput-u",
-    name: "Hospital Sungai Siput (U)",
-    nameShort: "Hospital Sg Siput (U)",
-    sector: "public", tier: "district", state: "Perak", city: "Sungai Siput Utara",
-    intro: "Hospital Sungai Siput (U) is a MOH district hospital serving the Sungai Siput Utara area, an important rubber and plantation district in central Perak.",
-    famousFor: ["District hospital — Sungai Siput Utara plantation district", "Essential healthcare for rubber estate workers and communities"],
-    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Sungai Siput Utara, 31100 Perak", mainLine: "+605-597 2222 (verify)", emergencyLine: "+605-597 2222 ext. A&E", appointmentLine: "+605-597 2222 (verify)", website: "https://jknperak.moh.gov.my/hssu/", mapQuery: "Hospital Sungai Siput Utara Perak" },
-    transport: { nearest: "Sungai Siput town — 5 min walk", bus: "Bus from Ipoh (~45 min)", highway: "Route 76 from Ipoh", landmark: "Sungai Siput Utara town" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "HRPB Ipoh", note: "District hospital" }],
-      byReferral: ["Specialist → HRPB Ipoh"]
-    },
-    transferPathway: { summary: "District hospital. Complex → HRPB Ipoh.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Sungai Siput Utara", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~60 beds (est.). District hospital, Sungai Siput Utara.", notableGaps: "Specialist referral to HRPB Ipoh."
   },
   {
     id: "hbatu-gajah",
@@ -530,5 +478,143 @@ export const HOSPITALS_PERAK = [
     robotics: "Standard imaging.",
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://pcsh.com.my" }]
+  },
+
+  {
+    id: "hchangkat-melintang",
+    name: "Hospital Changkat Melintang",
+    nameShort: "Hospital Changkat Melintang",
+    sector: "public", tier: "district", state: "Perak", city: "Changkat Melintang",
+    intro: "Hospital Changkat Melintang is a MOH district hospital serving the Hilir Perak district around Changkat Melintang. It provides primary and basic secondary care, referring complex cases to Hospital Teluk Intan.",
+    famousFor: ["MOH district hospital serving Hilir Perak district", "Serves Changkat Melintang and surrounding communities"],
+    infrastructure: { yearEstablished: null, totalBeds: 100, icuBeds: 4, nicuBeds: 2, operatingTheatres: 2, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Changkat Melintang, 36400 Teluk Intan, Perak", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://jknperak.moh.gov.my", mapQuery: "Hospital Changkat Melintang Teluk Intan Perak" },
+    transport: { nearest: "Changkat Melintang town — local access", bus: "Limited local bus services", highway: "Route 1 via Teluk Intan (~30 km)", landmark: "Changkat Melintang, Hilir Perak district" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "N/A", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Ambulance available" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "Hospital Teluk Intan", note: "District hospital — refer complex cases" }],
+      byReferral: ["Complex cases — Hospital Teluk Intan"]
+    },
+    transferPathway: { summary: "District hospital. Complex cases → Hospital Teluk Intan.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~100 beds (est.). MOH district hospital serving Hilir Perak district around Changkat Melintang. Refers complex cases to Hospital Teluk Intan.", notableGaps: "Limited specialist services.",
+    primaryExcellence: "District hospital — Changkat Melintang, Hilir Perak", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://jknperak.moh.gov.my" }]
+  },
+
+  {
+    id: "hselama",
+    name: "Hospital Selama",
+    nameShort: "Hospital Selama",
+    sector: "public", tier: "district", state: "Perak", city: "Selama",
+    intro: "Hospital Selama is a MOH district hospital serving Selama, a small town in the Hulu Perak district of northern Perak. It provides basic healthcare services, referring complex cases to HRPB Ipoh or Hospital Taiping.",
+    famousFor: ["MOH district hospital for Selama, northern Perak", "Serves Hulu Perak District communities near Selama"],
+    infrastructure: { yearEstablished: null, totalBeds: 80, icuBeds: 4, nicuBeds: 2, operatingTheatres: 2, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 34100 Selama, Perak", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://jknperak.moh.gov.my", mapQuery: "Hospital Selama Perak" },
+    transport: { nearest: "Selama town — local access", bus: "Limited local bus services", highway: "North-South Highway — Exit Taiping (~40 km)", landmark: "Selama town, northern Perak" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "N/A", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Ambulance available" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HRPB Ipoh or Hospital Taiping", note: "District hospital — refer complex cases" }],
+      byReferral: ["Complex cases — HRPB Ipoh or Hospital Taiping"]
+    },
+    transferPathway: { summary: "District hospital. Complex cases → HRPB Ipoh or Hospital Taiping.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~80 beds (est.). MOH district hospital for Selama, Hulu Perak district, northern Perak. Refers complex cases to HRPB Ipoh or Hospital Taiping.", notableGaps: "Limited specialist services.",
+    primaryExcellence: "District hospital — Selama, northern Perak", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://jknperak.moh.gov.my" }]
+  },
+
+  {
+    id: "hbahagia-ulu-kinta",
+    name: "Hospital Bahagia Ulu Kinta",
+    nameShort: "Hospital Bahagia",
+    sector: "public", tier: "tertiary", state: "Perak", city: "Tanjung Rambutan",
+    intro: "Hospital Bahagia Ulu Kinta is Perak's only psychiatric and mental health specialist hospital, established in 1911. Located in Tanjung Rambutan, it is one of the largest psychiatric hospitals in Malaysia with an estimated 1,000 beds, serving all of Perak and acting as a national referral centre for psychiatric conditions from the northern states.",
+    famousFor: ["Perak's only psychiatric/mental health specialist hospital", "Established 1911 — one of Malaysia's oldest psychiatric institutions", "National referral for psychiatric conditions from northern states"],
+    infrastructure: { yearEstablished: 1911, totalBeds: 1000, icuBeds: null, nicuBeds: null, operatingTheatres: 2, area: "~50 acres", buildings: "Multiple psychiatric wards and clinical blocks", helipad: false, parkingBays: "~200 bays", parkingRate: "Free" },
+    contact: { address: "Tanjung Rambutan, 31250 Ulu Kinta, Perak", mainLine: "+605-250 3333 (verify)", emergencyLine: "+605-250 3333 ext. A&E (verify)", appointmentLine: "+605-250 3333 (verify)", website: "https://jknperak.moh.gov.my", mapQuery: "Hospital Bahagia Ulu Kinta Tanjung Rambutan Perak" },
+    transport: { nearest: "Tanjung Rambutan town — local access; ~15 km from Ipoh", bus: "Limited local bus services from Ipoh", highway: "North-South Highway — Exit Ipoh; Route 1 to Tanjung Rambutan", landmark: "Tanjung Rambutan, Ulu Kinta, near Ipoh" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "N/A", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Available" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A (psychiatric hospital)", paediatric: "N/A", maternity: "N/A", notes: "Psychiatric facility — visiting hours subject to clinical assessment. Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Psychiatry", "Forensic Psychiatry", "Child & Adolescent Psychiatry", "Addiction Medicine", "Geriatric Psychiatry", "Occupational Therapy", "Clinical Psychology"],
+      notAvailable: [{ specialty: "General Medical/Surgical Emergencies", transferTo: "HRPB Ipoh", note: "Refer non-psychiatric emergencies to HRPB Ipoh" }],
+      byReferral: ["Complex medical conditions — HRPB Ipoh"]
+    },
+    transferPathway: { summary: "Specialist psychiatric hospital. Non-psychiatric medical emergencies → HRPB Ipoh.", routes: [{ condition: "Non-psychiatric medical emergency", to: "HRPB Ipoh", reason: "Acute general hospital", distanceKm: 15 }], howToTransfer: "MOH referral for psychiatric admissions." },
+    specialtyRanks: { "Perak Psychiatry": { rank: "State #1", desc: "Perak's only specialist psychiatric hospital" } },
+    accreditations: ["MOH Accredited"],
+    verifiedNotes: "~1,000 beds (est.). Established 1911. Perak's only specialist psychiatric hospital. National referral for psychiatric conditions from northern states. Named from Malay 'bahagia' meaning happiness.", notableGaps: "Psychiatric focus only — no general medical/surgical specialties.",
+    primaryExcellence: "Specialist psychiatric hospital — Perak and northern Malaysia referral", secondarySpecialties: "Forensic Psychiatry, Child Psychiatry, Addiction Medicine",
+    fullSpecialties: ["Psychiatry", "Forensic Psychiatry", "Child & Adolescent Psychiatry", "Addiction Medicine", "Geriatric Psychiatry"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No general medicine/surgery. Psychiatric specialist focus only.", robotics: "N/A.", doctorQualifications: "MOH psychiatrists and mental health specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://jknperak.moh.gov.my" }]
+  },
+
+  {
+    id: "kpj-sri-manjung",
+    name: "KPJ Sri Manjung Specialist Centre",
+    nameShort: "KPJ Sri Manjung",
+    sector: "private", tier: "secondary", state: "Perak", city: "Seri Manjung",
+    intro: "KPJ Sri Manjung Specialist Centre is a KPJ Healthcare Group specialist centre serving the Manjung/Lumut area of coastal Perak. It provides private specialist services for communities in Seri Manjung, Lumut, and the surrounding region.",
+    famousFor: ["KPJ Healthcare Group specialist centre for Manjung/Lumut area", "Private specialist services for coastal Perak communities"],
+    infrastructure: { yearEstablished: null, totalBeds: 100, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "N/A", buildings: "Specialist Centre", helipad: false, parkingBays: "~120 bays", parkingRate: "RM 2/hour (est.)" },
+    contact: { address: "Jalan Bunga Raya, 32040 Seri Manjung, Perak", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://kpjhealth.com.my", mapQuery: "KPJ Sri Manjung Specialist Centre Seri Manjung Perak" },
+    transport: { nearest: "Seri Manjung town — 5 min taxi", bus: "Local bus routes", highway: "Route 60 to Ipoh/KL", landmark: "Jalan Bunga Raya, Seri Manjung, near Hospital Seri Manjung" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "General Surgery", "Cardiology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology", "Radiology"],
+      notAvailable: [{ specialty: "Complex tertiary cases", transferTo: "Pantai Ipoh or HRPB Ipoh", note: "Refer to larger centre" }],
+      byReferral: ["Complex cases — Pantai Ipoh or HRPB Ipoh"]
+    },
+    transferPathway: { summary: "Private specialist centre for Manjung/Lumut area.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed", "KPJ Healthcare Group"],
+    verifiedNotes: "~100 beds (est.). KPJ Healthcare Group specialist centre in Seri Manjung. Correct name: 'KPJ Sri Manjung Specialist Centre'. Serves Manjung/Lumut area.", notableGaps: "Limited tertiary specialist range.",
+    primaryExcellence: "Private specialist centre — Manjung/Lumut, coastal Perak", secondarySpecialties: "Cardiology, Obstetrics, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 200 – RM 500/night", roomRateRaw: 280, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited tertiary specialist services.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare Group", url: "https://kpjhealth.com.my" }]
+  },
+
+  {
+    id: "kmc-ipoh",
+    name: "KMC Medical Centre",
+    nameShort: "KMC Ipoh",
+    sector: "private", tier: "secondary", state: "Perak", city: "Ipoh",
+    intro: "KMC Medical Centre (formerly Kinta Medical Centre) is a private specialist hospital in Ipoh serving the Kinta Valley area. It was rebranded to KMC Medical Centre and provides multi-specialty private healthcare for Ipoh and surrounding communities.",
+    famousFor: ["Formerly Kinta Medical Centre — rebranded KMC Medical Centre", "Private specialist hospital serving Ipoh / Kinta Valley"],
+    infrastructure: { yearEstablished: null, totalBeds: 150, icuBeds: 12, nicuBeds: 4, operatingTheatres: 6, area: "N/A", buildings: "Main Specialist Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 2/hour (est.)" },
+    contact: { address: "Ipoh, Perak (verify exact address with hospital)", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://kmcmedicalcentre.com.my", mapQuery: "KMC Medical Centre Ipoh Perak" },
+    transport: { nearest: "Ipoh Railway Station — taxi/bus", bus: "Rapid Perak Bus (Ipoh town routes)", highway: "North-South Highway — Exit Ipoh", landmark: "Ipoh, Perak" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital. Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "General Surgery", "Cardiology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology", "Urology"],
+      notAvailable: [{ specialty: "Complex tertiary cases", transferTo: "Pantai Ipoh or HRPB Ipoh", note: "Refer to larger centre" }],
+      byReferral: ["Complex cases — Pantai Ipoh or HRPB Ipoh"]
+    },
+    transferPathway: { summary: "Private specialist hospital in Ipoh.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "~150 beds (est.). Formerly Kinta Medical Centre, rebranded to KMC Medical Centre. Private specialist hospital in Ipoh/Kinta Valley. Verify exact address and phone with hospital.", notableGaps: "Verify full specialist coverage.",
+    primaryExcellence: "Private specialist hospital — Ipoh, Kinta Valley", secondarySpecialties: "Cardiology, Obstetrics, Gastroenterology",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 200 – RM 500/night", roomRateRaw: 280, insurance: "Major Malaysian insurance panels.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Verify specialist availability.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://kmcmedicalcentre.com.my" }]
   }
 ];

@@ -1060,30 +1060,6 @@ export const HOSPITALS_SARAWAK = [
     verifiedNotes: "~120 beds (est.). Main hospital for Sarikei Division.", notableGaps: "No complex surgery."
   },
   {
-    id: "hsamarahan", name: "Hospital Samarahan", nameShort: "Hsp. Samarahan",
-    sector: "public", tier: "district", state: "Sarawak", city: "Kota Samarahan",
-    intro: "Hospital Samarahan serves Kota Samarahan — Sarawak's university city and administrative hub, home to UNIMAS. The hospital supports the growing student and government worker population.",
-    famousFor: ["Serves UNIMAS university city population", "Fast-growing Samarahan district"],
-    infrastructure: { yearEstablished: 1995, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 3, area: "~8 acres", buildings: "Main Block", helipad: true, parkingBays: "~200 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Datu Patinggi Haji Abdul Rahman, 94300 Kota Samarahan, Sarawak", mainLine: "+6082-665 333", emergencyLine: "+6082-665 333 ext. A&E", appointmentLine: "+6082-665 333", website: "https://jknsarawak.moh.gov.my/hsamarahan/", mapQuery: "Hospital Samarahan Sarawak" },
-    transport: { nearest: "Kota Samarahan — 5 min drive", bus: "Bus from Kuching (~30 min)", highway: "Via Jalan Kuching–Samarahan", landmark: "Near UNIMAS campus" },
-    facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Internal Medicine", "Orthopaedics"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery, Neurosurgery", transferTo: "Hospital Umum Sarawak Kuching", note: "Secondary district hospital" }],
-      byReferral: ["Complex cases → Hospital Umum Sarawak"]
-    },
-    transferPathway: { summary: "District hospital near Kuching. Complex cases → Hospital Umum Sarawak.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Kota Samarahan / UNIMAS area", secondarySpecialties: "General Medicine, Surgery, Obstetrics",
-    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
-    gaps: "No cardiothoracic or neurosurgery.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~150 beds (est.). District hospital near UNIMAS university.", notableGaps: "Refer complex cases to Kuching."
-  },
-  {
     id: "miri-city-mc", name: "Miri City Medical Centre", nameShort: "Miri City MC",
     sector: "private", tier: "secondary", state: "Sarawak", city: "Miri",
     intro: "Miri City Medical Centre is a private hospital serving the oil and gas hub of Miri, northern Sarawak. It provides private specialist care for the city's energy sector workforce.",
@@ -1291,32 +1267,6 @@ export const HOSPITALS_SARAWAK = [
     verifiedNotes: "~50 beds (est.). Small district hospital for Dalat.", notableGaps: "Specialist referral to Hospital Mukah."
   },
   {
-    id: "hlubok-antu",
-    name: "Hospital Lubok Antu",
-    nameShort: "Hospital Lubok Antu",
-    sector: "public", tier: "district", state: "Sarawak", city: "Lubok Antu",
-    intro: "Hospital Lubok Antu serves the border town of Lubok Antu in the Sri Aman Division, near the Batang Ai dam and Indonesian Kalimantan border.",
-    famousFor: ["District hospital for Lubok Antu — Batang Ai border area"],
-    infrastructure: { yearEstablished: 1980, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~30 bays", parkingRate: "Free" },
-    contact: { address: "Lubok Antu, Sri Aman, Sarawak", mainLine: "+6083-584 222 (verify)", emergencyLine: "+6083-584 222 ext. A&E", appointmentLine: "+6083-584 222 (verify)", website: "https://jknsarawak.moh.gov.my/hlubukant/", mapQuery: "Hospital Lubok Antu Sarawak" },
-    transport: { nearest: "Lubok Antu town — 5 min walk", bus: "Limited routes from Sri Aman (~2 hrs)", highway: "Interior road via Sri Aman", landmark: "Lubok Antu, Batang Ai lake" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sri Aman / SGH Kuching", note: "Remote border hospital" }],
-      byReferral: ["Specialist → Hospital Sri Aman or SGH Kuching"]
-    },
-    transferPathway: { summary: "Remote border district hospital. Complex → Hospital Sri Aman.", routes: [], howToTransfer: "MOH referral / helicopter." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Lubok Antu border area", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited — remote border.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~40 beds (est.). Remote border district hospital.", notableGaps: "Helicopter transfer for complex cases."
-  },
-  {
     id: "hmarudi",
     name: "Hospital Marudi",
     nameShort: "Hospital Marudi",
@@ -1368,33 +1318,6 @@ export const HOSPITALS_SARAWAK = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). District hospital for Bau.", notableGaps: "Specialist referral to SGH Kuching."
   },
-  {
-    id: "hbinatang",
-    name: "Hospital Binatang",
-    nameShort: "Hospital Binatang",
-    sector: "public", tier: "district", state: "Sarawak", city: "Bintangor",
-    intro: "Hospital Binatang (also referred to as Hospital Bintangor) serves the Binatang/Bintangor area in the Sarikei Division of central Sarawak.",
-    famousFor: ["District hospital for Bintangor / Binatang area, Sarikei Division"],
-    infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 96600 Bintangor, Sarawak", mainLine: "+6084-690 222 (verify)", emergencyLine: "+6084-690 222 ext. A&E", appointmentLine: "+6084-690 222 (verify)", website: "https://jknsarawak.moh.gov.my/hbintangor/", mapQuery: "Hospital Bintangor Sarawak" },
-    transport: { nearest: "Bintangor town — 5 min walk", bus: "Bus from Sibu (~1.5 hrs)", highway: "Pan Borneo Highway", landmark: "Bintangor town, Rajang river area" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sarikei / Hospital Sibu", note: "District hospital" }],
-      byReferral: ["Specialist → Hospital Sarikei or Hospital Sibu"]
-    },
-    transferPathway: { summary: "District hospital. Complex → Hospital Sarikei or Sibu.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Bintangor", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~80 beds (est.). District hospital for Bintangor.", notableGaps: "Specialist referral to Hospital Sarikei."
-  }
-,
   {
     id: "hsentosa", name: "Hospital Sentosa Kuching", nameShort: "Hospital Sentosa",
     sector: "public", tier: "tertiary", state: "Sarawak", city: "Kuching",
@@ -1591,5 +1514,77 @@ export const HOSPITALS_SARAWAK = [
     roomRate: "RM 180 – RM 500", roomRateRaw: 300, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
     gaps: "No cardiothoracic surgery. Limited beds.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Malaysia", url: "https://www.columbiaasia.com/malaysia/" }]
+  },
+  {
+    id: "kpj-sibu", name: "KPJ Sibu Specialist Medical Centre", nameShort: "KPJ Sibu",
+    sector: "private", tier: "secondary", state: "Sarawak", city: "Sibu",
+    intro: "KPJ Sibu Specialist Medical Centre is a private specialist hospital in Sibu, Sarawak, operated by KPJ Healthcare Group — Malaysia's largest private hospital group. Located along Persiaran Brooke in the heart of Sibu, it provides multi-discipline specialist and surgical care for the Sibu Division and surrounding areas of central Sarawak. It is also referred to in some directories as KPJ Sibu Specialist Hospital.",
+    famousFor: ["KPJ Healthcare Group hospital in Sibu, central Sarawak", "Specialist care for the Sibu Division and Rejang River basin communities", "Part of Malaysia's largest private hospital network"],
+    infrastructure: { yearEstablished: 2000, totalBeds: 100, icuBeds: 6, nicuBeds: 0, operatingTheatres: 4, area: "N/A", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "No. 52A-G, Persiaran Brooke (Brooke Drive), 96000 Sibu, Sarawak", mainLine: "+6084-329900", emergencyLine: "+6084-329900", appointmentLine: "+6084-329900", website: "https://www.kpjhealth.com.my", mapQuery: "KPJ Sibu Specialist Medical Centre Sarawak" },
+    transport: { nearest: "Sibu town centre — 10 min taxi", bus: "Local Sibu bus routes", highway: "Pan Borneo Highway access via Sibu", landmark: "Persiaran Brooke (Brooke Drive), Sibu town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Radiology", "Emergency"],
+      notAvailable: [{ specialty: "Complex cardiothoracic / neurosurgery", transferTo: "Hospital Sibu (public) or HUS Kuching", note: "Complex cases refer to public sector or HUS Kuching" }],
+      byReferral: ["Complex specialist cases → Hospital Sibu (public) or HUS Kuching"]
+    },
+    transferPathway: { summary: "Private specialist hospital in Sibu. Complex cases transfer to Hospital Sibu (public) or HUS Kuching.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed Private Hospital"],
+    primaryExcellence: "KPJ Healthcare Group private specialist hospital in Sibu, central Sarawak", secondarySpecialties: "General Surgery, Internal Medicine, Obstetrics",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology"],
+    roomRate: "RM 180 – RM 350/night (est.)", roomRateRaw: 250, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare Group", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "~100 beds (est.). KPJ Healthcare Group private specialist hospital in Sibu, Sarawak. Address: No. 52A-G, Persiaran Brooke (Brooke Drive), 96000 Sibu. Also referred to as KPJ Sibu Specialist Hospital in some directories.", notableGaps: "~100 beds est. Confirm current specialist list with hospital directly."
+  },
+  {
+    id: "rejang-mc", name: "Rejang Medical Centre", nameShort: "Rejang MC",
+    sector: "private", tier: "secondary", state: "Sarawak", city: "Sibu",
+    intro: "Rejang Medical Centre is the largest private hospital in central Sarawak, located in Sibu along Jalan Dr Wong Soon Kai (Jalan Pedada). Established in 1997, it has 62 beds and 21 resident specialists, providing multi-discipline specialist and surgical services for the Sibu Division and wider central Sarawak. It is also referred to as Rejang Specialist Hospital.",
+    famousFor: ["Largest private hospital in central Sarawak", "62 beds and 21 resident specialists", "Established 1997 — long-serving private specialist centre in Sibu", "Also known as Rejang Specialist Hospital"],
+    infrastructure: { yearEstablished: 1997, totalBeds: 62, icuBeds: 6, nicuBeds: 0, operatingTheatres: 3, area: "N/A", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "No. 29, Jalan Dr Wong Soon Kai (Jalan Pedada), 96000 Sibu, Sarawak", mainLine: "+6084-323333", emergencyLine: "+6084-323333", appointmentLine: "+6084-323333", website: "https://www.rejang.com.my", mapQuery: "Rejang Medical Centre Sibu Sarawak" },
+    transport: { nearest: "Sibu town centre — 10 min taxi", bus: "Local Sibu bus routes", highway: "Pan Borneo Highway access via Sibu", landmark: "Jalan Dr Wong Soon Kai (Jalan Pedada), Sibu" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Radiology", "Emergency"],
+      notAvailable: [{ specialty: "Complex cardiothoracic / neurosurgery", transferTo: "Hospital Sibu (public) or HUS Kuching", note: "Complex cases refer to public sector or HUS Kuching" }],
+      byReferral: ["Complex specialist cases → Hospital Sibu (public) or HUS Kuching"]
+    },
+    transferPathway: { summary: "Largest private hospital in central Sarawak. Complex cases transfer to Hospital Sibu (public) or HUS Kuching.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed Private Hospital"],
+    primaryExcellence: "Largest private hospital in central Sarawak — 62 beds, 21 resident specialists", secondarySpecialties: "General Surgery, Obstetrics, Internal Medicine",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology"],
+    roomRate: "RM 180 – RM 350/night (est.)", roomRateRaw: 250, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery. 62 beds.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Rejang Medical Centre", url: "https://www.rejang.com.my" }],
+    verifiedNotes: "62 beds. 21 resident specialists. Established 1997. Largest private hospital in central Sarawak. Also referred to as Rejang Specialist Hospital. Address: No. 29, Jalan Dr Wong Soon Kai (Jalan Pedada), 96000 Sibu.", notableGaps: "Confirm current specialist list and contact numbers at rejang.com.my."
+  },
+  {
+    id: "bintulu-mc", name: "Bintulu Medical Centre", nameShort: "Bintulu MC",
+    sector: "private", tier: "secondary", state: "Sarawak", city: "Bintulu",
+    intro: "Bintulu Medical Centre is a multi-discipline private specialist hospital in Bintulu, Sarawak, which commenced operations on 1 January 2011. With 58 beds, it provides specialist and surgical services for the Bintulu Division and is a key private healthcare provider alongside Columbia Asia Hospital Bintulu. Its website is bintulumedicalcentre.com.",
+    famousFor: ["Multi-discipline specialist hospital in Bintulu, Sarawak", "Commenced operations 1 January 2011", "58 beds — key private provider in Bintulu Division"],
+    infrastructure: { yearEstablished: 2011, totalBeds: 58, icuBeds: 5, nicuBeds: 0, operatingTheatres: 3, area: "N/A", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "Lot 6009, Block 31, Kemena Land District, 97000 Bintulu, Sarawak", mainLine: "+6086-330333", emergencyLine: "+6086-330333", appointmentLine: "+6086-330333", website: "https://www.bintulumedicalcentre.com", mapQuery: "Bintulu Medical Centre Sarawak" },
+    transport: { nearest: "Bintulu town centre — 10 min taxi", bus: "Local Bintulu bus routes", highway: "Pan Borneo Highway access", landmark: "Kemena Land District, Bintulu" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with hospital." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology", "Emergency"],
+      notAvailable: [{ specialty: "Complex cardiothoracic / neurosurgery", transferTo: "Hospital Bintulu (public) or HUS Kuching", note: "Complex cases refer to public sector or HUS Kuching" }],
+      byReferral: ["Complex specialist cases → Hospital Bintulu (public) or HUS Kuching"]
+    },
+    transferPathway: { summary: "Private specialist hospital in Bintulu. Complex cases transfer to Hospital Bintulu (public) or HUS Kuching.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed Private Hospital"],
+    primaryExcellence: "Multi-discipline private specialist hospital in Bintulu — commenced 2011, 58 beds", secondarySpecialties: "General Surgery, Obstetrics, Internal Medicine",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT"],
+    roomRate: "RM 180 – RM 350/night (est.)", roomRateRaw: 250, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery. 58 beds.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Bintulu Medical Centre", url: "https://www.bintulumedicalcentre.com" }],
+    verifiedNotes: "58 beds. Commenced operations 1 January 2011. Multi-discipline specialist hospital in Bintulu. Address: Lot 6009, Block 31, Kemena Land District, 97000 Bintulu, Sarawak.", notableGaps: "Confirm current specialist list and contact numbers at bintulumedicalcentre.com."
   }
 ];
