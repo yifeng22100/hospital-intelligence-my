@@ -296,6 +296,10 @@ window.HI = window.HI || {};
     var card = document.getElementById(topicId + '-card');
     if (card) card.classList.add('active');
 
+    // Hide the card grid and show topic in its place
+    var cardGrid = document.getElementById('intel-quick-grid');
+    if (cardGrid) cardGrid.classList.add('hidden');
+
     // Update label
     var meta = topicLabels[topicId] || { icon: '', key: topicId };
     if (labelEl) labelEl.innerHTML = meta.icon + ' ' + (meta.key ? window.HI.t(meta.key) : topicId);
@@ -316,6 +320,9 @@ window.HI = window.HI || {};
     if (panel) panel.classList.add('hidden');
     var allCards = document.querySelectorAll('.intel-card');
     for (var i = 0; i < allCards.length; i++) allCards[i].classList.remove('active');
+    // Show the card grid again
+    var cardGrid = document.getElementById('intel-quick-grid');
+    if (cardGrid) cardGrid.classList.remove('hidden');
     activeTopicId = null;
   }
 
