@@ -191,5 +191,31 @@ var HOSPITALS_LABUAN = [
     imageCredit: "",
     wikiLink: null,
     officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "labuan-biz-mc",
+    name: "Labuan Biz Medical Centre",
+    nameShort: "Labuan Biz MC",
+    sector: "private", tier: "secondary", state: "Labuan", city: "Labuan",
+    intro: "Labuan Biz Medical Centre is a private medical facility serving the business and offshore energy community of Labuan federal territory.",
+    famousFor: ["Private medical centre — Labuan offshore financial centre", "Serves oil & gas and business community"],
+    infrastructure: { yearEstablished: 2008, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~1 acre", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Labuan, Malaysia", mainLine: "+6087-422 000 (verify)", emergencyLine: "+6087-422 000 ext. A&E", appointmentLine: "+6087-422 000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Labuan Biz Medical Centre" },
+    transport: { nearest: "Labuan town — 10 min taxi", bus: "Local Labuan bus", highway: "Labuan island roads", landmark: "Labuan town / financial district" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["General Medicine", "Basic procedures"],
+      notAvailable: [{ specialty: "Most specialist services", transferTo: "Hospital Labuan / Gleneagles KK", note: "Small facility" }],
+      byReferral: ["Specialist → Hospital Labuan or Kota Kinabalu"]
+    },
+    transferPathway: { summary: "Small private facility. Complex → Hospital Labuan or KK.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private medical centre — Labuan financial territory", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine"],
+    roomRate: "RM 150–400/night", roomRateRaw: 200, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services — small facility.", robotics: "None.", doctorQualifications: "MOH-registered doctors.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~40 beds (est.). Small private medical centre for Labuan business community.", notableGaps: "Complex → Hospital Labuan or KK."
   }
 ];

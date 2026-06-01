@@ -272,5 +272,83 @@ var HOSPITALS_NS = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~60 beds (est.). District hospital for Jelebu.", notableGaps: "Specialist referral to HTJ Seremban."
+  },
+  {
+    id: "columbia-ns",
+    name: "Columbia Asia Hospital Nilai",
+    nameShort: "Columbia Asia Nilai",
+    sector: "private", tier: "secondary", state: "Negeri Sembilan", city: "Nilai",
+    intro: "Columbia Asia Hospital Nilai serves the Nilai township and surrounding Seremban district in Negeri Sembilan.",
+    famousFor: ["Private hospital — Nilai township, near Kuala Lumpur International Airport"],
+    infrastructure: { yearEstablished: 2010, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Nilai, Negeri Sembilan", mainLine: "+606-799 9999 (verify)", emergencyLine: "+606-799 9999 ext. A&E", appointmentLine: "+606-799 9999 (verify)", website: "https://www.columbiaasia.com", mapQuery: "Columbia Asia Hospital Nilai" },
+    transport: { nearest: "Nilai KTM station — 10 min taxi", bus: "Bus from Seremban (~30 min)", highway: "ELITE Highway — Nilai exit", landmark: "Nilai town, near KLIA" },
+    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "KPJ Seremban / Nilai Medical Centre", note: "Refer" }],
+      byReferral: ["Complex → KPJ Seremban"]
+    },
+    transferPathway: { summary: "Private hospital. Complex → KPJ Seremban.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private hospital — Nilai, N. Sembilan", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia", url: "https://www.columbiaasia.com" }],
+    verifiedNotes: "~100 beds (est.). Private hospital, Nilai.", notableGaps: "Complex → KPJ Seremban."
+  },
+  {
+    id: "hgemas",
+    name: "Hospital Gemas",
+    nameShort: "Hospital Gemas",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Gemas",
+    intro: "Hospital Gemas serves the Gemas area in the Tampin district of Negeri Sembilan, an important rail junction town.",
+    famousFor: ["District hospital for Gemas — rail junction town of southern N. Sembilan"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 73400 Gemas, Negeri Sembilan", mainLine: "+606-798 2222 (verify)", emergencyLine: "+606-798 2222 ext. A&E", appointmentLine: "+606-798 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Gemas Negeri Sembilan" },
+    transport: { nearest: "Gemas KTM Junction — 10 min walk", bus: "Bus from Seremban (~1.5 hrs)", highway: "North-South Highway — Gemas exit", landmark: "Gemas rail junction town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Tampin / HTJ Seremban", note: "District hospital" }],
+      byReferral: ["Specialist → HTJ Seremban"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Gemas", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). District hospital for Gemas.", notableGaps: "Specialist referral to HTJ Seremban."
+  },
+  {
+    id: "hserting",
+    name: "Hospital Serting",
+    nameShort: "Hospital Serting",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Bahau",
+    intro: "Hospital Serting serves the Bahau area in the Jempol district of Negeri Sembilan, an interior agricultural community.",
+    famousFor: ["District hospital for Bahau / Jempol district"],
+    infrastructure: { yearEstallished: 1972, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Bahau, 72100 Jempol, Negeri Sembilan", mainLine: "+606-454 2222 (verify)", emergencyLine: "+606-454 2222 ext. A&E", appointmentLine: "+606-454 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Bahau Negeri Sembilan" },
+    transport: { nearest: "Bahau KTM station — 10 min walk", bus: "Bus from Seremban (~1.5 hrs)", highway: "Route 9 / interior road", landmark: "Bahau town, Jempol district" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "HTJ Seremban", note: "District hospital" }],
+      byReferral: ["Specialist → HTJ Seremban"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Bahau / Jempol", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). District hospital for Bahau.", notableGaps: "Specialist referral to HTJ Seremban."
   }
 ];

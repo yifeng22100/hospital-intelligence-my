@@ -391,7 +391,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.5rem;
   overflow-y: auto;
 }
 
@@ -416,7 +416,7 @@
   z-index: 10;
   background: #fff;
   border-bottom: 1px solid var(--border);
-  padding: 1.25rem 1.5rem 1rem;
+  padding: 1.5rem 2rem 1rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -474,7 +474,7 @@
 .modal-tabs {
   display: flex;
   gap: 0.25rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
   scrollbar-width: none;
@@ -513,7 +513,7 @@
 
 /* Modal tab panels */
 .modal-tab-panel {
-  padding: 1.5rem;
+  padding: 1.75rem 2rem 2.5rem;
   flex: 1;
 }
 
@@ -1420,11 +1420,11 @@
 
   .modal-header {
     border-radius: 20px 20px 0 0;
-    padding: 1rem 1rem 0.75rem;
+    padding: 1.25rem 1.25rem 0.75rem;
   }
 
   .modal-tab-panel {
-    padding: 1rem;
+    padding: 1.25rem 1.25rem 2rem;
   }
 
   .spec-grid {

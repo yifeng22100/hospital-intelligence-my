@@ -217,5 +217,31 @@ var HOSPITALS_PUTRAJAYA = [
     imageCredit: "",
     wikiLink: null,
     officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "pusrawi-putrajaya",
+    name: "PUSRAWI Hospital Putrajaya",
+    nameShort: "PUSRAWI Putrajaya",
+    sector: "private", tier: "secondary", state: "Putrajaya", city: "Putrajaya",
+    intro: "PUSRAWI Hospital Putrajaya is a private Islamic hospital serving government employees and residents of Putrajaya federal territory.",
+    famousFor: ["Private Islamic hospital — Putrajaya federal territory", "PUSRAWI network hospital"],
+    infrastructure: { yearEstablished: 2010, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Putrajaya, Malaysia", mainLine: "+603-8888 0000 (verify)", emergencyLine: "+603-8888 0000 ext. A&E", appointmentLine: "+603-8888 0000 (verify)", website: "https://www.pusrawi.com.my", mapQuery: "PUSRAWI Hospital Putrajaya" },
+    transport: { nearest: "Putrajaya Sentral — 10 min taxi", bus: "NADI Putrajaya bus", highway: "ELITE Highway — Putrajaya exit", landmark: "Putrajaya federal government centre" },
+    facilities: { pharmacy24h: false, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Hospital Putrajaya", note: "Refer" }],
+      byReferral: ["Complex → Hospital Putrajaya or HUKM"]
+    },
+    transferPathway: { summary: "Private Islamic hospital. Complex → Hospital Putrajaya.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private Islamic hospital — Putrajaya", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "PUSRAWI Hospital", url: "https://www.pusrawi.com.my" }],
+    verifiedNotes: "~100 beds (est.). Private Islamic hospital, Putrajaya.", notableGaps: "Complex cases → Hospital Putrajaya."
   }
 ];

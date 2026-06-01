@@ -36,7 +36,7 @@ window.HI = window.HI || {};
     });
     grid.innerHTML = '';
     if (filtered.length === 0) {
-      grid.innerHTML = '<p class="no-results text-slate-500 col-span-full">No organisations found for this category.</p>';
+      grid.innerHTML = '<p class="no-results text-slate-500 col-span-full">' + window.HI.t('no_org_results') + '</p>';
       return;
     }
     filtered.forEach(function(ngo) {
@@ -55,7 +55,7 @@ window.HI = window.HI || {};
           '<div class="ngo-apply"><strong>' + HI.t('how_to_apply') + '</strong> ' + ngo.howToApply + '</div>' : '') +
         '<div class="ngo-contact">' +
           (ngo.phone ? '<a href="tel:' + ngo.phone.replace(/[^+0-9]/g, '') + '" class="ngo-phone">&#128222; ' + ngo.phone + '</a>' : '') +
-          (ngo.website ? '<a href="' + ngo.website + '" target="_blank" class="ngo-web">&#127760; Website</a>' : '') +
+          (ngo.website ? '<a href="' + ngo.website + '" target="_blank" class="ngo-web">&#127760; ' + HI.t('website_label') + '</a>' : '') +
         '</div>';
       grid.appendChild(card);
     });
@@ -97,7 +97,7 @@ window.HI = window.HI || {};
     var el = document.getElementById('support-caretaker-section');
     if (!el) return;
     el.innerHTML = '<div class="content-section">' +
-      '<h3>No-Caretaker Pathway</h3>' +
+      '<h3>' + window.HI.t('caretaker_title') + '</h3>' +
       '<p class="section-intro">If a patient has no family caretaker, these are the steps to take <strong>on Day 1 of admission</strong> — not at discharge.</p>' +
       '<div class="pathway-steps">' +
         '<div class="pathway-step">' +
@@ -147,7 +147,7 @@ window.HI = window.HI || {};
     var el = document.getElementById('support-financial-section');
     if (!el) return;
     el.innerHTML = '<div class="content-section">' +
-      '<h3>Financial Aid &amp; Subsidies</h3>' +
+      '<h3>' + window.HI.t('financial_title') + '</h3>' +
       '<div class="financial-grid">' +
         renderFinancialCard('MySalam', 'Auto-coverage for B40 Malaysians', 'RM 8,000 payout on diagnosis of 36 critical illnesses. Free and automatic — no claim needed if your household income is below RM100,000/year. Check eligibility at mysalam.com.my', '&#128203;', 'https://mysalam.com.my') +
         renderFinancialCard('EPF Account 2 Withdrawal', 'Use your own savings', 'Withdraw from EPF Account 2 for medical expenses for yourself, spouse, parents, or children (including in-laws). Apply at any EPF counter or online via i-Akaun. Includes hospitalisation and specialist care.', '&#128176;', 'https://www.kwsp.gov.my') +
@@ -168,7 +168,7 @@ window.HI = window.HI || {};
         '<strong>' + title + '</strong>' +
         '<div class="financial-subtitle">' + subtitle + '</div>' +
         '<p>' + desc + '</p>' +
-        (url ? '<a href="' + url + '" target="_blank" class="source-link text-xs">&#127760; Learn more</a>' : '') +
+        (url ? '<a href="' + url + '" target="_blank" class="source-link text-xs">&#127760; ' + window.HI.t('learn_more') + '</a>' : '') +
       '</div>' +
     '</div>';
   }
@@ -177,23 +177,23 @@ window.HI = window.HI || {};
     var el = document.getElementById('support-verify-section');
     if (!el || typeof VERIFY_GUIDE === 'undefined') return;
     el.innerHTML = '<div class="content-section">' +
-      '<h3>Verify a Healthcare Facility</h3>' +
-      '<div class="verify-master-tip">&#127973; <strong>Master Tip:</strong> For ANY healthcare facility in Malaysia, call MOH Hotline <a href="tel:1800886000">1800-88-6000</a> or BPKK: <a href="tel:+60388831000">+603-8883 1000</a></div>' +
+      '<h3>' + window.HI.t('verify_title') + '</h3>' +
+      '<div class="verify-master-tip">&#127973; <strong>' + window.HI.t('master_tip') + ':</strong> For ANY healthcare facility in Malaysia, call MOH Hotline <a href="tel:1800886000">1800-88-6000</a> or BPKK: <a href="tel:+60388831000">+603-8883 1000</a></div>' +
       '<div class="verify-grid">' +
         VERIFY_GUIDE.map(function(v) {
           return '<div class="verify-card">' +
             '<h4>' + v.title + '</h4>' +
             '<p class="verify-why">' + (v.why || '') + '</p>' +
             (v.howToVerify && v.howToVerify.length ?
-              '<div class="verify-steps-list"><strong>How to verify:</strong><ol>' +
+              '<div class="verify-steps-list"><strong>' + window.HI.t('how_to_verify') + ':</strong><ol>' +
                 v.howToVerify.map(function(s) { return '<li>' + s + '</li>'; }).join('') +
               '</ol></div>' : '') +
             (v.redFlags && v.redFlags.length ?
-              '<div class="verify-red-flags"><strong>&#128681; Red flags:</strong><ul>' +
+              '<div class="verify-red-flags"><strong>&#128681; ' + window.HI.t('red_flags') + ':</strong><ul>' +
                 v.redFlags.slice(0, 4).map(function(r) { return '<li>' + r + '</li>'; }).join('') +
               '</ul></div>' : '') +
             (v.complaintChannel ?
-              '<div class="verify-complaint"><strong>Complaint channel:</strong> ' + v.complaintChannel + '</div>' : '') +
+              '<div class="verify-complaint"><strong>' + window.HI.t('complaint_label') + ':</strong> ' + v.complaintChannel + '</div>' : '') +
           '</div>';
         }).join('') +
       '</div>' +
@@ -203,9 +203,9 @@ window.HI = window.HI || {};
   function renderLegalInSupport() {
     var el = document.getElementById('support-legal-section');
     if (!el || typeof LEGAL_SUPPORT === 'undefined') return;
-    var html = '<div class="content-section"><h3>Legal Support Directory</h3>';
+    var html = '<div class="content-section"><h3>' + window.HI.t('legal_section_title') + '</h3>';
     if (LEGAL_SUPPORT.legalAid) {
-      html += '<h4>Free &amp; Subsidised Legal Aid</h4><div class="legal-grid">';
+      html += '<h4>' + window.HI.t('free_legal_aid') + '</h4><div class="legal-grid">';
       LEGAL_SUPPORT.legalAid.forEach(function(org) {
         html += '<div class="legal-card">' +
           '<strong>' + org.name + '</strong>' +
@@ -213,7 +213,7 @@ window.HI = window.HI || {};
           (org.services ? '<p class="text-xs text-slate-500">' + (Array.isArray(org.services) ? org.services.slice(0, 3).join('; ') : org.services) + '</p>' : '') +
           '<div class="org-links">' +
             (org.phone ? '<a href="tel:' + org.phone.replace(/[^+0-9]/g, '').split('|')[0] + '">&#128222; ' + org.phone.split('|')[0].trim() + '</a>' : '') +
-            (org.website ? ' <a href="' + org.website + '" target="_blank">&#127760; Website</a>' : '') +
+            (org.website ? ' <a href="' + org.website + '" target="_blank">&#127760; ' + window.HI.t('website_label') + '</a>' : '') +
           '</div>' +
         '</div>';
       });
@@ -221,19 +221,40 @@ window.HI = window.HI || {};
     }
     if (LEGAL_SUPPORT.domesticViolence) {
       html += '<div class="dv-box">' +
-        '<h4>Domestic Violence</h4>' +
+        '<h4>' + window.HI.t('dv_support') + '</h4>' +
         '<a href="tel:15999" class="hotline-btn">&#128222; Talian Kasih 15999</a>' +
         '<p>' + (LEGAL_SUPPORT.domesticViolence.desc || 'Call Talian Kasih 15999 for 24/7 domestic violence support.') + '</p>' +
       '</div>';
     }
     if (LEGAL_SUPPORT.complaints && LEGAL_SUPPORT.complaints.patientRights) {
-      html += '<div class="patient-rights-box"><h4>Patient Rights Summary</h4><ul class="rights-list">' +
+      html += '<div class="patient-rights-box"><h4>' + window.HI.t('your_patient_rights') + '</h4><ul class="rights-list">' +
         LEGAL_SUPPORT.complaints.patientRights.map(function(r) { return '<li>' + r + '</li>'; }).join('') +
       '</ul></div>';
     }
     html += '</div>';
     el.innerHTML = html;
   }
+
+  // Re-render dynamic support sections when language changes
+  var _prevSupportLangChange = window.HI.onLangChange;
+  window.HI.onLangChange = function(code) {
+    if (_prevSupportLangChange) _prevSupportLangChange(code);
+    // Reset data-rendered so sections re-render in new language
+    document.querySelectorAll('.support-section[data-rendered]').forEach(function(el) {
+      el.removeAttribute('data-rendered');
+      el.innerHTML = '';
+    });
+    // Re-render the currently visible section
+    var activeSection = document.querySelector('.support-section:not(.hidden)');
+    if (activeSection) {
+      var id = activeSection.id;
+      if (id === 'support-verify-section') renderVerifyGuide();
+      else if (id === 'support-legal-section') renderLegalInSupport();
+      else if (id === 'support-financial-section') renderFinancialSection();
+      else if (id === 'support-caretaker-section') renderCaretakerSection();
+      activeSection.setAttribute('data-rendered', '1');
+    }
+  };
 
   window.HI.initSupport = init;
 })();
