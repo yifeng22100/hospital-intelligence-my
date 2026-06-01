@@ -30,34 +30,6 @@ var HOSPITALS_KEDAH = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
-    id: "hsungai-petani",
-    name: "Hospital Sungai Petani",
-    nameShort: "Hospital Sungai Petani",
-    sector: "public", tier: "district", state: "Kedah", city: "Sungai Petani",
-    intro: "Hospital Sungai Petani serves the Kuala Muda district, one of Kedah's most populous areas with a significant industrial workforce.",
-    famousFor: ["Main hospital for Sungai Petani / Kuala Muda district"],
-    infrastructure: { yearEstablished: 1969, totalBeds: 365, icuBeds: 16, nicuBeds: 6, operatingTheatres: 6, area: "~8 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 08000 Sungai Petani, Kedah", mainLine: "+604-422 4333 (verify)", emergencyLine: "+604-422 4333 ext. A&E (verify)", appointmentLine: "+604-422 4333 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Sungai Petani Kedah" },
-    transport: { nearest: "Sungai Petani Railway Station (KTM) — 10 min taxi", bus: "Local bus routes", highway: "North-South Highway — Exit Sungai Petani", landmark: "Sungai Petani town" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU", "NICU", "General Medicine", "General Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology"],
-      notAvailable: [{ specialty: "Neurosurgery", transferTo: "HSB Alor Setar", note: "Refer to state hospital" }],
-      byReferral: ["Complex cases — refer to HSB Alor Setar"]
-    },
-    transferPathway: { summary: "District hospital → HSB Alor Setar.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited"],
-    verifiedNotes: "365 beds. District hospital for Sungai Petani.",
-    notableGaps: "No neurosurgery. No cardiothoracic.",
-    primaryExcellence: "District hospital — Sungai Petani", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 3 – RM 50", roomRateRaw: 5, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "No neurosurgery.", robotics: "Standard imaging.", doctorQualifications: "MOH specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
     id: "hkulim",
     name: "Hospital Kulim",
     nameShort: "Hospital Kulim",
