@@ -24,10 +24,10 @@ export const HOSPITALS_SELANGOR = [
     },
     contact: {
       address: "Jalan Langat, 41200 Klang, Selangor",
-      mainLine: "+603-3375 5000",
-      emergencyLine: "+603-3375 5000 ext. A&E",
-      appointmentLine: "+603-3375 5000",
-      website: "https://htar.moh.gov.my",
+      mainLine: "+603-3375 7000",
+      emergencyLine: "+603-3375 7000 ext. A&E",
+      appointmentLine: "+603-3375 7000",
+      website: "https://jknselangor.moh.gov.my/htar/",
       mapQuery: "Hospital Tengku Ampuan Rahimah HTAR Klang"
     },
     transport: {
@@ -107,7 +107,7 @@ export const HOSPITALS_SELANGOR = [
     imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Klang_TAR_hospital_main_building.jpg",
     imageCredit: "N/A",
     officialSources: [
-      { label: "Official Website", url: "https://htar.moh.gov.my" },
+      { label: "Official Website", url: "https://jknselangor.moh.gov.my/htar/" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
   },
@@ -135,10 +135,10 @@ export const HOSPITALS_SELANGOR = [
     },
     contact: {
       address: "Jalan Hospital, 47000 Sungai Buloh, Selangor",
-      mainLine: "+603-6156 0111",
-      emergencyLine: "+603-6156 0111 ext. A&E",
-      appointmentLine: "+603-6156 0111",
-      website: "https://hsgbuloh.moh.gov.my",
+      mainLine: "+603-6145 4333",
+      emergencyLine: "+603-6145 4333 ext. A&E",
+      appointmentLine: "+603-6145 4333",
+      website: "https://jknselangor.moh.gov.my/hsgbuloh/",
       mapQuery: "Hospital Sungai Buloh Selangor"
     },
     transport: {
@@ -214,13 +214,13 @@ export const HOSPITALS_SELANGOR = [
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [
-      { label: "Official Website", url: "https://hsgbuloh.moh.gov.my" },
+      { label: "Official Website", url: "https://jknselangor.moh.gov.my/hsgbuloh/" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
   },
   {
     id: "serdang",
-    name: "Hospital Sultan Idris Shah Serdang (Serdang Heart Centre)",
+    name: "Hospital Sultan Idris Shah Serdang (HSIS)",
     nameShort: "Serdang / SHC",
     sector: "public",
     tier: "tertiary",
@@ -238,14 +238,14 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Hospital, Serdang Heart Centre, Women & Children Block",
       helipad: true,
       parkingBays: "~800 bays",
-      parkingRate: "RM 1/hour"
+      parkingRate: "15-min grace; 1st hr: RM1.50; subsequent hrs: RM1.00/hr; max/day: RM10.00"
     },
     contact: {
       address: "Jalan Puchong, 43000 Kajang, Selangor",
       mainLine: "+603-8947 5555",
       emergencyLine: "+603-8947 5555 ext. A&E",
       appointmentLine: "+603-8947 5555",
-      website: "https://hserdang.moh.gov.my",
+      website: "https://jknselangor.moh.gov.my/hsis/",
       mapQuery: "Hospital Sultan Idris Shah Serdang Heart Centre"
     },
     transport: {
@@ -349,14 +349,14 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Clinical Block, Liver Transplant Unit, Specialist Block",
       helipad: true,
       parkingBays: "~600 bays",
-      parkingRate: "RM 1/hour"
+      parkingRate: "20-min grace; RM2.00/hr; max/day: RM14.00; valet: RM14.00"
     },
     contact: {
       address: "Lebuhraya Selayang-Kepong, 68100 Batu Caves, Selangor",
-      mainLine: "+603-6120 3333",
-      emergencyLine: "+603-6120 3333 ext. A&E",
-      appointmentLine: "+603-6120 3333",
-      website: "https://hselayang.moh.gov.my",
+      mainLine: "+603-6126 3333",
+      emergencyLine: "+603-6126 3333 ext. A&E",
+      appointmentLine: "+603-6126 3333",
+      website: "https://jknselangor.moh.gov.my/hselayang/",
       mapQuery: "Hospital Selayang Batu Caves Selangor"
     },
     transport: {
@@ -413,7 +413,7 @@ export const HOSPITALS_SELANGOR = [
       routes: [
         { condition: "Cardiothoracic surgery", to: "Serdang Heart Centre or HKL", reason: "Cardiac surgical centres", distanceKm: 45 }
       ],
-      howToTransfer: "Liver transplant referral via transplant coordinator. Call +603-6120 3333. Bring full hepatology workup and referral letter."
+      howToTransfer: "Liver transplant referral via transplant coordinator. Call +603-6126 3333. Bring full hepatology workup and referral letter."
     },
     specialtyRanks: {
       "Liver Transplant": { rank: "National #1 — ONLY centre", desc: "Malaysia's only liver transplant centre — both adult and paediatric, living and deceased donor" },
@@ -436,7 +436,7 @@ export const HOSPITALS_SELANGOR = [
     imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hospital_Selayang_04.jpg",
     imageCredit: "N/A",
     officialSources: [
-      { label: "Official Website", url: "https://hselayang.moh.gov.my" },
+      { label: "Official Website", url: "https://jknselangor.moh.gov.my/hselayang/" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
   },
@@ -464,10 +464,10 @@ export const HOSPITALS_SELANGOR = [
     },
     contact: {
       address: "Persiaran Kayangan, Section 7, 40000 Shah Alam, Selangor",
-      mainLine: "+603-5544 4500",
-      emergencyLine: "+603-5544 4500 ext. A&E",
-      appointmentLine: "+603-5544 4500",
-      website: "https://hsa.moh.gov.my",
+      mainLine: "+603-5526 3000",
+      emergencyLine: "+603-5526 3000 ext. A&E",
+      appointmentLine: "+603-5526 3000",
+      website: "https://jknselangor.moh.gov.my/hsas/",
       mapQuery: "Hospital Shah Alam Section 7"
     },
     transport: { nearest: "Shah Alam KTM Komuter Station — 15 min taxi", bus: "Rapid KL Bus routes (Shah Alam)", highway: "KESAS/NKVE — Exit Shah Alam", landmark: "Section 7 Shah Alam, near Stadium Shah Alam" },
@@ -535,7 +535,7 @@ export const HOSPITALS_SELANGOR = [
       mainLine: "+603-4289 6000",
       emergencyLine: "+603-4289 6000 ext. A&E",
       appointmentLine: "+603-4289 6000",
-      website: "https://hampang.moh.gov.my",
+      website: "https://jknselangor.moh.gov.my/hampg/",
       mapQuery: "Hospital Ampang Selangor Pandan Mewah"
     },
     transport: { nearest: "No direct rail to hospital; nearest: Ampang LRT (AG33, Ampang Line) — 2 km, taxi/bus recommended; bus routes T305, T350 stop ~5 min walk from hospital", bus: "Rapid KL Bus routes T305, T350 (Ampang area)", highway: "AKLEH — Exit Ampang", landmark: "Pandan Mewah, Ampang, Selangor" },
@@ -587,8 +587,8 @@ export const HOSPITALS_SELANGOR = [
   },
   {
     id: "hkajang",
-    name: "Hospital Kajang",
-    nameShort: "Hospital Kajang",
+    name: "Hospital Tengku Permaisuri Norashikin (HTPN)",
+    nameShort: "Hospital HTPN",
     sector: "public",
     tier: "state",
     state: "Selangor",
@@ -596,7 +596,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Kajang is the main public hospital for the Kajang and Nilai corridor, serving a rapidly growing population in southern Selangor. It provides comprehensive secondary care services.",
     famousFor: ["Main public hospital for Kajang / southern Selangor", "Serves the Kajang-Nilai growth corridor"],
     infrastructure: { yearEstablished: 1966, totalBeds: 400, icuBeds: 20, nicuBeds: 8, operatingTheatres: 8, area: "~10 acres", buildings: "Main Block, Specialist Clinics", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Jalan Sungai Jelok, 43000 Kajang, Selangor", mainLine: "+603-8736 6500", emergencyLine: "+603-8736 6500 ext. A&E", appointmentLine: "+603-8736 6500", website: "http://hkjg.moh.gov.my/", mapQuery: "Hospital Kajang Selangor" },
+    contact: { address: "4 Jalan Semenyih, 43000 Kajang, Selangor", mainLine: "+603-8913 3333", emergencyLine: "+603-8913 3333 ext. A&E", appointmentLine: "+603-8913 3333", website: "https://jknselangor.moh.gov.my/htpn/", mapQuery: "Hospital Tengku Permaisuri Norashikin HTPN Kajang Selangor" },
     transport: { nearest: "Kajang MRT/KTM Station — 10 min taxi", bus: "Rapid KL Bus routes (Kajang)", highway: "SILK — Exit Kajang", landmark: "Kajang town centre" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Limited" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner: unrestricted", notes: "Confirm with ward." },
@@ -636,7 +636,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Banting serves the Kuala Langat district in southwest Selangor, providing basic inpatient and emergency services for the district population.",
     famousFor: ["District hospital for Kuala Langat / Banting area"],
     infrastructure: { yearEstablished: 1975, totalBeds: 200, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 42700 Banting, Selangor", mainLine: "+603-3187 4300 (verify)", emergencyLine: "+603-3187 4300 ext. A&E (verify)", appointmentLine: "+603-3187 4300 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Banting Selangor" },
+    contact: { address: "Jalan Sultan Alam Shah, 42700 Banting, Selangor", mainLine: "+603-3187 1333", emergencyLine: "+603-3187 1333 ext. A&E", appointmentLine: "+603-3187 1333", website: "https://jknselangor.moh.gov.my/hbanting/", mapQuery: "Hospital Banting Selangor" },
     transport: { nearest: "Banting town — accessible by road from Kuala Lumpur via Coastal Highway", bus: "Limited public transport", highway: "Federal Route 5 / Coastal Highway", landmark: "Banting town centre" },
     facilities: { pharmacy24h: false, cafeteria: "Available daytime", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -672,7 +672,7 @@ export const HOSPITALS_SELANGOR = [
     sector: "private",
     tier: "tertiary",
     state: "Selangor",
-    city: "Subang Jaya",
+    city: "Petaling Jaya",
     intro: "Sunway Medical Centre is one of Malaysia's largest and most advanced private hospitals, located in Sunway City. With 1,100 beds, it is the largest private hospital by bed count in Malaysia and offers comprehensive tertiary and quaternary services.",
     famousFor: ["Malaysia's largest private hospital (1,100 beds)", "Comprehensive cardiothoracic and cancer programme", "Strong paediatric and NICU services", "Gamma Knife radiosurgery available"],
     infrastructure: {
@@ -685,12 +685,12 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Tower A, Tower B, Specialist Clinics, Sunway Cancer Centre",
       helipad: true,
       parkingBays: "~1,000 bays",
-      parkingRate: "1st 3 hrs: RM3.00; subsequent hrs: RM1.00; max/day: RM10.00"
+      parkingRate: "10-min grace; 1st 3 hrs: RM3.00; 4th–5th hr: RM1.00/hr; 6th hr onwards: RM3.00/hr; max/day: RM16.00; valet: RM25.00"
     },
     contact: {
-      address: "5, Jalan Lagoon Selatan, Bandar Sunway, 47500 Subang Jaya, Selangor",
+      address: "No. 5, Jalan Lagoon Selatan, Bandar Sunway, 47500 Petaling Jaya, Selangor",
       mainLine: "+603-7491 9191",
-      emergencyLine: "+603-7491 9191 ext. A&E",
+      emergencyLine: "+603-5566 8888",
       appointmentLine: "+603-7491 9191",
       website: "https://www.sunwaymedical.com",
       mapQuery: "Sunway Medical Centre Subang Jaya Bandar Sunway"
@@ -767,9 +767,9 @@ export const HOSPITALS_SELANGOR = [
       parkingRate: "1st hr: RM2.00; subsequent hrs: RM1.00; max/day: RM10.00; Sun/PH: flat RM3.00"
     },
     contact: {
-      address: "1, Jalan SS 12/1A, Subang Jaya, 47500 Petaling Jaya, Selangor",
+      address: "No. 1, Jalan SS 12/1A, 47500 Subang Jaya, Selangor",
       mainLine: "+603-5639 1212",
-      emergencyLine: "+603-5639 1212 ext. A&E",
+      emergencyLine: "019-9000 330",
       appointmentLine: "+603-5639 1212",
       website: "https://subangjayamedicalcentre.com",
       mapQuery: "Subang Jaya Medical Centre SJMC SS12"
@@ -827,8 +827,8 @@ export const HOSPITALS_SELANGOR = [
     intro: "KPJ Damansara Specialist Hospital is one of KPJ Healthcare's flagship hospitals, offering comprehensive specialist services in Petaling Jaya. It is a trusted choice for the Damansara and Petaling Jaya community.",
     famousFor: ["KPJ Healthcare flagship — Damansara/PJ corridor", "Comprehensive specialist services", "Strong obstetrics and paediatrics programme"],
     infrastructure: { yearEstablished: 1995, totalBeds: 300, icuBeds: 24, nicuBeds: 8, operatingTheatres: 10, area: "~3 acres", buildings: "Main Tower, Specialist Clinics", helipad: false, parkingBays: "~350 bays", parkingRate: "1st 2 hrs: RM3.00; subsequent hrs: RM1.00; max/day: RM5.00" },
-    contact: { address: "119, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor", mainLine: "+603-7718 1000", emergencyLine: "+603-7718 1000 ext. A&E", appointmentLine: "+603-7718 1000", website: "https://kpjhealth.com.my/damansara", mapQuery: "KPJ Damansara Specialist Hospital Petaling Jaya" },
-    transport: { nearest: "Mutiara Damansara MRT Station — 10 min taxi", bus: "Rapid KL Bus (Damansara Utama area)", highway: "NKVE — Exit Damansara/Mutiara", landmark: "Damansara Utama, PJ — near SS20" },
+    contact: { address: "119, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor", mainLine: "+603-7718 1000", emergencyLine: "+603-7718 1112", appointmentLine: "+603-7718 1000", website: "https://kpjhealth.com.my/damansara", mapQuery: "KPJ Damansara Specialist Hospital Petaling Jaya" },
+    transport: { nearest: "TTDI MRT Station (Putrajaya Line) — 7-min walk (~478 m); also Mutiara Damansara MRT — 15-min walk", bus: "Rapid KL T786, T813, T814, 780 (bus stop: Glo Damansara, 2-min walk)", highway: "NKVE — Exit Damansara Utama / Mutiara Damansara; LDP accessible", landmark: "Damansara Utama, PJ — near Glo Damansara Mall, SS20" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible." },
     specialtyCoverage: {
@@ -858,17 +858,17 @@ export const HOSPITALS_SELANGOR = [
   },
   {
     id: "kpj-dsh2",
-    name: "KPJ Damansara 2 Specialist Hospital",
-    nameShort: "KPJ Damansara 2",
+    name: "Damansara Specialist Hospital 2 (DSH2)",
+    nameShort: "DSH2",
     sector: "private",
     tier: "tertiary",
-    state: "Selangor",
-    city: "Petaling Jaya",
-    intro: "KPJ Damansara 2 is the newer, expanded facility of the KPJ Damansara group, providing additional specialist capacity for the growing Petaling Jaya and Damansara communities.",
-    famousFor: ["Modern expansion of KPJ Damansara", "Additional specialist capacity for PJ/Damansara"],
-    infrastructure: { yearEstablished: 2020, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "New specialist tower", helipad: false, parkingBays: "~250 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "Damansara Perdana, Petaling Jaya, Selangor (verify address with hospital)", mainLine: "+603-XXXX XXXX (verify with KPJ Damansara 2)", emergencyLine: "+603-XXXX XXXX (verify)", appointmentLine: "+603-XXXX XXXX (verify)", website: "https://www.kpj.com.my", mapQuery: "KPJ Damansara 2 Specialist Hospital Petaling Jaya" },
-    transport: { nearest: "Mutiara Damansara MRT — 10 min taxi", bus: "Rapid KL Bus", highway: "NKVE — Exit Damansara", landmark: "Petaling Jaya Damansara Perdana area" },
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "Damansara Specialist Hospital 2 (DSH2) is a modern KPJ Healthcare hospital in Bukit Lanjan, providing additional specialist capacity for the Damansara, Petaling Jaya, and northwest KL communities.",
+    famousFor: ["Modern KPJ expansion hospital in Bukit Lanjan", "Additional specialist capacity for Damansara/PJ/northwest KL"],
+    infrastructure: { yearEstablished: 2020, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "New specialist tower", helipad: false, parkingBays: "~250 bays", parkingRate: "RM3.00/hr; max/day: RM7.00; inpatient: RM7.00/day; valet: RM15.00/day" },
+    contact: { address: "No. 1, Jalan Bukit Lanjan 3, Bukit Lanjan, 60000 Kuala Lumpur", mainLine: "+603-7717 3000", emergencyLine: "+603-7717 3000", appointmentLine: "+603-7717 3000", website: "https://kpjhealth.com.my/damansara2/", mapQuery: "Damansara Specialist Hospital 2 DSH2 Bukit Lanjan Kuala Lumpur" },
+    transport: { nearest: "MRT Mutiara Damansara (Putrajaya Line) via feeder bus T810; bus stop Bukit Lanjan (Utara) — 8-min walk", bus: "Rapid KL 780, 801, PJ06, T810", highway: "NKVE — Bukit Lanjan interchange (Persiaran Bukit Lanjan); accessible from Damansara Utama", landmark: "Bukit Lanjan; near Empire City Damansara (~980 m), Tropicana area" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Confirm with hospital." },
     specialtyCoverage: {
@@ -894,7 +894,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }]
+    officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/damansara2/" }]
   },
   {
     id: "kpj-klang",
@@ -907,8 +907,8 @@ export const HOSPITALS_SELANGOR = [
     intro: "KPJ Klang Specialist Hospital provides private specialist care for the Klang community, serving as an alternative to the busy public Hospital HTAR Klang.",
     famousFor: ["Private specialist care in Klang", "KPJ Healthcare group"],
     infrastructure: { yearEstablished: 2000, totalBeds: 150, icuBeds: 12, nicuBeds: 4, operatingTheatres: 6, area: "~2 acres", buildings: "Main Building", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "Persiaran Raja Muda Musa, 41000 Klang, Selangor", mainLine: "+603-3375 7799", emergencyLine: "+603-3375 7799 ext. A&E", appointmentLine: "+603-3375 7799", website: "https://www.kpjklang.com", mapQuery: "KPJ Klang Specialist Hospital Selangor" },
-    transport: { nearest: "Klang KTM Station — 10 min taxi", bus: "Rapid KL Bus routes (Klang)", highway: "Federal Highway — Exit Klang", landmark: "Klang town area" },
+    contact: { address: "No. 102, Persiaran Rajawali/KU1, Bandar Baru Klang, 41150 Klang, Selangor", mainLine: "+603-3377 7888", emergencyLine: "+603-3377 7999", appointmentLine: "+603-3377 7888", website: "https://kpjhealth.com.my/klang/", mapQuery: "KPJ Klang Specialist Hospital Bandar Baru Klang" },
+    transport: { nearest: "Padang Jawa KTM Station (Port Klang Line) — ~28-min walk / 2.3 km; Grab/taxi recommended", bus: "Rapid KL 708, 710, P701, 753 (Klang area)", highway: "Federal Highway (Route 2), KESAS, ELITE — Exit Bandar Baru Klang / KU1", landmark: "Bandar Baru Klang; near Aeon Bukit Tinggi (~2 km)" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },
     specialtyCoverage: {
@@ -934,7 +934,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.kpjklang.com" }]
+    officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/klang/" }]
   },
   {
     id: "thomson-thkd",
@@ -959,14 +959,14 @@ export const HOSPITALS_SELANGOR = [
       parkingRate: "1st 3 hrs: RM6.00; subsequent hrs: RM3.00; max/day: RM20.00"
     },
     contact: {
-      address: "11, Jalan Damansara, 47810 Kota Damansara, Petaling Jaya, Selangor",
+      address: "No. 11, Jalan Teknologi, PJU 5, Kota Damansara, 47810 Petaling Jaya, Selangor",
       mainLine: "+603-6287 1111",
-      emergencyLine: "+603-6287 1111 ext. A&E",
+      emergencyLine: "+603-6287 1999",
       appointmentLine: "+603-6287 1111",
       website: "https://www.thomsonhospitals.com",
       mapQuery: "Thomson Hospital Kota Damansara THKD Selangor"
     },
-    transport: { nearest: "Kota Damansara MRT Station — 10 min walk or taxi", bus: "Rapid KL Bus (Kota Damansara)", highway: "NKVE — Exit Kota Damansara", landmark: "Kota Damansara town, Petaling Jaya north" },
+    transport: { nearest: "Kota Damansara MRT Station (Putrajaya Line) — 4-min walk / 241 m (station is directly in front of hospital entrance)", bus: "Rapid KL T805, 780, 802; MRT feeder buses from Kota Damansara station", highway: "NKVE — Exit Kota Damansara / Persiaran Surian; LDP accessible", landmark: "Kota Damansara, directly adjacent to Kota Damansara MRT station" },
     facilities: { pharmacy24h: true, cafeteria: "Level G and Level 4 food court, 7am–10pm", atm: "Main lobby", surau: "Level 2, 4", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted — check with nurse", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Private hospital — flexible." },
     specialtyCoverage: {
@@ -1020,8 +1020,8 @@ export const HOSPITALS_SELANGOR = [
     intro: "Columbia Asia Hospital Bukit Rimau serves the Shah Alam and Klang corridor with affordable private specialist care as part of the Columbia Asia group.",
     famousFor: ["Affordable private care for Shah Alam / Klang corridor"],
     infrastructure: { yearEstablished: 2009, totalBeds: 100, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~2 acres", buildings: "Main Building", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1.50/hour" },
-    contact: { address: "Persiaran Bukit Rimau 2, Bukit Rimau, 40460 Shah Alam, Selangor", mainLine: "+603-5524 5555", emergencyLine: "+603-5524 5555 ext. A&E", appointmentLine: "+603-5524 5555", website: "https://www.columbiaasia.com/bukit-rimau", mapQuery: "Columbia Asia Hospital Bukit Rimau Shah Alam" },
-    transport: { nearest: "KTM Batu Tiga — 15 min taxi", bus: "Rapid KL Bus routes (Shah Alam west)", highway: "KESAS — Exit Bukit Rimau/Shah Alam", landmark: "Bukit Rimau, Shah Alam" },
+    contact: { address: "No. 3, Persiaran Anggerik Eria, Bukit Rimau, Seksyen 32, 40460 Shah Alam, Selangor", mainLine: "+603-5125 9999", emergencyLine: "+603-5125 9999", appointmentLine: "+603-5125 9999", website: "https://www.columbiaasia.com/malaysia/hospitals/bukit-rimau/", mapQuery: "Columbia Asia Hospital Bukit Rimau Shah Alam Seksyen 32" },
+    transport: { nearest: "No MRT/LRT nearby; nearest transit: Shah Alam KTM (~8 km); Grab/taxi recommended", bus: "Rapid KL SA06, T756 (bus stop: Chinese Taipei School, ~4-min walk)", highway: "KESAS — Exit Bukit Rimau / Seksyen 32; also accessible from Federal Highway via USJ", landmark: "Bukit Rimau / Seksyen 32, Shah Alam; near Kota Kemuning" },
     facilities: { pharmacy24h: false, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
     visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1047,7 +1047,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.columbiaasia.com/bukit-rimau" }]
+    officialSources: [{ label: "Official Website", url: "https://www.columbiaasia.com/malaysia/hospitals/bukit-rimau/" }]
   },
   {
     id: "ara-damansara",
@@ -1056,12 +1056,12 @@ export const HOSPITALS_SELANGOR = [
     sector: "private",
     tier: "tertiary",
     state: "Selangor",
-    city: "Petaling Jaya",
+    city: "Shah Alam",
     intro: "Ara Damansara Medical Centre is a modern private hospital in the Ara Damansara area, offering comprehensive specialist services for the upscale Ara Damansara, Subang, and Petaling Jaya north communities.",
     famousFor: ["Modern private hospital in Ara Damansara / Subang area", "Growing specialist services"],
     infrastructure: { yearEstablished: 2015, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "Main Tower", helipad: false, parkingBays: "~250 bays", parkingRate: "1st hr: RM2.00; subsequent 30 min: RM1.00" },
-    contact: { address: "Jalan PJU 1A/2, Ara Damansara, 47301 Petaling Jaya, Selangor", mainLine: "+603-5639 1888", emergencyLine: "+603-5639 1888 ext. A&E", appointmentLine: "+603-5639 1888", website: "https://aradamansaramedicalcentre.com", mapQuery: "Ara Damansara Medical Centre Petaling Jaya" },
-    transport: { nearest: "Subang Jaya KTM or Ara Damansara MRT — 10 min taxi", bus: "Rapid KL Bus (Ara Damansara)", highway: "NKVE/LDP — Exit Ara Damansara", landmark: "Ara Damansara, PJ" },
+    contact: { address: "Lot 2, Jalan Lapangan Terbang Subang, Seksyen U2, 40150 Shah Alam, Selangor", mainLine: "+603-5639 1888", emergencyLine: "+603-7839 9210", appointmentLine: "+603-5639 1888", website: "https://aradamansaramedicalcentre.com", mapQuery: "Ara Damansara Medical Centre Jalan Lapangan Terbang Subang Shah Alam" },
+    transport: { nearest: "Ara Damansara LRT Station (Kelana Jaya Line) — ~1 km / 12-min walk; Glenmarie LRT Station — ~1.5 km", bus: "Rapid KL 772, T782 (bus stop: Bulatan Subang Airport area)", highway: "NKVE — Exit Subang Airport / Ara Damansara; also accessible via LDP", landmark: "Opposite Oasis Ara Damansara Mall; near Sultan Abdul Aziz Shah (Subang) Airport" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible." },
     specialtyCoverage: {
@@ -1114,16 +1114,16 @@ export const HOSPITALS_SELANGOR = [
     contact: {
       address: "Jalan Templer, 46990 Petaling Jaya, Selangor",
       mainLine: "+603-7872 3000",
-      emergencyLine: "+603-7872 3000 ext. A&E",
+      emergencyLine: "+603-7872 3199",
       appointmentLine: "+603-7872 3000",
       website: "https://assunta.com.my",
       mapQuery: "Assunta Hospital Petaling Jaya Jalan Templer"
     },
     transport: {
-      nearest: "Taman Jaya LRT Station — 15 min walk or short taxi",
-      bus: "Rapid KL bus routes (PJ area)",
-      highway: "NPE/Federal Highway — Exit Petaling Jaya",
-      landmark: "Near Asia Jaya / Universiti LRT, Petaling Jaya"
+      nearest: "Asia Jaya LRT Station (Kelana Jaya Line) — 6-min walk / ~444 m",
+      bus: "Rapid KL 780, 782, PJ01, T640 (bus stop: Kompleks Arena PJ, 3-min walk)",
+      highway: "Federal Highway — Exit Jalan Templer / Jalan Timur interchange (~300 m north of Federal Highway)",
+      landmark: "Jalan Templer, Petaling Jaya — near Asia Jaya LRT station"
     },
     facilities: {
       pharmacy24h: true,
@@ -1171,7 +1171,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists. Many longstanding consultants.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.assuntahospital.com" }]
+    officialSources: [{ label: "Official Website", url: "https://assunta.com.my" }]
   },
   {
     id: "kpj-ap",
@@ -1198,16 +1198,16 @@ export const HOSPITALS_SELANGOR = [
     contact: {
       address: "1, Jalan Mamanda 9, Ampang Point, 68000 Ampang, Selangor",
       mainLine: "+603-4289 5000",
-      emergencyLine: "+603-4289 5000 ext. A&E",
+      emergencyLine: "+603-4270 7060",
       appointmentLine: "+603-4289 5000",
       website: "https://kpjhealth.com.my/ampang",
       mapQuery: "KPJ Ampang Puteri Specialist Hospital Ampang Selangor"
     },
     transport: {
-      nearest: "Ampang LRT Station — 10 min taxi",
-      bus: "Rapid KL Bus routes (Ampang Point area)",
-      highway: "AKLEH — Exit Ampang",
-      landmark: "Ampang Point area, near KLCC east corridor"
+      nearest: "Dato' Keramat LRT Station (Ampang/Sri Petaling Line) — 7-min walk",
+      bus: "Rapid KL 300, 303, 253, T300, T301",
+      highway: "AKLEH (Exit 1204 Ampang/MRR2), then via MRR2 to Ampang Point",
+      landmark: "Ampang Point area; adjacent to Ampang Point Shopping Centre (~250 m)"
     },
     facilities: {
       pharmacy24h: true,
@@ -1265,21 +1265,21 @@ export const HOSPITALS_SELANGOR = [
     imageUrl: null,
     imageCredit: "",
     wikiLink: "https://en.wikipedia.org/wiki/KPJ_Ampang_Puteri_Specialist_Hospital",
-    officialSources: [{ label: "Official Website", url: "https://www.kpjampangputeri.com" }]
+    officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/ampang" }]
   },
   {
     id: "huppm",
-    name: "Hospital Pengajar Universiti Putra Malaysia (HPUPM)",
-    nameShort: "HUPPM",
+    name: "Hospital Sultan Abdul Aziz Shah UPM (HSAAS UPM)",
+    nameShort: "HSAAS UPM",
     sector: "private",
     tier: "academic",
     state: "Selangor",
     city: "Serdang",
-    intro: "HUPPM (Hospital Universiti Putra Malaysia) is the teaching hospital of Universiti Putra Malaysia (UPM), combining academic medical education with specialist clinical care. Located in Serdang, it serves the surrounding community while conducting research affiliated with UPM.",
-    famousFor: ["UPM teaching hospital", "Academic research hospital", "Good value private academic care in Serdang"],
+    intro: "Hospital Sultan Abdul Aziz Shah UPM (HSAAS UPM, formerly HPUPM) is the teaching hospital of Universiti Putra Malaysia, renamed on 28 February 2023. It combines academic medical education with specialist clinical care in Serdang, serving the surrounding community while conducting UPM-affiliated research.",
+    famousFor: ["UPM teaching hospital — renamed HSAAS UPM (Feb 2023)", "Academic research hospital affiliated with UPM", "Good value academic specialist care in Serdang"],
     infrastructure: { yearEstablished: 2018, totalBeds: 300, icuBeds: 20, nicuBeds: 8, operatingTheatres: 10, area: "~5 acres (UPM campus)", buildings: "Teaching Hospital Tower", helipad: false, parkingBays: "~300 bays (UPM campus)", parkingRate: "RM 1/hour" },
-    contact: { address: "Persiaran MAEPS 2, Serdang, 43400 UPM Campus, Selangor", mainLine: "+603-9769 3400 (verify)", emergencyLine: "+603-9769 3400 (verify)", appointmentLine: "+603-9769 3400 (verify)", website: "https://huppm.upm.edu.my", mapQuery: "Hospital Universiti Putra Malaysia HUPPM Serdang" },
-    transport: { nearest: "Serdang KTM Station — 10 min taxi; UPM campus shuttle", bus: "Campus bus / Rapid KL bus (Serdang)", highway: "SILK/BESRAYA — Exit Serdang/UPM", landmark: "UPM Campus, Serdang" },
+    contact: { address: "Persiaran Mardi – UPM, 43400 Serdang, Selangor", mainLine: "+603-9769 5500", emergencyLine: "+603-9769 9580", appointmentLine: "+603-9769 5500", website: "https://hsaas.upm.edu.my", mapQuery: "Hospital Sultan Abdul Aziz Shah HSAAS UPM Serdang" },
+    transport: { nearest: "UPM MRT Station (Putrajaya Line) — 15–19-min walk via campus; also Taman Equine MRT — ~15-min walk", bus: "Rapid KL SJ04, SJ05, T566, T567, T568 (MRT feeder buses from UPM MRT)", highway: "SILK Highway / MEX (Maju Expressway) — exit toward Serdang/UPM; Persiaran MARDI–UPM road into campus", landmark: "UPM Campus, Serdang" },
     facilities: { pharmacy24h: false, cafeteria: "UPM campus cafeteria nearby", atm: "Campus", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "UPM campus WiFi", patientTransport: "Limited" },
     visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Academic hospital — confirm with ward." },
     specialtyCoverage: {
@@ -1305,7 +1305,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "UPM professors and lecturers — MMC-registered specialists.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://huppm.upm.edu.my" }]
+    officialSources: [{ label: "Official Website", url: "https://hsaas.upm.edu.my" }]
   },
   {
     id: "hkuala-selangor",
@@ -1315,7 +1315,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Kuala Selangor is a district hospital serving the coastal Kuala Selangor area northwest of Selangor.",
     famousFor: ["District hospital for Kuala Selangor"],
     infrastructure: { yearEstablished: 1970, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 45000 Kuala Selangor, Selangor", mainLine: "+603-3289 2222 (verify)", emergencyLine: "+603-3289 2222 ext. A&E", appointmentLine: "+603-3289 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kuala Selangor" },
+    contact: { address: "Jalan Hospital, 45000 Kuala Selangor, Selangor", mainLine: "+603-3289 2222 (verify)", emergencyLine: "+603-3289 2222 ext. A&E", appointmentLine: "+603-3289 2222 (verify)", website: "https://jknselangor.moh.gov.my/hkualasel/", mapQuery: "Hospital Kuala Selangor" },
     transport: { nearest: "Kuala Selangor town — 5 min walk", bus: "Bus from KL (~1.5 hrs)", highway: "LATAR Expressway / Route 5", landmark: "Kuala Selangor town centre" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1335,13 +1335,13 @@ export const HOSPITALS_SELANGOR = [
   },
   {
     id: "hsabak-bernam",
-    name: "Hospital Sabak Bernam",
-    nameShort: "Hospital Sabak Bernam",
+    name: "Hospital Tengku Ampuan Jemaah (HTAJ)",
+    nameShort: "HTAJ",
     sector: "public", tier: "district", state: "Selangor", city: "Sabak Bernam",
-    intro: "Hospital Sabak Bernam serves the northernmost district of Selangor with basic district hospital services.",
+    intro: "Hospital Tengku Ampuan Jemaah (HTAJ) serves the northernmost district of Selangor (Sabak Bernam district) with basic district hospital services.",
     famousFor: ["District hospital for Sabak Bernam — northernmost Selangor"],
     infrastructure: { yearEstablished: 1968, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 45300 Sabak Bernam, Selangor", mainLine: "+603-3228 2222 (verify)", emergencyLine: "+603-3228 2222 ext. A&E", appointmentLine: "+603-3228 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Sabak Bernam Selangor" },
+    contact: { address: "Jalan Hospital, 45300 Sabak Bernam, Selangor", mainLine: "+603-3228 2222 (verify)", emergencyLine: "+603-3228 2222 ext. A&E", appointmentLine: "+603-3228 2222 (verify)", website: "https://jknselangor.moh.gov.my/htaj/", mapQuery: "Hospital Tengku Ampuan Jemaah HTAJ Sabak Bernam Selangor" },
     transport: { nearest: "Sabak Bernam town — 5 min walk", bus: "Local bus routes", highway: "Via Route 5 coastal road", landmark: "Sabak Bernam town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1356,8 +1356,8 @@ export const HOSPITALS_SELANGOR = [
     fullSpecialties: ["General Medicine", "Obstetrics"],
     roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~60 beds (est.). Small district hospital.", notableGaps: "Refer to HTAR Klang."
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://jknselangor.moh.gov.my/htaj/" }],
+    verifiedNotes: "~60 beds (est.). Officially named Hospital Tengku Ampuan Jemaah (HTAJ).", notableGaps: "Refer to HTAR Klang."
   },
   {
     id: "htanjung-karang",
@@ -1367,7 +1367,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Tanjung Karang serves the Tanjung Karang area in the Kuala Selangor district of Selangor.",
     famousFor: ["District hospital for Tanjung Karang"],
     infrastructure: { yearEstablished: 1972, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 45500 Tanjung Karang, Selangor", mainLine: "+603-3267 2222 (verify)", emergencyLine: "+603-3267 2222 ext. A&E", appointmentLine: "+603-3267 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Tanjung Karang Selangor" },
+    contact: { address: "Jalan Hospital, 45500 Tanjung Karang, Selangor", mainLine: "+603-3267 2222 (verify)", emergencyLine: "+603-3267 2222 ext. A&E", appointmentLine: "+603-3267 2222 (verify)", website: "https://jknselangor.moh.gov.my/htgkarang/", mapQuery: "Hospital Tanjung Karang Selangor" },
     transport: { nearest: "Tanjung Karang town — 5 min walk", bus: "Local bus", highway: "Via Route 54", landmark: "Tanjung Karang town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1393,7 +1393,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Kuala Kubu Bharu serves the Hulu Selangor district and gateway to Cameron Highlands from Selangor.",
     famousFor: ["District hospital for Hulu Selangor / KKB area"],
     infrastructure: { yearEstablished: 1968, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 44000 Kuala Kubu Bharu, Selangor", mainLine: "+603-6064 2222 (verify)", emergencyLine: "+603-6064 2222 ext. A&E", appointmentLine: "+603-6064 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kuala Kubu Bharu Selangor" },
+    contact: { address: "Jalan Hospital, 44000 Kuala Kubu Bharu, Selangor", mainLine: "+603-6064 1333", emergencyLine: "+603-6064 1333", appointmentLine: "+603-6064 1333", website: "https://jknselangor.moh.gov.my/hkkb/", mapQuery: "Hospital Kuala Kubu Bharu Selangor" },
     transport: { nearest: "KKB town — 5 min walk", bus: "Bus from KL (~1 hr)", highway: "Route 1 / Karak Highway junction", landmark: "Kuala Kubu Bharu town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1408,8 +1408,8 @@ export const HOSPITALS_SELANGOR = [
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
     roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
     gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~100 beds (est.). District hospital for Hulu Selangor.", notableGaps: "Specialist referral to Hospital Selayang."
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://jknselangor.moh.gov.my/hkkb/" }],
+    verifiedNotes: "150 beds, 7 wards. Established 1936. District hospital for Hulu Selangor.", notableGaps: "Specialist referral to Hospital Selayang."
   },
   {
     id: "sunway-mc-damansara",
@@ -1418,28 +1418,28 @@ export const HOSPITALS_SELANGOR = [
     sector: "private",
     tier: "tertiary",
     state: "Selangor",
-    city: "Damansara Damai, Petaling Jaya",
-    intro: "Sunway Medical Centre Damansara (SMCD) is the third campus of Sunway Medical Group, opened in 2023 in Damansara Damai, Petaling Jaya. It serves the northern Klang Valley corridor with comprehensive private specialist care as part of Sunway's integrated healthcare expansion.",
-    famousFor: ["Third campus of Sunway Medical Group", "Modern private tertiary hospital serving northern PJ/Damansara corridor", "Part of Sunway Health Ecosystem", "Specialist clinics and 24/7 emergency services"],
-    infrastructure: { yearEstablished: 2023, totalBeds: 300, icuBeds: 24, nicuBeds: 10, operatingTheatres: 10, area: "~4 acres", buildings: "Main Tower", helipad: false, parkingBays: "~600 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "Persiaran Damai, Damansara Damai, 68100 Batu Caves, Selangor", mainLine: "+603-6145 5000", emergencyLine: "+603-6145 5000 ext. A&E", appointmentLine: "+603-6145 5000", website: "https://www.sunwaymedical.com", mapQuery: "Sunway Medical Centre Damansara SMCD Petaling Jaya" },
-    transport: { nearest: "Damansara Damai MRT (Putrajaya Line) — nearby", bus: "RapidKL routes (Damansara Damai)", highway: "SPRINT Highway / Penchala Link — Damansara Damai exit", landmark: "Damansara Damai, northern PJ" },
-    facilities: { pharmacy24h: true, cafeteria: "F&B outlets", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Ambulance and transfer coordination" },
+    city: "Kota Damansara, Petaling Jaya",
+    intro: "Sunway Medical Centre Damansara (SMCD) is the fourth campus of the Sunway Healthcare Group, opened on 2 December 2024 in Kota Damansara (PJU 5), Petaling Jaya. With 345+ planned beds and 35 haemodialysis bays, it serves the Kota Damansara, Sri Damansara, and Kepong corridor within the Sunway integrated healthcare ecosystem.",
+    famousFor: ["Fourth campus of Sunway Healthcare Group — opened Dec 2024", "35 haemodialysis bays; 60 specialist consultation suites", "Kota Damansara corridor — near Surian MRT", "24/7 A&E with direct ambulance line"],
+    infrastructure: { yearEstablished: 2024, totalBeds: 345, icuBeds: 30, nicuBeds: 10, operatingTheatres: 8, area: "~4 acres", buildings: "Main Tower", helipad: false, parkingBays: "~600 bays", parkingRate: "10 min free; 1st 3 hrs: RM 3.00; subsequent hrs: RM 1.00; max/day: RM 10.00; valet: RM 15.00" },
+    contact: { address: "No. 2, Jalan PJU 5/1a, Kota Damansara, PJU 5, 47810 Petaling Jaya, Selangor", mainLine: "+603-8966 9191", emergencyLine: "+603-8966 4153", appointmentLine: "+603-8966 9191", website: "https://www.sunwaymedicaldamansara.com.my", mapQuery: "Sunway Medical Centre Damansara SMCD Kota Damansara Petaling Jaya" },
+    transport: { nearest: "Surian MRT (Kajang Line, KJ10) — ~450 m / ~6 min walk", bus: "RapidKL T805/T806 feeder from Kota Damansara MRT; bus routes along Persiaran Surian", highway: "SPRINT / Penchala Link — Kota Damansara exit; NKVE — Kota Damansara interchange", landmark: "Kota Damansara (PJU 5) — near Sunway Giza & Sunway Nexis" },
+    facilities: { pharmacy24h: true, cafeteria: "F&B outlets", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Ambulance +603-8966 4153 / WhatsApp +6019-216 8825" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted — nurse discretion", paediatric: "Parents: unrestricted", maternity: "Partner: flexible", notes: "Private hospital — flexible visiting." },
     specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU", "NICU", "General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Gastroenterology", "Oncology", "ENT", "Ophthalmology", "Neurology", "Urology"],
+      available: ["Emergency Medicine & A&E (24/7)", "ICU", "NICU", "Haemodialysis (35 bays)", "General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Gastroenterology", "Oncology", "ENT", "Ophthalmology", "Neurology", "Urology"],
       notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }],
-      byReferral: ["Complex cardiothoracic → Sunway Medical (Subang Jaya main campus)", "Complex oncology → Sunway Medical or Beacon"]
+      byReferral: ["Complex cardiothoracic → Sunway Medical Centre (Subang Jaya main campus)", "Complex oncology → Sunway Medical or Beacon Hospital"]
     },
-    transferPathway: { summary: "Tertiary private hospital. Complex subspecialty cases refer to Sunway Medical main campus or national centres.", routes: [], howToTransfer: "Specialist referral within Sunway Health network." },
+    transferPathway: { summary: "Tertiary private hospital. Complex subspecialty cases refer to Sunway Medical main campus (Subang Jaya) or national specialist centres.", routes: [], howToTransfer: "Specialist referral within Sunway Healthcare network." },
     specialtyRanks: {},
-    accreditations: ["MOH Licensed", "Sunway Medical Group"],
-    primaryExcellence: "Modern private tertiary — Damansara Damai / northern PJ", secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics, Oncology",
-    fullSpecialties: ["Cardiology", "Surgery", "Orthopaedics", "Oncology", "Obstetrics", "Paediatrics", "Gastroenterology", "Neurology", "Urology"],
-    roomRate: "RM 300–700/night", roomRateRaw: 450, insurance: "Accepts most major Malaysian and international insurance. Sunway network panel.", fppScheme: false,
-    gaps: "Newer campus — some complex subspecialties refer to Sunway main campus.", robotics: "Selected surgical robotics.", doctorQualifications: "MMC-registered specialists; Sunway Medical Group credentialing.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Sunway Medical Centre", url: "https://www.sunwaymedical.com" }],
-    verifiedNotes: "~300 beds. Third Sunway Medical campus, opened 2023, Damansara Damai.", notableGaps: "Newer campus — some complex subspecialties refer back to main Subang Jaya campus."
+    accreditations: ["MOH Licensed", "Sunway Healthcare Group"],
+    primaryExcellence: "New-build private tertiary — Kota Damansara / PJU 5", secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics, Haemodialysis, Oncology",
+    fullSpecialties: ["Cardiology", "Surgery", "Orthopaedics", "Oncology", "Obstetrics", "Paediatrics", "Gastroenterology", "Neurology", "Urology", "Haemodialysis"],
+    roomRate: "RM 300–700/night", roomRateRaw: 450, insurance: "Accepts most major Malaysian and international insurance. Sunway Healthcare network panel.", fppScheme: false,
+    gaps: "Newer campus (opened Dec 2024) — some complex subspecialties refer to Sunway Medical main campus.", robotics: "Selected surgical robotics.", doctorQualifications: "MMC-registered specialists; Sunway Healthcare Group credentialing.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Sunway Medical Centre Damansara", url: "https://www.sunwaymedicaldamansara.com.my" }],
+    verifiedNotes: "345+ beds (156 licensed at opening Dec 2024). Fourth Sunway Healthcare campus. Kota Damansara PJU 5. Surian MRT ~450m.", notableGaps: "Newer campus — some complex subspecialties refer to Sunway Medical Subang Jaya main campus."
   },
   {
     id: "kpj-kajang",
@@ -1449,8 +1449,8 @@ export const HOSPITALS_SELANGOR = [
     intro: "KPJ Kajang Specialist Hospital is a private specialist hospital serving the Kajang and Hulu Langat district of Selangor.",
     famousFor: ["Private specialist hospital for Kajang district", "KPJ network hospital"],
     infrastructure: { yearEstablished: 2002, totalBeds: 160, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~250 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "No. 1, Jalan Semenyih, 43000 Kajang, Selangor", mainLine: "+603-8769 2999", emergencyLine: "+603-8769 2999 ext. A&E", appointmentLine: "+603-8769 2999", website: "https://www.kpjhealth.com.my", mapQuery: "KPJ Kajang Specialist Hospital Selangor" },
-    transport: { nearest: "Kajang MRT/KTM — 10 min taxi", bus: "Rapid KL bus routes", highway: "LEKAS Highway / Kajang SILK", landmark: "Kajang town, near Kajang MRT" },
+    contact: { address: "Batu 14, Jalan Cheras, 43000 Kajang, Selangor", mainLine: "+603-8769 2999", emergencyLine: "+603-8769 2999 ext. A&E", appointmentLine: "+603-8769 2999", website: "https://kpjhealth.com.my/kajang", mapQuery: "KPJ Kajang Specialist Hospital Jalan Cheras Kajang" },
+    transport: { nearest: "Stadium Kajang MRT (Putrajaya Line) — 3–5-min walk / ~354 m; also Sungai Jernih MRT — ~390 m", bus: "Rapid KL 450, T450, T451, KJ01, T456, T457", highway: "LEKAS Highway (Kajang Selatan exit); SILK Highway; Jalan Cheras (Federal Route 1) at Batu 14", landmark: "Batu 14, Jalan Cheras, near Kajang town" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1464,8 +1464,8 @@ export const HOSPITALS_SELANGOR = [
     fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
     roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
     gaps: "No cardiothoracic on site.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
-    verifiedNotes: "~160 beds (est.). Private specialist, Kajang.", notableGaps: "Complex → SJMC or Sunway MC."
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/kajang" }],
+    verifiedNotes: "~160 beds (est.). Private specialist, Kajang. On Jalan Cheras (Batu 14), near Stadium Kajang MRT.", notableGaps: "Complex → SJMC or Sunway MC."
   },
   {
     id: "an-nur-specialist",
@@ -1474,8 +1474,8 @@ export const HOSPITALS_SELANGOR = [
     sector: "private", tier: "secondary", state: "Selangor", city: "Bangi",
     intro: "An-Nur Specialist Hospital is a private Islamic hospital based in Bangi, serving the Muslim-majority community of southern Selangor with shariah-compliant medical services.",
     famousFor: ["Islamic-oriented private specialist hospital", "Serves Bangi and Putrajaya corridor"],
-    infrastructure: { yearEstablished: 2006, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "No. 19, Jalan 2/23A, Seksyen 2, 43650 Bandar Baru Bangi, Selangor", mainLine: "+603-8925 2525 (verify)", emergencyLine: "+603-8925 2525 ext. A&E", appointmentLine: "+603-8925 2525 (verify)", website: "https://www.annur.com.my", mapQuery: "An-Nur Specialist Hospital Bangi Selangor" },
+    infrastructure: { yearEstablished: 2006, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "15-min grace; 1st hr: RM2.50; subsequent hrs: RM1.50/hr; max/day: RM12.00; night: RM5.00 flat" },
+    contact: { address: "Jalan Gerbang Wawasan 1, Seksyen 15, 43650 Bandar Baru Bangi, Selangor", mainLine: "+603-8923 5500", emergencyLine: "+603-8923 5500", appointmentLine: "+603-8923 5500", website: "http://annurspecialisthospital.migh.com.my", mapQuery: "An-Nur Specialist Hospital Bandar Baru Bangi Selangor" },
     transport: { nearest: "Bangi KTM station — 10 min taxi", bus: "Rapid KL bus", highway: "ELITE Highway / Kajang SILK", landmark: "Bandar Baru Bangi" },
     facilities: { pharmacy24h: false, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1490,8 +1490,8 @@ export const HOSPITALS_SELANGOR = [
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
     roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
     gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~120 beds (est.). Private Islamic specialist hospital, Bangi.", notableGaps: "Complex cases → Sunway Medical."
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "http://annurspecialisthospital.migh.com.my" }],
+    verifiedNotes: "~120 beds (est.). Private Islamic specialist hospital in Bandar Baru Bangi (Seksyen 15). Shariah-compliant.", notableGaps: "Complex cases → Sunway Medical."
   },
   {
     id: "hselesa-jaya",
@@ -1501,7 +1501,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Hulu Selangor (also referred to as Hospital Serendah) serves the Hulu Selangor district with district-level public healthcare.",
     famousFor: ["District hospital for Hulu Selangor district"],
     infrastructure: { yearEstablished: 1970, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, Serendah, 48200 Rawang, Selangor", mainLine: "+603-6064 2222 (verify)", emergencyLine: "+603-6064 2222 ext. A&E", appointmentLine: "+603-6064 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Hulu Selangor Serendah" },
+    contact: { address: "Jalan Hospital, Serendah, 48200 Rawang, Selangor", mainLine: "+603-6064 2222 (verify)", emergencyLine: "+603-6064 2222 ext. A&E", appointmentLine: "+603-6064 2222 (verify)", website: "https://jknselangor.moh.gov.my/hserendah/", mapQuery: "Hospital Hulu Selangor Serendah" },
     transport: { nearest: "Serendah KTM station — 10 min walk", bus: "Bus from KL (~1 hr)", highway: "North-South Highway — Rawang/Serendah exit", landmark: "Serendah town, north of Rawang" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1516,8 +1516,8 @@ export const HOSPITALS_SELANGOR = [
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
     roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
     gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~100 beds (est.). District hospital for Hulu Selangor.", notableGaps: "Specialist referral to Hospital Selayang."
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://jknselangor.moh.gov.my/hkkb/" }],
+    verifiedNotes: "150 beds, 7 wards. Established 1936. District hospital for Hulu Selangor.", notableGaps: "Specialist referral to Hospital Selayang."
   },
   {
     id: "hsepang",
@@ -1527,7 +1527,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Sepang serves the Sepang district in southern Selangor, the area home to Kuala Lumpur International Airport (KLIA).",
     famousFor: ["District hospital for Sepang / KLIA area", "Serves KLIA airport district"],
     infrastructure: { yearEstablished: 1998, totalBeds: 150, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 43900 Sepang, Selangor", mainLine: "+603-8706 2222 (verify)", emergencyLine: "+603-8706 2222 ext. A&E", appointmentLine: "+603-8706 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Sepang Selangor" },
+    contact: { address: "Jalan Hospital, 43900 Sepang, Selangor", mainLine: "+603-8706 2222 (verify)", emergencyLine: "+603-8706 2222 ext. A&E", appointmentLine: "+603-8706 2222 (verify)", website: "https://jknselangor.moh.gov.my/hsepang/", mapQuery: "Hospital Sepang Selangor" },
     transport: { nearest: "Salak Tinggi ERL station — 10 min taxi", bus: "Limited routes", highway: "ELITE Highway / KLIA Expressway", landmark: "Sepang, near KLIA" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1553,7 +1553,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Puchong serves the rapidly growing Puchong township in the Petaling district, one of the most densely populated areas in Selangor.",
     famousFor: ["District hospital for Puchong — densely populated Selangor township"],
     infrastructure: { yearEstablished: 2008, totalBeds: 200, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Kenari 6, Bandar Puchong Jaya, 47100 Puchong, Selangor", mainLine: "+603-8064 2222 (verify)", emergencyLine: "+603-8064 2222 ext. A&E", appointmentLine: "+603-8064 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Puchong Selangor" },
+    contact: { address: "Jalan Kenari 6, Bandar Puchong Jaya, 47100 Puchong, Selangor", mainLine: "+603-8064 2222 (verify)", emergencyLine: "+603-8064 2222 ext. A&E", appointmentLine: "+603-8064 2222 (verify)", website: "https://jknselangor.moh.gov.my/hpuchong/", mapQuery: "Hospital Puchong Selangor" },
     transport: { nearest: "IOI City Mall LRT — 10 min taxi", bus: "RapidKL bus routes", highway: "Damansara-Puchong (LDP) Highway / KESAS", landmark: "Puchong, near IOI City" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1605,7 +1605,7 @@ export const HOSPITALS_SELANGOR = [
     intro: "Hospital Klang (also known as Hospital Tengku Ampuan Rahimah or HTAR) area includes several smaller district facilities; this entry covers the Klang town district annex facility.",
     famousFor: ["District hospital supporting Klang area"],
     infrastructure: { yearEstablished: 1970, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Meru, 41050 Klang, Selangor", mainLine: "+603-3372 2222 (verify)", emergencyLine: "+603-3372 2222 ext. A&E", appointmentLine: "+603-3372 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Meru Klang Selangor" },
+    contact: { address: "Jalan Meru, 41050 Klang, Selangor", mainLine: "+603-3372 2222 (verify)", emergencyLine: "+603-3372 2222 ext. A&E", appointmentLine: "+603-3372 2222 (verify)", website: "https://jknselangor.moh.gov.my/hklang/", mapQuery: "Hospital Meru Klang Selangor" },
     transport: { nearest: "Klang town — 10 min taxi", bus: "RapidKL bus routes", highway: "KESAS / Federal Highway", landmark: "Klang town, near Port Klang" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1728,7 +1728,7 @@ export const HOSPITALS_SELANGOR = [
       mainLine: "+603-8320 2222",
       emergencyLine: "+603-8320 2222 ext. A&E",
       appointmentLine: "+603-8320 2222",
-      website: "https://www.moh.gov.my",
+      website: "https://jknselangor.moh.gov.my/hcyberjaya/",
       mapQuery: "Hospital Cyberjaya Selangor"
     },
     transport: {
@@ -1827,7 +1827,7 @@ export const HOSPITALS_SELANGOR = [
       mainLine: "+603-6189 2211",
       emergencyLine: "+603-6189 2211 ext. A&E",
       appointmentLine: "+603-6189 2211",
-      website: "https://www.moh.gov.my",
+      website: "https://jknselangor.moh.gov.my/hoag/",
       mapQuery: "Hospital Orang Asli Gombak Selangor"
     },
     transport: {

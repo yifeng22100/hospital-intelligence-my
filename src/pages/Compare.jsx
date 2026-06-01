@@ -17,7 +17,7 @@ const FIELDS = [
 
 export default function Compare() {
   const [search, setSearch] = useState('')
-  const [slots, setSlots] = useState([null, null, null])
+  const [slots, setSlots] = useState([null, null, null, null, null])
   const [viewModal, setViewModal] = useState(null)
 
   const suggestions = useMemo(() => {
@@ -52,7 +52,7 @@ export default function Compare() {
         <div className="max-w-[1200px] mx-auto">
           <h1 className="text-[28px] font-bold text-ink tracking-tight mb-1">Compare Hospitals</h1>
           <p className="text-ink-secondary text-[14px] mb-6">
-            Select up to 3 hospitals to compare side by side.
+            Select up to 5 hospitals to compare side by side.
           </p>
 
           {/* Slots */}
@@ -123,7 +123,7 @@ export default function Compare() {
             <div className="text-5xl mb-4">⚖️</div>
             <h3 className="text-ink font-semibold text-[18px] mb-2">Add hospitals to compare</h3>
             <p className="text-ink-secondary text-[14px]">
-              Search for hospitals above and add up to 3 to compare side by side.
+              Search for hospitals above and add up to 5 to compare side by side.
             </p>
           </div>
         ) : (
@@ -136,7 +136,7 @@ export default function Compare() {
                   </th>
                   {slots.map((h, i) =>
                     h ? (
-                      <th key={i} className="text-left py-3 px-4 min-w-[180px]">
+                      <th key={i} className="text-left py-3 px-4 min-w-[160px]">
                         <div className="font-semibold text-ink text-[14px] leading-snug">{h.nameShort || h.name}</div>
                         <div className="text-ink-tertiary text-[11px] font-normal mt-0.5">{h.city}, {h.state}</div>
                         <button

@@ -24,10 +24,10 @@ export const HOSPITALS_PUTRAJAYA = [
     },
     contact: {
       address: "Precinct 7, 62250 Putrajaya",
-      mainLine: "+603-8888 8000",
+      mainLine: "+603-8888 0080",
       emergencyLine: "+603-8888 8000 ext. A&E",
       appointmentLine: "+603-8888 8000",
-      website: "https://hputrajaya.moh.gov.my",
+      website: "https://hpj.gov.my",
       mapQuery: "Hospital Putrajaya Precinct 7"
     },
     transport: {
@@ -112,136 +112,5 @@ export const HOSPITALS_PUTRAJAYA = [
       { label: "Official Website", url: "https://hputrajaya.moh.gov.my" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
-  }
-  ,{
-    id: "hrc-cheras",
-    name: "Hospital Rehabilitasi Cheras (HRC)",
-    nameShort: "HRC Cheras",
-    sector: "public",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Cheras, Kuala Lumpur",
-    intro: "Hospital Rehabilitasi Cheras (HRC) is Malaysia's national public rehabilitation specialist hospital, dedicated exclusively to rehabilitation medicine. Located in Cheras, it is the country's primary centre for physical medicine and rehabilitation following stroke, spinal cord injury, traumatic brain injury, and major orthopaedic procedures.",
-    famousFor: ["Malaysia's national public rehabilitation specialist hospital", "Stroke rehabilitation centre", "Spinal cord injury and traumatic brain injury rehab", "Physical medicine and rehabilitation excellence"],
-    infrastructure: {
-      yearEstablished: 1987,
-      totalBeds: 200,
-      icuBeds: 0,
-      nicuBeds: 0,
-      operatingTheatres: 0,
-      area: "~10 acres",
-      buildings: "Rehabilitation Wards Block, Therapy Block, Outpatient Block",
-      helipad: false,
-      parkingBays: "~200 bays",
-      parkingRate: "Free"
-    },
-    contact: {
-      address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur",
-      mainLine: "+603-9145 7000 (verify)",
-      emergencyLine: "+603-9145 7000 (no emergency dept — refer to HKL or HCTM)",
-      appointmentLine: "+603-9145 7000 (verify)",
-      website: "https://www.moh.gov.my",
-      mapQuery: "Hospital Rehabilitasi Cheras HRC Kuala Lumpur"
-    },
-    transport: {
-      nearest: "No direct rail station; Taman Midah MRT (KG11, Kajang Line) — 25 min walk or short taxi; bus T401/T400 from Cheras area stops ~5 min walk from hospital — Grab from any MRT is the practical choice",
-      bus: "Rapid KL Bus routes (Cheras area)",
-      highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
-      landmark: "Cheras, near UKM Medical Campus (HCTM/UKMMC)"
-    },
-    facilities: {
-      pharmacy24h: false,
-      cafeteria: "Available daytime",
-      atm: "Lobby",
-      surau: "Available",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Limited",
-      patientTransport: "Patient transport for outpatient therapy available"
-    },
-    visitingHours: {
-      general: "12:00–14:00, 17:00–20:00",
-      icu: "N/A",
-      paediatric: "As per ward policy",
-      maternity: "N/A",
-      notes: "Rehabilitation hospital — visiting hours may be flexible to support family involvement in rehabilitation. Confirm with ward."
-    },
-    specialtyCoverage: {
-      available: [
-        "Physical Medicine & Rehabilitation (PMR)",
-        "Stroke Rehabilitation",
-        "Spinal Cord Injury Rehabilitation",
-        "Traumatic Brain Injury Rehabilitation",
-        "Orthopaedic Rehabilitation",
-        "Amputation Rehabilitation & Prosthetics",
-        "Neurological Rehabilitation",
-        "Paediatric Rehabilitation",
-        "Occupational Therapy",
-        "Physiotherapy",
-        "Speech Language Therapy",
-        "Psychology (rehabilitation)",
-        "Social Work (rehabilitation)"
-      ],
-      notAvailable: [
-        { specialty: "Emergency Medicine (A&E)", transferTo: "Hospital Kuala Lumpur (HKL) or HCTM", note: "No emergency department — rehabilitation hospital only" },
-        { specialty: "Acute Medical/Surgical Care", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Rehabilitation hospital — no acute care" }
-      ],
-      byReferral: ["All admissions via referral from acute hospitals only"]
-    },
-    transferPathway: {
-      summary: "HRC is a national specialist rehabilitation hospital. All admissions are by referral from acute hospitals. Medical emergencies in HRC patients are managed at HKL or HCTM.",
-      routes: [
-        { condition: "Medical emergency in inpatient", to: "Hospital Kuala Lumpur (HKL)", reason: "Nearest acute hospital", distanceKm: 5 }
-      ],
-      howToTransfer: "Admission requires referral from acute treating hospital. Patient must be medically stable before transfer to HRC."
-    },
-    specialtyRanks: {
-      "Rehabilitation Medicine": { rank: "National #1 (Public)", desc: "Malaysia's designated national public rehabilitation specialist hospital" }
-    },
-    accreditations: ["MSQH Accredited", "MOH National Rehabilitation Hospital Designation"],
-    verifiedNotes: "~200 beds (est.). National public rehabilitation specialist hospital in Cheras KL. Admission by referral only — not a walk-in or emergency hospital.",
-    notableGaps: "No emergency department. No acute medical or surgical care. Admission by referral only.",
-    primaryExcellence: "National public rehabilitation specialist hospital — stroke, spinal, TBI rehabilitation",
-    secondarySpecialties: "Prosthetics, Paediatric Rehabilitation, Neurological Rehabilitation",
-    fullSpecialties: ["Physical Medicine & Rehabilitation", "Stroke Rehab", "Spinal Cord Injury Rehab", "TBI Rehab", "Paediatric Rehab"],
-    roomRate: "RM 5 – RM 20 (Subsidised Public)",
-    roomRateRaw: 5,
-    insurance: "Government subsidised. FPP scheme may apply.",
-    fppScheme: true,
-    fppDeposit: "RM 200–500",
-    gaps: "No emergency care. No acute surgery. Admission by referral only. Limited private room availability.",
-    robotics: "Rehabilitation equipment. Basic imaging.",
-    doctorQualifications: "MOH physical medicine and rehabilitation (PMR) specialists — MMC-registered with PMR fellowship training.",
-    imageUrl: null,
-    imageCredit: "",
-    wikiLink: null,
-    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
-    id: "pusrawi-putrajaya",
-    name: "PUSRAWI Hospital Putrajaya",
-    nameShort: "PUSRAWI Putrajaya",
-    sector: "private", tier: "secondary", state: "Putrajaya", city: "Putrajaya",
-    intro: "PUSRAWI Hospital Putrajaya is a private Islamic hospital serving government employees and residents of Putrajaya federal territory.",
-    famousFor: ["Private Islamic hospital — Putrajaya federal territory", "PUSRAWI network hospital"],
-    infrastructure: { yearEstablished: 2010, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Putrajaya, Malaysia", mainLine: "+603-8888 0000 (verify)", emergencyLine: "+603-8888 0000 ext. A&E", appointmentLine: "+603-8888 0000 (verify)", website: "https://www.pusrawi.com.my", mapQuery: "PUSRAWI Hospital Putrajaya" },
-    transport: { nearest: "Putrajaya Sentral — 10 min taxi", bus: "NADI Putrajaya bus", highway: "ELITE Highway — Putrajaya exit", landmark: "Putrajaya federal government centre" },
-    facilities: { pharmacy24h: false, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Hospital Putrajaya", note: "Refer" }],
-      byReferral: ["Complex → Hospital Putrajaya or HUKM"]
-    },
-    transferPathway: { summary: "Private Islamic hospital. Complex → Hospital Putrajaya.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private Islamic hospital — Putrajaya", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "PUSRAWI Hospital", url: "https://www.pusrawi.com.my" }],
-    verifiedNotes: "~100 beds (est.). Private Islamic hospital, Putrajaya.", notableGaps: "Complex cases → Hospital Putrajaya."
   }
 ];

@@ -27,7 +27,7 @@ export const HOSPITALS_SARAWAK = [
       mainLine: "+6082-276 666",
       emergencyLine: "+6082-276 666 ext. A&E",
       appointmentLine: "+6082-276 666",
-      website: "https://hus.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hus/",
       mapQuery: "Hospital Umum Sarawak HUS Kuching"
     },
     transport: {
@@ -143,11 +143,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Ulu Oya, 96000 Sibu, Sarawak",
+      address: "Batu 5½, Jalan Ulu Oya, 96000 Sibu, Sarawak",
       mainLine: "+6084-343 333 (verify with hospital)",
       emergencyLine: "+6084-343 333 ext. A&E (verify)",
       appointmentLine: "+6084-343 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hsibu/",
       mapQuery: "Hospital Sibu Sarawak"
     },
     transport: {
@@ -254,10 +254,10 @@ export const HOSPITALS_SARAWAK = [
     },
     contact: {
       address: "Jalan Cahaya, 98000 Miri, Sarawak",
-      mainLine: "+6085-420 033 (verify with hospital)",
+      mainLine: "+6085-460 600",
       emergencyLine: "+6085-420 033 ext. A&E (verify)",
       appointmentLine: "+6085-420 033 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hmiri/",
       mapQuery: "Hospital Miri Sarawak"
     },
     transport: {
@@ -357,11 +357,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Hospital, 97000 Bintulu, Sarawak",
-      mainLine: "+6086-252 333 (verify with hospital)",
+      address: "Jalan Nyabau, 97000 Bintulu, Sarawak",
+      mainLine: "+6086-255 899",
       emergencyLine: "+6086-252 333 ext. A&E (verify)",
       appointmentLine: "+6086-252 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hbintulu/",
       mapQuery: "Hospital Bintulu Sarawak"
     },
     transport: {
@@ -461,7 +461,7 @@ export const HOSPITALS_SARAWAK = [
       mainLine: "+6084-796 333 (verify with hospital)",
       emergencyLine: "+6084-796 333 ext. A&E (verify)",
       appointmentLine: "+6084-796 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hkapit/",
       mapQuery: "Hospital Kapit Sarawak interior"
     },
     transport: {
@@ -559,10 +559,10 @@ export const HOSPITALS_SARAWAK = [
     },
     contact: {
       address: "Jalan Hospital, 95000 Sri Aman, Sarawak",
-      mainLine: "+6083-320 333 (verify with hospital)",
+      mainLine: "+6083-322 151",
       emergencyLine: "+6083-320 333 ext. A&E (verify)",
       appointmentLine: "+6083-320 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hsa/",
       mapQuery: "Hospital Sri Aman Sarawak"
     },
     transport: {
@@ -658,7 +658,7 @@ export const HOSPITALS_SARAWAK = [
     contact: {
       address: "937, Jalan Tun Abdul Rahman, 93050 Kuching, Sarawak",
       mainLine: "+6082-440 055",
-      emergencyLine: "+6082-440 055 ext. A&E",
+      emergencyLine: "+6082-311 999",
       appointmentLine: "+6082-440 055",
       website: "https://www.normah.com.my",
       mapQuery: "Normah Medical Specialist Centre Kuching Sarawak"
@@ -767,10 +767,10 @@ export const HOSPITALS_SARAWAK = [
     },
     contact: {
       address: "Jalan Tun Ahmad Zaidi Adruce, 93450 Kuching, Sarawak",
-      mainLine: "+6082-250 333 (verify with hospital)",
+      mainLine: "+6082-507 333",
       emergencyLine: "+6082-250 333 ext. A&E (verify)",
       appointmentLine: "+6082-250 333 (verify)",
-      website: "https://www.borneomedical.com.my",
+      website: "https://www.borneomedicalcentre.com",
       mapQuery: "Borneo Medical Centre BMC Kuching Sarawak"
     },
     transport: {
@@ -863,11 +863,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "Jalan Tun Jugah, 93350 Kuching, Sarawak",
-      mainLine: "+6082-365 777 (verify with hospital)",
+      address: "Jalan Setia Raja, Tabuan Stutong, 93350 Kuching, Sarawak",
+      mainLine: "+6082-365 777",
       emergencyLine: "+6082-365 777 ext. A&E (verify)",
       appointmentLine: "+6082-365 777 (verify)",
-      website: "https://www.kpjkuching.com",
+      website: "https://kpjhealth.com.my/kuching/",
       mapQuery: "KPJ Kuching Specialist Hospital Sarawak"
     },
     transport: {
@@ -966,7 +966,7 @@ export const HOSPITALS_SARAWAK = [
       mainLine: "+6082-234 466 (verify with hospital)",
       emergencyLine: "+6082-234 466 ext. A&E (verify)",
       appointmentLine: "+6082-234 466 (verify)",
-      website: "https://www.timberlandmedical.com.my",
+      website: "https://www.timberlandmedical.com",
       mapQuery: "Timberland Medical Centre Kuching Sarawak"
     },
     transport: {
@@ -1035,102 +1035,6 @@ export const HOSPITALS_SARAWAK = [
       { label: "Official Website", url: "https://www.timberlandmedical.com.my" }
     ]
   },
-  {
-    id: "columbia-kuching",
-    name: "Columbia Asia Hospital Kuching",
-    nameShort: "Columbia Asia Kuching",
-    sector: "private",
-    tier: "tertiary",
-    state: "Sarawak",
-    city: "Kuching",
-    intro: "Columbia Asia Hospital Kuching is part of the Columbia Asia group, offering affordable private specialist care in Kuching. The hospital provides a range of specialist services at competitive pricing, making it a choice for patients seeking cost-effective private healthcare in Sarawak.",
-    famousFor: ["Affordable Columbia Asia private care in Kuching", "Growing private hospital option in Sarawak"],
-    infrastructure: {
-      yearEstablished: 2010,
-      totalBeds: 100,
-      icuBeds: 8,
-      nicuBeds: 3,
-      operatingTheatres: 4,
-      area: "~2 acres",
-      buildings: "Main Building",
-      helipad: false,
-      parkingBays: "~120 bays",
-      parkingRate: "RM 1.50/hour"
-    },
-    contact: {
-      address: "No. 1 Jalan Song Thian Cheok, 93350 Kuching, Sarawak",
-      mainLine: "+6082-365 888 (verify with hospital)",
-      emergencyLine: "+6082-365 888 ext. A&E (verify)",
-      appointmentLine: "+6082-365 888 (verify)",
-      website: "https://www.columbiaasia.com/kuching",
-      mapQuery: "Columbia Asia Hospital Kuching Sarawak"
-    },
-    transport: {
-      nearest: "Kuching city — 15 min taxi",
-      bus: "City bus routes",
-      highway: "Jalan Song Thian Cheok, Kuching",
-      landmark: "Kuching city area"
-    },
-    facilities: {
-      pharmacy24h: false,
-      cafeteria: "Ground floor, daytime",
-      atm: "Lobby",
-      surau: "Available",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Free WiFi",
-      patientTransport: "Limited"
-    },
-    visitingHours: {
-      general: "11:00–20:00",
-      icu: "Restricted",
-      paediatric: "Parents: unrestricted",
-      maternity: "Flexible",
-      notes: "Private hospital."
-    },
-    specialtyCoverage: {
-      available: [
-        "Emergency Medicine & A&E (24/7)", "ICU",
-        "General Medicine", "General Surgery",
-        "Cardiology (general)", "Obstetrics & Gynaecology",
-        "Paediatrics", "Orthopaedics",
-        "ENT", "Ophthalmology", "Dermatology"
-      ],
-      notAvailable: [
-        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "No liver transplant in Sarawak" },
-        { specialty: "Cardiothoracic Surgery", transferTo: "Normah or HUS Kuching", note: "Refer to larger centre" }
-      ],
-      byReferral: [
-        "Complex cases — Normah or HUS Kuching"
-      ]
-    },
-    transferPathway: {
-      summary: "Community private hospital. Complex cases to Normah or HUS.",
-      routes: [],
-      howToTransfer: "Specialist referral."
-    },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "Columbia Asia Group"],
-    verifiedNotes: "100 beds. Columbia Asia group hospital in Kuching.",
-    notableGaps: "No liver transplant. No cardiac surgery. Smaller hospital.",
-    primaryExcellence: "Affordable private care — Kuching",
-    secondarySpecialties: "Obstetrics, General Medicine",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 120 – RM 350+/night",
-    roomRateRaw: 180,
-    insurance: "Major Malaysian insurance panels.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "No liver transplant. No cardiac surgery.",
-    robotics: "Standard imaging.",
-    doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null,
-    imageCredit: "N/A",
-    officialSources: [
-      { label: "Official Website", url: "https://www.columbiaasia.com/kuching" }
-    ]
-  }
 ,
   {
     id: "hsarikei", name: "Hospital Sarikei", nameShort: "Hsp. Sarikei",
@@ -1138,7 +1042,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Sarikei is the main public hospital serving the Sarikei division of Sarawak, an agricultural district known for its pepper production.",
     famousFor: ["Main hospital for Sarikei Division", "Serves pepper farming communities of central Sarawak"],
     infrastructure: { yearEstablished: 1975, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 2, area: "~6 acres", buildings: "Main Block", helipad: true, parkingBays: "~120 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 96100 Sarikei, Sarawak", mainLine: "+6384-655 333", emergencyLine: "+6384-655 333 ext. A&E", appointmentLine: "+6384-655 333", website: "https://www.moh.gov.my", mapQuery: "Hospital Sarikei Sarawak" },
+    contact: { address: "Jalan Hospital, 96100 Sarikei, Sarawak", mainLine: "+6084-653 333", emergencyLine: "+6084-653 333 ext. A&E", appointmentLine: "+6084-653 333", website: "https://hsarikei.moh.gov.my", mapQuery: "Hospital Sarikei Sarawak" },
     transport: { nearest: "Sarikei town — 5 min drive", bus: "Bus from Sibu (~1.5 hrs)", highway: "Via Pan Borneo Highway", landmark: "Sarikei town centre" },
     facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance and boat transfers" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1162,7 +1066,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Samarahan serves Kota Samarahan — Sarawak's university city and administrative hub, home to UNIMAS. The hospital supports the growing student and government worker population.",
     famousFor: ["Serves UNIMAS university city population", "Fast-growing Samarahan district"],
     infrastructure: { yearEstablished: 1995, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 3, area: "~8 acres", buildings: "Main Block", helipad: true, parkingBays: "~200 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Datu Patinggi Haji Abdul Rahman, 94300 Kota Samarahan, Sarawak", mainLine: "+6082-665 333", emergencyLine: "+6082-665 333 ext. A&E", appointmentLine: "+6082-665 333", website: "https://www.moh.gov.my", mapQuery: "Hospital Samarahan Sarawak" },
+    contact: { address: "Jalan Datu Patinggi Haji Abdul Rahman, 94300 Kota Samarahan, Sarawak", mainLine: "+6082-665 333", emergencyLine: "+6082-665 333 ext. A&E", appointmentLine: "+6082-665 333", website: "https://jknsarawak.moh.gov.my/hsamarahan/", mapQuery: "Hospital Samarahan Sarawak" },
     transport: { nearest: "Kota Samarahan — 5 min drive", bus: "Bus from Kuching (~30 min)", highway: "Via Jalan Kuching–Samarahan", landmark: "Near UNIMAS campus" },
     facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1186,7 +1090,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Miri City Medical Centre is a private hospital serving the oil and gas hub of Miri, northern Sarawak. It provides private specialist care for the city's energy sector workforce.",
     famousFor: ["Private hospital for Miri oil and gas community", "Key private healthcare provider in northern Sarawak"],
     infrastructure: { yearEstablished: 2000, totalBeds: 150, icuBeds: 12, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1–2/hr" },
-    contact: { address: "Jalan Hokkien, 98000 Miri, Sarawak", mainLine: "+6085-426 622", emergencyLine: "+6085-426 622 ext. A&E", appointmentLine: "+6085-426 622", website: "https://www.miricitymedical.com", mapQuery: "Miri City Medical Centre Sarawak" },
+    contact: { address: "Jalan Hokkien, 98000 Miri, Sarawak", mainLine: "+6085-426 622", emergencyLine: "+6085-426 622 ext. A&E", appointmentLine: "+6085-426 622", website: "https://www.mcmcmiri.com", mapQuery: "Miri City Medical Centre Sarawak" },
     transport: { nearest: "Miri city centre — 5 min drive", bus: "Local city bus", highway: "Via Pan Borneo Highway Miri section", landmark: "Miri city" },
     facilities: { pharmacy24h: true, cafeteria: "Café", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
     visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },
@@ -1213,7 +1117,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Serian serves the Serian Division of Sarawak, a predominantly Bidayuh indigenous community area near Kuching.",
     famousFor: ["District hospital for Serian Division — Bidayuh heartland"],
     infrastructure: { yearEstablished: 1972, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 94700 Serian, Sarawak", mainLine: "+6082-874 222 (verify)", emergencyLine: "+6082-874 222 ext. A&E", appointmentLine: "+6082-874 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Serian Sarawak" },
+    contact: { address: "Jalan Hospital, 94700 Serian, Sarawak", mainLine: "+6082-874 222 (verify)", emergencyLine: "+6082-874 222 ext. A&E", appointmentLine: "+6082-874 222 (verify)", website: "https://jknsarawak.moh.gov.my/hserian/", mapQuery: "Hospital Serian Sarawak" },
     transport: { nearest: "Serian town — 5 min walk", bus: "Bus from Kuching (~1.5 hrs)", highway: "Pan Borneo Highway — Serian exit", landmark: "Serian town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1239,7 +1143,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Limbang serves the Limbang Division of northern Sarawak, which is enclosed within Brunei Darussalam territory.",
     famousFor: ["District hospital for Limbang — Sarawak exclave area between Brunei", "Cross-border access point"],
     infrastructure: { yearEstablished: 1968, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 98700 Limbang, Sarawak", mainLine: "+6085-212 222 (verify)", emergencyLine: "+6085-212 222 ext. A&E", appointmentLine: "+6085-212 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Limbang Sarawak" },
+    contact: { address: "Jalan Hospital, 98700 Limbang, Sarawak", mainLine: "+6085-212 222 (verify)", emergencyLine: "+6085-212 222 ext. A&E", appointmentLine: "+6085-212 222 (verify)", website: "https://jknsarawak.moh.gov.my/hlimbang/", mapQuery: "Hospital Limbang Sarawak" },
     transport: { nearest: "Limbang town — 5 min walk", bus: "Limited routes", highway: "Via Brunei border crossing", landmark: "Limbang town, Brunei-encircled area" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1265,7 +1169,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Betong serves the Betong Division of western Sarawak, a predominantly Iban and Malay community area.",
     famousFor: ["District hospital for Betong Division"],
     infrastructure: { yearEstablished: 1975, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 95700 Betong, Sarawak", mainLine: "+6083-473 222 (verify)", emergencyLine: "+6083-473 222 ext. A&E", appointmentLine: "+6083-473 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Betong Sarawak" },
+    contact: { address: "Jalan Hospital, 95700 Betong, Sarawak", mainLine: "+6083-473 222 (verify)", emergencyLine: "+6083-473 222 ext. A&E", appointmentLine: "+6083-473 222 (verify)", website: "https://jknsarawak.moh.gov.my/hbetong/", mapQuery: "Hospital Betong Sarawak" },
     transport: { nearest: "Betong town — 5 min walk", bus: "Bus from Kuching (~3 hrs)", highway: "Pan Borneo Highway via Sri Aman", landmark: "Betong town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1291,7 +1195,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Lawas serves the remote Lawas Division in northern Sarawak, bordering Sabah and Brunei.",
     famousFor: ["District hospital for Lawas — remote northern Sarawak"],
     infrastructure: { yearEstablished: 1978, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 98850 Lawas, Sarawak", mainLine: "+6085-285 222 (verify)", emergencyLine: "+6085-285 222 ext. A&E", appointmentLine: "+6085-285 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Lawas Sarawak" },
+    contact: { address: "Jalan Hospital, 98850 Lawas, Sarawak", mainLine: "+6085-285 222 (verify)", emergencyLine: "+6085-285 222 ext. A&E", appointmentLine: "+6085-285 222 (verify)", website: "https://jknsarawak.moh.gov.my/hlawas/", mapQuery: "Hospital Lawas Sarawak" },
     transport: { nearest: "Lawas town — 5 min walk", bus: "Limited routes", highway: "Via Brunei or Sabah crossing", landmark: "Lawas town, northernmost Sarawak" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1317,7 +1221,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Mukah serves the Mukah Division of central Sarawak, a coastal area known for its Melanau community and sago industry.",
     famousFor: ["District hospital for Mukah Division — sago belt of Sarawak"],
     infrastructure: { yearEstablished: 1975, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 96400 Mukah, Sarawak", mainLine: "+6084-872 222 (verify)", emergencyLine: "+6084-872 222 ext. A&E", appointmentLine: "+6084-872 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Mukah Sarawak" },
+    contact: { address: "Jalan Hospital, 96400 Mukah, Sarawak", mainLine: "+6084-872 222 (verify)", emergencyLine: "+6084-872 222 ext. A&E", appointmentLine: "+6084-872 222 (verify)", website: "https://jknsarawak.moh.gov.my/hmukah/", mapQuery: "Hospital Mukah Sarawak" },
     transport: { nearest: "Mukah town — 5 min walk", bus: "Bus from Sibu (~3 hrs) or Bintulu (~2 hrs)", highway: "Route 10 coastal road", landmark: "Mukah town, Sarawak coast" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1336,32 +1240,6 @@ export const HOSPITALS_SARAWAK = [
     verifiedNotes: "~130 beds (est.). District hospital for Mukah.", notableGaps: "Specialist referral to Hospital Sibu."
   },
   {
-    id: "hsong",
-    name: "Hospital Song",
-    nameShort: "Hospital Song",
-    sector: "public", tier: "district", state: "Sarawak", city: "Song",
-    intro: "Hospital Song serves the remote Song area in the Kapit Division of central Sarawak, accessible mainly by river transport.",
-    famousFor: ["District hospital for Song — remote river community of central Sarawak"],
-    infrastructure: { yearEstablished: 1980, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~30 bays", parkingRate: "Free" },
-    contact: { address: "Song, 96700 Song, Sarawak", mainLine: "+6084-777 222 (verify)", emergencyLine: "+6084-777 222 ext. A&E", appointmentLine: "+6084-777 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Song Sarawak" },
-    transport: { nearest: "Song town — 5 min walk", bus: "River boat from Sibu (~2 hrs)", highway: "Limited road access — mainly river transport", landmark: "Song town, Rejang river tributary" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / boat / helicopter" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Kapit / Hospital Sibu", note: "Remote district hospital" }],
-      byReferral: ["Specialist → Hospital Kapit or Hospital Sibu"]
-    },
-    transferPathway: { summary: "Remote river-access hospital. Complex → Hospital Kapit.", routes: [], howToTransfer: "MOH referral / river transport / helicopter." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Song, Kapit Division", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited — remote river community.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~40 beds (est.). Remote district hospital, river access.", notableGaps: "Helicopter/boat transfer for complex cases."
-  },
-  {
     id: "hmatu",
     name: "Hospital Daro",
     nameShort: "Hospital Daro",
@@ -1369,7 +1247,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Daro serves the Daro area in the Mukah Division of central Sarawak, a predominantly Melanau community.",
     famousFor: ["District hospital for Daro area, Mukah Division"],
     infrastructure: { yearEstablished: 1978, totalBeds: 50, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~40 bays", parkingRate: "Free" },
-    contact: { address: "Daro, Mukah, Sarawak", mainLine: "+6084-854 222 (verify)", emergencyLine: "+6084-854 222 ext. A&E", appointmentLine: "+6084-854 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Daro Mukah Sarawak" },
+    contact: { address: "Daro, Mukah, Sarawak", mainLine: "+6084-854 222 (verify)", emergencyLine: "+6084-854 222 ext. A&E", appointmentLine: "+6084-854 222 (verify)", website: "https://jknsarawak.moh.gov.my/hmatu/", mapQuery: "Hospital Daro Mukah Sarawak" },
     transport: { nearest: "Daro town — 5 min walk", bus: "Limited routes", highway: "Coastal road near Mukah", landmark: "Daro town, Mukah Division" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1395,7 +1273,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Dalat serves the Mukah Division area around Dalat, a sago-growing community in central coastal Sarawak.",
     famousFor: ["District hospital for Dalat — sago area of Sarawak"],
     infrastructure: { yearEstablished: 1978, totalBeds: 50, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~40 bays", parkingRate: "Free" },
-    contact: { address: "Dalat, Mukah, Sarawak", mainLine: "+6084-841 222 (verify)", emergencyLine: "+6084-841 222 ext. A&E", appointmentLine: "+6084-841 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Dalat Sarawak" },
+    contact: { address: "Dalat, Mukah, Sarawak", mainLine: "+6084-841 222 (verify)", emergencyLine: "+6084-841 222 ext. A&E", appointmentLine: "+6084-841 222 (verify)", website: "https://jknsarawak.moh.gov.my/hdalat/", mapQuery: "Hospital Dalat Sarawak" },
     transport: { nearest: "Dalat town — 5 min walk", bus: "Limited routes from Mukah", highway: "Coastal roads near Mukah", landmark: "Dalat town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1421,7 +1299,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Lubok Antu serves the border town of Lubok Antu in the Sri Aman Division, near the Batang Ai dam and Indonesian Kalimantan border.",
     famousFor: ["District hospital for Lubok Antu — Batang Ai border area"],
     infrastructure: { yearEstablished: 1980, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~30 bays", parkingRate: "Free" },
-    contact: { address: "Lubok Antu, Sri Aman, Sarawak", mainLine: "+6083-584 222 (verify)", emergencyLine: "+6083-584 222 ext. A&E", appointmentLine: "+6083-584 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Lubok Antu Sarawak" },
+    contact: { address: "Lubok Antu, Sri Aman, Sarawak", mainLine: "+6083-584 222 (verify)", emergencyLine: "+6083-584 222 ext. A&E", appointmentLine: "+6083-584 222 (verify)", website: "https://jknsarawak.moh.gov.my/hlubukant/", mapQuery: "Hospital Lubok Antu Sarawak" },
     transport: { nearest: "Lubok Antu town — 5 min walk", bus: "Limited routes from Sri Aman (~2 hrs)", highway: "Interior road via Sri Aman", landmark: "Lubok Antu, Batang Ai lake" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1447,7 +1325,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Marudi serves the Marudi area in the Baram district of the Miri Division, an important interior trading post accessible mainly by river and air.",
     famousFor: ["District hospital for Marudi — interior Miri Division", "Serves Baram river communities"],
     infrastructure: { yearEstablished: 1975, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Marudi, Baram, Sarawak", mainLine: "+6085-755 222 (verify)", emergencyLine: "+6085-755 222 ext. A&E", appointmentLine: "+6085-755 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Marudi Sarawak" },
+    contact: { address: "Marudi, Baram, Sarawak", mainLine: "+6085-755 222 (verify)", emergencyLine: "+6085-755 222 ext. A&E", appointmentLine: "+6085-755 222 (verify)", website: "https://jknsarawak.moh.gov.my/hmarudi/", mapQuery: "Hospital Marudi Sarawak" },
     transport: { nearest: "Marudi town — 5 min walk", bus: "River boat from Miri (~3 hrs) or MASwings flight", highway: "River transport — Baram river", landmark: "Marudi town, Baram river trading post" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter / boat" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1466,32 +1344,6 @@ export const HOSPITALS_SARAWAK = [
     verifiedNotes: "~80 beds (est.). Remote hospital, Marudi.", notableGaps: "River/air transport to Hospital Miri."
   },
   {
-    id: "hlong-lama",
-    name: "Hospital Long Lama",
-    nameShort: "Hospital Long Lama",
-    sector: "public", tier: "district", state: "Sarawak", city: "Long Lama",
-    intro: "Hospital Long Lama serves the remote Long Lama area in the Baram district of Sarawak, a settlement in the deep interior accessible only by river or air.",
-    famousFor: ["Remote district hospital — Long Lama, Baram interior Sarawak"],
-    infrastructure: { yearEstablished: 1985, totalBeds: 30, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~1 acre", buildings: "Main Block", helipad: true, parkingBays: "~20 bays", parkingRate: "Free" },
-    contact: { address: "Long Lama, Baram, Sarawak", mainLine: "+6085-766 222 (verify)", emergencyLine: "+6085-766 222 ext. A&E", appointmentLine: "+6085-766 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Long Lama Sarawak" },
-    transport: { nearest: "Long Lama — very remote", bus: "None — river/air only", highway: "River transport or MASwings", landmark: "Long Lama, Baram river interior" },
-    facilities: { pharmacy24h: false, cafeteria: "Basic", atm: "None", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Very limited", patientTransport: "Helicopter / boat" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "All specialist services", transferTo: "Hospital Marudi / Hospital Miri", note: "Very remote" }],
-      byReferral: ["Specialist → Hospital Miri by helicopter"]
-    },
-    transferPathway: { summary: "Very remote hospital. Air medevac for complex cases.", routes: [], howToTransfer: "Air medevac / river boat." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "Remote district hospital — Long Lama, Baram interior", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Extremely limited — very remote.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~30 beds (est.). Remote interior hospital.", notableGaps: "Air/river medevac for complex cases."
-  },
-  {
     id: "hbau",
     name: "Hospital Bau",
     nameShort: "Hospital Bau",
@@ -1499,7 +1351,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Bau serves the Bau district southwest of Kuching, a gold-mining historical town near the Indonesian border.",
     famousFor: ["District hospital for Bau — gold mining town near Kuching"],
     infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Bau, Kuching Division, Sarawak", mainLine: "+6082-763 222 (verify)", emergencyLine: "+6082-763 222 ext. A&E", appointmentLine: "+6082-763 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Bau Sarawak" },
+    contact: { address: "Bau, Kuching Division, Sarawak", mainLine: "+6082-763 222 (verify)", emergencyLine: "+6082-763 222 ext. A&E", appointmentLine: "+6082-763 222 (verify)", website: "https://jknsarawak.moh.gov.my/hbau/", mapQuery: "Hospital Bau Sarawak" },
     transport: { nearest: "Bau town — 5 min walk", bus: "Bus from Kuching (~1 hr)", highway: "Via Route A1 from Kuching", landmark: "Bau town, near Kuching border area" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1525,7 +1377,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Binatang (also referred to as Hospital Bintangor) serves the Binatang/Bintangor area in the Sarikei Division of central Sarawak.",
     famousFor: ["District hospital for Bintangor / Binatang area, Sarikei Division"],
     infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 96600 Bintangor, Sarawak", mainLine: "+6084-690 222 (verify)", emergencyLine: "+6084-690 222 ext. A&E", appointmentLine: "+6084-690 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Bintangor Sarawak" },
+    contact: { address: "Jalan Hospital, 96600 Bintangor, Sarawak", mainLine: "+6084-690 222 (verify)", emergencyLine: "+6084-690 222 ext. A&E", appointmentLine: "+6084-690 222 (verify)", website: "https://jknsarawak.moh.gov.my/hbintangor/", mapQuery: "Hospital Bintangor Sarawak" },
     transport: { nearest: "Bintangor town — 5 min walk", bus: "Bus from Sibu (~1.5 hrs)", highway: "Pan Borneo Highway", landmark: "Bintangor town, Rajang river area" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1575,7 +1427,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Rajah Charles Brooke Memorial (HRCBM) is a special institution hospital located at Batu 13, Jalan Puncak Borneo, Kota Padawan, Kuching. Historically established as a leprosarium, it continues as a government facility providing care for patients requiring long-term or rehabilitative treatment.",
     famousFor: ["Historical leprosarium — one of Sarawak's oldest medical institutions", "Special institution hospital for long-term care", "Located near Kota Padawan / Gunung Santubong area"],
     infrastructure: { yearEstablished: 1930, totalBeds: 100, icuBeds: 0, nicuBeds: 0, operatingTheatres: 0, area: "~10 acres", buildings: "Ward blocks, outpatient clinic", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Batu 13, Jalan Puncak Borneo, Kota Padawan, 93250 Kuching, Sarawak", mainLine: "+6082-611 123 (verify)", emergencyLine: "+6082-611 123", appointmentLine: "+6082-611 123", website: "https://www.moh.gov.my", mapQuery: "Hospital Rajah Charles Brooke Memorial Kuching Sarawak" },
+    contact: { address: "Batu 13, Jalan Puncak Borneo, Kota Padawan, 93250 Kuching, Sarawak", mainLine: "+6082-611 123 (verify)", emergencyLine: "+6082-611 123", appointmentLine: "+6082-611 123", website: "https://jknsarawak.moh.gov.my/hrcbm/", mapQuery: "Hospital Rajah Charles Brooke Memorial Kuching Sarawak" },
     transport: { nearest: "Kuching city — ~13 km via Jalan Puncak Borneo, 20 min taxi", bus: "Limited routes", highway: "Jalan Puncak Borneo, Kuching outskirts", landmark: "Kota Padawan area, Kuching" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: "Available", buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Special institution — confirm visiting hours with ward." },
@@ -1599,7 +1451,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Kanowit serves the Kanowit district in the Sibu Division of central Sarawak, a riverside town on the Rajang River accessible by road and river. With 100 beds, it provides district-level care for the Iban and mixed community of Kanowit before complex cases are referred to Hospital Sibu.",
     famousFor: ["District hospital for Kanowit — Rajang River town, Sibu Division"],
     infrastructure: { yearEstablished: 1975, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Kanowit/Durin, 96700 Kanowit, Sarawak", mainLine: "+6084-752 333 (verify)", emergencyLine: "+6084-752 333 ext. A&E", appointmentLine: "+6084-752 333 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kanowit Sarawak" },
+    contact: { address: "Jalan Kanowit/Durin, 96700 Kanowit, Sarawak", mainLine: "+6084-752 333 (verify)", emergencyLine: "+6084-752 333 ext. A&E", appointmentLine: "+6084-752 333 (verify)", website: "https://jknsarawak.moh.gov.my/hkanowit/", mapQuery: "Hospital Kanowit Sarawak" },
     transport: { nearest: "Kanowit town — 5 min walk", bus: "Bus from Sibu (~1 hr)", highway: "Pan Borneo Highway / Sibu–Kanowit road", landmark: "Kanowit town, Rajang River" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1623,7 +1475,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Saratok serves the Saratok district in the Sri Aman Division of western Sarawak, providing essential healthcare for a predominantly Iban community area. With 106 beds, it is the main district hospital for the Saratok area before complex cases are referred to Hospital Sri Aman or HUS Kuching.",
     famousFor: ["District hospital for Saratok — Sri Aman Division, western Sarawak"],
     infrastructure: { yearEstablished: 1972, totalBeds: 106, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "KM 1, Jalan Saratok, 95400 Saratok, Sarawak", mainLine: "+6083-437 222 (verify)", emergencyLine: "+6083-437 222 ext. A&E", appointmentLine: "+6083-437 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Saratok Sarawak" },
+    contact: { address: "KM 1, Jalan Saratok, 95400 Saratok, Sarawak", mainLine: "+6083-437 222 (verify)", emergencyLine: "+6083-437 222 ext. A&E", appointmentLine: "+6083-437 222 (verify)", website: "https://jknsarawak.moh.gov.my/hsaratok/", mapQuery: "Hospital Saratok Sarawak" },
     transport: { nearest: "Saratok town — 1 km from town", bus: "Bus from Sri Aman (~1 hr) or Kuching (~3 hrs)", highway: "Pan Borneo Highway / Jalan Saratok junction", landmark: "Saratok town, western Sarawak" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1647,7 +1499,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Lundu serves the Lundu district in the Kuching Division of Sarawak, the most westerly district of Sarawak near the Indonesian border. It provides basic district-level care before complex cases are referred to HUS Kuching approximately 80 km away.",
     famousFor: ["District hospital for Lundu — westernmost Sarawak district near Indonesian border"],
     infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Sekambal, 94500 Lundu, Sarawak", mainLine: "+6082-735 222 (verify)", emergencyLine: "+6082-735 222 ext. A&E", appointmentLine: "+6082-735 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Lundu Sarawak" },
+    contact: { address: "Jalan Sekambal, 94500 Lundu, Sarawak", mainLine: "+6082-735 222 (verify)", emergencyLine: "+6082-735 222 ext. A&E", appointmentLine: "+6082-735 222 (verify)", website: "https://jknsarawak.moh.gov.my/hlundu/", mapQuery: "Hospital Lundu Sarawak" },
     transport: { nearest: "Lundu town — 5 min walk", bus: "Bus from Kuching (~2 hrs)", highway: "Route A1 from Kuching via Bau", landmark: "Lundu town, western Sarawak" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1671,7 +1523,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Simunjan serves the Simunjan district in the Samarahan Division of southern Sarawak, an agricultural and peat swamp area. With 42 beds, it is one of the smaller district hospitals in Sarawak.",
     famousFor: ["District hospital for Simunjan — Samarahan Division, southern Sarawak"],
     infrastructure: { yearEstablished: 1975, totalBeds: 42, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~40 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Gunung Ngeli, 94800 Simunjan, Sarawak", mainLine: "+6082-803 222 (verify)", emergencyLine: "+6082-803 222 ext. A&E", appointmentLine: "+6082-803 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Simunjan Sarawak" },
+    contact: { address: "Jalan Gunung Ngeli, 94800 Simunjan, Sarawak", mainLine: "+6082-803 222 (verify)", emergencyLine: "+6082-803 222 ext. A&E", appointmentLine: "+6082-803 222 (verify)", website: "https://jknsarawak.moh.gov.my/hsimunjan/", mapQuery: "Hospital Simunjan Sarawak" },
     transport: { nearest: "Simunjan town — 5 min walk", bus: "Bus from Kuching (~1.5 hrs)", highway: "Jalan Kuching–Simunjan", landmark: "Simunjan town, Samarahan Division" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
     visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1688,6 +1540,57 @@ export const HOSPITALS_SARAWAK = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "42 beds. Small district hospital for Simunjan, Samarahan Division.", notableGaps: "Specialist referral to Hospital Samarahan or HUS Kuching."
+  },
+  {
+    id: "columbia-asia-miri",
+    name: "Columbia Asia Hospital Miri",
+    nameShort: "Columbia Asia Miri",
+    sector: "private", tier: "specialist", state: "Sarawak", city: "Miri",
+    intro: "Columbia Asia Hospital Miri is a private specialist hospital serving the Miri Division of Sarawak, offering a range of specialist and surgical services in a purpose-built facility.",
+    famousFor: ["Private specialist hospital for Miri Division", "Accessible specialist care in northern Sarawak"],
+    infrastructure: { yearEstablished: 1998, totalBeds: 35, icuBeds: 4, nicuBeds: 0, operatingTheatres: 3, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "Lot 1035–1039, Jalan Bulan Sabit, CDT 155, 98009 Miri, Sarawak", mainLine: "+6085-437 755", emergencyLine: "+6085-437 755", appointmentLine: "+6085-437 755", website: "https://www.columbiaasia.com/malaysia/hospitals/miri/", mapQuery: "Columbia Asia Hospital Miri Sarawak" },
+    transport: { nearest: "Miri city centre — 10 min taxi", bus: "Local Miri bus routes", highway: "Pan Borneo Highway access", landmark: "Near Miri city centre" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Radiology"],
+      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Normah Medical Specialist Centre or HUS Kuching", note: "Refer to Kuching" }],
+      byReferral: ["Complex cases — HUS Kuching or Miri City Medical Centre"]
+    },
+    transferPathway: { summary: "Private specialist hospital. Complex → HUS Kuching or Hospital Miri (public).", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MSQH Accredited"],
+    verifiedNotes: "~35 beds. Private specialist hospital in Miri, Sarawak since 1998 (formerly Selesa Medical Centre).", notableGaps: "Limited subspecialty coverage; complex cases to Kuching.",
+    primaryExcellence: "Private specialist hospital in Miri", secondarySpecialties: "General Surgery, Orthopaedics, Obstetrics",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology"],
+    roomRate: "RM 200 – RM 600", roomRateRaw: 350, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Miri", url: "https://www.columbiaasia.com/malaysia/hospitals/miri/" }]
+  },
+  {
+    id: "columbia-asia-bintulu",
+    name: "Columbia Asia Hospital Bintulu",
+    nameShort: "Columbia Asia Bintulu",
+    sector: "private", tier: "specialist", state: "Sarawak", city: "Bintulu",
+    intro: "Columbia Asia Hospital Bintulu is a private specialist hospital serving the Bintulu Division of Sarawak, providing accessible specialist and surgical care to the region.",
+    famousFor: ["Private specialist hospital for Bintulu Division", "Key private healthcare provider in central Sarawak coast"],
+    infrastructure: { yearEstablished: 2010, totalBeds: 20, icuBeds: 3, nicuBeds: 0, operatingTheatres: 2, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "Available", parkingRate: "Paid" },
+    contact: { address: "Lot 3582, Block 26, Jalan Tan Sri Ikhwan, Kemena Land District, 97000 Bintulu, Sarawak", mainLine: "+6086-251 888", emergencyLine: "+6086-251 888", appointmentLine: "+6086-251 888", website: "https://www.columbiaasia.com/malaysia/", mapQuery: "Columbia Asia Hospital Bintulu Sarawak" },
+    transport: { nearest: "Bintulu town centre — 10 min taxi", bus: "Local Bintulu bus routes", highway: "Pan Borneo Highway access", landmark: "Tanjung Kidurong area" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology"],
+      notAvailable: [{ specialty: "Complex Surgery", transferTo: "Hospital Bintulu (public) or Miri hospitals", note: "Refer for complex cases" }],
+      byReferral: ["Complex cases — Hospital Bintulu or Columbia Asia Miri"]
+    },
+    transferPathway: { summary: "Private specialist hospital. Complex → Hospital Bintulu (public) or Columbia Asia Miri.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MSQH Accredited"],
+    verifiedNotes: "20 beds. Private specialist hospital in Bintulu, Sarawak. Established 2010.", notableGaps: "Small facility; limited subspecialties.",
+    primaryExcellence: "Private specialist care in Bintulu", secondarySpecialties: "General Surgery, Obstetrics",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Orthopaedics", "Obstetrics & Gynaecology"],
+    roomRate: "RM 180 – RM 500", roomRateRaw: 300, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. Limited beds.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Malaysia", url: "https://www.columbiaasia.com/malaysia/" }]
   }
-
 ];
