@@ -1048,7 +1048,7 @@ export const HOSPITALS_SABAH = [
   },
   {
     id: "damai-specialist-kk",
-    name: "Damai Specialist Centre Kota Kinabalu",
+    name: "KPJ Damai Specialist Hospital Kota Kinabalu",
     nameShort: "Damai Specialist Centre",
     sector: "private",
     tier: "tertiary",
@@ -1074,7 +1074,7 @@ export const HOSPITALS_SABAH = [
       emergencyLine: "+6088-233 333 ext. A&E (verify)",
       appointmentLine: "+6088-233 333 (verify)",
       website: "https://www.damaispecialist.com.my",
-      mapQuery: "Damai Specialist Centre Kota Kinabalu Sabah"
+      mapQuery: "KPJ Damai Specialist Hospital Kota Kinabalu Sabah"
     },
     transport: {
       nearest: "Kota Kinabalu city — 10 min taxi",

@@ -31,7 +31,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Jalan Pahang"
     },
     transport: {
-      nearest: "Titiwangsa LRT/MRT Station (Ampang Line + MRT Putrajaya Line) — 8 min walk; PWTC LRT (Ampang Line) — 10 min walk",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 5 min via covered walkway into HKL compound; Titiwangsa interchange (PY17, MRT Putrajaya + LRT Ampang + LRT Sri Petaling + Monorail) — 8 min walk",
       bus: "Rapid KL Bus Route 250, 260",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Opposite Chow Kit Market, near Putra World Trade Centre (PWTC)"
@@ -147,7 +147,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Psychiatric Jalan Pahang"
     },
     transport: {
-      nearest: "Titiwangsa LRT/MRT Station (Ampang Line + MRT Putrajaya Line) — 10 min walk; PWTC LRT (Ampang Line) — 12 min walk",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 8 min walk; Titiwangsa interchange (PY17) — 10 min walk",
       bus: "Rapid KL Route 250, 260",
       highway: "MRR2 — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur main campus"
@@ -253,8 +253,8 @@ export const HOSPITALS_KL = [
       mapQuery: "UMMC University Malaya Medical Centre Petaling Jaya"
     },
     transport: {
-      nearest: "University LRT Station (Kelana Jaya Line) — 15 min walk or short taxi ride",
-      bus: "Rapid KL Bus Route 12, U88",
+      nearest: "Universiti LRT (KJ12, Kelana Jaya Line) — feeder bus T789/T790 direct to UMMC (no practical walking route; ~22 min walk in heat not recommended)",
+      bus: "Feeder bus T789/T790 from Universiti LRT; Rapid KL Route 12, U88",
       highway: "NPE — Exit UM/Jalan Universiti",
       landmark: "Inside University of Malaya campus, off Jalan Universiti"
     },
@@ -480,10 +480,10 @@ export const HOSPITALS_KL = [
       mapQuery: "Prince Court Medical Centre Kuala Lumpur Jalan Kia Peng"
     },
     transport: {
-      nearest: "KLCC LRT Station — 10 min walk",
-      bus: "Rapid KL along Jalan Ampang",
+      nearest: "Conlay MRT (PY22, Putrajaya Line) — 8 min walk; Tun Razak Exchange MRT (PY23, Putrajaya + Kajang Lines) — 11 min walk",
+      bus: "Rapid KL along Jalan Ampang / Jalan Kia Peng",
       highway: "AKLEH — Exit KLCC",
-      landmark: "Near KLCC Twin Towers, off Jalan Ampang"
+      landmark: "39 Jalan Kia Peng, near KLCC Twin Towers"
     },
     facilities: {
       pharmacy24h: true,
@@ -981,7 +981,7 @@ export const HOSPITALS_KL = [
       mapQuery: "UKMSC UKM Specialist Centre Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Bandar Tun Razak MRT Station — 10 min walk",
+      nearest: "Bandar Tun Razak LRT (Sri Petaling Line) — 10 min walk; Taman Mutiara interchange (MRT Kajang + Sri Petaling LRT) — 10 min walk",
       bus: "Rapid KL bus routes (Cheras area)",
       highway: "KESAS/MRR2 — Exit Cheras/Bandar Tun Razak",
       landmark: "UKM Medical Campus, Bandar Tun Razak Cheras"
@@ -1269,7 +1269,7 @@ export const HOSPITALS_KL = [
       website: "https://www.tungshin.com.my",
       mapQuery: "Tung Shin Hospital Jalan Pudu Kuala Lumpur"
     },
-    transport: { nearest: "Hang Tuah LRT Station — 10 min walk", bus: "Rapid KL bus along Jalan Pudu", highway: "SMART Tunnel area / Jalan Pudu exit", landmark: "Jalan Pudu, near Bukit Bintang / Chinatown" },
+    transport: { nearest: "Imbi Monorail (KL Monorail) — 6 min walk; Hang Tuah interchange (MRT Kajang Line + LRT Ampang + LRT Sri Petaling Lines) — 9 min walk", bus: "Rapid KL bus along Jalan Pudu", highway: "SMART Tunnel area / Jalan Pudu exit", landmark: "Jalan Pudu, near Bukit Bintang / Chinatown" },
     facilities: { pharmacy24h: true, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: "Yes — Buddhist shrine room available", disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Community hospital — confirm with ward." },
     specialtyCoverage: {
@@ -1341,7 +1341,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Sunway Medical Centre Velocity Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Cochrane MRT Station (Putrajaya Line) — 5 min walk via covered link",
+      nearest: "Cochrane MRT (KG10, Kajang Line) — 7 min walk; Maluri interchange (LRT Ampang + LRT Sri Petaling Lines) — 8 min walk",
       bus: "Rapid KL Bus routes (Cheras area)",
       highway: "SMART Tunnel / MRR2 — Exit Cheras",
       landmark: "Sunway Velocity Mall, Cheras KL"
@@ -1407,13 +1407,13 @@ export const HOSPITALS_KL = [
   },
   {
     id: "hpkkl",
-    name: "Hospital Pakar Kanak-Kanak Kuala Lumpur (HPKKL)",
+    name: "Hospital Tunku Azizah (Wanita & Kanak-Kanak KL)",
     nameShort: "HPKKL",
     sector: "public",
     tier: "tertiary",
     state: "Kuala Lumpur",
     city: "Kuala Lumpur",
-    intro: "Hospital Pakar Kanak-Kanak Kuala Lumpur (HPKKL) is Malaysia's national dedicated public paediatric specialist hospital, providing comprehensive specialist care exclusively for children. Located adjacent to Hospital Kuala Lumpur, it is the country's apex centre for complex paediatric conditions.",
+    intro: "Hospital Tunku Azizah (Wanita & Kanak-Kanak KL) is Malaysia's national dedicated public paediatric specialist hospital, providing comprehensive specialist care exclusively for children. Located adjacent to Hospital Kuala Lumpur, it is the country's apex centre for complex paediatric conditions.",
     famousFor: ["Malaysia's national dedicated public paediatric hospital", "Paediatric subspecialty care — only dedicated paediatric hospital in public sector", "Paediatric surgery, paediatric oncology, paediatric cardiology"],
     infrastructure: {
       yearEstablished: 2010,
@@ -1436,7 +1436,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Pakar Kanak-Kanak Kuala Lumpur HPKKL"
     },
     transport: {
-      nearest: "Titiwangsa LRT/MRT Station (Ampang Line + MRT Putrajaya Line) — 8 min walk; PWTC LRT (Ampang Line) — 10 min walk",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 5 min walk; Titiwangsa interchange (PY17) — 8 min walk",
       bus: "Rapid KL Bus Route 250, 260",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur (HKL) campus, Jalan Pahang"
@@ -1538,7 +1538,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Canselor Tuanku Muhriz HCTM UKMMC Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Bandar Tun Razak MRT Station (Putrajaya Line) — 10 min walk",
+      nearest: "Bandar Tun Razak LRT (Sri Petaling Line) — 3 min walk; Taman Mutiara interchange (MRT Kajang + Sri Petaling LRT) — 4 min walk",
       bus: "Rapid KL Bus routes (Cheras / Bandar Tun Razak area)",
       highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
       landmark: "UKM Medical Campus, Bandar Tun Razak, Cheras"
@@ -1745,14 +1745,14 @@ export const HOSPITALS_KL = [
   },
   {
     id: "tawakal-kl",
-    name: "Hospital Tawakal",
-    nameShort: "Hospital Tawakal",
+    name: "KPJ Tawakkal Specialist Hospital",
+    nameShort: "KPJ Tawakkal Specialist Hospital",
     sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Kuala Lumpur",
-    intro: "Hospital Tawakal is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
+    intro: "KPJ Tawakkal Specialist Hospital is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
     famousFor: ["Private hospital — Jalan Pahang area, Kuala Lumpur", "Long-established private hospital in KL"],
     infrastructure: { yearEstablished: 1985, totalBeds: 200, icuBeds: 12, nicuBeds: 6, operatingTheatres: 6, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "No. 202-A, Jalan Pahang, 53000 Kuala Lumpur", mainLine: "+603-4023 3599", emergencyLine: "+603-4023 3599 ext. A&E", appointmentLine: "+603-4023 3599", website: "https://www.tawakal.com.my", mapQuery: "Hospital Tawakal Kuala Lumpur" },
-    transport: { nearest: "Titiwangsa LRT/MRT — 10 min walk", bus: "RapidKL bus routes", highway: "MRR2 / Jalan Pahang", landmark: "Jalan Pahang, near Titiwangsa lake" },
+    contact: { address: "No. 202-A, Jalan Pahang, 53000 Kuala Lumpur", mainLine: "+603-4023 3599", emergencyLine: "+603-4023 3599 ext. A&E", appointmentLine: "+603-4023 3599", website: "https://www.tawakal.com.my", mapQuery: "KPJ Tawakkal Specialist Hospital Kuala Lumpur" },
+    transport: { nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 4 min walk (~271m from entrance); Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 8 min walk", bus: "RapidKL bus routes (250, 260)", highway: "MRR2 / Jalan Pahang", landmark: "1 Jalan Pahang Barat, near Titiwangsa lake" },
     facilities: { pharmacy24h: true, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1766,7 +1766,7 @@ export const HOSPITALS_KL = [
     fullSpecialties: ["Cardiology", "Surgery", "Orthopaedics", "Obstetrics", "Paediatrics"],
     roomRate: "RM 200–500/night", roomRateRaw: 280, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
     gaps: "No transplant services.", robotics: "Standard imaging.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Hospital Tawakal", url: "https://www.tawakal.com.my" }],
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Tawakkal Specialist Hospital", url: "https://www.tawakal.com.my" }],
     verifiedNotes: "~200 beds (est.). Private hospital, Jalan Pahang KL.", notableGaps: "No transplant services."
   },
   {
@@ -1778,7 +1778,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Established private specialist hospital — Damansara area", "Long-established private hospital serving northern KL"],
     infrastructure: { yearEstallished: 1990, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block, Specialist Wing", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour" },
     contact: { address: "Damansara, Kuala Lumpur", mainLine: "+603-7722 2692 (verify)", emergencyLine: "+603-7722 2692 ext. A&E", appointmentLine: "+603-7722 2692 (verify)", website: "https://www.moh.gov.my", mapQuery: "DSH Medical Centre Damansara KL" },
-    transport: { nearest: "Bandar Utama MRT — 10 min taxi", bus: "RapidKL bus routes", highway: "LDP / Penchala Link", landmark: "Damansara area, northern Kuala Lumpur" },
+    transport: { nearest: "Bandar Utama LRT (Kelana Jaya Line) — 10 min taxi; no direct walking route", bus: "RapidKL bus routes", highway: "LDP / Penchala Link", landmark: "Damansara area, northern Kuala Lumpur" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {

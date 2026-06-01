@@ -142,7 +142,7 @@ export const HOSPITALS_SELANGOR = [
       mapQuery: "Hospital Sungai Buloh Selangor"
     },
     transport: {
-      nearest: "Sungai Buloh MRT Station (Putrajaya Line) — 10 min taxi/ride-share",
+      nearest: "Sungai Buloh MRT (PY04/KA01, Putrajaya + Kajang Lines interchange) — 3 km from hospital; feeder bus T100 (RM1, ~10 min) runs from station to hospital — do not attempt to walk",
       bus: "Rapid KL Bus routes (Sungai Buloh area)",
       highway: "NKVE/Damansara-Sungai Buloh — Exit Hospital Sungai Buloh",
       landmark: "Jalan Hospital, Sungai Buloh town"
@@ -538,7 +538,7 @@ export const HOSPITALS_SELANGOR = [
       website: "https://hampang.moh.gov.my",
       mapQuery: "Hospital Ampang Selangor Pandan Mewah"
     },
-    transport: { nearest: "Ampang LRT Station — 15 min taxi", bus: "Rapid KL Bus routes (Ampang area)", highway: "AKLEH — Exit Ampang", landmark: "Pandan Mewah, Ampang, Selangor" },
+    transport: { nearest: "No direct rail to hospital; nearest: Ampang LRT (AG33, Ampang Line) — 2 km, taxi/bus recommended; bus routes T305, T350 stop ~5 min walk from hospital", bus: "Rapid KL Bus routes T305, T350 (Ampang area)", highway: "AKLEH — Exit Ampang", landmark: "Pandan Mewah, Ampang, Selangor" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Hospital transport available" },
     visitingHours: {
       general: "12:00–14:00, 17:00–20:00",
@@ -695,7 +695,7 @@ export const HOSPITALS_SELANGOR = [
       website: "https://www.sunwaymedical.com",
       mapQuery: "Sunway Medical Centre Subang Jaya Bandar Sunway"
     },
-    transport: { nearest: "Sunway Pyramid BRT or Setia Jaya KTM — 10 min walk/taxi", bus: "BRT Sunway Line", highway: "NPE/LDP — Exit Sunway/Subang Jaya", landmark: "Sunway City, next to Sunway Pyramid Mall" },
+    transport: { nearest: "SunMed BRT Station (BRT Sunway Line) — 2 min walk, station is directly adjacent to hospital entrance; Setia Jaya KTM Komuter — 15 min by BRT then walk", bus: "BRT Sunway Line (frequent, RM1 or free within Sunway)", highway: "NPE/LDP — Exit Sunway/Subang Jaya", landmark: "Sunway City, next to Sunway Pyramid Mall" },
     facilities: { pharmacy24h: true, cafeteria: "Multiple F&B outlets, 7am–10pm", atm: "Main lobby (multiple banks)", surau: "Multiple floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi throughout", patientTransport: "Medical transport and international patient services" },
     visitingHours: { general: "11:00–21:00 (private rooms flexible)", icu: "Restricted — check with nurse", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Private hospital — flexible visiting." },
     specialtyCoverage: {
@@ -1269,7 +1269,7 @@ export const HOSPITALS_SELANGOR = [
   },
   {
     id: "huppm",
-    name: "Hospital Universiti Putra Malaysia (HUPPM)",
+    name: "Hospital Pengajar Universiti Putra Malaysia (HPUPM)",
     nameShort: "HUPPM",
     sector: "private",
     tier: "academic",
