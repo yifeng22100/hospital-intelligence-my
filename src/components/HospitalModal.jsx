@@ -228,10 +228,10 @@ function OverviewTab({ h }) {
 
 function SpecialtiesTab({ h }) {
   const avail = h.specialtyCoverage?.available || []
-  const limited = h.specialtyCoverage?.limited || []
+  const byReferral = h.specialtyCoverage?.byReferral || []
   const notAvail = h.specialtyCoverage?.notAvailable || []
 
-  if (!avail.length && !limited.length && !notAvail.length) {
+  if (!avail.length && !byReferral.length && !notAvail.length) {
     return (
       <div className="px-6 py-10 text-center text-ink-secondary text-[14px]">
         Specialty information not available.
@@ -255,16 +255,17 @@ function SpecialtiesTab({ h }) {
           </div>
         </div>
       )}
-      {limited.length > 0 && (
+      {byReferral.length > 0 && (
         <div>
           <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
-            Limited / Visiting ({limited.length})
+            By Referral ({byReferral.length})
           </h4>
-          <div className="flex flex-wrap gap-1.5">
-            {limited.map((s, i) => (
-              <span key={i} className="px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded-full text-[12px] font-medium">
+          <div className="space-y-1.5">
+            {byReferral.map((s, i) => (
+              <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                <span className="text-amber-500 mt-0.5 flex-shrink-0">→</span>
                 {s}
-              </span>
+              </div>
             ))}
           </div>
         </div>
@@ -272,14 +273,21 @@ function SpecialtiesTab({ h }) {
       {notAvail.length > 0 && (
         <div>
           <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
-            Not available
+            Not available here ({notAvail.length})
           </h4>
-          <div className="flex flex-wrap gap-1.5">
-            {notAvail.map((s, i) => (
-              <span key={i} className="px-2.5 py-1 bg-surface-secondary text-ink-tertiary border border-ink-quaternary rounded-full text-[12px]">
-                {s}
-              </span>
-            ))}
+          <div className="space-y-2">
+            {notAvail.map((item, i) => {
+              const specialty = typeof item === 'string' ? item : item.specialty
+              const transferTo = typeof item === 'object' ? item.transferTo : null
+              const note = typeof item === 'object' ? item.note : null
+              return (
+                <div key={i} className="bg-surface-secondary rounded-xl p-3 text-[12px]">
+                  <p className="font-medium text-ink">{specialty}</p>
+                  {transferTo && <p className="text-ink-secondary mt-0.5">Refer to: {transferTo}</p>}
+                  {note && <p className="text-ink-tertiary mt-0.5 italic">{note}</p>}
+                </div>
+              )
+            })}
           </div>
         </div>
       )}
