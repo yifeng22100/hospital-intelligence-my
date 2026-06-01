@@ -253,8 +253,8 @@ export const HOSPITALS_KL = [
       mapQuery: "UMMC University Malaya Medical Centre Petaling Jaya"
     },
     transport: {
-      nearest: "Universiti LRT (Kelana Jaya Line) — feeder bus T789/T790 direct to UMMC gate (~5 min ride; no practical walking — ~22 min uphill in heat)",
-      bus: "Feeder buses T789, T790 from Universiti LRT to UMMC gate. Routes also: 710, 750, 770, 780, P701 (from Bangsar/Jalan Universiti area)",
+      nearest: "LRT Universiti (Kelana Jaya Line) — feeder bus T790 direct to PPUM Main Gate (~5 min bus ride; ~21 min walk not recommended); MRT Phileo Damansara (Kajang Line, KG11) — feeder bus T815 (~8 min walk then bus)",
+      bus: "Feeder bus T790 (LRT Taman Paramount ↺ Mid Valley) stops at PPUM Main Gate — board at Universiti LRT. T789, T815 also serve campus. Routes: T790, T789, T815, 710, 750, 772, 780, P701, 734, 751",
       highway: "NPE — Exit UM/Jalan Universiti",
       landmark: "Inside University of Malaya campus, off Jalan Universiti"
     },
@@ -369,8 +369,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Gleneagles Hospital Kuala Lumpur Jalan Ampang"
     },
     transport: {
-      nearest: "Ampang Park MRT (PY20, Putrajaya Line) — 5 min walk along Jalan Ampang",
-      bus: "Bus stop: KL893 (Gleneagles Hospital) — 2 min. Routes: 220, 300, 303, T224, GOKL-02/04",
+      nearest: "LRT Ampang Park (Ampang Line) — 4 min walk (~280m); LRT KLCC (Kelana Jaya Line, KJ10) — 10 min walk",
+      bus: "Bus stops: KL893 (Gleneagles Intan MC) — 4 min; KL2296/KL2306 (Ampang Park area) — 4 min. Routes: 300, 303, 220, T224, 402",
       highway: "AKLEH — Exit Jalan Ampang",
       landmark: "Jalan Ampang near Ampang Park, opposite KLCC area"
     },
@@ -587,8 +587,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Pantai Hospital Kuala Lumpur Bukit Pantai"
     },
     transport: {
-      nearest: "Kerinchi LRT (KJ13, Kelana Jaya Line) — 10 min walk; Abdullah Hukum LRT (KJ14) — 12 min walk",
-      bus: "Routes: 750, 751, 772, 780, T791, GOKL-06; bus stops along Jalan Kerinchi / Jalan Bangsar",
+      nearest: "LRT Kerinchi (Kelana Jaya Line) + feeder bus T791 — total ~10 min; LRT Universiti (Kelana Jaya Line) + feeder bus T789 — total ~20 min; no walkable rail station directly",
+      bus: "Feeder bus T791 (from Kerinchi LRT) and T789 (from Universiti LRT) stop at hospital — recommended approach. Routes: 750, 751, 772, 780, 821, T791, T789, GOKL-06",
       highway: "Sprint Highway — Exit Bangsar/Pantai",
       landmark: "Near Bangsar, off Jalan Kerinchi"
     },
@@ -885,8 +885,8 @@ export const HOSPITALS_KL = [
       mapQuery: "ParkCity Medical Centre Desa ParkCity Kuala Lumpur"
     },
     transport: {
-      nearest: "Kepong Sentral MRT (PY08, Putrajaya Line) — ~12 min by taxi; no direct bus-walk route from rail",
-      bus: "Feeder routes T108, T109, T115 (Kepong area); no direct stop at hospital — exit at Kepong Sentral then feeder",
+      nearest: "MRT Sri Damansara Sentral (Kajang Line, KG05) — ~14 min walk then T109 feeder bus to hospital (~20 min total); MRT Sri Damansara Timur (KG06) — similar",
+      bus: "Feeder bus T109 (MRT Sri Damansara Sentral ↺ Desa ParkCity circular) — stops at Waterfront ParkCity near hospital; runs 06:00–23:30. Also: 801, T108, T115",
       highway: "DUKE/MRR2 — Exit Desa ParkCity / Kepong",
       landmark: "Inside Desa ParkCity township, near The Waterfront"
     },
@@ -1075,8 +1075,8 @@ export const HOSPITALS_KL = [
       mapQuery: "IMU Hospital Bukit Jalil Kuala Lumpur"
     },
     transport: {
-      nearest: "Bukit Jalil LRT (Sri Petaling Line) — ~15 min walk or 5 min taxi; Sri Petaling LRT — ~10 min taxi",
-      bus: "Bus stop: IMU Bukit Jalil area. Routes: 651, 652, T563, T580 (Bukit Jalil / Sri Petaling area)",
+      nearest: "LRT Sri Petaling (Sri Petaling Line) — 4–5 min walk (~280m); LRT Bukit Jalil (Sri Petaling Line) — 11 min walk",
+      bus: "Bus stop: IMU Bukit Jalil (~3 min walk). Routes: 651, 652, T563, T580",
       highway: "LDP — Exit Bukit Jalil",
       landmark: "IMU campus area, Bukit Jalil"
     },
@@ -1554,7 +1554,7 @@ export const HOSPITALS_KL = [
       website: "https://www.pusrawi.com.my",
       mapQuery: "Hospital Pusrawi Kuala Lumpur Jalan Tun Razak"
     },
-    transport: { nearest: "LRT KLCC (KJ13, Kelana Jaya Line) — ~10 min walk; Ampang Park MRT (PY20, Putrajaya Line) — ~12 min walk", bus: "Routes: 170, 173, 402, T202, GOKL-05; bus stops along Jalan Tun Razak / Jalan Ampang", highway: "DUKE — Exit Jalan Tun Razak", landmark: "No. 2 Jalan Indah, Off Jalan Tun Razak, near Gleneagles KL" },
+    transport: { nearest: "LRT KLCC (Kelana Jaya Line, KJ10) — ~10 min walk; LRT Ampang Park (Ampang Line) — ~12 min walk", bus: "Routes: 170, 173, 402, T202, GOKL-05 (Orange); bus stops along Jalan Tun Razak", highway: "DUKE — Exit Jalan Tun Razak", landmark: "No. 2 Jalan Indah, Off Jalan Tun Razak, near Gleneagles KL" },
     facilities: { pharmacy24h: true, cafeteria: "Halal-certified cafeteria, 7am–9pm", atm: "Lobby", surau: "Multiple surau on all floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Islamic prayer times respected — visiting may be adjusted during prayer times." },
     specialtyCoverage: {
@@ -2701,7 +2701,7 @@ export const HOSPITALS_KL = [
       mapQuery: "iHEAL Medical Centre Kuala Lumpur"
     },
     transport: {
-      nearest: "Ampang Park MRT (PY20, Putrajaya Line) — 8 min walk",
+      nearest: "LRT Ampang Park (Ampang Line) — 8 min walk; LRT KLCC (Kelana Jaya Line, KJ10) — 10 min walk",
       bus: "Rapid KL bus routes (Ampang/KLCC area)",
       highway: "AKLEH — Exit Jalan Ampang",
       landmark: "Jalan Ampang Hilir, near KLCC / Ampang area"
