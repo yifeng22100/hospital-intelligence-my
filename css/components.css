@@ -528,6 +528,20 @@
   display: none;
 }
 
+/* Actual rendered panel containers */
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.modal-panel {
+  padding: 2.75rem 7rem 4rem;
+}
+
+.modal-panel.hidden {
+  display: none;
+}
+
 /* Modal content sections */
 .modal-section {
   margin-bottom: 1.75rem;
@@ -1590,6 +1604,10 @@
     padding: 1.75rem 1.75rem 3rem;
   }
 
+  .modal-panel {
+    padding: 1.75rem 1.75rem 3rem;
+  }
+
   .spec-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1640,6 +1658,10 @@
   }
 
   .modal-tab-panel {
+    padding: 1.5rem 1.25rem 2.5rem;
+  }
+
+  .modal-panel {
     padding: 1.5rem 1.25rem 2.5rem;
   }
 }
