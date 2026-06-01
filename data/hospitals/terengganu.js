@@ -55,6 +55,58 @@ var HOSPITALS_TERENGGANU = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
+    id: "hbesut",
+    name: "Hospital Besut",
+    nameShort: "Hospital Besut",
+    sector: "public", tier: "district", state: "Terengganu", city: "Besut",
+    intro: "Hospital Besut serves the Besut district in northern Terengganu, bordering Kelantan.",
+    famousFor: ["District hospital for Besut / northern Terengganu"],
+    infrastructure: { yearEstablished: 1972, totalBeds: 100, icuBeds: 6, nicuBeds: 2, operatingTheatres: 2, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 22200 Besut, Terengganu", mainLine: "+609-696 2000 (verify)", emergencyLine: "+609-696 2000 ext. A&E (verify)", appointmentLine: "+609-696 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Besut Terengganu" },
+    transport: { nearest: "Besut town — 5 min walk", bus: "Local bus routes", highway: "East Coast Highway — Exit Besut/Jerteh", landmark: "Besut town, northern Terengganu" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HSNZ Kuala Terengganu", note: "District hospital" }],
+      byReferral: ["Most specialties — HSNZ"]
+    },
+    transferPathway: { summary: "District hospital → HSNZ Kuala Terengganu.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~100 beds (est.). District hospital for Besut.", notableGaps: "Limited specialist services.",
+    primaryExcellence: "District hospital — Besut, Terengganu", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "hdungun",
+    name: "Hospital Dungun",
+    nameShort: "Hospital Dungun",
+    sector: "public", tier: "district", state: "Terengganu", city: "Dungun",
+    intro: "Hospital Dungun serves the Dungun district in central Terengganu, an area associated with the steel industry (Perwaja Steel) and coastal communities.",
+    famousFor: ["District hospital for Dungun / industrial coastal Terengganu"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 80, icuBeds: 4, nicuBeds: 2, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 23000 Dungun, Terengganu", mainLine: "+609-848 2000 (verify)", emergencyLine: "+609-848 2000 ext. A&E (verify)", appointmentLine: "+609-848 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Dungun Terengganu" },
+    transport: { nearest: "Dungun town — 5 min walk", bus: "Local bus routes", highway: "East Coast Highway — Exit Dungun", landmark: "Dungun town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HSNZ Kuala Terengganu", note: "District hospital" }],
+      byReferral: ["Most specialties — HSNZ"]
+    },
+    transferPathway: { summary: "Small district hospital → HSNZ Kuala Terengganu.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~80 beds (est.). Small district hospital for Dungun.", notableGaps: "Limited specialist services.",
+    primaryExcellence: "District hospital — Dungun, Terengganu", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
     id: "kpj-terengganu",
     name: "KPJ Terengganu Specialist Hospital",
     nameShort: "KPJ Terengganu",

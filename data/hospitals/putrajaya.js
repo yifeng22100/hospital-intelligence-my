@@ -113,4 +113,109 @@ var HOSPITALS_PUTRAJAYA = [
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
   }
+  ,{
+    id: "hrc-cheras",
+    name: "Hospital Rehabilitasi Cheras (HRC)",
+    nameShort: "HRC Cheras",
+    sector: "public",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Cheras, Kuala Lumpur",
+    intro: "Hospital Rehabilitasi Cheras (HRC) is Malaysia's national public rehabilitation specialist hospital, dedicated exclusively to rehabilitation medicine. Located in Cheras, it is the country's primary centre for physical medicine and rehabilitation following stroke, spinal cord injury, traumatic brain injury, and major orthopaedic procedures.",
+    famousFor: ["Malaysia's national public rehabilitation specialist hospital", "Stroke rehabilitation centre", "Spinal cord injury and traumatic brain injury rehab", "Physical medicine and rehabilitation excellence"],
+    infrastructure: {
+      yearEstablished: 1987,
+      totalBeds: 200,
+      icuBeds: 0,
+      nicuBeds: 0,
+      operatingTheatres: 0,
+      area: "~10 acres",
+      buildings: "Rehabilitation Wards Block, Therapy Block, Outpatient Block",
+      helipad: false,
+      parkingBays: "~200 bays",
+      parkingRate: "Free"
+    },
+    contact: {
+      address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur",
+      mainLine: "+603-9145 7000 (verify)",
+      emergencyLine: "+603-9145 7000 (no emergency dept — refer to HKL or HCTM)",
+      appointmentLine: "+603-9145 7000 (verify)",
+      website: "https://www.moh.gov.my",
+      mapQuery: "Hospital Rehabilitasi Cheras HRC Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Bandar Tun Razak MRT Station (Putrajaya Line) — 15 min walk or short taxi",
+      bus: "Rapid KL Bus routes (Cheras area)",
+      highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
+      landmark: "Cheras, near UKM Medical Campus (HCTM/UKMMC)"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Available daytime",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Limited",
+      patientTransport: "Patient transport for outpatient therapy available"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "N/A",
+      paediatric: "As per ward policy",
+      maternity: "N/A",
+      notes: "Rehabilitation hospital — visiting hours may be flexible to support family involvement in rehabilitation. Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Physical Medicine & Rehabilitation (PMR)",
+        "Stroke Rehabilitation",
+        "Spinal Cord Injury Rehabilitation",
+        "Traumatic Brain Injury Rehabilitation",
+        "Orthopaedic Rehabilitation",
+        "Amputation Rehabilitation & Prosthetics",
+        "Neurological Rehabilitation",
+        "Paediatric Rehabilitation",
+        "Occupational Therapy",
+        "Physiotherapy",
+        "Speech Language Therapy",
+        "Psychology (rehabilitation)",
+        "Social Work (rehabilitation)"
+      ],
+      notAvailable: [
+        { specialty: "Emergency Medicine (A&E)", transferTo: "Hospital Kuala Lumpur (HKL) or HCTM", note: "No emergency department — rehabilitation hospital only" },
+        { specialty: "Acute Medical/Surgical Care", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Rehabilitation hospital — no acute care" }
+      ],
+      byReferral: ["All admissions via referral from acute hospitals only"]
+    },
+    transferPathway: {
+      summary: "HRC is a national specialist rehabilitation hospital. All admissions are by referral from acute hospitals. Medical emergencies in HRC patients are managed at HKL or HCTM.",
+      routes: [
+        { condition: "Medical emergency in inpatient", to: "Hospital Kuala Lumpur (HKL)", reason: "Nearest acute hospital", distanceKm: 5 }
+      ],
+      howToTransfer: "Admission requires referral from acute treating hospital. Patient must be medically stable before transfer to HRC."
+    },
+    specialtyRanks: {
+      "Rehabilitation Medicine": { rank: "National #1 (Public)", desc: "Malaysia's designated national public rehabilitation specialist hospital" }
+    },
+    accreditations: ["MSQH Accredited", "MOH National Rehabilitation Hospital Designation"],
+    verifiedNotes: "~200 beds (est.). National public rehabilitation specialist hospital in Cheras KL. Admission by referral only — not a walk-in or emergency hospital.",
+    notableGaps: "No emergency department. No acute medical or surgical care. Admission by referral only.",
+    primaryExcellence: "National public rehabilitation specialist hospital — stroke, spinal, TBI rehabilitation",
+    secondarySpecialties: "Prosthetics, Paediatric Rehabilitation, Neurological Rehabilitation",
+    fullSpecialties: ["Physical Medicine & Rehabilitation", "Stroke Rehab", "Spinal Cord Injury Rehab", "TBI Rehab", "Paediatric Rehab"],
+    roomRate: "RM 5 – RM 20 (Subsidised Public)",
+    roomRateRaw: 5,
+    insurance: "Government subsidised. FPP scheme may apply.",
+    fppScheme: true,
+    fppDeposit: "RM 200–500",
+    gaps: "No emergency care. No acute surgery. Admission by referral only. Limited private room availability.",
+    robotics: "Rehabilitation equipment. Basic imaging.",
+    doctorQualifications: "MOH physical medicine and rehabilitation (PMR) specialists — MMC-registered with PMR fellowship training.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: null,
+    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  }
 ];

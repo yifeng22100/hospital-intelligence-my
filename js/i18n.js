@@ -2,7 +2,7 @@
 window.HI = window.HI || {};
 
 (function() {
-  var DEFAULT_LANG = 'zh_s';
+  var DEFAULT_LANG = 'en';
   var _lang = localStorage.getItem('hi_lang') || DEFAULT_LANG;
 
   function t(key) {

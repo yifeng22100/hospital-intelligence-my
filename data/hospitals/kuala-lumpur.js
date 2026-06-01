@@ -1395,6 +1395,317 @@ var HOSPITALS_KL = [
     officialSources: [{ label: "Official Website", url: "https://www.tungshin.com.my" }]
   },
   {
+    id: "smcv-velocity",
+    name: "Sunway Medical Centre Velocity (Cheras KL)",
+    nameShort: "Sunway Velocity KL",
+    sector: "private",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Cheras, Kuala Lumpur",
+    intro: "Sunway Medical Centre Velocity is the KL campus of Sunway Medical, opened in 2020 within the Sunway Velocity integrated development in Cheras. It provides modern private specialist care for the Cheras and Kuala Lumpur east communities, directly linked to Cochrane MRT.",
+    famousFor: ["Sunway Medical Group Cheras campus — opened 2020", "MRT-connected private hospital (Cochrane Station)", "Integrated with Sunway Velocity Mall development"],
+    infrastructure: {
+      yearEstablished: 2020,
+      totalBeds: 200,
+      icuBeds: 16,
+      nicuBeds: 6,
+      operatingTheatres: 8,
+      area: "~3 acres",
+      buildings: "Integrated tower within Sunway Velocity Mall",
+      helipad: false,
+      parkingBays: "~500 bays (shared Sunway Velocity)",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "Sunway Velocity Mall, Lingkaran SV, 55100 Cheras, Kuala Lumpur",
+      mainLine: "+603-9772 6888",
+      emergencyLine: "+603-9772 6888 ext. A&E",
+      appointmentLine: "+603-9772 6888",
+      website: "https://www.sunwaymedical.com/smcv",
+      mapQuery: "Sunway Medical Centre Velocity Cheras Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Cochrane MRT Station (Putrajaya Line) — 5 min walk via covered link",
+      bus: "Rapid KL Bus routes (Cheras area)",
+      highway: "SMART Tunnel / MRR2 — Exit Cheras",
+      landmark: "Sunway Velocity Mall, Cheras KL"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Multiple F&B within Sunway Velocity Mall",
+      atm: "Within mall complex",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner/family: flexible",
+      notes: "Private hospital — flexible visiting."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
+        "Cardiology", "General Surgery", "Neurology",
+        "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics",
+        "Gastroenterology", "Oncology (selected)", "ENT", "Ophthalmology",
+        "Urology", "Endocrinology", "Dermatology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical Centre (main campus, Subang Jaya)", note: "Main campus has full cardiac surgery capability" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
+      ],
+      byReferral: ["Complex oncology — refer to Sunway Cancer Centre or Beacon Hospital"]
+    },
+    transferPathway: {
+      summary: "Full-service private hospital. Complex cases refer to Sunway Medical main campus or tertiary centres.",
+      routes: [
+        { condition: "Cardiothoracic surgery", to: "Sunway Medical Centre (Subang Jaya)", reason: "Main campus — full cardiac surgical capability", distanceKm: 15 }
+      ],
+      howToTransfer: "Specialist referral within Sunway Medical Group."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "Sunway Medical Group"],
+    verifiedNotes: "200 beds. Opened 2020. Sunway Medical Group's second campus, located in Cheras WP Kuala Lumpur.",
+    notableGaps: "Newer campus — growing specialist range. No cardiothoracic surgery on site.",
+    primaryExcellence: "Sunway Medical private hospital — Cheras / KL east corridor",
+    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics, Cardiology",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology"],
+    roomRate: "RM 200 – RM 700+/night",
+    roomRateRaw: 350,
+    insurance: "Accepts major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Newer campus. No cardiothoracic surgery.",
+    robotics: "Standard imaging — MRI, CT.",
+    doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: null,
+    officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
+  },
+  {
+    id: "hpkkl",
+    name: "Hospital Pakar Kanak-Kanak Kuala Lumpur (HPKKL)",
+    nameShort: "HPKKL",
+    sector: "public",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "Hospital Pakar Kanak-Kanak Kuala Lumpur (HPKKL) is Malaysia's national dedicated public paediatric specialist hospital, providing comprehensive specialist care exclusively for children. Located adjacent to Hospital Kuala Lumpur, it is the country's apex centre for complex paediatric conditions.",
+    famousFor: ["Malaysia's national dedicated public paediatric hospital", "Paediatric subspecialty care — only dedicated paediatric hospital in public sector", "Paediatric surgery, paediatric oncology, paediatric cardiology"],
+    infrastructure: {
+      yearEstablished: 2010,
+      totalBeds: 200,
+      icuBeds: 20,
+      nicuBeds: 0,
+      operatingTheatres: 6,
+      area: "~5 acres (adjacent to HKL)",
+      buildings: "Dedicated paediatric hospital block",
+      helipad: false,
+      parkingBays: "Shared with HKL campus",
+      parkingRate: "RM 1/hour"
+    },
+    contact: {
+      address: "Jalan Pahang, 50586 Kuala Lumpur (near HKL)",
+      mainLine: "+603-2615 5555 (via HKL main)",
+      emergencyLine: "+603-2615 5555",
+      appointmentLine: "+603-2615 5555",
+      website: "https://hkl.moh.gov.my",
+      mapQuery: "Hospital Pakar Kanak-Kanak Kuala Lumpur HPKKL"
+    },
+    transport: {
+      nearest: "PWTC LRT Station — 10 min walk",
+      bus: "Rapid KL Bus Route 250, 260",
+      highway: "MRR2/DUKE — Exit Jalan Pahang",
+      landmark: "Adjacent to Hospital Kuala Lumpur (HKL) campus, Jalan Pahang"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Available (shared HKL campus)",
+      atm: "HKL main lobby nearby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free (HKL-Guest)",
+      patientTransport: "Shared with HKL"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "11:30–12:00, 17:30–18:00 (paediatric ICU — restricted)",
+      paediatric: "Parents: unrestricted",
+      maternity: "N/A",
+      notes: "Parents unrestricted. Other visitors follow standard visiting hours. PICU strictly controlled."
+    },
+    specialtyCoverage: {
+      available: [
+        "Paediatric Emergency Medicine & A&E (24/7)",
+        "Paediatric Intensive Care Unit (PICU)",
+        "Paediatric General Medicine",
+        "Paediatric Surgery", "Paediatric Cardiology", "Paediatric Cardiac Surgery",
+        "Paediatric Oncology", "Paediatric Haematology",
+        "Paediatric Neurology", "Paediatric Neurosurgery",
+        "Paediatric Nephrology", "Paediatric Urology",
+        "Paediatric Gastroenterology", "Paediatric Endocrinology",
+        "Paediatric Respiratory Medicine", "Paediatric Infectious Disease",
+        "Paediatric Orthopaedics", "Paediatric ENT", "Paediatric Ophthalmology",
+        "Paediatric Psychiatry", "Paediatric Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Adult Medicine (any)", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Paediatric hospital only — adults to HKL" }
+      ],
+      byReferral: ["Paediatric liver transplant — Hospital Selayang"]
+    },
+    transferPathway: {
+      summary: "Dedicated paediatric hospital. Adult patients to HKL next door. Paediatric liver transplant to Selayang.",
+      routes: [
+        { condition: "Adult patients", to: "Hospital Kuala Lumpur (HKL)", reason: "HKL main campus — adults only", distanceKm: 0.2 }
+      ],
+      howToTransfer: "Paediatric referral via GP or A&E. MOH inter-hospital referral for paediatric cases."
+    },
+    specialtyRanks: {
+      "Paediatric Care": { rank: "National #1 (Public)", desc: "Malaysia's designated national public paediatric specialist hospital" }
+    },
+    accreditations: ["MSQH Accredited", "MOH National Paediatric Hospital Designation"],
+    verifiedNotes: "National dedicated public paediatric hospital adjacent to HKL. Comprehensive paediatric subspecialty care. ~200 beds (est.).",
+    notableGaps: "Paediatric only — no adult services. No paediatric liver transplant on site (refer Selayang).",
+    primaryExcellence: "National public paediatric specialist hospital",
+    secondarySpecialties: "Paediatric Surgery, Paediatric Oncology, Paediatric Cardiology",
+    fullSpecialties: ["Paediatric Medicine", "Paediatric Surgery", "Paediatric Oncology", "Paediatric Cardiology", "Paediatric Neurology"],
+    roomRate: "RM 3 – RM 50 (Subsidised Public)",
+    roomRateRaw: 5,
+    insurance: "Heavily subsidised. FPP scheme available.",
+    fppScheme: true,
+    fppDeposit: "RM 200–1,000",
+    gaps: "Paediatric only. No adult services.",
+    robotics: "Standard paediatric imaging.",
+    doctorQualifications: "Paediatric subspecialists — MOH specialists with fellowship training in paediatrics.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: null,
+    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "hctm",
+    name: "Hospital Canselor Tuanku Muhriz (HCTM / UKMMC)",
+    nameShort: "HCTM / UKMMC",
+    sector: "public",
+    tier: "academic",
+    state: "Kuala Lumpur",
+    city: "Cheras, Kuala Lumpur",
+    intro: "Hospital Canselor Tuanku Muhriz (HCTM), also known as Universiti Kebangsaan Malaysia Medical Centre (UKMMC), is the teaching hospital of Universiti Kebangsaan Malaysia (UKM — National University of Malaysia). Located in Cheras KL, it provides comprehensive academic tertiary and quaternary care, combining specialist clinical services with medical education and research.",
+    famousFor: ["UKM National University teaching hospital", "Comprehensive academic medical centre in Cheras KL", "Strong research and clinical trials programme", "Bone marrow transplant and haematology services"],
+    infrastructure: {
+      yearEstablished: 1997,
+      totalBeds: 900,
+      icuBeds: 60,
+      nicuBeds: 20,
+      operatingTheatres: 18,
+      area: "~25 acres (UKM Medical Campus)",
+      buildings: "Main Clinical Tower, Women & Children Block, Research Institute",
+      helipad: true,
+      parkingBays: "~1,000 bays",
+      parkingRate: "RM 1.50/hour (campus)"
+    },
+    contact: {
+      address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur",
+      mainLine: "+603-9145 5555",
+      emergencyLine: "+603-9145 5555 ext. A&E",
+      appointmentLine: "+603-9145 4422",
+      website: "https://www.ukmmc.com.my",
+      mapQuery: "Hospital Canselor Tuanku Muhriz HCTM UKMMC Cheras Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Bandar Tun Razak MRT Station (Putrajaya Line) — 10 min walk",
+      bus: "Rapid KL Bus routes (Cheras / Bandar Tun Razak area)",
+      highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
+      landmark: "UKM Medical Campus, Bandar Tun Razak, Cheras"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Level G & Level 4, 7am–9pm. UKM campus cafeterias nearby.",
+      atm: "Main lobby (multiple banks)",
+      surau: "Multiple floors",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "UKM eduroam / HCTM-Guest",
+      patientTransport: "HCTM transport available"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "11:30–12:00, 17:30–18:00 (strictly restricted)",
+      paediatric: "Parents: unrestricted. Others: 12:00–14:00, 17:00–20:00",
+      maternity: "Partner: unrestricted. Others: 12:00–20:00",
+      notes: "Teaching hospital — students may be present during ward rounds and consultations."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/HDU", "NICU", "PICU",
+        "General Surgery", "Cardiology", "Cardiothoracic Surgery",
+        "Neurology", "Neurosurgery", "Spine Surgery",
+        "Haematology", "Bone Marrow Transplant (BMT)",
+        "Clinical Oncology", "Radiation Oncology", "Surgical Oncology",
+        "Kidney Transplant", "Nephrology", "Urology",
+        "Gastroenterology", "Hepatobiliary Surgery", "Colorectal Surgery",
+        "Obstetrics & Gynaecology", "Maternal-Fetal Medicine",
+        "Paediatrics", "Paediatric Surgery", "Paediatric Cardiology",
+        "Orthopaedics", "Hand & Microsurgery",
+        "ENT", "Ophthalmology", "Dermatology", "Rheumatology",
+        "Endocrinology", "Psychiatry", "Geriatric Medicine",
+        "Infectious Disease", "Respiratory Medicine",
+        "Interventional Radiology", "Nuclear Medicine",
+        "Rehabilitation Medicine", "Palliative Care"
+      ],
+      notAvailable: [
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National liver transplant centre" },
+        { specialty: "Heart Transplant", transferTo: "Institut Jantung Negara (IJN)", note: "National cardiac surgical institute" }
+      ],
+      byReferral: [
+        "Gamma Knife — refer to Gleneagles KL (private)",
+        "Proton therapy — overseas referral"
+      ]
+    },
+    transferPathway: {
+      summary: "HCTM is a national quaternary academic referral centre. Refers out only for transplant procedures not available on site.",
+      routes: [
+        { condition: "Liver transplant", to: "Hospital Selayang", reason: "National liver transplant centre", distanceKm: 18 },
+        { condition: "Heart transplant", to: "Institut Jantung Negara (IJN)", reason: "National cardiac institute", distanceKm: 8 }
+      ],
+      howToTransfer: "MOH inter-hospital referral via treating specialist."
+    },
+    specialtyRanks: {
+      "Academic Medical": { rank: "National leader — UKM", desc: "UKM National University's quaternary teaching hospital — comprehensive care with academic research excellence" }
+    },
+    accreditations: ["MSQH Accredited", "MOH Teaching Hospital", "UKM Academic Medical Centre"],
+    verifiedNotes: "900 beds (est.). UKM teaching hospital. Also known as UKMMC. Full quaternary academic tertiary centre in Cheras KL. BMT programme confirmed.",
+    notableGaps: "No liver transplant (refer Selayang). No heart transplant. Long outpatient waiting times for non-urgent referrals.",
+    primaryExcellence: "UKM academic quaternary medical centre — Cheras KL",
+    secondarySpecialties: "Haematology / BMT, Oncology, Cardiothoracic, Neurosurgery",
+    fullSpecialties: ["Haematology", "BMT", "Oncology", "Cardiology", "Neurosurgery", "Kidney Transplant", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 3 – RM 200 (Public class RM 3–80, Specialist class up to RM 200)",
+    roomRateRaw: 10,
+    insurance: "Subsidised public hospital. FPP scheme available. Commercial insurance accepted for specialist class.",
+    fppScheme: true,
+    fppDeposit: "RM 500–3,000 depending on procedure",
+    gaps: "No liver transplant. Long outpatient waits. Teaching hospital environment.",
+    robotics: "Radiation therapy. 3T MRI. Da Vinci robotic surgery (verify). Nuclear medicine.",
+    doctorQualifications: "UKM professors and associate professors — MMC-registered specialists with higher qualifications. Many internationally published researchers.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: "https://en.wikipedia.org/wiki/UKM_Medical_Centre",
+    officialSources: [
+      { label: "Official Website", url: "https://www.ukmmc.com.my" },
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
+  },
+  {
     id: "pusrawi",
     name: "Hospital Pusrawi",
     nameShort: "Pusrawi",

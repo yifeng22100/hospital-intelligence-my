@@ -84,6 +84,58 @@ var HOSPITALS_KEDAH = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
+    id: "hbaling",
+    name: "Hospital Baling",
+    nameShort: "Hospital Baling",
+    sector: "public", tier: "district", state: "Kedah", city: "Baling",
+    intro: "Hospital Baling serves the Baling district in the interior of Kedah, an area with significant rubber plantation communities and indigenous Orang Asli populations.",
+    famousFor: ["District hospital for Baling / interior Kedah"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 100, icuBeds: 6, nicuBeds: 2, operatingTheatres: 2, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 09100 Baling, Kedah", mainLine: "+604-476 2000 (verify)", emergencyLine: "+604-476 2000 ext. A&E (verify)", appointmentLine: "+604-476 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Baling Kedah" },
+    transport: { nearest: "Baling town — 5 min walk", bus: "Limited local bus routes", highway: "Route 8 (Grik-Sungai Petani road)", landmark: "Baling town, interior Kedah" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HSB Alor Setar or Hospital Sungai Petani", note: "District hospital" }],
+      byReferral: ["Most specialties — HSB Alor Setar"]
+    },
+    transferPathway: { summary: "District hospital → HSB Alor Setar.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~100 beds (est.). District hospital for Baling.", notableGaps: "Limited specialist services.",
+    primaryExcellence: "District hospital — Baling, interior Kedah", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
+    id: "hyan",
+    name: "Hospital Yan",
+    nameShort: "Hospital Yan",
+    sector: "public", tier: "district", state: "Kedah", city: "Yan",
+    intro: "Hospital Yan serves the Yan district in coastal southwestern Kedah with basic district hospital services.",
+    famousFor: ["District hospital for Yan / southwestern Kedah coastal area"],
+    infrastructure: { yearEstablished: 1980, totalBeds: 60, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 06900 Yan, Kedah", mainLine: "+604-456 2000 (verify)", emergencyLine: "+604-456 2000 ext. A&E (verify)", appointmentLine: "+604-456 2000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Yan Kedah" },
+    transport: { nearest: "Yan town — 5 min walk", bus: "Local bus routes", highway: "North-South Highway — Exit Gurun/Yan", landmark: "Yan town, southwestern Kedah" },
+    facilities: { pharmacy24h: false, cafeteria: "Limited", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (very basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Most specialties", transferTo: "HSB Alor Setar or Hospital Sungai Petani", note: "District hospital" }],
+      byReferral: ["Most specialties — HSB Alor Setar or Hospital Sungai Petani"]
+    },
+    transferPathway: { summary: "Small district hospital. Complex cases → HSB Alor Setar or Hospital Sungai Petani.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    verifiedNotes: "~60 beds (est.). Small district hospital for Yan.", notableGaps: "Very limited specialist services.",
+    primaryExcellence: "District hospital — Yan, Kedah", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 3 – RM 20", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited specialist services.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "", wikiLink: null, officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+  },
+  {
     id: "hlangkawi",
     name: "Hospital Langkawi",
     nameShort: "Hospital Langkawi",
@@ -201,5 +253,30 @@ var HOSPITALS_KEDAH = [
     fppScheme: false, fppDeposit: "N/A",
     gaps: "Small hospital.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Group", url: "https://www.columbiaasia.com" }]
+  }
+,
+  {
+    id: "hlangkawi", name: "Hospital Sultan Abdul Halim Langkawi", nameShort: "Hsp. Langkawi",
+    sector: "public", tier: "district", state: "Kedah", city: "Langkawi",
+    intro: "Hospital Sultan Abdul Halim Langkawi serves the tourist island of Langkawi — a UNESCO Global Geopark. As the only public hospital on the island, it handles both local population and tourist emergencies.",
+    famousFor: ["Only public hospital on Langkawi island", "Tourist emergency and marine accident care", "UNESCO Geopark island healthcare"],
+    infrastructure: { yearEstablished: 1980, totalBeds: 130, icuBeds: 10, nicuBeds: 4, operatingTheatres: 3, area: "~6 acres", buildings: "Main Block", helipad: true, parkingBays: "~200 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 07000 Kuah, Langkawi, Kedah", mainLine: "+604-966 3333", emergencyLine: "+604-966 3333 ext. A&E", appointmentLine: "+604-966 3333", website: "https://www.moh.gov.my", mapQuery: "Hospital Langkawi Kedah" },
+    transport: { nearest: "Kuah town — 10 min drive", bus: "Local bus from Langkawi ferry terminal", highway: "Island road network; accessible by ferry or flight", landmark: "Kuah town, Langkawi" },
+    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance; air medevac to mainland" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics", "Internal Medicine"],
+      notAvailable: [{ specialty: "Cardiothoracic surgery, Neurosurgery", transferTo: "Hospital Sultanah Bahiyah Alor Setar", note: "Island hospital — air medevac to mainland" }],
+      byReferral: ["Complex cardiac and neuro cases → mainland Kedah"]
+    },
+    transferPathway: { summary: "Only public hospital on Langkawi island. Complex cases air-medevaced to Hospital Sultanah Bahiyah in Alor Setar.", routes: [], howToTransfer: "MOH referral; air medevac for critical." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "Island hospital — Langkawi UNESCO Geopark", secondarySpecialties: "Tourist emergency, Obstetrics, Orthopaedics",
+    fullSpecialties: ["Emergency", "General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: true, fppDeposit: "N/A",
+    gaps: "No cardiothoracic or neurosurgery; air medevac required.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~130 beds (est.). Key hospital for Langkawi island including tourist emergencies.", notableGaps: "Air medevac to Alor Setar for complex cases."
   }
 ];

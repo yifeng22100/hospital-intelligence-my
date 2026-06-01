@@ -4,26 +4,7 @@ window.HI = window.HI || {};
 (function() {
 
   function initIntelligence() {
-    // Bind card click handlers for all intelligence sections
-    bindIntelCard('intel-hacks-card', function() { openHacksDialog(); });
-    bindIntelCard('intel-tier-card', function() { openTierDialog(); });
-    bindIntelCard('intel-insurance-card', function() { scrollToSection('intel-insurance-section'); });
-    bindIntelCard('intel-cost-card', function() { scrollToSection('intel-cost-section'); });
-    bindIntelCard('intel-fpp-card', function() { scrollToSection('intel-fpp-section'); });
-    bindIntelCard('intel-night-card', function() { scrollToSection('intel-night-section'); });
-    bindIntelCard('intel-rights-card', function() { scrollToSection('intel-rights-section'); });
-    bindIntelCard('intel-legal-card', function() { scrollToSection('intel-legal-section'); });
-    bindIntelCard('intel-trial-card', function() { scrollToSection('intel-trial-section'); });
-    bindIntelCard('intel-doctor-card', function() { scrollToSection('intel-doctor-section'); });
-
-    // Also handle direct data-section buttons
-    document.querySelectorAll('[data-intel-section]').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var sec = this.getAttribute('data-intel-section');
-        scrollToSection(sec);
-      });
-    });
-
+    // Cards use inline onclick calling window.HI.toggleIntelSection() — no extra wiring needed.
     // Close dialogs on backdrop click
     var hacksDialog = document.getElementById('hacks-dialog');
     if (hacksDialog) {
@@ -37,11 +18,15 @@ window.HI = window.HI || {};
         if (e.target === tierDialog) tierDialog.classList.add('hidden');
       });
     }
-  }
-
-  function bindIntelCard(id, fn) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('click', fn);
+    // Wire hacks/tier close buttons
+    var hacksClose = document.getElementById('hacks-dialog-close');
+    if (hacksClose) hacksClose.addEventListener('click', function() {
+      if (hacksDialog) hacksDialog.classList.add('hidden');
+    });
+    var tierClose = document.getElementById('tier-dialog-close');
+    if (tierClose) tierClose.addEventListener('click', function() {
+      if (tierDialog) tierDialog.classList.add('hidden');
+    });
   }
 
   // ─── HACKS DIALOG ────────────────────────────────────────────────────────────
@@ -275,40 +260,45 @@ window.HI = window.HI || {};
 
   // ─── SECTION RENDERING ───────────────────────────────────────────────────────
 
-  function scrollToSection(sectionId) {
-    var el = document.getElementById(sectionId);
-    if (!el) return;
-
-    // Ensure parent panel is visible
-    var panel = document.getElementById('panel-intel');
-    if (panel && panel.classList.contains('hidden')) {
-      window.HI.showPanel('intel');
+  function toggleIntelSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (!section) return;
+    var body = section.querySelector('.collapsible-body');
+    if (!body) return;
+    var card = document.getElementById(sectionId + '-card');
+    var isOpen = body.style.display !== 'none';
+    if (isOpen) {
+      body.style.display = 'none';
+      section.classList.remove('open');
+      if (card) card.classList.remove('active');
+    } else {
+      body.style.display = '';
+      section.classList.add('open');
+      if (card) card.classList.add('active');
+      var contentEl = document.getElementById(sectionId + '-content');
+      if (contentEl && !contentEl.getAttribute('data-rendered')) {
+        renderSection(sectionId, contentEl);
+        contentEl.setAttribute('data-rendered', '1');
+      }
+      setTimeout(function() { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
     }
-
-    el.classList.remove('hidden');
-
-    // Render content if not yet rendered
-    if (el.getAttribute('data-rendered') !== '1') {
-      renderSection(sectionId, el);
-      el.setAttribute('data-rendered', '1');
-    }
-
-    setTimeout(function() {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
   }
 
   function renderSection(sectionId, el) {
     switch (sectionId) {
-      case 'intel-insurance-section': renderInsuranceSection(el); break;
-      case 'intel-cost-section': renderCostSection(el); break;
-      case 'intel-fpp-section': renderFPPSection(el); break;
-      case 'intel-night-section': renderNightSection(el); break;
-      case 'intel-rights-section': renderRightsSection(el); break;
-      case 'intel-legal-section': renderLegalSection(el); break;
-      case 'intel-trial-section': renderTrialSection(el); break;
-      case 'intel-doctor-section': renderDoctorSection(el); break;
+      case 'intel-insurance': renderInsuranceSection(el); break;
+      case 'intel-cost':      renderCostSection(el); break;
+      case 'intel-night':     renderNightSection(el); break;
+      case 'intel-rights':    renderRightsSection(el); break;
+      case 'intel-verify':    renderVerifySection(el); break;
+      case 'intel-trial':     renderTrialSection(el); break;
+      case 'intel-doctor':    renderDoctorSection(el); break;
+      case 'intel-tier':      renderTierInSection(el); break;
     }
+  }
+
+  function renderTierInSection(el) {
+    el.innerHTML = renderTierDiagram();
   }
 
   // Insurance Pre-Qualifier
@@ -351,7 +341,6 @@ window.HI = window.HI || {};
 
     el.innerHTML =
       '<div class="intel-section-wrap">' +
-        '<h3>Insurance Pre-Qualifier</h3>' +
         '<p class="intel-section-intro">Before admission, understand these insurance rules to avoid unexpected bills.</p>' +
         rulesHtml + insurerHtml +
       '</div>';
@@ -363,7 +352,6 @@ window.HI = window.HI || {};
     var cats = COST_REFERENCE.categories || [];
 
     var html = '<div class="intel-section-wrap">' +
-      '<h3>Cost Intelligence</h3>' +
       '<p class="intel-section-intro">' + (COST_REFERENCE.disclaimer || '') + '</p>' +
       '<div class="cost-tier-key">' +
         '<span class="tier-key public">Subsidised (Public)</span>' +
@@ -727,8 +715,33 @@ window.HI = window.HI || {};
     '</div>';
   }
 
+  function renderVerifySection(el) {
+    if (typeof VERIFY_GUIDE === 'undefined' || !VERIFY_GUIDE.length) {
+      el.innerHTML = '<p class="text-muted">Verify guide data not available.</p>';
+      return;
+    }
+    el.innerHTML = '<div class="verify-grid">' +
+      VERIFY_GUIDE.slice(0, 8).map(function(guide) {
+        return '<div class="verify-card">' +
+          '<h4>' + guide.facilityType + '</h4>' +
+          '<p class="text-sm text-muted" style="margin-bottom:0.5rem"><strong>Governed by:</strong> ' + guide.governingLaw + '</p>' +
+          '<p class="text-sm text-muted" style="margin-bottom:0.75rem"><strong>Licensed by:</strong> ' + guide.licensingBody + '</p>' +
+          '<div class="verify-steps">' +
+          (guide.howToVerify || []).slice(0, 3).map(function(step) {
+            return '<div class="verify-step">&#10003; ' + step + '</div>';
+          }).join('') +
+          '</div>' +
+          (guide.redFlags ? '<div class="red-flags-list" style="margin-top:0.75rem"><strong>&#9888; Red flags:</strong><ul>' +
+            guide.redFlags.slice(0, 3).map(function(f) { return '<li>' + f + '</li>'; }).join('') +
+          '</ul></div>' : '') +
+          (guide.complaintChannel ? '<p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem">Complaint: ' + guide.complaintChannel + '</p>' : '') +
+        '</div>';
+      }).join('') +
+    '</div>';
+  }
+
+  window.HI.toggleIntelSection = toggleIntelSection;
   window.HI.openHacksDialog = openHacksDialog;
   window.HI.openTierDialog = openTierDialog;
-  window.HI.scrollToSection = scrollToSection;
   window.HI.initIntelligence = initIntelligence;
 })();

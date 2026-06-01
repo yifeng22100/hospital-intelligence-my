@@ -1090,6 +1090,195 @@ var HOSPITALS_SELANGOR = [
     officialSources: [{ label: "Official Website", url: "https://www.aradamansara.com.my" }]
   },
   {
+    id: "smcv",
+    name: "Sunway Medical Centre Velocity (SMCV)",
+    nameShort: "Sunway Velocity",
+    sector: "private",
+    tier: "tertiary",
+    state: "Selangor",
+    city: "Cheras",
+    intro: "Sunway Medical Centre Velocity (SMCV) is the second campus of Sunway Medical, opened in 2020 in Cheras. Part of the Sunway Velocity integrated development, it provides comprehensive private specialist care for the Cheras and Kuala Lumpur east communities.",
+    famousFor: ["Sunway Medical Group second campus in Cheras", "Modern private hospital in Sunway Velocity integrated development", "Opened 2020 — state-of-the-art facilities"],
+    infrastructure: {
+      yearEstablished: 2020,
+      totalBeds: 200,
+      icuBeds: 16,
+      nicuBeds: 6,
+      operatingTheatres: 8,
+      area: "~3 acres",
+      buildings: "Integrated tower within Sunway Velocity Mall complex",
+      helipad: false,
+      parkingBays: "~500 bays (shared Sunway Velocity)",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "Sunway Velocity Mall, Lingkaran SV, 55100 Cheras, Selangor",
+      mainLine: "+603-9772 6888",
+      emergencyLine: "+603-9772 6888 ext. A&E",
+      appointmentLine: "+603-9772 6888",
+      website: "https://www.sunwaymedical.com/smcv",
+      mapQuery: "Sunway Medical Centre Velocity Cheras"
+    },
+    transport: {
+      nearest: "Cochrane MRT Station (Putrajaya Line) — 5 min walk via covered link",
+      bus: "Rapid KL Bus routes (Cheras area)",
+      highway: "SMART Tunnel / MRR2 — Exit Cheras / Sunway Velocity",
+      landmark: "Sunway Velocity Mall, Cheras, Kuala Lumpur"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Multiple F&B outlets within Sunway Velocity Mall",
+      atm: "Within mall complex",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner/family: flexible",
+      notes: "Private hospital — flexible visiting."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
+        "Cardiology", "General Surgery", "Neurology",
+        "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics",
+        "Gastroenterology", "Oncology (selected)", "ENT", "Ophthalmology",
+        "Urology", "Endocrinology", "Dermatology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical Centre (main campus)", note: "Refer to Sunway MC main campus in Subang Jaya" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
+      ],
+      byReferral: ["Complex oncology — refer to Sunway Cancer Centre (main campus) or Beacon Hospital"]
+    },
+    transferPathway: {
+      summary: "SMCV is a full-service private hospital. Complex cases refer to Sunway Medical main campus or larger tertiary centres.",
+      routes: [
+        { condition: "Complex cardiac surgery, cardiothoracic", to: "Sunway Medical Centre (Subang Jaya)", reason: "Main campus with full cardiac surgery capability", distanceKm: 15 }
+      ],
+      howToTransfer: "Specialist referral within Sunway Medical Group."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "Sunway Medical Group"],
+    verifiedNotes: "200 beds. Opened 2020. Sunway Medical second campus in Cheras. Part of Sunway Velocity integrated development.",
+    notableGaps: "Newer hospital — growing specialist range. No cardiothoracic surgery on site.",
+    primaryExcellence: "Sunway Medical private hospital — Cheras / east KL corridor",
+    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology"],
+    roomRate: "RM 200 – RM 700+/night",
+    roomRateRaw: 350,
+    insurance: "Accepts major Malaysian insurance panels. Sunway Medical group panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Newer campus. No cardiothoracic surgery.",
+    robotics: "Standard imaging — MRI, CT.",
+    doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: null,
+    officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
+  },
+  {
+    id: "kpj-ap",
+    name: "KPJ Ampang Puteri Specialist Hospital",
+    nameShort: "KPJ Ampang Puteri",
+    sector: "private",
+    tier: "tertiary",
+    state: "Selangor",
+    city: "Ampang",
+    intro: "KPJ Ampang Puteri Specialist Hospital is one of KPJ Healthcare's largest and most established flagship hospitals, providing comprehensive specialist services for the Ampang and greater KL east corridor.",
+    famousFor: ["One of KPJ Healthcare's flagship hospitals", "Comprehensive specialist services for Ampang / KL east", "Strong obstetrics and oncology programme"],
+    infrastructure: {
+      yearEstablished: 1994,
+      totalBeds: 242,
+      icuBeds: 20,
+      nicuBeds: 8,
+      operatingTheatres: 10,
+      area: "~3 acres",
+      buildings: "Main Tower, Specialist Clinics Block",
+      helipad: false,
+      parkingBays: "~350 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "1, Jalan Mamanda 9, Ampang Point, 68000 Ampang, Selangor",
+      mainLine: "+603-4270 2500",
+      emergencyLine: "+603-4270 2500 ext. A&E",
+      appointmentLine: "+603-4270 2500",
+      website: "https://www.kpjampangputeri.com",
+      mapQuery: "KPJ Ampang Puteri Specialist Hospital Ampang Selangor"
+    },
+    transport: {
+      nearest: "Ampang LRT Station — 10 min taxi",
+      bus: "Rapid KL Bus routes (Ampang Point area)",
+      highway: "AKLEH — Exit Ampang",
+      landmark: "Ampang Point area, near KLCC east corridor"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Ground floor",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted",
+      paediatric: "Parents: unrestricted",
+      maternity: "Flexible",
+      notes: "Private hospital — flexible."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
+        "Cardiology", "General Surgery", "Neurology",
+        "Orthopaedics", "Spine Surgery", "Obstetrics & Gynaecology",
+        "Paediatrics", "Gastroenterology", "Oncology (selected)",
+        "Urology", "Nephrology", "ENT", "Ophthalmology",
+        "Endocrinology", "Dermatology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles KL or Sunway Medical", note: "Refer to larger tertiary centre" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon or Gleneagles KL"]
+    },
+    transferPathway: {
+      summary: "Comprehensive private hospital. Complex cardiac and transplant cases referred to specialist centres.",
+      routes: [],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
+    verifiedNotes: "242 beds. KPJ Healthcare flagship hospital in Ampang. One of the larger KPJ hospitals in Malaysia.",
+    notableGaps: "No cardiothoracic surgery. No liver transplant.",
+    primaryExcellence: "KPJ flagship private hospital — Ampang / KL east",
+    secondarySpecialties: "Cardiology, Obstetrics, Oncology, Paediatrics",
+    fullSpecialties: ["Cardiology", "General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Oncology"],
+    roomRate: "RM 180 – RM 600+/night",
+    roomRateRaw: 320,
+    insurance: "KPJ group insurance panels. Major Malaysian insurers.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No liver transplant.",
+    robotics: "Standard imaging — MRI, CT.",
+    doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null,
+    imageCredit: "",
+    wikiLink: "https://en.wikipedia.org/wiki/KPJ_Ampang_Puteri_Specialist_Hospital",
+    officialSources: [{ label: "Official Website", url: "https://www.kpjampangputeri.com" }]
+  },
+  {
     id: "huppm",
     name: "Hospital Universiti Putra Malaysia (HUPPM)",
     nameShort: "HUPPM",
