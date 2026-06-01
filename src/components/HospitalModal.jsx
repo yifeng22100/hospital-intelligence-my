@@ -165,15 +165,49 @@ function OverviewTab({ h }) {
             {h.contact.address && (
               <p className="text-ink-secondary">{h.contact.address}</p>
             )}
+
+            {/* Maps buttons */}
+            {(h.contact.mapQuery || h.contact.address) && (
+              <div className="flex flex-wrap gap-2 pt-0.5 pb-1">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.contact.mapQuery || h.contact.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-secondary hover:bg-surface-tertiary border border-ink-quaternary rounded-xl text-[12px] font-medium text-ink transition-colors"
+                >
+                  <span>🗺</span> Open in Google Maps
+                </a>
+                <a
+                  href={`https://waze.com/ul?q=${encodeURIComponent(h.contact.mapQuery || h.contact.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-secondary hover:bg-surface-tertiary border border-ink-quaternary rounded-xl text-[12px] font-medium text-ink transition-colors"
+                >
+                  <span>🚗</span> Open in Waze
+                </a>
+              </div>
+            )}
+
             {h.contact.mainLine && (
-              <a href={`tel:${h.contact.mainLine.replace(/[\s-]/g, '')}`} className="block text-brand hover:underline">
-                {h.contact.mainLine}
-              </a>
+              <p>
+                <span className="font-medium text-ink">Main: </span>
+                <a href={`tel:${h.contact.mainLine.replace(/[\s-]/g, '')}`} className="text-brand hover:underline">
+                  {h.contact.mainLine}
+                </a>
+              </p>
+            )}
+            {h.contact.appointmentLine && h.contact.appointmentLine !== h.contact.mainLine && (
+              <p>
+                <span className="font-medium text-ink">Appointments: </span>
+                <a href={`tel:${h.contact.appointmentLine.replace(/[\s-]/g, '')}`} className="text-brand hover:underline">
+                  {h.contact.appointmentLine}
+                </a>
+              </p>
             )}
             {h.contact.emergencyLine && (
-              <p className="text-ink">
-                <span className="font-medium">Emergency: </span>
-                {h.contact.emergencyLine}
+              <p>
+                <span className="font-medium text-ink">Emergency: </span>
+                <span className="text-ink-secondary">{h.contact.emergencyLine}</span>
               </p>
             )}
             {h.contact.website && (
