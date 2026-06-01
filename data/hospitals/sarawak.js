@@ -112,7 +112,7 @@ var HOSPITALS_SARAWAK = [
     gaps: "No liver transplant. No BMT. No heart transplant. Transfer to Peninsular required for these.",
     robotics: "CT, MRI, radiotherapy equipment for oncology. Standard advanced public hospital imaging.",
     doctorQualifications: "MOH specialists — MMC-registered. Many trained at UK Royal Colleges and Australian institutions.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/27_August_2011_Sarawak_General_Hospital.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://hus.moh.gov.my" },
@@ -1388,32 +1388,6 @@ var HOSPITALS_SARAWAK = [
     verifiedNotes: "~50 beds (est.). Small district hospital for Daro.", notableGaps: "Specialist referral to Hospital Mukah."
   },
   {
-    id: "hsri-aman",
-    name: "Hospital Sri Aman",
-    nameShort: "Hospital Sri Aman",
-    sector: "public", tier: "district", state: "Sarawak", city: "Sri Aman",
-    intro: "Hospital Sri Aman serves the Sri Aman Division of western Sarawak, historically known as Simanggang and home to many Iban longhouse communities.",
-    famousFor: ["District hospital for Sri Aman Division — Iban heartland of Sarawak"],
-    infrastructure: { yearEstablished: 1965, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 95000 Sri Aman, Sarawak", mainLine: "+6083-320 222 (verify)", emergencyLine: "+6083-320 222 ext. A&E", appointmentLine: "+6083-320 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Sri Aman Sarawak" },
-    transport: { nearest: "Sri Aman town — 5 min walk", bus: "Bus from Kuching (~3 hrs)", highway: "Pan Borneo Highway", landmark: "Sri Aman town, Batang Lupar river" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Subspecialties", transferTo: "SGH Kuching", note: "District hospital" }],
-      byReferral: ["Specialist → SGH Kuching"]
-    },
-    transferPathway: { summary: "District hospital. Complex → SGH Kuching.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Sri Aman Division", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~130 beds (est.). District hospital for Sri Aman.", notableGaps: "Specialist referral to SGH Kuching."
-  },
-  {
     id: "hdalat",
     name: "Hospital Dalat",
     nameShort: "Hospital Dalat",
@@ -1542,32 +1516,6 @@ var HOSPITALS_SARAWAK = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). District hospital for Bau.", notableGaps: "Specialist referral to SGH Kuching."
-  },
-  {
-    id: "htelang",
-    name: "Hospital Sarikei",
-    nameShort: "Hospital Sarikei",
-    sector: "public", tier: "district", state: "Sarawak", city: "Sarikei",
-    intro: "Hospital Sarikei serves the Sarikei Division of central Sarawak, predominantly a Chinese and Melanau community area known for pepper cultivation.",
-    famousFor: ["District hospital for Sarikei Division — Sarawak pepper belt"],
-    infrastructure: { yearEstallished: 1968, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 96100 Sarikei, Sarawak", mainLine: "+6084-656 222 (verify)", emergencyLine: "+6084-656 222 ext. A&E", appointmentLine: "+6084-656 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Sarikei Sarawak" },
-    transport: { nearest: "Sarikei town — 5 min walk", bus: "Bus from Sibu (~2 hrs)", highway: "Pan Borneo Highway", landmark: "Sarikei town, Rajang delta" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Subspecialties", transferTo: "Hospital Sibu", note: "District hospital" }],
-      byReferral: ["Specialist → Hospital Sibu"]
-    },
-    transferPathway: { summary: "District hospital. Complex → Hospital Sibu.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Sarikei Division", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~130 beds (est.). District hospital for Sarikei.", notableGaps: "Specialist referral to Hospital Sibu."
   },
   {
     id: "hbinatang",

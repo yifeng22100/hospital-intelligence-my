@@ -104,7 +104,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "No liver transplant. Very busy hospital — overcrowding common.",
     robotics: "Radiation therapy equipment. Standard imaging — 3T MRI, CT.",
     doctorQualifications: "MOH specialists — MMC-registered. Many trained at UK Royal Colleges.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Klang_TAR_hospital_main_building.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://htar.moh.gov.my" },
@@ -433,7 +433,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "No cardiothoracic surgery. No heart transplant.",
     robotics: "Laparoscopic liver surgery systems. Advanced imaging for transplant.",
     doctorQualifications: "MOH hepatobiliary and transplant surgeons — many fellowship-trained overseas at top liver transplant centres.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hospital_Selayang_04.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://hselayang.moh.gov.my" },
@@ -740,7 +740,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "Premium pricing. No liver transplant.",
     robotics: "Gamma Knife Radiosurgery. Da Vinci Robotic Surgery. PET-CT. 3T MRI. Hybrid cath lab.",
     doctorQualifications: "MMC-registered specialists with higher qualifications. Many internationally trained.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunway_Medical_Centre_(220711)_01.jpg",
     imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
   },
@@ -1005,7 +1005,7 @@ var HOSPITALS_SELANGOR = [
     gaps: "No liver transplant. No Gamma Knife.",
     robotics: "Radiation therapy. Standard imaging — 3T MRI, CT. Da Vinci robotic surgery.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hospital_Thomson_Kota_Damansara.jpg",
     imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.thomsonhospital.com" }]
   },
@@ -1090,99 +1090,88 @@ var HOSPITALS_SELANGOR = [
     officialSources: [{ label: "Official Website", url: "https://www.aradamansara.com.my" }]
   },
   {
-    id: "smcv",
-    name: "Sunway Medical Centre Velocity (SMCV)",
-    nameShort: "Sunway Velocity",
+    id: "assunta-hospital",
+    name: "Assunta Hospital",
+    nameShort: "Assunta",
     sector: "private",
     tier: "tertiary",
     state: "Selangor",
-    city: "Cheras",
-    intro: "Sunway Medical Centre Velocity (SMCV) is the second campus of Sunway Medical, opened in 2020 in Cheras. Part of the Sunway Velocity integrated development, it provides comprehensive private specialist care for the Cheras and Kuala Lumpur east communities.",
-    famousFor: ["Sunway Medical Group second campus in Cheras", "Modern private hospital in Sunway Velocity integrated development", "Opened 2020 — state-of-the-art facilities"],
+    city: "Petaling Jaya",
+    intro: "Assunta Hospital is one of Petaling Jaya's oldest and most trusted private hospitals, founded by the Franciscan Missionaries of Mary (FMM). Known for its compassionate care tradition, it offers comprehensive specialist services for the PJ and Klang Valley community.",
+    famousFor: ["One of PJ's oldest and most trusted hospitals", "Founded by FMM religious sisters — compassionate care tradition", "Wide range of specialist services", "Strong obstetrics and paediatrics programme"],
     infrastructure: {
-      yearEstablished: 2020,
-      totalBeds: 200,
-      icuBeds: 16,
-      nicuBeds: 6,
-      operatingTheatres: 8,
+      yearEstablished: 1954,
+      totalBeds: 240,
+      icuBeds: 20,
+      nicuBeds: 8,
+      operatingTheatres: 10,
       area: "~3 acres",
-      buildings: "Integrated tower within Sunway Velocity Mall complex",
+      buildings: "Main Block, New Wing, Chapel",
       helipad: false,
-      parkingBays: "~500 bays (shared Sunway Velocity)",
-      parkingRate: "RM 2/hour"
+      parkingBays: "~300 bays",
+      parkingRate: "RM 1.50/hour"
     },
     contact: {
-      address: "Sunway Velocity Mall, Lingkaran SV, 55100 Cheras, Selangor",
-      mainLine: "+603-9772 6888",
-      emergencyLine: "+603-9772 6888 ext. A&E",
-      appointmentLine: "+603-9772 6888",
-      website: "https://www.sunwaymedical.com/smcv",
-      mapQuery: "Sunway Medical Centre Velocity Cheras"
+      address: "Jalan Templer, 46990 Petaling Jaya, Selangor",
+      mainLine: "+603-7782 3433",
+      emergencyLine: "+603-7782 3433 ext. A&E",
+      appointmentLine: "+603-7782 3433",
+      website: "https://www.assuntahospital.com",
+      mapQuery: "Assunta Hospital Petaling Jaya Jalan Templer"
     },
     transport: {
-      nearest: "Cochrane MRT Station (Putrajaya Line) — 5 min walk via covered link",
-      bus: "Rapid KL Bus routes (Cheras area)",
-      highway: "SMART Tunnel / MRR2 — Exit Cheras / Sunway Velocity",
-      landmark: "Sunway Velocity Mall, Cheras, Kuala Lumpur"
+      nearest: "Taman Jaya LRT Station — 15 min walk or short taxi",
+      bus: "Rapid KL bus routes (PJ area)",
+      highway: "NPE/Federal Highway — Exit Petaling Jaya",
+      landmark: "Near Asia Jaya / Universiti LRT, Petaling Jaya"
     },
     facilities: {
       pharmacy24h: true,
-      cafeteria: "Multiple F&B outlets within Sunway Velocity Mall",
-      atm: "Within mall complex",
+      cafeteria: "Ground floor, 7am–9pm",
+      atm: "Lobby",
       surau: "Available",
-      chapel: false,
+      chapel: "Yes (Catholic chapel on site)",
       buddhistRoom: false,
       disabledAccess: true,
       wifi: "Free WiFi",
       patientTransport: "Medical transport available"
     },
-    visitingHours: {
-      general: "11:00–21:00",
-      icu: "Restricted — check with nurse",
-      paediatric: "Parents: unrestricted",
-      maternity: "Partner/family: flexible",
-      notes: "Private hospital — flexible visiting."
-    },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted — check with nurse", paediatric: "Parents: unrestricted", maternity: "Partner: flexible", notes: "Private hospital — flexible visiting." },
     specialtyCoverage: {
       available: [
         "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
-        "Cardiology", "General Surgery", "Neurology",
-        "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics",
-        "Gastroenterology", "Oncology (selected)", "ENT", "Ophthalmology",
-        "Urology", "Endocrinology", "Dermatology", "Rehabilitation"
+        "Cardiology", "General Surgery",
+        "Obstetrics & Gynaecology", "Paediatrics",
+        "Orthopaedics", "Gastroenterology",
+        "Urology", "ENT", "Ophthalmology",
+        "Oncology (selected)", "Endocrinology", "Dermatology",
+        "Neurology", "Rehabilitation"
       ],
       notAvailable: [
-        { specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical Centre (main campus)", note: "Refer to Sunway MC main campus in Subang Jaya" },
+        { specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical or Gleneagles KL", note: "Refer to tertiary centre" },
         { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
       ],
-      byReferral: ["Complex oncology — refer to Sunway Cancer Centre (main campus) or Beacon Hospital"]
+      byReferral: ["Complex oncology — refer to Beacon or Gleneagles KL"]
     },
-    transferPathway: {
-      summary: "SMCV is a full-service private hospital. Complex cases refer to Sunway Medical main campus or larger tertiary centres.",
-      routes: [
-        { condition: "Complex cardiac surgery, cardiothoracic", to: "Sunway Medical Centre (Subang Jaya)", reason: "Main campus with full cardiac surgery capability", distanceKm: 15 }
-      ],
-      howToTransfer: "Specialist referral within Sunway Medical Group."
-    },
+    transferPathway: { summary: "Community private hospital with long tradition. Complex cases referred to larger tertiary centres.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "Sunway Medical Group"],
-    verifiedNotes: "200 beds. Opened 2020. Sunway Medical second campus in Cheras. Part of Sunway Velocity integrated development.",
-    notableGaps: "Newer hospital — growing specialist range. No cardiothoracic surgery on site.",
-    primaryExcellence: "Sunway Medical private hospital — Cheras / east KL corridor",
-    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
+    accreditations: ["MSQH Accredited"],
+    verifiedNotes: "240 beds. One of PJ's oldest private hospitals. FMM-founded. Located in Petaling Jaya, Selangor.",
+    notableGaps: "No cardiothoracic surgery. Limited complex oncology.",
+    primaryExcellence: "Trusted community private hospital — Petaling Jaya, Selangor",
+    secondarySpecialties: "Obstetrics, Paediatrics, Cardiology",
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology"],
-    roomRate: "RM 200 – RM 700+/night",
-    roomRateRaw: 350,
-    insurance: "Accepts major Malaysian insurance panels. Sunway Medical group panels.",
+    roomRate: "RM 150 – RM 450+/night",
+    roomRateRaw: 250,
+    insurance: "Accepts major Malaysian insurance panels.",
     fppScheme: false,
     fppDeposit: "N/A",
-    gaps: "Newer campus. No cardiothoracic surgery.",
+    gaps: "No cardiothoracic surgery. No liver transplant.",
     robotics: "Standard imaging — MRI, CT.",
-    doctorQualifications: "MMC-registered specialists.",
+    doctorQualifications: "MMC-registered specialists. Many longstanding consultants.",
     imageUrl: null,
-    imageCredit: "",
-    wikiLink: null,
-    officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
+    imageCredit: "N/A",
+    officialSources: [{ label: "Official Website", url: "https://www.assuntahospital.com" }]
   },
   {
     id: "kpj-ap",
@@ -1685,33 +1674,6 @@ var HOSPITALS_SELANGOR = [
     gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia", url: "https://www.columbiaasia.com" }],
     verifiedNotes: "~100 beds (est.). Private hospital, Rawang.", notableGaps: "Complex → Hospital Selayang."
-  },
-  {
-    id: "hsg-buloh",
-    name: "Hospital Sungai Buloh",
-    nameShort: "Hospital Sungai Buloh",
-    sector: "public", tier: "tertiary", state: "Selangor", city: "Sungai Buloh",
-    intro: "Hospital Sungai Buloh is a major public tertiary hospital serving the Petaling and Gombak districts, and is also Malaysia's national centre for leprosy and dermatology.",
-    famousFor: ["National leprosarium and dermatology centre", "Major public tertiary hospital serving NW Selangor and northern KL", "COVID-19 designated hospital during pandemic"],
-    infrastructure: { yearEstallished: 1930, totalBeds: 750, icuBeds: 40, nicuBeds: 12, operatingTheatres: 15, area: "~40 acres", buildings: "Multiple blocks", helipad: true, parkingBays: "~500 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 47000 Sungai Buloh, Selangor", mainLine: "+603-6145 9000", emergencyLine: "+603-6145 9000 ext. A&E", appointmentLine: "+603-6145 9000", website: "https://www.moh.gov.my", mapQuery: "Hospital Sungai Buloh Selangor" },
-    transport: { nearest: "Sungai Buloh MRT — 5 min taxi", bus: "Rapid KL bus T107", highway: "SPRINT / NKVE / Damansara-Shah Alam Elevated Expressway (DASH)", landmark: "Sungai Buloh town, northwest of KL" },
-    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Lobby", surau: "Multiple floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "ICU/HDU", "General Medicine", "General Surgery", "Cardiology", "Dermatology (National Centre)", "Leprosy (National Centre)", "Neurology", "Orthopaedics", "Obstetrics", "Paediatrics", "Respiratory Medicine", "Infectious Disease"],
-      notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre" }],
-      byReferral: ["Liver transplant → Hospital Selayang"]
-    },
-    transferPathway: { summary: "Major public tertiary. Complex national → specialist centres.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: { "Dermatology / Leprosy": { rank: "National #1", desc: "Malaysia's national centre for dermatology and leprosy" } },
-    accreditations: ["MOH Accredited", "MSQH Accredited"],
-    primaryExcellence: "National dermatology and leprosy centre; major public tertiary", secondarySpecialties: "Cardiology, Infectious Disease, Respiratory Medicine",
-    fullSpecialties: ["Emergency", "Cardiology", "Dermatology", "Neurology", "Obstetrics", "Paediatrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam / Socso.", fppScheme: true, fppDeposit: "N/A",
-    gaps: "No liver transplant.", robotics: "None.", doctorQualifications: "MOH specialists — dermatology and infectious disease specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~750 beds. Major public tertiary and national dermatology/leprosy centre.", notableGaps: "Liver transplant → Hospital Selayang."
   },
   {
     id: "kpj-klang-2",

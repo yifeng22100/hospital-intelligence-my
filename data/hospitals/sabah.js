@@ -111,7 +111,7 @@ var HOSPITALS_SABAH = [
     gaps: "No liver transplant. No BMT. No heart transplant. Transfer to Peninsular required for these.",
     robotics: "Standard public hospital imaging — CT, MRI, ultrasound. Radiotherapy equipment for oncology.",
     doctorQualifications: "MOH specialists — MMC-registered. Many trained at UK Royal Colleges and Australian institutions.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/KotaKinabalu_Sabah_Queen-Elizabeth-Hospital-01.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" },

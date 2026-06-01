@@ -18,6 +18,7 @@
 
   <!-- Data: translations first (needed by i18n.js at load time) -->
   <script src="data/translations.js"></script>
+  <script src="data/glossary.js"></script>
 
   <!-- Data: hospital lists by state -->
   <script src="data/hospitals/kuala-lumpur.js"></script>
@@ -393,46 +394,103 @@
 
         <!-- Topic card grid — click to load content in the panel below -->
         <div class="intel-grid" id="intel-quick-grid">
+
           <div class="intel-card" id="intel-tier-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-tier')">
-            <div class="intel-card-icon">&#127970;</div>
-            <div class="intel-card-title" data-i18n="intel_tier_title">Hospital Tier System</div>
-            <div class="intel-card-desc" data-i18n="intel_tier_desc">Understand Quaternary to District levels</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#60a5fa,#2563eb);color:#fff">&#127970;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_tier_title">Hospital Tier System</div>
+              <div class="intel-card-desc" data-i18n="intel_tier_desc">Understand Quaternary to District levels</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_tier_hint">4 tiers · Public & Private</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-insurance-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-insurance')">
-            <div class="intel-card-icon">&#128179;</div>
-            <div class="intel-card-title" data-i18n="intel_insurance_title">Insurance Navigator</div>
-            <div class="intel-card-desc" data-i18n="intel_insurance_desc">Panel hospitals, cashless &amp; FPP explained</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#c084fc,#7c3aed);color:#fff">&#128179;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_insurance_title">Insurance Navigator</div>
+              <div class="intel-card-desc" data-i18n="intel_insurance_desc">Panel hospitals, cashless &amp; FPP explained</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_insurance_hint">9 insurers · Cashless guide</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-cost-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-cost')">
-            <div class="intel-card-icon">&#128200;</div>
-            <div class="intel-card-title" data-i18n="intel_cost_title">Cost Reference</div>
-            <div class="intel-card-desc" data-i18n="intel_cost_desc">Benchmark costs for common procedures</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#5eead4,#0d9488);color:#fff">&#128200;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_cost_title">Cost Reference</div>
+              <div class="intel-card-desc" data-i18n="intel_cost_desc">Benchmark costs for common procedures</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_cost_hint">50+ procedures benchmarked</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-rights-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-rights')">
-            <div class="intel-card-icon">&#9878;&#65039;</div>
-            <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights &amp; Complaints</div>
-            <div class="intel-card-desc" data-i18n="intel_rights_desc">Your legal rights as a patient in Malaysia</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#fca5a5,#dc2626);color:#fff">&#9878;&#65039;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights &amp; Complaints</div>
+              <div class="intel-card-desc" data-i18n="intel_rights_desc">Your legal rights as a patient in Malaysia</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_rights_hint">MOH complaints & legal rights</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-verify-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-verify')">
-            <div class="intel-card-icon">&#10003;</div>
-            <div class="intel-card-title" data-i18n="intel_verify_title">Verify a Facility</div>
-            <div class="intel-card-desc" data-i18n="intel_verify_desc">Check licences and accreditation status</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#86efac,#16a34a);color:#fff">&#10003;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_verify_title">Verify a Facility</div>
+              <div class="intel-card-desc" data-i18n="intel_verify_desc">Check licences and accreditation status</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_verify_hint">MOH licence + MSQH check</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-doctor-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-doctor')">
-            <div class="intel-card-icon">&#128104;&#8205;&#9877;&#65039;</div>
-            <div class="intel-card-title" data-i18n="intel_doctor_title">Doctor Verification</div>
-            <div class="intel-card-desc" data-i18n="intel_doctor_desc">How to check a doctor's qualifications</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#67e8f9,#0891b2);color:#fff">&#128104;&#8205;&#9877;&#65039;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_doctor_title">Doctor Verification</div>
+              <div class="intel-card-desc" data-i18n="intel_doctor_desc">How to check a doctor's qualifications</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_doctor_hint">MMC register + specialist boards</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-trial-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-trial')">
-            <div class="intel-card-icon">&#128300;</div>
-            <div class="intel-card-title" data-i18n="intel_trial_title">Clinical Trials</div>
-            <div class="intel-card-desc" data-i18n="intel_trial_desc">Access experimental treatments in Malaysia</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#a78bfa,#5b21b6);color:#fff">&#128300;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_trial_title">Clinical Trials</div>
+              <div class="intel-card-desc" data-i18n="intel_trial_desc">Access experimental treatments in Malaysia</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_trial_hint">NMRR-registered Malaysian trials</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
           <div class="intel-card" id="intel-night-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-night')">
-            <div class="intel-card-icon">&#127769;</div>
-            <div class="intel-card-title" data-i18n="intel_night_title">Night Cover Guide</div>
-            <div class="intel-card-desc" data-i18n="intel_night_desc">After-hours &amp; 24h service availability</div>
+            <div class="intel-card-icon-wrap" style="background:linear-gradient(135deg,#fdba74,#ea580c);color:#fff">&#127769;</div>
+            <div class="intel-card-body">
+              <div class="intel-card-title" data-i18n="intel_night_title">Night Cover Guide</div>
+              <div class="intel-card-desc" data-i18n="intel_night_desc">After-hours &amp; 24h service availability</div>
+            </div>
+            <div class="intel-card-footer">
+              <span class="intel-card-hint" data-i18n="intel_night_hint">Who covers you after 10pm</span>
+              <span class="intel-card-arrow">&#8594;</span>
+            </div>
           </div>
+
         </div>
 
         <!-- Single content panel — rendered when a card is clicked -->
@@ -531,13 +589,15 @@
 
       <!-- Modal header -->
       <div class="modal-header">
-        <div class="modal-title-row">
-          <span id="modal-sector-badge" class="badge-sector"></span>
-          <span id="modal-tier-badge" class="badge-tier"></span>
-          <span id="modal-state-badge" class="badge-state"></span>
+        <div class="modal-title-group">
+          <div class="modal-title-row">
+            <span id="modal-sector-badge" class="badge-sector"></span>
+            <span id="modal-tier-badge" class="badge-tier"></span>
+            <span id="modal-state-badge" class="badge-state"></span>
+          </div>
+          <h2 id="modal-name" class="modal-name"></h2>
+          <div id="modal-city-line" class="modal-city"></div>
         </div>
-        <h2 id="modal-name" class="modal-name"></h2>
-        <div id="modal-city-line" class="modal-city"></div>
         <button id="modal-close-btn" class="modal-close-btn" aria-label="Close">&#10005;</button>
       </div>
 
@@ -1156,8 +1216,11 @@
         setTimeout(window.HI.showOnboarding, 800);
       }
 
-      // Re-render onboarding grids when language changes
-      window.HI.onLangChange = function() {
+      // Re-render onboarding grids when language changes — chain onto the
+      // handlers already registered by modal / directory / intelligence / support.
+      var _prevBootLangChange = window.HI.onLangChange;
+      window.HI.onLangChange = function(code) {
+        if (_prevBootLangChange) _prevBootLangChange(code);
         if (window.HI.initFindPanel) window.HI.initFindPanel();
       };
     });

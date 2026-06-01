@@ -5,61 +5,61 @@
 
 /* ── Custom Properties ── */
 :root {
-  /* Text colors */
-  --ink:            #0f172a;
-  --ink2:           #1e293b;
-  --muted:          #64748b;
-  --faint:          #f1f5f9;
+  /* Text colors — Apple palette */
+  --ink:            #1d1d1f;
+  --ink2:           #3d3d3f;
+  --muted:          #6e6e73;
+  --faint:          #f5f5f7;
 
   /* Borders & backgrounds */
-  --border:         #e2e8f0;
-  --bg-page:        #f8fafc;
+  --border:         #d2d2d7;
+  --bg-page:        #f5f5f7;
   --bg-card:        #ffffff;
 
-  /* Brand accent */
-  --accent:         #3b5bdb;
-  --accent-hover:   #2f4ac7;
-  --accent-light:   #eef2ff;
-  --accent-dark:    #1e3a8a;
+  /* Brand accent — Apple blue */
+  --accent:         #0071e3;
+  --accent-hover:   #0077ed;
+  --accent-light:   #e8f4fd;
+  --accent-dark:    #004f9e;
 
   /* Semantic colors */
-  --emerald:        #059669;
-  --emerald-light:  #ecfdf5;
-  --amber:          #d97706;
-  --amber-light:    #fffbeb;
-  --rose:           #e11d48;
-  --rose-light:     #fff1f2;
+  --emerald:        #34c759;
+  --emerald-light:  #f2fdf5;
+  --amber:          #ff9f0a;
+  --amber-light:    #fff8ed;
+  --rose:           #ff3b30;
+  --rose-light:     #fff2f1;
 
   /* Sector colors */
-  --public:         #1d4ed8;
-  --public-light:   #eff6ff;
-  --private:        #7c3aed;
-  --private-light:  #f5f3ff;
-  --academic:       #0d9488;
-  --academic-light: #f0fdfa;
+  --public:         #0071e3;
+  --public-light:   #e8f4fd;
+  --private:        #5e5ce6;
+  --private-light:  #f0f0ff;
+  --academic:       #30b0c7;
+  --academic-light: #f0fafd;
 
   /* Tier colors */
-  --tier-district:  #64748b;
-  --tier-state:     #0369a1;
-  --tier-tertiary:  #7c3aed;
-  --tier-quaternary:#be185d;
-  --tier-academic:  #0d9488;
+  --tier-district:  #8e8e93;
+  --tier-state:     #007aff;
+  --tier-tertiary:  #5e5ce6;
+  --tier-quaternary:#ff375f;
+  --tier-academic:  #30b0c7;
 
-  /* Radius */
-  --radius:         12px;
-  --radius-sm:      8px;
-  --radius-lg:      20px;
-  --radius-xl:      28px;
+  /* Radius — Apple rounds everything */
+  --radius:         14px;
+  --radius-sm:      10px;
+  --radius-lg:      22px;
+  --radius-xl:      30px;
 
-  /* Shadows */
-  --shadow-sm:      0 1px 3px rgba(0, 0, 0, .08);
-  --shadow-md:      0 4px 16px rgba(0, 0, 0, .10);
-  --shadow-lg:      0 8px 32px rgba(0, 0, 0, .12);
-  --shadow-xl:      0 16px 48px rgba(0, 0, 0, .15);
+  /* Shadows — very soft, airy */
+  --shadow-sm:      0 2px 8px rgba(0, 0, 0, .06);
+  --shadow-md:      0 4px 20px rgba(0, 0, 0, .08);
+  --shadow-lg:      0 8px 40px rgba(0, 0, 0, .10);
+  --shadow-xl:      0 20px 60px rgba(0, 0, 0, .14);
 
   /* Transitions */
-  --transition:     0.15s ease;
-  --transition-md:  0.25s ease;
+  --transition:     0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-md:  0.28s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Z-index scale */
   --z-header:       40;
@@ -83,15 +83,15 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont,
-               'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+               'Helvetica Neue', 'DM Sans', system-ui, sans-serif;
   background: var(--bg-page);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   line-height: 1.6;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* ── Monospace ── */
@@ -106,18 +106,18 @@ samp {
 
 /* ── Typography ── */
 h1 {
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
 
 h2 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
   font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -328,26 +328,27 @@ td {
   scrollbar-color: #cbd5e1 var(--faint);
 }
 
-/* ── Reusable button primitives ── */
+/* ── Reusable button primitives — Apple pill style ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.6rem 1.4rem;
+  padding: 0.6rem 1.5rem;
   background: var(--accent);
   color: #fff;
-  border-radius: var(--radius-sm);
+  border-radius: 980px;
   font-weight: 600;
   font-size: 0.9rem;
   border: none;
   cursor: pointer;
   transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  letter-spacing: -0.01em;
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  box-shadow: 0 4px 12px rgba(59, 91, 219, .35);
+  box-shadow: 0 4px 16px rgba(0, 113, 227, .35);
   transform: translateY(-1px);
   text-decoration: none;
   color: #fff;
@@ -355,6 +356,7 @@ td {
 
 .btn-primary:active {
   transform: translateY(0);
+  box-shadow: none;
 }
 
 .btn-secondary {
@@ -363,19 +365,18 @@ td {
   justify-content: center;
   gap: 0.4rem;
   padding: 0.55rem 1.2rem;
-  background: var(--faint);
-  color: var(--ink2);
-  border-radius: var(--radius-sm);
+  background: rgba(0,0,0,.04);
+  color: var(--ink);
+  border-radius: 980px;
   font-weight: 600;
   font-size: 0.875rem;
-  border: 1.5px solid var(--border);
+  border: none;
   cursor: pointer;
-  transition: background var(--transition), border-color var(--transition);
+  transition: background var(--transition);
 }
 
 .btn-secondary:hover {
-  background: #e2e8f0;
-  border-color: #94a3b8;
+  background: rgba(0,0,0,.08);
   text-decoration: none;
   color: var(--ink);
 }

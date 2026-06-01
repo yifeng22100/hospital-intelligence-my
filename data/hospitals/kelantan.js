@@ -358,32 +358,6 @@ var HOSPITALS_KELANTAN = [
     verifiedNotes: "~100 beds (est.). Private Islamic hospital, Kota Bharu.", notableGaps: "Complex → KPJ KB or HRPZII."
   },
   {
-    id: "hgua-musang-kb",
-    name: "Hospital Gua Musang",
-    nameShort: "Hospital Gua Musang",
-    sector: "public", tier: "district", state: "Kelantan", city: "Gua Musang",
-    intro: "Hospital Gua Musang serves the large but sparsely populated Gua Musang district of interior Kelantan, which includes significant Orang Asli communities.",
-    famousFor: ["District hospital for Gua Musang — interior Kelantan highlands", "Serves Orang Asli communities of the interior"],
-    infrastructure: { yearEstallished: 1972, totalBeds: 100, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "~3 acres", buildings: "Main Block", helipad: true, parkingBays: "~80 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 18300 Gua Musang, Kelantan", mainLine: "+609-912 2222 (verify)", emergencyLine: "+609-912 2222 ext. A&E", appointmentLine: "+609-912 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Gua Musang Kelantan" },
-    transport: { nearest: "Gua Musang KTM station — 10 min walk", bus: "Bus from Kota Bharu (~3 hrs)", highway: "Route 8 / Gerik-Jeli Highway", landmark: "Gua Musang town, interior Kelantan" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Subspecialties", transferTo: "HRPZII Kota Bharu", note: "District hospital" }],
-      byReferral: ["Specialist → HRPZII Kota Bharu"]
-    },
-    transferPathway: { summary: "Interior district hospital. Complex → HRPZII Kota Bharu.", routes: [], howToTransfer: "MOH referral / helicopter." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Gua Musang interior Kelantan", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~100 beds (est.). District hospital for Gua Musang.", notableGaps: "Specialist referral to HRPZII."
-  },
-  {
     id: "hkota-bharu-orthopedic",
     name: "Hospital Ortopedik Kota Bharu",
     nameShort: "Hospital Ortopedik KB",

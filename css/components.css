@@ -10,8 +10,8 @@
 .hospital-card {
   background: #fff;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  border: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06), 0 0 0 0.5px rgba(0,0,0,.06);
   overflow: hidden;
   cursor: pointer;
   display: flex;
@@ -21,12 +21,12 @@
 }
 
 .hospital-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  box-shadow: 0 8px 36px rgba(0,0,0,.12), 0 0 0 0.5px rgba(0,0,0,.06);
+  transform: translateY(-4px) scale(1.005);
 }
 
 .hospital-card:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.002);
 }
 
 /* Card image area */
@@ -385,9 +385,9 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -397,16 +397,17 @@
 
 #modal-inner {
   background: #fff;
-  border-radius: 24px;
-  max-width: 780px;
+  border-radius: 28px;
+  max-width: 880px;
   width: 100%;
   max-height: 90vh;
+  overflow: hidden;
   overflow-y: auto;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10), 0 0 0 0.5px rgba(0,0,0,0.06);
   position: relative;
   display: flex;
   flex-direction: column;
-  animation: modalIn 0.2s ease;
+  animation: modalIn 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Modal header */
@@ -416,17 +417,19 @@
   z-index: 10;
   background: #fff;
   border-bottom: 1px solid var(--border);
-  padding: 1.75rem 2.25rem 1.25rem;
+  padding: 2.25rem 7rem 1.75rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  border-radius: 24px 24px 0 0;
 }
 
 .modal-title-group {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .modal-badges {
@@ -474,7 +477,7 @@
 .modal-tabs {
   display: flex;
   gap: 0.25rem;
-  padding: 0.75rem 2.25rem;
+  padding: 1rem 7rem;
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
   scrollbar-width: none;
@@ -488,32 +491,32 @@
 }
 
 .modal-tab-btn {
-  padding: 0.45rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--muted);
   background: transparent;
-  border: 1.5px solid transparent;
-  border-radius: 999px;
+  border: none;
+  border-radius: 980px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transition: background var(--transition), color var(--transition);
+  letter-spacing: -0.01em;
 }
 
 .modal-tab-btn:hover {
-  background: var(--faint);
+  background: rgba(0,0,0,.05);
   color: var(--ink);
 }
 
 .modal-tab-btn.active {
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent);
 }
 
 /* Modal tab panels */
 .modal-tab-panel {
-  padding: 2rem 2.25rem 3rem;
+  padding: 2.75rem 7rem 4rem;
   flex: 1;
 }
 
@@ -522,6 +525,20 @@
 }
 
 .modal-tab-panel.hidden {
+  display: none;
+}
+
+/* Actual rendered panel containers */
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.modal-panel {
+  padding: 2.75rem 7rem 4rem;
+}
+
+.modal-panel.hidden {
   display: none;
 }
 
@@ -634,10 +651,11 @@
 }
 
 .infra-item {
-  background: var(--faint);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.55rem 0.75rem;
+  background: #f5f5f7;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.65rem 0.85rem;
+  box-shadow: 0 0 0 0.5px rgba(0,0,0,.06);
 }
 
 .infra-label {
@@ -689,7 +707,7 @@
 .verified-notes-box {
   background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
   border-left: 4px solid #16a34a;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-radius: var(--radius);
   padding: 0.85rem 1.1rem;
   display: flex;
   gap: 0.75rem;
@@ -728,7 +746,7 @@
 .notable-gaps-box {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-left: 4px solid #ea580c;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-radius: var(--radius);
   padding: 0.85rem 1.1rem;
   display: flex;
   gap: 0.75rem;
@@ -950,48 +968,140 @@
 }
 
 /* ══════════════════════════════════════════════════════════
-   INTELLIGENCE CARDS
+   INTELLIGENCE CARDS — Apple bento style
    ══════════════════════════════════════════════════════════ */
 
 .intel-card {
+  position: relative;
   background: #fff;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
+  border: none;
+  border-radius: 24px;
+  padding: 1.85rem 1.85rem 1.6rem;
   cursor: pointer;
-  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.05), 0 0 0 0.5px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+/* Subtle top sheen like Apple tiles */
+.intel-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), transparent 30%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .intel-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
-  border-color: #c7d7fd;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.13), 0 0 0 0.5px rgba(0,0,0,0.04);
+  transform: translateY(-6px);
 }
 
+.intel-card:active {
+  transform: translateY(-2px) scale(0.992);
+}
+
+/* Colored icon container — gradient + soft shadow */
+.intel-card-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px -4px rgba(0,0,0,0.18);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+.intel-card:hover .intel-card-icon-wrap {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* Legacy icon class */
 .intel-card-icon {
   font-size: 1.75rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Content block */
+.intel-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
 }
 
 .intel-card h3,
 .intel-card-title {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 600;
   color: var(--ink);
-  line-height: 1.3;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .intel-card p,
 .intel-card-desc {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--muted);
   line-height: 1.5;
-  flex: 1;
+  letter-spacing: -0.01em;
 }
 
+/* Footer: hint pill + arrow */
+.intel-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.intel-card-hint {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ink2);
+  background: var(--faint);
+  padding: 0.3rem 0.7rem;
+  border-radius: 980px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 2rem);
+}
+
+.intel-card-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-6px) scale(0.8);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.intel-card:hover .intel-card-arrow {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Legacy CTA */
 .intel-card-cta {
   font-size: 0.75rem;
   font-weight: 700;
@@ -1483,12 +1593,19 @@
   }
 
   .modal-header {
-    border-radius: 20px 20px 0 0;
-    padding: 1.5rem 1.5rem 1rem;
+    padding: 1.5rem 1.75rem 1.25rem;
+  }
+
+  .modal-tabs {
+    padding: 0.75rem 1.75rem;
   }
 
   .modal-tab-panel {
-    padding: 1.5rem 1.5rem 2.5rem;
+    padding: 1.75rem 1.75rem 3rem;
+  }
+
+  .modal-panel {
+    padding: 1.75rem 1.75rem 3rem;
   }
 
   .spec-grid {
@@ -1530,6 +1647,22 @@
   #find-results-grid,
   #onboard-result-grid {
     grid-template-columns: 1fr;
+  }
+
+  .modal-header {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .modal-tabs {
+    padding: 0.6rem 1.25rem;
+  }
+
+  .modal-tab-panel {
+    padding: 1.5rem 1.25rem 2.5rem;
+  }
+
+  .modal-panel {
+    padding: 1.5rem 1.25rem 2.5rem;
   }
 }
 

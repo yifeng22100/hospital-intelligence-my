@@ -109,7 +109,7 @@ var HOSPITALS_KL = [
     gaps: "No liver transplant. Outpatient waiting times long. Parking can be difficult.",
     robotics: "Da Vinci Robotic Surgery System available for selected procedures. Radiation therapy with linear accelerators. Nuclear medicine SPECT/CT.",
     doctorQualifications: "All consultants hold MMC-registered specialist qualifications. Many hold fellowships from UK Royal Colleges, American Boards, and Australian Colleges. Senior consultants are professors at local medical schools.",
-    imageUrl: null,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/83/Kuala_Lumpur_Hospital.JPG",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://hkl.moh.gov.my" },
@@ -216,7 +216,7 @@ var HOSPITALS_KL = [
     gaps: "No medical/surgical capability. Commercial insurance often excludes or limits psychiatric coverage.",
     robotics: "N/A",
     doctorQualifications: "All psychiatrists hold MMC-registered specialist qualifications (MRCPsych or equivalent). Many are professors at local medical schools.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women_and_children_health_complex.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
@@ -331,7 +331,7 @@ var HOSPITALS_KL = [
     gaps: "No liver transplant. Long outpatient waits. Parking can be congested on weekdays.",
     robotics: "Da Vinci Robotic Surgery System. PET-CT. Linear accelerators for radiation therapy. 3T MRI.",
     doctorQualifications: "Professors, Associate Professors, and Senior Lecturers who are MMC-registered specialists. All hold higher specialist qualifications (MRCP, FRCS, FRCOG, etc.). Many are internationally recognized researchers.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gleneagles_Hospital_and_Medical_Centre_2,_Jul_06.JPG",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://www.ummc.edu.my" },
@@ -550,7 +550,7 @@ var HOSPITALS_KL = [
     gaps: "Premium pricing. No radiation oncology (full suite). No liver transplant.",
     robotics: "Robotic surgery available. 3T MRI. PET-CT.",
     doctorQualifications: "All specialists MMC-registered with higher specialist qualifications. Many are top-ranked in their fields in Malaysia.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pantai_Hospital_at_Night.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://www.princecourt.com" }
@@ -759,7 +759,7 @@ var HOSPITALS_KL = [
     nameShort: "Beacon Hospital",
     sector: "private",
     tier: "tertiary",
-    state: "Kuala Lumpur",
+    state: "Selangor",
     city: "Petaling Jaya",
     intro: "Beacon Hospital is Malaysia's leading dedicated cancer hospital, offering comprehensive oncology services including radiation therapy, medical oncology, and haematology. It is the country's primary private referral centre for cancer treatment.",
     famousFor: ["Malaysia's premier dedicated cancer hospital", "Proton beam therapy partner (overseas referral)", "Bone Marrow Transplant (BMT) programme", "Comprehensive radiation oncology with TrueBeam STx"],
@@ -848,7 +848,7 @@ var HOSPITALS_KL = [
     gaps: "Cancer-focused only. No proton therapy in Malaysia. Premium cost for cancer treatment.",
     robotics: "TrueBeam STx Radiotherapy System. Elekta Linear Accelerators. CyberKnife (verify). PET-CT.",
     doctorQualifications: "All oncologists and haematologists are MMC-registered subspecialists. Many have fellowship training at MD Anderson, Princess Margaret, RMH London.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beacon_Hospital_Picture.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://www.beaconhospital.com.my" }
@@ -1118,90 +1118,6 @@ var HOSPITALS_KL = [
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.imu.edu.my/imu-hospital" }]
-  },
-  {
-    id: "assunta-hospital",
-    name: "Assunta Hospital",
-    nameShort: "Assunta",
-    sector: "private",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Petaling Jaya",
-    intro: "Assunta Hospital is one of Petaling Jaya's oldest and most trusted private hospitals, founded by the Franciscan Missionaries of Mary (FMM). Known for its compassionate care tradition, it offers comprehensive specialist services for the PJ and KL community.",
-    famousFor: ["One of PJ's oldest and most trusted hospitals", "Founded by FMM religious sisters — compassionate care tradition", "Wide range of specialist services", "Strong obstetrics and paediatrics programme"],
-    infrastructure: {
-      yearEstablished: 1954,
-      totalBeds: 240,
-      icuBeds: 20,
-      nicuBeds: 8,
-      operatingTheatres: 10,
-      area: "~3 acres",
-      buildings: "Main Block, New Wing, Chapel",
-      helipad: false,
-      parkingBays: "~300 bays",
-      parkingRate: "RM 1.50/hour"
-    },
-    contact: {
-      address: "Jalan Templer, 46990 Petaling Jaya, Selangor",
-      mainLine: "+603-7782 3433",
-      emergencyLine: "+603-7782 3433 ext. A&E",
-      appointmentLine: "+603-7782 3433",
-      website: "https://www.assuntahospital.com",
-      mapQuery: "Assunta Hospital Petaling Jaya Jalan Templer"
-    },
-    transport: {
-      nearest: "Taman Jaya LRT Station — 15 min walk or short taxi",
-      bus: "Rapid KL bus routes (PJ area)",
-      highway: "NPE/Federal Highway — Exit Petaling Jaya",
-      landmark: "Near Asia Jaya / Universiti LRT, Petaling Jaya"
-    },
-    facilities: {
-      pharmacy24h: true,
-      cafeteria: "Ground floor, 7am–9pm",
-      atm: "Lobby",
-      surau: "Available",
-      chapel: "Yes (Catholic chapel on site)",
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Free WiFi",
-      patientTransport: "Medical transport available"
-    },
-    visitingHours: { general: "11:00–21:00", icu: "Restricted — check with nurse", paediatric: "Parents: unrestricted", maternity: "Partner: flexible", notes: "Private hospital — flexible visiting." },
-    specialtyCoverage: {
-      available: [
-        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
-        "Cardiology", "General Surgery",
-        "Obstetrics & Gynaecology", "Paediatrics",
-        "Orthopaedics", "Gastroenterology",
-        "Urology", "ENT", "Ophthalmology",
-        "Oncology (selected)", "Endocrinology", "Dermatology",
-        "Neurology", "Rehabilitation"
-      ],
-      notAvailable: [
-        { specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical or Gleneagles KL", note: "Refer to tertiary centre" },
-        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
-      ],
-      byReferral: ["Complex oncology — refer to Beacon or Gleneagles KL"]
-    },
-    transferPathway: { summary: "Community private hospital with long tradition. Complex cases referred to larger tertiary centres.", routes: [], howToTransfer: "Specialist referral." },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited"],
-    verifiedNotes: "240 beds. One of PJ's oldest private hospitals. FMM-founded.",
-    notableGaps: "No cardiothoracic surgery. Limited complex oncology.",
-    primaryExcellence: "Trusted community private hospital — Petaling Jaya",
-    secondarySpecialties: "Obstetrics, Paediatrics, Cardiology",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology"],
-    roomRate: "RM 150 – RM 450+/night",
-    roomRateRaw: 250,
-    insurance: "Accepts major Malaysian insurance panels.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "No cardiothoracic surgery. No liver transplant.",
-    robotics: "Standard imaging — MRI, CT.",
-    doctorQualifications: "MMC-registered specialists. Many longstanding consultants.",
-    imageUrl: null,
-    imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.assuntahospital.com" }]
   },
   {
     id: "umsc",
@@ -1800,33 +1716,6 @@ var HOSPITALS_KL = [
     gaps: "No emergency care. No general medicine.", robotics: "None.", doctorQualifications: "MOH sports medicine specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~50 beds (est.). National sports medicine centre.", notableGaps: "No emergency or general inpatient care."
-  },
-  {
-    id: "hospital-ampang",
-    name: "Hospital Ampang",
-    nameShort: "Hospital Ampang",
-    sector: "public", tier: "tertiary", state: "Kuala Lumpur", city: "Ampang",
-    intro: "Hospital Ampang is Malaysia's national haematology and bone marrow transplant (BMT) centre, a highly specialised public hospital serving the entire country.",
-    famousFor: ["National bone marrow transplant (BMT) centre", "National haematology referral centre", "Serves leukaemia, lymphoma and blood disorder patients from all states"],
-    infrastructure: { yearEstablished: 1995, totalBeds: 350, icuBeds: 20, nicuBeds: 0, operatingTheatres: 6, area: "~10 acres", buildings: "Main Block, BMT Unit", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Jalan Mewah Utama, Pandan Indah, 68000 Ampang, Selangor", mainLine: "+603-4289 2333", emergencyLine: "+603-4289 2333 ext. A&E", appointmentLine: "+603-4289 2333", website: "https://www.moh.gov.my", mapQuery: "Hospital Ampang KL" },
-    transport: { nearest: "Pandan Indah / Ampang LRT — 10 min taxi", bus: "RapidKL T402", highway: "Ampang-Kuala Lumpur Elevated Highway (AKLEH)", landmark: "Pandan Indah, Ampang, near Kuala Lumpur" },
-    facilities: { pharmacy24h: true, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: restricted (BMT sterile)", maternity: "N/A", notes: "Strict infection control in BMT wards." },
-    specialtyCoverage: {
-      available: ["Haematology", "Bone Marrow Transplant (BMT)", "Oncology (blood cancers)", "Internal Medicine", "Infectious Disease"],
-      notAvailable: [{ specialty: "General surgery / orthopaedics", transferTo: "Hospital Kuala Lumpur", note: "Haematology specialist centre" }],
-      byReferral: ["All blood cancers nationwide → Hospital Ampang"]
-    },
-    transferPathway: { summary: "National BMT centre. All states refer blood cancer and BMT cases here.", routes: [], howToTransfer: "MOH specialist referral." },
-    specialtyRanks: { "Haematology / BMT": { rank: "National #1", desc: "Malaysia's only dedicated public BMT centre" } },
-    accreditations: ["MOH Accredited", "MSQH Accredited"],
-    primaryExcellence: "National haematology and bone marrow transplant (BMT) centre", secondarySpecialties: "Oncology, Infectious Disease",
-    fullSpecialties: ["Haematology", "BMT", "Oncology"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam / Socso.", fppScheme: true, fppDeposit: "N/A",
-    gaps: "Limited general surgical services.", robotics: "None.", doctorQualifications: "MOH haematologists and oncologists — fellowship trained.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~350 beds (est.). Malaysia's national BMT centre.", notableGaps: "No general surgery — refer to HKL."
   },
   {
     id: "normah-kl",

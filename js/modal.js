@@ -88,13 +88,14 @@ window.HI = window.HI || {};
     var el = document.getElementById('modal-panel-1');
     if (!el) return;
 
+    var tt = window.HI.tt || function(s) { return s; };
     var inf = h.infrastructure || {};
     var accs = (h.accreditations || []).map(function(a) {
       return '<span class="badge-verified">' + a + '</span>';
     }).join('');
 
     var famousList = (h.famousFor || []).map(function(f) {
-      return '<li>' + f + '</li>';
+      return '<li>' + tt(f) + '</li>';
     }).join('');
 
     var infraItems = [
@@ -103,9 +104,9 @@ window.HI = window.HI || {};
       { label: window.HI.t('nicu_label'), value: inf.nicuBeds ? inf.nicuBeds + ' ' + window.HI.t('nicu_label') : '—' },
       { label: window.HI.t('ot_label'), value: inf.operatingTheatres ? inf.operatingTheatres + ' ' + window.HI.t('ot_label') : '—' },
       { label: window.HI.t('established'), value: inf.yearEstablished ? window.HI.t('years_est') + ' ' + inf.yearEstablished : '—' },
-      { label: window.HI.t('area_label'), value: inf.area || '—' },
-      { label: window.HI.t('buildings_label'), value: inf.buildings || '—' },
-      { label: window.HI.t('helipad'), value: inf.helipad ? '&#10003; Yes' : 'No' }
+      { label: window.HI.t('area_label'), value: inf.area ? tt(inf.area) : '—' },
+      { label: window.HI.t('buildings_label'), value: inf.buildings ? tt(inf.buildings) : '—' },
+      { label: window.HI.t('helipad'), value: inf.helipad ? '&#10003; ' + window.HI.t('yes_label') : window.HI.t('no_label') }
     ];
 
     var infraHtml = infraItems.map(function(item) {
@@ -114,7 +115,7 @@ window.HI = window.HI || {};
 
     el.innerHTML =
       '<div class="modal-section">' +
-        '<p class="hospital-intro">' + (h.intro || '') + '</p>' +
+        '<p class="hospital-intro">' + tt(h.intro || '') + '</p>' +
       '</div>' +
       (h.famousFor && h.famousFor.length ? '<div class="modal-section"><h4>' + window.HI.t('famous_for') + '</h4><ul class="famous-list">' + famousList + '</ul></div>' : '') +
       '<div class="modal-section">' +
@@ -122,8 +123,8 @@ window.HI = window.HI || {};
         '<div class="infra-grid">' + infraHtml + '</div>' +
       '</div>' +
       (accs ? '<div class="modal-section"><h4>' + window.HI.t('accreditations') + '</h4><div class="accreditations-row">' + accs + '</div></div>' : '') +
-      (h.verifiedNotes ? '<div class="modal-section verified-notes-box"><div><h4>' + window.HI.t('verified_notes') + '</h4><p>' + h.verifiedNotes + '</p></div></div>' : '') +
-      (h.notableGaps ? '<div class="modal-section notable-gaps-box"><div><h4>' + window.HI.t('notable_gaps') + '</h4><p>' + h.notableGaps + '</p></div></div>' : '');
+      (h.verifiedNotes ? '<div class="modal-section verified-notes-box"><div><h4>' + window.HI.t('verified_notes') + '</h4><p>' + tt(h.verifiedNotes) + '</p></div></div>' : '') +
+      (h.notableGaps ? '<div class="modal-section notable-gaps-box"><div><h4>' + window.HI.t('notable_gaps') + '</h4><p>' + tt(h.notableGaps) + '</p></div></div>' : '');
   }
 
   // Panel 2: Specialties
@@ -131,6 +132,7 @@ window.HI = window.HI || {};
     var el = document.getElementById('modal-panel-2');
     if (!el) return;
 
+    var tt = window.HI.tt || function(s) { return s; };
     var cov = h.specialtyCoverage || {};
     var available = cov.available || [];
     var notAvailable = cov.notAvailable || [];
@@ -147,7 +149,7 @@ window.HI = window.HI || {};
           available.map(function(s) {
             var rankInfo = ranks[s];
             var rankBadge = rankInfo ? ' <span class="rank-badge">' + rankInfo.rank + '</span>' : '';
-            return '<span class="spec-chip available" title="' + (rankInfo ? rankInfo.desc : '') + '">' + s + rankBadge + '</span>';
+            return '<span class="spec-chip available" title="' + (rankInfo ? rankInfo.desc : '') + '">' + tt(s) + rankBadge + '</span>';
           }).join('') +
         '</div>' +
       '</div>';
@@ -158,9 +160,9 @@ window.HI = window.HI || {};
     if (notAvailable.length > 0) {
       var rows = notAvailable.map(function(item) {
         return '<tr>' +
-          '<td class="spec-na-name">&#10060; ' + (item.specialty || item) + '</td>' +
+          '<td class="spec-na-name">&#10060; ' + tt(item.specialty || item) + '</td>' +
           '<td class="spec-na-transfer">' + (item.transferTo ? '<span class="transfer-label">' + window.HI.t('transfer_to') + '</span> ' + item.transferTo : '—') + '</td>' +
-          '<td class="spec-na-note text-xs text-slate-500">' + (item.note || '') + '</td>' +
+          '<td class="spec-na-note text-xs text-slate-500">' + tt(item.note || '') + '</td>' +
         '</tr>';
       }).join('');
       notAvailHtml = '<div class="modal-section">' +
@@ -176,7 +178,7 @@ window.HI = window.HI || {};
         '<h4 class="spec-section-title spec-referral-title">&#128260; ' + window.HI.t('spec_referral') + ' <span class="spec-count">' + byReferral.length + '</span></h4>' +
         '<div class="spec-chips">' +
           byReferral.map(function(s) {
-            return '<span class="spec-chip referral">' + s + '</span>';
+            return '<span class="spec-chip referral">' + tt(s) + '</span>';
           }).join('') +
         '</div>' +
       '</div>';
@@ -187,15 +189,15 @@ window.HI = window.HI || {};
     if (tp.summary || (tp.routes && tp.routes.length)) {
       var routeRows = (tp.routes || []).map(function(r) {
         return '<tr>' +
-          '<td class="font-medium">' + (r.condition || '—') + '</td>' +
+          '<td class="font-medium">' + tt(r.condition || '—') + '</td>' +
           '<td>' + (r.to || '—') + '</td>' +
-          '<td class="text-xs text-slate-500">' + (r.reason || '') + '</td>' +
+          '<td class="text-xs text-slate-500">' + tt(r.reason || '') + '</td>' +
           '<td class="text-xs mono">' + (r.distanceKm ? r.distanceKm + ' km' : '—') + '</td>' +
         '</tr>';
       }).join('');
       transferHtml = '<div class="modal-section">' +
         '<h4>' + window.HI.t('transfer_pathway') + '</h4>' +
-        (tp.summary ? '<p class="transfer-summary">' + tp.summary + '</p>' : '') +
+        (tp.summary ? '<p class="transfer-summary">' + tt(tp.summary) + '</p>' : '') +
         (routeRows ? '<div class="transfer-table-wrap"><table class="transfer-table"><thead><tr><th>' + window.HI.t('col_condition') + '</th><th>' + window.HI.t('col_go_to') + '</th><th>' + window.HI.t('col_reason') + '</th><th>' + window.HI.t('col_distance') + '</th></tr></thead><tbody>' + routeRows + '</tbody></table></div>' : '') +
         (tp.howToTransfer ? '<div class="how-to-transfer-box"><strong>' + window.HI.t('how_to_transfer') + ':</strong> ' + tp.howToTransfer + '</div>' : '') +
       '</div>';
@@ -209,9 +211,9 @@ window.HI = window.HI || {};
         '<h4>' + window.HI.t('top_ranked') + '</h4>' +
         '<div class="rank-list">' +
           rankEntries.slice(0, 8).map(function(e) {
-            return '<div class="rank-row"><span class="rank-name">' + e[0] + '</span>' +
+            return '<div class="rank-row"><span class="rank-name">' + tt(e[0]) + '</span>' +
               '<span class="rank-val">' + e[1].rank + '</span>' +
-              (e[1].desc ? '<span class="rank-desc">' + e[1].desc + '</span>' : '') +
+              (e[1].desc ? '<span class="rank-desc">' + tt(e[1].desc) + '</span>' : '') +
             '</div>';
           }).join('') +
         '</div>' +

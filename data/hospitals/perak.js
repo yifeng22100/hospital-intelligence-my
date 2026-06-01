@@ -403,32 +403,6 @@ var HOSPITALS_PERAK = [
     verifiedNotes: "~100 beds (est.). District hospital.", notableGaps: "Specialist referral to Hospital Taiping."
   },
   {
-    id: "hgerik",
-    name: "Hospital Gerik",
-    nameShort: "Hospital Gerik",
-    sector: "public", tier: "district", state: "Perak", city: "Gerik",
-    intro: "Hospital Gerik serves the interior Upper Perak district, providing basic medical services to the remote Gerik area near the Royal Belum rainforest.",
-    famousFor: ["District hospital for Upper Perak / Gerik area"],
-    infrastructure: { yearEstablished: 1975, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: true, parkingBays: "~60 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 33300 Gerik, Perak", mainLine: "+605-791 2222 (verify)", emergencyLine: "+605-791 2222 ext. A&E", appointmentLine: "+605-791 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Gerik Perak" },
-    transport: { nearest: "Gerik town — 5 min walk", bus: "Limited bus routes", highway: "East-West Highway (Route 76)", landmark: "Gerik town, Royal Belum area" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
-      notAvailable: [{ specialty: "Specialist services", transferTo: "HRPB Ipoh", note: "Remote district hospital" }],
-      byReferral: ["Specialist → HRPB Ipoh or Hospital Taiping"]
-    },
-    transferPathway: { summary: "Remote district hospital. Complex → HRPB Ipoh.", routes: [], howToTransfer: "MOH referral / helicopter." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Gerik / Upper Perak", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Very limited services — remote location.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~80 beds (est.). Remote district hospital.", notableGaps: "Complex cases require long transfer to Ipoh."
-  },
-  {
     id: "hkuala-kangsar",
     name: "Hospital Kuala Kangsar",
     nameShort: "Hospital Kuala Kangsar",
@@ -557,32 +531,6 @@ var HOSPITALS_PERAK = [
     gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~130 beds (est.). District hospital for Kerian.", notableGaps: "Specialist referral to Hospital Taiping."
-  },
-  {
-    id: "hteluk-intan-private",
-    name: "Hospital Seri Manjung",
-    nameShort: "Hospital Seri Manjung",
-    sector: "public", tier: "district", state: "Perak", city: "Seri Manjung",
-    intro: "Hospital Seri Manjung provides district healthcare for the Manjung district in coastal Perak, an area known for the Lumut naval base and Pangkor Island.",
-    famousFor: ["District hospital for Manjung — Lumut naval base and Pangkor Island area"],
-    infrastructure: { yearEstallished: 1972, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 32040 Seri Manjung, Perak", mainLine: "+605-688 2222 (verify)", emergencyLine: "+605-688 2222 ext. A&E", appointmentLine: "+605-688 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Seri Manjung Perak" },
-    transport: { nearest: "Seri Manjung town — 5 min walk", bus: "Bus from Ipoh (~1.5 hrs)", highway: "Route 2 via Lumut", landmark: "Seri Manjung town, near Lumut naval base" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Subspecialties", transferTo: "HRPB Ipoh", note: "District hospital" }],
-      byReferral: ["Specialist → HRPB Ipoh"]
-    },
-    transferPathway: { summary: "District hospital. Complex → HRPB Ipoh.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "District hospital — Seri Manjung / Lumut area", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~130 beds (est.). District hospital for Seri Manjung / Manjung district.", notableGaps: "Specialist referral to HRPB Ipoh."
   },
   {
     id: "hbatang-kali",
