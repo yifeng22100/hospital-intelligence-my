@@ -144,7 +144,7 @@ export const HOSPITALS_PUTRAJAYA = [
       mapQuery: "Hospital Rehabilitasi Cheras HRC Kuala Lumpur"
     },
     transport: {
-      nearest: "Bandar Tun Razak MRT Station (Putrajaya Line) — 15 min walk or short taxi",
+      nearest: "No direct rail station; Taman Midah MRT (KG11, Kajang Line) — 25 min walk or short taxi; bus T401/T400 from Cheras area stops ~5 min walk from hospital — Grab from any MRT is the practical choice",
       bus: "Rapid KL Bus routes (Cheras area)",
       highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
       landmark: "Cheras, near UKM Medical Campus (HCTM/UKMMC)"

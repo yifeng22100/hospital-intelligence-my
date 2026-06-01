@@ -31,8 +31,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Jalan Pahang"
     },
     transport: {
-      nearest: "PWTC LRT Station (Ampang/Kelana Jaya Line) — 10 min walk",
-      bus: "Rapid KL Bus Route 250, 260",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — Entrance A is inside HKL grounds (0–5 min via walkalator); Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — ~7 min walk; KL Monorail Chow Kit — ~4 min walk",
+      bus: "Bus stops: KL55 (Hospital KL Barat) — 1 min walk; KL54 (Hospital KL Opp) — 3 min. Routes: 100, 103, 200, 202, 220, 250, 251, 254, 302, 402, GOKL-03/04/05/08, ML81, ML83",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Opposite Chow Kit Market, near Putra World Trade Centre (PWTC)"
     },
@@ -147,8 +147,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Psychiatric Jalan Pahang"
     },
     transport: {
-      nearest: "PWTC LRT Station — 12 min walk",
-      bus: "Rapid KL Route 250, 260",
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 8 min walk; Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 10 min walk",
+      bus: "Bus stops: KL55 (Hospital KL Barat) / KL54 (Hospital KL Opp) — shared with HKL campus. Routes: 100, 103, 200, 250, 260, 302, GOKL-03/04",
       highway: "MRR2 — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur main campus"
     },
@@ -253,8 +253,8 @@ export const HOSPITALS_KL = [
       mapQuery: "UMMC University Malaya Medical Centre Petaling Jaya"
     },
     transport: {
-      nearest: "University LRT Station (Kelana Jaya Line) — 15 min walk or short taxi ride",
-      bus: "Rapid KL Bus Route 12, U88",
+      nearest: "LRT Universiti (Kelana Jaya Line) — feeder bus T790 direct to PPUM Main Gate (~5 min bus ride; ~21 min walk not recommended); MRT Phileo Damansara (Kajang Line, KG11) — feeder bus T815 (~8 min walk then bus)",
+      bus: "Feeder bus T790 (LRT Taman Paramount ↺ Mid Valley) stops at PPUM Main Gate — board at Universiti LRT. T789, T815 also serve campus. Routes: T790, T789, T815, 710, 750, 772, 780, P701, 734, 751",
       highway: "NPE — Exit UM/Jalan Universiti",
       landmark: "Inside University of Malaya campus, off Jalan Universiti"
     },
@@ -369,8 +369,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Gleneagles Hospital Kuala Lumpur Jalan Ampang"
     },
     transport: {
-      nearest: "Ampang Park MRT Station (Putrajaya Line) — 5 min walk",
-      bus: "Rapid KL Bus along Jalan Ampang",
+      nearest: "LRT Ampang Park (Ampang Line) — 4 min walk (~280m); LRT KLCC (Kelana Jaya Line, KJ10) — 10 min walk",
+      bus: "Bus stops: KL893 (Gleneagles Intan MC) — 4 min; KL2296/KL2306 (Ampang Park area) — 4 min. Routes: 300, 303, 220, T224, 402",
       highway: "AKLEH — Exit Jalan Ampang",
       landmark: "Jalan Ampang near Ampang Park, opposite KLCC area"
     },
@@ -480,10 +480,10 @@ export const HOSPITALS_KL = [
       mapQuery: "Prince Court Medical Centre Kuala Lumpur Jalan Kia Peng"
     },
     transport: {
-      nearest: "KLCC LRT Station — 10 min walk",
-      bus: "Rapid KL along Jalan Ampang",
+      nearest: "Conlay MRT (PY22, Putrajaya Line) — 8 min walk; Tun Razak Exchange MRT (PY23, Putrajaya + Kajang Lines) — 11 min walk",
+      bus: "Routes: 400, 402, 421, GOKL-02/04; bus stops along Jalan Kia Peng / Jalan Ampang",
       highway: "AKLEH — Exit KLCC",
-      landmark: "Near KLCC Twin Towers, off Jalan Ampang"
+      landmark: "39 Jalan Kia Peng, near KLCC Twin Towers"
     },
     facilities: {
       pharmacy24h: true,
@@ -587,8 +587,8 @@ export const HOSPITALS_KL = [
       mapQuery: "Pantai Hospital Kuala Lumpur Bukit Pantai"
     },
     transport: {
-      nearest: "Kerinchi LRT Station (Kelana Jaya Line) — 10 min walk or short taxi",
-      bus: "Rapid KL Bus along Jalan Bangsar",
+      nearest: "LRT Kerinchi (Kelana Jaya Line) + feeder bus T791 — total ~10 min; LRT Universiti (Kelana Jaya Line) + feeder bus T789 — total ~20 min; no walkable rail station directly",
+      bus: "Feeder bus T791 (from Kerinchi LRT) and T789 (from Universiti LRT) stop at hospital — recommended approach. Routes: 750, 751, 772, 780, 821, T791, T789, GOKL-06",
       highway: "Sprint Highway — Exit Bangsar/Pantai",
       landmark: "Near Bangsar, off Jalan Kerinchi"
     },
@@ -885,8 +885,8 @@ export const HOSPITALS_KL = [
       mapQuery: "ParkCity Medical Centre Desa ParkCity Kuala Lumpur"
     },
     transport: {
-      nearest: "Kepong Baru MRT Station — 15 min by taxi/ride-share",
-      bus: "Rapid KL bus routes (Kepong area)",
+      nearest: "MRT Sri Damansara Sentral (Kajang Line, KG05) — ~14 min walk then T109 feeder bus to hospital (~20 min total); MRT Sri Damansara Timur (KG06) — similar",
+      bus: "Feeder bus T109 (MRT Sri Damansara Sentral ↺ Desa ParkCity circular) — stops at Waterfront ParkCity near hospital; runs 06:00–23:30. Also: 801, T108, T115",
       highway: "DUKE/MRR2 — Exit Desa ParkCity / Kepong",
       landmark: "Inside Desa ParkCity township, near The Waterfront"
     },
@@ -981,8 +981,8 @@ export const HOSPITALS_KL = [
       mapQuery: "UKMSC UKM Specialist Centre Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Bandar Tun Razak MRT Station — 10 min walk",
-      bus: "Rapid KL bus routes (Cheras area)",
+      nearest: "Bandar Tun Razak LRT (Sri Petaling Line) — 10 min walk; Taman Mutiara interchange (MRT Kajang Line + LRT Sri Petaling) — 12 min walk",
+      bus: "Bus stops: KL349 (Pusat Belia Antarabangsa) — 2 min; KL1983 (UKM campus area) — 4 min. Routes: 400, 450, GOKL-11, T400, T402",
       highway: "KESAS/MRR2 — Exit Cheras/Bandar Tun Razak",
       landmark: "UKM Medical Campus, Bandar Tun Razak Cheras"
     },
@@ -1075,8 +1075,8 @@ export const HOSPITALS_KL = [
       mapQuery: "IMU Hospital Bukit Jalil Kuala Lumpur"
     },
     transport: {
-      nearest: "Awan Besar LRT Station (Kelana Jaya Line) — 15 min by taxi",
-      bus: "Rapid KL bus routes (Bukit Jalil area)",
+      nearest: "LRT Sri Petaling (Sri Petaling Line) — 4–5 min walk (~280m); LRT Bukit Jalil (Sri Petaling Line) — 11 min walk",
+      bus: "Bus stop: IMU Bukit Jalil (~3 min walk). Routes: 651, 652, T563, T580",
       highway: "LDP — Exit Bukit Jalil",
       landmark: "IMU campus area, Bukit Jalil"
     },
@@ -1269,7 +1269,12 @@ export const HOSPITALS_KL = [
       website: "https://www.tungshin.com.my",
       mapQuery: "Tung Shin Hospital Jalan Pudu Kuala Lumpur"
     },
-    transport: { nearest: "Hang Tuah LRT Station — 10 min walk", bus: "Rapid KL bus along Jalan Pudu", highway: "SMART Tunnel area / Jalan Pudu exit", landmark: "Jalan Pudu, near Bukit Bintang / Chinatown" },
+    transport: {
+      nearest: "Plaza Rakyat LRT (Ampang + Sri Petaling Lines) — ~900m, 9-10 min walk; Hang Tuah interchange (KL Monorail + LRT Ampang + Sri Petaling Lines) — ~900m, 9-10 min walk; Bukit Bintang MRT (Kajang Line) — ~10 min walk; Merdeka MRT (Kajang Line) — 12-15 min walk",
+      bus: "Bus stop KL119 (Tung Shin Hospital stop) — 2-3 min walk from gate; Routes: 400, 401, 420, 421, 450, 452, 540, 580, 590, BET2, BET8",
+      highway: "SMART Tunnel area / Jalan Pudu exit",
+      landmark: "Jalan Pudu, near Bukit Bintang / Chinatown"
+    },
     facilities: { pharmacy24h: true, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: "Yes — Buddhist shrine room available", disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Community hospital — confirm with ward." },
     specialtyCoverage: {
@@ -1341,7 +1346,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Sunway Medical Centre Velocity Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Cochrane MRT Station (Putrajaya Line) — 5 min walk via covered link",
+      nearest: "Cochrane MRT (KG10, Kajang Line) — 7 min walk; Maluri interchange (LRT Ampang + LRT Sri Petaling Lines) — 8 min walk",
       bus: "Rapid KL Bus routes (Cheras area)",
       highway: "SMART Tunnel / MRR2 — Exit Cheras",
       landmark: "Sunway Velocity Mall, Cheras KL"
@@ -1406,108 +1411,6 @@ export const HOSPITALS_KL = [
     officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
   },
   {
-    id: "hpkkl",
-    name: "Hospital Pakar Kanak-Kanak Kuala Lumpur (HPKKL)",
-    nameShort: "HPKKL",
-    sector: "public",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Kuala Lumpur",
-    intro: "Hospital Pakar Kanak-Kanak Kuala Lumpur (HPKKL) is Malaysia's national dedicated public paediatric specialist hospital, providing comprehensive specialist care exclusively for children. Located adjacent to Hospital Kuala Lumpur, it is the country's apex centre for complex paediatric conditions.",
-    famousFor: ["Malaysia's national dedicated public paediatric hospital", "Paediatric subspecialty care — only dedicated paediatric hospital in public sector", "Paediatric surgery, paediatric oncology, paediatric cardiology"],
-    infrastructure: {
-      yearEstablished: 2010,
-      totalBeds: 200,
-      icuBeds: 20,
-      nicuBeds: 0,
-      operatingTheatres: 6,
-      area: "~5 acres (adjacent to HKL)",
-      buildings: "Dedicated paediatric hospital block",
-      helipad: false,
-      parkingBays: "Shared with HKL campus",
-      parkingRate: "RM 1/hour"
-    },
-    contact: {
-      address: "Jalan Pahang, 50586 Kuala Lumpur (near HKL)",
-      mainLine: "+603-2615 5555 (via HKL main)",
-      emergencyLine: "+603-2615 5555",
-      appointmentLine: "+603-2615 5555",
-      website: "https://hkl.moh.gov.my",
-      mapQuery: "Hospital Pakar Kanak-Kanak Kuala Lumpur HPKKL"
-    },
-    transport: {
-      nearest: "PWTC LRT Station — 10 min walk",
-      bus: "Rapid KL Bus Route 250, 260",
-      highway: "MRR2/DUKE — Exit Jalan Pahang",
-      landmark: "Adjacent to Hospital Kuala Lumpur (HKL) campus, Jalan Pahang"
-    },
-    facilities: {
-      pharmacy24h: true,
-      cafeteria: "Available (shared HKL campus)",
-      atm: "HKL main lobby nearby",
-      surau: "Available",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Free (HKL-Guest)",
-      patientTransport: "Shared with HKL"
-    },
-    visitingHours: {
-      general: "12:00–14:00, 17:00–20:00",
-      icu: "11:30–12:00, 17:30–18:00 (paediatric ICU — restricted)",
-      paediatric: "Parents: unrestricted",
-      maternity: "N/A",
-      notes: "Parents unrestricted. Other visitors follow standard visiting hours. PICU strictly controlled."
-    },
-    specialtyCoverage: {
-      available: [
-        "Paediatric Emergency Medicine & A&E (24/7)",
-        "Paediatric Intensive Care Unit (PICU)",
-        "Paediatric General Medicine",
-        "Paediatric Surgery", "Paediatric Cardiology", "Paediatric Cardiac Surgery",
-        "Paediatric Oncology", "Paediatric Haematology",
-        "Paediatric Neurology", "Paediatric Neurosurgery",
-        "Paediatric Nephrology", "Paediatric Urology",
-        "Paediatric Gastroenterology", "Paediatric Endocrinology",
-        "Paediatric Respiratory Medicine", "Paediatric Infectious Disease",
-        "Paediatric Orthopaedics", "Paediatric ENT", "Paediatric Ophthalmology",
-        "Paediatric Psychiatry", "Paediatric Rehabilitation"
-      ],
-      notAvailable: [
-        { specialty: "Adult Medicine (any)", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Paediatric hospital only — adults to HKL" }
-      ],
-      byReferral: ["Paediatric liver transplant — Hospital Selayang"]
-    },
-    transferPathway: {
-      summary: "Dedicated paediatric hospital. Adult patients to HKL next door. Paediatric liver transplant to Selayang.",
-      routes: [
-        { condition: "Adult patients", to: "Hospital Kuala Lumpur (HKL)", reason: "HKL main campus — adults only", distanceKm: 0.2 }
-      ],
-      howToTransfer: "Paediatric referral via GP or A&E. MOH inter-hospital referral for paediatric cases."
-    },
-    specialtyRanks: {
-      "Paediatric Care": { rank: "National #1 (Public)", desc: "Malaysia's designated national public paediatric specialist hospital" }
-    },
-    accreditations: ["MSQH Accredited", "MOH National Paediatric Hospital Designation"],
-    verifiedNotes: "National dedicated public paediatric hospital adjacent to HKL. Comprehensive paediatric subspecialty care. ~200 beds (est.).",
-    notableGaps: "Paediatric only — no adult services. No paediatric liver transplant on site (refer Selayang).",
-    primaryExcellence: "National public paediatric specialist hospital",
-    secondarySpecialties: "Paediatric Surgery, Paediatric Oncology, Paediatric Cardiology",
-    fullSpecialties: ["Paediatric Medicine", "Paediatric Surgery", "Paediatric Oncology", "Paediatric Cardiology", "Paediatric Neurology"],
-    roomRate: "RM 3 – RM 50 (Subsidised Public)",
-    roomRateRaw: 5,
-    insurance: "Heavily subsidised. FPP scheme available.",
-    fppScheme: true,
-    fppDeposit: "RM 200–1,000",
-    gaps: "Paediatric only. No adult services.",
-    robotics: "Standard paediatric imaging.",
-    doctorQualifications: "Paediatric subspecialists — MOH specialists with fellowship training in paediatrics.",
-    imageUrl: null,
-    imageCredit: "",
-    wikiLink: null,
-    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
     id: "hctm",
     name: "Hospital Canselor Tuanku Muhriz (HCTM / UKMMC)",
     nameShort: "HCTM / UKMMC",
@@ -1538,7 +1441,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Canselor Tuanku Muhriz HCTM UKMMC Cheras Kuala Lumpur"
     },
     transport: {
-      nearest: "Bandar Tun Razak MRT Station (Putrajaya Line) — 10 min walk",
+      nearest: "Bandar Tun Razak LRT (Sri Petaling Line) — 3 min walk; Taman Mutiara interchange (MRT Kajang + Sri Petaling LRT) — 4 min walk",
       bus: "Rapid KL Bus routes (Cheras / Bandar Tun Razak area)",
       highway: "KESAS / MRR2 — Exit Cheras / Bandar Tun Razak",
       landmark: "UKM Medical Campus, Bandar Tun Razak, Cheras"
@@ -1651,7 +1554,7 @@ export const HOSPITALS_KL = [
       website: "https://www.pusrawi.com.my",
       mapQuery: "Hospital Pusrawi Kuala Lumpur Jalan Tun Razak"
     },
-    transport: { nearest: "Dato' Keramat LRT Station — 10 min walk", bus: "Rapid KL bus (Jalan Tun Razak area)", highway: "DUKE — Exit Jalan Tun Razak", landmark: "Off Jalan Tun Razak, near Gleneagles KL" },
+    transport: { nearest: "LRT KLCC (Kelana Jaya Line, KJ10) — ~10 min walk; LRT Ampang Park (Ampang Line) — ~12 min walk", bus: "Routes: 170, 173, 402, T202, GOKL-05 (Orange); bus stops along Jalan Tun Razak", highway: "DUKE — Exit Jalan Tun Razak", landmark: "No. 2 Jalan Indah, Off Jalan Tun Razak, near Gleneagles KL" },
     facilities: { pharmacy24h: true, cafeteria: "Halal-certified cafeteria, 7am–9pm", atm: "Lobby", surau: "Multiple surau on all floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Islamic prayer times respected — visiting may be adjusted during prayer times." },
     specialtyCoverage: {
@@ -1745,14 +1648,14 @@ export const HOSPITALS_KL = [
   },
   {
     id: "tawakal-kl",
-    name: "Hospital Tawakal",
-    nameShort: "Hospital Tawakal",
+    name: "KPJ Tawakkal Specialist Hospital",
+    nameShort: "KPJ Tawakkal Specialist Hospital",
     sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Kuala Lumpur",
-    intro: "Hospital Tawakal is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
+    intro: "KPJ Tawakkal Specialist Hospital is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
     famousFor: ["Private hospital — Jalan Pahang area, Kuala Lumpur", "Long-established private hospital in KL"],
     infrastructure: { yearEstablished: 1985, totalBeds: 200, icuBeds: 12, nicuBeds: 6, operatingTheatres: 6, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "No. 202-A, Jalan Pahang, 53000 Kuala Lumpur", mainLine: "+603-4023 3599", emergencyLine: "+603-4023 3599 ext. A&E", appointmentLine: "+603-4023 3599", website: "https://www.tawakal.com.my", mapQuery: "Hospital Tawakal Kuala Lumpur" },
-    transport: { nearest: "Titiwangsa LRT/MRT — 10 min walk", bus: "RapidKL bus routes", highway: "MRR2 / Jalan Pahang", landmark: "Jalan Pahang, near Titiwangsa lake" },
+    contact: { address: "No. 202-A, Jalan Pahang, 53000 Kuala Lumpur", mainLine: "+603-4023 3599", emergencyLine: "+603-4023 3599 ext. A&E", appointmentLine: "+603-4023 3599", website: "https://www.tawakal.com.my", mapQuery: "KPJ Tawakkal Specialist Hospital Kuala Lumpur" },
+    transport: { nearest: "KL Monorail Chow Kit — ~4 min walk (nearest station); Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — ~5 min walk; Titiwangsa interchange (PY17, MRT + LRT + Monorail) — ~8 min walk", bus: "Bus stop: KL668 (KPJ Tawakkal HC) — 4 min. Routes: 170, 200, 201, 250, 260, GOKL-03/08, T180", highway: "MRR2 / Jalan Pahang", landmark: "Jalan Pahang, near Chow Kit / Titiwangsa lake" },
     facilities: { pharmacy24h: true, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1766,7 +1669,7 @@ export const HOSPITALS_KL = [
     fullSpecialties: ["Cardiology", "Surgery", "Orthopaedics", "Obstetrics", "Paediatrics"],
     roomRate: "RM 200–500/night", roomRateRaw: 280, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
     gaps: "No transplant services.", robotics: "Standard imaging.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Hospital Tawakal", url: "https://www.tawakal.com.my" }],
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Tawakkal Specialist Hospital", url: "https://www.tawakal.com.my" }],
     verifiedNotes: "~200 beds (est.). Private hospital, Jalan Pahang KL.", notableGaps: "No transplant services."
   },
   {
@@ -1776,9 +1679,9 @@ export const HOSPITALS_KL = [
     sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Kuala Lumpur",
     intro: "DSH Medical Centre (formerly Damansara Specialist Hospital) serves the residential communities of Damansara and northern KL with comprehensive private specialist care.",
     famousFor: ["Established private specialist hospital — Damansara area", "Long-established private hospital serving northern KL"],
-    infrastructure: { yearEstallished: 1990, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block, Specialist Wing", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour" },
+    infrastructure: { yearEstablished: 1990, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block, Specialist Wing", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour" },
     contact: { address: "Damansara, Kuala Lumpur", mainLine: "+603-7722 2692 (verify)", emergencyLine: "+603-7722 2692 ext. A&E", appointmentLine: "+603-7722 2692 (verify)", website: "https://www.moh.gov.my", mapQuery: "DSH Medical Centre Damansara KL" },
-    transport: { nearest: "Bandar Utama MRT — 10 min taxi", bus: "RapidKL bus routes", highway: "LDP / Penchala Link", landmark: "Damansara area, northern Kuala Lumpur" },
+    transport: { nearest: "Bandar Utama LRT (Kelana Jaya Line) — 10 min taxi; no direct walking route", bus: "RapidKL bus routes", highway: "LDP / Penchala Link", landmark: "Damansara area, northern Kuala Lumpur" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1802,9 +1705,9 @@ export const HOSPITALS_KL = [
     sector: "private", tier: "tertiary", state: "Kuala Lumpur", city: "Kuala Lumpur",
     intro: "Pantai Hospital Bangsar South is a private tertiary hospital in the Bangsar South commercial hub, serving the growing population of urban south KL.",
     famousFor: ["Private tertiary hospital — Bangsar South urban hub KL", "IHH network hospital in south KL"],
-    infrastructure: { yearEstallished: 2018, totalBeds: 250, icuBeds: 18, nicuBeds: 8, operatingTheatres: 8, area: "~5 acres", buildings: "Main Block, Tower", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
+    infrastructure: { yearEstablished: 2018, totalBeds: 250, icuBeds: 18, nicuBeds: 8, operatingTheatres: 8, area: "~5 acres", buildings: "Main Block, Tower", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
     contact: { address: "Bangsar South, 59200 Kuala Lumpur", mainLine: "+603-2241 9999 (verify)", emergencyLine: "+603-2241 9999 ext. A&E", appointmentLine: "+603-2241 9999 (verify)", website: "https://www.pantai.com.my", mapQuery: "Pantai Hospital Bangsar South KL" },
-    transport: { nearest: "Kerinchi MRT — 5 min walk", bus: "RapidKL bus / Go KL", highway: "Federal Highway / Sprint", landmark: "Bangsar South / KL Eco City" },
+    transport: { nearest: "Abdullah Hukum LRT (KJ14, Kelana Jaya Line) — ~7 min walk; KTM KL Eco City — ~8 min walk", bus: "Routes: 750, 751, 772, 780, T788-T791, GOKL-06; bus stops along Jalan Bangsar South", highway: "Federal Highway / Sprint", landmark: "Bangsar South / KL Eco City" },
     facilities: { pharmacy24h: true, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
@@ -1820,5 +1723,1045 @@ export const HOSPITALS_KL = [
     gaps: "No transplant services.", robotics: "Selected equipment.", doctorQualifications: "MOH-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Hospital", url: "https://www.pantai.com.my" }],
     verifiedNotes: "~250 beds (est.). Private tertiary, Bangsar South KL.", notableGaps: "No transplant services."
+  },
+  {
+    id: "hospital-tunku-azizah",
+    name: "Hospital Tunku Azizah",
+    nameShort: "Hospital Tunku Azizah",
+    sector: "public",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "Hospital Tunku Azizah (formerly Hospital Wanita dan Kanak-Kanak KL / HWKKL) is Malaysia's dedicated national Women's and Children's Hospital, located adjacent to Hospital Kuala Lumpur on Jalan Pahang. Renamed in 2019 in honour of the Queen, Tunku Azizah Aminah Maimunah Iskandariah, it serves as the public referral centre for high-risk obstetrics, gynaecology, and paediatric care in the Klang Valley.",
+    famousFor: [
+      "Dedicated national Women's and Children's hospital (renamed 2019)",
+      "High-risk obstetrics and maternal-fetal medicine",
+      "Paediatric subspecialty referral centre — KL",
+      "Neonatal Intensive Care Unit (NICU)",
+      "Adjacent to HKL — seamless tertiary backup"
+    ],
+    infrastructure: {
+      yearEstablished: 1953,
+      totalBeds: 600,
+      icuBeds: 20,
+      nicuBeds: 40,
+      operatingTheatres: 10,
+      area: "~6 acres (shared HKL campus)",
+      buildings: "Women's Block, Children's Block, Neonatal Block, OPD Building",
+      helipad: false,
+      parkingBays: "~400 bays (shared HKL)",
+      parkingRate: "RM 1/hour, max RM 8/day"
+    },
+    contact: {
+      address: "Jalan Pahang, 50586 Kuala Lumpur",
+      mainLine: "+603-2615 5555",
+      emergencyLine: "+603-2615 5555 ext. A&E",
+      appointmentLine: "+603-2615 5555",
+      website: "https://hkl.moh.gov.my",
+      mapQuery: "Hospital Tunku Azizah Jalan Pahang Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 5 min walk via HKL shared campus; Titiwangsa interchange (PY17, MRT + LRT Ampang + LRT Sri Petaling + Monorail) — 8 min walk",
+      bus: "Bus stops: KL55 (Hospital KL Barat) / KL54 (Hospital KL Opp) — shared with HKL campus. Routes: 100, 103, 200, 250, 260, 302, GOKL-03/04",
+      highway: "MRR2/DUKE — Exit Jalan Pahang",
+      landmark: "Adjacent to Hospital Kuala Lumpur, Jalan Pahang — near PWTC"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Ground floor, 6:30am–9pm",
+      atm: "Main lobby",
+      surau: "Level 2, 4",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free (HKL-Guest)",
+      patientTransport: "Shared with HKL campus transport"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "11:30–12:00, 17:30–18:00 (max 2 visitors)",
+      paediatric: "Parents: unrestricted. Others: 12:00–14:00, 17:00–20:00",
+      maternity: "Partner: unrestricted. Others: 12:00–20:00",
+      notes: "Women's and Children's ward policies strictly observed. Confirm with ward directly."
+    },
+    specialtyCoverage: {
+      available: [
+        "Obstetrics & Gynaecology (full service, 24/7)",
+        "High-Risk Obstetrics / Maternal-Fetal Medicine",
+        "Neonatal ICU (NICU)",
+        "Paediatrics (general and subspecialties)",
+        "Paediatric Surgery",
+        "Paediatric Cardiology",
+        "Paediatric Oncology",
+        "Paediatric Nephrology",
+        "Paediatric Neurology",
+        "Neonatology",
+        "Gynaecological Oncology",
+        "Fertility & Reproductive Medicine (selected)",
+        "Paediatric Endocrinology",
+        "Paediatric Respiratory",
+        "Child & Adolescent Psychiatry"
+      ],
+      notAvailable: [
+        { specialty: "Adult General Medicine / Surgery", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Women and children only — adult general cases to adjacent HKL" },
+        { specialty: "Heart Transplant (Paediatric)", transferTo: "Institut Jantung Negara (IJN)", note: "IJN handles cardiac transplants" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National liver transplant centre" }
+      ],
+      byReferral: [
+        "Complex paediatric cardiac surgery — co-managed with HKL Cardiothoracic or IJN",
+        "Paediatric bone marrow transplant — refer to UMMC or HKL Haematology"
+      ]
+    },
+    transferPathway: {
+      summary: "National Women's and Children's Hospital co-located with HKL. Complex non-women/children cases transferred to HKL immediately across the campus. Highly complex paediatric subspecialty cases coordinated with IJN and Selayang.",
+      routes: [
+        { condition: "Adult medical/surgical emergencies", to: "Hospital Kuala Lumpur (HKL)", reason: "Adjacent campus — 5 min internal transfer", distanceKm: 0.2 },
+        { condition: "Liver transplant", to: "Hospital Selayang", reason: "National liver transplant centre", distanceKm: 18 },
+        { condition: "Paediatric heart transplant", to: "Institut Jantung Negara (IJN)", reason: "National cardiac surgical institute", distanceKm: 3 }
+      ],
+      howToTransfer: "MOH inter-hospital referral. For emergencies, internal HKL campus transfer is immediate."
+    },
+    specialtyRanks: {
+      "Obstetrics & Gynaecology": { rank: "National #1 (Public)", desc: "Highest-volume public Women's & Children's hospital in Malaysia" },
+      "Neonatology (NICU)": { rank: "National #1 (Public)", desc: "One of the largest public NICU centres, co-ranked with HKL" }
+    },
+    accreditations: ["MSQH Accredited", "MOH Designated Women's and Children's Hospital"],
+    verifiedNotes: "Formerly Hospital Wanita dan Kanak-Kanak KL (HWKKL). Renamed Hospital Tunku Azizah in 2019 after HRH Queen Tunku Azizah Aminah Maimunah Iskandariah. Located on Jalan Pahang adjacent to HKL. ~600 beds (MOH estimate). Dedicated NICU and full paediatric subspecialty services confirmed.",
+    notableGaps: "Women and children only — no adult general services. Outpatient specialist waiting times can be long. Limited private room availability as public hospital.",
+    primaryExcellence: "National public Women's and Children's Hospital — obstetrics, paediatrics, neonatology",
+    secondarySpecialties: "Maternal-Fetal Medicine, Paediatric Oncology, Paediatric Cardiology",
+    fullSpecialties: ["Obstetrics & Gynaecology", "Paediatrics", "Neonatology", "Paediatric Surgery", "Gynaecological Oncology", "Maternal-Fetal Medicine"],
+    roomRate: "RM 3 – RM 80 (Subsidised Public)",
+    roomRateRaw: 5,
+    insurance: "Subsidised public hospital. FPP scheme available. Commercial cashless panels via pay-and-claim.",
+    fppScheme: true,
+    fppDeposit: "RM 500–2,000 depending on procedure",
+    gaps: "Women and children only. No adult general care. Long outpatient waits.",
+    robotics: "Foetal monitoring systems, advanced NICU equipment. Standard imaging.",
+    doctorQualifications: "MMC-registered specialist O&G consultants and paediatricians. Many hold FRCOG, MRCPCH, and local specialist diplomas. Senior consultants are professors at local medical schools.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" },
+      { label: "HKL / Hospital Tunku Azizah", url: "https://hkl.moh.gov.my" }
+    ]
+  },
+  {
+    id: "ijn",
+    name: "Institut Jantung Negara (IJN)",
+    nameShort: "IJN",
+    sector: "public",
+    tier: "quaternary",
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "Institut Jantung Negara (IJN), the National Heart Institute, is Malaysia's premier and only dedicated cardiac hospital, providing the full spectrum of cardiac care from prevention to the most complex interventional and surgical procedures including heart transplantation. Established in 1992, IJN is a government-linked specialist institution on Jalan Tun Razak and is the national referral centre for all cardiac and cardiothoracic conditions.",
+    famousFor: [
+      "Malaysia's National Heart Institute — only cardiac hospital",
+      "Heart transplant programme (only centre in Malaysia)",
+      "Highest-volume cardiac surgery centre in Malaysia",
+      "Paediatric cardiac surgery programme",
+      "Complex congenital heart disease management"
+    ],
+    infrastructure: {
+      yearEstablished: 1992,
+      totalBeds: 545,
+      icuBeds: 80,
+      nicuBeds: 0,
+      operatingTheatres: 12,
+      area: "~8 acres",
+      buildings: "Main Tower, Cardiac ICU Block, Paediatric Cardiac Block, Research Wing",
+      helipad: true,
+      parkingBays: "~600 bays",
+      parkingRate: "RM 2/hour, max RM 15/day"
+    },
+    contact: {
+      address: "145, Jalan Tun Razak, 50400 Kuala Lumpur",
+      mainLine: "+603-2600 5555",
+      emergencyLine: "+603-2600 5555 ext. A&E",
+      appointmentLine: "+603-2600 5555",
+      website: "https://www.ijn.com.my",
+      mapQuery: "Institut Jantung Negara IJN Jalan Tun Razak Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Raja Uda MRT (PY19, Putrajaya Line) — ~6 min walk via Entrance B; Ampang Park MRT (PY20) — 10 min walk along Jalan Tun Razak",
+      bus: "Bus stops: KL271 (IJN Barat) — 2 min; KL1638 (IJN Timur) — 3 min. Routes: 220, 302, 402, GOKL-05",
+      highway: "DUKE / AKLEH — Exit Jalan Tun Razak",
+      landmark: "Jalan Tun Razak, near Hospital Kuala Lumpur and PWTC"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Ground floor and Level 4, 6:30am–9pm",
+      atm: "Main lobby (multiple banks)",
+      surau: "Level 2, 4",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free (IJN-Guest)",
+      patientTransport: "IJN medical transport available"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "Cardiac ICU: 11:30–12:00, 17:30–18:00 (strictly 2 visitors max)",
+      paediatric: "Parents: unrestricted. Others: 12:00–14:00, 17:00–20:00",
+      maternity: "N/A",
+      notes: "Cardiac ICU visiting strictly controlled. Always confirm with ward before visiting."
+    },
+    specialtyCoverage: {
+      available: [
+        "Cardiology (all subspecialties, 24/7)",
+        "Cardiothoracic Surgery",
+        "Cardiac Electrophysiology & Ablation",
+        "Interventional Cardiology (PCI, TAVI, structural heart)",
+        "Heart Failure & Advanced Cardiac Care",
+        "Heart Transplant (only centre in Malaysia)",
+        "Paediatric Cardiology",
+        "Paediatric Cardiac Surgery (congenital heart disease)",
+        "Cardiac Rehabilitation",
+        "Cardiac Imaging (echo, cardiac MRI, cardiac CT)",
+        "Cardiac Anaesthesia",
+        "Vascular Surgery (cardiac-related)"
+      ],
+      notAvailable: [
+        { specialty: "General Medicine / non-cardiac", transferTo: "Hospital Kuala Lumpur (HKL)", note: "IJN is cardiac-only — non-cardiac conditions transferred to HKL" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National liver transplant centre" },
+        { specialty: "General Neurosurgery", transferTo: "HKL or UMMC", note: "IJN handles only cardiac neurology complications" }
+      ],
+      byReferral: [
+        "Aortic arch surgery — co-managed with HKL Cardiothoracic",
+        "Multi-organ transplant — refer to respective national centres"
+      ]
+    },
+    transferPathway: {
+      summary: "IJN is the national cardiac referral destination. All complex cardiac conditions across Malaysia are referred here. Non-cardiac emergencies are transferred to adjacent HKL.",
+      routes: [
+        { condition: "Non-cardiac emergencies", to: "Hospital Kuala Lumpur (HKL)", reason: "Nearest full-service hospital — 3 km away", distanceKm: 3 },
+        { condition: "Liver/kidney transplant", to: "Hospital Selayang / UMMC", reason: "IJN is cardiac-only", distanceKm: 18 }
+      ],
+      howToTransfer: "IJN accepts MOH inter-hospital referrals and private referrals for cardiac cases nationwide. Emergency cardiac transfers from all states arranged via IJN Control Centre."
+    },
+    specialtyRanks: {
+      "Cardiology": { rank: "National #1 (Overall)", desc: "Malaysia's only dedicated cardiac hospital — national referral centre for all cardiac conditions" },
+      "Cardiac Surgery": { rank: "National #1", desc: "Highest-volume cardiac surgery programme in Malaysia including heart transplant" },
+      "Heart Transplant": { rank: "National #1 (Only Centre)", desc: "The only institution performing heart transplants in Malaysia" },
+      "Paediatric Cardiac Surgery": { rank: "National #1 (Public)", desc: "National centre for congenital heart disease surgery" }
+    },
+    accreditations: ["MSQH Accredited", "JCI Accredited", "MOH Designated National Heart Institute", "ISO 9001"],
+    verifiedNotes: "545 beds confirmed (IJN annual report). Heart transplant programme confirmed — only centre in Malaysia. JCI accreditation verified. Located at 145 Jalan Tun Razak. Established 1992 as government-linked corporation. Both public (subsidised) and private wings available.",
+    notableGaps: "Cardiac-only — no general medicine, no general surgery. Non-cardiac emergencies must transfer to HKL. Outpatient waiting for elective cardiology can be 2–4 weeks for new referrals.",
+    primaryExcellence: "National Heart Institute — only cardiac hospital in Malaysia, heart transplant centre",
+    secondarySpecialties: "Paediatric Cardiac Surgery, Cardiac Electrophysiology, Heart Failure",
+    fullSpecialties: ["Cardiology", "Cardiothoracic Surgery", "Interventional Cardiology", "Cardiac Electrophysiology", "Heart Transplant", "Paediatric Cardiology", "Paediatric Cardiac Surgery"],
+    roomRate: "RM 3 – RM 600+ (Subsidised public class RM 3–80; Private wing RM 250–600+/night)",
+    roomRateRaw: 50,
+    insurance: "Both public (subsidised) and private wings. FPP scheme available for public class. Major commercial insurance accepted for private wing. Cashless admission for major insurers.",
+    fppScheme: true,
+    fppDeposit: "RM 500–5,000 depending on procedure and class",
+    gaps: "Cardiac-only. Non-cardiac cases must go elsewhere. Premium cost for private wing cardiac procedures.",
+    robotics: "Robotic cardiac surgery (select procedures). Hybrid cardiac catheterisation labs. Cardiac MRI. 3D echocardiography. TAVI and structural heart intervention suite.",
+    doctorQualifications: "All cardiologists and cardiac surgeons are MMC-registered subspecialists. Many hold fellowships from American College of Cardiology, European Society of Cardiology, Royal College of Surgeons. IJN consultants are leading researchers and visiting professors at Malaysian universities.",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Institut_Jantung_Negara.jpg/1280px-Institut_Jantung_Negara.jpg",
+    imageCredit: "Wikimedia Commons",
+    officialSources: [
+      { label: "Official Website", url: "https://www.ijn.com.my" },
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
+  },
+  {
+    id: "pantai-ampang",
+    name: "Pantai Hospital Ampang",
+    nameShort: "Pantai Ampang",
+    sector: "private",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Ampang, Kuala Lumpur",
+    intro: "Pantai Hospital Ampang is a private tertiary hospital located in Ampang, on the KL–Selangor border, serving the large residential and expatriate communities of Ampang, Ulu Kelang, and eastern KL. Part of the Pantai/IHH Healthcare group, it offers comprehensive specialist services and is conveniently accessible from the Ampang LRT corridor.",
+    famousFor: [
+      "Private tertiary hospital serving Ampang and eastern KL communities",
+      "IHH/Pantai network — consistent specialist standards",
+      "Accessible from Ampang LRT corridor",
+      "Wide specialist panel for Ampang and Ulu Kelang catchment"
+    ],
+    infrastructure: {
+      yearEstablished: 1994,
+      totalBeds: 200,
+      icuBeds: 16,
+      nicuBeds: 6,
+      operatingTheatres: 7,
+      area: "~3 acres",
+      buildings: "Main Tower, Specialist Clinic Block",
+      helipad: false,
+      parkingBays: "~300 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "Jalan Mamanda 9, Ampang Point, 68000 Ampang, Kuala Lumpur",
+      mainLine: "+603-4270 2500",
+      emergencyLine: "+603-4270 2500 ext. A&E",
+      appointmentLine: "+603-4270 2500",
+      website: "https://www.pantai.com.my/ampang",
+      mapQuery: "Pantai Hospital Ampang Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Ampang LRT Station (Ampang Line terminus) — 12 min walk or short taxi; Pandan Jaya LRT (Kelana Jaya Line) — 15 min by taxi",
+      bus: "Rapid KL bus routes (Ampang area)",
+      highway: "AKLEH — Exit Ampang; MRR2 — Exit Ampang Point",
+      landmark: "Ampang Point commercial area, Ampang"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Ground floor, 7am–9pm",
+      atm: "Main lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner/family: flexible",
+      notes: "Private hospital — flexible visiting. Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
+        "Cardiology", "General Surgery", "Neurology",
+        "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics",
+        "Gastroenterology", "Urology", "ENT", "Ophthalmology",
+        "Oncology (selected)", "Endocrinology", "Dermatology",
+        "Rehabilitation Medicine"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Pantai KL or Gleneagles KL", note: "Refer to larger tertiary centre" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital or Gleneagles KL"]
+    },
+    transferPathway: {
+      summary: "Full-service private hospital for Ampang community. Complex surgical and transplant cases referred to larger tertiary centres.",
+      routes: [],
+      howToTransfer: "Specialist-to-specialist referral. Patient coordinator handles logistics."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "IHH/Pantai Healthcare Group"],
+    verifiedNotes: "Pantai Hospital Ampang is a confirmed IHH/Pantai group hospital in Ampang Point, Kuala Lumpur. ~200 beds (est.).",
+    notableGaps: "No cardiothoracic surgery. No liver transplant. Smaller subspecialist range compared to Pantai KL flagship.",
+    primaryExcellence: "Private tertiary hospital — Ampang / eastern KL community",
+    secondarySpecialties: "Obstetrics, Paediatrics, Cardiology, Orthopaedics",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 180 – RM 550+/night",
+    roomRateRaw: 280,
+    insurance: "Accepts major Malaysian insurance panels. Cashless available for Pantai/IHH panel insurers.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No liver transplant. Smaller facility than Pantai KL flagship.",
+    robotics: "Standard imaging — MRI, CT.",
+    doctorQualifications: "MMC-registered specialists. IHH/Pantai group standards.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Official Website", url: "https://www.pantai.com.my/ampang" },
+      { label: "IHH Healthcare Group", url: "https://www.ihhhealthcare.com" }
+    ]
+  },
+  {
+    id: "pantai-cheras-kl",
+    name: "Pantai Hospital Cheras",
+    nameShort: "Pantai Cheras",
+    sector: "private",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Cheras, Kuala Lumpur",
+    intro: "Pantai Hospital Cheras is a private tertiary hospital in Cheras, Kuala Lumpur, serving the densely populated Cheras corridor. Part of the Pantai/IHH Healthcare group, it provides comprehensive specialist services to the Cheras, Kajang, and south-east KL communities. Note: this is the KL-side Cheras hospital (WP Kuala Lumpur) as distinct from any Selangor-side facilities.",
+    famousFor: [
+      "Private tertiary hospital — Cheras, KL corridor",
+      "IHH/Pantai network — wide specialist panel",
+      "Serving densely populated Cheras–south KL communities"
+    ],
+    infrastructure: {
+      yearEstablished: 1996,
+      totalBeds: 220,
+      icuBeds: 16,
+      nicuBeds: 6,
+      operatingTheatres: 8,
+      area: "~3 acres",
+      buildings: "Main Tower, Specialist Clinic Block",
+      helipad: false,
+      parkingBays: "~300 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "No. 1, Jalan 1/96A, Taman Cheras Makmur, 56100 Cheras, Kuala Lumpur",
+      mainLine: "+603-9102 7888",
+      emergencyLine: "+603-9102 7888 ext. A&E",
+      appointmentLine: "+603-9102 7888",
+      website: "https://www.pantai.com.my/cheras",
+      mapQuery: "Pantai Hospital Cheras Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Taman Mutiara MRT (Kajang Line) — 10 min walk; Miharja LRT (Sri Petaling / Ampang Lines) — 12 min walk or short taxi",
+      bus: "Rapid KL Bus routes (Cheras area)",
+      highway: "MRR2 / SMART Tunnel — Exit Cheras",
+      landmark: "Cheras Makmur, Cheras KL"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Ground floor, 7am–9pm",
+      atm: "Main lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner/family: flexible",
+      notes: "Private hospital — flexible visiting. Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
+        "Cardiology", "General Surgery", "Neurology",
+        "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics",
+        "Gastroenterology", "Urology", "ENT", "Ophthalmology",
+        "Oncology (selected)", "Endocrinology", "Dermatology",
+        "Rehabilitation Medicine"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Pantai KL or Gleneagles KL", note: "Refer to larger tertiary centre" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital; Neurosurgery — refer to UKMSC/HCTM or Gleneagles KL"]
+    },
+    transferPathway: {
+      summary: "Full-service community private hospital for Cheras KL corridor. Complex surgical and transplant cases referred to larger centres.",
+      routes: [],
+      howToTransfer: "Specialist-to-specialist referral within Pantai/IHH network."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "IHH/Pantai Healthcare Group"],
+    verifiedNotes: "Pantai Hospital Cheras — IHH/Pantai group facility in Cheras, WP Kuala Lumpur. ~220 beds (est.). Distinct from any Selangor-side facility; this hospital is within Kuala Lumpur city boundary.",
+    notableGaps: "No cardiothoracic surgery on-site. No liver transplant. Smaller than flagship Pantai KL.",
+    primaryExcellence: "Private tertiary hospital — Cheras / south-east KL community",
+    secondarySpecialties: "Obstetrics, Paediatrics, Cardiology, Orthopaedics",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 180 – RM 550+/night",
+    roomRateRaw: 280,
+    insurance: "Accepts major Malaysian insurance panels. Cashless available for Pantai/IHH panel insurers.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No liver transplant.",
+    robotics: "Standard imaging — MRI, CT.",
+    doctorQualifications: "MMC-registered specialists. IHH/Pantai group standards.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Official Website", url: "https://www.pantai.com.my/cheras" },
+      { label: "IHH Healthcare Group", url: "https://www.ihhhealthcare.com" }
+    ]
+  },
+  {
+    id: "columbia-asia-setapak",
+    name: "Columbia Asia Hospital Setapak",
+    nameShort: "Columbia Asia Setapak",
+    sector: "private",
+    tier: "secondary",
+    state: "Kuala Lumpur",
+    city: "Setapak, Kuala Lumpur",
+    intro: "Columbia Asia Hospital Setapak is a private community hospital located in Setapak, north-east Kuala Lumpur. Part of the Columbia Asia group (now rebranded under Ramsay Sime Darby Health Care), it provides accessible and affordable specialist care for the Setapak, Wangsa Maju, and surrounding communities.",
+    famousFor: [
+      "Affordable private community hospital — Setapak, north-east KL",
+      "Columbia Asia / Ramsay Sime Darby group — consistent care standards",
+      "Conveniently serving Setapak, Wangsa Maju, Keramat corridor"
+    ],
+    infrastructure: {
+      yearEstablished: 2004,
+      totalBeds: 100,
+      icuBeds: 8,
+      nicuBeds: 4,
+      operatingTheatres: 4,
+      area: "~2 acres",
+      buildings: "Main hospital building",
+      helipad: false,
+      parkingBays: "~150 bays",
+      parkingRate: "RM 1.50/hour"
+    },
+    contact: {
+      address: "Jalan Pahang Barat, Setapak, 53000 Kuala Lumpur",
+      mainLine: "+603-4023 8888",
+      emergencyLine: "+603-4023 8888 ext. A&E",
+      appointmentLine: "+603-4023 8888",
+      website: "https://www.columbiaasia.com/setapak",
+      mapQuery: "Columbia Asia Hospital Setapak Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Wangsa Maju LRT Station (Ampang Line) — 15 min by taxi; no direct walking route",
+      bus: "Rapid KL bus routes (Setapak area)",
+      highway: "MRR2 / DUKE — Exit Setapak / Jalan Pahang",
+      landmark: "Setapak commercial area, near Jalan Pahang Barat"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Ground floor, 7am–8pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Limited"
+    },
+    visitingHours: {
+      general: "11:00–20:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner: flexible",
+      notes: "Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU",
+        "General Medicine", "General Surgery",
+        "Cardiology", "Obstetrics & Gynaecology", "Paediatrics",
+        "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology",
+        "Dermatology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles KL or HKL", note: "Refer to tertiary centre" },
+        { specialty: "Neurosurgery", transferTo: "HKL or Gleneagles KL", note: "Refer to neurosurgical centre" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital or HKL"]
+    },
+    transferPathway: {
+      summary: "Community private hospital. Complex surgical cases and emergencies referred to HKL or tertiary private centres.",
+      routes: [],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "Columbia Asia / Ramsay Sime Darby Group"],
+    verifiedNotes: "Columbia Asia Hospital Setapak — community hospital in Setapak, WP Kuala Lumpur. ~100 beds (est.). Part of Columbia Asia / Ramsay Sime Darby Health Care network.",
+    notableGaps: "No cardiothoracic surgery. No neurosurgery. Limited subspecialist range. Smaller facility.",
+    primaryExcellence: "Affordable community private hospital — Setapak / north-east KL",
+    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 120 – RM 320+/night",
+    roomRateRaw: 180,
+    insurance: "Accepts major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
+    robotics: "Standard imaging — CT, X-ray.",
+    doctorQualifications: "MMC-registered specialists. Columbia Asia / Ramsay Sime Darby group standards.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Columbia Asia / Ramsay Sime Darby Health Care", url: "https://www.ramsaysimedarby.com" }
+    ]
+  },
+  {
+    id: "columbia-asia-bukit-jalil",
+    name: "Columbia Asia Hospital Bukit Jalil",
+    nameShort: "Columbia Asia Bukit Jalil",
+    sector: "private",
+    tier: "secondary",
+    state: "Kuala Lumpur",
+    city: "Bukit Jalil, Kuala Lumpur",
+    intro: "Columbia Asia Hospital Bukit Jalil is a private community hospital in Bukit Jalil, south Kuala Lumpur, serving the growing residential communities of Bukit Jalil, Sri Petaling, and Puchong North. Part of the Columbia Asia group (Ramsay Sime Darby Health Care), it offers affordable specialist care in a modern facility.",
+    famousFor: [
+      "Affordable private community hospital — Bukit Jalil, south KL",
+      "Columbia Asia / Ramsay Sime Darby group network",
+      "Serving Bukit Jalil, Sri Petaling, Puchong North catchment"
+    ],
+    infrastructure: {
+      yearEstablished: 2008,
+      totalBeds: 100,
+      icuBeds: 8,
+      nicuBeds: 4,
+      operatingTheatres: 4,
+      area: "~2 acres",
+      buildings: "Main hospital building",
+      helipad: false,
+      parkingBays: "~150 bays",
+      parkingRate: "RM 1.50/hour"
+    },
+    contact: {
+      address: "Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur",
+      mainLine: "+603-8996 8888",
+      emergencyLine: "+603-8996 8888 ext. A&E",
+      appointmentLine: "+603-8996 8888",
+      website: "https://www.columbiaasia.com/bukit-jalil",
+      mapQuery: "Columbia Asia Hospital Bukit Jalil Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Bukit Jalil LRT Station (Sri Petaling Line) — 10 min walk",
+      bus: "Rapid KL bus routes (Bukit Jalil area)",
+      highway: "LDP / KESAS — Exit Bukit Jalil",
+      landmark: "Bukit Jalil township, near Bukit Jalil National Sports Complex"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Ground floor, 7am–8pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Limited"
+    },
+    visitingHours: {
+      general: "11:00–20:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner: flexible",
+      notes: "Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU",
+        "General Medicine", "General Surgery",
+        "Cardiology", "Obstetrics & Gynaecology", "Paediatrics",
+        "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology",
+        "Dermatology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles KL or Prince Court", note: "Refer to tertiary centre" },
+        { specialty: "Neurosurgery", transferTo: "HKL or UMMC", note: "Refer to neurosurgical centre" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital or IMU Hospital Bukit Jalil"]
+    },
+    transferPathway: {
+      summary: "Community private hospital. Complex cases referred to tertiary centres.",
+      routes: [],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "Columbia Asia / Ramsay Sime Darby Group"],
+    verifiedNotes: "Columbia Asia Hospital Bukit Jalil — community hospital in Bukit Jalil, WP Kuala Lumpur. ~100 beds (est.). Part of Columbia Asia / Ramsay Sime Darby Health Care network.",
+    notableGaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
+    primaryExcellence: "Affordable community private hospital — Bukit Jalil / south KL",
+    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 120 – RM 320+/night",
+    roomRateRaw: 180,
+    insurance: "Accepts major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
+    robotics: "Standard imaging — CT, X-ray.",
+    doctorQualifications: "MMC-registered specialists. Columbia Asia / Ramsay Sime Darby group standards.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Columbia Asia / Ramsay Sime Darby Health Care", url: "https://www.ramsaysimedarby.com" }
+    ]
+  },
+  {
+    id: "chinese-maternity-hospital",
+    name: "Chinese Maternity Hospital",
+    nameShort: "Chinese Maternity Hospital",
+    sector: "private",
+    tier: "secondary",
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "Chinese Maternity Hospital (CMH) is a historic, non-profit private hospital in central Kuala Lumpur, established by the Chinese community in 1921. Originally focused on maternity care for the Chinese community, it has expanded over the decades to offer general specialist services while retaining its community hospital ethos and more affordable fee structure compared to commercial private hospitals.",
+    famousFor: [
+      "Historic Chinese community non-profit hospital (est. 1921)",
+      "Affordable maternity and specialist care in central KL",
+      "Non-profit community hospital — community-priced fees",
+      "Long-standing trust among KL Chinese community"
+    ],
+    infrastructure: {
+      yearEstablished: 1921,
+      totalBeds: 130,
+      icuBeds: 10,
+      nicuBeds: 6,
+      operatingTheatres: 5,
+      area: "~2 acres",
+      buildings: "Main Block, Maternity Wing, Specialist Clinic",
+      helipad: false,
+      parkingBays: "~100 bays",
+      parkingRate: "RM 1/hour"
+    },
+    contact: {
+      address: "No. 1, Jalan Utama, Off Jalan Ipoh, 51200 Kuala Lumpur",
+      mainLine: "+603-4042 2800",
+      emergencyLine: "+603-4042 2800 ext. A&E",
+      appointmentLine: "+603-4042 2800",
+      website: "https://www.cmhkl.com.my",
+      mapQuery: "Chinese Maternity Hospital Kuala Lumpur Jalan Ipoh"
+    },
+    transport: {
+      nearest: "Sentul Timur LRT Station (Ampang Line) — 15 min walk or short taxi; Sentul LRT (KTM/LRT interchange) — 10 min taxi",
+      bus: "Rapid KL bus routes (Jalan Ipoh area)",
+      highway: "MRR2 / DUKE — Exit Jalan Ipoh / Sentul",
+      landmark: "Off Jalan Ipoh, Sentul area, northern KL"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Ground floor, 7am–8pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: "Yes — community prayer room available",
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Limited"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner/family: flexible",
+      notes: "Community hospital — confirm visiting with ward. Maternity ward policies may be more flexible."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU", "NICU",
+        "Obstetrics & Gynaecology (core strength)",
+        "Maternity & Delivery",
+        "Paediatrics & Neonatology",
+        "General Medicine", "General Surgery",
+        "Cardiology", "Orthopaedics",
+        "ENT", "Ophthalmology", "Dermatology",
+        "Gastroenterology", "Urology"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "HKL or Gleneagles KL", note: "Refer to tertiary centre" },
+        { specialty: "Neurosurgery", transferTo: "HKL or UMMC", note: "Refer to neurosurgical centre" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital or HKL; Complex subspecialties — refer to HKL"]
+    },
+    transferPathway: {
+      summary: "Non-profit community hospital with strong maternity focus. Complex cases referred to HKL or tertiary private hospitals.",
+      routes: [],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {
+      "Maternity Care": { rank: "Historic community leader", desc: "Over 100 years of maternity and community healthcare in KL — deeply trusted by KL Chinese community" }
+    },
+    accreditations: ["MOH Licensed", "Non-profit community hospital status"],
+    verifiedNotes: "Chinese Maternity Hospital — established 1921, one of KL's oldest private hospitals. Non-profit community hospital status. ~130 beds (est.). Primarily serves Chinese community but open to all. Affordable fees compared to commercial private hospitals.",
+    notableGaps: "No cardiothoracic surgery. No neurosurgery. Limited subspecialist range for complex conditions. Older facilities in some areas.",
+    primaryExcellence: "Historic non-profit community hospital — maternity, general medicine, affordable care",
+    secondarySpecialties: "Obstetrics, Paediatrics, General Surgery",
+    fullSpecialties: ["Obstetrics & Gynaecology", "Paediatrics", "General Medicine", "General Surgery"],
+    roomRate: "RM 80 – RM 300+/night (more affordable non-profit rates)",
+    roomRateRaw: 130,
+    insurance: "Accepts some Malaysian insurance panels. Non-profit pricing structure.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Limited subspecialist range. No cardiothoracic or neurosurgery. Older infrastructure in parts.",
+    robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists and visiting consultants.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Chinese Maternity Hospital KL", url: "https://www.cmhkl.com.my" },
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
+  },
+  {
+    id: "damai-service-hospital",
+    name: "Damai Service Hospital",
+    nameShort: "Damai Service Hospital",
+    sector: "private",
+    tier: "secondary",
+    state: "Kuala Lumpur",
+    city: "Segambut, Kuala Lumpur",
+    intro: "Damai Service Hospital is a private community hospital in Segambut, north-west Kuala Lumpur. It serves the Segambut, Kepong, and Mont Kiara residential catchment with general specialist services. Damai is known for its longstanding community presence and accessibility for north KL residents.",
+    famousFor: [
+      "Established private community hospital — Segambut, north KL",
+      "Serving Segambut, Kepong, Mont Kiara residential communities",
+      "Accessible location in north-west KL"
+    ],
+    infrastructure: {
+      yearEstablished: 1993,
+      totalBeds: 120,
+      icuBeds: 10,
+      nicuBeds: 4,
+      operatingTheatres: 5,
+      area: "~2 acres",
+      buildings: "Main Block",
+      helipad: false,
+      parkingBays: "~150 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "No 1, Jalan Segambut Tengah, Segambut, 51200 Kuala Lumpur",
+      mainLine: "+603-6250 4488",
+      emergencyLine: "+603-6250 4488 ext. A&E",
+      appointmentLine: "+603-6250 4488",
+      website: "https://www.damai.com.my",
+      mapQuery: "Damai Service Hospital Segambut Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Segambut KTM Komuter Station — 10 min walk; Kepong Sentral MRT (PY08, Putrajaya Line) — 12 min by taxi",
+      bus: "Rapid KL bus routes (Segambut / Kepong area)",
+      highway: "MRR2 / DUKE — Exit Segambut / Kepong",
+      landmark: "Jalan Segambut Tengah, Segambut — near Kepong"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Ground floor, 7am–8pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Limited"
+    },
+    visitingHours: {
+      general: "11:00–14:00, 17:00–20:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner: flexible",
+      notes: "Community hospital — confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU",
+        "General Medicine", "General Surgery",
+        "Cardiology", "Obstetrics & Gynaecology", "Paediatrics",
+        "Orthopaedics", "Gastroenterology",
+        "ENT", "Ophthalmology", "Dermatology"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "HKL or Gleneagles KL", note: "Refer to tertiary centre" },
+        { specialty: "Neurosurgery", transferTo: "HKL or Gleneagles KL", note: "Refer to neurosurgical centre" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital or HKL"]
+    },
+    transferPathway: {
+      summary: "Community private hospital. Complex cases referred to HKL or tertiary private centres.",
+      routes: [],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "Damai Service Hospital — private community hospital in Segambut, WP Kuala Lumpur. ~120 beds (est.). Longstanding community hospital serving north-west KL.",
+    notableGaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity only.",
+    primaryExcellence: "Private community hospital — Segambut / north-west KL",
+    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 120 – RM 350+/night",
+    roomRateRaw: 180,
+    insurance: "Accepts major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Community-level only. No cardiothoracic or neurosurgery.",
+    robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists and visiting consultants.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Damai Service Hospital", url: "https://www.damai.com.my" },
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
+  },
+  {
+    id: "kpj-sentosa",
+    name: "KPJ Sentosa Specialist Hospital",
+    nameShort: "KPJ Sentosa",
+    sector: "private",
+    tier: "secondary",
+    state: "Kuala Lumpur",
+    city: "Setapak, Kuala Lumpur",
+    intro: "KPJ Sentosa Specialist Hospital is a private specialist hospital in Setapak, Kuala Lumpur, operated by KPJ Healthcare — Malaysia's largest private hospital group. It provides specialist outpatient and inpatient services for the Setapak, Wangsa Maju, and Gombak communities.",
+    famousFor: [
+      "KPJ Healthcare network hospital — Setapak, north KL",
+      "KPJ group — Malaysia's largest private hospital operator",
+      "Specialist care for Setapak, Wangsa Maju, Gombak communities"
+    ],
+    infrastructure: {
+      yearEstablished: 2000,
+      totalBeds: 130,
+      icuBeds: 10,
+      nicuBeds: 4,
+      operatingTheatres: 5,
+      area: "~2 acres",
+      buildings: "Main hospital building, Specialist Clinic Block",
+      helipad: false,
+      parkingBays: "~200 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "No. 2, Jalan 1/65, Off Jalan Pahang Barat, Setapak, 53300 Kuala Lumpur",
+      mainLine: "+603-4023 3322",
+      emergencyLine: "+603-4023 3322 ext. A&E",
+      appointmentLine: "+603-4023 3322",
+      website: "https://www.kpjsentosa.com.my",
+      mapQuery: "KPJ Sentosa Specialist Hospital Setapak Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Wangsa Maju LRT Station (Ampang Line) — 12 min walk or short taxi",
+      bus: "Rapid KL bus routes (Setapak / Wangsa Maju area)",
+      highway: "MRR2 / DUKE — Exit Setapak",
+      landmark: "Jalan Pahang Barat area, Setapak, north KL"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Ground floor café, 7am–8pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Limited"
+    },
+    visitingHours: {
+      general: "11:00–14:00, 17:00–21:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner: flexible",
+      notes: "Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU",
+        "General Medicine", "General Surgery",
+        "Cardiology", "Obstetrics & Gynaecology", "Paediatrics",
+        "Orthopaedics", "Gastroenterology",
+        "ENT", "Ophthalmology", "Dermatology", "Urology"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "HKL or Gleneagles KL", note: "Refer to tertiary centre" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government national centre" }
+      ],
+      byReferral: ["Complex oncology — refer to Beacon Hospital or HKL; Neurosurgery — refer to HKL or UMMC"]
+    },
+    transferPathway: {
+      summary: "KPJ specialist hospital — community level. Complex cases referred to HKL or larger KPJ/private tertiary hospitals.",
+      routes: [],
+      howToTransfer: "KPJ specialist referral within group or to public sector."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
+    verifiedNotes: "KPJ Sentosa Specialist Hospital — KPJ Healthcare group hospital in Setapak, WP Kuala Lumpur. ~130 beds (est.). KPJ is Malaysia's largest private hospital operator.",
+    notableGaps: "No cardiothoracic surgery. No neurosurgery on-site. Community-level specialist range.",
+    primaryExcellence: "KPJ private specialist hospital — Setapak / north KL",
+    secondarySpecialties: "General Medicine, Obstetrics, Paediatrics, Cardiology",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics"],
+    roomRate: "RM 150 – RM 450+/night",
+    roomRateRaw: 230,
+    insurance: "Accepts major Malaysian insurance panels. KPJ group panel rates available.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
+    robotics: "Standard imaging — CT, X-ray.",
+    doctorQualifications: "MMC-registered specialists. KPJ Healthcare group standards.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "KPJ Sentosa Specialist Hospital", url: "https://www.kpjsentosa.com.my" },
+      { label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }
+    ]
+  },
+  {
+    id: "iheal-medical-centre",
+    name: "iHEAL Medical Centre",
+    nameShort: "iHEAL Medical Centre",
+    sector: "private",
+    tier: "secondary",
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "iHEAL Medical Centre is a private medical centre in Kuala Lumpur offering specialist outpatient and inpatient services. It focuses on accessible and patient-centred care, with a range of specialist clinics and day-procedure facilities serving the urban KL population.",
+    famousFor: [
+      "Patient-centred private medical centre in KL",
+      "Specialist clinics and day procedures",
+      "Accessible urban location in Kuala Lumpur"
+    ],
+    infrastructure: {
+      yearEstablished: 2015,
+      totalBeds: 80,
+      icuBeds: 6,
+      nicuBeds: 2,
+      operatingTheatres: 3,
+      area: "~1 acre",
+      buildings: "Medical Centre building",
+      helipad: false,
+      parkingBays: "~100 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "Unit 1-9 (GF), Tower 1, Jalan Ampang Hilir, 50450 Kuala Lumpur",
+      mainLine: "+603-4270 8900",
+      emergencyLine: "+603-4270 8900",
+      appointmentLine: "+603-4270 8900",
+      website: "https://www.iheal.com.my",
+      mapQuery: "iHEAL Medical Centre Kuala Lumpur"
+    },
+    transport: {
+      nearest: "LRT Ampang Park (Ampang Line) — 8 min walk; LRT KLCC (Kelana Jaya Line, KJ10) — 10 min walk",
+      bus: "Rapid KL bus routes (Ampang/KLCC area)",
+      highway: "AKLEH — Exit Jalan Ampang",
+      landmark: "Jalan Ampang Hilir, near KLCC / Ampang area"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Available during business hours",
+      atm: "Nearby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Limited"
+    },
+    visitingHours: {
+      general: "11:00–20:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner: flexible",
+      notes: "Smaller medical centre — confirm visiting with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "General Medicine", "General Surgery (day procedures)",
+        "Cardiology", "Obstetrics & Gynaecology", "Paediatrics",
+        "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology",
+        "Dermatology", "Endocrinology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "24/7 Emergency A&E (full)", transferTo: "Gleneagles KL or HKL", note: "Limited emergency — refer to tertiary centre" },
+        { specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles KL or Prince Court", note: "Refer to larger tertiary centre" }
+      ],
+      byReferral: ["Complex surgery — refer to Gleneagles KL or UMMC; Oncology — refer to Beacon Hospital"]
+    },
+    transferPathway: {
+      summary: "Specialist medical centre. Complex emergencies and surgical cases referred to tertiary hospitals.",
+      routes: [],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "iHEAL Medical Centre — private medical centre in KL, located in Jalan Ampang Hilir area. ~80 beds (est.). Focus on specialist outpatient and day-procedure services.",
+    notableGaps: "Limited inpatient capacity. No full 24/7 A&E. No cardiothoracic or neurosurgery. Smaller facility.",
+    primaryExcellence: "Private specialist medical centre — urban KL",
+    secondarySpecialties: "General Medicine, Obstetrics, Cardiology",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 150 – RM 450+/night",
+    roomRateRaw: 220,
+    insurance: "Accepts major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Limited emergency. No cardiothoracic or neurosurgery. Smaller capacity.",
+    robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists and visiting consultants.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "iHEAL Medical Centre", url: "https://www.iheal.com.my" },
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
   }
 ];

@@ -207,7 +207,9 @@ function OverviewTab({ h }) {
             {h.contact.emergencyLine && (
               <p>
                 <span className="font-medium text-ink">Emergency: </span>
-                <span className="text-ink-secondary">{h.contact.emergencyLine}</span>
+                <a href={`tel:${h.contact.emergencyLine.replace(/[\s\-()]/g, '').replace(/ext\..*/i, '').trim()}`} className="text-red-600 hover:underline font-medium">
+                  {h.contact.emergencyLine}
+                </a>
               </p>
             )}
             {h.contact.website && (
@@ -387,94 +389,166 @@ function FacilRow({ icon, label, value, ok }) {
 }
 
 function IntelligenceTab({ h }) {
-  const intel = h.intelligence || {}
-
-  const hasContent =
-    intel.verifiedNotes?.length ||
-    intel.notableGaps?.length ||
-    intel.referralPathway ||
-    intel.insurancePanels?.length
-
-  if (!hasContent) {
-    return (
-      <div className="px-6 py-10 text-center text-ink-secondary text-[14px]">
-        Intelligence data not available for this hospital.
-      </div>
-    )
-  }
+  const tp = h.transferPathway || {}
+  const ranks = h.specialtyRanks || {}
+  const rankEntries = Object.entries(ranks)
 
   return (
     <div className="px-6 py-5 space-y-5">
-      {intel.verifiedNotes?.length > 0 && (
+
+      {/* Primary excellence */}
+      {h.primaryExcellence && (
+        <div className="bg-brand/5 border border-brand/20 rounded-xl px-4 py-3 text-[13px] text-brand font-medium">
+          ★ {h.primaryExcellence}
+        </div>
+      )}
+
+      {/* Verified notes */}
+      {h.verifiedNotes && (
         <div>
           <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
             Verified Notes
           </h4>
-          <div className="space-y-2">
-            {intel.verifiedNotes.map((note, i) => (
-              <div key={i} className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-[13px] text-blue-900">
-                {note}
-              </div>
-            ))}
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-[13px] text-blue-900 leading-relaxed">
+            {h.verifiedNotes}
           </div>
         </div>
       )}
 
-      {intel.notableGaps?.length > 0 && (
+      {/* Notable gaps */}
+      {h.notableGaps && (
         <div>
           <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
             Notable Gaps
           </h4>
+          <div className="bg-amber-50 border border-amber-100 rounded-xl p-3 text-[13px] text-amber-900 leading-relaxed">
+            {h.notableGaps}
+          </div>
+        </div>
+      )}
+
+      {/* Specialty rankings */}
+      {rankEntries.length > 0 && (
+        <div>
+          <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
+            Specialty Rankings
+          </h4>
           <div className="space-y-2">
-            {intel.notableGaps.map((gap, i) => (
-              <div key={i} className="bg-amber-50 border border-amber-100 rounded-xl p-3 text-[13px] text-amber-900">
-                {gap}
+            {rankEntries.map(([specialty, info]) => (
+              <div key={specialty} className="bg-surface-secondary rounded-xl p-3 text-[13px]">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className="font-medium text-ink">{specialty}</span>
+                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
+                    {info.rank}
+                  </span>
+                </div>
+                {info.desc && <p className="text-ink-secondary mt-1">{info.desc}</p>}
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {intel.referralPathway && (
+      {/* Transfer / referral pathway */}
+      {tp.summary && (
         <div>
           <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
-            Referral Pathway
+            Transfer Pathway
           </h4>
           <div className="bg-surface-secondary rounded-xl p-4 text-[13px] text-ink space-y-3">
-            {intel.referralPathway.byReferral?.length > 0 && (
-              <div>
-                <p className="font-medium text-ink mb-1">By referral:</p>
-                {intel.referralPathway.byReferral.map((r, i) => (
-                  <p key={i} className="text-ink-secondary pl-3">• {r}</p>
+            <p className="text-ink-secondary leading-relaxed">{tp.summary}</p>
+            {tp.routes?.length > 0 && (
+              <div className="space-y-2">
+                {tp.routes.map((r, i) => (
+                  <div key={i} className="border-l-2 border-ink-quaternary pl-3">
+                    <p className="font-medium text-ink">{r.condition}</p>
+                    <p className="text-ink-secondary">→ {r.to}
+                      {r.distanceKm > 0 && <span className="text-ink-tertiary"> ({r.distanceKm} km)</span>}
+                    </p>
+                    {r.reason && <p className="text-ink-tertiary text-[12px] italic">{r.reason}</p>}
+                  </div>
                 ))}
               </div>
             )}
-            {intel.referralPathway.selfPresent?.length > 0 && (
-              <div>
-                <p className="font-medium text-ink mb-1">Self-present (A&E):</p>
-                {intel.referralPathway.selfPresent.map((r, i) => (
-                  <p key={i} className="text-ink-secondary pl-3">• {r}</p>
-                ))}
-              </div>
+            {tp.howToTransfer && (
+              <p className="text-[12px] text-ink-tertiary border-t border-ink-quaternary pt-2">{tp.howToTransfer}</p>
             )}
           </div>
         </div>
       )}
 
-      {intel.insurancePanels?.length > 0 && (
+      {/* Accreditations */}
+      {h.accreditations?.length > 0 && (
         <div>
           <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
-            Insurance Panels
+            Accreditations
           </h4>
           <div className="flex flex-wrap gap-1.5">
-            {intel.insurancePanels.map((panel, i) => (
+            {h.accreditations.map((a, i) => (
               <span key={i} className="px-2.5 py-1 bg-surface-secondary border border-ink-quaternary rounded-full text-[12px] text-ink-secondary">
-                {panel}
+                {a}
               </span>
             ))}
           </div>
         </div>
       )}
+
+      {/* Costs & insurance */}
+      {(h.roomRate || h.insurance) && (
+        <div>
+          <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
+            Costs & Insurance
+          </h4>
+          <div className="space-y-2 text-[13px]">
+            {h.roomRate && (
+              <div className="flex items-start gap-2">
+                <span className="text-ink-tertiary flex-shrink-0">Room:</span>
+                <span className="text-ink">{h.roomRate}</span>
+              </div>
+            )}
+            {h.fppScheme && (
+              <div className="flex items-start gap-2">
+                <span className="text-ink-tertiary flex-shrink-0">FPP:</span>
+                <span className="text-ink">Available{h.fppDeposit ? ` · Deposit ${h.fppDeposit}` : ''}</span>
+              </div>
+            )}
+            {h.insurance && (
+              <p className="text-ink-secondary leading-relaxed">{h.insurance}</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Technology & robotics */}
+      {h.robotics && h.robotics.toLowerCase() !== 'none' && h.robotics.toLowerCase() !== 'not available' && (
+        <div>
+          <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
+            Technology
+          </h4>
+          <p className="text-[13px] text-ink-secondary leading-relaxed">{h.robotics}</p>
+        </div>
+      )}
+
+      {/* Doctor qualifications */}
+      {h.doctorQualifications && (
+        <div>
+          <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
+            Doctor Qualifications
+          </h4>
+          <p className="text-[13px] text-ink-secondary leading-relaxed">{h.doctorQualifications}</p>
+        </div>
+      )}
+
+      {/* Gaps */}
+      {h.gaps && (
+        <div>
+          <h4 className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-2.5">
+            Known Limitations
+          </h4>
+          <p className="text-[13px] text-ink-secondary leading-relaxed">{h.gaps}</p>
+        </div>
+      )}
+
     </div>
   )
 }

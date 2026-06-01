@@ -85,34 +85,6 @@ export const HOSPITALS_PERAK = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
-    id: "hmanjung",
-    name: "Hospital Manjung",
-    nameShort: "Hospital Manjung",
-    sector: "public", tier: "district", state: "Perak", city: "Manjung",
-    intro: "Hospital Manjung serves the Manjung district in coastal Perak, including the Lumut naval base area.",
-    famousFor: ["District hospital for Manjung / Lumut area"],
-    infrastructure: { yearEstablished: 1977, totalBeds: 200, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 32040 Seri Manjung, Perak", mainLine: "+605-688 5300 (verify)", emergencyLine: "+605-688 5300 ext. A&E (verify)", appointmentLine: "+605-688 5300 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Manjung Seri Manjung Perak" },
-    transport: { nearest: "Seri Manjung town — 5 min taxi", bus: "Local bus routes", highway: "Route 60 to Ipoh/KL", landmark: "Seri Manjung, Perak" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Most specialties", transferTo: "HRPB Ipoh", note: "District hospital" }],
-      byReferral: ["Most specialties — refer to HRPB Ipoh"]
-    },
-    transferPathway: { summary: "District hospital.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {},
-    accreditations: ["MOH Accredited"],
-    verifiedNotes: "200 beds. District hospital.",
-    notableGaps: "Limited specialists.",
-    primaryExcellence: "District hospital — Manjung / Lumut, Perak", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "RM 3 – RM 30", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist range.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
     id: "hgua-musang-perak",
     name: "Hospital Gerik",
     nameShort: "Hospital Gerik",
@@ -539,7 +511,7 @@ export const HOSPITALS_PERAK = [
     sector: "public", tier: "district", state: "Perak", city: "Tanjong Malim",
     intro: "Hospital Tanjong Malim serves the Muallim district in southern Perak, which is home to Proton City and a growing population near the Selangor border.",
     famousFor: ["District hospital for Tanjong Malim — Proton City and southern Perak", "Near Selangor-Perak border"],
-    infrastructure: { yearEstallished: 1968, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1968, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
     contact: { address: "Jalan Hospital, 35900 Tanjong Malim, Perak", mainLine: "+605-459 2222 (verify)", emergencyLine: "+605-459 2222 ext. A&E", appointmentLine: "+605-459 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Tanjong Malim Perak" },
     transport: { nearest: "Tanjong Malim KTM station — 5 min walk", bus: "Bus from Ipoh or KL (~1.5 hrs)", highway: "North-South Highway — Tanjong Malim exit", landmark: "Tanjong Malim town / Proton City" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
@@ -609,5 +581,64 @@ export const HOSPITALS_PERAK = [
     gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~60 beds (est.). District hospital, Sungai Siput Utara.", notableGaps: "Specialist referral to HRPB Ipoh."
+  },
+  {
+    id: "hbatu-gajah",
+    name: "Hospital Batu Gajah",
+    nameShort: "Hospital Batu Gajah",
+    sector: "public", tier: "district", state: "Perak", city: "Batu Gajah",
+    intro: "Hospital Batu Gajah is a MOH district hospital serving the Kinta district around Batu Gajah town, located approximately 30km south of Ipoh. Established in the British era (1880), it provides essential secondary healthcare to the historic tin-mining town and surrounding communities.",
+    famousFor: ["District hospital for Batu Gajah — historic Kinta Valley mining town", "One of the oldest government hospitals in Perak (est. 1880)"],
+    infrastructure: { yearEstablished: 1880, totalBeds: 160, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Aman, 31000 Batu Gajah, Perak", mainLine: "+605-366 3333", emergencyLine: "+605-366 3333 ext. A&E", appointmentLine: "+605-366 3333", website: "https://hbgjh.moh.gov.my", mapQuery: "Hospital Batu Gajah Perak" },
+    transport: { nearest: "Batu Gajah KTM station — 10 min walk", bus: "Bus from Ipoh (~30 min)", highway: "North-South Highway — Exit Ipoh South, then Route 1 south ~30km to Batu Gajah", landmark: "Batu Gajah town, Kinta district" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Specialist subspecialties", transferTo: "HRPB Ipoh", note: "District hospital — 30km from state hospital" }],
+      byReferral: ["Specialist → HRPB Ipoh (~30km)"]
+    },
+    transferPathway: { summary: "District hospital. Complex cases → HRPB Ipoh (~30km).", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Batu Gajah, Kinta district", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://hbgjh.moh.gov.my" }],
+    verifiedNotes: "~160 beds. District hospital, Batu Gajah, Kinta district. Phone: +605-366 3333. Website: hbgjh.moh.gov.my.", notableGaps: "Specialist referral to HRPB Ipoh."
+  },
+
+  {
+    id: "pcsh-ipoh",
+    name: "Perak Community Specialist Hospital",
+    nameShort: "PCSH Ipoh",
+    sector: "private", tier: "secondary", state: "Perak", city: "Ipoh",
+    intro: "Perak Community Specialist Hospital (PCSH) is one of Malaysia's oldest not-for-profit community hospitals, established in 1904 as the Perak Chinese Maternity Hospital. Located on Jalan Raja Permaisuri Bainun (Kampar Road), it provides multi-disciplinary specialist care including a dedicated Heart Centre and Haemodialysis Centre, serving the Ipoh community with affordable specialist services.",
+    famousFor: ["One of Malaysia's oldest not-for-profit community hospitals (est. 1904)", "Dedicated Heart Centre and Haemodialysis Centre", "Community-focused affordable specialist care in Ipoh"],
+    infrastructure: { yearEstablished: 1904, totalBeds: 84, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 1.50/hour" },
+    contact: { address: "277, Jalan Raja Permaisuri Bainun, 30250 Ipoh, Perak", mainLine: "+605-254 7777 (verify)", emergencyLine: "+605-254 7777 ext. A&E (verify)", appointmentLine: "+605-254 7777 (verify)", website: "https://pcsh.com.my", mapQuery: "Perak Community Specialist Hospital Ipoh" },
+    transport: { nearest: "Ipoh Railway Station — 15 min walk/taxi", bus: "Rapid Perak Bus (Jalan Kampar / Jalan Raja Permaisuri Bainun route)", highway: "North-South Highway — Exit Ipoh", landmark: "Jalan Raja Permaisuri Bainun (Kampar Road), Ipoh town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Community hospital. Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU", "NICU", "Cardiology (Heart Centre)", "Interventional Cardiology", "General Surgery", "Colorectal Surgery", "Internal Medicine", "Nephrology", "Haemodialysis", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Urology", "Radiology"],
+      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "HRPB Ipoh or Pantai Ipoh", note: "Refer to larger centre" }],
+      byReferral: ["Complex cases — refer to Pantai Ipoh or HRPB"]
+    },
+    transferPathway: { summary: "Not-for-profit community specialist hospital in Ipoh.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "84 beds. Not-for-profit community hospital est. 1904 (formerly Perak Chinese Maternity Hospital). Has Heart Centre and Haemodialysis Centre. Website: pcsh.com.my.",
+    notableGaps: "No cardiothoracic surgery.",
+    primaryExcellence: "Not-for-profit community specialist hospital — Ipoh, est. 1904", secondarySpecialties: "Cardiology (Heart Centre), Nephrology, Obstetrics",
+    fullSpecialties: ["Cardiology", "Internal Medicine", "Surgery", "Obstetrics", "Paediatrics", "Nephrology"],
+    roomRate: "RM 150 – RM 450+/night (community rates)", roomRateRaw: 220,
+    insurance: "Major Malaysian insurance panels.",
+    fppScheme: false, fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery.",
+    robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://pcsh.com.my" }]
   }
 ];

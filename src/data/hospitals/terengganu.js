@@ -223,13 +223,13 @@ export const HOSPITALS_TERENGGANU = [
   },
   {
     id: "kmc-kt",
-    name: "KMC Kuala Terengganu",
-    nameShort: "KMC Kuala Terengganu",
+    name: "KMI Kuala Terengganu Medical Centre",
+    nameShort: "KMI Kuala Terengganu Medical Centre",
     sector: "private", tier: "secondary", state: "Terengganu", city: "Kuala Terengganu",
     intro: "KMC (Kuala Terengganu Medical Centre) is a private hospital providing specialist care in the Kuala Terengganu area.",
     famousFor: ["Private specialist hospital — Kuala Terengganu"],
     infrastructure: { yearEstablished: 2005, totalBeds: 80, icuBeds: 5, nicuBeds: 2, operatingTheatres: 3, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Kuala Terengganu, Terengganu", mainLine: "+609-624 0000 (verify)", emergencyLine: "+609-624 0000 ext. A&E", appointmentLine: "+609-624 0000 (verify)", website: "https://www.moh.gov.my", mapQuery: "KMC Kuala Terengganu" },
+    contact: { address: "Kuala Terengganu, Terengganu", mainLine: "+609-624 0000 (verify)", emergencyLine: "+609-624 0000 ext. A&E", appointmentLine: "+609-624 0000 (verify)", website: "https://kmihealthcare.com/home/our-hospitals/kmi-kuala-terengganu-medical-center/", mapQuery: "KMI Kuala Terengganu Medical Centre" },
     transport: { nearest: "Kuala Terengganu town — taxi recommended", bus: "Local bus routes", highway: "Route 3 East Coast Highway", landmark: "Kuala Terengganu town" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -274,32 +274,6 @@ export const HOSPITALS_TERENGGANU = [
     verifiedNotes: "~80 beds (est.). District hospital for Hulu Terengganu.", notableGaps: "Specialist referral to HSNZ."
   },
   {
-    id: "hkuala-terengganu-private",
-    name: "Pantai Hospital Kuala Terengganu",
-    nameShort: "Pantai KT",
-    sector: "private", tier: "secondary", state: "Terengganu", city: "Kuala Terengganu",
-    intro: "Pantai Hospital Kuala Terengganu is a private specialist hospital serving the oil-rich Terengganu state capital with IHH-affiliated medical services.",
-    famousFor: ["Private specialist hospital in Kuala Terengganu", "Pantai IHH network"],
-    infrastructure: { yearEstablished: 2002, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Kuala Terengganu, Terengganu", mainLine: "+609-625 9999 (verify)", emergencyLine: "+609-625 9999 ext. A&E", appointmentLine: "+609-625 9999 (verify)", website: "https://www.pantai.com.my", mapQuery: "Pantai Hospital Kuala Terengganu" },
-    transport: { nearest: "Kuala Terengganu city — taxi recommended", bus: "Local bus routes", highway: "Route 3 East Coast Highway", landmark: "Kuala Terengganu city" },
-    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
-    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency (24/7)", "Cardiology (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "HSNZ Kuala Terengganu", note: "Refer for complex cases" }],
-      byReferral: ["Complex → HSNZ Kuala Terengganu"]
-    },
-    transferPathway: { summary: "Private specialist. Complex → HSNZ.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private specialist — Kuala Terengganu", secondarySpecialties: "General Medicine, Orthopaedics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Group", url: "https://www.pantai.com.my" }],
-    verifiedNotes: "~120 beds (est.). Private specialist, Kuala Terengganu.", notableGaps: "Complex → HSNZ."
-  },
-  {
     id: "hkuala-terengganu-main",
     name: "Hospital Hulu Terengganu",
     nameShort: "Hospital Hulu Terengganu",
@@ -326,9 +300,9 @@ export const HOSPITALS_TERENGGANU = [
     verifiedNotes: "~130 beds (est.). District hospital for Hulu Terengganu.", notableGaps: "Specialist referral to HSNZ."
   },
   {
-    id: "htumpat",
-    name: "Hospital Tumpat",
-    nameShort: "Hospital Tumpat",
+    id: "hkijal",
+    name: "Hospital Kijal",
+    nameShort: "Hospital Kijal",
     sector: "public", tier: "district", state: "Terengganu", city: "Kemaman",
     intro: "Hospital Kijal serves the Kemaman district's Kijal industrial area, providing healthcare to workers in the petrochemical complex.",
     famousFor: ["District hospital serving Kemaman petrochemical industrial area"],

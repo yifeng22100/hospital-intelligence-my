@@ -1048,7 +1048,7 @@ export const HOSPITALS_SABAH = [
   },
   {
     id: "damai-specialist-kk",
-    name: "Damai Specialist Centre Kota Kinabalu",
+    name: "KPJ Damai Specialist Hospital Kota Kinabalu",
     nameShort: "Damai Specialist Centre",
     sector: "private",
     tier: "tertiary",
@@ -1074,7 +1074,7 @@ export const HOSPITALS_SABAH = [
       emergencyLine: "+6088-233 333 ext. A&E (verify)",
       appointmentLine: "+6088-233 333 (verify)",
       website: "https://www.damaispecialist.com.my",
-      mapQuery: "Damai Specialist Centre Kota Kinabalu Sabah"
+      mapQuery: "KPJ Damai Specialist Hospital Kota Kinabalu Sabah"
     },
     transport: {
       nearest: "Kota Kinabalu city — 10 min taxi",
@@ -1457,7 +1457,7 @@ export const HOSPITALS_SABAH = [
     sector: "public", tier: "district", state: "Sabah", city: "Kota Marudu",
     intro: "Hospital Kota Marudu serves the Kota Marudu district in northern Sabah, an interior area with large Rungus indigenous community populations.",
     famousFor: ["District hospital for Kota Marudu — Rungus indigenous community area"],
-    infrastructure: { yearEstallished: 1978, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1978, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
     contact: { address: "Jalan Hospital, 89100 Kota Marudu, Sabah", mainLine: "+6088-661 222 (verify)", emergencyLine: "+6088-661 222 ext. A&E", appointmentLine: "+6088-661 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kota Marudu Sabah" },
     transport: { nearest: "Kota Marudu town — 5 min walk", bus: "Bus from Kota Kinabalu (~3 hrs)", highway: "Via Route A4 / Pan Borneo Highway north", landmark: "Kota Marudu town" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
@@ -1483,7 +1483,7 @@ export const HOSPITALS_SABAH = [
     sector: "public", tier: "district", state: "Sabah", city: "Kundasang",
     intro: "Hospital Kundasang serves the highland Kundasang area near Mount Kinabalu, providing emergency and basic care for tourists and locals at altitude.",
     famousFor: ["District hospital near Mount Kinabalu — altitude tourism emergency care"],
-    infrastructure: { yearEstallished: 1982, totalBeds: 30, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~1 acre", buildings: "Main Block", helipad: true, parkingBays: "~30 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1982, totalBeds: 30, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~1 acre", buildings: "Main Block", helipad: true, parkingBays: "~30 bays", parkingRate: "Free" },
     contact: { address: "Kundasang, Ranau, Sabah", mainLine: "+6088-881 222 (verify)", emergencyLine: "+6088-881 222 ext. A&E", appointmentLine: "+6088-881 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kundasang Ranau Sabah" },
     transport: { nearest: "Kundasang town — 5 min walk", bus: "Bus from Kota Kinabalu (~2 hrs)", highway: "Via Route B3 / Ranau road", landmark: "Kundasang, near Mount Kinabalu Park" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance / helicopter" },
@@ -1502,4 +1502,104 @@ export const HOSPITALS_SABAH = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~30 beds (est.). Mountain gateway hospital near Mount Kinabalu.", notableGaps: "Specialist → Hospital Ranau or HQE KK."
   }
+,
+  {
+    id: "hwkks", name: "Hospital Wanita Dan Kanak-Kanak Sabah (Hospital Likas)", nameShort: "Hospital Likas (HWKKS)",
+    sector: "public", tier: "tertiary", state: "Sabah", city: "Kota Kinabalu",
+    intro: "Hospital Wanita Dan Kanak-Kanak Sabah (HWKKS), formerly Hospital Pakar Likas, is a 504-bed specialist hospital in Likas, Kota Kinabalu, dedicated to women and children's health. It is the only dedicated women and children's specialist public hospital in Sabah, housing the only One Stop Oncology and Nuclear Medicine Centre (PPNR) in East Malaysia. Established from the former private Sabah Medical Centre, it was officially rebranded as HWKKS in 2009.",
+    famousFor: ["Only dedicated women and children's specialist hospital in Sabah", "Only Nuclear Medicine and Radiotherapy Centre (PPNR) in East Malaysia", "Specialist oncology, obstetrics, gynaecology, and paediatric care", "Referral centre for women's and children's specialist needs from across Sabah"],
+    infrastructure: { yearEstablished: 2003, totalBeds: 504, icuBeds: 20, nicuBeds: 20, operatingTheatres: 10, area: "~25 acres", buildings: "Main Block, PPNR (Nuclear Medicine & Radiotherapy)", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Karung Berkunci No. 187, 88996 Kota Kinabalu, Sabah", mainLine: "+6088-522 600", emergencyLine: "+6088-522 600 ext. A&E", appointmentLine: "+6088-522 600", website: "https://jknsabah.moh.gov.my/hwkks/", mapQuery: "Hospital Wanita Kanak-Kanak Sabah Likas Kota Kinabalu" },
+    transport: { nearest: "Likas, Kota Kinabalu — ~7.8 km from city centre, 15 min taxi", bus: "City bus routes (KK Likas)", highway: "Jalan Likas / Kota Kinabalu city", landmark: "Likas area, Kota Kinabalu" },
+    facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "Restricted", paediatric: "Parents: unrestricted. Others: standard hours", maternity: "Partner: unrestricted", notes: "Specialist hospital — confirm specific ward hours." },
+    specialtyCoverage: {
+      available: ["Obstetrics & Gynaecology", "Maternal-Fetal Medicine", "Paediatrics", "Paediatric Surgery", "Paediatric Cardiology", "Neonatology/NICU", "Clinical Oncology (Gynaecological)", "Radiation Oncology (PPNR)", "Nuclear Medicine (PPNR)", "Emergency & A&E (women & children)", "ICU/HDU", "Breast Surgery", "Fertility/Reproductive Medicine", "Gynaecological Oncology"],
+      notAvailable: [{ specialty: "General adult specialist care", transferTo: "Hospital Queen Elizabeth (HQE) Kota Kinabalu", note: "HWKKS is specialist women & children only — general adult cases go to HQE" }],
+      byReferral: ["Adult complex cases → HQE Kota Kinabalu", "Liver transplant → Hospital Selayang"]
+    },
+    transferPathway: { summary: "HWKKS is the specialist women and children's hospital in Sabah. For adult general specialist care, patients are referred to HQE Kota Kinabalu.", routes: [{ condition: "Adult general specialist care", to: "Hospital Queen Elizabeth (HQE) Kota Kinabalu", reason: "General adult specialist centre for Sabah", distanceKm: 8 }], howToTransfer: "MOH referral." },
+    specialtyRanks: { "Women & Children Sabah": { rank: "Only dedicated women & children's specialist hospital in Sabah", desc: "Sole dedicated public specialist centre for women and children in Sabah, with East Malaysia's only nuclear medicine and radiotherapy centre" } },
+    accreditations: ["MSQH Accredited", "MOH Sabah Specialist Hospital"],
+    primaryExcellence: "Dedicated women and children's specialist hospital — Sabah (only nuclear medicine centre in East Malaysia)", secondarySpecialties: "Gynaecological Oncology, Neonatology, Paediatric Surgery",
+    fullSpecialties: ["Obstetrics", "Gynaecology", "Paediatrics", "Oncology", "Nuclear Medicine"],
+    roomRate: "RM 3 – RM 80 (Subsidised Public)", roomRateRaw: 5, insurance: "Heavily subsidised. FPP scheme available.", fppScheme: true, fppDeposit: "RM 500–2,000",
+    gaps: "Women and children only — general adult specialist care at HQE.", robotics: "PPNR nuclear medicine and radiotherapy equipment — only such centre in East Malaysia.", doctorQualifications: "MOH specialists — MMC-registered, many with subspecialty training.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://jknsabah.moh.gov.my/hwkks/" }, { label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "504 beds. Specialist hospital for women and children. Formerly Hospital Pakar Likas / Sabah Medical Centre (private). Rebranded HWKKS 2009. Only nuclear medicine & radiotherapy centre (PPNR) in East Malaysia — operational since 2013.", notableGaps: "Not a general adult hospital — adult cases to HQE KK."
+  },
+  {
+    id: "hmbp", name: "Hospital Mesra Bukit Padang Kota Kinabalu", nameShort: "Hospital Mesra Bukit Padang",
+    sector: "public", tier: "tertiary", state: "Sabah", city: "Kota Kinabalu",
+    intro: "Hospital Mesra Bukit Padang (HMBP) is the only dedicated psychiatric hospital in Sabah, located 6 km from Kota Kinabalu city. With 302 beds, it is the apex referral hospital for all psychiatric and mental health cases throughout Sabah, serving 19 hospitals and health clinics across the state. It is also gazetted as a Drug Addict Detoxification Centre.",
+    famousFor: ["Only psychiatric hospital in Sabah", "Apex referral centre for all mental health cases in Sabah", "Drug Addict Detoxification Centre (gazetted)", "Serves all 19 hospitals and health clinics in Sabah for psychiatric referrals"],
+    infrastructure: { yearEstablished: 1971, totalBeds: 302, icuBeds: 0, nicuBeds: 0, operatingTheatres: 0, area: "~10 acres", buildings: "Multiple ward blocks, rehabilitation units", helipad: false, parkingBays: "~150 bays", parkingRate: "Free" },
+    contact: { address: "Peti Surat 11432, 88815 Kota Kinabalu, Sabah", mainLine: "+6088-240 984", emergencyLine: "+6088-240 984", appointmentLine: "+6088-240 984", website: "https://jknsabah.moh.gov.my/hmbp/", mapQuery: "Hospital Mesra Bukit Padang Kota Kinabalu Sabah" },
+    transport: { nearest: "Kota Kinabalu city — 6 km, ~15 min taxi", bus: "City bus routes", highway: "Jalan Bukit Padang / KK inner road", landmark: "Bukit Padang, 6 km from KK city centre" },
+    facilities: { pharmacy24h: false, cafeteria: "Canteen", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Psychiatric hospital — confirm visiting hours with ward." },
+    specialtyCoverage: {
+      available: ["Psychiatry (inpatient & outpatient)", "Forensic Psychiatry", "Drug Addiction Detoxification", "Rehabilitation — mental health", "Occupational Therapy (psychiatric)", "Counselling & Psychology"],
+      notAvailable: [{ specialty: "General medical/surgical care", transferTo: "Hospital Queen Elizabeth (HQE) Kota Kinabalu", note: "Psychiatric facility only — medical/surgical cases to HQE" }],
+      byReferral: ["All psychiatric referrals from Sabah → HMBP"]
+    },
+    transferPathway: { summary: "HMBP is the sole psychiatric hospital in Sabah. All psychiatric cases from Sabah's hospitals and clinics are referred here. Medical/surgical needs are coordinated with HQE KK.", routes: [{ condition: "Medical/surgical complications", to: "Hospital Queen Elizabeth (HQE) Kota Kinabalu", reason: "General medical centre", distanceKm: 6 }], howToTransfer: "MOH psychiatric referral." },
+    specialtyRanks: { "Sabah Psychiatry": { rank: "Only psychiatric hospital in Sabah", desc: "Apex referral centre for all mental health and drug detoxification in Sabah" } },
+    accreditations: ["MOH Accredited", "Gazetted Drug Detoxification Centre"],
+    primaryExcellence: "Only psychiatric hospital in Sabah — apex mental health and drug detoxification centre", secondarySpecialties: "Forensic Psychiatry, Drug Detoxification",
+    fullSpecialties: ["Psychiatry", "Drug Detoxification", "Rehabilitation"],
+    roomRate: "RM 3 – RM 30 (Subsidised Public)", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Psychiatric facility only — no general medical/surgical services.", robotics: "None.", doctorQualifications: "MOH psychiatrists and medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://jknsabah.moh.gov.my/hmbp/" }, { label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "302 beds. Only psychiatric hospital in Sabah. Opened 1971. Gazetted Drug Detoxification Centre. Serves 19 hospitals/clinics across Sabah.", notableGaps: "Psychiatric only — medical/surgical to HQE KK."
+  },
+  {
+    id: "hsipitang", name: "Hospital Sipitang", nameShort: "Hospital Sipitang",
+    sector: "public", tier: "district", state: "Sabah", city: "Sipitang",
+    intro: "Hospital Sipitang serves the Sipitang district in southwest Sabah, near the Sarawak and Brunei border. With 93 beds, it provides district-level healthcare for the Sipitang community including the Pan Borneo Highway corridor.",
+    famousFor: ["District hospital for Sipitang — southwest Sabah near Sarawak border"],
+    infrastructure: { yearEstablished: 1978, totalBeds: 93, icuBeds: 4, nicuBeds: 0, operatingTheatres: 1, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Peti Surat 250, 89857 Sipitang, Sabah", mainLine: "+6087-822 296", emergencyLine: "+6087-822 296 ext. A&E", appointmentLine: "+6087-822 296", website: "https://www.moh.gov.my", mapQuery: "Hospital Sipitang Sabah" },
+    transport: { nearest: "Sipitang town — 5 min walk", bus: "Bus from Beaufort (~1 hr) or Kota Kinabalu (~2.5 hrs)", highway: "Pan Borneo Highway (Sipitang junction)", landmark: "Sipitang town, southwest Sabah" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery (basic)", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Beaufort / Hospital Queen Elizabeth KK", note: "District hospital" }],
+      byReferral: ["Specialist -> Hospital Beaufort or HQE KK"]
+    },
+    transferPathway: { summary: "District hospital for southwest Sabah near Sarawak border. Complex -> Hospital Beaufort or HQE KK.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Sipitang, southwest Sabah", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "93 beds. District hospital for Sipitang, southwest Sabah near Sarawak/Brunei border.", notableGaps: "Specialist referral to Hospital Beaufort or HQE KK."
+  },
+  {
+    id: "htambunan", name: "Hospital Tambunan", nameShort: "Hospital Tambunan",
+    sector: "public", tier: "district", state: "Sabah", city: "Tambunan",
+    intro: "Hospital Tambunan serves the Tambunan district in the interior of Sabah, a highland agricultural area known for its Kadazan-Dusun heritage. With 49 beds, it provides basic district-level care before complex cases are referred to Hospital Keningau or HQE Kota Kinabalu.",
+    famousFor: ["District hospital for Tambunan — Kadazan-Dusun highland interior Sabah"],
+    infrastructure: { yearEstablished: 1978, totalBeds: 49, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~40 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 89650 Tambunan, Sabah", mainLine: "+6087-774 222 (verify)", emergencyLine: "+6087-774 222 ext. A&E", appointmentLine: "+6087-774 222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Tambunan Sabah" },
+    transport: { nearest: "Tambunan town — 5 min walk", bus: "Bus from Keningau (~30 min)", highway: "Interior road via Keningau", landmark: "Tambunan town, Sabah interior" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00\u201314:00, 17:00\u201320:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Keningau / HQE KK", note: "Small district hospital" }],
+      byReferral: ["Specialist -> Hospital Keningau or HQE KK"]
+    },
+    transferPathway: { summary: "Small interior district hospital. Complex -> Hospital Keningau.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Tambunan interior Sabah", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "49 beds. Small district hospital for Tambunan, Sabah interior.", notableGaps: "Specialist referral to Hospital Keningau or HQE KK."
+  }
+
 ];

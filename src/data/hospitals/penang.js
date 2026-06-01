@@ -349,14 +349,14 @@ export const HOSPITALS_PENANG = [
     verifiedNotes: "~80 beds (est.). District hospital serving western Penang island.", notableGaps: "Limited specialists."
   },
   {
-    id: "lam-wah-ee", name: "Lam Wah Ee Hospital (Penang Adventist)", nameShort: "Lam Wah Ee",
+    id: "lam-wah-ee", name: "Lam Wah Ee Hospital", nameShort: "Lam Wah Ee",
     sector: "private", tier: "secondary", state: "Penang", city: "Georgetown",
-    intro: "Lam Wah Ee Hospital, operated by the Seventh-day Adventist Church, is one of Penang's oldest private hospitals. Known for community-focused care and affordable charges.",
-    famousFor: ["Adventist-run community hospital", "Long history in Penang healthcare", "Affordable private care"],
+    intro: "Lam Wah Ee Hospital is a long-established private community hospital in Georgetown, Penang, known for affordable and accessible private care.",
+    famousFor: ["Established community private hospital in Georgetown", "Affordable private care", "Long history in Penang healthcare"],
     infrastructure: { yearEstablished: 1924, totalBeds: 200, icuBeds: 12, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Heritage and new blocks", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1–2/hr" },
     contact: { address: "460 Jalan Burma, 10350 Georgetown, Penang", mainLine: "+604-222 7200", emergencyLine: "+604-222 7200 ext. A&E", appointmentLine: "+604-222 7200", website: "https://www.lwehospital.com", mapQuery: "Lam Wah Ee Hospital Georgetown Penang" },
-    transport: { nearest: "Burma Road — 2 min walk", bus: "Rapid Penang 101, 102", highway: "Georgetown city centre", landmark: "Jalan Burma, Georgetown" },
-    facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: true, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
+    transport: { nearest: "Jalan Burma — 2 min walk", bus: "Rapid Penang 101, 102", highway: "Georgetown city centre", landmark: "Jalan Burma, Georgetown" },
+    facilities: { pharmacy24h: true, cafeteria: "Cafeteria", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
     visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "General Medicine", "Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Cardiology", "Orthopaedics", "ENT"],
@@ -364,14 +364,14 @@ export const HOSPITALS_PENANG = [
       byReferral: ["Advanced oncology", "Neurosurgery"]
     },
     transferPathway: { summary: "Community private hospital. Complex cases → Island Hospital or Gleneagles Penang.", routes: [], howToTransfer: "Specialist referral." },
-    specialtyRanks: {}, accreditations: ["MSQH Accredited", "Seventh-day Adventist Health System"],
+    specialtyRanks: {}, accreditations: ["MSQH Accredited"],
     primaryExcellence: "Community private hospital — Georgetown Penang", secondarySpecialties: "Cardiology, Obstetrics, Surgery",
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Cardiology", "Orthopaedics", "ENT"],
     roomRate: "RM 160 – RM 450/night", roomRateRaw: 250, insurance: "Most major panels accepted.", fppScheme: false, fppDeposit: "N/A",
     gaps: "No cardiothoracic surgery, no bone marrow transplant.", robotics: "Standard imaging.",
     doctorQualifications: "MMC-registered specialists.", imageUrl: null, imageCredit: "N/A",
     officialSources: [{ label: "Lam Wah Ee Hospital", url: "https://www.lwehospital.com" }],
-    verifiedNotes: "~200 beds. Historic Adventist hospital in Georgetown.", notableGaps: "No cardiothoracic surgery."
+    verifiedNotes: "~200 beds. Community hospital in Georgetown.", notableGaps: "No cardiothoracic surgery."
   },
   {
     id: "hkepala-batas",
@@ -510,7 +510,7 @@ export const HOSPITALS_PENANG = [
     sector: "public", tier: "district", state: "Penang", city: "Seberang Jaya",
     intro: "A district public health support facility serving Seberang Jaya and Butterworth on the mainland Penang coast, complementing the main Hospital Seberang Jaya.",
     famousFor: ["District support hospital — Butterworth mainland Penang"],
-    infrastructure: { yearEstallished: 1985, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
+    infrastructure: { yearEstablished: 1985, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~80 bays", parkingRate: "Free" },
     contact: { address: "Seberang Jaya, 13700 Penang", mainLine: "+604-399 2222 (verify)", emergencyLine: "+604-399 2222 ext. A&E", appointmentLine: "+604-399 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Seberang Jaya 2 Penang" },
     transport: { nearest: "Butterworth KTM / ferry — 10 min taxi", bus: "Rapid Penang bus routes", highway: "North-South Highway — Butterworth exit", landmark: "Seberang Jaya / Butterworth mainland" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
@@ -536,7 +536,7 @@ export const HOSPITALS_PENANG = [
     sector: "private", tier: "secondary", state: "Penang", city: "Bukit Mertajam",
     intro: "Columbia Asia Hospital Bukit Mertajam provides private specialist healthcare for the rapidly growing mainland Penang area of Bukit Mertajam.",
     famousFor: ["Private hospital — mainland Penang / Bukit Mertajam area", "Columbia Asia network"],
-    infrastructure: { yearEstallished: 2009, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
+    infrastructure: { yearEstablished: 2009, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
     contact: { address: "Bukit Mertajam, Seberang Perai, Penang", mainLine: "+604-539 3999 (verify)", emergencyLine: "+604-539 3999 ext. A&E", appointmentLine: "+604-539 3999 (verify)", website: "https://www.columbiaasia.com", mapQuery: "Columbia Asia Hospital Bukit Mertajam Penang" },
     transport: { nearest: "Bukit Mertajam KTM station — 5 min taxi", bus: "Rapid Penang bus routes", highway: "North-South Highway — Bukit Mertajam exit", landmark: "Bukit Mertajam town, mainland Penang" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
