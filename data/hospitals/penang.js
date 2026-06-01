@@ -29,7 +29,7 @@ var HOSPITALS_PENANG = [
     secondarySpecialties: "Cardiology, Neurosurgery, Oncology",
     fullSpecialties: ["Emergency Medicine", "Cardiology", "Neurosurgery", "Oncology", "Obstetrics"],
     roomRate: "RM 3 – RM 80", roomRateRaw: 5, insurance: "Heavily subsidised. FPP scheme.", fppScheme: true, fppDeposit: "RM 500–2,000",
-    gaps: "No liver transplant. Very busy.", robotics: "Radiation therapy. Standard imaging.", doctorQualifications: "MOH specialists — MMC-registered.", imageUrl: null, imageCredit: "N/A",
+    gaps: "No liver transplant. Very busy.", robotics: "Radiation therapy. Standard imaging.", doctorQualifications: "MOH specialists — MMC-registered.", imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Penang_General_Hospital_(2011).jpg", imageCredit: "N/A",
     officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
@@ -167,7 +167,7 @@ var HOSPITALS_PENANG = [
     gaps: "No liver transplant.",
     robotics: "Radiation therapy. Standard imaging — 3T MRI.",
     doctorQualifications: "MMC-registered specialists. Many internationally trained.",
-    imageUrl: null, imageCredit: "N/A",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cmglee_Penang_Island_Hospital_from_Macalister_Road.jpg", imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.islandhospital.com.my" }]
   },
   {
@@ -241,7 +241,7 @@ var HOSPITALS_PENANG = [
     gaps: "No liver transplant.",
     robotics: "Radiation therapy. Standard imaging.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null, imageCredit: "N/A",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Loh_Guan_Lye_Specialist_Centre,_George_Town.jpg", imageCredit: "N/A",
     officialSources: [{ label: "Official Website", url: "https://www.lohguanlye.com" }]
   },
   {

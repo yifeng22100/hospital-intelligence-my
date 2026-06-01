@@ -142,7 +142,7 @@ window.HI = window.HI || {};
     var topSpecs = (h.fullSpecialties || []).slice(0, 3);
 
     var imgHtml = h.imageUrl
-      ? '<img src="' + h.imageUrl + '" alt="' + h.name + '" loading="lazy" onerror="this.parentElement.style.background=\'linear-gradient(135deg,#1e293b,#334155)\'">'
+      ? '<img src="' + h.imageUrl + '" alt="' + h.name + '" loading="lazy" onerror="this.style.display=\'none\'">'
       : '';
     var imgBg = 'linear-gradient(135deg,' + (h.sector === 'public' ? '#1e3a8a,#1d4ed8' : '#4c1d95,#7c3aed') + ')';
 
@@ -157,8 +157,8 @@ window.HI = window.HI || {};
       '<div class="card-body">' +
         '<div class="card-state">' + h.state + '</div>' +
         '<div class="card-name">' + h.name + '</div>' +
-        '<div class="card-known-for">' + HI.t('known_for') + ' ' + (h.famousFor && h.famousFor[0] ? h.famousFor[0] : (h.primaryExcellence || '')) + '</div>' +
-        '<div class="card-spec-pills">' + topSpecs.map(function(s) { return '<span class="spec-pill">' + s + '</span>'; }).join('') +
+        '<div class="card-known-for">' + HI.t('known_for') + ' ' + (HI.tt ? HI.tt(h.famousFor && h.famousFor[0] ? h.famousFor[0] : (h.primaryExcellence || '')) : (h.famousFor && h.famousFor[0] ? h.famousFor[0] : (h.primaryExcellence || ''))) + '</div>' +
+        '<div class="card-spec-pills">' + topSpecs.map(function(s) { return '<span class="spec-pill">' + (HI.tt ? HI.tt(s) : s) + '</span>'; }).join('') +
           (h.fullSpecialties && h.fullSpecialties.length > 3 ? '<span class="spec-pill more">+' + (h.fullSpecialties.length - 3) + '</span>' : '') +
         '</div>' +
         '<div class="card-meta">' +
@@ -240,6 +240,13 @@ window.HI = window.HI || {};
     selectedState = state || null;
     render();
   }
+
+  // Re-render directory cards (they contain glossary-translated text) on lang change
+  var _prevDirLang = window.HI.onLangChange;
+  window.HI.onLangChange = function(code) {
+    if (_prevDirLang) _prevDirLang(code);
+    if (ALL.length) render();
+  };
 
   window.HI.initDirectory = init;
   window.HI.renderDirectory = render;

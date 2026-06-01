@@ -26,7 +26,7 @@ var HOSPITALS_JOHOR = [
     fullSpecialties: ["Emergency Medicine", "Cardiology", "Neurosurgery", "Oncology", "Obstetrics"],
     roomRate: "RM 3 – RM 80", roomRateRaw: 5, insurance: "Heavily subsidised. FPP scheme.", fppScheme: true, fppDeposit: "RM 500–2,000",
     gaps: "No liver transplant.", robotics: "Radiation therapy. Standard imaging.", doctorQualifications: "MOH specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sultanah_Aminah_Hospital.JPG", imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
     id: "hsultan-ismail",
@@ -54,7 +54,7 @@ var HOSPITALS_JOHOR = [
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
     roomRate: "RM 3 – RM 80", roomRateRaw: 5, insurance: "Heavily subsidised.", fppScheme: true, fppDeposit: "RM 500–1,500",
     gaps: "No cardiothoracic surgery. No liver transplant.", robotics: "Standard imaging.", doctorQualifications: "MOH specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sultan_Ismail_Hospital.jpg", imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
     id: "hmuar",
@@ -298,7 +298,7 @@ var HOSPITALS_JOHOR = [
     gaps: "No liver transplant.",
     robotics: "Radiation therapy. 3T MRI.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://www.gleneagles.com.my/medini" }]
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gleneagles_Hospital_Medini_Johor.jpg", imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://www.gleneagles.com.my/medini" }]
   },
   {
     id: "kpj-johor",

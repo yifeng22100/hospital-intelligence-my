@@ -112,7 +112,7 @@ var HOSPITALS_SARAWAK = [
     gaps: "No liver transplant. No BMT. No heart transplant. Transfer to Peninsular required for these.",
     robotics: "CT, MRI, radiotherapy equipment for oncology. Standard advanced public hospital imaging.",
     doctorQualifications: "MOH specialists — MMC-registered. Many trained at UK Royal Colleges and Australian institutions.",
-    imageUrl: null,
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/27_August_2011_Sarawak_General_Hospital.jpg",
     imageCredit: "N/A",
     officialSources: [
       { label: "Official Website", url: "https://hus.moh.gov.my" },

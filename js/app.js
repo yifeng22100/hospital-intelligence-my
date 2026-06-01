@@ -77,9 +77,12 @@
     // i18n — must go first
     if (window.HI.applyTranslations) window.HI.applyTranslations();
     if (window.HI.initLangSwitcher) window.HI.initLangSwitcher();
-    window.HI.onLangChange = function() {
+    // Chain onto the handlers registered by each module (modal, directory,
+    // intelligence, support) instead of overwriting them.
+    var _prevAppLangChange = window.HI.onLangChange;
+    window.HI.onLangChange = function(code) {
       if (window.HI.applyTranslations) window.HI.applyTranslations();
-      if (window.HI.renderDirectory) window.HI.renderDirectory();
+      if (_prevAppLangChange) _prevAppLangChange(code);
     };
 
     // Directory

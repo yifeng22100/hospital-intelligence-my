@@ -26,7 +26,7 @@ var HOSPITALS_MELAKA = [
     fullSpecialties: ["Emergency Medicine", "Cardiology", "Neurosurgery", "Oncology", "Obstetrics"],
     roomRate: "RM 3 – RM 80", roomRateRaw: 5, insurance: "Heavily subsidised. FPP scheme.", fppScheme: true, fppDeposit: "RM 500–2,000",
     gaps: "No liver transplant.", robotics: "Radiation therapy. Standard imaging.", doctorQualifications: "MOH specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Malacca_General_Hospital_main_building.jpg", imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
     id: "hjasin",
