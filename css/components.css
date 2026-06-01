@@ -401,8 +401,9 @@
   max-width: 880px;
   width: 100%;
   max-height: 90vh;
+  overflow: hidden;
   overflow-y: auto;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.22);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10), 0 0 0 0.5px rgba(0,0,0,0.06);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -421,7 +422,6 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  border-radius: 24px 24px 0 0;
 }
 
 .modal-title-group {
@@ -690,7 +690,7 @@
 .verified-notes-box {
   background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
   border-left: 4px solid #16a34a;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-radius: var(--radius);
   padding: 0.85rem 1.1rem;
   display: flex;
   gap: 0.75rem;
@@ -729,7 +729,7 @@
 .notable-gaps-box {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-left: 4px solid #ea580c;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-radius: var(--radius);
   padding: 0.85rem 1.1rem;
   display: flex;
   gap: 0.75rem;
@@ -1576,7 +1576,6 @@
   }
 
   .modal-header {
-    border-radius: 20px 20px 0 0;
     padding: 1.75rem 2rem 1.25rem;
   }
 
