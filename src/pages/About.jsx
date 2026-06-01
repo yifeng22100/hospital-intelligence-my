@@ -62,7 +62,7 @@ export default function About() {
               },
               {
                 title: 'Update cycle',
-                desc: 'Data is reviewed and updated continuously with reference to 2024–2025 official sources. Each entry includes information about when it was last verified.',
+                desc: 'Data is reviewed and updated continuously with reference to 2025–2026 official sources. Each entry includes information about when it was last verified.',
               },
             ].map(({ title, desc }) => (
               <div key={title} className="bg-surface-secondary rounded-2xl p-4">

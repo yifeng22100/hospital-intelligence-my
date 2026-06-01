@@ -1506,6 +1506,32 @@ export const HOSPITALS_SELANGOR = [
     verifiedNotes: "~120 beds (est.). Private hospital, Puchong.", notableGaps: "Complex → Sunway Medical."
   },
   {
+    id: "kpj-selayang",
+    name: "KPJ Selayang Specialist Hospital",
+    nameShort: "KPJ Selayang",
+    sector: "private", tier: "secondary", state: "Selangor", city: "Selayang",
+    intro: "KPJ Selayang Specialist Hospital is a private specialist hospital in the Selayang area of northern Selangor, serving the large population of the Gombak-Selayang corridor.",
+    famousFor: ["Private specialist hospital — Selayang corridor", "KPJ network hospital"],
+    infrastructure: { yearEstablished: 2005, totalBeds: 130, icuBeds: 8, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Selayang, Selangor", mainLine: "+603-6136 9999 (verify)", emergencyLine: "+603-6136 9999 ext. A&E", appointmentLine: "+603-6136 9999 (verify)", website: "https://www.kpjhealth.com.my", mapQuery: "KPJ Selayang Specialist Hospital" },
+    transport: { nearest: "Selayang area — taxi recommended", bus: "RapidKL bus", highway: "LATAR Expressway / Jalan Ipoh", landmark: "Selayang, near Hospital Selayang" },
+    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Orthopaedics", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre nearby" }],
+      byReferral: ["Complex → KPJ Damansara or Hospital Selayang"]
+    },
+    transferPathway: { summary: "Private specialist. Complex → KPJ Damansara or Hospital Selayang.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private specialist — Selayang area", secondarySpecialties: "General Medicine, Orthopaedics",
+    fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
+    roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "No liver transplant.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "~130 beds (est.). Private specialist, Selayang.", notableGaps: "Liver transplant → Hospital Selayang."
+  },
+  {
     id: "columbia-rawang",
     name: "Columbia Asia Hospital Rawang",
     nameShort: "Columbia Asia Rawang",
@@ -4654,5 +4680,29 @@ export const HOSPITALS_SELANGOR = [
     officialSources: [
       { label: "DBM Pusrawi Kota Damansara", url: "https://www.dbmpusrawi.com" }
     ]
+    id: "dbm-pusrawi-kota-damansara",
+    name: "DBM Pusrawi Kota Damansara",
+    nameShort: "DBM Pusrawi KD",
+    sector: "private", tier: "secondary", state: "Selangor", city: "Kota Damansara, Petaling Jaya",
+    intro: "DBM Pusrawi Kota Damansara (Dewan Bersalin Muslimah) is a private Islamic maternity and birthcare centre in Kota Damansara, offering comprehensive maternity services aligned with Islamic principles. Part of the DBM Pusrawi chain, it serves Muslim families in the Kota Damansara and Petaling Jaya area with a 24-hour maternity ward.",
+    famousFor: ["Islamic maternity & birthcare centre — Kota Damansara", "Dewan Bersalin Muslimah (DBM) Pusrawi chain", "24-hour maternity ward", "Halal-certified care aligned with Islamic values"],
+    infrastructure: { yearEstablished: 2015, totalBeds: 30, icuBeds: 0, nicuBeds: 4, operatingTheatres: 2, area: "N/A", buildings: "Maternity Centre", helipad: false, parkingBays: "Available", parkingRate: "Free" },
+    contact: { address: "No. 22, Jalan Pekaka 8/3, Seksyen 8, Kota Damansara, 47810 Petaling Jaya, Selangor", mainLine: "+603-6157 8596", emergencyLine: "+603-6157 8596", appointmentLine: "+603-6157 8596", website: "https://dbmpusrawi.com", mapQuery: "DBM Pusrawi Kota Damansara 22 Jalan Pekaka Seksyen 8 PJ" },
+    transport: { nearest: "Surian MRT (PY11, Putrajaya Line) — ~10 min taxi; Kota Damansara MRT (PY10) — ~10 min taxi", bus: "RapidKL routes (Kota Damansara area)", highway: "SPRINT / NKVE — Kota Damansara exit", landmark: "Seksyen 8, Kota Damansara, near Kota Damansara town centre" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
+    visitingHours: { general: "9:00am–1:00pm, 3:00pm–6:00pm (Fri: 9am–1pm)", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Maternity ward 24 hours", notes: "Office hours Mon–Sun. Maternity ward 24-hour service." },
+    specialtyCoverage: {
+      available: ["Obstetrics & Maternity (24/7 ward)", "Gynaecology", "NICU (basic)", "Postnatal Care", "Islamic Confinement Care"],
+      notAvailable: [{ specialty: "General surgery / A&E", transferTo: "Thomson Hospital Kota Damansara or Hospital Selayang", note: "Maternity specialist only" }],
+      byReferral: ["High-risk obstetrics → Thomson Kota Damansara or Hospital Selayang"]
+    },
+    transferPathway: { summary: "Islamic maternity centre. High-risk obstetrics → Thomson Kota Damansara or Hospital Selayang.", routes: [], howToTransfer: "Self-referral or midwife referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Islamic maternity & birthcare — Kota Damansara", secondarySpecialties: "Postnatal care, Islamic confinement",
+    fullSpecialties: ["Obstetrics", "Gynaecology", "Postnatal Care"],
+    roomRate: "RM 100 – RM 300/night", roomRateRaw: 180, insurance: "Panel for selected insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No general A&E. No surgery beyond obstetrics. No general medicine.", robotics: "None.", doctorQualifications: "MOH-registered obstetricians and midwives.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "DBM Pusrawi Official", url: "https://dbmpusrawi.com" }],
+    verifiedNotes: "Dewan Bersalin Muslimah (DBM) Pusrawi chain. No. 22, Jalan Pekaka 8/3, Seksyen 8, Kota Damansara. Phone +603-6157 8596. Maternity ward 24hrs.", notableGaps: "Maternity only — not a general hospital."
   }
 ];

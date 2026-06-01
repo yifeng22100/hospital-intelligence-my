@@ -33,7 +33,7 @@ const INTEL_CARDS = [
 ]
 
 const QUICK_SEARCHES = [
-  'Emergency care', 'Public hospitals', 'Kuala Lumpur', 'Selangor', 'Penang', 'Private',
+  'Emergency', 'Public', 'Kuala Lumpur', 'Selangor', 'Penang', 'Private',
 ]
 
 export default function Home() {
@@ -240,7 +240,7 @@ export default function Home() {
               },
               {
                 icon: '🔄',
-                title: 'Updated 2024–2025',
+                title: 'Updated 2025–2026',
                 desc: 'Data continuously audited and refreshed from official sources.',
               },
               {
