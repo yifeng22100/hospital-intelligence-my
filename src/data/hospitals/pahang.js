@@ -276,30 +276,33 @@ export const HOSPITALS_PAHANG = [
     verifiedNotes: "~80 beds (est.). District hospital for Bera.", notableGaps: "Specialist referral to HTAA Kuantan."
   },
   {
-    id: "columbia-kuantan",
-    name: "Columbia Asia Hospital Kuantan",
-    nameShort: "Columbia Asia Kuantan",
+    id: "kmi-kuantan",
+    name: "KMI Kuantan Medical Centre",
+    nameShort: "KMI Kuantan",
     sector: "private", tier: "secondary", state: "Pahang", city: "Kuantan",
-    intro: "Columbia Asia Hospital Kuantan is a private hospital serving the Kuantan area with specialist medical services.",
-    famousFor: ["Private hospital in Kuantan", "Columbia Asia network"],
-    infrastructure: { yearEstablished: 2008, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 3, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Lot 1, 3, 5 & 7, Wisma MUIP, Jalan Gambut, Sri Dagangan Business Centre, 25000 Kuantan, Pahang", mainLine: "+609-513 7110", emergencyLine: "+609-513 7110 ext. A&E", appointmentLine: "+609-513 7110", website: "https://www.aureliushealth.com/pahang", mapQuery: "Aurelius Hospital Pahang Kuantan" },
-    transport: { nearest: "Kuantan town — 10 min taxi", bus: "Local bus routes", highway: "Kuantan-Gambang Highway / ECE", landmark: "Kuantan town centre" },
+    intro: "KMI Kuantan Medical Centre (KMC) is a private specialist hospital established in 1997 and operated by KMI Healthcare Group, a subsidiary of TDM Berhad (Terengganu state-linked). Located in Bandar Indera Mahkota, Kuantan, it is one of Pahang's established private hospitals with over 25 years of operation. NOT affiliated with Columbia Asia — entirely a separate TDM Berhad entity. Celebrated its Silver Jubilee in December 2022.",
+    famousFor: ["KMI Healthcare Group (TDM Berhad) — Terengganu state-linked", "One of Pahang's longest-operating private hospitals (est. 1997)", "Silver Jubilee 2022 — over 25 years of service in Kuantan"],
+    infrastructure: { yearEstablished: 1997, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Jalan Al-Sultan Abdullah, Bandar Indera Mahkota, 25200 Kuantan, Pahang", mainLine: "+609-590 2828", emergencyLine: "+609-590 2727", appointmentLine: "+609-590 2828", website: "https://kmihealthcare.com/kuantan/", mapQuery: "KMI Kuantan Medical Centre Bandar Indera Mahkota" },
+    transport: { nearest: "Kuantan town — 10 min taxi / ride-hailing", bus: "Local bus routes (Indera Mahkota area)", highway: "Kuantan-Gambang Highway; East Coast Expressway (ECE) — Kuantan exit", landmark: "Bandar Indera Mahkota township, Kuantan" },
     facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
-      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "KPJ Pahang or HTAA", note: "Refer for complex cases" }],
-      byReferral: ["Complex → KPJ Pahang or HTAA"]
+      available: ["Emergency & A&E (24/7)", "General Medicine", "General Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Cardiology", "ENT"],
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "KPJ Pahang Specialist Hospital or HTAA", note: "Refer for complex cases" }],
+      byReferral: ["Complex → KPJ Pahang or Hospital Tengku Ampuan Afzan (HTAA)"]
     },
-    transferPathway: { summary: "Private hospital. Complex → KPJ Pahang or HTAA.", routes: [], howToTransfer: "Private referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Private hospital — Kuantan", secondarySpecialties: "General Medicine, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 180–400/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
-    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia", url: "https://www.columbiaasia.com" }],
-    verifiedNotes: "~100 beds (est.). Private hospital, Kuantan.", notableGaps: "Complex cases → KPJ Pahang or HTAA."
+    transferPathway: { summary: "Private specialist hospital. Complex and high-dependency → KPJ Pahang Specialist Hospital or HTAA (public tertiary).", routes: [{ condition: "Complex subspecialty or high-acuity", to: "Hospital Tengku Ampuan Afzan (HTAA) Kuantan", reason: "State referral hospital — public tertiary", distanceKm: 5 }], howToTransfer: "Private referral letter or ambulance via 24-hr A&E." },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed", "KMI Healthcare Group (TDM Berhad)"],
+    primaryExcellence: "Private specialist hospital — Kuantan, Pahang (KMI/TDM Berhad)", secondarySpecialties: "General Medicine, Obstetrics, Orthopaedics",
+    fullSpecialties: ["General Medicine", "General Surgery", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Cardiology", "ENT"],
+    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted. TDM/KMI healthcare panel.",
+    fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited complex subspecialties. Complex cardiac/neurosurgery → KPJ Pahang or HTAA.", robotics: "None.", doctorQualifications: "MOH-registered specialists. KMI Healthcare Group medical staff.",
+    imageUrl: null, imageCredit: "N/A",
+    officialSources: [{ label: "KMI Healthcare Group", url: "https://kmihealthcare.com/kuantan/" }],
+    verifiedNotes: "Established 1997, Silver Jubilee Dec 2022. KMI Healthcare Group (TDM Berhad subsidiary). NOT Columbia Asia — entirely separate entity.", notableGaps: "Complex subspecialties → KPJ Pahang or HTAA."
   },
   {
     id: "hkuala-lipis",
@@ -378,5 +381,88 @@ export const HOSPITALS_PAHANG = [
     gaps: "Non-specialist. Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }],
     verifiedNotes: "70 beds. Non-specialist district hospital, Jengka. Operational since 1 August 1994. Phone: +609-466 2333.", notableGaps: "Specialist referral to Hospital Temerloh or HTAA Kuantan."
+  },
+  {
+    id: "dmmc-kuantan",
+    name: "Darul Makmur Medical Centre",
+    nameShort: "DMMC",
+    sector: "private",
+    tier: "secondary",
+    state: "Pahang",
+    city: "Kuantan",
+    intro: "Darul Makmur Medical Centre (DMMC) is a 120-bed private specialist hospital established in 2008, located approximately 9 km from Kuantan city centre near Kempadang Makmur. It specialises in nephrology/urology, general medicine, and cardiology.",
+    famousFor: ["Private specialist hospital in Kuantan (est. 2008)", "Nephrology and urology specialist", "120-bed community private hospital near Kempadang Makmur"],
+    infrastructure: {
+      yearEstablished: 2008,
+      totalBeds: 120,
+      icuBeds: 8,
+      nicuBeds: 4,
+      operatingTheatres: 4,
+      area: "N/A",
+      buildings: "Main Block",
+      helipad: false,
+      parkingBays: "~150 bays",
+      parkingRate: "RM 1/hour"
+    },
+    contact: {
+      address: "B2–B60, Jalan Pinggiran Putra 4/3, Pinggiran Putra 4, 25200 Kuantan, Pahang",
+      mainLine: "+609-534 9988",
+      emergencyLine: "+609-534 9988",
+      appointmentLine: "+609-534 9988",
+      website: "https://www.dmmc.com.my",
+      mapQuery: "Darul Makmur Medical Centre DMMC Kuantan Pahang"
+    },
+    transport: {
+      nearest: "Kuantan town — ~9 km / 15 min taxi",
+      bus: "Local bus routes (Pinggiran Putra area)",
+      highway: "East Coast Expressway (LPT) — Kuantan exit, via Kempadang Makmur",
+      landmark: "Pinggiran Putra 4, near Kempadang Makmur, Kuantan"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Available",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted",
+      paediatric: "Parents: unrestricted",
+      maternity: "Flexible",
+      notes: "Private hospital — confirm with ward."
+    },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Cardiology", "Nephrology (Haemodialysis)", "Urology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "ENT"],
+      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "HTAA Kuantan or KPJ Pahang", note: "Refer to larger centres" }],
+      byReferral: ["Complex oncology — KPJ Pahang or HTAA", "Cardiothoracic — HTAA Kuantan"]
+    },
+    transferPathway: {
+      summary: "120-bed private specialist hospital in Kuantan. Complex and high-dependency cases → KPJ Pahang or HTAA Kuantan.",
+      routes: [{ condition: "Complex subspecialty cases", to: "Hospital Tengku Ampuan Afzan (HTAA) Kuantan", reason: "State referral hospital", distanceKm: 9 }],
+      howToTransfer: "Specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MOH Licensed"],
+    verifiedNotes: "120 beds. Established 2008. Located ~9 km from Kuantan city centre in Pinggiran Putra 4, near Kempadang Makmur. Specialises in nephrology/urology, cardiology, general medicine.",
+    notableGaps: "No cardiothoracic surgery. ~9 km from Kuantan centre.",
+    primaryExcellence: "Private specialist hospital — Kuantan (nephrology, urology, cardiology focus)",
+    secondarySpecialties: "Nephrology, Urology, Cardiology",
+    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Nephrology", "Urology", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 180–450/night",
+    roomRateRaw: 250,
+    insurance: "Major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "No cardiothoracic surgery. Located outside Kuantan city centre.",
+    robotics: "Standard imaging.",
+    doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [{ label: "Official Website", url: "https://www.dmmc.com.my" }]
   }
 ];

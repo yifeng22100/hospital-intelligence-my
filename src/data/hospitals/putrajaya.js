@@ -112,5 +112,121 @@ export const HOSPITALS_PUTRAJAYA = [
       { label: "Official Website", url: "https://hputrajaya.moh.gov.my" },
       { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
     ]
+  },
+  {
+    id: "ikn-putrajaya",
+    name: "Institut Kanser Negara",
+    nameShort: "IKN",
+    sector: "public",
+    tier: "quaternary",
+    state: "Putrajaya",
+    city: "Putrajaya",
+    intro: "Institut Kanser Negara (IKN) is Malaysia's dedicated national cancer hospital under the Ministry of Health, located in Putrajaya Presint 7. Opened in 2013, it is the country's apex public oncology centre providing radiotherapy, chemotherapy, haematology, and comprehensive oncology services to all Malaysian patients.",
+    famousFor: [
+      "Malaysia's national cancer specialist hospital",
+      "MOH-operated national cancer referral centre",
+      "Comprehensive oncology services for all Malaysians",
+      "Radiotherapy, chemotherapy, haematology — all under one roof"
+    ],
+    infrastructure: {
+      yearEstablished: 2013,
+      totalBeds: 250,
+      icuBeds: 16,
+      nicuBeds: 0,
+      operatingTheatres: 6,
+      area: "~10 acres",
+      buildings: "Main Oncology Block, Radiation Oncology Wing, Haematology Ward",
+      helipad: false,
+      parkingBays: "~500 bays",
+      parkingRate: "RM 1/hour"
+    },
+    contact: {
+      address: "No. 4, Jalan P7, Presint 7, 62250 Putrajaya",
+      mainLine: "+603-8892 5414",
+      emergencyLine: "+603-8892 5414",
+      appointmentLine: "+603-8892 5414",
+      website: "https://www.moh.gov.my",
+      mapQuery: "Institut Kanser Negara IKN Presint 7 Putrajaya"
+    },
+    transport: {
+      nearest: "Putrajaya Sentral (ERL/KTM) — 10 min taxi ride",
+      bus: "Nadi Putra Bus — Presint 7 routes",
+      highway: "ELITE / MEX Highway — Exit Putrajaya/Cyberjaya",
+      landmark: "Presint 7 Putrajaya, near Ministry of Health complex"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Available on site",
+      atm: "Main lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free (IKN-Guest)",
+      patientTransport: "MOH hospital transport available"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "11:30–12:00, 17:30–18:00",
+      paediatric: "Parents: unrestricted",
+      maternity: "N/A",
+      notes: "Confirm with ward. Oncology patients may have restricted visiting during treatment."
+    },
+    specialtyCoverage: {
+      available: [
+        "Clinical Oncology",
+        "Radiation Oncology",
+        "Surgical Oncology",
+        "Haematology & Haematological Oncology",
+        "Medical Oncology",
+        "Paediatric Oncology",
+        "Gynaecological Oncology",
+        "Head & Neck Oncology",
+        "Palliative Care & Pain Management",
+        "Nuclear Medicine (Oncology)",
+        "Interventional Radiology (Oncology)",
+        "Psycho-oncology",
+        "Cancer Nursing",
+        "Nutritional Support for Cancer Patients"
+      ],
+      notAvailable: [
+        { specialty: "General A&E / Trauma", transferTo: "Hospital Putrajaya", note: "Oncology specialist hospital — no general A&E" },
+        { specialty: "Proton Therapy", transferTo: "Overseas referral", note: "Proton therapy not available in Malaysia — overseas referral" }
+      ],
+      byReferral: [
+        "Bone Marrow Transplant (complex) — Hospital Ampang or UMMC",
+        "Proton therapy — Singapore or overseas"
+      ]
+    },
+    transferPathway: {
+      summary: "Malaysia's national cancer hospital. All cancer types treated. Non-oncology emergencies refer to Hospital Putrajaya. BMT and proton therapy cases may be referred to national BMT centres or overseas.",
+      routes: [
+        { condition: "Medical emergency (non-oncology)", to: "Hospital Putrajaya", reason: "General hospital with A&E", distanceKm: 2 },
+        { condition: "Complex BMT", to: "Hospital Ampang", reason: "National BMT centre", distanceKm: 30 }
+      ],
+      howToTransfer: "MOH inter-hospital referral. Cancer referrals accepted nationwide — from any MOH hospital, UMMC, or private specialist."
+    },
+    specialtyRanks: {
+      "National Cancer Centre": { rank: "National #1 (Public)", desc: "Malaysia's apex national cancer hospital under MOH" }
+    },
+    accreditations: ["MOH Designated National Cancer Hospital", "MSQH Accredited"],
+    verifiedNotes: "~250 beds (est.). Dedicated national cancer hospital under Ministry of Health Malaysia. Located in Putrajaya Presint 7. Opened approx. 2013.",
+    notableGaps: "No general A&E. No proton therapy (overseas referral). No general medicine/surgery.",
+    primaryExcellence: "Malaysia's national public cancer hospital — comprehensive oncology",
+    secondarySpecialties: "Haematology, Radiation Oncology, Palliative Care",
+    fullSpecialties: ["Clinical Oncology", "Radiation Oncology", "Surgical Oncology", "Haematology", "Palliative Care", "Paediatric Oncology"],
+    roomRate: "Free (public)",
+    roomRateRaw: 0,
+    insurance: "Heavily subsidised. Government cancer hospital — free/heavily subsidised for Malaysian citizens. FPP scheme available.",
+    fppScheme: true,
+    fppDeposit: "RM 500–2,000",
+    gaps: "No general A&E. No proton therapy. Oncology only.",
+    robotics: "Linear accelerators for radiotherapy. PET-CT imaging. Standard oncology imaging.",
+    doctorQualifications: "MOH oncologists and haematologists — MMC-registered with postgraduate oncology qualifications.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
   }
 ];

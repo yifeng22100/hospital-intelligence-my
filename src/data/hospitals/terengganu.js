@@ -210,5 +210,112 @@ export const HOSPITALS_TERENGGANU = [
     roomRate: "RM 200 – RM 700", roomRateRaw: 400, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
     gaps: "No cardiothoracic surgery.", robotics: "Standard imaging.", doctorQualifications: "Credentialed specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "SALAM KT Official", url: "https://salamkualaterengganu.com" }]
+  },
+  {
+    id: "hosza-unisza",
+    name: "Hospital Sultan Zainal Abidin (HoSZA)",
+    nameShort: "HoSZA",
+    sector: "public",
+    tier: "tertiary",
+    state: "Terengganu",
+    city: "Kuala Nerus",
+    intro: "Hospital Sultan Zainal Abidin (HoSZA) is UniSZA's teaching hospital, opened in 2022 at UniSZA's Gong Badak campus in Kuala Nerus, Terengganu. With 200 beds in its first phase, it is the first university hospital in Terengganu. It is completely separate from Hospital Sultanah Nur Zahirah (HSNZ), the MOH state hospital in Kuala Terengganu city.",
+    famousFor: [
+      "UniSZA teaching hospital — first university hospital in Terengganu",
+      "Opened 2022 at Gong Badak campus, Kuala Nerus",
+      "SEPARATE from Hospital Sultanah Nur Zahirah (HSNZ) MOH hospital",
+      "200-bed first phase teaching hospital"
+    ],
+    infrastructure: {
+      yearEstablished: 2022,
+      totalBeds: 200,
+      icuBeds: 12,
+      nicuBeds: 4,
+      operatingTheatres: 6,
+      area: "UniSZA Gong Badak campus",
+      buildings: "Teaching Hospital Block, UniSZA Gong Badak Campus",
+      helipad: false,
+      parkingBays: "~200 bays",
+      parkingRate: "Free (campus)"
+    },
+    contact: {
+      address: "Kampus Gong Badak, 21300 Kuala Nerus, Terengganu",
+      mainLine: "+609-665 5555",
+      emergencyLine: "+609-665 5555",
+      appointmentLine: "+609-665 5555",
+      website: "https://hosza.unisza.edu.my",
+      mapQuery: "Hospital Sultan Zainal Abidin HoSZA UniSZA Gong Badak Kuala Nerus Terengganu"
+    },
+    transport: {
+      nearest: "Kuala Nerus / Gong Badak area — taxi recommended from Kuala Terengganu (~15 min)",
+      bus: "UniSZA campus shuttle / local bus routes",
+      highway: "Route 3 East Coast Highway north from Kuala Terengganu",
+      landmark: "UniSZA Gong Badak campus, Kuala Nerus (NOT Kuala Terengganu city)"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "University campus cafeteria",
+      atm: "Campus",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free (campus WiFi)",
+      patientTransport: "MOH ambulance"
+    },
+    visitingHours: {
+      general: "12:00–14:00, 17:00–20:00",
+      icu: "Restricted",
+      paediatric: "Parents: unrestricted",
+      maternity: "Standard",
+      notes: "University teaching hospital. Confirm with ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)",
+        "ICU (basic)",
+        "General Medicine",
+        "General Surgery",
+        "Obstetrics & Gynaecology",
+        "Paediatrics",
+        "Orthopaedics",
+        "ENT",
+        "Ophthalmology",
+        "Psychiatry",
+        "Family Medicine"
+      ],
+      notAvailable: [
+        { specialty: "Complex tertiary subspecialties", transferTo: "Hospital Sultanah Nur Zahirah (HSNZ) Kuala Terengganu", note: "Teaching hospital — refer complex cases to state hospital" }
+      ],
+      byReferral: ["Complex subspecialties — HSNZ Kuala Terengganu"]
+    },
+    transferPathway: {
+      summary: "UniSZA teaching hospital in Kuala Nerus. Complex cases → HSNZ Kuala Terengganu (MOH state hospital). Note: HoSZA and HSNZ are completely SEPARATE institutions in different locations.",
+      routes: [{ condition: "Complex subspecialty or critical cases", to: "Hospital Sultanah Nur Zahirah (HSNZ) Kuala Terengganu", reason: "Terengganu state apex referral hospital", distanceKm: 15 }],
+      howToTransfer: "MOH inter-hospital referral. Teaching hospital referral pathway to HSNZ."
+    },
+    specialtyRanks: {
+      "Terengganu University Hospital": { rank: "First university hospital in Terengganu", desc: "UniSZA's first teaching hospital — opened 2022 at Gong Badak campus" }
+    },
+    accreditations: ["MOH Licensed", "UniSZA Teaching Hospital"],
+    verifiedNotes: "200 beds (first phase). Opened 2022. UniSZA teaching hospital at Gong Badak campus, Kuala Nerus. COMPLETELY SEPARATE from HSNZ (MOH state hospital in Kuala Terengganu city). Official name: Hospital Sultan Zainal Abidin (HoSZA).",
+    notableGaps: "First phase — limited subspecialties. Complex cases refer to HSNZ. Not located in Kuala Terengganu city.",
+    primaryExcellence: "UniSZA teaching hospital — first university hospital in Terengganu",
+    secondarySpecialties: "General Medicine, Surgery, Obstetrics, Paediatrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT", "Psychiatry"],
+    roomRate: "Free (public)",
+    roomRateRaw: 0,
+    insurance: "Heavily subsidised. Government university hospital — free/subsidised for Malaysian citizens.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "First phase — limited subspecialties. Teaching hospital capacity building.",
+    robotics: "Standard imaging.",
+    doctorQualifications: "UniSZA clinical faculty and MOH-registered specialists.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "HoSZA UniSZA Official Website", url: "https://hosza.unisza.edu.my" },
+      { label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }
+    ]
   }
 ];

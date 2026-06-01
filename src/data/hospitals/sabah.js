@@ -1398,7 +1398,6 @@ export const HOSPITALS_SABAH = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). District hospital for Kota Marudu.", notableGaps: "Specialist referral to HQE KK."
   },
-,
   {
     id: "hwkks", name: "Hospital Wanita Dan Kanak-Kanak Sabah (Hospital Likas)", nameShort: "Hospital Likas (HWKKS)",
     sector: "public", tier: "tertiary", state: "Sabah", city: "Kota Kinabalu",

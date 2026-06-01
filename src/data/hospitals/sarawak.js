@@ -1035,7 +1035,6 @@ export const HOSPITALS_SARAWAK = [
       { label: "Official Website", url: "https://www.timberlandmedical.com.my" }
     ]
   },
-,
   {
     id: "hsarikei", name: "Hospital Sarikei", nameShort: "Hsp. Sarikei",
     sector: "public", tier: "district", state: "Sarawak", city: "Sarikei",
@@ -1319,7 +1318,6 @@ export const HOSPITALS_SARAWAK = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~80 beds (est.). District hospital for Bau.", notableGaps: "Specialist referral to SGH Kuching."
   },
-,
   {
     id: "hsentosa", name: "Hospital Sentosa Kuching", nameShort: "Hospital Sentosa",
     sector: "public", tier: "tertiary", state: "Sarawak", city: "Kuching",
