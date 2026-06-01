@@ -302,5 +302,38 @@ export const HOSPITALS_MELAKA = [
     gaps: "Some subspecialties limited.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Melaka", url: "https://www.kpjmelaka.com.my" }],
     verifiedNotes: "~170 beds (est.). KPJ private specialist, Melaka.", notableGaps: "Complex → Hospital Melaka / KL."
+  },
+  {
+    id: "putra-melaka",
+    name: "Putra Specialist Hospital Melaka",
+    nameShort: "Putra Specialist Melaka",
+    sector: "private",
+    tier: "tertiary",
+    state: "Melaka",
+    city: "Melaka",
+    intro: "Putra Specialist Hospital Melaka is an independently owned 241-bed private specialist hospital housed in a 12-storey building in the heart of historical Melaka city. Established in 1995, it is one of Melaka's largest and most comprehensive private hospitals, recognised as a centre of excellence in specialist medicine and a significant medical tourism destination attracting patients from ASEAN.",
+    famousFor: ["One of Melaka's largest private hospitals (241 beds)", "12-storey landmark in Melaka city centre", "Medical tourism destination — ASEAN patient base", "MSQH Accredited and ISO 9001:2015 certified"],
+    infrastructure: { yearEstablished: 1995, totalBeds: 241, icuBeds: 20, nicuBeds: 8, operatingTheatres: 10, area: "~3 acres", buildings: "12-Storey Main Tower", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 2/hour" },
+    contact: { address: "169, Jalan Bendahara, 75100 Melaka", mainLine: "+606-283 5888", emergencyLine: "+606-283 5888 ext. A&E", appointmentLine: "+606-283 5888", website: "https://putrahospitalmelaka.com", mapQuery: "Putra Specialist Hospital Melaka Jalan Bendahara" },
+    transport: { nearest: "Melaka Sentral bus terminal — 10 min taxi", bus: "Melaka bus routes (Jalan Bendahara/city centre)", highway: "North-South Highway — Exit Ayer Keroh, then city centre", landmark: "Jalan Bendahara, Melaka city centre (near heritage zone)" },
+    facilities: { pharmacy24h: true, cafeteria: "Multiple F&B options in tower", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical tourism coordination and ambulance" },
+    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Private hospital — flexible." },
+    specialtyCoverage: {
+      available: ["Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU", "General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Gastroenterology", "Nephrology (Haemodialysis)", "Urology", "ENT", "Ophthalmology", "Dermatology", "Oncology (selected)", "Rehabilitation Medicine", "Physiotherapy"],
+      notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }],
+      byReferral: ["Complex oncology — Mahkota Medical Centre or Beacon KL", "Highly complex cardiothoracic — Hospital Melaka or KL"]
+    },
+    transferPathway: { summary: "Comprehensive private hospital. Complex cases → Mahkota Medical Centre or Hospital Melaka.", routes: [], howToTransfer: "Specialist referral." },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "ISO 9001:2015 Certified", "Baby-Friendly Hospital (WHO/UNICEF)"],
+    verifiedNotes: "241 beds. Established 1995. MSQH accredited. ISO 9001:2015 certified. Jalan Bendahara, Melaka city centre.",
+    notableGaps: "No liver transplant. Complex oncology → Mahkota or KL.",
+    primaryExcellence: "Large independent private specialist hospital — Melaka city centre", secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics, Nephrology",
+    fullSpecialties: ["General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics", "Paediatrics", "Gastroenterology", "Nephrology", "Urology", "ENT", "Ophthalmology", "Oncology"],
+    roomRate: "RM 180 – RM 600+/night", roomRateRaw: 320,
+    insurance: "Major Malaysian insurance panels. ASEAN medical tourism billing.",
+    fppScheme: false, fppDeposit: "N/A",
+    gaps: "No liver transplant.", robotics: "64-slice CT scanner. Standard imaging.", doctorQualifications: "MMC-registered specialists. Many internationally trained.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Putra Specialist Hospital Melaka", url: "https://putrahospitalmelaka.com" }]
   }
 ];
