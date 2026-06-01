@@ -305,48 +305,76 @@
     <div id="panel-emergency" class="panel">
       <div class="panel-inner">
 
-        <div class="emergency-header">
-          <h2 data-i18n="emergency_title">Emergency Guide</h2>
-          <p data-i18n="emergency_subtitle">Step-by-step guidance for common emergencies. Identify your situation, then call 999.</p>
-          <div class="emergency-call-999">
-            <a href="tel:999" class="btn-emergency-999">&#128222; <span data-i18n="call_999">Call 999</span></a>
-            <a href="tel:994" class="btn-sm btn-outline" style="background:#fff7ed;border-color:#fed7aa;color:#7c2d12;">&#128661; Bomba 994</a>
-            <a href="tel:991" class="btn-sm btn-outline" style="background:#f0fdf4;border-color:#bbf7d0;color:#065f46;">&#128681; PDRM 991</a>
+        <!-- Emergency header with hotlines -->
+        <div class="emergency-hero">
+          <div class="emergency-hero-text">
+            <h2 data-i18n="emergency_title">Emergency Guide</h2>
+            <p data-i18n="emergency_subtitle">Step-by-step guidance for common emergencies. Identify your situation, then call 999.</p>
+          </div>
+          <div class="emergency-hotlines">
+            <a href="tel:999" class="hotline-btn hotline-primary">
+              <span class="hotline-icon">&#128222;</span>
+              <span class="hotline-label">Ambulance</span>
+              <span class="hotline-num">999</span>
+            </a>
+            <a href="tel:994" class="hotline-btn hotline-fire">
+              <span class="hotline-icon">&#128293;</span>
+              <span class="hotline-label">Bomba</span>
+              <span class="hotline-num">994</span>
+            </a>
+            <a href="tel:991" class="hotline-btn hotline-police">
+              <span class="hotline-icon">&#128681;</span>
+              <span class="hotline-label">PDRM</span>
+              <span class="hotline-num">991</span>
+            </a>
           </div>
         </div>
 
-        <!-- Condition selector -->
-        <div style="margin-bottom:1.5rem;">
-          <h3 style="font-size:0.875rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;" data-i18n="emergency_select_condition">Select your emergency:</h3>
-          <div id="emergency-conditions"></div>
-        </div>
+        <!-- Step flow -->
+        <div class="emergency-steps">
 
-        <!-- State selector (hidden until condition selected) -->
-        <div id="emergency-state-wrap" class="hidden" style="margin-bottom:1.5rem;">
-          <label for="emergency-state-sel" style="display:block;font-size:0.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;" data-i18n="emergency_your_state">Your State:</label>
-          <select id="emergency-state-sel">
-            <option value="" data-i18n="select_state">Select state…</option>
-            <option value="Kuala Lumpur">Kuala Lumpur</option>
-            <option value="Putrajaya">Putrajaya</option>
-            <option value="Selangor">Selangor</option>
-            <option value="Penang">Penang</option>
-            <option value="Johor">Johor</option>
-            <option value="Perak">Perak</option>
-            <option value="Kedah">Kedah</option>
-            <option value="Kelantan">Kelantan</option>
-            <option value="Terengganu">Terengganu</option>
-            <option value="Pahang">Pahang</option>
-            <option value="Negeri Sembilan">Negeri Sembilan</option>
-            <option value="Melaka">Melaka</option>
-            <option value="Perlis">Perlis</option>
-            <option value="Sarawak">Sarawak</option>
-            <option value="Sabah">Sabah</option>
-            <option value="Labuan">Labuan</option>
-          </select>
-        </div>
+          <!-- Step 1 -->
+          <div class="estep" id="estep-1">
+            <div class="estep-label">
+              <span class="estep-num">1</span>
+              <span class="estep-title" data-i18n="emergency_select_condition">Select your emergency type</span>
+            </div>
+            <div id="emergency-conditions" class="emergency-conditions-grid"></div>
+          </div>
 
-        <!-- Emergency result -->
-        <div id="emergency-result" class="hidden"></div>
+          <!-- Step 2 (hidden until condition selected) -->
+          <div id="emergency-state-wrap" class="estep hidden" id="estep-2">
+            <div class="estep-label">
+              <span class="estep-num">2</span>
+              <span class="estep-title" data-i18n="emergency_your_state">Your location</span>
+            </div>
+            <div class="estep-state-row">
+              <select id="emergency-state-sel" class="estep-state-sel">
+                <option value="" data-i18n="select_state">Select your state…</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Putrajaya">Putrajaya</option>
+                <option value="Selangor">Selangor</option>
+                <option value="Penang">Penang</option>
+                <option value="Johor">Johor</option>
+                <option value="Perak">Perak</option>
+                <option value="Kedah">Kedah</option>
+                <option value="Kelantan">Kelantan</option>
+                <option value="Terengganu">Terengganu</option>
+                <option value="Pahang">Pahang</option>
+                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                <option value="Melaka">Melaka</option>
+                <option value="Perlis">Perlis</option>
+                <option value="Sarawak">Sarawak</option>
+                <option value="Sabah">Sabah</option>
+                <option value="Labuan">Labuan</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 3: Result -->
+          <div id="emergency-result" class="estep hidden"></div>
+
+        </div>
 
       </div>
     </div><!-- /panel-emergency -->
@@ -363,136 +391,57 @@
           <p data-i18n="intel_subtitle">Deep knowledge to make confident healthcare decisions in Malaysia.</p>
         </div>
 
-        <!-- Quick-access grid — click a card to expand/collapse the section below -->
+        <!-- Topic card grid — click to load content in the panel below -->
         <div class="intel-grid" id="intel-quick-grid">
-          <div class="intel-card" id="intel-tier-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-tier')">
+          <div class="intel-card" id="intel-tier-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-tier')">
             <div class="intel-card-icon">&#127970;</div>
             <div class="intel-card-title" data-i18n="intel_tier_title">Hospital Tier System</div>
             <div class="intel-card-desc" data-i18n="intel_tier_desc">Understand Quaternary to District levels</div>
           </div>
-          <div class="intel-card" id="intel-insurance-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-insurance')">
+          <div class="intel-card" id="intel-insurance-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-insurance')">
             <div class="intel-card-icon">&#128179;</div>
             <div class="intel-card-title" data-i18n="intel_insurance_title">Insurance Navigator</div>
             <div class="intel-card-desc" data-i18n="intel_insurance_desc">Panel hospitals, cashless &amp; FPP explained</div>
           </div>
-          <div class="intel-card" id="intel-cost-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-cost')">
+          <div class="intel-card" id="intel-cost-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-cost')">
             <div class="intel-card-icon">&#128200;</div>
             <div class="intel-card-title" data-i18n="intel_cost_title">Cost Reference</div>
             <div class="intel-card-desc" data-i18n="intel_cost_desc">Benchmark costs for common procedures</div>
           </div>
-          <div class="intel-card" id="intel-rights-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-rights')">
+          <div class="intel-card" id="intel-rights-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-rights')">
             <div class="intel-card-icon">&#9878;&#65039;</div>
             <div class="intel-card-title" data-i18n="intel_rights_title">Patient Rights &amp; Complaints</div>
             <div class="intel-card-desc" data-i18n="intel_rights_desc">Your legal rights as a patient in Malaysia</div>
           </div>
-          <div class="intel-card" id="intel-verify-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-verify')">
+          <div class="intel-card" id="intel-verify-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-verify')">
             <div class="intel-card-icon">&#10003;</div>
             <div class="intel-card-title" data-i18n="intel_verify_title">Verify a Facility</div>
             <div class="intel-card-desc" data-i18n="intel_verify_desc">Check licences and accreditation status</div>
           </div>
-          <div class="intel-card" id="intel-doctor-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-doctor')">
+          <div class="intel-card" id="intel-doctor-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-doctor')">
             <div class="intel-card-icon">&#128104;&#8205;&#9877;&#65039;</div>
             <div class="intel-card-title" data-i18n="intel_doctor_title">Doctor Verification</div>
             <div class="intel-card-desc" data-i18n="intel_doctor_desc">How to check a doctor's qualifications</div>
           </div>
-          <div class="intel-card" id="intel-trial-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-trial')">
+          <div class="intel-card" id="intel-trial-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-trial')">
             <div class="intel-card-icon">&#128300;</div>
             <div class="intel-card-title" data-i18n="intel_trial_title">Clinical Trials</div>
             <div class="intel-card-desc" data-i18n="intel_trial_desc">Access experimental treatments in Malaysia</div>
           </div>
-          <div class="intel-card" id="intel-night-card" onclick="window.HI&&window.HI.toggleIntelSection('intel-night')">
+          <div class="intel-card" id="intel-night-card" onclick="window.HI&&window.HI.selectIntelTopic('intel-night')">
             <div class="intel-card-icon">&#127769;</div>
             <div class="intel-card-title" data-i18n="intel_night_title">Night Cover Guide</div>
             <div class="intel-card-desc" data-i18n="intel_night_desc">After-hours &amp; 24h service availability</div>
           </div>
         </div>
 
-        <!-- Collapsible intel sections — start hidden, toggled by card clicks -->
-        <div class="intel-section collapsible-section" id="intel-tier">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-tier')">
-            <h3>&#127970; <span data-i18n="intel_tier_title">Hospital Tier System</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
+        <!-- Single content panel — rendered when a card is clicked -->
+        <div id="intel-topic-panel" class="intel-topic-panel hidden">
+          <div class="intel-topic-header">
+            <div class="intel-topic-breadcrumb" id="intel-topic-label"></div>
+            <button class="intel-topic-close" onclick="window.HI&&window.HI.closeIntelTopic()" aria-label="Close topic">&#10005; Close</button>
           </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="tier_intro">Malaysia's public hospitals are classified in a tiered referral pyramid.</p>
-            <div id="intel-tier-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-insurance">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-insurance')">
-            <h3>&#128179; <span data-i18n="intel_insurance_title">Insurance Navigator</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="insurance_intro">Check which hospitals are on your insurer's panel.</p>
-            <div id="intel-insurance-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-cost">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-cost')">
-            <h3>&#128200; <span data-i18n="intel_cost_title">Cost Reference</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="cost_disclaimer_short">Approximate 2023–2024 estimates. Actual costs vary.</p>
-            <div id="intel-cost-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-rights">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-rights')">
-            <h3>&#9878;&#65039; <span data-i18n="intel_rights_title">Patient Rights &amp; Complaints</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <div id="intel-rights-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-verify">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-verify')">
-            <h3>&#10003; <span data-i18n="intel_verify_title">Verify a Facility</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="verify_intro">Use official portals to check a hospital's licence and accreditation.</p>
-            <div id="intel-verify-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-doctor">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-doctor')">
-            <h3>&#128104;&#8205;&#9877;&#65039; <span data-i18n="intel_doctor_title">Doctor Verification</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="doctor_intro">Verify a doctor's registration and qualifications.</p>
-            <div id="intel-doctor-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-trial">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-trial')">
-            <h3>&#128300; <span data-i18n="intel_trial_title">Clinical Trials</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="trial_intro">Access experimental treatments through registered clinical trials.</p>
-            <div id="intel-trial-content"></div>
-          </div>
-        </div>
-
-        <div class="intel-section collapsible-section" id="intel-night">
-          <div class="collapsible-header" onclick="window.HI&&window.HI.toggleIntelSection('intel-night')">
-            <h3>&#127769; <span data-i18n="intel_night_title">Night Cover Guide</span></h3>
-            <span class="collapse-chevron">&#9660;</span>
-          </div>
-          <div class="collapsible-body" style="display:none">
-            <p class="section-intro" data-i18n="night_intro">After hours, not every specialty is staffed.</p>
-            <div id="intel-night-content"></div>
-          </div>
+          <div class="intel-topic-body" id="intel-topic-body"></div>
         </div>
 
       </div>

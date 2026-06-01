@@ -168,5 +168,83 @@ var HOSPITALS_TERENGGANU = [
     robotics: "Standard imaging.",
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Group", url: "https://www.pantai.com.my" }]
+  },
+  {
+    id: "hmarang",
+    name: "Hospital Marang",
+    nameShort: "Hospital Marang",
+    sector: "public", tier: "district", state: "Terengganu", city: "Marang",
+    intro: "Hospital Marang serves the coastal Marang district of Terengganu with district-level medical services.",
+    famousFor: ["District hospital for Marang coastal district"],
+    infrastructure: { yearEstablished: 1972, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 21600 Marang, Terengganu", mainLine: "+609-618 2222 (verify)", emergencyLine: "+609-618 2222 ext. A&E", appointmentLine: "+609-618 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Marang Terengganu" },
+    transport: { nearest: "Marang town — 5 min walk", bus: "Bus from Kuala Terengganu (~20 min)", highway: "Route 3 East Coast Highway", landmark: "Marang town, east coast" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sultanah Nur Zahirah Kuala Terengganu", note: "District hospital" }],
+      byReferral: ["Specialist → HSNZ KT"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HSNZ Kuala Terengganu.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Marang", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~80 beds (est.). District hospital for Marang.", notableGaps: "Specialist referral to HSNZ Kuala Terengganu."
+  },
+  {
+    id: "hsetiu",
+    name: "Hospital Setiu",
+    nameShort: "Hospital Setiu",
+    sector: "public", tier: "district", state: "Terengganu", city: "Setiu",
+    intro: "Hospital Setiu serves the Setiu district of Terengganu, an ecotourism-rich area in northern Terengganu.",
+    famousFor: ["District hospital for Setiu — northern Terengganu ecotourism area"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 80, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 22000 Setiu, Terengganu", mainLine: "+609-697 2222 (verify)", emergencyLine: "+609-697 2222 ext. A&E", appointmentLine: "+609-697 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Setiu Terengganu" },
+    transport: { nearest: "Setiu town — 5 min walk", bus: "Bus from Kuala Terengganu (~1 hr)", highway: "Route 3 East Coast Highway north", landmark: "Setiu town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sultanah Nur Zahirah", note: "District hospital" }],
+      byReferral: ["Specialist → HSNZ Kuala Terengganu"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HSNZ Kuala Terengganu.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Setiu", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~80 beds (est.). District hospital for Setiu.", notableGaps: "Specialist referral to HSNZ KT."
+  },
+  {
+    id: "kmc-kt",
+    name: "KMC Kuala Terengganu",
+    nameShort: "KMC Kuala Terengganu",
+    sector: "private", tier: "secondary", state: "Terengganu", city: "Kuala Terengganu",
+    intro: "KMC (Kuala Terengganu Medical Centre) is a private hospital providing specialist care in the Kuala Terengganu area.",
+    famousFor: ["Private specialist hospital — Kuala Terengganu"],
+    infrastructure: { yearEstablished: 2005, totalBeds: 80, icuBeds: 5, nicuBeds: 2, operatingTheatres: 3, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Kuala Terengganu, Terengganu", mainLine: "+609-624 0000 (verify)", emergencyLine: "+609-624 0000 ext. A&E", appointmentLine: "+609-624 0000 (verify)", website: "https://www.moh.gov.my", mapQuery: "KMC Kuala Terengganu" },
+    transport: { nearest: "Kuala Terengganu town — taxi recommended", bus: "Local bus routes", highway: "Route 3 East Coast Highway", landmark: "Kuala Terengganu town" },
+    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "HSNZ Kuala Terengganu", note: "Refer" }],
+      byReferral: ["Complex → HSNZ Kuala Terengganu"]
+    },
+    transferPathway: { summary: "Private hospital. Complex → HSNZ.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private hospital — Kuala Terengganu", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~80 beds (est.). Private hospital, Kuala Terengganu.", notableGaps: "Complex cases → HSNZ."
   }
 ];

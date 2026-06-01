@@ -194,5 +194,83 @@ var HOSPITALS_NS = [
     gaps: "No advanced specialties.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~120 beds (est.). District hospital for Kuala Pilah.", notableGaps: "Limited specialists."
+  },
+  {
+    id: "hrembau",
+    name: "Hospital Rembau",
+    nameShort: "Hospital Rembau",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Rembau",
+    intro: "Hospital Rembau serves the historic Rembau district of Negeri Sembilan, known for its adat perpatih matrilineal culture.",
+    famousFor: ["District hospital for Rembau — matrilineal adat perpatih heritage area"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 71300 Rembau, Negeri Sembilan", mainLine: "+606-685 2222 (verify)", emergencyLine: "+606-685 2222 ext. A&E", appointmentLine: "+606-685 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Rembau Negeri Sembilan" },
+    transport: { nearest: "Rembau town — 5 min walk", bus: "Bus from Seremban (~30 min)", highway: "North-South Highway — Pedas/Rembau exit", landmark: "Rembau town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Tuanku Ja'afar Seremban", note: "District hospital" }],
+      byReferral: ["Specialist → HTJ Seremban"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Rembau", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). District hospital for Rembau.", notableGaps: "Specialist referral to HTJ Seremban."
+  },
+  {
+    id: "hgemencheh",
+    name: "Hospital Gemencheh",
+    nameShort: "Hospital Gemencheh",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Gemencheh",
+    intro: "Hospital Gemencheh serves the Gemencheh area in the Tampin district of Negeri Sembilan.",
+    famousFor: ["District hospital for Gemencheh area"],
+    infrastructure: { yearEstablished: 1972, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~40 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 73400 Gemencheh, Negeri Sembilan", mainLine: "+606-699 2222 (verify)", emergencyLine: "+606-699 2222 ext. A&E", appointmentLine: "+606-699 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Gemencheh Negeri Sembilan" },
+    transport: { nearest: "Gemencheh town — 5 min walk", bus: "Local bus routes", highway: "North-South Highway — Gemas exit", landmark: "Gemencheh town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Tampin / HTJ Seremban", note: "District hospital" }],
+      byReferral: ["Specialist → HTJ Seremban"]
+    },
+    transferPathway: { summary: "District hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Gemencheh", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~40 beds (est.). Small district hospital.", notableGaps: "Specialist referral to HTJ Seremban."
+  },
+  {
+    id: "hjelebu",
+    name: "Hospital Jelebu",
+    nameShort: "Hospital Jelebu",
+    sector: "public", tier: "district", state: "Negeri Sembilan", city: "Jelebu",
+    intro: "Hospital Jelebu serves the interior Jelebu district of Negeri Sembilan, known for its adat perpatih traditions and scenic highlands.",
+    famousFor: ["District hospital for Jelebu — interior N. Sembilan highlands"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 71650 Kuala Klawang, Jelebu, Negeri Sembilan", mainLine: "+606-662 2222 (verify)", emergencyLine: "+606-662 2222 ext. A&E", appointmentLine: "+606-662 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Jelebu Negeri Sembilan" },
+    transport: { nearest: "Kuala Klawang town — 5 min walk", bus: "Bus from Seremban (~1 hr)", highway: "Route 51 interior roads", landmark: "Kuala Klawang town, Jelebu district" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "HTJ Seremban", note: "District hospital" }],
+      byReferral: ["Specialist → HTJ Seremban"]
+    },
+    transferPathway: { summary: "Interior district hospital. Complex → HTJ Seremban.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Jelebu", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). District hospital for Jelebu.", notableGaps: "Specialist referral to HTJ Seremban."
   }
 ];

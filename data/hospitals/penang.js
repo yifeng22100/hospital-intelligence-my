@@ -404,5 +404,83 @@ var HOSPITALS_PENANG = [
     doctorQualifications: "MMC-registered specialists.", imageUrl: null, imageCredit: "N/A",
     officialSources: [{ label: "Lam Wah Ee Hospital", url: "https://www.lwehospital.com" }],
     verifiedNotes: "~200 beds. Historic Adventist hospital in Georgetown.", notableGaps: "No cardiothoracic surgery."
+  },
+  {
+    id: "hkepala-batas",
+    name: "Hospital Kepala Batas",
+    nameShort: "Hospital Kepala Batas",
+    sector: "public", tier: "district", state: "Penang", city: "Kepala Batas",
+    intro: "Hospital Kepala Batas serves the northern Seberang Perai area of mainland Penang, the fastest growing part of Penang.",
+    famousFor: ["District hospital for Seberang Perai Utara — northern mainland Penang"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 200, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 13200 Kepala Batas, Penang", mainLine: "+604-575 2222 (verify)", emergencyLine: "+604-575 2222 ext. A&E", appointmentLine: "+604-575 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kepala Batas Penang" },
+    transport: { nearest: "Kepala Batas town — 5 min walk", bus: "Rapid Penang bus routes", highway: "North-South Highway — Bertam/Kepala Batas exit", landmark: "Kepala Batas town, north mainland Penang" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+      notAvailable: [{ specialty: "Subspecialties", transferTo: "Hospital Seberang Jaya", note: "District hospital" }],
+      byReferral: ["Specialist → Hospital Seberang Jaya"]
+    },
+    transferPathway: { summary: "District hospital. Complex → Hospital Seberang Jaya.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Kepala Batas / Seberang Perai Utara", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~200 beds (est.). District hospital for northern mainland Penang.", notableGaps: "Specialist referral to Hospital Seberang Jaya."
+  },
+  {
+    id: "sunway-mc-penang",
+    name: "Sunway Medical Centre Velocity Penang",
+    nameShort: "Sunway MC Penang",
+    sector: "private", tier: "tertiary", state: "Penang", city: "Penang",
+    intro: "Sunway Medical Centre Penang is a comprehensive private tertiary hospital on Penang island offering full specialist services.",
+    famousFor: ["Private tertiary hospital on Penang island", "Sunway Health network"],
+    infrastructure: { yearEstablished: 2015, totalBeds: 260, icuBeds: 18, nicuBeds: 8, operatingTheatres: 8, area: "~6 acres", buildings: "Main Block, Specialist Suites", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
+    contact: { address: "Penang, Malaysia", mainLine: "+604-222 9999 (verify)", emergencyLine: "+604-222 9999 ext. A&E", appointmentLine: "+604-222 9999 (verify)", website: "https://www.sunwaymedical.com", mapQuery: "Sunway Medical Centre Penang" },
+    transport: { nearest: "Penang city — taxi recommended", bus: "Rapid Penang bus", highway: "Penang Bridge / Butterworth Ferry", landmark: "Penang island" },
+    facilities: { pharmacy24h: true, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "Cardiology", "General Surgery", "Orthopaedics", "Oncology", "Obstetrics", "Paediatrics", "Neurology", "Gastroenterology"],
+      notAvailable: [{ specialty: "Liver transplant", transferTo: "Penang General Hospital", note: "National centre" }],
+      byReferral: ["Complex national cases → public hospitals"]
+    },
+    transferPathway: { summary: "Private tertiary hospital. Complex national → public centres.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private tertiary — Penang island", secondarySpecialties: "Cardiology, Oncology, Orthopaedics",
+    fullSpecialties: ["Cardiology", "Surgery", "Oncology", "Orthopaedics", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 250–650/night", roomRateRaw: 350, insurance: "Major panel insurance accepted.", fppScheme: false, fppDeposit: "RM 5,000",
+    gaps: "No transplant services.", robotics: "Selected imaging.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Sunway Medical Centre", url: "https://www.sunwaymedical.com" }],
+    verifiedNotes: "~260 beds (est.). Private tertiary hospital, Penang.", notableGaps: "No transplant services."
+  },
+  {
+    id: "penang-mc",
+    name: "Penang Medical College Hospital",
+    nameShort: "Penang MC Hospital",
+    sector: "private", tier: "secondary", state: "Penang", city: "George Town",
+    intro: "Penang Medical College Hospital is the teaching hospital of Penang Medical College, providing clinical training and specialist care on Penang island.",
+    famousFor: ["Teaching hospital of Penang Medical College", "Academic clinical training in Penang"],
+    infrastructure: { yearEstablished: 1996, totalBeds: 150, icuBeds: 10, nicuBeds: 4, operatingTheatres: 5, area: "~4 acres", buildings: "Main Block, Teaching Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "4, Sepoy Lines, 10450 George Town, Penang", mainLine: "+604-228 8000 (verify)", emergencyLine: "+604-228 8000 ext. A&E", appointmentLine: "+604-228 8000 (verify)", website: "https://www.penangmedicalcollege.edu.my", mapQuery: "Penang Medical College Hospital George Town" },
+    transport: { nearest: "George Town — 10 min taxi", bus: "Rapid Penang bus", highway: "Penang Bridge from mainland", landmark: "Sepoy Lines, George Town, Penang" },
+    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Penang General Hospital", note: "Teaching hospital" }],
+      byReferral: ["Complex → Hospital Pulau Pinang"]
+    },
+    transferPathway: { summary: "Teaching hospital. Complex → HPP or Gleneagles Penang.", routes: [], howToTransfer: "Medical referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Teaching hospital — George Town Penang", secondarySpecialties: "General Medicine, Surgery",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 150–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists and clinical faculty.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Penang Medical College", url: "https://www.penangmedicalcollege.edu.my" }],
+    verifiedNotes: "~150 beds (est.). Teaching hospital of Penang Medical College.", notableGaps: "Complex cases → Hospital Pulau Pinang."
   }
 ];

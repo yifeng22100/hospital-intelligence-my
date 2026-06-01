@@ -128,17 +128,23 @@ window.HI = window.HI || {};
 
     el.classList.remove('hidden');
     el.innerHTML =
-      '<div class="emergency-result-box" style="border-left: 4px solid ' + color + '">' +
-        '<div class="emergency-result-header" style="border-bottom: 1px solid ' + color + '30">' +
-          '<h3>' + protocol.title + '</h3>' +
-          (protocol.goldenHour ? '<div class="golden-hour" style="background:' + color + '15;color:' + color + '">&#8987; ' + protocol.goldenHour + '</div>' : '') +
-        '</div>' +
-        '<div class="emergency-result-body">' +
-          '<div class="emergency-call-box"><a href="tel:999" class="call-999-btn">&#128222; ' + window.HI.t('call_999') + '</a></div>' +
-          symptomsHtml +
-          doNowHtml +
-          doNotHtml +
-          gotoHtml +
+      '<div class="estep-label">' +
+        '<span class="estep-num">3</span>' +
+        '<span class="estep-title">Guidance for ' + (state || 'your area') + '</span>' +
+      '</div>' +
+      '<div style="padding:1rem 1.25rem;">' +
+        '<div class="emergency-result-box" style="border-left: 4px solid ' + color + '">' +
+          '<div class="emergency-result-header" style="border-bottom: 1px solid ' + color + '30">' +
+            '<h3>' + protocol.title + '</h3>' +
+            (protocol.goldenHour ? '<div class="golden-hour" style="background:' + color + '15;color:' + color + '">&#8987; ' + protocol.goldenHour + '</div>' : '') +
+          '</div>' +
+          '<div class="emergency-result-body">' +
+            '<div class="emergency-call-box"><a href="tel:999" class="call-999-btn">&#128222; ' + window.HI.t('call_999') + '</a></div>' +
+            symptomsHtml +
+            doNowHtml +
+            doNotHtml +
+            gotoHtml +
+          '</div>' +
         '</div>' +
       '</div>';
 

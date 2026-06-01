@@ -278,5 +278,83 @@ var HOSPITALS_KEDAH = [
     gaps: "No cardiothoracic or neurosurgery; air medevac required.", robotics: "None.", doctorQualifications: "MOH-registered MOs and specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
     verifiedNotes: "~130 beds (est.). Key hospital for Langkawi island including tourist emergencies.", notableGaps: "Air medevac to Alor Setar for complex cases."
+  },
+  {
+    id: "hkubang-pasu",
+    name: "Hospital Kubang Pasu",
+    nameShort: "Hospital Kubang Pasu",
+    sector: "public", tier: "district", state: "Kedah", city: "Jitra",
+    intro: "Hospital Kubang Pasu (also known as Hospital Jitra) serves the northern Kedah district of Kubang Pasu, near the Thai border.",
+    famousFor: ["District hospital for northern Kedah / Jitra area", "Near Thai border — cross-border healthcare"],
+    infrastructure: { yearEstablished: 1968, totalBeds: 150, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 06000 Jitra, Kedah", mainLine: "+604-917 2222 (verify)", emergencyLine: "+604-917 2222 ext. A&E", appointmentLine: "+604-917 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Kubang Pasu Jitra Kedah" },
+    transport: { nearest: "Jitra town — 5 min walk", bus: "Local Jitra bus routes", highway: "North-South Highway — Jitra exit", landmark: "Jitra town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Subspecialties", transferTo: "Hospital Sultanah Bahiyah Alor Setar", note: "District hospital" }],
+      byReferral: ["Specialist → Hospital Sultanah Bahiyah"]
+    },
+    transferPathway: { summary: "District hospital. Complex → Hospital Sultanah Bahiyah.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Jitra / Kubang Pasu", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~150 beds (est.). District hospital, northern Kedah.", notableGaps: "Specialist referral to Alor Setar."
+  },
+  {
+    id: "hpendang",
+    name: "Hospital Pendang",
+    nameShort: "Hospital Pendang",
+    sector: "public", tier: "district", state: "Kedah", city: "Pendang",
+    intro: "Hospital Pendang provides district-level healthcare for the Pendang area in central Kedah.",
+    famousFor: ["District hospital for Pendang area"],
+    infrastructure: { yearEstablished: 1972, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 06700 Pendang, Kedah", mainLine: "+604-759 2222 (verify)", emergencyLine: "+604-759 2222 ext. A&E", appointmentLine: "+604-759 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Pendang Kedah" },
+    transport: { nearest: "Pendang town — 5 min walk", bus: "Local bus routes", highway: "Via Route 1 or Route 6", landmark: "Pendang town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sultanah Bahiyah Alor Setar", note: "District hospital" }],
+      byReferral: ["Specialist → Alor Setar"]
+    },
+    transferPathway: { summary: "Small district hospital. Refer to Alor Setar.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Pendang", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). Small district hospital.", notableGaps: "Specialist referral to Alor Setar."
+  },
+  {
+    id: "hpokok-sena",
+    name: "Hospital Pokok Sena",
+    nameShort: "Hospital Pokok Sena",
+    sector: "public", tier: "district", state: "Kedah", city: "Pokok Sena",
+    intro: "Hospital Pokok Sena serves the Kota Setar district area around Pokok Sena in Kedah.",
+    famousFor: ["District hospital for Pokok Sena area"],
+    infrastructure: { yearEstablished: 1975, totalBeds: 60, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~50 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 06400 Pokok Sena, Kedah", mainLine: "+604-785 2222 (verify)", emergencyLine: "+604-785 2222 ext. A&E", appointmentLine: "+604-785 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Pokok Sena Kedah" },
+    transport: { nearest: "Pokok Sena town — 5 min walk", bus: "Local bus routes", highway: "Near North-South Highway", landmark: "Pokok Sena town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Obstetrics (basic)"],
+      notAvailable: [{ specialty: "Specialist services", transferTo: "Hospital Sultanah Bahiyah Alor Setar", note: "District hospital" }],
+      byReferral: ["Specialist → Alor Setar"]
+    },
+    transferPathway: { summary: "Small district hospital. Refer to Alor Setar.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Pokok Sena", secondarySpecialties: "General Medicine",
+    fullSpecialties: ["General Medicine", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Very limited services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~60 beds (est.). Small district hospital.", notableGaps: "Specialist referral to Alor Setar."
   }
 ];

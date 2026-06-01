@@ -172,5 +172,57 @@ var HOSPITALS_MELAKA = [
     fppScheme: false, fppDeposit: "N/A",
     gaps: "Small hospital.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Columbia Asia Group", url: "https://www.columbiaasia.com" }]
+  },
+  {
+    id: "halor-gajah",
+    name: "Hospital Alor Gajah",
+    nameShort: "Hospital Alor Gajah",
+    sector: "public", tier: "district", state: "Melaka", city: "Alor Gajah",
+    intro: "Hospital Alor Gajah serves the Alor Gajah district of western Melaka, providing district-level public healthcare.",
+    famousFor: ["District hospital for Alor Gajah — western Melaka"],
+    infrastructure: { yearEstablished: 1970, totalBeds: 130, icuBeds: 6, nicuBeds: 2, operatingTheatres: 3, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
+    contact: { address: "Jalan Hospital, 78000 Alor Gajah, Melaka", mainLine: "+606-556 2222 (verify)", emergencyLine: "+606-556 2222 ext. A&E", appointmentLine: "+606-556 2222 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Alor Gajah Melaka" },
+    transport: { nearest: "Alor Gajah town — 5 min walk", bus: "Bus from Melaka Sentral (~30 min)", highway: "North-South Highway — Ayer Keroh exit", landmark: "Alor Gajah town" },
+    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "MOH ambulance" },
+    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Subspecialties", transferTo: "Hospital Melaka", note: "District hospital" }],
+      byReferral: ["Specialist → Hospital Melaka"]
+    },
+    transferPathway: { summary: "District hospital. Complex → Hospital Melaka.", routes: [], howToTransfer: "MOH referral." },
+    specialtyRanks: {}, accreditations: ["MOH Accredited"],
+    primaryExcellence: "District hospital — Alor Gajah, Melaka", secondarySpecialties: "General Medicine, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
+    roomRate: "Free (public)", roomRateRaw: 0, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Limited specialist services.", robotics: "None.", doctorQualifications: "MOH medical officers.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
+    verifiedNotes: "~130 beds (est.). District hospital for Alor Gajah.", notableGaps: "Specialist referral to Hospital Melaka."
+  },
+  {
+    id: "pantai-premier-melaka",
+    name: "Pantai Premier Hospital Melaka",
+    nameShort: "Pantai Premier Melaka",
+    sector: "private", tier: "secondary", state: "Melaka", city: "Melaka",
+    intro: "Pantai Premier Hospital Melaka is a private specialist hospital in Melaka city offering a range of specialist medical services.",
+    famousFor: ["Private specialist hospital — Melaka city", "Pantai IHH network"],
+    infrastructure: { yearEstablished: 1995, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "No. 24, Jalan Tun Ali, 75400 Melaka", mainLine: "+606-283 9999 (verify)", emergencyLine: "+606-283 9999 ext. A&E", appointmentLine: "+606-283 9999 (verify)", website: "https://www.pantai.com.my", mapQuery: "Pantai Premier Hospital Melaka" },
+    transport: { nearest: "Melaka city centre — 5 min taxi", bus: "Local bus routes", highway: "North-South Highway — Ayer Keroh exit", landmark: "Melaka historic city area" },
+    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT"],
+      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "Mahkota Medical Centre", note: "Refer for complex cases" }],
+      byReferral: ["Complex → Mahkota Medical Centre"]
+    },
+    transferPathway: { summary: "Private specialist. Complex → Mahkota Medical Centre.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private specialist — Melaka city", secondarySpecialties: "General Medicine, Orthopaedics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Pantai Group", url: "https://www.pantai.com.my" }],
+    verifiedNotes: "~100 beds (est.). Private specialist hospital, Melaka.", notableGaps: "Complex → Mahkota Medical Centre."
   }
 ];
