@@ -240,7 +240,7 @@ export default function Home() {
               },
               {
                 icon: '🔄',
-                title: 'Updated 2024–2025',
+                title: 'Updated 2025–2026',
                 desc: 'Data continuously audited and refreshed from official sources.',
               },
               {
