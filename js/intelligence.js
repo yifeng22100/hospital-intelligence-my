@@ -229,7 +229,7 @@ window.HI = window.HI || {};
       }
     ];
 
-    var arrowHtml = '<div class="tier-arrow">&#11014;&#65039; Referred upward for complex cases &nbsp;|&nbsp; &#11015;&#65039; Discharged downward for follow-up</div>';
+    var arrowHtml = '<div class="tier-arrow">&#11014;&#65039; ' + window.HI.t('tier_referred_up') + ' &nbsp;|&nbsp; &#11015;&#65039; ' + window.HI.t('tier_discharged_down') + '</div>';
 
     var html = '<div class="tier-diagram">' +
       '<p class="tier-intro">Malaysia\'s public healthcare system operates in a structured referral pyramid. Understanding this helps you navigate faster and avoid unnecessary waits.</p>' +
@@ -250,7 +250,7 @@ window.HI = window.HI || {};
         '</div>';
       }).join('') +
       '<div class="tier-private-note">' +
-        '<h4>&#127894; Private Hospitals</h4>' +
+        '<h4>&#127894; ' + window.HI.t('tier_private_title') + '</h4>' +
         '<p>Private hospitals operate in parallel to the public system — they are not on this referral ladder. You access them directly (no referral needed) and pay out-of-pocket or via insurance. Quality varies widely from community day-surgery centres to quaternary-equivalent facilities like Sunway Medical Centre, Prince Court, or Gleneagles. They are NOT necessarily "better" than government hospitals — they offer faster access and more comfort, but for highly complex cases (transplant, experimental treatment, cardiac surgery volume), government academic centres often have more experience.</p>' +
       '</div>' +
     '</div>';
@@ -263,14 +263,14 @@ window.HI = window.HI || {};
   var activeTopicId = null;
 
   var topicLabels = {
-    'intel-tier':      { icon: '&#127970;', title: 'Hospital Tier System' },
-    'intel-insurance': { icon: '&#128179;', title: 'Insurance Navigator' },
-    'intel-cost':      { icon: '&#128200;', title: 'Cost Reference' },
-    'intel-rights':    { icon: '&#9878;&#65039;', title: 'Patient Rights & Complaints' },
-    'intel-verify':    { icon: '&#10003;', title: 'Verify a Facility' },
-    'intel-doctor':    { icon: '&#128104;&#8205;&#9877;&#65039;', title: 'Doctor Verification' },
-    'intel-trial':     { icon: '&#128300;', title: 'Clinical Trials' },
-    'intel-night':     { icon: '&#127769;', title: 'Night Cover Guide' }
+    'intel-tier':      { icon: '&#127970;', key: 'intel_tier_title' },
+    'intel-insurance': { icon: '&#128179;', key: 'intel_insurance_title' },
+    'intel-cost':      { icon: '&#128200;', key: 'intel_cost_title' },
+    'intel-rights':    { icon: '&#9878;&#65039;', key: 'intel_rights_title' },
+    'intel-verify':    { icon: '&#10003;', key: 'intel_verify_title' },
+    'intel-doctor':    { icon: '&#128104;&#8205;&#9877;&#65039;', key: 'intel_doctor_title' },
+    'intel-trial':     { icon: '&#128300;', key: 'intel_trial_title' },
+    'intel-night':     { icon: '&#127769;', key: 'intel_night_title' }
   };
 
   function selectIntelTopic(topicId) {
@@ -297,8 +297,8 @@ window.HI = window.HI || {};
     if (card) card.classList.add('active');
 
     // Update label
-    var meta = topicLabels[topicId] || { icon: '', title: topicId };
-    if (labelEl) labelEl.innerHTML = meta.icon + ' ' + meta.title;
+    var meta = topicLabels[topicId] || { icon: '', key: topicId };
+    if (labelEl) labelEl.innerHTML = meta.icon + ' ' + (meta.key ? window.HI.t(meta.key) : topicId);
 
     // Render content
     body.innerHTML = '';
@@ -346,7 +346,7 @@ window.HI = window.HI || {};
     var insurers = INSURANCE_PANELS.insurers || [];
 
     var rulesHtml = '<div class="intel-subsection">' +
-      '<h4>&#128220; General Rules You Must Know</h4>' +
+      '<h4>&#128220; ' + window.HI.t('intel_gen_rules') + '</h4>' +
       '<div class="rules-grid">' +
         Object.entries(rules).map(function(e) {
           var key = e[0];
@@ -358,7 +358,7 @@ window.HI = window.HI || {};
     '</div>';
 
     var insurerHtml = '<div class="intel-subsection">' +
-      '<h4>&#127968; Major Insurers & Panel Networks</h4>' +
+      '<h4>&#127968; ' + window.HI.t('intel_major_insurers') + '</h4>' +
       '<div class="insurer-list">' +
         insurers.map(function(ins) {
           return '<details class="insurer-details">' +
@@ -367,9 +367,9 @@ window.HI = window.HI || {};
             '</summary>' +
             '<div class="insurer-body">' +
               (ins.generalNote ? '<p>' + ins.generalNote + '</p>' : '') +
-              (ins.logLimitWarning ? '<div class="warning-box">&#9888; <strong>LOG Limit Warning:</strong> ' + ins.logLimitWarning + '</div>' : '') +
-              (ins.preAdmissionWindow ? '<div class="info-box">&#128197; <strong>Pre-Admission Window:</strong> ' + ins.preAdmissionWindow + '</div>' : '') +
-              (ins.tiers ? '<p><strong>Plan tiers:</strong> ' + ins.tiers.join(', ') + '</p>' : '') +
+              (ins.logLimitWarning ? '<div class="warning-box">&#9888; <strong>' + window.HI.t('log_limit_warning') + ':</strong> ' + ins.logLimitWarning + '</div>' : '') +
+              (ins.preAdmissionWindow ? '<div class="info-box">&#128197; <strong>' + window.HI.t('pre_admission_window') + ':</strong> ' + ins.preAdmissionWindow + '</div>' : '') +
+              (ins.tiers ? '<p><strong>' + window.HI.t('plan_tiers') + ':</strong> ' + ins.tiers.join(', ') + '</p>' : '') +
               (ins.website ? '<a href="' + ins.website + '" target="_blank" class="source-link">&#127760; ' + ins.website.replace(/^https?:\/\//, '') + '</a>' : '') +
             '</div>' +
           '</details>';
@@ -379,7 +379,7 @@ window.HI = window.HI || {};
 
     el.innerHTML =
       '<div class="intel-section-wrap">' +
-        '<p class="intel-section-intro">Before admission, understand these insurance rules to avoid unexpected bills.</p>' +
+        '<p class="intel-section-intro">' + window.HI.t('intel_insurer_intro') + '</p>' +
         rulesHtml + insurerHtml +
       '</div>';
   }
@@ -392,10 +392,10 @@ window.HI = window.HI || {};
     var html = '<div class="intel-section-wrap">' +
       '<p class="intel-section-intro">' + (COST_REFERENCE.disclaimer || '') + '</p>' +
       '<div class="cost-tier-key">' +
-        '<span class="tier-key public">Subsidised (Public)</span>' +
-        '<span class="tier-key public-fpp">FPP (Public Private Ward)</span>' +
-        '<span class="tier-key private-mid">Private Mid-Tier</span>' +
-        '<span class="tier-key private-premium">Private Premium</span>' +
+        '<span class="tier-key public">' + window.HI.t('tier_key_public') + '</span>' +
+        '<span class="tier-key public-fpp">' + window.HI.t('tier_key_public_fpp') + '</span>' +
+        '<span class="tier-key private-mid">' + window.HI.t('tier_key_private_mid') + '</span>' +
+        '<span class="tier-key private-premium">' + window.HI.t('tier_key_private_premium') + '</span>' +
       '</div>' +
       cats.map(function(cat) {
         var procs = (cat.procedures || []).map(function(p) {
@@ -416,11 +416,11 @@ window.HI = window.HI || {};
           '<div class="cost-table-wrap">' +
             '<table class="cost-table">' +
               '<thead><tr>' +
-                '<th>Procedure</th>' +
-                '<th>Public (Subsidised)</th>' +
-                '<th>Public FPP</th>' +
-                '<th>Private Mid-Tier</th>' +
-                '<th>Private Premium</th>' +
+                '<th>' + window.HI.t('cost_col_procedure') + '</th>' +
+                '<th>' + window.HI.t('cost_col_public') + '</th>' +
+                '<th>' + window.HI.t('cost_col_public_fpp') + '</th>' +
+                '<th>' + window.HI.t('cost_col_private_mid') + '</th>' +
+                '<th>' + window.HI.t('cost_col_private_premium') + '</th>' +
               '</tr></thead>' +
               '<tbody>' + procs + '</tbody>' +
             '</table>' +
@@ -468,8 +468,8 @@ window.HI = window.HI || {};
     ];
 
     el.innerHTML = '<div class="intel-section-wrap">' +
-      '<h3>FPP Navigator: Full-Paying Patient Guide</h3>' +
-      '<p class="intel-section-intro">Access government hospital specialists quickly without waiting in the subsidised queue — at 30–60% lower cost than equivalent private hospitals.</p>' +
+      '<h3>' + window.HI.t('fpp_nav_title') + '</h3>' +
+      '<p class="intel-section-intro">' + window.HI.t('fpp_intro') + '</p>' +
       '<div class="fpp-steps">' +
         steps.map(function(s) {
           return '<div class="fpp-step">' +
@@ -483,7 +483,7 @@ window.HI = window.HI || {};
         }).join('') +
       '</div>' +
       '<div class="fpp-hospitals-note">' +
-        '<h4>Recommended FPP Hospitals</h4>' +
+        '<h4>' + window.HI.t('fpp_hospitals_note') + '</h4>' +
         '<ul>' +
           '<li><strong>HKL (Hospital Kuala Lumpur)</strong> — widest specialty range in the system</li>' +
           '<li><strong>UMMC (UM Medical Centre)</strong> — academic hospital, professor-level consultants</li>' +
@@ -498,8 +498,8 @@ window.HI = window.HI || {};
   // Night Cover
   function renderNightSection(el) {
     el.innerHTML = '<div class="intel-section-wrap">' +
-      '<h3>Night Cover Intelligence Guide</h3>' +
-      '<p class="intel-section-intro">Overnight hospital cover in Malaysia varies significantly between institutions. Knowing who is on-call when you deteriorate at 2am is a patient safety issue.</p>' +
+      '<h3>' + window.HI.t('night_cover_title') + '</h3>' +
+      '<p class="intel-section-intro">' + window.HI.t('night_intro') + '</p>' +
       '<div class="night-table-wrap">' +
         '<table class="night-table">' +
           '<thead><tr><th>Hospital Type</th><th>Overnight Cover</th><th>Specialist On-Site?</th><th>Recommendation</th></tr></thead>' +
@@ -538,7 +538,7 @@ window.HI = window.HI || {};
         '</table>' +
       '</div>' +
       '<div class="night-question-box">' +
-        '<h4>The question to ask before admission:</h4>' +
+        '<h4>' + window.HI.t('night_q_heading') + ':</h4>' +
         '<blockquote>"If I deteriorate at 3am, who is the doctor physically on-site — and can a specialist be at my bedside within 15 minutes?"</blockquote>' +
         '<p>This is your right as a patient (Patient Rights Charter, MOH). You are entitled to a clear answer before signing admission documents.</p>' +
       '</div>' +
@@ -557,11 +557,11 @@ window.HI = window.HI || {};
     var channelsHtml = (comp.channels || []).map(function(c) {
       return '<div class="complaint-channel">' +
         '<h5>' + c.name + '</h5>' +
-        '<p class="channel-for"><strong>For:</strong> ' + c.for + '</p>' +
-        '<p class="channel-how"><strong>How:</strong> ' + c.how + '</p>' +
-        (c.timeline ? '<p class="channel-timeline"><strong>Timeline:</strong> ' + c.timeline + '</p>' : '') +
+        '<p class="channel-for"><strong>' + window.HI.t('for_label') + ':</strong> ' + c.for + '</p>' +
+        '<p class="channel-how"><strong>' + window.HI.t('how_label') + ':</strong> ' + c.how + '</p>' +
+        (c.timeline ? '<p class="channel-timeline"><strong>' + window.HI.t('timeline_label') + ':</strong> ' + c.timeline + '</p>' : '') +
         (c.phone ? '<a href="tel:' + c.phone.replace(/[^+0-9]/g, '') + '" class="channel-phone">&#128222; ' + c.phone + '</a>' : '') +
-        (c.website ? '<a href="' + c.website + '" target="_blank" class="source-link">&#127760; Website</a>' : '') +
+        (c.website ? '<a href="' + c.website + '" target="_blank" class="source-link">&#127760; ' + window.HI.t('website_label') + '</a>' : '') +
       '</div>';
     }).join('');
     var rightsHtml = (comp.patientRights || LEGAL_SUPPORT.complaints && LEGAL_SUPPORT.complaints.patientRights || []).map(function(r) {
@@ -569,22 +569,22 @@ window.HI = window.HI || {};
     }).join('');
 
     el.innerHTML = '<div class="intel-section-wrap">' +
-      '<h3>Patient Rights & Complaints</h3>' +
-      (comp.statute ? '<div class="statute-box"><strong>&#9878; Limitation Period:</strong> ' + comp.statute + '</div>' : '') +
+      '<h3>' + window.HI.t('rights_section_title') + '</h3>' +
+      (comp.statute ? '<div class="statute-box"><strong>&#9878; ' + window.HI.t('limitation_period') + ':</strong> ' + comp.statute + '</div>' : '') +
       '<div class="intel-subsection">' +
-        '<h4>Your Patient Rights</h4>' +
+        '<h4>' + window.HI.t('your_patient_rights') + '</h4>' +
         (rightsHtml ? '<ul class="rights-list">' + rightsHtml + '</ul>' : '') +
       '</div>' +
       '<div class="intel-subsection">' +
-        '<h4>When to Complain</h4>' +
+        '<h4>' + window.HI.t('when_to_complain') + '</h4>' +
         '<ul class="rights-list">' + whenHtml + '</ul>' +
       '</div>' +
       '<div class="intel-subsection">' +
-        '<h4>Step-by-Step Complaint Process</h4>' +
+        '<h4>' + window.HI.t('complaint_process') + '</h4>' +
         stepsHtml +
       '</div>' +
       '<div class="intel-subsection">' +
-        '<h4>Complaint Channels</h4>' +
+        '<h4>' + window.HI.t('complaint_channels') + '</h4>' +
         channelsHtml +
       '</div>' +
     '</div>';
@@ -599,13 +599,13 @@ window.HI = window.HI || {};
     var legalHtml = legalAid.map(function(org) {
       return '<div class="legal-org-card">' +
         '<h5>' + org.name + '</h5>' +
-        (org.eligibility ? '<p class="legal-eligibility">&#10003; <strong>Eligibility:</strong> ' + org.eligibility + '</p>' : '') +
-        (org.services ? '<p><strong>Services:</strong> ' + (Array.isArray(org.services) ? org.services.join('; ') : org.services) + '</p>' : '') +
-        (org.howToApply ? '<p><strong>How to access:</strong> ' + org.howToApply + '</p>' : '') +
+        (org.eligibility ? '<p class="legal-eligibility">&#10003; <strong>' + window.HI.t('eligibility') + '</strong> ' + org.eligibility + '</p>' : '') +
+        (org.services ? '<p><strong>' + window.HI.t('services_offered') + '</strong> ' + (Array.isArray(org.services) ? org.services.join('; ') : org.services) + '</p>' : '') +
+        (org.howToApply ? '<p><strong>' + window.HI.t('how_to_apply') + '</strong> ' + org.howToApply + '</p>' : '') +
         (org.notes ? '<p class="text-xs text-slate-500">' + org.notes + '</p>' : '') +
         '<div class="org-links">' +
           (org.phone ? '<a href="tel:' + org.phone.replace(/[^+0-9]/g, '').split('|')[0] + '" class="ngo-phone">&#128222; ' + org.phone.split('|')[0].trim() + '</a>' : '') +
-          (org.website ? '<a href="' + org.website + '" target="_blank" class="ngo-web">&#127760; Website</a>' : '') +
+          (org.website ? '<a href="' + org.website + '" target="_blank" class="ngo-web">&#127760; ' + window.HI.t('website_label') + '</a>' : '') +
         '</div>' +
       '</div>';
     }).join('');
@@ -613,18 +613,18 @@ window.HI = window.HI || {};
     var dvHtml = '';
     if (dv) {
       dvHtml = '<div class="dv-box">' +
-        '<h4>&#9888; Domestic Violence Support</h4>' +
+        '<h4>&#9888; ' + window.HI.t('dv_support') + '</h4>' +
         '<a href="tel:15999" class="hotline-btn">&#128222; Talian Kasih 15999 (24/7, Free)</a>' +
         '<p>' + (dv.desc || 'Call Talian Kasih 15999 for 24/7 domestic violence support.') + '</p>' +
       '</div>';
     }
 
     el.innerHTML = '<div class="intel-section-wrap">' +
-      '<h3>Legal Support Directory</h3>' +
-      '<p class="intel-section-intro">Free and subsidised legal help for healthcare-related matters.</p>' +
+      '<h3>' + window.HI.t('legal_section_title') + '</h3>' +
+      '<p class="intel-section-intro">' + window.HI.t('legal_title') + '</p>' +
       dvHtml +
       '<div class="intel-subsection">' +
-        '<h4>Free & Subsidised Legal Aid</h4>' +
+        '<h4>' + window.HI.t('free_legal_aid') + '</h4>' +
         '<div class="legal-grid">' + legalHtml + '</div>' +
       '</div>' +
     '</div>';
@@ -633,8 +633,8 @@ window.HI = window.HI || {};
   // Clinical Trial Guide
   function renderTrialSection(el) {
     el.innerHTML = '<div class="intel-section-wrap">' +
-      '<h3>Clinical Trial Guide</h3>' +
-      '<p class="intel-section-intro">Clinical trials in Malaysia offer access to cutting-edge treatments — often at no cost. Here is how to find and join one.</p>' +
+      '<h3>' + window.HI.t('trial_section_title') + '</h3>' +
+      '<p class="intel-section-intro">' + window.HI.t('trial_intro') + '</p>' +
 
       '<div class="trial-steps">' +
         '<div class="trial-step">' +
@@ -701,8 +701,8 @@ window.HI = window.HI || {};
     ];
 
     el.innerHTML = '<div class="intel-section-wrap">' +
-      '<h3>Doctor Verification Guide</h3>' +
-      '<p class="intel-section-intro">In Malaysia, all practising doctors must be registered with the Malaysian Medical Council (MMC). You can verify any doctor\'s registration, specialty, and disciplinary status online.</p>' +
+      '<h3>' + window.HI.t('doctor_section_title') + '</h3>' +
+      '<p class="intel-section-intro">' + window.HI.t('doctor_intro') + '</p>' +
 
       '<div class="verify-steps-doctor">' +
         '<div class="doctor-verify-step">' +
@@ -720,7 +720,7 @@ window.HI = window.HI || {};
           '<p class="text-sm text-slate-600 mb-3">Malaysian doctors\' name cards often list multiple qualifications. Here is what they mean:</p>' +
           '<div class="qual-table-wrap">' +
             '<table class="qual-table">' +
-              '<thead><tr><th>Abbreviation</th><th>What it means</th></tr></thead>' +
+              '<thead><tr><th>' + window.HI.t('abbr_col') + '</th><th>' + window.HI.t('meaning_col') + '</th></tr></thead>' +
               '<tbody>' +
                 qualAbbrev.map(function(q) {
                   return '<tr><td class="qual-abbr"><code>' + q.abbr + '</code></td><td>' + q.meaning + '</td></tr>';
@@ -730,7 +730,7 @@ window.HI = window.HI || {};
           '</div>' +
         '</div>' +
         '<div class="doctor-verify-step">' +
-          '<h4>&#128204; Other Professional Boards</h4>' +
+          '<h4>&#128204; ' + window.HI.t('other_boards') + '</h4>' +
           '<ul>' +
             '<li><strong>Dentists:</strong> <a href="https://www.mdc.gov.my" target="_blank">mdc.gov.my</a> — Malaysian Dental Council</li>' +
             '<li><strong>Nurses & Midwives:</strong> <a href="https://www.ljm.moh.gov.my" target="_blank">ljm.moh.gov.my</a> — Lembaga Jururawat Malaysia</li>' +
@@ -762,21 +762,39 @@ window.HI = window.HI || {};
       VERIFY_GUIDE.slice(0, 8).map(function(guide) {
         return '<div class="verify-card">' +
           '<h4>' + guide.facilityType + '</h4>' +
-          '<p class="text-sm text-muted" style="margin-bottom:0.5rem"><strong>Governed by:</strong> ' + guide.governingLaw + '</p>' +
-          '<p class="text-sm text-muted" style="margin-bottom:0.75rem"><strong>Licensed by:</strong> ' + guide.licensingBody + '</p>' +
+          '<p class="text-sm text-muted" style="margin-bottom:0.5rem"><strong>' + window.HI.t('governed_by') + ':</strong> ' + guide.governingLaw + '</p>' +
+          '<p class="text-sm text-muted" style="margin-bottom:0.75rem"><strong>' + window.HI.t('licensed_by') + ':</strong> ' + guide.licensingBody + '</p>' +
           '<div class="verify-steps">' +
           (guide.howToVerify || []).slice(0, 3).map(function(step) {
             return '<div class="verify-step">&#10003; ' + step + '</div>';
           }).join('') +
           '</div>' +
-          (guide.redFlags ? '<div class="red-flags-list" style="margin-top:0.75rem"><strong>&#9888; Red flags:</strong><ul>' +
+          (guide.redFlags ? '<div class="red-flags-list" style="margin-top:0.75rem"><strong>&#9888; ' + window.HI.t('red_flags') + ':</strong><ul>' +
             guide.redFlags.slice(0, 3).map(function(f) { return '<li>' + f + '</li>'; }).join('') +
           '</ul></div>' : '') +
-          (guide.complaintChannel ? '<p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem">Complaint: ' + guide.complaintChannel + '</p>' : '') +
+          (guide.complaintChannel ? '<p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem">' + window.HI.t('complaint_label') + ': ' + guide.complaintChannel + '</p>' : '') +
         '</div>';
       }).join('') +
     '</div>';
   }
+
+  // Re-render open intel topic panel when language changes
+  var _prevIntelLangChange = window.HI.onLangChange;
+  window.HI.onLangChange = function(code) {
+    if (_prevIntelLangChange) _prevIntelLangChange(code);
+    if (activeTopicId) {
+      var body = document.getElementById('intel-topic-body');
+      var labelEl = document.getElementById('intel-topic-label');
+      if (body) {
+        body.innerHTML = '';
+        renderSection(activeTopicId, body);
+      }
+      if (labelEl) {
+        var meta = topicLabels[activeTopicId];
+        if (meta) labelEl.innerHTML = meta.icon + ' ' + window.HI.t(meta.key);
+      }
+    }
+  };
 
   window.HI.selectIntelTopic = selectIntelTopic;
   window.HI.closeIntelTopic = closeIntelTopic;

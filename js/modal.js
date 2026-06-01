@@ -98,13 +98,13 @@ window.HI = window.HI || {};
     }).join('');
 
     var infraItems = [
-      { label: window.HI.t('beds_total'), value: inf.totalBeds ? inf.totalBeds.toLocaleString() + ' beds' : '—' },
-      { label: window.HI.t('icu_label'), value: inf.icuBeds ? inf.icuBeds + ' ICU beds' : '—' },
-      { label: 'NICU Beds', value: inf.nicuBeds ? inf.nicuBeds + ' NICU beds' : '—' },
-      { label: window.HI.t('ot_label'), value: inf.operatingTheatres ? inf.operatingTheatres + ' OTs' : '—' },
-      { label: 'Established', value: inf.yearEstablished ? window.HI.t('years_est') + ' ' + inf.yearEstablished : '—' },
-      { label: 'Area / Size', value: inf.area || '—' },
-      { label: 'Buildings', value: inf.buildings || '—' },
+      { label: window.HI.t('beds_total'), value: inf.totalBeds ? inf.totalBeds.toLocaleString() + ' ' + window.HI.t('beds_label') : '—' },
+      { label: window.HI.t('icu_label'), value: inf.icuBeds ? inf.icuBeds + ' ' + window.HI.t('icu_label') : '—' },
+      { label: window.HI.t('nicu_label'), value: inf.nicuBeds ? inf.nicuBeds + ' ' + window.HI.t('nicu_label') : '—' },
+      { label: window.HI.t('ot_label'), value: inf.operatingTheatres ? inf.operatingTheatres + ' ' + window.HI.t('ot_label') : '—' },
+      { label: window.HI.t('established'), value: inf.yearEstablished ? window.HI.t('years_est') + ' ' + inf.yearEstablished : '—' },
+      { label: window.HI.t('area_label'), value: inf.area || '—' },
+      { label: window.HI.t('buildings_label'), value: inf.buildings || '—' },
       { label: window.HI.t('helipad'), value: inf.helipad ? '&#10003; Yes' : 'No' }
     ];
 
@@ -123,7 +123,7 @@ window.HI = window.HI || {};
       '</div>' +
       (accs ? '<div class="modal-section"><h4>' + window.HI.t('accreditations') + '</h4><div class="accreditations-row">' + accs + '</div></div>' : '') +
       (h.verifiedNotes ? '<div class="modal-section verified-notes-box"><h4>' + window.HI.t('verified_notes') + '</h4><p>' + h.verifiedNotes + '</p></div>' : '') +
-      (h.notableGaps ? '<div class="modal-section notable-gaps-box"><h4>Notable Gaps</h4><p>' + h.notableGaps + '</p></div>' : '');
+      (h.notableGaps ? '<div class="modal-section notable-gaps-box"><h4>' + window.HI.t('notable_gaps') + '</h4><p>' + h.notableGaps + '</p></div>' : '');
   }
 
   // Panel 2: Specialties
@@ -165,7 +165,7 @@ window.HI = window.HI || {};
       }).join('');
       notAvailHtml = '<div class="modal-section">' +
         '<h4 class="spec-section-title spec-unavailable-title">&#10060; ' + window.HI.t('spec_unavailable') + ' <span class="spec-count">' + notAvailable.length + '</span></h4>' +
-        '<div class="spec-na-table-wrap"><table class="spec-na-table"><thead><tr><th>Specialty</th><th>Transfer To</th><th>Note</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        '<div class="spec-na-table-wrap"><table class="spec-na-table"><thead><tr><th>' + window.HI.t('col_specialty') + '</th><th>' + window.HI.t('col_transfer_to') + '</th><th>' + window.HI.t('col_note') + '</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
       '</div>';
     }
 
@@ -196,7 +196,7 @@ window.HI = window.HI || {};
       transferHtml = '<div class="modal-section">' +
         '<h4>' + window.HI.t('transfer_pathway') + '</h4>' +
         (tp.summary ? '<p class="transfer-summary">' + tp.summary + '</p>' : '') +
-        (routeRows ? '<div class="transfer-table-wrap"><table class="transfer-table"><thead><tr><th>Condition</th><th>Go To</th><th>Reason</th><th>Distance</th></tr></thead><tbody>' + routeRows + '</tbody></table></div>' : '') +
+        (routeRows ? '<div class="transfer-table-wrap"><table class="transfer-table"><thead><tr><th>' + window.HI.t('col_condition') + '</th><th>' + window.HI.t('col_go_to') + '</th><th>' + window.HI.t('col_reason') + '</th><th>' + window.HI.t('col_distance') + '</th></tr></thead><tbody>' + routeRows + '</tbody></table></div>' : '') +
         (tp.howToTransfer ? '<div class="how-to-transfer-box"><strong>' + window.HI.t('how_to_transfer') + ':</strong> ' + tp.howToTransfer + '</div>' : '') +
       '</div>';
     }
@@ -206,7 +206,7 @@ window.HI = window.HI || {};
     var rankEntries = Object.entries(ranks);
     if (rankEntries.length > 0) {
       rankHtml = '<div class="modal-section">' +
-        '<h4>Top Ranked Specialties</h4>' +
+        '<h4>' + window.HI.t('top_ranked') + '</h4>' +
         '<div class="rank-list">' +
           rankEntries.slice(0, 8).map(function(e) {
             return '<div class="rank-row"><span class="rank-name">' + e[0] + '</span>' +
@@ -220,7 +220,7 @@ window.HI = window.HI || {};
 
     el.innerHTML = rankHtml + availHtml + referralHtml + notAvailHtml + transferHtml;
     if (!el.innerHTML.trim()) {
-      el.innerHTML = '<div class="modal-section"><p class="text-slate-500">Specialty coverage information not available.</p></div>';
+      el.innerHTML = '<div class="modal-section"><p class="text-slate-500">' + window.HI.t('no_specialty_info') + '</p></div>';
     }
   }
 
@@ -241,7 +241,7 @@ window.HI = window.HI || {};
 
     // Contact block
     var contactHtml = '<div class="modal-section">' +
-      '<h4>Contact & Location</h4>' +
+      '<h4>' + window.HI.t('contact_location') + '</h4>' +
       '<div class="contact-block">' +
         (c.address ?
           '<div class="contact-row address-row">' +
@@ -256,19 +256,19 @@ window.HI = window.HI || {};
         (c.mainLine ?
           '<div class="contact-row">' +
             '<span class="contact-icon">&#128222;</span>' +
-            '<span class="contact-label">Main line: </span>' +
+            '<span class="contact-label">' + window.HI.t('main_line') + ': </span>' +
             '<a href="tel:' + c.mainLine.replace(/[^+0-9]/g, '') + '" class="contact-link">' + c.mainLine + '</a>' +
           '</div>' : '') +
         (c.emergencyLine ?
           '<div class="contact-row emergency-line-row">' +
             '<span class="contact-icon">&#128680;</span>' +
-            '<span class="contact-label">Emergency / A&E: </span>' +
+            '<span class="contact-label">' + window.HI.t('emergency_line_label') + ': </span>' +
             '<a href="tel:' + c.emergencyLine.replace(/[^+0-9]/g, '') + '" class="contact-link emergency-link">' + c.emergencyLine + '</a>' +
           '</div>' : '') +
         (c.appointmentLine ?
           '<div class="contact-row">' +
             '<span class="contact-icon">&#128197;</span>' +
-            '<span class="contact-label">Appointments: </span>' +
+            '<span class="contact-label">' + window.HI.t('appointments_label') + ': </span>' +
             '<a href="tel:' + c.appointmentLine.replace(/[^+0-9]/g, '') + '" class="contact-link">' + c.appointmentLine + '</a>' +
           '</div>' : '') +
         (c.website ?
@@ -283,10 +283,10 @@ window.HI = window.HI || {};
     var transportHtml = '<div class="modal-section">' +
       '<h4>&#128652; ' + window.HI.t('transport') + '</h4>' +
       '<div class="transport-block">' +
-        (t.nearest ? '<div class="transport-row"><strong>Nearest LRT/MRT/KTM:</strong> ' + t.nearest + '</div>' : '') +
-        (t.bus ? '<div class="transport-row"><strong>Bus:</strong> ' + t.bus + '</div>' : '') +
-        (t.highway ? '<div class="transport-row"><strong>Highway:</strong> ' + t.highway + '</div>' : '') +
-        (t.landmark ? '<div class="transport-row"><strong>Landmark:</strong> ' + t.landmark + '</div>' : '') +
+        (t.nearest ? '<div class="transport-row"><strong>' + window.HI.t('nearest_transit') + ':</strong> ' + t.nearest + '</div>' : '') +
+        (t.bus ? '<div class="transport-row"><strong>' + window.HI.t('bus_label') + ':</strong> ' + t.bus + '</div>' : '') +
+        (t.highway ? '<div class="transport-row"><strong>' + window.HI.t('highway_label') + ':</strong> ' + t.highway + '</div>' : '') +
+        (t.landmark ? '<div class="transport-row"><strong>' + window.HI.t('landmark_label') + ':</strong> ' + t.landmark + '</div>' : '') +
       '</div>' +
     '</div>';
 
@@ -296,8 +296,8 @@ window.HI = window.HI || {};
       parkingHtml = '<div class="modal-section">' +
         '<h4>&#128663; ' + window.HI.t('parking') + '</h4>' +
         '<div class="parking-block">' +
-          (inf.parkingBays ? '<div><strong>Bays:</strong> ' + inf.parkingBays.toLocaleString() + '</div>' : '') +
-          (inf.parkingRate ? '<div><strong>Rate:</strong> ' + inf.parkingRate + '</div>' : '') +
+          (inf.parkingBays ? '<div><strong>' + window.HI.t('parking_bays') + ':</strong> ' + inf.parkingBays.toLocaleString() + '</div>' : '') +
+          (inf.parkingRate ? '<div><strong>' + window.HI.t('parking_rate') + ':</strong> ' + inf.parkingRate + '</div>' : '') +
         '</div>' +
       '</div>';
     }
@@ -308,8 +308,8 @@ window.HI = window.HI || {};
       { key: 'cafeteria', label: window.HI.t('cafeteria'), icon: '&#127829;' },
       { key: 'atm', label: window.HI.t('atm'), icon: '&#127984;' },
       { key: 'surau', label: window.HI.t('prayer_room'), icon: '&#127775;' },
-      { key: 'chapel', label: 'Chapel', icon: '&#9962;' },
-      { key: 'buddhistRoom', label: 'Buddhist Room', icon: '&#9775;' },
+      { key: 'chapel', label: window.HI.t('chapel'), icon: '&#9962;' },
+      { key: 'buddhistRoom', label: window.HI.t('buddhist_room'), icon: '&#9775;' },
       { key: 'disabledAccess', label: window.HI.t('disabled_access'), icon: '&#9855;' },
       { key: 'wifi', label: window.HI.t('wifi'), icon: '&#128246;' },
       { key: 'patientTransport', label: window.HI.t('patient_transport'), icon: '&#128659;' }
@@ -361,7 +361,7 @@ window.HI = window.HI || {};
       '<h4>' + window.HI.t('room_rate') + '</h4>' +
       '<div class="room-rate-box">' +
         '<div class="room-rate-value">' + (h.roomRate || '—') + '</div>' +
-        (h.roomRateRaw ? '<div class="room-rate-note">From RM ' + h.roomRateRaw.toLocaleString() + '/night (standard room)</div>' : '') +
+        (h.roomRateRaw ? '<div class="room-rate-note">RM ' + h.roomRateRaw.toLocaleString() + window.HI.t('per_night_std') + '</div>' : '') +
       '</div>' +
     '</div>';
 
@@ -373,7 +373,7 @@ window.HI = window.HI || {};
     var fppHtml = '';
     if (h.fppScheme) {
       var fppDesc = (typeof h.fppScheme === 'string') ? h.fppScheme
-        : 'This hospital offers the Full-Paying Patient (FPP) scheme — access specialist care at government hospital rates, typically 30–60% below private hospitals. Ask at the FPP Unit for a written cost estimate.';
+        : window.HI.t('fpp_default_text');
       fppHtml = '<div class="modal-section fpp-block">' +
         '<h4>&#127963; ' + window.HI.t('fpp_scheme') + '</h4>' +
         '<p>' + fppDesc + '</p>' +
@@ -422,7 +422,7 @@ window.HI = window.HI || {};
     el.innerHTML =
       '<div class="modal-section">' +
         '<h4>' + window.HI.t('official_sources') + '</h4>' +
-        (sources ? '<ul class="sources-list">' + sources + '</ul>' : '<p class="text-slate-500">No official sources listed.</p>') +
+        (sources ? '<ul class="sources-list">' + sources + '</ul>' : '<p class="text-slate-500">' + window.HI.t('no_sources') + '</p>') +
       '</div>' +
       (h.imageCredit ?
         '<div class="modal-section">' +
@@ -452,6 +452,34 @@ window.HI = window.HI || {};
       if (e.key === 'Escape') closeModal();
     });
   });
+
+  // Re-render modal panels when language changes while modal is open
+  var _prevOnLangChange = window.HI.onLangChange;
+  window.HI.onLangChange = function(code) {
+    if (_prevOnLangChange) _prevOnLangChange(code);
+    var modal = document.getElementById('hospital-modal');
+    if (currentHospital && modal && !modal.classList.contains('hidden')) {
+      var h = currentHospital;
+      var tab = activeTab;
+      // Re-render all panels with new language
+      renderPanel1(h);
+      renderPanel2(h);
+      renderPanel3(h);
+      renderPanel4(h);
+      renderPanel5(h);
+      // Re-render header badges
+      var sectorBadge = document.getElementById('modal-sector-badge');
+      var tierBadge = document.getElementById('modal-tier-badge');
+      if (sectorBadge) sectorBadge.textContent = window.HI.t('sector_' + h.sector);
+      if (tierBadge) tierBadge.textContent = window.HI.t('tier_' + h.tier);
+      // Re-render tab labels
+      document.querySelectorAll('.modal-tab-btn').forEach(function(btn) {
+        var key = btn.getAttribute('data-i18n');
+        if (key) btn.textContent = window.HI.t(key);
+      });
+      switchModalTab(tab);
+    }
+  };
 
   window.HI.openModal = openModal;
   window.HI.closeModal = closeModal;
