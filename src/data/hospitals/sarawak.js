@@ -1035,7 +1035,6 @@ export const HOSPITALS_SARAWAK = [
       { label: "Official Website", url: "https://www.timberlandmedical.com.my" }
     ]
   },
-,
   {
     id: "hsarikei", name: "Hospital Sarikei", nameShort: "Hsp. Sarikei",
     sector: "public", tier: "district", state: "Sarawak", city: "Sarikei",
