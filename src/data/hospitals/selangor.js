@@ -685,7 +685,7 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Tower A, Tower B, Specialist Clinics, Sunway Cancer Centre",
       helipad: true,
       parkingBays: "~1,000 bays",
-      parkingRate: "RM 2/hour"
+      parkingRate: "1st 3 hrs: RM3.00; subsequent hrs: RM1.00; max/day: RM10.00"
     },
     contact: {
       address: "5, Jalan Lagoon Selatan, Bandar Sunway, 47500 Subang Jaya, Selangor",
@@ -764,14 +764,14 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Tower, Specialist Clinics Block",
       helipad: false,
       parkingBays: "~400 bays",
-      parkingRate: "RM 2/hour"
+      parkingRate: "1st hr: RM2.00; subsequent hrs: RM1.00; max/day: RM10.00; Sun/PH: flat RM3.00"
     },
     contact: {
       address: "1, Jalan SS 12/1A, Subang Jaya, 47500 Petaling Jaya, Selangor",
       mainLine: "+603-5639 1212",
       emergencyLine: "+603-5639 1212 ext. A&E",
       appointmentLine: "+603-5639 1212",
-      website: "https://www.rsdh.com.my/sjmc",
+      website: "https://subangjayamedicalcentre.com",
       mapQuery: "Subang Jaya Medical Centre SJMC SS12"
     },
     transport: { nearest: "Subang Jaya KTM Station — 10 min walk", bus: "Rapid KL Bus routes (Subang Jaya SS12)", highway: "NPE/Federal Highway — Exit Subang Jaya", landmark: "SS12 Subang Jaya, near Subang Jaya KTM" },
@@ -826,8 +826,8 @@ export const HOSPITALS_SELANGOR = [
     city: "Petaling Jaya",
     intro: "KPJ Damansara Specialist Hospital is one of KPJ Healthcare's flagship hospitals, offering comprehensive specialist services in Petaling Jaya. It is a trusted choice for the Damansara and Petaling Jaya community.",
     famousFor: ["KPJ Healthcare flagship — Damansara/PJ corridor", "Comprehensive specialist services", "Strong obstetrics and paediatrics programme"],
-    infrastructure: { yearEstablished: 1995, totalBeds: 300, icuBeds: 24, nicuBeds: 8, operatingTheatres: 10, area: "~3 acres", buildings: "Main Tower, Specialist Clinics", helipad: false, parkingBays: "~350 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "119, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor", mainLine: "+603-7718 1000", emergencyLine: "+603-7718 1000 ext. A&E", appointmentLine: "+603-7718 1000", website: "https://www.kpjdamansara.com", mapQuery: "KPJ Damansara Specialist Hospital Petaling Jaya" },
+    infrastructure: { yearEstablished: 1995, totalBeds: 300, icuBeds: 24, nicuBeds: 8, operatingTheatres: 10, area: "~3 acres", buildings: "Main Tower, Specialist Clinics", helipad: false, parkingBays: "~350 bays", parkingRate: "1st 2 hrs: RM3.00; subsequent hrs: RM1.00; max/day: RM5.00" },
+    contact: { address: "119, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor", mainLine: "+603-7718 1000", emergencyLine: "+603-7718 1000 ext. A&E", appointmentLine: "+603-7718 1000", website: "https://kpjhealth.com.my/damansara", mapQuery: "KPJ Damansara Specialist Hospital Petaling Jaya" },
     transport: { nearest: "Mutiara Damansara MRT Station — 10 min taxi", bus: "Rapid KL Bus (Damansara Utama area)", highway: "NKVE — Exit Damansara/Mutiara", landmark: "Damansara Utama, PJ — near SS20" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible." },
@@ -956,14 +956,14 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Tower, Specialist Clinics, Maternity Block",
       helipad: false,
       parkingBays: "~600 bays",
-      parkingRate: "RM 2/hour"
+      parkingRate: "1st 3 hrs: RM6.00; subsequent hrs: RM3.00; max/day: RM20.00"
     },
     contact: {
       address: "11, Jalan Damansara, 47810 Kota Damansara, Petaling Jaya, Selangor",
-      mainLine: "+603-5022 0888",
-      emergencyLine: "+603-5022 0888 ext. A&E",
-      appointmentLine: "+603-5022 0888",
-      website: "https://www.thomsonhospital.com",
+      mainLine: "+603-6287 1111",
+      emergencyLine: "+603-6287 1111 ext. A&E",
+      appointmentLine: "+603-6287 1111",
+      website: "https://www.thomsonhospitals.com",
       mapQuery: "Thomson Hospital Kota Damansara THKD Selangor"
     },
     transport: { nearest: "Kota Damansara MRT Station — 10 min walk or taxi", bus: "Rapid KL Bus (Kota Damansara)", highway: "NKVE — Exit Kota Damansara", landmark: "Kota Damansara town, Petaling Jaya north" },
@@ -1059,8 +1059,8 @@ export const HOSPITALS_SELANGOR = [
     city: "Petaling Jaya",
     intro: "Ara Damansara Medical Centre is a modern private hospital in the Ara Damansara area, offering comprehensive specialist services for the upscale Ara Damansara, Subang, and Petaling Jaya north communities.",
     famousFor: ["Modern private hospital in Ara Damansara / Subang area", "Growing specialist services"],
-    infrastructure: { yearEstablished: 2015, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "Main Tower", helipad: false, parkingBays: "~250 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "Jalan PJU 1A/2, Ara Damansara, 47301 Petaling Jaya, Selangor", mainLine: "+603-7845 1000", emergencyLine: "+603-7845 1000 ext. A&E", appointmentLine: "+603-7845 1000", website: "https://www.aradamansara.com.my", mapQuery: "Ara Damansara Medical Centre Petaling Jaya" },
+    infrastructure: { yearEstablished: 2015, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "Main Tower", helipad: false, parkingBays: "~250 bays", parkingRate: "1st hr: RM2.00; subsequent 30 min: RM1.00" },
+    contact: { address: "Jalan PJU 1A/2, Ara Damansara, 47301 Petaling Jaya, Selangor", mainLine: "+603-5639 1888", emergencyLine: "+603-5639 1888 ext. A&E", appointmentLine: "+603-5639 1888", website: "https://aradamansaramedicalcentre.com", mapQuery: "Ara Damansara Medical Centre Petaling Jaya" },
     transport: { nearest: "Subang Jaya KTM or Ara Damansara MRT — 10 min taxi", bus: "Rapid KL Bus (Ara Damansara)", highway: "NKVE/LDP — Exit Ara Damansara", landmark: "Ara Damansara, PJ" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible." },
@@ -1109,14 +1109,14 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Block, New Wing, Chapel",
       helipad: false,
       parkingBays: "~300 bays",
-      parkingRate: "RM 1.50/hour"
+      parkingRate: "1st hr: RM3.00; 2nd hr: RM2.00; subsequent hrs: RM1.00; max: RM8.00"
     },
     contact: {
       address: "Jalan Templer, 46990 Petaling Jaya, Selangor",
-      mainLine: "+603-7782 3433",
-      emergencyLine: "+603-7782 3433 ext. A&E",
-      appointmentLine: "+603-7782 3433",
-      website: "https://www.assuntahospital.com",
+      mainLine: "+603-7872 3000",
+      emergencyLine: "+603-7872 3000 ext. A&E",
+      appointmentLine: "+603-7872 3000",
+      website: "https://assunta.com.my",
       mapQuery: "Assunta Hospital Petaling Jaya Jalan Templer"
     },
     transport: {
@@ -1193,14 +1193,14 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Tower, Specialist Clinics Block",
       helipad: false,
       parkingBays: "~350 bays",
-      parkingRate: "RM 2/hour"
+      parkingRate: "1st hr: RM3.00; subsequent hrs: RM3.00; max/day: RM7.00; valet: RM15.00"
     },
     contact: {
       address: "1, Jalan Mamanda 9, Ampang Point, 68000 Ampang, Selangor",
-      mainLine: "+603-4270 2500",
-      emergencyLine: "+603-4270 2500 ext. A&E",
-      appointmentLine: "+603-4270 2500",
-      website: "https://www.kpjampangputeri.com",
+      mainLine: "+603-4289 5000",
+      emergencyLine: "+603-4289 5000 ext. A&E",
+      appointmentLine: "+603-4289 5000",
+      website: "https://kpjhealth.com.my/ampang",
       mapQuery: "KPJ Ampang Puteri Specialist Hospital Ampang Selangor"
     },
     transport: {
@@ -2329,13 +2329,13 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Tower, Specialist Clinics",
       helipad: false,
       parkingBays: "~350 bays",
-      parkingRate: "RM 2/hour"
+      parkingRate: "~RM3 first hr, RM2 subsequent; max ~RM8 (verify on-site)"
     },
     contact: {
       address: "No. 2, Jalan Langat, 41200 Klang, Selangor",
-      mainLine: "+603-3375 9191",
-      emergencyLine: "+603-3375 9191 ext. A&E",
-      appointmentLine: "+603-3375 9191",
+      mainLine: "+603-3258 5500",
+      emergencyLine: "+603-3258 5500 ext. A&E",
+      appointmentLine: "+603-3258 5500",
       website: "https://www.pantai.com.my/klang",
       mapQuery: "Pantai Hospital Klang Selangor"
     },
@@ -2432,13 +2432,13 @@ export const HOSPITALS_SELANGOR = [
       buildings: "Main Tower, Specialist Clinics Block",
       helipad: false,
       parkingBays: "~400 bays",
-      parkingRate: "RM 2/hour"
+      parkingRate: "1st hr: RM3.00; subsequent hrs: RM2.00"
     },
     contact: {
       address: "No. 1, Lorong Batu Nilam 1A, Bandar Bukit Tinggi, 43200 Cheras, Selangor",
-      mainLine: "+603-9100 3500",
-      emergencyLine: "+603-9100 3500 ext. A&E",
-      appointmentLine: "+603-9100 3500",
+      mainLine: "+603-9145 2888",
+      emergencyLine: "+603-9145 2888 ext. A&E",
+      appointmentLine: "+603-9145 2888",
       website: "https://www.pantai.com.my/cheras",
       mapQuery: "Pantai Hospital Cheras Selangor"
     },
@@ -2916,5 +2916,35 @@ export const HOSPITALS_SELANGOR = [
       { label: "MAHSA Specialist Hospital", url: "https://www.mahsa.edu.my/hospital" },
       { label: "MAHSA University", url: "https://www.mahsa.edu.my" }
     ]
+  },
+  {
+    id: "beacon-hospital-pj",
+    name: "Beacon Hospital Petaling Jaya",
+    nameShort: "Beacon Hospital PJ",
+    sector: "private", tier: "tertiary", state: "Selangor", city: "Petaling Jaya",
+    intro: "Beacon Hospital is Malaysia's leading private oncology and cancer specialist hospital, located in Petaling Jaya. Part of the Beacon International network, it is the largest dedicated cancer hospital in Southeast Asia, offering the full spectrum of cancer diagnosis, treatment, and research.",
+    famousFor: ["Malaysia's largest dedicated cancer specialist hospital", "Largest private oncology centre in Southeast Asia", "Proton therapy and advanced radiation oncology", "Comprehensive haematology and bone marrow transplant"],
+    infrastructure: { yearEstablished: 2008, totalBeds: 200, icuBeds: 20, nicuBeds: 0, operatingTheatres: 8, area: "~4 acres", buildings: "Main Tower, Cancer Centre", helipad: false, parkingBays: "~500 bays", parkingRate: "Free parking (on-site and opposite building)" },
+    contact: { address: "432, Jalan Ipoh, 51200 Petaling Jaya, Selangor", mainLine: "+603-7620 7979", emergencyLine: "+603-7620 7979 ext. A&E", appointmentLine: "+603-7620 7979", website: "https://www.beaconhospital.com.my", mapQuery: "Beacon Hospital Petaling Jaya Selangor" },
+    transport: { nearest: "LRT Sri Petaling Line — Taman Paramount (10 min taxi); MRT Phileo Damansara (Kajang Line) — 15 min taxi", bus: "RapidKL bus routes along Jalan Ipoh", highway: "Federal Highway / Sprint Highway — PJ exit", landmark: "Off Jalan Ipoh, Petaling Jaya" },
+    facilities: { pharmacy24h: true, cafeteria: "Café on-site", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
+    visitingHours: { general: "10:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "N/A", notes: "Specialist cancer centre. Day chemotherapy and radiation appointments by arrangement." },
+    specialtyCoverage: {
+      available: ["Oncology — Medical, Surgical, Radiation (all cancers)", "Haematology & Bone Marrow Transplant", "Palliative & Supportive Care", "Nuclear Medicine & PET-CT", "Pathology & Molecular Diagnostics", "Breast Surgery", "Colorectal Surgery", "Gynaecological Oncology", "Head & Neck Surgery", "Urology (oncology)"],
+      notAvailable: [{ specialty: "General A&E / trauma", transferTo: "Hospital Selayang or SJMC", note: "Specialist cancer hospital, not a general A&E" }],
+      byReferral: ["Rare tumour types — multidisciplinary tumour board review"]
+    },
+    transferPathway: { summary: "Malaysia's premier cancer hospital. Receives referrals nationwide. Complex oncology → Beacon.", routes: [], howToTransfer: "Oncologist referral letter + MDT review for complex cases." },
+    specialtyRanks: { oncology: "#1 private Malaysia", haematology: "#1–2 private Malaysia" },
+    accreditations: ["JCI Accredited", "MSQH Accredited", "College of American Pathologists (CAP)"],
+    primaryExcellence: "Cancer / Oncology — #1 private centre in Malaysia", secondarySpecialties: "Haematology, Bone Marrow Transplant, Radiation Oncology",
+    fullSpecialties: ["Medical Oncology", "Radiation Oncology", "Surgical Oncology", "Haematology", "Palliative Care", "Nuclear Medicine"],
+    roomRate: "RM 300 – RM 1,200/night (oncology ward)", roomRateRaw: 600, insurance: "AIA, Prudential, Great Eastern, Allianz, AXA — most major panels.",
+    fppScheme: false, fppDeposit: "N/A",
+    gaps: "Not a general hospital — no general A&E, no obstetrics, no general surgery outside oncology.", robotics: "Radiation therapy systems (LINAC, IMRT, IGRT); PET-CT; advanced molecular diagnostics.",
+    doctorQualifications: "Fellowship-trained oncologists; MRCP, FRCR, FRCS, local and overseas-trained subspecialists.",
+    imageUrl: null, imageCredit: "N/A",
+    officialSources: [{ label: "Beacon Hospital", url: "https://www.beaconhospital.com.my" }],
+    verifiedNotes: "Malaysia's largest dedicated cancer hospital. JCI accredited. Free parking confirmed.", notableGaps: "No general A&E or obstetrics — specialist oncology only."
   }
 ];
