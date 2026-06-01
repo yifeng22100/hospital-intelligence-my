@@ -2774,36 +2774,6 @@ export const HOSPITALS_SELANGOR = [
     ]
   },
   {
-    id: "beacon-hospital-pj",
-    name: "Beacon Hospital Petaling Jaya",
-    nameShort: "Beacon Hospital PJ",
-    sector: "private", tier: "tertiary", state: "Selangor", city: "Petaling Jaya",
-    intro: "Beacon Hospital is Malaysia's leading private oncology and cancer specialist hospital, located in Petaling Jaya. Part of the Beacon International network, it is the largest dedicated cancer hospital in Southeast Asia, offering the full spectrum of cancer diagnosis, treatment, and research.",
-    famousFor: ["Malaysia's largest dedicated cancer specialist hospital", "Largest private oncology centre in Southeast Asia", "Proton therapy and advanced radiation oncology", "Comprehensive haematology and bone marrow transplant"],
-    infrastructure: { yearEstablished: 2008, totalBeds: 200, icuBeds: 20, nicuBeds: 0, operatingTheatres: 8, area: "~4 acres", buildings: "Main Tower, Cancer Centre", helipad: false, parkingBays: "~500 bays", parkingRate: "Free parking (on-site and opposite building)" },
-    contact: { address: "432, Jalan Ipoh, 51200 Petaling Jaya, Selangor", mainLine: "+603-7620 7979", emergencyLine: "+603-7620 7979 ext. A&E", appointmentLine: "+603-7620 7979", website: "https://www.beaconhospital.com.my", mapQuery: "Beacon Hospital Petaling Jaya Selangor" },
-    transport: { nearest: "LRT Sri Petaling Line — Taman Paramount (10 min taxi); MRT Phileo Damansara (Kajang Line) — 15 min taxi", bus: "RapidKL bus routes along Jalan Ipoh", highway: "Federal Highway / Sprint Highway — PJ exit", landmark: "Off Jalan Ipoh, Petaling Jaya" },
-    facilities: { pharmacy24h: true, cafeteria: "Café on-site", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
-    visitingHours: { general: "10:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "N/A", notes: "Specialist cancer centre. Day chemotherapy and radiation appointments by arrangement." },
-    specialtyCoverage: {
-      available: ["Oncology — Medical, Surgical, Radiation (all cancers)", "Haematology & Bone Marrow Transplant", "Palliative & Supportive Care", "Nuclear Medicine & PET-CT", "Pathology & Molecular Diagnostics", "Breast Surgery", "Colorectal Surgery", "Gynaecological Oncology", "Head & Neck Surgery", "Urology (oncology)"],
-      notAvailable: [{ specialty: "General A&E / trauma", transferTo: "Hospital Selayang or SJMC", note: "Specialist cancer hospital, not a general A&E" }],
-      byReferral: ["Rare tumour types — multidisciplinary tumour board review"]
-    },
-    transferPathway: { summary: "Malaysia's premier cancer hospital. Receives referrals nationwide. Complex oncology → Beacon.", routes: [], howToTransfer: "Oncologist referral letter + MDT review for complex cases." },
-    specialtyRanks: { oncology: "#1 private Malaysia", haematology: "#1–2 private Malaysia" },
-    accreditations: ["JCI Accredited", "MSQH Accredited", "College of American Pathologists (CAP)"],
-    primaryExcellence: "Cancer / Oncology — #1 private centre in Malaysia", secondarySpecialties: "Haematology, Bone Marrow Transplant, Radiation Oncology",
-    fullSpecialties: ["Medical Oncology", "Radiation Oncology", "Surgical Oncology", "Haematology", "Palliative Care", "Nuclear Medicine"],
-    roomRate: "RM 300 – RM 1,200/night (oncology ward)", roomRateRaw: 600, insurance: "AIA, Prudential, Great Eastern, Allianz, AXA — most major panels.",
-    fppScheme: false, fppDeposit: "N/A",
-    gaps: "Not a general hospital — no general A&E, no obstetrics, no general surgery outside oncology.", robotics: "Radiation therapy systems (LINAC, IMRT, IGRT); PET-CT; advanced molecular diagnostics.",
-    doctorQualifications: "Fellowship-trained oncologists; MRCP, FRCR, FRCS, local and overseas-trained subspecialists.",
-    imageUrl: null, imageCredit: "N/A",
-    officialSources: [{ label: "Beacon Hospital", url: "https://www.beaconhospital.com.my" }],
-    verifiedNotes: "Malaysia's largest dedicated cancer hospital. JCI accredited. Free parking confirmed.", notableGaps: "No general A&E or obstetrics — specialist oncology only."
-  },
-  {
     id: "columbia-cheras",
     name: "Columbia Asia Hospital – Cheras",
     nameShort: "Columbia Asia Cheras",
@@ -4653,6 +4623,107 @@ export const HOSPITALS_SELANGOR = [
     imageCredit: "N/A",
     officialSources: [
       { label: "DBM Pusrawi Kota Damansara", url: "https://www.dbmpusrawi.com" }
+    ]
+  },
+  {
+    id: "beacon-hospital",
+    name: "Beacon Hospital",
+    nameShort: "Beacon Hospital",
+    sector: "private",
+    tier: "tertiary",
+    state: "Selangor",
+    city: "Petaling Jaya",
+    intro: "Beacon Hospital is Malaysia's leading dedicated cancer hospital, offering comprehensive oncology services including radiation therapy, medical oncology, and haematology. It is the country's primary private referral centre for cancer treatment.",
+    famousFor: ["Malaysia's premier dedicated cancer hospital", "Proton beam therapy partner (overseas referral)", "Bone Marrow Transplant (BMT) programme", "Comprehensive radiation oncology with TrueBeam STx"],
+    infrastructure: {
+      yearEstablished: 2007,
+      totalBeds: 100,
+      icuBeds: 10,
+      nicuBeds: 0,
+      operatingTheatres: 4,
+      area: "~2 acres",
+      buildings: "Cancer Centre Tower, Radiation Block",
+      helipad: false,
+      parkingBays: "~200 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "1, Jalan 215, Seksyen 51, Off Jalan Templer, 46050 Petaling Jaya, Selangor",
+      mainLine: "+603-7620 7979",
+      emergencyLine: "+603-7787 7888 ext. A&E",
+      appointmentLine: "+603-7787 7888",
+      website: "https://www.beaconhospital.com.my",
+      mapQuery: "Beacon Hospital Petaling Jaya Jalan 215 Seksyen 51"
+    },
+    transport: {
+      nearest: "Paramount LRT Station (Kelana Jaya Line) — 15 min walk or short ride",
+      bus: "Rapid KL bus routes near PJ area",
+      highway: "NKVE/Damansara-Puchong — Exit Petaling Jaya",
+      landmark: "Off Jalan Templer, Seksyen 51, Petaling Jaya"
+    },
+    facilities: {
+      pharmacy24h: false,
+      cafeteria: "Ground floor cafe, 8am–8pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport for outpatient chemo patients"
+    },
+    visitingHours: {
+      general: "11:00–20:00",
+      icu: "Restricted",
+      paediatric: "Parents: unrestricted",
+      maternity: "N/A",
+      notes: "Primarily oncology — visiting policies may vary by ward."
+    },
+    specialtyCoverage: {
+      available: [
+        "Medical Oncology", "Radiation Oncology (TrueBeam STx, IMRT, SBRT)",
+        "Haematology", "Bone Marrow Transplant (Autologous & Allogeneic)",
+        "Surgical Oncology", "Gynaecological Oncology",
+        "Paediatric Oncology", "Head & Neck Oncology",
+        "Lung Oncology", "GI Oncology", "Breast Oncology",
+        "Nuclear Medicine (cancer imaging)", "PET-CT",
+        "Palliative Care", "Supportive Cancer Care",
+        "Clinical Trials (oncology)"
+      ],
+      notAvailable: [
+        { specialty: "General Medicine (non-cancer)", transferTo: "Pantai KL or other hospitals", note: "Focused on cancer care" },
+        { specialty: "Obstetrics / Maternity", transferTo: "Pantai KL or Gleneagles KL", note: "Not offered at Beacon" },
+        { specialty: "Proton Therapy", transferTo: "Protom (Thailand) or Japan / Singapore", note: "Beacon provides overseas proton therapy coordination" }
+      ],
+      byReferral: ["Cardiac issues in cancer patients — refer to cardiac centre"]
+    },
+    transferPathway: {
+      summary: "Beacon focuses exclusively on cancer care. Non-cancer medical emergencies are transferred to nearby hospitals.",
+      routes: [],
+      howToTransfer: "Referral for cancer treatment accepted from any GP or specialist. Overseas proton therapy arranged by Beacon's international team."
+    },
+    specialtyRanks: {
+      "Oncology": { rank: "National #1 (Private)", desc: "Malaysia's highest-volume private cancer hospital with the most advanced radiotherapy technology" },
+      "BMT": { rank: "Top Private Centre", desc: "Private sector BMT programme" }
+    },
+    accreditations: ["MSQH Accredited", "AABB Accredited (Blood & Marrow)", "JCI reviewed"],
+    verifiedNotes: "Dedicated cancer hospital confirmed at beaconhospital.com.my. Address verified: 1, Jalan 215, Seksyen 51, Off Jalan Templer, 46050 PJ. TrueBeam STx system verified. BMT programme confirmed.",
+    notableGaps: "Cancer-focused only — no maternity, no general surgery unrelated to cancer. No in-house proton therapy.",
+    primaryExcellence: "Malaysia's national private cancer hospital — radiation oncology, BMT",
+    secondarySpecialties: "Haematology, Palliative Care, Clinical Trials",
+    fullSpecialties: ["Medical Oncology", "Radiation Oncology", "Haematology", "BMT", "Surgical Oncology"],
+    roomRate: "RM 200 – RM 600+/night",
+    roomRateRaw: 350,
+    insurance: "Accepts major Malaysian insurance. Cancer riders essential. Many insurers have Beacon as panel.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Cancer-focused only. No proton therapy in Malaysia. Premium cost for cancer treatment.",
+    robotics: "TrueBeam STx Radiotherapy System. Elekta Linear Accelerators. PET-CT.",
+    doctorQualifications: "All oncologists and haematologists are MMC-registered subspecialists. Many have fellowship training at MD Anderson, Princess Margaret, RMH London.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beacon_Hospital_Picture.jpg",
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Official Website", url: "https://www.beaconhospital.com.my" }
     ]
   }
 ];
