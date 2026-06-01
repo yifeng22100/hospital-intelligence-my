@@ -44,9 +44,9 @@ window.HI = window.HI || {};
       );
     }).length;
     var el = function(id) { return document.getElementById(id); };
-    if (el('stat-public-count')) el('stat-public-count').textContent = pub + ' ' + HI.t('filter_public');
-    if (el('stat-private-count')) el('stat-private-count').textContent = priv + ' ' + HI.t('filter_private');
-    if (el('stat-robotics-count')) el('stat-robotics-count').textContent = rob + ' facilities';
+    if (el('stat-public-count')) el('stat-public-count').textContent = pub;
+    if (el('stat-private-count')) el('stat-private-count').textContent = priv;
+    if (el('stat-robotics-count')) el('stat-robotics-count').textContent = rob;
   }
 
   function getFiltered() {
