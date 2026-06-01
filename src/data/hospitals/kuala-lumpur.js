@@ -23,8 +23,8 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 1/hour, max RM 8/day"
     },
     contact: {
-      address: "Jalan Pahang, 50586 Kuala Lumpur",
-      mainLine: "+603-2615 5555",
+      address: "Lot 25, Jalan Raja Muda Abdul Aziz, Kampung Baru, 50300 Kuala Lumpur",
+      mainLine: "+603-2600 3000",
       emergencyLine: "+603-2615 5555 ext. 1",
       appointmentLine: "+603-2615 5555",
       website: "https://hkl.moh.gov.my",
@@ -246,7 +246,7 @@ export const HOSPITALS_KL = [
     },
     contact: {
       address: "Jalan Professor Diraja Ungku Aziz, 59100 Kuala Lumpur",
-      mainLine: "+603-7949 2333",
+      mainLine: "+603-7949 4422",
       emergencyLine: "+603-7949 2333 ext. A&E",
       appointmentLine: "+603-7949 4422",
       website: "https://www.ummc.edu.my",
@@ -474,7 +474,7 @@ export const HOSPITALS_KL = [
     contact: {
       address: "39, Jalan Kia Peng, 50450 Kuala Lumpur",
       mainLine: "+603-2160 0000",
-      emergencyLine: "+603-2160 0000 ext. A&E",
+      emergencyLine: "+603-2160 0999",
       appointmentLine: "+603-2160 0000",
       website: "https://www.princecourt.com",
       mapQuery: "Prince Court Medical Centre Kuala Lumpur Jalan Kia Peng"
@@ -684,7 +684,7 @@ export const HOSPITALS_KL = [
       mainLine: "+603-2296 0888",
       emergencyLine: "+603-2296 0888 ext. A&E",
       appointmentLine: "+603-2296 0888",
-      website: "https://www.pantai.com.my/bangsar",
+      website: "https://www.pantai.com.my/kuala-lumpur",
       mapQuery: "Pantai Hospital Bangsar Kuala Lumpur"
     },
     transport: {
@@ -777,7 +777,7 @@ export const HOSPITALS_KL = [
     },
     contact: {
       address: "Jalan 215, Off Jalan Templer, 46050 Petaling Jaya, Selangor",
-      mainLine: "+603-7787 7888",
+      mainLine: "+603-7620 7979",
       emergencyLine: "+603-7787 7888 ext. A&E",
       appointmentLine: "+603-7787 7888",
       website: "https://www.beaconhospital.com.my",
@@ -878,10 +878,10 @@ export const HOSPITALS_KL = [
     },
     contact: {
       address: "2, Jalan Intisari Perdana, Desa ParkCity, 52200 Kuala Lumpur",
-      mainLine: "+603-6279 1212",
+      mainLine: "+603-5639 1616",
       emergencyLine: "+603-6279 1212 ext. A&E",
       appointmentLine: "+603-6279 1212",
-      website: "https://www.parkcitymedical.com",
+      website: "https://www.parkcitymedicalcentre.com",
       mapQuery: "ParkCity Medical Centre Desa ParkCity Kuala Lumpur"
     },
     transport: {
@@ -1437,7 +1437,7 @@ export const HOSPITALS_KL = [
       mainLine: "+603-9145 5555",
       emergencyLine: "+603-9145 5555 ext. A&E",
       appointmentLine: "+603-9145 4422",
-      website: "https://www.ukmmc.com.my",
+      website: "https://hctm.ukm.my/en/",
       mapQuery: "Hospital Canselor Tuanku Muhriz HCTM UKMMC Cheras Kuala Lumpur"
     },
     transport: {
@@ -1548,9 +1548,9 @@ export const HOSPITALS_KL = [
     },
     contact: {
       address: "No. 2, Jalan Indah, Off Jalan Tun Razak, 50400 Kuala Lumpur",
-      mainLine: "+603-4253 3344",
-      emergencyLine: "+603-4253 3344 ext. A&E",
-      appointmentLine: "+603-4253 3344",
+      mainLine: "+603-2687 5000",
+      emergencyLine: "+603-2687 5181",
+      appointmentLine: "+603-2687 5000",
       website: "https://www.pusrawi.com.my",
       mapQuery: "Hospital Pusrawi Kuala Lumpur Jalan Tun Razak"
     },
@@ -1654,7 +1654,7 @@ export const HOSPITALS_KL = [
     intro: "KPJ Tawakkal Specialist Hospital is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
     famousFor: ["Private hospital — Jalan Pahang area, Kuala Lumpur", "Long-established private hospital in KL"],
     infrastructure: { yearEstablished: 1985, totalBeds: 200, icuBeds: 12, nicuBeds: 6, operatingTheatres: 6, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "No. 202-A, Jalan Pahang, 53000 Kuala Lumpur", mainLine: "+603-4023 3599", emergencyLine: "+603-4023 3599 ext. A&E", appointmentLine: "+603-4023 3599", website: "https://www.tawakal.com.my", mapQuery: "KPJ Tawakkal Specialist Hospital Kuala Lumpur" },
+    contact: { address: "1, Jalan Pahang Barat, Pekeliling, 53000 Kuala Lumpur", mainLine: "+603-4026 7777", emergencyLine: "+603-4026 7777 ext. A&E", appointmentLine: "+603-4026 7777", website: "https://kpjhealth.com.my/tawakkal", mapQuery: "KPJ Tawakkal Specialist Hospital Kuala Lumpur" },
     transport: { nearest: "KL Monorail Chow Kit — ~4 min walk (nearest station); Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — ~5 min walk; Titiwangsa interchange (PY17, MRT + LRT + Monorail) — ~8 min walk", bus: "Bus stop: KL668 (KPJ Tawakkal HC) — 4 min. Routes: 170, 200, 201, 250, 260, GOKL-03/08, T180", highway: "MRR2 / Jalan Pahang", landmark: "Jalan Pahang, near Chow Kit / Titiwangsa lake" },
     facilities: { pharmacy24h: true, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1725,7 +1725,7 @@ export const HOSPITALS_KL = [
     verifiedNotes: "~250 beds (est.). Private tertiary, Bangsar South KL.", notableGaps: "No transplant services."
   },
   {
-    id: "hospital-tunku-azizah",
+    id: "hospital-tunku-azizah", // Hospital Tunku Azizah
     name: "Hospital Tunku Azizah",
     nameShort: "Hospital Tunku Azizah",
     sector: "public",
@@ -1753,8 +1753,8 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 1/hour, max RM 8/day"
     },
     contact: {
-      address: "Jalan Pahang, 50586 Kuala Lumpur",
-      mainLine: "+603-2615 5555",
+      address: "Lot 25, Jalan Raja Muda Abdul Aziz, Kampung Baru, 50300 Kuala Lumpur",
+      mainLine: "+603-2600 3000",
       emergencyLine: "+603-2615 5555 ext. A&E",
       appointmentLine: "+603-2615 5555",
       website: "https://hkl.moh.gov.my",

@@ -24,10 +24,10 @@ export const HOSPITALS_PUTRAJAYA = [
     },
     contact: {
       address: "Precinct 7, 62250 Putrajaya",
-      mainLine: "+603-8888 8000",
+      mainLine: "+603-8888 0080",
       emergencyLine: "+603-8888 8000 ext. A&E",
       appointmentLine: "+603-8888 8000",
-      website: "https://hputrajaya.moh.gov.my",
+      website: "https://hpj.gov.my",
       mapQuery: "Hospital Putrajaya Precinct 7"
     },
     transport: {
@@ -136,11 +136,11 @@ export const HOSPITALS_PUTRAJAYA = [
       parkingRate: "Free"
     },
     contact: {
-      address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur",
-      mainLine: "+603-9145 7000 (verify)",
+      address: "Jalan Yaacob Latif, Bandar Tun Razak, 56000 Cheras, Kuala Lumpur (WRONG JURISDICTION — HRC is under JKN Kuala Lumpur, not Putrajaya)",
+      mainLine: "+603-9145 3400",
       emergencyLine: "+603-9145 7000 (no emergency dept — refer to HKL or HCTM)",
       appointmentLine: "+603-9145 7000 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknkl.moh.gov.my/hrc/",
       mapQuery: "Hospital Rehabilitasi Cheras HRC Kuala Lumpur"
     },
     transport: {
@@ -226,7 +226,7 @@ export const HOSPITALS_PUTRAJAYA = [
     intro: "PUSRAWI Hospital Putrajaya is a private Islamic hospital serving government employees and residents of Putrajaya federal territory.",
     famousFor: ["Private Islamic hospital — Putrajaya federal territory", "PUSRAWI network hospital"],
     infrastructure: { yearEstablished: 2010, totalBeds: 100, icuBeds: 6, nicuBeds: 3, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Putrajaya, Malaysia", mainLine: "+603-8888 0000 (verify)", emergencyLine: "+603-8888 0000 ext. A&E", appointmentLine: "+603-8888 0000 (verify)", website: "https://www.pusrawi.com.my", mapQuery: "PUSRAWI Hospital Putrajaya" },
+    contact: { address: "DOES NOT EXIST — PUSRAWI is in Kuala Lumpur (Jalan Tun Razak), not Putrajaya", mainLine: "WRONG", emergencyLine: "N/A", appointmentLine: "N/A", website: "https://www.pusrawi.com.my", mapQuery: "PUSRAWI Hospital Putrajaya" },
     transport: { nearest: "Putrajaya Sentral — 10 min taxi", bus: "NADI Putrajaya bus", highway: "ELITE Highway — Putrajaya exit", landmark: "Putrajaya federal government centre" },
     facilities: { pharmacy24h: false, cafeteria: "Halal café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },

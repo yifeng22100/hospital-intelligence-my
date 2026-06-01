@@ -27,7 +27,7 @@ export const HOSPITALS_SARAWAK = [
       mainLine: "+6082-276 666",
       emergencyLine: "+6082-276 666 ext. A&E",
       appointmentLine: "+6082-276 666",
-      website: "https://hus.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hus/",
       mapQuery: "Hospital Umum Sarawak HUS Kuching"
     },
     transport: {
@@ -143,11 +143,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Ulu Oya, 96000 Sibu, Sarawak",
+      address: "Batu 5½, Jalan Ulu Oya, 96000 Sibu, Sarawak",
       mainLine: "+6084-343 333 (verify with hospital)",
       emergencyLine: "+6084-343 333 ext. A&E (verify)",
       appointmentLine: "+6084-343 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hsibu/",
       mapQuery: "Hospital Sibu Sarawak"
     },
     transport: {
@@ -254,10 +254,10 @@ export const HOSPITALS_SARAWAK = [
     },
     contact: {
       address: "Jalan Cahaya, 98000 Miri, Sarawak",
-      mainLine: "+6085-420 033 (verify with hospital)",
+      mainLine: "+6085-460 600",
       emergencyLine: "+6085-420 033 ext. A&E (verify)",
       appointmentLine: "+6085-420 033 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hmiri/",
       mapQuery: "Hospital Miri Sarawak"
     },
     transport: {
@@ -357,11 +357,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Hospital, 97000 Bintulu, Sarawak",
-      mainLine: "+6086-252 333 (verify with hospital)",
+      address: "Jalan Nyabau, 97000 Bintulu, Sarawak",
+      mainLine: "+6086-255 899",
       emergencyLine: "+6086-252 333 ext. A&E (verify)",
       appointmentLine: "+6086-252 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hbintulu/",
       mapQuery: "Hospital Bintulu Sarawak"
     },
     transport: {
@@ -559,10 +559,10 @@ export const HOSPITALS_SARAWAK = [
     },
     contact: {
       address: "Jalan Hospital, 95000 Sri Aman, Sarawak",
-      mainLine: "+6083-320 333 (verify with hospital)",
+      mainLine: "+6083-322 151",
       emergencyLine: "+6083-320 333 ext. A&E (verify)",
       appointmentLine: "+6083-320 333 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsarawak.moh.gov.my/hsa/",
       mapQuery: "Hospital Sri Aman Sarawak"
     },
     transport: {
@@ -658,7 +658,7 @@ export const HOSPITALS_SARAWAK = [
     contact: {
       address: "937, Jalan Tun Abdul Rahman, 93050 Kuching, Sarawak",
       mainLine: "+6082-440 055",
-      emergencyLine: "+6082-440 055 ext. A&E",
+      emergencyLine: "+6082-311 999",
       appointmentLine: "+6082-440 055",
       website: "https://www.normah.com.my",
       mapQuery: "Normah Medical Specialist Centre Kuching Sarawak"
@@ -767,10 +767,10 @@ export const HOSPITALS_SARAWAK = [
     },
     contact: {
       address: "Jalan Tun Ahmad Zaidi Adruce, 93450 Kuching, Sarawak",
-      mainLine: "+6082-250 333 (verify with hospital)",
+      mainLine: "+6082-507 333",
       emergencyLine: "+6082-250 333 ext. A&E (verify)",
       appointmentLine: "+6082-250 333 (verify)",
-      website: "https://www.borneomedical.com.my",
+      website: "https://www.borneomedicalcentre.com",
       mapQuery: "Borneo Medical Centre BMC Kuching Sarawak"
     },
     transport: {
@@ -863,11 +863,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "Jalan Tun Jugah, 93350 Kuching, Sarawak",
-      mainLine: "+6082-365 777 (verify with hospital)",
+      address: "Jalan Setia Raja, Tabuan Stutong, 93350 Kuching, Sarawak",
+      mainLine: "+6082-365 777",
       emergencyLine: "+6082-365 777 ext. A&E (verify)",
       appointmentLine: "+6082-365 777 (verify)",
-      website: "https://www.kpjkuching.com",
+      website: "https://kpjhealth.com.my/kuching/",
       mapQuery: "KPJ Kuching Specialist Hospital Sarawak"
     },
     transport: {
@@ -966,7 +966,7 @@ export const HOSPITALS_SARAWAK = [
       mainLine: "+6082-234 466 (verify with hospital)",
       emergencyLine: "+6082-234 466 ext. A&E (verify)",
       appointmentLine: "+6082-234 466 (verify)",
-      website: "https://www.timberlandmedical.com.my",
+      website: "https://www.timberlandmedical.com",
       mapQuery: "Timberland Medical Centre Kuching Sarawak"
     },
     transport: {
@@ -1058,11 +1058,11 @@ export const HOSPITALS_SARAWAK = [
       parkingRate: "RM 1.50/hour"
     },
     contact: {
-      address: "No. 1 Jalan Song Thian Cheok, 93350 Kuching, Sarawak",
-      mainLine: "+6082-365 888 (verify with hospital)",
+      address: "No. 1 Jalan Song Thian Cheok, 93350 Kuching, Sarawak (UNVERIFIED — Columbia Asia Kuching existence unconfirmed)",
+      mainLine: "UNVERIFIED",
       emergencyLine: "+6082-365 888 ext. A&E (verify)",
       appointmentLine: "+6082-365 888 (verify)",
-      website: "https://www.columbiaasia.com/kuching",
+      website: "https://www.columbiaasia.com/malaysia/hospitals",
       mapQuery: "Columbia Asia Hospital Kuching Sarawak"
     },
     transport: {
@@ -1138,7 +1138,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Hospital Sarikei is the main public hospital serving the Sarikei division of Sarawak, an agricultural district known for its pepper production.",
     famousFor: ["Main hospital for Sarikei Division", "Serves pepper farming communities of central Sarawak"],
     infrastructure: { yearEstablished: 1975, totalBeds: 120, icuBeds: 8, nicuBeds: 4, operatingTheatres: 2, area: "~6 acres", buildings: "Main Block", helipad: true, parkingBays: "~120 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 96100 Sarikei, Sarawak", mainLine: "+6384-655 333", emergencyLine: "+6384-655 333 ext. A&E", appointmentLine: "+6384-655 333", website: "https://www.moh.gov.my", mapQuery: "Hospital Sarikei Sarawak" },
+    contact: { address: "Jalan Hospital, 96100 Sarikei, Sarawak", mainLine: "+6084-653 333", emergencyLine: "+6084-653 333 ext. A&E", appointmentLine: "+6084-653 333", website: "https://www.moh.gov.my", mapQuery: "Hospital Sarikei Sarawak" },
     transport: { nearest: "Sarikei town — 5 min drive", bus: "Bus from Sibu (~1.5 hrs)", highway: "Via Pan Borneo Highway", landmark: "Sarikei town centre" },
     facilities: { pharmacy24h: true, cafeteria: "Canteen", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "MOH ambulance and boat transfers" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
@@ -1186,7 +1186,7 @@ export const HOSPITALS_SARAWAK = [
     intro: "Miri City Medical Centre is a private hospital serving the oil and gas hub of Miri, northern Sarawak. It provides private specialist care for the city's energy sector workforce.",
     famousFor: ["Private hospital for Miri oil and gas community", "Key private healthcare provider in northern Sarawak"],
     infrastructure: { yearEstablished: 2000, totalBeds: 150, icuBeds: 12, nicuBeds: 4, operatingTheatres: 4, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~150 bays", parkingRate: "RM 1–2/hr" },
-    contact: { address: "Jalan Hokkien, 98000 Miri, Sarawak", mainLine: "+6085-426 622", emergencyLine: "+6085-426 622 ext. A&E", appointmentLine: "+6085-426 622", website: "https://www.miricitymedical.com", mapQuery: "Miri City Medical Centre Sarawak" },
+    contact: { address: "Jalan Hokkien, 98000 Miri, Sarawak", mainLine: "+6085-426 622", emergencyLine: "+6085-426 622 ext. A&E", appointmentLine: "+6085-426 622", website: "https://www.mcmcmiri.com", mapQuery: "Miri City Medical Centre Sarawak" },
     transport: { nearest: "Miri city centre — 5 min drive", bus: "Local city bus", highway: "Via Pan Borneo Highway Miri section", landmark: "Miri city" },
     facilities: { pharmacy24h: true, cafeteria: "Café", atm: "On-site", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Private ambulance" },
     visitingHours: { general: "10:00–12:00, 14:00–20:00", icu: "Restricted", paediatric: "Parents: extended", maternity: "Standard", notes: "Check with reception." },

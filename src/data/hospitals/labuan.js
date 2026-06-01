@@ -23,11 +23,11 @@ export const HOSPITALS_LABUAN = [
       parkingRate: "Free"
     },
     contact: {
-      address: "Jalan Tun Mustapha, 87008 Wilayah Persekutuan Labuan",
-      mainLine: "+6087-422 811",
+      address: "Jalan Mohamad Salleh, 87020 Wilayah Persekutuan Labuan",
+      mainLine: "+6087-596 888",
       emergencyLine: "+6087-422 811 ext. A&E",
       appointmentLine: "+6087-422 811",
-      website: "https://hlabuan.moh.gov.my",
+      website: "https://jknlabuan.moh.gov.my/hlabuan/",
       mapQuery: "Hospital Labuan Wilayah Persekutuan"
     },
     transport: {
@@ -126,8 +126,8 @@ export const HOSPITALS_LABUAN = [
       parkingRate: "Free"
     },
     contact: {
-      address: "Labuan Town Centre, 87000 Wilayah Persekutuan Labuan",
-      mainLine: "+6087-414 500 (verify)",
+      address: "Labuan Town Centre, 87000 Wilayah Persekutuan Labuan (UNVERIFIED — existence as standalone specialist centre unconfirmed)",
+      mainLine: "UNVERIFIED",
       emergencyLine: "N/A — use Hospital Labuan for emergencies",
       appointmentLine: "+6087-414 500 (verify)",
       website: "https://www.moh.gov.my",
@@ -200,7 +200,7 @@ export const HOSPITALS_LABUAN = [
     intro: "Labuan Biz Medical Centre is a private medical facility serving the business and offshore energy community of Labuan federal territory.",
     famousFor: ["Private medical centre — Labuan offshore financial centre", "Serves oil & gas and business community"],
     infrastructure: { yearEstablished: 2008, totalBeds: 40, icuBeds: 0, nicuBeds: 0, operatingTheatres: 1, area: "~1 acre", buildings: "Main Block", helipad: false, parkingBays: "~60 bays", parkingRate: "RM 1/hour" },
-    contact: { address: "Labuan, Malaysia", mainLine: "+6087-422 000 (verify)", emergencyLine: "+6087-422 000 ext. A&E", appointmentLine: "+6087-422 000 (verify)", website: "https://www.moh.gov.my", mapQuery: "Labuan Biz Medical Centre" },
+    contact: { address: "Labuan, Malaysia (UNVERIFIED — facility existence unconfirmed)", mainLine: "UNVERIFIED", emergencyLine: "N/A", appointmentLine: "UNVERIFIED", website: "UNVERIFIED", mapQuery: "Labuan Biz Medical Centre" },
     transport: { nearest: "Labuan town — 10 min taxi", bus: "Local Labuan bus", highway: "Labuan island roads", landmark: "Labuan town / financial district" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },

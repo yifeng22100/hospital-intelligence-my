@@ -23,11 +23,11 @@ export const HOSPITALS_SABAH = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Lilitan, 88586 Kota Kinabalu, Sabah",
-      mainLine: "+6088-218 166",
-      emergencyLine: "+6088-218 166 ext. A&E",
+      address: "13A, Jalan Penampang, 88200 Kota Kinabalu, Sabah",
+      mainLine: "+6088-517 555",
+      emergencyLine: "+6088-517 555 ext. A&E",
       appointmentLine: "+6088-218 166",
-      website: "https://hqe.moh.gov.my",
+      website: "https://jknsabah.moh.gov.my/hqe1/",
       mapQuery: "Hospital Queen Elizabeth Kota Kinabalu Sabah"
     },
     transport: {
@@ -141,11 +141,11 @@ export const HOSPITALS_SABAH = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Lilitan, 88586 Kota Kinabalu, Sabah (HQE campus)",
-      mainLine: "+6088-XXX XXX (verify with hospital — new facility)",
+      address: "Lorong Bersatu, Off Jalan Damai, Luyang, 88300 Kota Kinabalu, Sabah",
+      mainLine: "+6088-324 600",
       emergencyLine: "+6088-218 166 (A&E via HQE main)",
       appointmentLine: "+6088-XXX XXX (verify with HQEII)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsabah.moh.gov.my/hqe2/",
       mapQuery: "Hospital Queen Elizabeth II HQEII Kota Kinabalu Sabah"
     },
     transport: {
@@ -248,11 +248,11 @@ export const HOSPITALS_SABAH = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Jalan Utama, 90000 Sandakan, Sabah",
+      address: "Jalan Utara, 90000 Sandakan, Sabah",
       mainLine: "+6089-248 600 (verify with hospital)",
       emergencyLine: "+6089-248 600 ext. A&E (verify)",
       appointmentLine: "+6089-248 600 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsabah.moh.gov.my/hdok/",
       mapQuery: "Hospital Duchess of Kent Sandakan Sabah"
     },
     transport: {
@@ -361,10 +361,10 @@ export const HOSPITALS_SABAH = [
     },
     contact: {
       address: "Jalan Hospital, 91009 Tawau, Sabah",
-      mainLine: "+6089-772 533 (verify with hospital)",
+      mainLine: "+6089-773 533",
       emergencyLine: "+6089-772 533 ext. A&E (verify)",
       appointmentLine: "+6089-772 533 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsabah.moh.gov.my/htawau/",
       mapQuery: "Hospital Tawau Sabah"
     },
     transport: {
@@ -464,10 +464,10 @@ export const HOSPITALS_SABAH = [
     },
     contact: {
       address: "Jalan Hospital, 89008 Keningau, Sabah",
-      mainLine: "+6087-331 211 (verify with hospital)",
+      mainLine: "+6087-313 000",
       emergencyLine: "+6087-331 211 ext. A&E (verify)",
       appointmentLine: "+6087-331 211 (verify)",
-      website: "https://www.moh.gov.my",
+      website: "https://jknsabah.moh.gov.my/hkgu/",
       mapQuery: "Hospital Keningau Sabah Interior"
     },
     transport: {
@@ -760,11 +760,11 @@ export const HOSPITALS_SABAH = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "Lorong Bersatu, Off Jalan Damai, 88300 Kota Kinabalu, Sabah",
-      mainLine: "+6088-218 300",
-      emergencyLine: "+6088-218 300 ext. A&E",
-      appointmentLine: "+6088-218 300",
-      website: "https://www.gleneagles.com.my/kotakinabalu",
+      address: "Block A-1, Lorong Riverson@Sembulan, Off Coastal Highway, 88100 Kota Kinabalu, Sabah",
+      mainLine: "+6088-518 888",
+      emergencyLine: "+6088-518 911",
+      appointmentLine: "+6088-518 888",
+      website: "https://www.gleneagles.com.my/kota-kinabalu",
       mapQuery: "Gleneagles Hospital Kota Kinabalu Sabah"
     },
     transport: {
@@ -872,11 +872,11 @@ export const HOSPITALS_SABAH = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "Georgetown Road, 88100 Kota Kinabalu, Sabah",
-      mainLine: "+6088-366 333 (verify with hospital)",
+      address: "Jalan Metro 2, Metro Town, Off Jalan Lintas, 88300 Kota Kinabalu, Sabah",
+      mainLine: "+6088-366 333",
       emergencyLine: "+6088-366 333 ext. A&E (verify)",
       appointmentLine: "+6088-366 333 (verify)",
-      website: "https://www.jesseltonmedical.com",
+      website: "https://www.jmc.my",
       mapQuery: "Jesselton Medical Centre Kota Kinabalu Sabah"
     },
     transport: {
@@ -974,7 +974,7 @@ export const HOSPITALS_SABAH = [
       mainLine: "+6088-322 000 (verify with hospital)",
       emergencyLine: "+6088-322 000 ext. A&E (verify)",
       appointmentLine: "+6088-322 000 (verify)",
-      website: "https://www.kpjsabah.com",
+      website: "https://kpjhealth.com.my/sabah/",
       mapQuery: "KPJ Sabah Specialist Hospital Kota Kinabalu"
     },
     transport: {
@@ -1070,10 +1070,10 @@ export const HOSPITALS_SABAH = [
     },
     contact: {
       address: "1 Lorong Bersatu, Off Jalan Damai, 88300 Kota Kinabalu, Sabah",
-      mainLine: "+6088-233 333 (verify with hospital)",
+      mainLine: "+6088-222 922",
       emergencyLine: "+6088-233 333 ext. A&E (verify)",
       appointmentLine: "+6088-233 333 (verify)",
-      website: "https://www.damaispecialist.com.my",
+      website: "https://www.kpjdamai.com",
       mapQuery: "KPJ Damai Specialist Hospital Kota Kinabalu Sabah"
     },
     transport: {
