@@ -427,6 +427,9 @@
 .modal-title-group {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .modal-badges {
@@ -1576,15 +1579,15 @@
   }
 
   .modal-header {
-    padding: 1.75rem 3.25rem 1.25rem;
+    padding: 1.5rem 1.75rem 1.25rem;
   }
 
   .modal-tabs {
-    padding: 0.75rem 3.25rem;
+    padding: 0.75rem 1.75rem;
   }
 
   .modal-tab-panel {
-    padding: 1.75rem 3.25rem 3rem;
+    padding: 1.75rem 1.75rem 3rem;
   }
 
   .spec-grid {
@@ -1626,6 +1629,18 @@
   #find-results-grid,
   #onboard-result-grid {
     grid-template-columns: 1fr;
+  }
+
+  .modal-header {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .modal-tabs {
+    padding: 0.6rem 1.25rem;
+  }
+
+  .modal-tab-panel {
+    padding: 1.5rem 1.25rem 2.5rem;
   }
 }
 
