@@ -31,7 +31,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Jalan Pahang"
     },
     transport: {
-      nearest: "PWTC LRT Station (Ampang/Kelana Jaya Line) — 10 min walk",
+      nearest: "Titiwangsa LRT/MRT Station (Ampang Line + MRT Putrajaya Line) — 8 min walk; PWTC LRT (Ampang Line) — 10 min walk",
       bus: "Rapid KL Bus Route 250, 260",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Opposite Chow Kit Market, near Putra World Trade Centre (PWTC)"
@@ -147,7 +147,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Kuala Lumpur Psychiatric Jalan Pahang"
     },
     transport: {
-      nearest: "PWTC LRT Station — 12 min walk",
+      nearest: "Titiwangsa LRT/MRT Station (Ampang Line + MRT Putrajaya Line) — 10 min walk; PWTC LRT (Ampang Line) — 12 min walk",
       bus: "Rapid KL Route 250, 260",
       highway: "MRR2 — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur main campus"
@@ -1436,7 +1436,7 @@ export const HOSPITALS_KL = [
       mapQuery: "Hospital Pakar Kanak-Kanak Kuala Lumpur HPKKL"
     },
     transport: {
-      nearest: "PWTC LRT Station — 10 min walk",
+      nearest: "Titiwangsa LRT/MRT Station (Ampang Line + MRT Putrajaya Line) — 8 min walk; PWTC LRT (Ampang Line) — 10 min walk",
       bus: "Rapid KL Bus Route 250, 260",
       highway: "MRR2/DUKE — Exit Jalan Pahang",
       landmark: "Adjacent to Hospital Kuala Lumpur (HKL) campus, Jalan Pahang"
