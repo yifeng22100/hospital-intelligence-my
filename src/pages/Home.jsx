@@ -33,7 +33,7 @@ const INTEL_CARDS = [
 ]
 
 const QUICK_SEARCHES = [
-  'Emergency care', 'Public hospitals', 'Kuala Lumpur', 'Selangor', 'Penang', 'Private',
+  'Emergency', 'public', 'Kuala Lumpur', 'Selangor', 'Penang', 'Private',
 ]
 
 export default function Home() {
