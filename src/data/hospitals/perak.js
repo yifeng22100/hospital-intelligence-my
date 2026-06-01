@@ -85,34 +85,6 @@ export const HOSPITALS_PERAK = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
-    id: "hmanjung",
-    name: "Hospital Manjung",
-    nameShort: "Hospital Manjung",
-    sector: "public", tier: "district", state: "Perak", city: "Manjung",
-    intro: "Hospital Manjung serves the Manjung district in coastal Perak, including the Lumut naval base area.",
-    famousFor: ["District hospital for Manjung / Lumut area"],
-    infrastructure: { yearEstablished: 1977, totalBeds: 200, icuBeds: 8, nicuBeds: 4, operatingTheatres: 4, area: "~5 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Jalan Hospital, 32040 Seri Manjung, Perak", mainLine: "+605-688 5300 (verify)", emergencyLine: "+605-688 5300 ext. A&E (verify)", appointmentLine: "+605-688 5300 (verify)", website: "https://www.moh.gov.my", mapQuery: "Hospital Manjung Seri Manjung Perak" },
-    transport: { nearest: "Seri Manjung town — 5 min taxi", bus: "Local bus routes", highway: "Route 60 to Ipoh/KL", landmark: "Seri Manjung, Perak" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Limited", patientTransport: "Limited" },
-    visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU (basic)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Most specialties", transferTo: "HRPB Ipoh", note: "District hospital" }],
-      byReferral: ["Most specialties — refer to HRPB Ipoh"]
-    },
-    transferPathway: { summary: "District hospital.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {},
-    accreditations: ["MOH Accredited"],
-    verifiedNotes: "200 beds. District hospital.",
-    notableGaps: "Limited specialists.",
-    primaryExcellence: "District hospital — Manjung / Lumut, Perak", secondarySpecialties: "General Medicine",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics"],
-    roomRate: "RM 3 – RM 30", roomRateRaw: 3, insurance: "Heavily subsidised.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "Limited specialist range.", robotics: "Basic imaging.", doctorQualifications: "MOH medical officers.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
-  },
-  {
     id: "hgua-musang-perak",
     name: "Hospital Gerik",
     nameShort: "Hospital Gerik",

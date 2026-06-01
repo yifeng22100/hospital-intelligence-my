@@ -1269,7 +1269,12 @@ export const HOSPITALS_KL = [
       website: "https://www.tungshin.com.my",
       mapQuery: "Tung Shin Hospital Jalan Pudu Kuala Lumpur"
     },
-    transport: { nearest: "Imbi Monorail (KL Monorail) — 6 min walk; Hang Tuah interchange (MRT Kajang Line + LRT Ampang + LRT Sri Petaling Lines) — 9 min walk", bus: "Rapid KL bus along Jalan Pudu", highway: "SMART Tunnel area / Jalan Pudu exit", landmark: "Jalan Pudu, near Bukit Bintang / Chinatown" },
+    transport: {
+      nearest: "Plaza Rakyat LRT (Ampang + Sri Petaling Lines) — ~900m, 9-10 min walk; Hang Tuah interchange (KL Monorail + LRT Ampang + Sri Petaling Lines) — ~900m, 9-10 min walk; Bukit Bintang MRT (Kajang Line) — ~10 min walk; Merdeka MRT (Kajang Line) — 12-15 min walk",
+      bus: "Bus stop KL119 (Tung Shin Hospital stop) — 2-3 min walk from gate; Routes: 400, 401, 420, 421, 450, 452, 540, 580, 590, BET2, BET8",
+      highway: "SMART Tunnel area / Jalan Pudu exit",
+      landmark: "Jalan Pudu, near Bukit Bintang / Chinatown"
+    },
     facilities: { pharmacy24h: true, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: "Yes — Buddhist shrine room available", disabledAccess: true, wifi: "Free WiFi", patientTransport: "Limited" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Community hospital — confirm with ward." },
     specialtyCoverage: {
@@ -1404,108 +1409,6 @@ export const HOSPITALS_KL = [
     imageCredit: "",
     wikiLink: null,
     officialSources: [{ label: "Official Website", url: "https://www.sunwaymedical.com" }]
-  },
-  {
-    id: "hpkkl",
-    name: "Hospital Tunku Azizah (Wanita & Kanak-Kanak KL)",
-    nameShort: "HPKKL",
-    sector: "public",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Kuala Lumpur",
-    intro: "Hospital Tunku Azizah (Wanita & Kanak-Kanak KL) is Malaysia's national dedicated public paediatric specialist hospital, providing comprehensive specialist care exclusively for children. Located adjacent to Hospital Kuala Lumpur, it is the country's apex centre for complex paediatric conditions.",
-    famousFor: ["Malaysia's national dedicated public paediatric hospital", "Paediatric subspecialty care — only dedicated paediatric hospital in public sector", "Paediatric surgery, paediatric oncology, paediatric cardiology"],
-    infrastructure: {
-      yearEstablished: 2010,
-      totalBeds: 200,
-      icuBeds: 20,
-      nicuBeds: 0,
-      operatingTheatres: 6,
-      area: "~5 acres (adjacent to HKL)",
-      buildings: "Dedicated paediatric hospital block",
-      helipad: false,
-      parkingBays: "Shared with HKL campus",
-      parkingRate: "RM 1/hour"
-    },
-    contact: {
-      address: "Jalan Pahang, 50586 Kuala Lumpur (near HKL)",
-      mainLine: "+603-2615 5555 (via HKL main)",
-      emergencyLine: "+603-2615 5555",
-      appointmentLine: "+603-2615 5555",
-      website: "https://hkl.moh.gov.my",
-      mapQuery: "Hospital Pakar Kanak-Kanak Kuala Lumpur HPKKL"
-    },
-    transport: {
-      nearest: "Hospital Kuala Lumpur MRT (PY18, Putrajaya Line) — 5 min walk; Titiwangsa interchange (PY17) — 8 min walk",
-      bus: "Rapid KL Bus Route 250, 260",
-      highway: "MRR2/DUKE — Exit Jalan Pahang",
-      landmark: "Adjacent to Hospital Kuala Lumpur (HKL) campus, Jalan Pahang"
-    },
-    facilities: {
-      pharmacy24h: true,
-      cafeteria: "Available (shared HKL campus)",
-      atm: "HKL main lobby nearby",
-      surau: "Available",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Free (HKL-Guest)",
-      patientTransport: "Shared with HKL"
-    },
-    visitingHours: {
-      general: "12:00–14:00, 17:00–20:00",
-      icu: "11:30–12:00, 17:30–18:00 (paediatric ICU — restricted)",
-      paediatric: "Parents: unrestricted",
-      maternity: "N/A",
-      notes: "Parents unrestricted. Other visitors follow standard visiting hours. PICU strictly controlled."
-    },
-    specialtyCoverage: {
-      available: [
-        "Paediatric Emergency Medicine & A&E (24/7)",
-        "Paediatric Intensive Care Unit (PICU)",
-        "Paediatric General Medicine",
-        "Paediatric Surgery", "Paediatric Cardiology", "Paediatric Cardiac Surgery",
-        "Paediatric Oncology", "Paediatric Haematology",
-        "Paediatric Neurology", "Paediatric Neurosurgery",
-        "Paediatric Nephrology", "Paediatric Urology",
-        "Paediatric Gastroenterology", "Paediatric Endocrinology",
-        "Paediatric Respiratory Medicine", "Paediatric Infectious Disease",
-        "Paediatric Orthopaedics", "Paediatric ENT", "Paediatric Ophthalmology",
-        "Paediatric Psychiatry", "Paediatric Rehabilitation"
-      ],
-      notAvailable: [
-        { specialty: "Adult Medicine (any)", transferTo: "Hospital Kuala Lumpur (HKL)", note: "Paediatric hospital only — adults to HKL" }
-      ],
-      byReferral: ["Paediatric liver transplant — Hospital Selayang"]
-    },
-    transferPathway: {
-      summary: "Dedicated paediatric hospital. Adult patients to HKL next door. Paediatric liver transplant to Selayang.",
-      routes: [
-        { condition: "Adult patients", to: "Hospital Kuala Lumpur (HKL)", reason: "HKL main campus — adults only", distanceKm: 0.2 }
-      ],
-      howToTransfer: "Paediatric referral via GP or A&E. MOH inter-hospital referral for paediatric cases."
-    },
-    specialtyRanks: {
-      "Paediatric Care": { rank: "National #1 (Public)", desc: "Malaysia's designated national public paediatric specialist hospital" }
-    },
-    accreditations: ["MSQH Accredited", "MOH National Paediatric Hospital Designation"],
-    verifiedNotes: "National dedicated public paediatric hospital adjacent to HKL. Comprehensive paediatric subspecialty care. ~200 beds (est.).",
-    notableGaps: "Paediatric only — no adult services. No paediatric liver transplant on site (refer Selayang).",
-    primaryExcellence: "National public paediatric specialist hospital",
-    secondarySpecialties: "Paediatric Surgery, Paediatric Oncology, Paediatric Cardiology",
-    fullSpecialties: ["Paediatric Medicine", "Paediatric Surgery", "Paediatric Oncology", "Paediatric Cardiology", "Paediatric Neurology"],
-    roomRate: "RM 3 – RM 50 (Subsidised Public)",
-    roomRateRaw: 5,
-    insurance: "Heavily subsidised. FPP scheme available.",
-    fppScheme: true,
-    fppDeposit: "RM 200–1,000",
-    gaps: "Paediatric only. No adult services.",
-    robotics: "Standard paediatric imaging.",
-    doctorQualifications: "Paediatric subspecialists — MOH specialists with fellowship training in paediatrics.",
-    imageUrl: null,
-    imageCredit: "",
-    wikiLink: null,
-    officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
   {
     id: "hctm",
