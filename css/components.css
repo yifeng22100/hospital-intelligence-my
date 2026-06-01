@@ -417,7 +417,7 @@
   z-index: 10;
   background: #fff;
   border-bottom: 1px solid var(--border);
-  padding: 2.25rem 5rem 1.75rem;
+  padding: 2.25rem 7rem 1.75rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -474,7 +474,7 @@
 .modal-tabs {
   display: flex;
   gap: 0.25rem;
-  padding: 1rem 5rem;
+  padding: 1rem 7rem;
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
   scrollbar-width: none;
@@ -513,7 +513,7 @@
 
 /* Modal tab panels */
 .modal-tab-panel {
-  padding: 2.75rem 5rem 4rem;
+  padding: 2.75rem 7rem 4rem;
   flex: 1;
 }
 
@@ -1576,15 +1576,15 @@
   }
 
   .modal-header {
-    padding: 1.75rem 2.75rem 1.25rem;
+    padding: 1.75rem 3.25rem 1.25rem;
   }
 
   .modal-tabs {
-    padding: 0.75rem 2.75rem;
+    padding: 0.75rem 3.25rem;
   }
 
   .modal-tab-panel {
-    padding: 1.75rem 2.75rem 3rem;
+    padding: 1.75rem 3.25rem 3rem;
   }
 
   .spec-grid {
