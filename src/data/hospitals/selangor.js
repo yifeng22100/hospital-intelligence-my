@@ -1506,6 +1506,32 @@ export const HOSPITALS_SELANGOR = [
     verifiedNotes: "~120 beds (est.). Private hospital, Puchong.", notableGaps: "Complex → Sunway Medical."
   },
   {
+    id: "kpj-selayang",
+    name: "KPJ Selayang Specialist Hospital",
+    nameShort: "KPJ Selayang",
+    sector: "private", tier: "secondary", state: "Selangor", city: "Selayang",
+    intro: "KPJ Selayang Specialist Hospital is a private specialist hospital in the Selayang area of northern Selangor, serving the large population of the Gombak-Selayang corridor.",
+    famousFor: ["Private specialist hospital — Selayang corridor", "KPJ network hospital"],
+    infrastructure: { yearEstablished: 2005, totalBeds: 130, icuBeds: 8, nicuBeds: 4, operatingTheatres: 5, area: "~3 acres", buildings: "Main Block", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 1/hour" },
+    contact: { address: "Selayang, Selangor", mainLine: "+603-6136 9999 (verify)", emergencyLine: "+603-6136 9999 ext. A&E", appointmentLine: "+603-6136 9999 (verify)", website: "https://www.kpjhealth.com.my", mapQuery: "KPJ Selayang Specialist Hospital" },
+    transport: { nearest: "Selayang area — taxi recommended", bus: "RapidKL bus", highway: "LATAR Expressway / Jalan Ipoh", landmark: "Selayang, near Hospital Selayang" },
+    facilities: { pharmacy24h: false, cafeteria: "Café", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free", patientTransport: "Ambulance" },
+    visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Orthopaedics", "Obstetrics", "Paediatrics"],
+      notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre nearby" }],
+      byReferral: ["Complex → KPJ Damansara or Hospital Selayang"]
+    },
+    transferPathway: { summary: "Private specialist. Complex → KPJ Damansara or Hospital Selayang.", routes: [], howToTransfer: "Private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private specialist — Selayang area", secondarySpecialties: "General Medicine, Orthopaedics",
+    fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
+    roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
+    gaps: "No liver transplant.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "~130 beds (est.). Private specialist, Selayang.", notableGaps: "Liver transplant → Hospital Selayang."
+  },
+  {
     id: "columbia-rawang",
     name: "Columbia Asia Hospital Rawang",
     nameShort: "Columbia Asia Rawang",

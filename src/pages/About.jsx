@@ -162,7 +162,7 @@ export default function About() {
               },
               {
                 title: 'Update cycle',
-                desc: 'Data is reviewed and updated continuously with reference to 2024–2025 official sources. The full sources list is available on our Data Sources page.',
+                desc: 'Data is reviewed and updated continuously with reference to 2025–2026 official sources. The full sources list is available on our Data Sources page.',
               },
             ].map(({ title, desc }) => (
               <div key={title} className="bg-surface-secondary rounded-2xl p-4">

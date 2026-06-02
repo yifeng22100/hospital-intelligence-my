@@ -839,13 +839,13 @@ export const HOSPITALS_KL = [
   },
   {
     id: "imu-hospital",
-    name: "IMU Hospital",
-    nameShort: "IMU Hospital",
+    name: "IMU Healthcare",
+    nameShort: "IMU Healthcare",
     sector: "private",
     tier: "tertiary",
     state: "Kuala Lumpur",
     city: "Kuala Lumpur",
-    intro: "IMU Hospital is the clinical training and specialist hospital of International Medical University (IMU), one of Malaysia's leading private medical universities. It provides specialist care combined with an academic and research environment.",
+    intro: "IMU Healthcare is the clinical training and specialist hospital of International Medical University (IMU), one of Malaysia's leading private medical universities. It provides specialist care combined with an academic and research environment.",
     famousFor: ["IMU academic medical centre", "Good access to IMU research and clinical trial programmes", "Growing specialist services"],
     infrastructure: {
       yearEstablished: 2019,
@@ -1264,7 +1264,7 @@ export const HOSPITALS_KL = [
     sector: "private",
     tier: "tertiary",
     state: "Kuala Lumpur",
-    city: "Kuala Lumpur",
+    city: "Titiwangsa, Kuala Lumpur",
     intro: "Hospital Pusrawi (Pusat Rawatan Islam) is a unique Islamic private hospital in Kuala Lumpur, founded under the auspices of the Tabung Haji group. It provides halal-certified medical care with Islamic principles integrated throughout, serving the Muslim community and general public.",
     famousFor: ["Islamic halal-certified hospital", "Affiliated with Tabung Haji (Malaysia's pilgrimage fund)", "Spiritual and mental health care aligned with Islamic values", "Trusted by Muslim community for halal medical procedures"],
     infrastructure: {
@@ -1280,14 +1280,14 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "No. 2, Jalan Indah, Off Jalan Tun Razak, 50400 Kuala Lumpur",
+      address: "149, Jalan Tun Razak, 50400 Kuala Lumpur",
       mainLine: "+603-2687 5000",
       emergencyLine: "+603-2687 5181",
       appointmentLine: "+603-2687 5000",
       website: "https://www.pusrawi.com.my",
-      mapQuery: "Hospital Pusrawi Kuala Lumpur Jalan Tun Razak"
+      mapQuery: "Hospital Pusrawi 149 Jalan Tun Razak Kuala Lumpur"
     },
-    transport: { nearest: "LRT KLCC (Kelana Jaya Line, KJ10) — ~10 min walk; LRT Ampang Park (Ampang Line) — ~12 min walk", bus: "Routes: 170, 173, 402, T202, GOKL-05 (Orange); bus stops along Jalan Tun Razak", highway: "DUKE — Exit Jalan Tun Razak", landmark: "No. 2 Jalan Indah, Off Jalan Tun Razak, near Gleneagles KL" },
+    transport: { nearest: "Titiwangsa LRT (KJ12 / SP12) — ~8 min walk; Jelatek LRT (AMP6) — ~10 min walk", bus: "RapidKL routes along Jalan Tun Razak", highway: "DUKE Highway — Jalan Tun Razak exit", landmark: "Opposite Institut Jantung Negara (IJN), Jalan Tun Razak, Titiwangsa" },
     facilities: { pharmacy24h: true, cafeteria: "Halal-certified cafeteria, 7am–9pm", atm: "Lobby", surau: "Multiple surau on all floors", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "12:00–14:00, 17:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Partner/family: flexible", notes: "Islamic prayer times respected — visiting may be adjusted during prayer times." },
     specialtyCoverage: {
@@ -1329,29 +1329,29 @@ export const HOSPITALS_KL = [
   },
   {
     id: "kl-sports-mc",
-    name: "KL Sports Medicine Centre",
-    nameShort: "KL Sports MC",
-    sector: "public", tier: "tertiary", state: "Kuala Lumpur", city: "Kuala Lumpur",
-    intro: "KL Sports Medicine Centre (Pusat Perubatan Sukan KL) is a specialist public facility for sports medicine, rehabilitation and athlete healthcare.",
-    famousFor: ["National sports medicine centre", "Serves national athletes"],
-    infrastructure: { yearEstablished: 1990, totalBeds: 50, icuBeds: 0, nicuBeds: 0, operatingTheatres: 3, area: "~2 acres", buildings: "Main Block", helipad: false, parkingBays: "~100 bays", parkingRate: "Free" },
-    contact: { address: "Stadium Negara, Jalan Stadium, 50470 Kuala Lumpur", mainLine: "+603-2698 5555 (verify)", emergencyLine: "N/A", appointmentLine: "+603-2698 5555 (verify)", website: "https://jknkl.moh.gov.my/", mapQuery: "KL Sports Medicine Centre Kuala Lumpur" },
-    transport: { nearest: "Stadium Negara — 5 min walk", bus: "RapidKL bus routes", highway: "MRR2 / SMART Tunnel", landmark: "Stadium Negara, Kuala Lumpur" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "N/A" },
-    visitingHours: { general: "Office hours", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Appointment required." },
+    name: "KL Sports Medicine Centre (KLSMC)",
+    nameShort: "KLSMC",
+    sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Damansara Heights, Kuala Lumpur",
+    intro: "KL Sports Medicine Centre (KLSMC) is a private specialist centre for sports injuries, orthopaedic surgery and physiotherapy, located at Wisma Perintis, Damansara Heights. Founded in 2005 by a group of orthopaedic specialists, it provides one-stop sports medicine care including arthroscopic surgery, MRI imaging, and hydrotherapy.",
+    famousFor: ["Private one-stop sports medicine and orthopaedic centre", "Arthroscopic surgery — knee, shoulder, spine, hip", "MRI imaging and hydrotherapy on-site", "Founded by specialist orthopaedic surgeons (2005)"],
+    infrastructure: { yearEstablished: 2005, totalBeds: 20, icuBeds: 0, nicuBeds: 0, operatingTheatres: 2, area: "~0.5 acres (multi-floor)", buildings: "7th–8th Floor, Wisma Perintis", helipad: false, parkingBays: "Building parking", parkingRate: "Paid" },
+    contact: { address: "7th Floor, Wisma Perintis, 47 Jalan Dungun, Damansara Heights, 50490 Kuala Lumpur", mainLine: "+603-2096 1033", emergencyLine: "N/A — emergency to UMMC or Gleneagles KL", appointmentLine: "+603-2096 1033", website: "https://klsmc.com", mapQuery: "KLSMC KL Sports Medicine Centre 47 Jalan Dungun Damansara Heights" },
+    transport: { nearest: "Semantan LRT (KJ14) — ~10 min walk; Bangsar LRT (KJ11) — ~15 min walk", bus: "RapidKL routes along Jalan Damansara", highway: "SPRINT Highway — Damansara Heights exit", landmark: "Wisma Perintis, 47 Jalan Dungun, Damansara Heights" },
+    facilities: { pharmacy24h: false, cafeteria: "Building facilities", atm: "Building lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "N/A" },
+    visitingHours: { general: "Mon–Fri 9:00am–5:00pm; Sat 8:00am–1:00pm", icu: "N/A", paediatric: "N/A", maternity: "N/A", notes: "Closed Sundays and public holidays. Appointment required." },
     specialtyCoverage: {
-      available: ["Sports Medicine", "Physiotherapy", "Orthopaedic Sports Surgery", "Exercise Science"],
-      notAvailable: [{ specialty: "General emergency", transferTo: "Hospital KL", note: "Specialist centre only" }],
-      byReferral: ["General acute → HKL"]
+      available: ["Sports Medicine", "Orthopaedic Surgery (knee, shoulder, hip, spine, hand, foot)", "Arthroscopic Surgery", "Physiotherapy", "MRI Imaging", "Hydrotherapy"],
+      notAvailable: [{ specialty: "General emergency / A&E", transferTo: "UMMC or Gleneagles KL", note: "Specialist centre only — no A&E" }],
+      byReferral: ["Complex trauma → UMMC or Gleneagles KL"]
     },
-    transferPathway: { summary: "Specialist sports medicine. Emergency → HKL.", routes: [], howToTransfer: "MOH referral." },
-    specialtyRanks: {}, accreditations: ["MOH Accredited"],
-    primaryExcellence: "National sports medicine centre — Kuala Lumpur", secondarySpecialties: "Physiotherapy, Sports Orthopaedics",
-    fullSpecialties: ["Sports Medicine", "Physiotherapy", "Orthopaedics"],
-    roomRate: "Subsidised (public)", roomRateRaw: 5, insurance: "MyCard / MySalam.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "No emergency care. No general medicine.", robotics: "None.", doctorQualifications: "MOH sports medicine specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "MOH Malaysia", url: "https://www.moh.gov.my" }],
-    verifiedNotes: "~50 beds (est.). National sports medicine centre.", notableGaps: "No emergency or general inpatient care."
+    transferPathway: { summary: "Private sports medicine specialist. No A&E. Emergency → UMMC or Gleneagles KL.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed"],
+    primaryExcellence: "Private sports medicine & orthopaedic specialist — Damansara Heights KL", secondarySpecialties: "Arthroscopic Surgery, Physiotherapy",
+    fullSpecialties: ["Sports Medicine", "Orthopaedics", "Physiotherapy"],
+    roomRate: "Private rates — outpatient & day surgery; inpatient wards available", roomRateRaw: 400, insurance: "Panel for major insurers.", fppScheme: false, fppDeposit: "N/A",
+    gaps: "No A&E. No general medicine. No maternity.", robotics: "Arthroscopic surgery available.", doctorQualifications: "Fellowship-trained orthopaedic surgeons.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KLSMC Official", url: "https://klsmc.com" }],
+    verifiedNotes: "Private specialist. 7th–8th Floor, Wisma Perintis, 47 Jalan Dungun, Damansara Heights. Founded 2005. Phone +603-2096 1033.", notableGaps: "No A&E or general inpatient services."
   },
   {
     id: "tawakal-kl",
@@ -1723,106 +1723,6 @@ export const HOSPITALS_KL = [
     ]
   },
   {
-    id: "pantai-cheras-kl",
-    name: "Pantai Hospital Cheras",
-    nameShort: "Pantai Cheras",
-    sector: "private",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Cheras, Kuala Lumpur",
-    intro: "Pantai Hospital Cheras is a private tertiary hospital in Cheras, Kuala Lumpur, serving the densely populated Cheras corridor. Part of the Pantai/IHH Healthcare group, it provides comprehensive specialist services to the Cheras, Kajang, and south-east KL communities. Note: this is the KL-side Cheras hospital (WP Kuala Lumpur) as distinct from any Selangor-side facilities.",
-    famousFor: [
-      "Private tertiary hospital — Cheras, KL corridor",
-      "IHH/Pantai network — wide specialist panel",
-      "Serving densely populated Cheras–south KL communities"
-    ],
-    infrastructure: {
-      yearEstablished: 1996,
-      totalBeds: 220,
-      icuBeds: 16,
-      nicuBeds: 6,
-      operatingTheatres: 8,
-      area: "~3 acres",
-      buildings: "Main Tower, Specialist Clinic Block",
-      helipad: false,
-      parkingBays: "~300 bays",
-      parkingRate: "RM 2/hour"
-    },
-    contact: {
-      address: "No. 1, Jalan 1/96A, Taman Cheras Makmur, 56100 Cheras, Kuala Lumpur",
-      mainLine: "+603-9102 7888",
-      emergencyLine: "+603-9102 7888 ext. A&E",
-      appointmentLine: "+603-9102 7888",
-      website: "https://www.pantai.com.my/cheras",
-      mapQuery: "Pantai Hospital Cheras Kuala Lumpur"
-    },
-    transport: {
-      nearest: "Taman Mutiara MRT (Kajang Line) — 10 min walk; Miharja LRT (Sri Petaling / Ampang Lines) — 12 min walk or short taxi",
-      bus: "Rapid KL Bus routes (Cheras area)",
-      highway: "MRR2 / SMART Tunnel — Exit Cheras",
-      landmark: "Cheras Makmur, Cheras KL"
-    },
-    facilities: {
-      pharmacy24h: true,
-      cafeteria: "Ground floor, 7am–9pm",
-      atm: "Main lobby",
-      surau: "Available",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Free WiFi",
-      patientTransport: "Medical transport available"
-    },
-    visitingHours: {
-      general: "11:00–21:00",
-      icu: "Restricted — check with nurse",
-      paediatric: "Parents: unrestricted",
-      maternity: "Partner/family: flexible",
-      notes: "Private hospital — flexible visiting. Confirm with ward."
-    },
-    specialtyCoverage: {
-      available: [
-        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
-        "Cardiology", "General Surgery", "Neurology",
-        "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics",
-        "Gastroenterology", "Urology", "ENT", "Ophthalmology",
-        "Oncology (selected)", "Endocrinology", "Dermatology",
-        "Rehabilitation Medicine"
-      ],
-      notAvailable: [
-        { specialty: "Cardiothoracic Surgery", transferTo: "Pantai KL or Gleneagles KL", note: "Refer to larger tertiary centre" },
-        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
-      ],
-      byReferral: ["Complex oncology — refer to Beacon Hospital; Neurosurgery — refer to UKMSC/HCTM or Gleneagles KL"]
-    },
-    transferPathway: {
-      summary: "Full-service community private hospital for Cheras KL corridor. Complex surgical and transplant cases referred to larger centres.",
-      routes: [],
-      howToTransfer: "Specialist-to-specialist referral within Pantai/IHH network."
-    },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "IHH/Pantai Healthcare Group"],
-    verifiedNotes: "Pantai Hospital Cheras — IHH/Pantai group facility in Cheras, WP Kuala Lumpur. ~220 beds (est.). Distinct from any Selangor-side facility; this hospital is within Kuala Lumpur city boundary.",
-    notableGaps: "No cardiothoracic surgery on-site. No liver transplant. Smaller than flagship Pantai KL.",
-    primaryExcellence: "Private tertiary hospital — Cheras / south-east KL community",
-    secondarySpecialties: "Obstetrics, Paediatrics, Cardiology, Orthopaedics",
-    fullSpecialties: ["General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics"],
-    roomRate: "RM 180 – RM 550+/night",
-    roomRateRaw: 280,
-    insurance: "Accepts major Malaysian insurance panels. Cashless available for Pantai/IHH panel insurers.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "No cardiothoracic surgery. No liver transplant.",
-    robotics: "Standard imaging — MRI, CT.",
-    doctorQualifications: "MMC-registered specialists. IHH/Pantai group standards.",
-    imageUrl: null,
-    imageCredit: "N/A",
-    officialSources: [
-      { label: "Official Website", url: "https://www.pantai.com.my/cheras" },
-      { label: "IHH Healthcare Group", url: "https://www.ihhhealthcare.com" }
-    ]
-  },
-  {
     id: "columbia-asia-setapak",
     name: "Columbia Asia Hospital Setapak",
     nameShort: "Columbia Asia Setapak",
@@ -2046,18 +1946,18 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "No. 1, Jalan Utama, Off Jalan Ipoh, 51200 Kuala Lumpur",
-      mainLine: "+603-4042 2800",
-      emergencyLine: "+603-4042 2800 ext. A&E",
-      appointmentLine: "+603-4042 2800",
+      address: "106, Jalan Pudu, 55100 Kuala Lumpur",
+      mainLine: "+603-2078 2055",
+      emergencyLine: "+603-2078 2055 ext. A&E",
+      appointmentLine: "+603-2078 2055",
       website: "https://www.cmhkl.com.my",
-      mapQuery: "Chinese Maternity Hospital Kuala Lumpur Jalan Ipoh"
+      mapQuery: "Chinese Maternity Hospital 106 Jalan Pudu Kuala Lumpur"
     },
     transport: {
-      nearest: "Sentul Timur LRT Station (Ampang Line) — 15 min walk or short taxi; Sentul LRT (KTM/LRT interchange) — 10 min taxi",
-      bus: "Rapid KL bus routes (Jalan Ipoh area)",
-      highway: "MRR2 / DUKE — Exit Jalan Ipoh / Sentul",
-      landmark: "Off Jalan Ipoh, Sentul area, northern KL"
+      nearest: "Maharajalela LRT (AMP4) — ~5 min walk; Hang Tuah LRT/Monorail Interchange (KJ14/AMP3) — ~8 min walk",
+      bus: "RapidKL routes along Jalan Pudu",
+      highway: "MRR2 / Jalan Pudu — direct access",
+      landmark: "Adjacent to Tung Shin Hospital, Jalan Pudu, Kuala Lumpur"
     },
     facilities: {
       pharmacy24h: false,

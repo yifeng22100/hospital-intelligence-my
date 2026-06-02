@@ -163,6 +163,23 @@ export default function FindCare() {
               </svg>
             </div>
 
+            {/* Specialty */}
+            <div className="relative">
+              <select
+                value={specialty}
+                onChange={e => setSpecialty(e.target.value)}
+                className="appearance-none bg-white border border-ink-quaternary rounded-xl px-4 py-2 pr-8 text-[13px] text-ink focus:border-brand focus:ring-2 focus:ring-brand/10 outline-none cursor-pointer"
+              >
+                <option value="">All Specialties</option>
+                {SPECIALTY_FILTERS.map(f => (
+                  <option key={f.label} value={f.label}>{f.label}</option>
+                ))}
+              </select>
+              <svg className="absolute right-2.5 top-1/2 -translate-y-1/2 text-ink-tertiary pointer-events-none" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
             {/* Sector toggle */}
             <div className="flex rounded-xl border border-ink-quaternary overflow-hidden text-[13px]">
               {[['', 'All'], ['public', 'Public'], ['private', 'Private']].map(([val, label]) => (
