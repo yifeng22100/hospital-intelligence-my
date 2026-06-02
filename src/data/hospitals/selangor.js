@@ -4680,29 +4680,5 @@ export const HOSPITALS_SELANGOR = [
     officialSources: [
       { label: "DBM Pusrawi Kota Damansara", url: "https://www.dbmpusrawi.com" }
     ]
-    id: "dbm-pusrawi-kota-damansara",
-    name: "DBM Pusrawi Kota Damansara",
-    nameShort: "DBM Pusrawi KD",
-    sector: "private", tier: "secondary", state: "Selangor", city: "Kota Damansara, Petaling Jaya",
-    intro: "DBM Pusrawi Kota Damansara (Dewan Bersalin Muslimah) is a private Islamic maternity and birthcare centre in Kota Damansara, offering comprehensive maternity services aligned with Islamic principles. Part of the DBM Pusrawi chain, it serves Muslim families in the Kota Damansara and Petaling Jaya area with a 24-hour maternity ward.",
-    famousFor: ["Islamic maternity & birthcare centre — Kota Damansara", "Dewan Bersalin Muslimah (DBM) Pusrawi chain", "24-hour maternity ward", "Halal-certified care aligned with Islamic values"],
-    infrastructure: { yearEstablished: 2015, totalBeds: 30, icuBeds: 0, nicuBeds: 4, operatingTheatres: 2, area: "N/A", buildings: "Maternity Centre", helipad: false, parkingBays: "Available", parkingRate: "Free" },
-    contact: { address: "No. 22, Jalan Pekaka 8/3, Seksyen 8, Kota Damansara, 47810 Petaling Jaya, Selangor", mainLine: "+603-6157 8596", emergencyLine: "+603-6157 8596", appointmentLine: "+603-6157 8596", website: "https://dbmpusrawi.com", mapQuery: "DBM Pusrawi Kota Damansara 22 Jalan Pekaka Seksyen 8 PJ" },
-    transport: { nearest: "Surian MRT (PY11, Putrajaya Line) — ~10 min taxi; Kota Damansara MRT (PY10) — ~10 min taxi", bus: "RapidKL routes (Kota Damansara area)", highway: "SPRINT / NKVE — Kota Damansara exit", landmark: "Seksyen 8, Kota Damansara, near Kota Damansara town centre" },
-    facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Nearby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Available", patientTransport: "Limited" },
-    visitingHours: { general: "9:00am–1:00pm, 3:00pm–6:00pm (Fri: 9am–1pm)", icu: "N/A", paediatric: "Parents: unrestricted", maternity: "Maternity ward 24 hours", notes: "Office hours Mon–Sun. Maternity ward 24-hour service." },
-    specialtyCoverage: {
-      available: ["Obstetrics & Maternity (24/7 ward)", "Gynaecology", "NICU (basic)", "Postnatal Care", "Islamic Confinement Care"],
-      notAvailable: [{ specialty: "General surgery / A&E", transferTo: "Thomson Hospital Kota Damansara or Hospital Selayang", note: "Maternity specialist only" }],
-      byReferral: ["High-risk obstetrics → Thomson Kota Damansara or Hospital Selayang"]
-    },
-    transferPathway: { summary: "Islamic maternity centre. High-risk obstetrics → Thomson Kota Damansara or Hospital Selayang.", routes: [], howToTransfer: "Self-referral or midwife referral." },
-    specialtyRanks: {}, accreditations: ["MOH Licensed"],
-    primaryExcellence: "Islamic maternity & birthcare — Kota Damansara", secondarySpecialties: "Postnatal care, Islamic confinement",
-    fullSpecialties: ["Obstetrics", "Gynaecology", "Postnatal Care"],
-    roomRate: "RM 100 – RM 300/night", roomRateRaw: 180, insurance: "Panel for selected insurers.", fppScheme: false, fppDeposit: "N/A",
-    gaps: "No general A&E. No surgery beyond obstetrics. No general medicine.", robotics: "None.", doctorQualifications: "MOH-registered obstetricians and midwives.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "DBM Pusrawi Official", url: "https://dbmpusrawi.com" }],
-    verifiedNotes: "Dewan Bersalin Muslimah (DBM) Pusrawi chain. No. 22, Jalan Pekaka 8/3, Seksyen 8, Kota Damansara. Phone +603-6157 8596. Maternity ward 24hrs.", notableGaps: "Maternity only — not a general hospital."
-  }
+  },
 ];

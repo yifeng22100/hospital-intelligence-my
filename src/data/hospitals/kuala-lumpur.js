@@ -2497,7 +2497,6 @@ export const HOSPITALS_KL = [
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://hpkk.ukm.edu.my" }]
   },
   {
-    {
     id: "kpj-dsh2",
     name: "Damansara Specialist Hospital 2 (DSH2)",
     nameShort: "DSH2",
@@ -2526,37 +2525,5 @@ export const HOSPITALS_KL = [
     roomRate: "RM 180 – RM 500+/night", roomRateRaw: 280, insurance: "KPJ group insurance panels.", fppScheme: false, fppDeposit: "N/A",
     gaps: "Newer — verify specialist availability.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/damansara2/" }]
-    city: "Kuala Lumpur",
-    intro: "Damansara Specialist Hospital 2 (DSH2) is a modern KPJ Healthcare hospital in Bukit Lanjan, providing additional specialist capacity for the Damansara, Petaling Jaya, and northwest KL communities.",
-    famousFor: ["Modern KPJ expansion hospital in Bukit Lanjan", "Additional specialist capacity for Damansara/PJ/northwest KL"],
-    infrastructure: { yearEstablished: 2020, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "New specialist tower", helipad: false, parkingBays: "~250 bays", parkingRate: "RM3.00/hr; max/day: RM7.00; inpatient: RM7.00/day; valet: RM15.00/day" },
-    contact: { address: "No. 1, Jalan Bukit Lanjan 3, Bukit Lanjan, 60000 Kuala Lumpur", mainLine: "+603-7717 3000", emergencyLine: "+603-7717 3000", appointmentLine: "+603-7717 3000", website: "https://kpjhealth.com.my/damansara2/", mapQuery: "Damansara Specialist Hospital 2 DSH2 Bukit Lanjan Kuala Lumpur" },
-    transport: { nearest: "MRT Mutiara Damansara (Putrajaya Line) via feeder bus T810; bus stop Bukit Lanjan (Utara) — 8-min walk", bus: "Rapid KL 780, 801, PJ06, T810", highway: "NKVE — Bukit Lanjan interchange (Persiaran Bukit Lanjan); accessible from Damansara Utama", landmark: "Bukit Lanjan; near Empire City Damansara (~980 m), Tropicana area" },
-    facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
-    visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Confirm with hospital." },
-    specialtyCoverage: {
-      available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology"],
-      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical or SJMC", note: "Refer to larger centre" }],
-      byReferral: ["Complex cases — KPJ Damansara 1 or Sunway Medical"]
-    },
-    transferPathway: { summary: "Community private hospital.", routes: [], howToTransfer: "Specialist referral." },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
-    verifiedNotes: "200 beds. KPJ group expansion hospital.",
-    notableGaps: "Newer hospital — verify full specialist coverage.",
-    primaryExcellence: "KPJ private hospital — Damansara 2 expansion",
-    secondarySpecialties: "Obstetrics, Cardiology, Paediatrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 180 – RM 500+/night",
-    roomRateRaw: 280,
-    insurance: "KPJ group insurance panels.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "Newer — verify specialist availability.",
-    robotics: "Standard imaging.",
-    doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null,
-    imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://kpjhealth.com.my/damansara2/" }]
   },
 ];
