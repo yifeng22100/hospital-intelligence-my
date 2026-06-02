@@ -4,6 +4,7 @@ import { COST_REFERENCE } from '../data/cost-reference'
 import { VERIFY_GUIDE } from '../data/verify-guide'
 import { GLOSSARY } from '../data/glossary'
 import { SPECIALTIES_REFERENCE } from '../data/specialties-reference'
+import { EMERGENCY_PROTOCOLS } from '../data/emergency-protocols'
 
 const TOPICS = [
   { id: 'hacks',       icon: '💡', label: 'Insider Tips',      desc: '12 things most patients don\'t know' },
@@ -16,6 +17,7 @@ const TOPICS = [
   { id: 'verify',      icon: '✅', label: 'Verify Facilities', desc: 'Nursing homes, dialysis, dental & more' },
   { id: 'glossary',    icon: '📖', label: 'Medical Glossary',  desc: 'Plain-English guide to medical terms' },
   { id: 'specialties', icon: '⚕️', label: 'Specialties Guide', desc: 'Where to go for each speciality' },
+  { id: 'emergency',   icon: '🚨', label: 'Emergency Events',  desc: 'What to do in each medical emergency' },
 ]
 
 export default function Intelligence() {
@@ -72,6 +74,7 @@ export default function Intelligence() {
         {active === 'verify'      && <VerifySection />}
         {active === 'glossary'    && <GlossarySection />}
         {active === 'specialties' && <SpecialtiesSection />}
+        {active === 'emergency'   && <EmergencySection />}
       </div>
     </div>
   )
@@ -990,6 +993,119 @@ function SpecialtiesSection() {
         {filtered.length === 0 && (
           <p className="text-center text-ink-tertiary text-[13px] py-8">No specialties match your search.</p>
         )}
+      </div>
+    </div>
+  )
+}
+
+/* ─── Emergency Events ──────────────────────────────────────────── */
+
+const EMERGENCY_CATEGORIES = ['All', 'Cardiac', 'Neurological', 'Airway', 'Trauma', 'Envenomation', 'Allergy', 'Medical', 'Child']
+
+function EmergencySection() {
+  const [category, setCategory] = useState('All')
+  const [open, setOpen] = useState(null)
+  const scenarios = EMERGENCY_PROTOCOLS.emergencyScenarios
+  const visible = category === 'All' ? scenarios : scenarios.filter(s => s.category === category)
+
+  return (
+    <div>
+      {/* Hotlines strip */}
+      <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6">
+        <p className="text-[11px] font-bold text-red-700 uppercase tracking-wider mb-3">Emergency Hotlines — Malaysia</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+          {EMERGENCY_PROTOCOLS.hotlines.slice(0, 4).map(h => (
+            <div key={h.number} className="bg-white rounded-xl px-3 py-2 border border-red-100">
+              <p className="font-bold text-[15px] text-red-700">{h.number}</p>
+              <p className="text-ink-secondary text-[11px] leading-snug">{h.name.split(' (')[0].split(' —')[0]}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-[11px] text-red-600 mt-2.5 font-medium">⚡ Always call 999 first in any life-threatening emergency. 112 also works on all mobile networks.</p>
+      </div>
+
+      {/* Category filter */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {EMERGENCY_CATEGORIES.map(cat => (
+          <button key={cat} onClick={() => setCategory(cat)}
+            className={`px-3 py-1.5 rounded-full text-[12px] font-medium border transition-colors ${
+              category === cat
+                ? 'bg-ink text-white border-ink'
+                : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{cat}</button>
+        ))}
+      </div>
+
+      {/* Scenario cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {visible.map(s => {
+          const isOpen = open === s.id
+          return (
+            <div key={s.id}
+              className="bg-white border border-ink-quaternary rounded-2xl overflow-hidden cursor-pointer hover:border-brand/40 transition-colors"
+              style={{ borderLeft: `3px solid ${s.color}` }}
+              onClick={() => setOpen(isOpen ? null : s.id)}
+            >
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg leading-none">{s.icon}</span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                      style={{ background: `${s.color}18`, color: s.color }}>{s.category}</span>
+                    {s.callAmbulance && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-600">Call 999</span>
+                    )}
+                  </div>
+                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform mt-0.5 ${isOpen ? 'rotate-180' : ''}`}
+                    width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-ink text-[13px] leading-snug">{s.label}</h3>
+
+                {isOpen && (
+                  <div className="mt-3 pt-3 border-t border-ink-quaternary space-y-3 text-[12px]">
+                    <div>
+                      <p className="font-semibold text-ink mb-1.5" style={{ color: s.color }}>🔍 Recognise</p>
+                      <ul className="space-y-1">
+                        {s.recognize.map((r, i) => (
+                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
+                            <span className="flex-shrink-0 mt-0.5 text-ink-tertiary">·</span>{r}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-ink mb-1.5 text-green-700">✅ Do Now</p>
+                      <ol className="space-y-1 list-none">
+                        {s.doNow.map((d, i) => (
+                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
+                            <span className="flex-shrink-0 font-semibold text-green-600 mt-0.5">{i + 1}.</span>{d}
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-red-600 mb-1.5">🚫 Do NOT</p>
+                      <ul className="space-y-1">
+                        {s.doNot.map((d, i) => (
+                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
+                            <span className="flex-shrink-0 text-red-400 mt-0.5">✕</span>{d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {s.note && (
+                      <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
+                        <p className="text-ink-secondary leading-relaxed">{s.note}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
