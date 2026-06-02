@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const TOPICS = [
@@ -606,127 +606,12 @@ function ChooseSection() {
   )
 }
 
-function PremiumCalculator() {
-  const [age, setAge] = useState(35)
-  const [gender, setGender] = useState('male')
-  const [smoker, setSmoker] = useState(false)
-  const [health, setHealth] = useState('healthy')
-  const [limit, setLimit] = useState(200000)
-
-  const AGE_BASE = {
-    '18-25': { male: 82,  female: 95  },
-    '26-30': { male: 105, female: 120 },
-    '31-35': { male: 140, female: 155 },
-    '36-40': { male: 178, female: 192 },
-    '41-45': { male: 232, female: 248 },
-    '46-50': { male: 308, female: 322 },
-    '51-55': { male: 425, female: 438 },
-    '56-60': { male: 585, female: 598 },
-    '61-65': { male: 805, female: 818 },
-  }
-
-  const LIMIT_SCALE = { 100000: 1.0, 200000: 1.75, 500000: 4.0, 1000000: 7.0 }
-  const HEALTH_MULT = { healthy: 1.0, mild: 1.30, moderate: 1.60, severe: 2.0 }
-
-  const bracket = age <= 25 ? '18-25' : age <= 30 ? '26-30' : age <= 35 ? '31-35' : age <= 40 ? '36-40' : age <= 45 ? '41-45' : age <= 50 ? '46-50' : age <= 55 ? '51-55' : age <= 60 ? '56-60' : '61-65'
-
-  const monthly = useMemo(() => {
-    const base = AGE_BASE[bracket][gender]
-    const raw = base * LIMIT_SCALE[limit] * HEALTH_MULT[health] * (smoker ? 1.5 : 1.0)
-    return { low: Math.round(raw * 0.85), mid: Math.round(raw), high: Math.round(raw * 1.2) }
-  }, [age, gender, smoker, health, limit, bracket])
-
-  const limitLabels = { 100000: 'RM 100k', 200000: 'RM 200k', 500000: 'RM 500k', 1000000: 'RM 1M' }
-  const healthLabels = { healthy: 'Healthy', mild: 'Mild PEC', moderate: 'Moderate PEC', severe: 'Severe PEC' }
-
-  return (
-    <div className="bg-gradient-to-br from-brand/5 to-brand/10 border border-brand/20 rounded-2xl p-6 space-y-5">
-      <div>
-        <p className="text-[15px] font-bold text-ink mb-1">🧮 Premium Estimator</p>
-        <p className="text-[12px] text-ink-secondary">Based on market averages (2024–2025). Actual premiums vary by insurer and full health declaration. Use as a planning guide only.</p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-1.5">Age</label>
-          <div className="flex items-center gap-3">
-            <input type="range" min="18" max="65" value={age} onChange={e => setAge(+e.target.value)}
-              className="flex-1 accent-brand" />
-            <span className="text-[15px] font-bold text-brand w-8 text-right">{age}</span>
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-1.5">Annual Coverage Limit</label>
-          <div className="flex gap-1.5 flex-wrap">
-            {Object.keys(LIMIT_SCALE).map(l => (
-              <button key={l} onClick={() => setLimit(+l)}
-                className={`px-3 py-1.5 rounded-lg text-[11px] font-semibold border transition-colors ${+l === limit ? 'bg-brand text-white border-brand' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand'}`}>
-                {limitLabels[+l]}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-1.5">Gender</label>
-          <div className="flex gap-2">
-            {[['male', '♂ Male'], ['female', '♀ Female']].map(([v, l]) => (
-              <button key={v} onClick={() => setGender(v)}
-                className={`px-4 py-2 rounded-lg text-[12px] font-semibold border transition-colors flex-1 ${gender === v ? 'bg-brand text-white border-brand' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand'}`}>
-                {l}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-1.5">Health Status</label>
-          <div className="flex gap-1.5 flex-wrap">
-            {Object.entries(healthLabels).map(([v, l]) => (
-              <button key={v} onClick={() => setHealth(v)}
-                className={`px-3 py-1.5 rounded-lg text-[11px] font-semibold border transition-colors ${health === v ? 'bg-brand text-white border-brand' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand'}`}>
-                {l}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="sm:col-span-2">
-          <label className="block text-[11px] font-semibold text-ink-secondary uppercase tracking-wider mb-1.5">Smoker?</label>
-          <div className="flex gap-2">
-            {[[false, '🚭 Non-smoker (standard)'], [true, '🚬 Smoker (+50%)']].map(([v, l]) => (
-              <button key={String(v)} onClick={() => setSmoker(v)}
-                className={`px-4 py-2 rounded-lg text-[12px] font-semibold border transition-colors flex-1 ${smoker === v ? 'bg-brand text-white border-brand' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand'}`}>
-                {l}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white rounded-2xl p-5 text-center border border-brand/20">
-        <p className="text-[12px] text-ink-secondary mb-1">Estimated Monthly Premium</p>
-        <p className="text-[36px] font-extrabold text-brand leading-none">RM {monthly.mid.toLocaleString()}</p>
-        <p className="text-[12px] text-ink-tertiary mt-1">Range: RM {monthly.low.toLocaleString()} – RM {monthly.high.toLocaleString()} / month</p>
-        <p className="text-[11px] text-ink-tertiary mt-3">Annual: ≈ RM {(monthly.mid * 12).toLocaleString()} · Age bracket: {bracket}</p>
-      </div>
-
-      <div className="text-[11px] text-ink-tertiary">
-        ⚠️ Estimates based on average market rates for medical cards. Actual quotes depend on your full health declaration, chosen plan features, deductible amount, and the specific insurer. Get quotes from at least 3 insurers before deciding.
-      </div>
-    </div>
-  )
-}
-
 function PremiumSection() {
   return (
     <div className="space-y-6">
       <p className="text-ink-secondary text-[14px] max-w-[700px]">
         Insurance companies use a formula to calculate your premium. Understanding the factors helps you know why your price is what it is.
       </p>
-
-      <PremiumCalculator />
 
       {/* Simplified formula visualization */}
       <div className="bg-brand/5 border border-brand/20 rounded-xl p-6">

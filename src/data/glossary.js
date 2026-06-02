@@ -140,6 +140,86 @@ export const GLOSSARY = [
     tip: 'For unresolved nursing care complaints, requesting a meeting with the Matron is an appropriate escalation step before going to the hospital administration.'
   },
 
+  // ── INSURANCE & ADMINISTRATION ─────────────────────────────────────────────
+
+  {
+    term: 'LOG',
+    full: 'Letter of Guarantee',
+    category: 'insurance',
+    definition: 'A document issued by an insurance company (or TPA) to a panel hospital, guaranteeing payment for a patient\'s hospitalisation up to a specified amount. Allows a policyholder to be admitted and treated without paying cash upfront.',
+    tip: 'Always call your insurer to request a LOG BEFORE or IMMEDIATELY upon admission. Most insurers require notification within 24 hours. Failure to notify can result in claim rejection or penalty deductions.'
+  },
+  {
+    term: 'TPA',
+    full: 'Third Party Administrator',
+    category: 'insurance',
+    definition: 'A company contracted by an insurer to process health insurance claims, manage panel hospital networks, and issue LOGs on behalf of the insurer. Common TPAs in Malaysia include Allianz Care, ING (Great Eastern Assist), AXA Assistance, and Etiqa TPA.',
+    tip: 'Your insurance card typically shows the TPA hotline number. Call this number (not the insurer\'s main line) for emergencies and LOG requests — TPAs are set up to respond quickly.'
+  },
+  {
+    term: 'Co-pay',
+    full: 'Co-payment',
+    category: 'insurance',
+    definition: 'A fixed amount the insured patient pays out-of-pocket for each medical service, with the insurer covering the remainder. For example, "RM 50 co-pay per specialist visit" means you pay RM 50 and insurance covers the rest.',
+    tip: 'Co-pays are common in corporate group medical plans. Check your employee benefits booklet for co-pay amounts — some plans have co-pays for GP visits, specialist visits, and certain procedures separately.'
+  },
+  {
+    term: 'Co-insurance',
+    full: 'Co-insurance (Cost-sharing)',
+    category: 'insurance',
+    definition: 'A cost-sharing arrangement where both the insured and insurer pay a percentage of the medical bill. For example, 80/20 co-insurance means the insurer pays 80% and the patient pays 20% of eligible expenses, sometimes up to an out-of-pocket maximum.',
+    tip: 'Co-insurance applies after the deductible is met. Be aware of your annual out-of-pocket maximum — once reached, the insurer covers 100% for the rest of the policy year.'
+  },
+  {
+    term: 'PA',
+    full: 'Pre-authorisation (Pre-approval)',
+    category: 'insurance',
+    definition: 'Advance approval from an insurer (or TPA) required before certain non-emergency medical procedures, treatments, or specialist consultations are covered. Without PA, the insurer may refuse to pay even for covered procedures.',
+    tip: 'Always confirm which procedures need PA before scheduling. PA is typically required for elective surgeries, MRI/CT scans, chemotherapy, and specialist consultations above a certain cost. Allow 2–5 working days for PA decisions.'
+  },
+  {
+    term: 'Claim',
+    full: 'Insurance Claim',
+    category: 'insurance',
+    definition: 'A formal request submitted to an insurance company for reimbursement of medical expenses paid out-of-pocket, or direct settlement of a bill. Claims require original receipts, a completed claim form, discharge summary, and sometimes medical reports.',
+    tip: 'Submit claims promptly — most Malaysian insurers require claims within 30–90 days of discharge. Keep ALL original receipts and ask the hospital for an itemised bill and official discharge summary.'
+  },
+  {
+    term: 'Panel Hospital',
+    full: 'Panel Hospital / Panel Clinic',
+    category: 'insurance',
+    definition: 'A healthcare facility that has a direct billing agreement with a specific insurer or TPA. Policyholders who use panel facilities can usually access cashless treatment via LOG or direct billing. Using a non-panel facility typically requires upfront payment and later reimbursement.',
+    tip: 'Panel lists change — always verify panel status BEFORE admission via your insurer\'s app or hotline. A hospital that was panel last year may not be on the current panel.'
+  },
+  {
+    term: 'GLP',
+    full: 'Guaranteed Letter of Payment',
+    category: 'insurance',
+    definition: 'Used interchangeably with Letter of Guarantee (LOG) in some contexts, particularly in corporate group health schemes. A formal guarantee from an insurer or employer to pay the hospital directly for covered services.',
+    tip: 'Some corporate plans issue GLP through HR rather than directly through the insurer. Know your company\'s process before you need it urgently.'
+  },
+  {
+    term: 'Deductible',
+    full: 'Deductible (Excess)',
+    category: 'insurance',
+    definition: 'The amount the policyholder must pay out-of-pocket before the insurance coverage begins to pay for a claim. For example, if the deductible is RM 1,000 and the bill is RM 10,000, the insurer pays RM 9,000 and the patient pays RM 1,000.',
+    tip: 'Higher deductible plans have lower premiums. Choose a deductible level you can comfortably afford to pay in an emergency — typically RM 500–3,000 for Malaysian health plans.'
+  },
+  {
+    term: 'Waiting Period',
+    full: 'Insurance Waiting Period',
+    category: 'insurance',
+    definition: 'A period from the policy start date during which certain conditions or claims are not covered. Common waiting periods in Malaysia: 30 days general (no illness claims), 12 months for specific conditions (e.g., hernia, cataract, knee), 12–24 months for maternity, and permanent exclusion for pre-existing conditions not disclosed.',
+    tip: 'Never lie or omit pre-existing conditions when applying for insurance. Undisclosed conditions discovered during a claim can result in full claim rejection and policy cancellation.'
+  },
+  {
+    term: 'Rider',
+    full: 'Insurance Rider (Supplementary Benefit)',
+    category: 'insurance',
+    definition: 'An add-on benefit attached to a base insurance policy that extends or enhances coverage, typically for an additional premium. Common riders in Malaysia include: outpatient rider, critical illness rider, waiver of premium rider, and personal accident rider.',
+    tip: 'Review your riders annually — as you age, some riders become more important (e.g., critical illness), while others become less relevant. Riders can usually be added or removed at renewal.'
+  },
+
   // ── MEDICAL TERMS ─────────────────────────────────────────────────────────
 
   {
