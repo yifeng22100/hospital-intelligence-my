@@ -18,6 +18,7 @@ const TOPICS = [
   { id: 'emergency-events', icon: '⚕️', label: 'Emergency Events',   desc: 'Step-by-step action guides for each emergency' },
   { id: 'rights',           icon: '⚖️', label: 'Patient Rights',    desc: 'Your rights, complaints, and legal aid' },
   { id: 'support',          icon: '🤝', label: 'Support Orgs',      desc: 'NGOs and patient support organisations' },
+  { id: 'doctor',           icon: '👨‍⚕️', label: 'Doctor Check',      desc: 'Verify qualifications & spot red flags' },
   { id: 'financial',        icon: '💳', label: 'Financial Aid',     desc: 'Government schemes and welfare assistance' },
 ]
 
@@ -70,8 +71,9 @@ export default function Resources() {
         {active === 'emergency'        && <EmergencySection onShowEvents={() => setActive('emergency-events')} />}
         {active === 'emergency-events' && <EmergencyEventsSection onShowContacts={() => setActive('emergency')} />}
         {active === 'rights'           && <PatientRightsSection />}
-        {active === 'support'          && <NgoSection />}
-        {active === 'financial'        && <FinancialSection />}
+        {active === 'support'   && <NgoSection />}
+        {active === 'doctor'    && <DoctorSection />}
+        {active === 'financial' && <FinancialSection />}
       </div>
     </div>
   )
@@ -533,3 +535,112 @@ function EmergencyEventsSection({ onShowContacts }) {
   )
 }
 
+
+/* ─── Doctor Check ───────────────────────────────────────────────── */
+
+const QUAL_ABBREV = [
+  { abbr:'MBBS / MD', meaning:'Basic medical degree (5–6 years). All registered doctors hold this.' },
+  { abbr:'MRCP', meaning:'Member of the Royal College of Physicians — UK postgraduate internal medicine qualification.' },
+  { abbr:'FRCP', meaning:'Fellow of the Royal College of Physicians — senior, higher recognition.' },
+  { abbr:'MRCS / FRCS', meaning:'Member/Fellow of the Royal College of Surgeons — surgical postgraduate qualifications.' },
+  { abbr:'MS (Surgery)', meaning:'Master of Surgery — Malaysian/UK surgical postgraduate qualification.' },
+  { abbr:'MMed', meaning:'Master of Medicine — Malaysian specialist qualification (UM, UKM, USM).' },
+  { abbr:'MRCOG / FRCOG', meaning:'Member/Fellow Royal College of Obstetricians & Gynaecologists.' },
+  { abbr:'FRCR', meaning:'Fellow of the Royal College of Radiologists — radiology and oncology.' },
+  { abbr:'FAMS', meaning:'Fellow of the Academy of Medicine Singapore — Singapore senior specialist.' },
+  { abbr:'AM(Mal)', meaning:'Academy of Medicine Malaysia Fellow — Malaysian senior specialist recognition.' },
+  { abbr:'FANZCA', meaning:'Fellow of the Australian/NZ College of Anaesthetists.' },
+  { abbr:'PhD', meaning:'Doctor of Philosophy — research doctorate, not a clinical medical degree on its own.' },
+  { abbr:"Dato' / Tan Sri", meaning:'Malaysian honorific title — indicates civic recognition, NOT a medical qualification.' },
+  { abbr:'Adj Prof / Prof Madya', meaning:'Adjunct/Associate Professor — academic rank, indicates teaching at a university hospital.' },
+]
+
+function DoctorSection() {
+  return (
+    <div className="space-y-7">
+      {/* How to verify */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[15px] mb-3">🔍 How to Verify a Doctor (MMC Registry)</h3>
+        <ol className="space-y-2">
+          {[
+            <>Go to <a href="https://www.mmc.gov.my" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline font-medium">mmc.gov.my</a> → "Semak Pengamal Perubatan Berdaftar" (Check Registered Medical Practitioners)</>,
+            'Search by full name or MMC registration number (ask the doctor for their MMC number).',
+            'The result will show: registration status (active/lapsed/suspended), specialty, qualification, and any disciplinary actions.',
+            <><strong>If the doctor does NOT appear or their status is "suspended"</strong> — do not proceed. Report to MMC: <a href="tel:+60340496000" className="text-brand hover:underline">+603-4049 6000</a></>,
+          ].map((step, i) => (
+            <li key={i} className="flex items-start gap-2.5 text-[13px] text-ink-secondary">
+              <span className="w-5 h-5 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-white text-[10px] font-bold mt-0.5">{i+1}</span>
+              <span className="leading-relaxed">{step}</span>
+            </li>
+          ))}
+        </ol>
+        <a href="https://www.mmc.gov.my" target="_blank" rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 mt-3 text-brand text-[13px] font-semibold hover:underline">
+          🔗 Open MMC Registry →
+        </a>
+      </div>
+
+      {/* Qualification table */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">🎓 Understanding Doctor Qualifications</h3>
+        <p className="text-ink-secondary text-[13px] mb-3">Malaysian doctors' name cards often list multiple qualifications. Here is what they mean:</p>
+        <div className="overflow-x-auto rounded-xl border border-ink-quaternary">
+          <table className="w-full text-[12px]">
+            <thead>
+              <tr className="bg-surface-secondary border-b border-ink-quaternary">
+                <th className="text-left px-4 py-2.5 font-semibold text-ink-secondary">Abbreviation</th>
+                <th className="text-left px-4 py-2.5 font-semibold text-ink-secondary">Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              {QUAL_ABBREV.map(({ abbr, meaning }) => (
+                <tr key={abbr} className="border-t border-ink-quaternary">
+                  <td className="px-4 py-2.5 font-mono font-semibold text-brand whitespace-nowrap">{abbr}</td>
+                  <td className="px-4 py-2.5 text-ink-secondary">{meaning}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Other boards */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">📌 Other Regulatory Boards</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {[
+            { title:'Dentists', body:'Malaysian Dental Council (MDC)', url:'https://www.mdc.gov.my' },
+            { title:'Nurses & Midwives', body:'Lembaga Jururawat Malaysia (LJM)', url:'https://www.ljm.moh.gov.my' },
+            { title:'Pharmacists', body:'Pharmacy Board Malaysia', url:'https://pharmacy.gov.my' },
+            { title:'Traditional Medicine (T&CM)', body:'T&CM Division, MOH Malaysia', url:'https://www.tcm.moh.gov.my' },
+            { title:'Allied Health (Physio, OT, etc.)', body:'Allied Health Professions Board, MOH', url:'https://www.moh.gov.my' },
+          ].map(({ title, body, url }) => (
+            <div key={title} className="bg-surface-secondary rounded-xl p-3">
+              <p className="font-semibold text-ink text-[13px]">{title}</p>
+              <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand text-[12px] hover:underline">{body}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Red flags */}
+      <div className="bg-red-50 border border-red-200 rounded-2xl p-5">
+        <h3 className="font-bold text-red-900 text-[15px] mb-3">🚩 Red Flags</h3>
+        <ul className="space-y-1.5">
+          {[
+            'Doctor cannot provide their MMC registration number when asked.',
+            'Qualifications listed that do not appear in the MMC database.',
+            'Practising at a facility that is not licensed by MOH.',
+            'Using the title "Dr." without an MBBS, MD, or equivalent degree.',
+            'Offering guaranteed cure rates for serious illnesses (medically unethical).',
+            'Requesting large upfront cash payments without itemised billing.',
+          ].map((flag, i) => (
+            <li key={i} className="flex items-start gap-2 text-[12px] text-red-800">
+              <span className="mt-0.5 flex-shrink-0">⚠</span>{flag}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}

@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { ALL_HOSPITALS, ALL_STATES } from '../data/index'
 import HospitalModal from '../components/HospitalModal'
+import { SPECIALTIES_REFERENCE } from '../data/specialties-reference'
+import { VERIFY_GUIDE } from '../data/verify-guide'
 
 const SPECIALTY_FILTERS = [
   { label: 'Cardiology / Cardiac',      keywords: ['cardia', 'cardiac'] },
@@ -46,6 +48,7 @@ export default function FindCare() {
   const [specialty, setSpecialty] = useState('')
   const [fppOnly, setFppOnly] = useState(false)
   const [selected, setSelected] = useState(null)
+  const [view, setView] = useState('hospitals')
   const [compareIds, setCompareIds] = useState(() => {
     try { return JSON.parse(localStorage.getItem('compareIds') || '[]') } catch { return [] }
   })
@@ -144,8 +147,26 @@ export default function FindCare() {
             )}
           </div>
 
+          {/* View switcher */}
+          <div className="flex gap-1 mt-4 mb-0">
+            {[
+              { v: 'hospitals',   icon: '🏥', label: 'Find Hospitals' },
+              { v: 'specialties', icon: '⚕️', label: 'Specialties Guide' },
+              { v: 'verify',      icon: '✅', label: 'Verify Facilities' },
+            ].map(({ v, icon, label }) => (
+              <button key={v} onClick={() => setView(v)}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12px] font-semibold border transition-colors ${
+                  view === v
+                    ? 'bg-ink text-white border-ink'
+                    : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+                }`}>
+                <span>{icon}</span>{label}
+              </button>
+            ))}
+          </div>
+
           {/* Filters */}
-          <div className="flex flex-wrap items-center gap-3 mt-4">
+          {view === 'hospitals' && <div className="flex flex-wrap items-center gap-3 mt-4">
             {/* State */}
             <div className="relative">
               <select
@@ -218,54 +239,66 @@ export default function FindCare() {
                 Clear filters
               </button>
             )}
-          </div>
+          </div>}
         </div>
       </div>
 
-      {/* Results */}
-      <div className="max-w-[1200px] mx-auto px-5 py-7">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-          <p className="text-ink-secondary text-[13px]">
-            {filtered.length.toLocaleString()} hospital{filtered.length !== 1 ? 's' : ''}
-            {query && <span className="font-medium text-ink"> for "{query}"</span>}
-            {state && <span> · {state}</span>}
-            {sector && <span> · {sector}</span>}
-            {specialty && <span> · {specialty}</span>}
-            {fppOnly && <span> · FPP only</span>}
-          </p>
-          {compareIds.length > 0 && (
-            <Link
-              to="/compare"
-              className="inline-flex items-center gap-2 bg-brand text-white px-4 py-1.5 rounded-xl text-[13px] font-semibold hover:bg-brand-dark transition-colors"
-            >
-              Compare {compareIds.length} selected →
-            </Link>
+      {view === 'hospitals' && (
+        <div className="max-w-[1200px] mx-auto px-5 py-7">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <p className="text-ink-secondary text-[13px]">
+              {filtered.length.toLocaleString()} hospital{filtered.length !== 1 ? 's' : ''}
+              {query && <span className="font-medium text-ink"> for "{query}"</span>}
+              {state && <span> · {state}</span>}
+              {sector && <span> · {sector}</span>}
+              {specialty && <span> · {specialty}</span>}
+              {fppOnly && <span> · FPP only</span>}
+            </p>
+            {compareIds.length > 0 && (
+              <Link
+                to="/compare"
+                className="inline-flex items-center gap-2 bg-brand text-white px-4 py-1.5 rounded-xl text-[13px] font-semibold hover:bg-brand-dark transition-colors"
+              >
+                Compare {compareIds.length} selected →
+              </Link>
+            )}
+          </div>
+
+          {filtered.length === 0 ? (
+            <div className="text-center py-20">
+              <div className="text-4xl mb-4">🔍</div>
+              <h3 className="text-ink font-semibold text-[18px] mb-2">No hospitals found</h3>
+              <p className="text-ink-secondary text-[14px]">Try adjusting your search or filters.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+              {filtered.map(h => (
+                <HospitalCard
+                  key={h.id}
+                  h={h}
+                  onClick={() => setSelected(h)}
+                  inCompare={compareIds.includes(h.id)}
+                  onToggleCompare={e => toggleCompare(e, h)}
+                  compareFull={compareIds.length >= 5 && !compareIds.includes(h.id)}
+                />
+              ))}
+            </div>
           )}
         </div>
+      )}
 
-        {filtered.length === 0 ? (
-          <div className="text-center py-20">
-            <div className="text-4xl mb-4">🔍</div>
-            <h3 className="text-ink font-semibold text-[18px] mb-2">No hospitals found</h3>
-            <p className="text-ink-secondary text-[14px]">Try adjusting your search or filters.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-            {filtered.map(h => (
-              <HospitalCard
-                key={h.id}
-                h={h}
-                onClick={() => setSelected(h)}
-                inCompare={compareIds.includes(h.id)}
-                onToggleCompare={e => toggleCompare(e, h)}
-                compareFull={compareIds.length >= 5 && !compareIds.includes(h.id)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      {view === 'hospitals' && selected && <HospitalModal hospital={selected} onClose={() => setSelected(null)} />}
 
-      {selected && <HospitalModal hospital={selected} onClose={() => setSelected(null)} />}
+      {view === 'specialties' && (
+        <div className="max-w-[1200px] mx-auto px-5 py-8">
+          <SpecialtiesSection />
+        </div>
+      )}
+      {view === 'verify' && (
+        <div className="max-w-[1200px] mx-auto px-5 py-8">
+          <VerifySection />
+        </div>
+      )}
     </div>
   )
 }
@@ -351,5 +384,230 @@ function HospitalCard({ h, onClick, inCompare, onToggleCompare, compareFull }) {
         </button>
       </div>
     </button>
+  )
+}
+
+/* ─── Specialties Guide ──────────────────────────────────────────── */
+
+function SpecialtiesSection() {
+  const [search, setSearch] = useState('')
+  const [openSpec, setOpenSpec] = useState(null)
+
+  const filtered = SPECIALTIES_REFERENCE.filter(s => {
+    const q = search.toLowerCase()
+    return !q || s.name.toLowerCase().includes(q) || s.description?.toLowerCase().includes(q)
+  })
+
+  return (
+    <div className="space-y-5">
+      <p className="text-ink-secondary text-[14px] max-w-[640px]">
+        22 medical specialties — when to see each specialist, what they do, top centres in Malaysia, and what to expect.
+      </p>
+
+      <input
+        type="search"
+        placeholder="Search specialties… (e.g. heart, cancer, eye)"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        className="w-full sm:max-w-sm border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
+      />
+
+      <div className="space-y-2">
+        {filtered.map(spec => {
+          const isOpen = openSpec === spec.id
+          return (
+            <div key={spec.id} className="border border-ink-quaternary rounded-xl overflow-hidden">
+              <button className="w-full flex items-center justify-between px-4 py-4 text-left hover:bg-surface-secondary transition-colors"
+                onClick={() => setOpenSpec(isOpen ? null : spec.id)}>
+                <div className="flex items-center gap-3">
+                  <span className="text-[20px]">{spec.icon}</span>
+                  <div>
+                    <p className="font-semibold text-ink text-[14px]">{spec.name}</p>
+                    <p className="text-ink-tertiary text-[12px] mt-0.5 line-clamp-1 max-w-[480px]">{spec.description?.substring(0, 85)}…</p>
+                  </div>
+                </div>
+                <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-3 ${isOpen ? 'rotate-180' : ''}`}
+                  width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+
+              {isOpen && (
+                <div className="px-4 pb-5 border-t border-ink-quaternary pt-4 space-y-5">
+                  {spec.emergencyNote && (
+                    <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2.5">
+                      <p className="font-semibold text-red-900 text-[12px] mb-0.5">🚨 Emergency</p>
+                      <p className="text-red-800 text-[12px] leading-relaxed">{spec.emergencyNote}</p>
+                    </div>
+                  )}
+
+                  <p className="text-ink-secondary text-[13px] leading-relaxed">{spec.description}</p>
+
+                  {spec.symptoms?.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">When to See This Specialist</h5>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                        {spec.symptoms.map((s, i) => (
+                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                            <span className="text-brand mt-0.5 flex-shrink-0">•</span>{s}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {spec.commonProcedures?.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">Common Procedures / Investigations</h5>
+                      <div className="flex flex-wrap gap-1.5">
+                        {spec.commonProcedures.map((p, i) => (
+                          <span key={i} className="bg-surface-secondary text-ink-secondary text-[11px] px-2.5 py-1 rounded-full border border-ink-quaternary">{p}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {spec.topPublicCentres?.length > 0 && (
+                      <div>
+                        <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">🏥 Top Public Centres</h5>
+                        <div className="space-y-1">
+                          {spec.topPublicCentres.map((c, i) => (
+                            <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                              <span className="text-brand mt-0.5 flex-shrink-0">✓</span>{c}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {spec.topPrivateCentres?.length > 0 && (
+                      <div>
+                        <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">🏢 Top Private Centres</h5>
+                        <div className="space-y-1">
+                          {spec.topPrivateCentres.map((c, i) => (
+                            <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                              <span className="text-ink-tertiary mt-0.5 flex-shrink-0">›</span>{c}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {spec.notes && (
+                    <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
+                      <p className="font-semibold text-ink text-[12px] mb-0.5">ℹ️ Notes</p>
+                      <p className="text-ink-secondary text-[12px] leading-relaxed">{spec.notes}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )
+        })}
+        {filtered.length === 0 && (
+          <p className="text-center text-ink-tertiary text-[13px] py-8">No specialties match your search.</p>
+        )}
+      </div>
+    </div>
+  )
+}
+
+/* ─── Verify Facilities ──────────────────────────────────────────── */
+
+function VerifySection() {
+  const [openFac, setOpenFac] = useState(null)
+  const facilities = VERIFY_GUIDE.filter(g => !g.isMasterTip)
+  const masterTip = VERIFY_GUIDE.find(g => g.isMasterTip)
+
+  return (
+    <div className="space-y-5">
+      {masterTip && (
+        <div className="bg-brand-light border border-brand/20 rounded-2xl p-4 text-[13px] text-brand leading-relaxed">
+          🌐 <strong>Universal tip:</strong> {masterTip.content}
+        </div>
+      )}
+
+      <p className="text-ink-secondary text-[14px]">
+        How to verify any healthcare facility in Malaysia — from nursing homes to dialysis centres to dental clinics.
+      </p>
+
+      <div className="space-y-2">
+        {facilities.map(fac => {
+          const isOpen = openFac === fac.id
+          return (
+            <div key={fac.id} className="border border-ink-quaternary rounded-xl overflow-hidden">
+              <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                onClick={() => setOpenFac(isOpen ? null : fac.id)}>
+                <div>
+                  <span className="font-semibold text-ink text-[14px]">{fac.title}</span>
+                  {fac.titleZH && <span className="text-ink-tertiary text-[12px] ml-2">{fac.titleZH}</span>}
+                </div>
+                <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                  width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              {isOpen && (
+                <div className="px-4 pb-5 space-y-4 border-t border-ink-quaternary pt-4">
+                  {fac.why && <p className="text-ink-secondary text-[13px] leading-relaxed">{fac.why}</p>}
+
+                  {fac.howToVerify?.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wider mb-2">How to Verify</h5>
+                      <div className="space-y-1.5">
+                        {fac.howToVerify.map((s, i) => (
+                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                            <span className="text-brand mt-0.5 flex-shrink-0">✓</span>{s}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {fac.redFlags?.length > 0 && (
+                    <div className="bg-red-50 border border-red-100 rounded-xl p-3">
+                      <h5 className="font-semibold text-red-900 text-[12px] uppercase tracking-wider mb-2">🚩 Red Flags</h5>
+                      <div className="space-y-1">
+                        {fac.redFlags.map((f, i) => (
+                          <div key={i} className="flex items-start gap-2 text-[12px] text-red-800">
+                            <span className="mt-0.5 flex-shrink-0">×</span>{f}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {fac.minimumStandards?.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wider mb-2">Minimum Standards Required by Law</h5>
+                      <div className="space-y-1">
+                        {fac.minimumStandards.map((s, i) => (
+                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                            <span className="text-emerald-600 mt-0.5 flex-shrink-0">✓</span>{s}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {fac.complaintChannel && (
+                    <p className="text-[12px] text-ink-secondary bg-surface-secondary rounded-xl p-3">
+                      <span className="font-medium text-ink">Complaint channel: </span>{fac.complaintChannel}
+                    </p>
+                  )}
+
+                  {fac.subsidizedOptions && (
+                    <div className="bg-green-50 border border-green-100 rounded-xl p-3 text-[12px] text-green-800">
+                      💚 <strong>Subsidised options:</strong> {fac.subsidizedOptions}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
