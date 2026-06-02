@@ -3,7 +3,7 @@ import { GLOSSARY } from '../data/glossary'
 import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
 
 const TOPICS = [
-  { id: 'medical-reference', icon: '📖', label: 'Medical & Insurance Reference', desc: 'Medical glossary, abbreviations & insurance terms decoded' },
+  { id: 'glossary',          icon: '📖', label: 'Medical Glossary',              desc: 'Plain-English medical terms and hospital abbreviations decoded' },
   { id: 'drugs',             icon: '💊', label: 'Common Drugs',                  desc: 'Common medications — Mandarin names, what they do, where to get them' },
   { id: 'lab-values',        icon: '🔬', label: 'Lab Values',                   desc: 'What your blood test results mean — normal ranges explained' },
   { id: 'screening',         icon: '🩺', label: 'Health Screening',             desc: 'What to screen for, when, and where — age-by-age guide' },
@@ -222,7 +222,6 @@ const ABBREVIATIONS = [
   { abbr: 'JCI', full: 'Joint Commission International', context: 'Accreditation', desc: 'International hospital accreditation — the gold standard globally. Very few Malaysian hospitals hold JCI.' },
   { abbr: 'MMC', full: 'Malaysian Medical Council', context: 'Organisation', desc: 'Registers all doctors practising in Malaysia. Verify any doctor\'s registration at mmc.gov.my.' },
   { abbr: 'FPP', full: 'Full Paying Patient', context: 'Scheme', desc: 'Scheme allowing patients to pay for private-standard care at government hospitals at lower rates than private hospitals.' },
-  { abbr: 'LOG / GL', full: 'Letter of Guarantee / Guarantee Letter', context: 'Insurance', desc: 'Written guarantee from your insurer to the hospital to cover costs. Required for cashless hospitalisation.' },
   { abbr: 'BP', full: 'Blood Pressure', context: 'Vital Signs', desc: 'Measured in mmHg. Normal: < 120/80. Written as systolic/diastolic (e.g., 130/85).' },
   { abbr: 'PR', full: 'Pulse Rate', context: 'Vital Signs', desc: 'Heart rate in beats per minute (bpm). Normal resting: 60–100 bpm.' },
   { abbr: 'RR', full: 'Respiratory Rate', context: 'Vital Signs', desc: 'Breathing rate in breaths per minute. Normal adult: 12–20 breaths/min.' },
@@ -262,10 +261,10 @@ const ABBREVIATIONS = [
   { abbr: 'Sp', full: 'Specialist', context: 'Roles', desc: 'A doctor who has completed specialist training (4–6+ years after MBBS) and holds a specialist qualification.' },
 ]
 
-const ABBR_CONTEXTS = ['All', 'Location', 'Organisation', 'Accreditation', 'Scheme', 'Insurance', 'Vital Signs', 'Assessment', 'Lab Tests', 'Tests', 'Imaging', 'Documentation', 'Medication Dosing', 'Admin', 'Roles']
+const ABBR_CONTEXTS = ['All', 'Location', 'Organisation', 'Accreditation', 'Scheme', 'Vital Signs', 'Assessment', 'Lab Tests', 'Tests', 'Imaging', 'Documentation', 'Medication Dosing', 'Admin', 'Roles']
 
 export default function Knowledge() {
-  const [active, setActive] = useState('medical-reference')
+  const [active, setActive] = useState('glossary')
   const topic = TOPICS.find(t => t.id === active)
 
   return (
@@ -308,7 +307,7 @@ export default function Knowledge() {
           <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
         </div>
 
-        {active === 'medical-reference' && <MedicalReferenceSection />}
+        {active === 'glossary'          && <GlossaryAndAbbreviationsSection />}
         {active === 'drugs'             && <DrugsSection />}
         {active === 'lab-values'        && <LabValuesSection />}
         {active === 'screening'         && <ScreeningSection />}
@@ -333,11 +332,13 @@ function GlossarySection() {
   const catLabel = {
     all: 'All',
     hospital: 'Hospital Settings',
-    insurance: 'Insurance',
+    medical: 'Medical',
     procedure: 'Procedures',
     drug: 'Medications',
     admin: 'Admin & Billing',
     financial: 'Financial Aid',
+    staff: 'Hospital Staff',
+    malaysian: 'Malaysian-specific',
   }
 
   const filtered = GLOSSARY.filter(g => {
@@ -1396,24 +1397,15 @@ function MaternalSection() {
 
 /* ─── Medical & Insurance Reference (Consolidated) ───────────────── */
 
-function MedicalReferenceSection() {
-  const [refTab, setRefTab] = useState('glossary')
-
+function GlossaryAndAbbreviationsSection() {
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap gap-2 border-b border-ink-quaternary pb-4">
-        <button onClick={() => setRefTab('glossary')}
-          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
-            refTab === 'glossary' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-          }`}>📖 Medical Glossary</button>
-        <button onClick={() => setRefTab('abbreviations')}
-          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
-            refTab === 'abbreviations' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-          }`}>🔤 Abbreviations</button>
+    <div>
+      <GlossarySection />
+      <div className="mt-10 pt-8 border-t border-ink-quaternary">
+        <h3 className="text-[18px] font-bold text-ink mb-1">🔤 Hospital &amp; Medical Abbreviations</h3>
+        <p className="text-ink-secondary text-[13px] mb-6">Common shorthand used in Malaysian hospitals, forms, and medical records — decoded.</p>
+        <AbbreviationsSection />
       </div>
-
-      {refTab === 'glossary' && <GlossarySection />}
-      {refTab === 'abbreviations' && <AbbreviationsSection />}
     </div>
   )
 }

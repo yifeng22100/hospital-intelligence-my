@@ -6,7 +6,7 @@ const SECTIONS = [
     title: '1. Medical Disclaimer',
     content: `Healthcare Intelligence MY is an informational reference platform only. Nothing on this website constitutes medical advice, diagnosis, treatment, or a recommendation to pursue a specific course of medical action.
 
-All content — including hospital listings, specialty information, cost estimates, insurance guidance, and emergency protocols — is provided for general informational purposes. It does not replace consultation with a qualified healthcare professional.
+All content — including hospital listings, specialty information, cost estimates, insurance guidance, Knowledge Hub medical references, premium calculations, panel lookup data, and emergency protocols — is provided for general informational purposes. It does not replace consultation with a qualified healthcare professional.
 
 Always consult a licensed doctor, specialist, or other qualified medical practitioner before making any healthcare decision. In an emergency, call 999 immediately.`,
   },
@@ -15,7 +15,9 @@ Always consult a licensed doctor, specialist, or other qualified medical practit
     title: '2. Data Accuracy & Limitations',
     content: `We make every reasonable effort to verify hospital data against official sources including the Ministry of Health Malaysia (MOH), MSQH, and official hospital websites. However, we cannot guarantee that all information is complete, current, or error-free.
 
-Hospital facilities, bed counts, specialty coverage, insurance panels, room rates, and contact details change over time. Always verify critical details — especially before admission or in an emergency — directly with the hospital or your insurance provider.
+Hospital facilities, bed counts, specialty coverage, insurance panels, room rates, and contact details change over time. Insurance panel hotlines, TPA assignments, and premium estimates are indicative — always verify directly with your insurer on the day of admission.
+
+Knowledge Hub content (drug information, lab values, vaccination schedules, medical report guidance) is for general educational purposes only and must not replace the advice of a licensed healthcare professional.
 
 If you find an error or outdated information, please report it so we can correct it promptly.`,
   },
