@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { COST_REFERENCE } from '../data/cost-reference'
+import { INSURANCE_PANELS } from '../data/insurance-panels'
+import { ALL_HOSPITALS } from '../data/index'
 
 const TOPICS = [
   { id: 'costs',       icon: '💰', label: 'Cost Reference',    desc: 'Procedure costs across public, FPP and private' },
   { id: 'calculators', icon: '🧮', label: 'Calculators',       desc: 'BMI, LOG room check, procedure costs & FPP savings' },
+  { id: 'panel',       icon: '🏦', label: 'Panel Lookup',      desc: 'Find which insurers panel your hospital — and what LOG limits apply' },
 ]
 
 export default function Tools() {
@@ -15,9 +18,9 @@ export default function Tools() {
       <div className="bg-surface-secondary border-b border-ink-quaternary pt-10 pb-6 px-5">
         <div className="max-w-[1200px] mx-auto">
           <p className="text-brand text-[12px] font-semibold uppercase tracking-[0.12em] mb-1">Healthcare Tools</p>
-          <h1 className="text-[26px] font-bold text-ink tracking-tight">Cost reference & interactive calculators.</h1>
+          <h1 className="text-[26px] font-bold text-ink tracking-tight">Cost reference, calculators & insurance panel lookup.</h1>
           <p className="text-ink-secondary text-[14px] mt-1.5 max-w-[600px]">
-            Estimate procedure costs, check your insurance LOG room coverage, calculate BMI, and see how much the FPP scheme saves versus private hospitals.
+            Estimate procedure costs, check your insurance LOG coverage, calculate BMI, and find out which insurers panel your hospital.
           </p>
         </div>
       </div>
@@ -48,6 +51,7 @@ export default function Tools() {
         </div>
         {active === 'costs'       && <CostsSection />}
         {active === 'calculators' && <CalculatorsSection />}
+        {active === 'panel'       && <PanelLookupSection />}
       </div>
     </div>
   )
@@ -461,5 +465,291 @@ function FppSavingsCalculator() {
         <div className="rounded-xl border border-ink-quaternary bg-surface-secondary px-4 py-3 text-center text-ink-tertiary text-[13px]">Select a procedure above to calculate savings</div>
       )}
     </CalcCard>
+  )
+}
+
+/* ─── Panel Lookup ───────────────────────────────────────────────── */
+
+const INSURER_HOTLINES = {
+  'aia':          { hotline: '1300-88-1899', panelUrl: 'https://www.aia.com.my/en/find-a-doctor.html' },
+  'prudential':   { hotline: '1300-88-8811', panelUrl: 'https://www.prudential.com.my/panel-hospitals' },
+  'great-eastern':{ hotline: '1300-1300-88', panelUrl: 'https://www.greateasternlife.com/my/en/find-a-panel-hospital.html' },
+  'allianz':      { hotline: '1300-22-5542', panelUrl: 'https://www.allianz.com.my/life/panel-hospitals' },
+  'tokio-marine': { hotline: '1800-88-2022', panelUrl: 'https://www.tokiomarine.com.my' },
+  'zurich':       { hotline: '1800-88-6222', panelUrl: 'https://www.zurich.com.my' },
+  'sun-life':     { hotline: '1800-88-5055', panelUrl: 'https://www.sunlifemalaysia.com' },
+  'etiqa':        { hotline: '1300-13-8888', panelUrl: 'https://www.etiqa.com.my/en/panel-hospital.html' },
+  'axa-affin':    { hotline: '1800-88-1311', panelUrl: 'https://www.axaaffin.com.my' },
+  'msig':         { hotline: '1800-88-3833', panelUrl: 'https://www.msig.com.my' },
+  'tune-protect': { hotline: '1800-22-8863', panelUrl: 'https://www.tuneprotect.com' },
+  'bupa':         { hotline: '+603-2050 2200', panelUrl: 'https://www.bupaglobal.com/en/malaysia' },
+  'cigna':        { hotline: '+603-7806 2900', panelUrl: 'https://www.cignahealthbenefits.com' },
+}
+
+function PanelLookupSection() {
+  const [view, setView] = useState('hospital')
+  const [query, setQuery] = useState('')
+  const [selectedIns, setSelectedIns] = useState(null)
+
+  const insurers = INSURANCE_PANELS?.insurers || []
+
+  // Build reverse map: hospitalId → [insurer names]
+  const panelMap = useMemo(() => {
+    const map = {}
+    insurers.forEach(ins => {
+      (ins.cashlessHospitals || []).forEach(hid => {
+        if (!map[hid]) map[hid] = []
+        map[hid].push(ins.name)
+      })
+    })
+    return map
+  }, [insurers])
+
+  // Only private hospitals are relevant for panel lookup
+  const privateHospitals = useMemo(() =>
+    ALL_HOSPITALS.filter(h => h.sector === 'private'),
+  [])
+
+  const filtered = useMemo(() => {
+    if (!query.trim()) return []
+    const q = query.toLowerCase()
+    return privateHospitals.filter(h =>
+      h.name.toLowerCase().includes(q) ||
+      (h.nameShort || '').toLowerCase().includes(q) ||
+      h.city.toLowerCase().includes(q) ||
+      h.state.toLowerCase().includes(q)
+    ).slice(0, 12)
+  }, [query, privateHospitals])
+
+  const Chevron = ({ open }) => (
+    <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${open ? 'rotate-180' : ''}`}
+      width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+
+  return (
+    <div className="space-y-6 max-w-[820px]">
+
+      {/* Disclaimer */}
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+        <strong>Important:</strong> Insurance panels change regularly. This lookup uses data from hospital and insurer records but may not reflect the latest panel status. <strong>Always call your insurer's 24h hotline on the day of admission</strong> to confirm panel status and request a Letter of Guarantee (LOG). Do not assume — panels change without notice.
+      </div>
+
+      {/* View switcher */}
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'hospital', label: '🏥 Find by Hospital' },
+          { v: 'insurer',  label: '🏦 Find by Insurer' },
+          { v: 'tips',     label: '💡 Panel Tips' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {/* ── Find by Hospital ── */}
+      {view === 'hospital' && (
+        <div className="space-y-4">
+          <div>
+            <p className="text-ink-secondary text-[13px] mb-3">Search a private hospital to see which insurers have it on their cashless panel.</p>
+            <input
+              type="search"
+              placeholder="Search hospital name, city, or state…"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
+              autoComplete="off"
+            />
+          </div>
+
+          {query && filtered.length === 0 && (
+            <p className="text-ink-tertiary text-[13px] text-center py-6">No private hospitals match "{query}"</p>
+          )}
+
+          {filtered.map(h => {
+            const panels = panelMap[h.id] || []
+            const panelCount = panels.length
+            const hasData = panelCount > 0
+
+            return (
+              <div key={h.id} className="border border-ink-quaternary rounded-2xl p-4">
+                <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
+                  <div>
+                    <p className="font-bold text-ink text-[14px]">{h.name}</p>
+                    <p className="text-ink-tertiary text-[12px]">{h.city}, {h.state} · {h.tier}</p>
+                  </div>
+                  {hasData ? (
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 flex-shrink-0">
+                      {panelCount} insurer{panelCount !== 1 ? 's' : ''} on file
+                    </span>
+                  ) : (
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 flex-shrink-0">
+                      Verify directly
+                    </span>
+                  )}
+                </div>
+
+                {hasData ? (
+                  <div className="flex flex-wrap gap-1.5">
+                    {panels.map((ins, i) => (
+                      <span key={i} className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-brand/8 text-brand border border-brand/20">
+                        {ins}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-[12px] text-ink-secondary">
+                    This hospital is not in our panel records. Contact each insurer directly using their hotline to confirm — panel hospital lists are updated frequently.
+                  </p>
+                )}
+              </div>
+            )
+          })}
+
+          {!query && (
+            <div className="bg-surface-secondary rounded-2xl p-5 text-center">
+              <p className="text-[28px] mb-2">🔍</p>
+              <p className="text-ink-secondary text-[13px]">Start typing a hospital name above to see its insurer panel coverage.</p>
+              <p className="text-ink-tertiary text-[12px] mt-1">Only private hospitals are shown — public hospitals use a different billing system.</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Find by Insurer ── */}
+      {view === 'insurer' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px] mb-1">Select an insurer to see their panel size, LOG warnings, and direct links to check their full hospital list.</p>
+          {insurers.map(ins => {
+            const isOpen = selectedIns === ins.id
+            const extra = INSURER_HOTLINES[ins.id] || {}
+            const panelCount = (ins.cashlessHospitals || []).length
+
+            return (
+              <div key={ins.id} className="border border-ink-quaternary rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setSelectedIns(isOpen ? null : ins.id)}>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="font-semibold text-ink text-[14px]">{ins.name}</span>
+                    {panelCount > 0 && (
+                      <span className="text-[10px] font-medium text-ink-tertiary">{panelCount} hospitals on file</span>
+                    )}
+                    {ins.logLimitWarning && (
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-200">⚠ LOG note</span>
+                    )}
+                  </div>
+                  <Chevron open={isOpen} />
+                </button>
+
+                {isOpen && (
+                  <div className="px-4 pb-5 border-t border-ink-quaternary pt-3 space-y-4">
+
+                    {ins.generalNote && (
+                      <p className="text-ink-secondary text-[13px] leading-relaxed">{ins.generalNote}</p>
+                    )}
+
+                    {ins.tiers?.length > 0 && (
+                      <div>
+                        <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-1.5">Plan tiers</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {ins.tiers.map((t, i) => (
+                            <span key={i} className="text-[11px] px-2.5 py-1 rounded-full bg-surface-secondary border border-ink-quaternary text-ink-secondary">{t}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {ins.logLimitWarning && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-[12px] text-red-800 leading-relaxed">
+                        ⚠ <strong>LOG Limit Warning:</strong> {ins.logLimitWarning}
+                      </div>
+                    )}
+
+                    {ins.preAdmissionWindow && (
+                      <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-[12px] text-blue-900">
+                        📅 <strong>Pre-Admission Window:</strong> {ins.preAdmissionWindow}
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap gap-3 pt-1">
+                      {extra.hotline && (
+                        <a href={`tel:${extra.hotline}`}
+                          className="flex items-center gap-1.5 text-[13px] font-semibold text-ink border border-ink-quaternary rounded-xl px-3 py-2 hover:border-brand hover:text-brand transition-colors">
+                          📞 {extra.hotline}
+                        </a>
+                      )}
+                      {(extra.panelUrl || ins.website) && (
+                        <a href={extra.panelUrl || ins.website} target="_blank" rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-[13px] font-semibold text-brand border border-brand/30 rounded-xl px-3 py-2 hover:bg-brand hover:text-white transition-colors">
+                          Check Panel List →
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      )}
+
+      {/* ── Tips ── */}
+      {view === 'tips' && (
+        <div className="space-y-4">
+          {[
+            {
+              title: 'Always call your insurer before admission',
+              color: '#dc2626',
+              icon: '📞',
+              detail: 'Even if a hospital was on your panel last year, call your insurer\'s 24h hotline the day before or day of admission to confirm current panel status and request a LOG (Letter of Guarantee). Panels change without notice — a hospital can be removed from a panel at any time.',
+            },
+            {
+              title: 'Understand your daily room LOG limit',
+              color: '#d97706',
+              icon: '🛏',
+              detail: 'Your LOG limit is the maximum your insurer guarantees per night for room charges. If your limit is RM 200/night and the hospital charges RM 450/night, you personally owe RM 250 every night. On a 5-day stay, that\'s RM 1,250 unexpected expense — just for the room. Use the LOG Room Rate Check calculator (Calculators tab) to estimate your gap.',
+            },
+            {
+              title: 'If your hospital is not on panel',
+              color: '#7c3aed',
+              icon: '🔄',
+              detail: 'You can still be admitted — but you pay the full bill first, then claim reimbursement from your insurer. Keep ALL original receipts and an itemised bill. Submit within 90–180 days (check your policy). Reimbursement for eligible expenses will be paid back minus any non-covered items.',
+            },
+            {
+              title: 'Pre-admission expenses are claimable',
+              color: '#0891b2',
+              icon: '🗓',
+              detail: 'If outpatient specialist visits, scans, or blood tests lead to a hospitalisation within 30–90 days (varies by insurer), those pre-admission bills become claimable. This is one of the most frequently missed claims. Keep every receipt from specialists, labs, and imaging centres — even months before admission.',
+            },
+            {
+              title: 'Panel hospitals vs non-panel hospitals: when to choose non-panel',
+              color: '#16a34a',
+              icon: '⚖️',
+              detail: 'For complex or rare conditions, the best specialist may be at a hospital that is not on your panel. In these cases, the reimbursement route may be worth it — paying out of pocket and reclaiming is better than receiving suboptimal care at a panel hospital. For routine and non-life-threatening treatment, stick to panel where possible.',
+            },
+            {
+              title: 'Check your co-pay and deductible before admission',
+              color: '#6366f1',
+              icon: '💳',
+              detail: 'Some policies require you to pay 10–20% of every bill (co-pay), or to pay a deductible of RM 500–5,000 before insurance kicks in. These apply even at panel hospitals. Know your amounts before admission — ask your insurer or check your Certificate of Insurance.',
+            },
+          ].map(tip => (
+            <div key={tip.title} className="border border-ink-quaternary rounded-2xl p-4" style={{ borderLeft: `3px solid ${tip.color}` }}>
+              <div className="flex items-start gap-3">
+                <span className="text-[22px] flex-shrink-0">{tip.icon}</span>
+                <div>
+                  <p className="font-bold text-ink text-[14px] mb-1">{tip.title}</p>
+                  <p className="text-ink-secondary text-[13px] leading-relaxed">{tip.detail}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+    </div>
   )
 }
