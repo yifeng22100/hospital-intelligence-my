@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ALL_HOSPITALS } from '../data/index'
 
 export default function Footer() {
   return (
@@ -67,7 +68,7 @@ export default function Footer() {
             © 2026 Healthcare Intelligence MY. For reference only — not medical advice.
           </p>
           <p className="text-ink-tertiary text-[12px]">
-            273 hospitals · 16 states · Public information
+            {ALL_HOSPITALS.length} hospitals · 16 states · Public information
           </p>
         </div>
       </div>
