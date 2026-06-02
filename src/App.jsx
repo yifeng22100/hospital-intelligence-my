@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import FindCare from './pages/FindCare'
 import Intelligence from './pages/Intelligence'
 import Compare from './pages/Compare'
+import Knowledge from './pages/Knowledge'
 import Resources from './pages/Resources'
 import About from './pages/About'
 import Terms from './pages/Terms'
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/find-care" element={<FindCare />} />
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/compare" element={<Compare />} />
+            <Route path="/knowledge" element={<Knowledge />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
             <Route path="/terms" element={<Terms />} />
