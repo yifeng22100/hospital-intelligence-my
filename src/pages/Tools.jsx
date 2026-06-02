@@ -479,7 +479,7 @@ const INSURER_HOTLINES = {
   'zurich':       { hotline: '1800-88-2318',  tpa: 'MiCare Sdn Bhd (from Apr 2025)',        note: '24/7 — replaced 1800-82-6100 from Apr 2025', panelUrl: 'https://www.zurich.com.my/customer-hub/my-claims/panel-hospitals' },
   'sun-life':     { hotline: '03-7884-1818',  tpa: 'MediExpress (M) Sdn Bhd',               note: '24/7 cashless admission',                    panelUrl: 'https://www.sunlifemalaysia.com/client-care/make-a-claim/panel-hospitals/' },
   'etiqa':        { hotline: '1800-88-9998',  tpa: 'In-house (Etiqa Healthcare Call Centre)', note: '24/7; GL typically issued in 1–4 hrs',     panelUrl: 'https://www.etiqa.com.my/panels/panel-hospitals' },
-  'axa-affin':    { hotline: '1300-88-9979',  tpa: 'IHP / MiCare',                          note: '24/7 medical card line',                     panelUrl: 'https://www.axa.com.my/hospital-panel-life' },
+  'axa-affin':    { hotline: '1300-88-9979',  tpa: 'IHP Malaysia / MiCare (Generali Life)',  note: 'Rebranded to Generali Life Malaysia (2024); hotline unchanged', panelUrl: 'https://www.generali.com.my' },
   'msig':         { hotline: '+603-7628-3980', tpa: 'MSIG Assist (in-house)',                note: '24/7 cashless admission',                    panelUrl: 'https://www.msig.com.my/claims/healthcare.html' },
   'tune-protect': { hotline: '1800-88-2678',  tpa: 'MiCare Sdn Bhd',                        note: '24/7 GL line (policies from Nov 2022)',      panelUrl: 'https://www.tuneprotect.com/my/products/pro-health-medical/' },
   'bupa':         { hotline: '1800-82-6100',  tpa: 'IHP Malaysia (from Jan 2025)',           note: 'GOP via IHP; or use number on your card',   panelUrl: 'https://www.bupaglobal.com/en/facilities/finder' },
