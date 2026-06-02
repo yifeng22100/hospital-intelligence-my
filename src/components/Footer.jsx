@@ -26,6 +26,7 @@ export default function Footer() {
                 ['/compare', 'Compare'],
                 ['/intelligence', 'Intelligence'],
                 ['/knowledge', 'Knowledge'],
+                ['/tools', 'Tools'],
                 ['/resources', 'Resources'],
               ].map(([to, label]) => (
                 <li key={to}>

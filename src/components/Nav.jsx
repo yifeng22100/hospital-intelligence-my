@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { to: '/compare', label: 'Compare' },
   { to: '/intelligence', label: 'Intelligence' },
   { to: '/knowledge', label: 'Knowledge' },
+  { to: '/tools', label: 'Tools' },
   { to: '/resources', label: 'Resources' },
   { to: '/about', label: 'About' },
 ]
