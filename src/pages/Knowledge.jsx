@@ -7,6 +7,7 @@ const TOPICS = [
   { id: 'drugs',         icon: '💊', label: 'Common Drugs',      desc: 'Common medications — Mandarin names, what they do, where to get them' },
   { id: 'lab-values',    icon: '🔬', label: 'Lab Values',        desc: 'What your blood test results mean — normal ranges explained' },
   { id: 'abbreviations', icon: '🔤', label: 'Abbreviations',     desc: 'Common Malaysian hospital and medical shorthand decoded' },
+  { id: 'screening',     icon: '🩺', label: 'Health Screening',  desc: 'What to screen for, when, and where — age-by-age guide' },
 ]
 
 const LAB_VALUES = [
@@ -306,6 +307,7 @@ export default function Knowledge() {
         {active === 'drugs'         && <DrugsSection />}
         {active === 'lab-values'    && <LabValuesSection />}
         {active === 'abbreviations' && <AbbreviationsSection />}
+        {active === 'screening'     && <ScreeningSection />}
       </div>
     </div>
   )
@@ -669,6 +671,321 @@ function AbbreviationsSection() {
           <p className="text-center text-ink-tertiary text-[13px] py-8">No abbreviations match your search.</p>
         )}
       </div>
+    </div>
+  )
+}
+
+/* ─── Health Screening ───────────────────────────────────────────── */
+
+const SCREENING_BY_AGE = [
+  {
+    stage: '20s',
+    range: 'Ages 20–29',
+    color: '#16a34a',
+    icon: '🌱',
+    items: [
+      { test: 'Blood Pressure', freq: 'Every 2 years (annually if ≥ 120/80)', who: 'Everyone', note: 'Normal: < 120/80 mmHg. Checked free at any Klinik Kesihatan.' },
+      { test: 'BMI & Waist Circumference', freq: 'Annually', who: 'Everyone', note: 'Asian overweight threshold: BMI ≥ 23. Waist risk: men ≥ 90 cm, women ≥ 80 cm.' },
+      { test: 'Fasting Blood Sugar', freq: 'Every 3 years if normal; annually with risk factors', who: 'Everyone from age 18', note: 'Risk factors: family history of diabetes, overweight, PCOS.' },
+      { test: 'Pap Smear (Cervical Cancer)', freq: 'Every 3 years from age 21 (or 3 years after sexual debut)', who: 'Women', note: 'Free at Klinik Kesihatan under BLIS Programme. HPV co-test from age 30.' },
+      { test: 'Dental Check', freq: 'Every 6–12 months', who: 'Everyone', note: 'Free at government dental clinics for eligible patients.' },
+      { test: 'STI / HIV Screening', freq: 'As appropriate based on risk', who: 'Sexually active', note: 'Free anonymous HIV testing at Klinik Kesihatan and approved NGOs (PT Foundation, etc.).' },
+    ],
+  },
+  {
+    stage: '30s',
+    range: 'Ages 30–39',
+    color: '#0891b2',
+    icon: '📈',
+    items: [
+      { test: 'Blood Pressure', freq: 'Annually', who: 'Everyone', note: 'More frequent if family history of hypertension or kidney disease.' },
+      { test: 'Fasting Blood Sugar (FBS)', freq: 'Annually from age 30', who: 'Everyone', note: 'MOH CPG recommends FBS screening from age 30. Free at Klinik Kesihatan.' },
+      { test: 'Full Lipid Panel', freq: 'Every 5 years (more often with risk factors)', who: 'Everyone', note: 'Includes LDL, HDL, total cholesterol, triglycerides. 9–12 hour fast required.' },
+      { test: 'Pap Smear / HPV Co-test', freq: 'Every 3 years (Pap); every 5 years (HPV co-test)', who: 'Women', note: 'HPV co-test preferred from age 30. Covers high-risk strains 16, 18, and others.' },
+      { test: 'Eye Examination', freq: 'Every 2 years', who: 'Everyone', note: 'Earlier if you have diabetes, hypertension, or family history of glaucoma.' },
+      { test: 'Hepatitis B Screening', freq: 'Once (if unvaccinated or unknown status)', who: 'Everyone', note: 'HBsAg, anti-HBs. Vaccinate if not immune. Free at Klinik Kesihatan for unvaccinated adults.' },
+      { test: 'Thyroid Function (TSH)', freq: 'Every 5 years (women)', who: 'Women (especially)', note: 'Women are 5–8× more likely to develop thyroid disorders. Discuss with doctor if fatigue, weight changes, or hair loss.' },
+    ],
+  },
+  {
+    stage: '40s',
+    range: 'Ages 40–49',
+    color: '#d97706',
+    icon: '⚠️',
+    items: [
+      { test: 'Mammogram', freq: 'Annually or every 2 years from age 40', who: 'Women', note: 'Free at MOH hospitals under BreastScreen Malaysia programme for women 40–74.' },
+      { test: 'Colorectal Cancer Screening', freq: 'FOBT annually; colonoscopy from age 45 (every 10 years)', who: 'Everyone from 45', note: 'Earlier if family history of colorectal cancer or polyps. FOBT available at KK.' },
+      { test: 'Cardiac Risk Assessment', freq: 'Every 5 years (or annually with risk factors)', who: 'Everyone', note: 'Includes FBS, lipid panel, BP. Framingham/SCORE2 risk score. Ask your doctor to calculate your 10-year cardiac risk.' },
+      { test: 'PSA (Prostate-Specific Antigen)', freq: 'Discuss with doctor from age 40–50', who: 'Men', note: 'Controversial — discuss risks and benefits with your doctor before testing. Not a universal recommendation.' },
+      { test: 'Bone Density (DEXA)', freq: 'Discuss with doctor if risk factors', who: 'Women approaching menopause', note: 'Risk factors: smoking, low BMI, steroid use, family history of osteoporosis.' },
+      { test: 'Full Blood Count (FBC)', freq: 'Annually', who: 'Everyone', note: 'Checks for anaemia, infection markers, platelet disorders. Included in most health screening packages.' },
+    ],
+  },
+  {
+    stage: '50s',
+    range: 'Ages 50–64',
+    color: '#7c3aed',
+    icon: '🔍',
+    items: [
+      { test: 'Colonoscopy', freq: 'Every 10 years (if normal); every 3–5 years if polyps found', who: 'Everyone', note: 'Gold standard for colorectal cancer detection. Requires bowel prep. Sedation available.' },
+      { test: 'Bone Density (DEXA)', freq: 'Women at menopause; repeat every 1–2 years if low', who: 'Post-menopausal women; men 70+', note: 'T-score: Normal ≥ −1.0; Osteopenia −1.0 to −2.5; Osteoporosis ≤ −2.5.' },
+      { test: 'Lung Cancer Screening (LDCT)', freq: 'Annually for 3 years (if eligible)', who: 'Ages 50–80, 20+ pack-year smoker', note: 'Low-dose CT chest. MOH Malaysia follows USPSTF criteria. Discuss with pulmonologist.' },
+      { test: 'Abdominal Aortic Aneurysm (AAA)', freq: 'Once at age 65 (men who ever smoked)', who: 'Men 65+ (smokers)', note: 'Ultrasound abdomen. Detects silent AAA before rupture.' },
+      { test: 'Hearing Test (Audiometry)', freq: 'Every 3 years from age 50', who: 'Everyone', note: 'Age-related hearing loss is often gradual and unnoticed. Available at ENT clinics.' },
+      { test: 'Glaucoma Screening', freq: 'Every 2 years from age 40; annually from 60', who: 'Everyone', note: 'Intraocular pressure check + optic nerve assessment at ophthalmology clinic.' },
+    ],
+  },
+  {
+    stage: '65+',
+    range: 'Ages 65 and above',
+    color: '#dc2626',
+    icon: '🌟',
+    items: [
+      { test: 'Comprehensive Geriatric Assessment', freq: 'Annually', who: 'Everyone 65+', note: 'Covers cognition, falls risk, functional status, nutrition, medication review. Ask your family doctor or geriatrician.' },
+      { test: 'Cognitive Screening (MMSE / MoCA)', freq: 'Annually', who: 'Everyone 65+', note: 'Mini-Mental State Exam or Montreal Cognitive Assessment — detect early dementia. Free at KK.' },
+      { test: 'Osteoporosis Monitoring', freq: 'Every 1–2 years', who: 'Post-menopausal women; men 70+', note: 'Continue DEXA monitoring. Falls prevention programme available at government hospitals.' },
+      { test: 'Influenza Vaccination', freq: 'Annually', who: 'Everyone 65+', note: 'Free for 65+ at Klinik Kesihatan under National Immunisation Programme (NIP).' },
+      { test: 'Pneumococcal Vaccination', freq: 'Once (PCV13) + booster after 1 year (PPSV23)', who: 'Everyone 65+', note: 'Available free at government hospitals. Protects against pneumonia and meningitis.' },
+      { test: 'Depression Screening (GDS)', freq: 'Annually', who: 'Everyone 65+', note: 'Geriatric Depression Scale — 15-item questionnaire. Depression is underdiagnosed in the elderly.' },
+    ],
+  },
+]
+
+const SCREENING_PACKAGES = [
+  {
+    tier: 'Basic / Asas',
+    price: 'Free – RM 80',
+    color: '#16a34a',
+    where: 'Klinik Kesihatan (KK), KPMC clinics',
+    items: ['Blood pressure (BP)', 'BMI & waist circumference', 'Fasting blood sugar (FBS)', 'Total cholesterol', 'Urine FEME (dipstick)'],
+    note: 'Available free for Malaysians at Klinik Kesihatan. Peka B40 programme extends this free to B40 households for additional tests.',
+  },
+  {
+    tier: 'Essential / Standard',
+    price: 'RM 100 – RM 300',
+    color: '#0891b2',
+    where: 'Private GP, Pathlab, TMC, KPJ Wellness',
+    items: ['Everything in Basic', 'Full Blood Count (FBC)', 'Liver Function Test (LFT)', 'Kidney Function / Renal Profile', 'Uric acid', 'ECG (resting)', 'HbA1c'],
+    note: 'Most common package at private labs and GP health screenings. Pathlab, DKSH, and hospital-based screening centres offer this range.',
+  },
+  {
+    tier: 'Comprehensive / Lengkap',
+    price: 'RM 300 – RM 800',
+    color: '#7c3aed',
+    where: 'Hospital health screening centres, UMSC, KPJ, Pantai, Gleneagles',
+    items: ['Everything in Essential', 'Full lipid panel (LDL, HDL, TG)', 'Thyroid function (TSH, T4)', 'Hepatitis B & C serology', 'Pap smear (women) / PSA (men)', 'Tumour markers (CEA, CA19-9, AFP, CA-125)', 'Chest X-ray (CXR)', 'Stool FOBT (colorectal screening)', 'Ultrasound abdomen'],
+    note: 'Comprehensive packages vary widely between hospitals. Always confirm exactly what is included and whether a doctor consultation is bundled.',
+  },
+  {
+    tier: 'Executive / Premium',
+    price: 'RM 800 – RM 3,000+',
+    color: '#dc2626',
+    where: 'Gleneagles, Prince Court, Pantai, UMSC, Island Hospital',
+    items: ['Everything in Comprehensive', 'CT Coronary Calcium Scoring (cardiac risk)', 'MRI brain or full-body (varies)', 'DEXA bone density', 'Audiometry (hearing test)', 'Ophthalmology review', 'Full echocardiogram', 'Treadmill stress ECG', 'Dietitian consultation', 'Doctor specialist review'],
+    note: 'Premium packages include specialist consultations and advanced imaging. Best suited for high-risk individuals or those wanting the most thorough annual review.',
+  },
+]
+
+const FREE_PROGRAMMES = [
+  {
+    name: 'Peka B40',
+    desc: 'Free health screening for B40 Malaysians — covers NCD (diabetes, hypertension, kidney disease), cancer screening (breast, cervical, colorectal), and mental health assessment.',
+    who: 'B40 Malaysians aged 40–60 registered in eKasih / Peka B40 app',
+    where: 'Approved Klinik Kesihatan and panel clinics nationwide',
+    url: 'https://www.pekab40.com.my',
+    icon: '🟢',
+  },
+  {
+    name: 'BreastScreen Malaysia',
+    desc: 'Free mammogram for women aged 40–74. Offered at MOH hospitals and mobile mammography units.',
+    who: 'Women aged 40–74, Malaysian citizens',
+    where: 'MOH district and state hospitals; mobile units (schedule varies by state)',
+    url: 'https://www.moh.gov.my',
+    icon: '🩷',
+  },
+  {
+    name: 'BLIS Programme (Cervical Cancer)',
+    desc: 'Free Pap smear / VIA (Visual Inspection with Acetic Acid) at government health clinics. Cervical cancer is the 3rd most common cancer in Malaysian women.',
+    who: 'Women aged 20–65 who are or have been sexually active',
+    where: 'Any Klinik Kesihatan nationwide',
+    url: 'https://www.moh.gov.my',
+    icon: '🩺',
+  },
+  {
+    name: 'KOSPEN (Community NCD Screening)',
+    desc: 'Community-level screening for blood pressure, blood sugar, and BMI. Conducted by trained community health volunteers (KOSPEN officers).',
+    who: 'Any Malaysian, particularly in rural and under-served communities',
+    where: 'Community halls, suraus, schools — check with local KK for schedule',
+    url: 'https://www.moh.gov.my',
+    icon: '🏘️',
+  },
+]
+
+function ScreeningSection() {
+  const [activeAge, setActiveAge] = useState('20s')
+  const [openPkg, setOpenPkg] = useState(null)
+  const [openProg, setOpenProg] = useState(null)
+  const ageGroup = SCREENING_BY_AGE.find(g => g.stage === activeAge)
+
+  return (
+    <div className="space-y-10">
+
+      {/* Intro */}
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+        <p><span className="font-semibold text-ink">Why screen?</span> Most chronic diseases — diabetes, hypertension, high cholesterol, and cancer — have no symptoms in early stages. Screening catches them when treatment is simplest and cheapest. Malaysian MOH guidelines recommend starting basic NCD screening from age 30 (or earlier with risk factors).</p>
+      </div>
+
+      {/* Age-based guide */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🗓️ What to Screen — By Age Group</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">Select your age group to see recommended tests and frequency.</p>
+
+        <div className="flex flex-wrap gap-2 mb-5">
+          {SCREENING_BY_AGE.map(g => (
+            <button key={g.stage} onClick={() => setActiveAge(g.stage)}
+              className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+                activeAge === g.stage
+                  ? 'text-white border-transparent'
+                  : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+              }`}
+              style={activeAge === g.stage ? { background: g.color, borderColor: g.color } : {}}>
+              {g.icon} {g.range}
+            </button>
+          ))}
+        </div>
+
+        {ageGroup && (
+          <div className="space-y-2">
+            {ageGroup.items.map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid ${ageGroup.color}` }}>
+                <div className="flex items-start justify-between gap-3 flex-wrap">
+                  <div className="flex-1">
+                    <div className="flex items-start gap-2 flex-wrap">
+                      <span className="font-semibold text-ink text-[13px]">{item.test}</span>
+                      <span className="text-[11px] px-2 py-0.5 rounded-full font-medium"
+                        style={{ background: `${ageGroup.color}15`, color: ageGroup.color }}>
+                        {item.who}
+                      </span>
+                    </div>
+                    <p className="text-ink-secondary text-[12px] mt-0.5">{item.freq}</p>
+                  </div>
+                </div>
+                <p className="text-ink-tertiary text-[12px] leading-relaxed mt-2 pt-2 border-t border-ink-quaternary">💡 {item.note}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Package tiers */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">📦 Screening Package Tiers</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">What's included at each level — and where to get it in Malaysia.</p>
+        <div className="space-y-2">
+          {SCREENING_PACKAGES.map(pkg => {
+            const isOpen = openPkg === pkg.tier
+            return (
+              <div key={pkg.tier} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${pkg.color}` }}>
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenPkg(isOpen ? null : pkg.tier)}>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="font-semibold text-ink text-[14px]">{pkg.tier}</span>
+                    <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full"
+                      style={{ background: `${pkg.color}15`, color: pkg.color }}>{pkg.price}</span>
+                    <span className="text-ink-tertiary text-[12px]">{pkg.where}</span>
+                  </div>
+                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-2 ${isOpen ? 'rotate-180' : ''}`}
+                    width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 border-t border-ink-quaternary pt-3 space-y-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {pkg.items.map((item, i) => (
+                        <span key={i} className="text-[12px] px-2.5 py-1 rounded-full border border-ink-quaternary bg-surface-secondary text-ink-secondary">{item}</span>
+                      ))}
+                    </div>
+                    <p className="text-[12px] text-ink-secondary bg-amber-50 border border-amber-100 rounded-xl px-3 py-2">
+                      💡 {pkg.note}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Free Government Programmes */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🇲🇾 Free Government Screening Programmes</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">These are fully subsidised — most Malaysians are eligible but unaware.</p>
+        <div className="space-y-2">
+          {FREE_PROGRAMMES.map(prog => {
+            const isOpen = openProg === prog.name
+            return (
+              <div key={prog.name} className="border border-ink-quaternary rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenProg(isOpen ? null : prog.name)}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[18px]">{prog.icon}</span>
+                    <span className="font-semibold text-ink text-[14px]">{prog.name}</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">FREE</span>
+                  </div>
+                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-2 ${isOpen ? 'rotate-180' : ''}`}
+                    width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 border-t border-ink-quaternary pt-3 space-y-2.5">
+                    <p className="text-ink-secondary text-[13px] leading-relaxed">{prog.desc}</p>
+                    <div className="grid sm:grid-cols-2 gap-2">
+                      <div className="bg-surface-secondary rounded-xl p-3">
+                        <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">Who</p>
+                        <p className="text-[12px] text-ink">{prog.who}</p>
+                      </div>
+                      <div className="bg-surface-secondary rounded-xl p-3">
+                        <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">Where</p>
+                        <p className="text-[12px] text-ink">{prog.where}</p>
+                      </div>
+                    </div>
+                    <a href={prog.url} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-brand text-[12px] font-medium hover:underline">
+                      🔗 {prog.url.replace('https://', '')}
+                    </a>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Where to get screened */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[15px] mb-3">📍 Where to Get Screened in Malaysia</h3>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            { place: 'Klinik Kesihatan (KK)', detail: 'Free basic NCD screening for all Malaysians. Walk in or register at your nearest KK. Free for hypertension, diabetes, and cholesterol checks.', badge: 'Free', badgeColor: '#16a34a' },
+            { place: 'Private Labs (Pathlab, DKSH)', detail: 'Walk-in blood tests with same-day or next-day results. Essential packages RM 100–300. No doctor referral needed.', badge: 'RM 100–300', badgeColor: '#0891b2' },
+            { place: 'Hospital Health Screening Centres', detail: 'Comprehensive packages with doctor consultation. KPJ Health Screening, Pantai HealthScreening, Gleneagles Executive Screening.', badge: 'RM 300–800+', badgeColor: '#7c3aed' },
+            { place: 'KPMC / GP Clinics', detail: 'Many private GPs offer bundled packages. Convenient — same doctor reviews results. Often cheaper than hospital packages for essentials.', badge: 'RM 80–250', badgeColor: '#d97706' },
+          ].map(({ place, detail, badge, badgeColor }) => (
+            <div key={place} className="bg-white rounded-xl p-3">
+              <div className="flex items-start justify-between gap-2 mb-1.5">
+                <p className="font-semibold text-ink text-[13px]">{place}</p>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0"
+                  style={{ background: `${badgeColor}15`, color: badgeColor }}>{badge}</span>
+              </div>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-ink-tertiary text-[11px] mt-3">Always fast for 8–12 hours before lipid panel, FBS, and liver/kidney function tests. Bring your IC. Government screening is free but may require a morning appointment.</p>
+      </div>
+
     </div>
   )
 }
