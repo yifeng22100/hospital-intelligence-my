@@ -1413,7 +1413,14 @@ function GlossaryAndAbbreviationsSection() {
 /* ─── Vaccination Guide ──────────────────────────────────────────── */
 
 function VaccinationSection() {
+  const [view, setView] = useState('schedule')
   const [ageGroup, setAgeGroup] = useState('infants')
+
+  const VIEWS = [
+    { id: 'schedule',  label: '📅 NIP Schedule' },
+    { id: 'covid',     label: '🦠 COVID-19 & Flu' },
+    { id: 'tropical',  label: '🦟 Dengue & Tropical' },
+  ]
 
   const VACCINATION_SCHEDULE = {
     infants: {
@@ -1426,8 +1433,8 @@ function VaccinationSection() {
         { age: '3 months', vaccines: ['DPT-Hib-HepB (Dose 2)', 'Polio (IPV 2)', 'Pneumococcal (Dose 2)'], govt: 'Free', private: 'RM 150–250' },
         { age: '4 months', vaccines: ['DPT-Hib-HepB (Dose 3)', 'Rotavirus (Dose 3)'], govt: 'Free', private: 'RM 100–150' },
         { age: '5–6 months', vaccines: ['Pneumococcal (Dose 3)', 'Polio (IPV 3)'], govt: 'Free', private: 'RM 80–120' },
-        { age: '9 months', vaccines: ['Measles (Dose 1)', 'Japanese Encephalitis (optional, private)'], govt: 'Free', private: 'RM 100–200' },
-        { age: '12 months', vaccines: ['MMR (Dose 1)', 'Hepatitis A (optional, private)'], govt: 'Free', private: 'RM 100–250' },
+        { age: '9 months', vaccines: ['Measles (Dose 1)', 'Japanese Encephalitis (JE Dose 1 — optional)'], govt: 'Free', private: 'RM 100–200' },
+        { age: '12 months', vaccines: ['MMR (Dose 1)', 'Hepatitis A (optional)', 'Varicella/Chickenpox (optional)'], govt: 'Free', private: 'RM 100–250' },
       ],
     },
     toddlers: {
@@ -1435,8 +1442,8 @@ function VaccinationSection() {
       color: '#0891b2',
       vaccines: [
         { age: '15–18 months', vaccines: ['DPT (Booster 1)', 'Polio (Booster 1)', 'Pneumococcal (Booster)'], govt: 'Free', private: 'RM 100–180' },
-        { age: '18–24 months', vaccines: ['Hepatitis B (Booster)', 'Varicella (Chickenpox) — optional'], govt: 'Free', private: 'RM 80–150' },
-        { age: '2 years', vaccines: ['Japanese Encephalitis (optional, private)', 'Typhoid (Typhim Vi)'], govt: 'Free', private: 'RM 100–180' },
+        { age: '18–24 months', vaccines: ['Hepatitis B (Booster)', 'Varicella (Chickenpox) Dose 2 — optional', 'Japanese Encephalitis (JE Dose 2 — optional)'], govt: 'Free', private: 'RM 80–150' },
+        { age: '2 years', vaccines: ['Typhoid (Typhim Vi) — optional', 'Hepatitis A Dose 2 — optional'], govt: 'n/a', private: 'RM 100–180' },
         { age: '4–6 years', vaccines: ['DPT (Booster 2)', 'Polio (Booster 2)', 'MMR (Dose 2)'], govt: 'Free', private: 'RM 100–180' },
       ],
     },
@@ -1444,9 +1451,10 @@ function VaccinationSection() {
       label: '🎒 School Age (7–17 years)',
       color: '#d97706',
       vaccines: [
-        { age: '11–12 years', vaccines: ['HPV (Cervical Cancer, girls)', '3 doses over 6 months'], govt: 'Free (NIP)', private: 'RM 400–800/3 doses' },
-        { age: '13 years', vaccines: ['Tdap (Booster)', 'Polio (booster if incomplete)'], govt: 'Free', private: 'RM 60–100' },
-        { age: '15 years onwards', vaccines: ['Meningococcal (ACWY)', 'Typhoid booster every 2–3 years'], govt: 'Private only', private: 'RM 100–300' },
+        { age: '10–11 years', vaccines: ['Td Booster (Tetanus-Diphtheria)', 'Influenza (annual) — recommended'], govt: 'Free (school)', private: 'RM 50–100' },
+        { age: '11–12 years (girls)', vaccines: ['HPV (Gardasil 4 or 9) — 2 doses, 6–12 months apart', 'Protects against cervical cancer and genital warts'], govt: 'Free (NIP, girls)', private: 'RM 400–800/course' },
+        { age: '13 years', vaccines: ['Tdap (Booster)', 'Polio (if incomplete)'], govt: 'Free', private: 'RM 60–100' },
+        { age: '15+ years', vaccines: ['Meningococcal (ACWY) — for hostel/boarding students', 'Typhoid booster every 2–3 years'], govt: 'Private only', private: 'RM 100–300' },
       ],
     },
     adults: {
@@ -1454,55 +1462,306 @@ function VaccinationSection() {
       color: '#7c3aed',
       vaccines: [
         { age: 'Every 10 years', vaccines: ['Td (Tetanus-Diphtheria Booster)'], govt: 'Free', private: 'RM 40–80' },
-        { age: '18–49 (one dose)', vaccines: ['COVID-19 Vaccine', 'Check MOH latest guidance — policies change'], govt: 'Free', private: 'Free/Covered' },
-        { age: '50+ years', vaccines: ['Pneumococcal (Pneumovax 23)', 'Shingles (Recombivax — age 50+)', 'Influenza (annual)'], govt: 'Some coverage', private: 'RM 80–250' },
-        { age: 'Anytime', vaccines: ['Rabies (post-exposure)', 'Hepatitis A (for travellers)', 'Yellow Fever (for travellers to endemic areas)'], govt: 'Post-exposure only', private: 'RM 50–300' },
+        { age: 'Annually', vaccines: ['Influenza (Flu) Vaccine — strongly recommended for all adults', 'Especially important for 65+, pregnant, chronic illness, healthcare workers'], govt: 'Free for 65+ at KK', private: 'RM 50–120' },
+        { age: '18+ (primary series)', vaccines: ['COVID-19 Vaccine — primary series + boosters per MOH guidance', 'Free at government facilities; updated XBB/JN.1 formulations available'], govt: 'Free', private: 'Free/Covered' },
+        { age: '50+ years', vaccines: ['Pneumococcal (PCV20 or PPSV23)', 'Shingles (Shingrix — 2 doses, preferred; or Zostavax)', 'Influenza (annual — free for 65+ at Klinik Kesihatan)'], govt: 'Limited coverage', private: 'RM 80–400' },
+        { age: 'Special groups', vaccines: ['Hepatitis B (if unvaccinated)', 'Hepatitis A (travellers, food handlers)', 'Yellow Fever (travellers to Africa/South America — mandatory for some countries)', 'Rabies post-exposure (if animal bite)'], govt: 'Post-exposure/special', private: 'RM 50–350' },
+      ],
+    },
+    pregnant: {
+      label: '🤰 Pregnant Women',
+      color: '#db2777',
+      vaccines: [
+        { age: 'Any trimester', vaccines: ['Influenza (Flu) Vaccine — safe and strongly recommended throughout pregnancy', 'Protects mother from flu complications and newborn via maternal antibodies'], govt: 'Free at KK', private: 'RM 50–120' },
+        { age: 'Week 27–36', vaccines: ['Tdap (Tetanus-Diphtheria-Pertussis) — 1 dose per pregnancy', 'Protects newborn from whooping cough before their own vaccination at 2 months'], govt: 'Free at KK', private: 'RM 60–100' },
+        { age: 'After 1st trimester', vaccines: ['COVID-19 Vaccine — recommended by MOH Malaysia', 'mRNA vaccines (Pfizer, Moderna) preferred; reduces severe disease risk'], govt: 'Free', private: 'Free' },
+        { age: 'Avoid during pregnancy', vaccines: ['Live vaccines (MMR, Varicella, Yellow Fever, oral typhoid) are generally contraindicated', 'Discuss timing with your OB/GYN'], govt: 'n/a', private: 'Defer to postpartum' },
       ],
     },
   }
 
   const currentGroup = VACCINATION_SCHEDULE[ageGroup]
 
+  const COVID_VACCINES = [
+    { name: 'Pfizer-BioNTech (Comirnaty)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Most widely used in Malaysia; available at government and private facilities', status: 'Available' },
+    { name: 'Moderna (Spikevax)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Available at most private clinics and hospitals; updated XBB formulations', status: 'Available' },
+    { name: 'AstraZeneca (Vaxzevria)', type: 'Viral vector', doses: '2 primary doses', notes: 'Used during 2021–2022 campaign; no longer primary recommendation', status: 'Phase out' },
+    { name: 'Sinovac (CoronaVac)', type: 'Inactivated', doses: '2 primary doses', notes: 'Used widely in Cansino/Sinovac phase; Moderna/Pfizer preferred for boosters', status: 'Phase out' },
+  ]
+
+  const TROPICAL_DISEASES = [
+    {
+      disease: 'Dengue Fever',
+      icon: '🦟',
+      color: '#dc2626',
+      vaccine: 'Qdenga (TAK-003) — 2 doses, 3 months apart. RM 350–500/dose at private clinics. Ages 4–60. Does not require prior dengue testing.',
+      spread: 'Aedes aegypti mosquito bite (daytime biter)',
+      symptoms: 'High fever, severe headache behind eyes, muscle/joint pain, skin rash 3–4 days after fever onset',
+      risk: '~100,000+ cases/year in Malaysia; urban areas highest risk',
+      emergency: 'Severe abdominal pain, persistent vomiting, bleeding gums/nose, blood in stool/urine → go to A&E immediately',
+    },
+    {
+      disease: 'Influenza (Flu)',
+      icon: '🤧',
+      color: '#7c3aed',
+      vaccine: 'Annual flu vaccine; new formulation each year. Free for 65+ at Klinik Kesihatan. RM 50–120 at private clinics. Quadrivalent vaccine covers 4 strains.',
+      spread: 'Respiratory droplets; highly contagious. Peak seasons: rainy season (Oct–Feb) and school terms',
+      symptoms: 'Sudden high fever, body aches, fatigue, dry cough, sore throat. Unlike common cold — starts very abruptly',
+      risk: 'Malaysia reports 2,000–5,000 flu-related hospitalisations/year. High risk: pregnant, elderly, immunocompromised',
+      emergency: 'Difficulty breathing, persistent chest pain, confusion, lips turning blue → call 999',
+    },
+    {
+      disease: 'COVID-19',
+      icon: '🦠',
+      color: '#0891b2',
+      vaccine: 'Primary series (2 doses mRNA) + boosters recommended by MOH. Updated bivalent formulations available free at Klinik Kesihatan and MySejahtera-registered sites.',
+      spread: 'Airborne (respiratory droplets and aerosols); close contact with infected person',
+      symptoms: 'Fever, cough, shortness of breath, loss of taste/smell, fatigue. Omicron variants often milder in vaccinated individuals',
+      risk: 'Long COVID (fatigue, brain fog, breathlessness >12 weeks) affects ~10% of infected. Vaccination significantly reduces long COVID risk',
+      emergency: 'Difficulty breathing, SpO2 <95% on pulse oximeter, persistent chest pain, confusion → Hospital A&E',
+    },
+    {
+      disease: 'Hand, Foot & Mouth Disease (HFMD)',
+      icon: '✋',
+      color: '#d97706',
+      vaccine: 'EV71 vaccine (Sinovac Enterix or similar) — available at private clinics. RM 200–350/dose; 2 doses. Mainly for children 6 months–5 years.',
+      spread: 'Direct contact with infected person\'s saliva, faeces, or blister fluid; highly contagious in childcare/kindergarten',
+      symptoms: 'Fever, mouth sores (ulcers), rash/blisters on hands, feet, and buttocks. Usually mild and self-limiting in 7–10 days',
+      risk: 'Cyclical outbreaks in Malaysia; peaks March–May and Sept–Nov. EV71 strain can cause rare neurological complications',
+      emergency: 'Persistent vomiting, difficulty walking, neck stiffness, seizures, or limb weakness → Hospital A&E immediately',
+    },
+    {
+      disease: 'Japanese Encephalitis (JE)',
+      icon: '🌾',
+      color: '#16a34a',
+      vaccine: 'IXIARO (inactivated) — 2 doses 28 days apart. Recommended for travellers to rural/agricultural areas. RM 250–400/dose at private clinics.',
+      spread: 'Culex mosquito (night biter); transmitted from pigs and birds. Rural/agricultural areas (Sabah, Sarawak, rural Peninsular)',
+      symptoms: 'Most infections are mild or asymptomatic; severe cases — high fever, headache, neck stiffness, seizures, coma',
+      risk: 'Endemic in rural Malaysia; low risk in urban areas. Travellers to rural areas, farm workers at higher risk',
+      emergency: 'Any signs of encephalitis (altered consciousness, seizures, stiff neck with fever) → Hospital A&E',
+    },
+    {
+      disease: 'Typhoid Fever',
+      icon: '🌡️',
+      color: '#64748b',
+      vaccine: 'Typhim Vi (injectable) — 1 dose; booster every 2–3 years. RM 80–150 at private clinics. Vivotif (oral) also available. Recommended for travellers and food handlers.',
+      spread: 'Contaminated food and water; poor sanitation. Risk increases when travelling to rural areas or less-developed regions',
+      symptoms: 'Sustained high fever, weakness, stomach pain, headache, loss of appetite. Rose spots on trunk may appear',
+      risk: 'Still endemic in parts of Malaysia. Food handlers, travellers to rural/endemic areas, and children at higher risk',
+      emergency: 'High fever >39°C for >3 days, intestinal bleeding or perforation — seek medical care promptly',
+    },
+  ]
+
   return (
     <div className="space-y-6">
+      {/* Sub-view switcher */}
       <div className="flex flex-wrap gap-2">
-        {Object.entries(VACCINATION_SCHEDULE).map(([key, val]) => (
-          <button key={key} onClick={() => setAgeGroup(key)}
+        {VIEWS.map(v => (
+          <button key={v.id} onClick={() => setView(v.id)}
             className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
-              ageGroup === key ? 'text-white border-transparent' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-            }`}
-            style={ageGroup === key ? { background: val.color, borderColor: val.color } : {}}>
-            {val.label.split(' ')[0]} {val.label.split(' ').slice(1).join(' ')}
+              view === v.id ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>
+            {v.label}
           </button>
         ))}
       </div>
 
-      <div className="space-y-3">
-        {currentGroup.vaccines.map((item, i) => (
-          <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid ${currentGroup.color}` }}>
-            <div className="flex items-start justify-between gap-3 flex-wrap mb-2">
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${currentGroup.color}15`, color: currentGroup.color }}>{item.age}</span>
-            </div>
-            <p className="text-ink-secondary text-[12px] mb-2 space-y-1">
-              {item.vaccines.map((v, vi) => <div key={vi} className="flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span><span>{v}</span></div>)}
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="bg-surface-secondary rounded-lg p-2">
-                <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide">Government</p>
-                <p className="text-ink text-[12px] font-semibold">{item.govt}</p>
+      {/* ── NIP Schedule ── */}
+      {view === 'schedule' && (
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            {Object.entries(VACCINATION_SCHEDULE).map(([key, val]) => (
+              <button key={key} onClick={() => setAgeGroup(key)}
+                className={`px-3 py-1.5 rounded-xl text-[12px] font-semibold border transition-colors ${
+                  ageGroup === key ? 'text-white border-transparent' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+                }`}
+                style={ageGroup === key ? { background: val.color, borderColor: val.color } : {}}>
+                {val.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="space-y-3">
+            {currentGroup.vaccines.map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid ${currentGroup.color}` }}>
+                <div className="flex items-start justify-between gap-3 flex-wrap mb-2">
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${currentGroup.color}15`, color: currentGroup.color }}>{item.age}</span>
+                </div>
+                <div className="text-ink-secondary text-[12px] mb-2 space-y-1">
+                  {item.vaccines.map((v, vi) => <div key={vi} className="flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span><span>{v}</span></div>)}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-surface-secondary rounded-lg p-2">
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide">Government</p>
+                    <p className="text-ink text-[12px] font-semibold">{item.govt}</p>
+                  </div>
+                  <div className="bg-surface-secondary rounded-lg p-2">
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide">Private</p>
+                    <p className="text-ink text-[12px] font-semibold">{item.private}</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-surface-secondary rounded-lg p-2">
-                <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide">Private</p>
-                <p className="text-ink text-[12px] font-semibold">{item.private}</p>
+            ))}
+          </div>
+
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary">
+            <strong className="text-ink">💡 MOH NIP:</strong> Malaysia's National Immunisation Programme covers 12 core vaccines free at Klinik Kesihatan. Private clinics offer additional optional vaccines (Varicella, HPV for boys, Meningococcal, Dengue, HFMD). Check mysejahtera.gov.my for your vaccination records.
+          </div>
+        </div>
+      )}
+
+      {/* ── COVID-19 & Flu ── */}
+      {view === 'covid' && (
+        <div className="space-y-6">
+
+          {/* COVID section */}
+          <div>
+            <h3 className="text-[17px] font-bold text-ink mb-1">🦠 COVID-19 Vaccination in Malaysia</h3>
+            <p className="text-ink-secondary text-[13px] mb-4">Malaysia's national COVID-19 vaccination programme (PICK) vaccinated over 27 million Malaysians. Updated bivalent boosters are now recommended for at-risk groups.</p>
+
+            <div className="space-y-2 mb-5">
+              {COVID_VACCINES.map((v, i) => (
+                <div key={i} className="border border-ink-quaternary rounded-xl p-3">
+                  <div className="flex items-center justify-between gap-2 flex-wrap mb-1">
+                    <p className="font-bold text-ink text-[13px]">{v.name}</p>
+                    <div className="flex gap-2">
+                      <span className="text-[11px] bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-full">{v.type}</span>
+                      <span className={`text-[11px] px-2 py-0.5 rounded-full border ${v.status === 'Available' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-amber-50 text-amber-700 border-amber-200'}`}>{v.status}</span>
+                    </div>
+                  </div>
+                  <p className="text-ink-secondary text-[11px]"><strong>Doses:</strong> {v.doses}</p>
+                  <p className="text-ink-secondary text-[11px]">{v.notes}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                { title: 'Who should get boosted?', items: ['Adults 60+: strongly recommended annually', 'Immunocompromised individuals (any age)', 'Healthcare workers', 'Pregnant women (after 1st trimester)', 'Those with chronic conditions (diabetes, heart disease, lung disease)'] },
+                { title: 'Where to get COVID vaccine in Malaysia', items: ['Free: all Klinik Kesihatan and government hospitals', 'Book via MySejahtera App or walk-in', 'Private: Caring Pharmacy, Alpro, hospital vaccination centres (paid — RM 50–200)', 'Pfizer and Moderna XBB/JN.1 bivalent formulations available'] },
+              ].map((box, i) => (
+                <div key={i} className="bg-surface-secondary rounded-xl p-4">
+                  <p className="font-bold text-ink text-[13px] mb-2">{box.title}</p>
+                  <ul className="space-y-1">
+                    {box.items.map((item, j) => (
+                      <li key={j} className="text-ink-secondary text-[12px] flex items-start gap-2">
+                        <span className="flex-shrink-0 text-brand">•</span>{item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Influenza section */}
+          <div className="border-t border-ink-quaternary pt-6">
+            <h3 className="text-[17px] font-bold text-ink mb-1">🤧 Influenza (Flu) Vaccination</h3>
+            <p className="text-ink-secondary text-[13px] mb-4">Influenza kills thousands in Malaysia each year — mostly elderly and those with chronic illness. A new flu vaccine is formulated every year to match circulating strains.</p>
+
+            <div className="grid sm:grid-cols-2 gap-4 mb-4">
+              <div className="border border-ink-quaternary rounded-xl p-4">
+                <p className="font-bold text-ink text-[13px] mb-2">Flu vaccine basics</p>
+                <ul className="space-y-1">
+                  {[
+                    'Quadrivalent vaccine covers 4 influenza strains (2 A + 2 B)',
+                    'Reformulated annually — last year\'s vaccine may not cover this year\'s strain',
+                    'Best time to vaccinate: before rainy season (Sept–Oct) or any time',
+                    'Takes 2 weeks to build immunity after vaccination',
+                    'Duration of protection: ~6–12 months',
+                  ].map((item, i) => (
+                    <li key={i} className="text-ink-secondary text-[12px] flex items-start gap-2">
+                      <span className="flex-shrink-0 text-brand">•</span>{item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="border border-ink-quaternary rounded-xl p-4">
+                <p className="font-bold text-ink text-[13px] mb-2">Who should get flu vaccine</p>
+                <ul className="space-y-1">
+                  {[
+                    '✅ Everyone 6 months+ (annual)',
+                    '🔴 Priority: 65+ (free at KK under NIP)',
+                    '🔴 Priority: Pregnant women (any trimester)',
+                    '🔴 Priority: Children 6 months–8 years (2 doses first time)',
+                    '🔴 Priority: Healthcare workers (annual)',
+                    '🔴 Priority: Chronic conditions (diabetes, asthma, heart, kidney)',
+                    'Cost at private clinics: RM 50–120',
+                  ].map((item, i) => (
+                    <li key={i} className="text-ink-secondary text-[12px] flex items-start gap-2">
+                      <span className="flex-shrink-0">•</span>{item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-[12px]">
+              <p className="font-bold text-amber-900 mb-1">Flu vs Common Cold vs COVID-19</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-[11px] mt-1">
+                  <thead><tr className="text-amber-900 font-semibold"><td className="pr-3 py-1">Feature</td><td className="pr-3 py-1">Flu</td><td className="pr-3 py-1">Common Cold</td><td className="py-1">COVID-19</td></tr></thead>
+                  <tbody>
+                    {[
+                      ['Onset', 'Sudden (hours)', 'Gradual (days)', 'Varies'],
+                      ['Fever', 'High (38–40°C)', 'Rare/mild', 'Common'],
+                      ['Body aches', 'Severe', 'Mild', 'Common'],
+                      ['Fatigue', 'Extreme', 'Mild', 'Extreme'],
+                      ['Loss of smell/taste', 'Rare', 'Rare', 'Common'],
+                      ['Duration', '5–7 days', '7–10 days', '7–14+ days'],
+                    ].map((row, i) => (
+                      <tr key={i} className={i % 2 === 0 ? 'text-amber-800' : 'text-amber-700'}>
+                        {row.map((cell, j) => <td key={j} className="pr-3 py-0.5 font-medium">{cell}</td>)}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
 
-      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary">
-        <strong className="text-ink">💡 MOH Recommendation:</strong> Malaysia's National Immunisation Programme (NIP) covers 12 basic vaccines free at Klinik Kesihatan. Private clinics offer additional optional vaccines (e.g., Varicella, HPV, Meningococcal). Check with your doctor which vaccines are right for you.
-      </div>
+      {/* ── Dengue & Tropical ── */}
+      {view === 'tropical' && (
+        <div className="space-y-5">
+          <p className="text-ink-secondary text-[13px]">Malaysia's tropical climate makes it home to several infectious diseases beyond the NIP schedule. Understanding these helps you protect yourself and your family.</p>
+          {TROPICAL_DISEASES.map((d, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-2xl overflow-hidden">
+              <div className="px-5 py-4 flex items-center gap-3" style={{ background: `${d.color}08`, borderBottom: `1px solid ${d.color}20` }}>
+                <span className="text-[22px]">{d.icon}</span>
+                <h4 className="font-bold text-ink text-[15px]">{d.disease}</h4>
+              </div>
+              <div className="px-5 py-4 grid sm:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">How it spreads</p>
+                    <p className="text-[12px] text-ink">{d.spread}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">Symptoms</p>
+                    <p className="text-[12px] text-ink">{d.symptoms}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">Malaysian risk</p>
+                    <p className="text-[12px] text-ink">{d.risk}</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="bg-brand/5 border border-brand/20 rounded-xl p-3">
+                    <p className="text-[10px] font-semibold text-brand uppercase tracking-wide mb-1">💉 Vaccine / Prevention</p>
+                    <p className="text-[12px] text-ink-secondary">{d.vaccine}</p>
+                  </div>
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-3">
+                    <p className="text-[10px] font-semibold text-red-700 uppercase tracking-wide mb-1">🚨 Emergency signs</p>
+                    <p className="text-[12px] text-red-800">{d.emergency}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

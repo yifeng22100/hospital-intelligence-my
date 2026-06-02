@@ -12,6 +12,7 @@ import About from './pages/About'
 import Terms from './pages/Terms'
 import Sources from './pages/Sources'
 import Tools from './pages/Tools'
+import Lifestyle from './pages/Lifestyle'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/tools" element={<Tools />} />
+            <Route path="/lifestyle" element={<Lifestyle />} />
             <Route path="/about" element={<About />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/sources" element={<Sources />} />

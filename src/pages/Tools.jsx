@@ -471,19 +471,19 @@ function FppSavingsCalculator() {
 /* ─── Panel Lookup ───────────────────────────────────────────────── */
 
 const INSURER_HOTLINES = {
-  'aia':          { hotline: '1300-88-1899',  tpa: 'In-house (AIA Care Line)',              note: '24/7 GL service',                            panelUrl: 'https://myhospital.aia.com.my' },
-  'prudential':   { hotline: '03-2771-9599',  tpa: 'MediExpress (HAS)',                     note: '24/7 admission & GL line',                   panelUrl: 'https://www.prudential.com.my/en/claims-and-support/medical-card-services/panel-hospital/' },
-  'great-eastern':{ hotline: '1300-1300-18',  tpa: 'In-house (GE Healthcare Services Dept)', note: '24/7 GL line',                              panelUrl: 'https://www.greateasternlife.com/my/en/customer-services/healthcare-services/healthcare-overview/locators-search-page.html' },
-  'allianz':      { hotline: '1800-88-1311',  tpa: 'Allianz Care Services / MediExpress',   note: 'Life GL line (24/7)',                         panelUrl: 'https://www.allianz.com.my/personal/help-and-services/ways-to-get-in-touch/allianz-locator.html' },
-  'tokio-marine': { hotline: '03-7843-9459',  tpa: 'MiCare Sdn Bhd',                        note: '24/7 GL via MiCare',                         panelUrl: 'https://www.tokiomarine.com/my/en/life/resources/locators/private-hospital-medicalcard-locator.html' },
-  'zurich':       { hotline: '1800-88-2318',  tpa: 'MiCare Sdn Bhd (from Apr 2025)',        note: '24/7 — replaced 1800-82-6100 from Apr 2025', panelUrl: 'https://www.zurich.com.my/customer-hub/my-claims/panel-hospitals' },
-  'sun-life':     { hotline: '03-7884-1818',  tpa: 'MediExpress (M) Sdn Bhd',               note: '24/7 cashless admission',                    panelUrl: 'https://www.sunlifemalaysia.com/client-care/make-a-claim/panel-hospitals/' },
-  'etiqa':        { hotline: '1800-88-9998',  tpa: 'In-house (Etiqa Healthcare Call Centre)', note: '24/7; GL typically issued in 1–4 hrs',     panelUrl: 'https://www.etiqa.com.my/panels/panel-hospitals' },
-  'axa-affin':    { hotline: '1300-88-9979',  tpa: 'IHP Malaysia / MiCare (Generali Life)',  note: 'Rebranded to Generali Life Malaysia (2024); hotline unchanged', panelUrl: 'https://www.generali.com.my' },
-  'msig':         { hotline: '+603-7628-3980', tpa: 'MSIG Assist (in-house)',                note: '24/7 cashless admission',                    panelUrl: 'https://www.msig.com.my/claims/healthcare.html' },
-  'tune-protect': { hotline: '1800-88-2678',  tpa: 'MiCare Sdn Bhd',                        note: '24/7 GL line (policies from Nov 2022)',      panelUrl: 'https://www.tuneprotect.com/my/products/pro-health-medical/' },
-  'bupa':         { hotline: '1800-82-6100',  tpa: 'IHP Malaysia (from Jan 2025)',           note: 'GOP via IHP; or use number on your card',   panelUrl: 'https://www.bupaglobal.com/en/facilities/finder' },
-  'cigna':        { hotline: 'See your card', tpa: 'In-house (Cigna Global)',                 note: 'No public MY line — call number on card',   panelUrl: 'https://www.cignaglobal.com/customer-area' },
+  'aia':          { hotline: '1300-888-860',  tpa: 'In-house (AIA Health Services Sdn Bhd)',  note: '24/7 GL; SMART Panel (75 hospitals) + General Panel (45) = 120 total', panelUrl: 'https://www.aia.com.my/en/help-support/claims-and-support/smart-journey.html' },
+  'prudential':   { hotline: '03-2771-0228',  tpa: 'In-house (HAS — Hospital Alliance Services)', note: '24/7 via HAS system; PruBSN admission line: 03-2166-7377', panelUrl: 'https://www.prudential.com.my/en/claims-and-support/medical-card-services/panel-hospital/' },
+  'great-eastern':{ hotline: '1300-1300-18',  tpa: 'In-house (Healthcare Services Div — HSD)', note: '24/7 GL; "The Great Journey" premium tier (85 hospitals, updated Nov 2025)', panelUrl: 'https://www.greateasternlife.com/my/en/customer-services/healthcare-services/healthcare-overview/locators-search-page.html' },
+  'allianz':      { hotline: '1300-88-8322',  tpa: 'In-house (ACS — Allianz Care Services)',  note: '24/7 GL; Blue Ribbon Programme (16 premium hospitals with priority admission)', panelUrl: 'https://www.allianz.com.my/personal/help-and-services/ways-to-get-in-touch/allianz-locator.html' },
+  'tokio-marine': { hotline: '1300-88-8690',  tpa: 'MiCare Sdn Bhd',                          note: '24/7 GL via MiCare (printed on card); MiCare MyMed App available', panelUrl: 'https://www.tokiomarine.com/my/en/life/resources/locators/private-hospital-medicalcard-locator.html' },
+  'zurich':       { hotline: '1800-88-2318',  tpa: 'MiCare Sdn Bhd (individual, from Apr 14 2025)', note: '24/7; individual/takaful on MiCare from Apr 14 2025; group still on IHP until renewal', panelUrl: 'https://www.zurich.com.my/customer-hub/my-claims/panel-hospitals' },
+  'sun-life':     { hotline: '03-7884-1818',  tpa: 'MediExpress (M) Sdn Bhd',                 note: '24/7 cashless admission; panel updated Feb 2025', panelUrl: 'https://www.sunlifemalaysia.com/client-care/make-a-claim/panel-hospitals/' },
+  'etiqa':        { hotline: '1800-88-9998',  tpa: 'In-house (Etiqa Healthcare Call Centre)',  note: '24/7; 140 panel hospitals; fully cardless via eTiQa+ App QR code', panelUrl: 'https://www.etiqa.com.my/panels/panel-hospitals' },
+  'axa-affin':    { hotline: '1300-88-9979',  tpa: 'IHP (General) / MiCare (Life, from Jan 1 2026)', note: '⚠ Cashless DISCONTINUED at selected Pantai & KPJ hospitals from Jul 18 2025 — those are reimbursement only now', panelUrl: 'https://www.generali.com.my' },
+  'msig':         { hotline: '1800-88-6744',  tpa: 'In-house (MSIG Assist)',                   note: '24/7 cashless via MSIG Assist Card; group products may use IHP or MiCare', panelUrl: 'https://www.msig.com.my/claims/healthcare.html' },
+  'tune-protect': { hotline: '1800-88-7940',  tpa: 'MiCare Sdn Bhd',                          note: '24/7 MiCare dedicated line for Tune Protect customers; MiCare MyMed App available', panelUrl: 'https://www.tuneprotect.com/my/products/pro-health-medical/' },
+  'bupa':         { hotline: '1800-82-6100',  tpa: 'IHP Malaysia (from Jan 1 2025)',           note: 'TPA changed from Fullerton to IHP on Jan 1 2025; allow 1h for cashless approval', panelUrl: 'https://www.bupaglobal.com/en/facilities/full-list' },
+  'cigna':        { hotline: 'See your card', tpa: 'In-house (Cigna Global)',                   note: 'No fixed Malaysian hotline — prior authorisation required via cignaglobal.com/contact', panelUrl: 'https://www.cignaglobal.com/customer-area' },
 }
 
 function PanelLookupSection() {
