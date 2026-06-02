@@ -7,6 +7,8 @@ const TOPICS = [
   { id: 'drugs',         icon: '💊', label: 'Common Drugs',      desc: 'Common medications — Mandarin names, what they do, where to get them' },
   { id: 'lab-values',    icon: '🔬', label: 'Lab Values',        desc: 'What your blood test results mean — normal ranges explained' },
   { id: 'abbreviations', icon: '🔤', label: 'Abbreviations',     desc: 'Common Malaysian hospital and medical shorthand decoded' },
+  { id: 'screening',     icon: '🩺', label: 'Health Screening',  desc: 'What to screen for, when, and where — age-by-age guide' },
+  { id: 'maternal',      icon: '🤰', label: 'Maternal Health',   desc: 'Antenatal visits, tests, postnatal care & delivery guide' },
 ]
 
 const LAB_VALUES = [
@@ -306,6 +308,8 @@ export default function Knowledge() {
         {active === 'drugs'         && <DrugsSection />}
         {active === 'lab-values'    && <LabValuesSection />}
         {active === 'abbreviations' && <AbbreviationsSection />}
+        {active === 'screening'     && <ScreeningSection />}
+        {active === 'maternal'      && <MaternalSection />}
       </div>
     </div>
   )
@@ -669,6 +673,715 @@ function AbbreviationsSection() {
           <p className="text-center text-ink-tertiary text-[13px] py-8">No abbreviations match your search.</p>
         )}
       </div>
+    </div>
+  )
+}
+
+/* ─── Health Screening ───────────────────────────────────────────── */
+
+const SCREENING_BY_AGE = [
+  {
+    stage: '20s',
+    range: 'Ages 20–29',
+    color: '#16a34a',
+    icon: '🌱',
+    items: [
+      { test: 'Blood Pressure', freq: 'Every 2 years (annually if ≥ 120/80)', who: 'Everyone', note: 'Normal: < 120/80 mmHg. Checked free at any Klinik Kesihatan.' },
+      { test: 'BMI & Waist Circumference', freq: 'Annually', who: 'Everyone', note: 'Asian overweight threshold: BMI ≥ 23. Waist risk: men ≥ 90 cm, women ≥ 80 cm.' },
+      { test: 'Fasting Blood Sugar', freq: 'Every 3 years if normal; annually with risk factors', who: 'Everyone from age 18', note: 'Risk factors: family history of diabetes, overweight, PCOS.' },
+      { test: 'Pap Smear (Cervical Cancer)', freq: 'Every 3 years from age 21 (or 3 years after sexual debut)', who: 'Women', note: 'Free at Klinik Kesihatan under BLIS Programme. HPV co-test from age 30.' },
+      { test: 'Dental Check', freq: 'Every 6–12 months', who: 'Everyone', note: 'Free at government dental clinics for eligible patients.' },
+      { test: 'STI / HIV Screening', freq: 'As appropriate based on risk', who: 'Sexually active', note: 'Free anonymous HIV testing at Klinik Kesihatan and approved NGOs (PT Foundation, etc.).' },
+    ],
+  },
+  {
+    stage: '30s',
+    range: 'Ages 30–39',
+    color: '#0891b2',
+    icon: '📈',
+    items: [
+      { test: 'Blood Pressure', freq: 'Annually', who: 'Everyone', note: 'More frequent if family history of hypertension or kidney disease.' },
+      { test: 'Fasting Blood Sugar (FBS)', freq: 'Annually from age 30', who: 'Everyone', note: 'MOH CPG recommends FBS screening from age 30. Free at Klinik Kesihatan.' },
+      { test: 'Full Lipid Panel', freq: 'Every 5 years (more often with risk factors)', who: 'Everyone', note: 'Includes LDL, HDL, total cholesterol, triglycerides. 9–12 hour fast required.' },
+      { test: 'Pap Smear / HPV Co-test', freq: 'Every 3 years (Pap); every 5 years (HPV co-test)', who: 'Women', note: 'HPV co-test preferred from age 30. Covers high-risk strains 16, 18, and others.' },
+      { test: 'Eye Examination', freq: 'Every 2 years', who: 'Everyone', note: 'Earlier if you have diabetes, hypertension, or family history of glaucoma.' },
+      { test: 'Hepatitis B Screening', freq: 'Once (if unvaccinated or unknown status)', who: 'Everyone', note: 'HBsAg, anti-HBs. Vaccinate if not immune. Free at Klinik Kesihatan for unvaccinated adults.' },
+      { test: 'Thyroid Function (TSH)', freq: 'Every 5 years (women)', who: 'Women (especially)', note: 'Women are 5–8× more likely to develop thyroid disorders. Discuss with doctor if fatigue, weight changes, or hair loss.' },
+    ],
+  },
+  {
+    stage: '40s',
+    range: 'Ages 40–49',
+    color: '#d97706',
+    icon: '⚠️',
+    items: [
+      { test: 'Mammogram', freq: 'Annually or every 2 years from age 40', who: 'Women', note: 'Free at MOH hospitals under BreastScreen Malaysia programme for women 40–74.' },
+      { test: 'Colorectal Cancer Screening', freq: 'FOBT annually; colonoscopy from age 45 (every 10 years)', who: 'Everyone from 45', note: 'Earlier if family history of colorectal cancer or polyps. FOBT available at KK.' },
+      { test: 'Cardiac Risk Assessment', freq: 'Every 5 years (or annually with risk factors)', who: 'Everyone', note: 'Includes FBS, lipid panel, BP. Framingham/SCORE2 risk score. Ask your doctor to calculate your 10-year cardiac risk.' },
+      { test: 'PSA (Prostate-Specific Antigen)', freq: 'Discuss with doctor from age 40–50', who: 'Men', note: 'Controversial — discuss risks and benefits with your doctor before testing. Not a universal recommendation.' },
+      { test: 'Bone Density (DEXA)', freq: 'Discuss with doctor if risk factors', who: 'Women approaching menopause', note: 'Risk factors: smoking, low BMI, steroid use, family history of osteoporosis.' },
+      { test: 'Full Blood Count (FBC)', freq: 'Annually', who: 'Everyone', note: 'Checks for anaemia, infection markers, platelet disorders. Included in most health screening packages.' },
+    ],
+  },
+  {
+    stage: '50s',
+    range: 'Ages 50–64',
+    color: '#7c3aed',
+    icon: '🔍',
+    items: [
+      { test: 'Colonoscopy', freq: 'Every 10 years (if normal); every 3–5 years if polyps found', who: 'Everyone', note: 'Gold standard for colorectal cancer detection. Requires bowel prep. Sedation available.' },
+      { test: 'Bone Density (DEXA)', freq: 'Women at menopause; repeat every 1–2 years if low', who: 'Post-menopausal women; men 70+', note: 'T-score: Normal ≥ −1.0; Osteopenia −1.0 to −2.5; Osteoporosis ≤ −2.5.' },
+      { test: 'Lung Cancer Screening (LDCT)', freq: 'Annually for 3 years (if eligible)', who: 'Ages 50–80, 20+ pack-year smoker', note: 'Low-dose CT chest. MOH Malaysia follows USPSTF criteria. Discuss with pulmonologist.' },
+      { test: 'Abdominal Aortic Aneurysm (AAA)', freq: 'Once at age 65 (men who ever smoked)', who: 'Men 65+ (smokers)', note: 'Ultrasound abdomen. Detects silent AAA before rupture.' },
+      { test: 'Hearing Test (Audiometry)', freq: 'Every 3 years from age 50', who: 'Everyone', note: 'Age-related hearing loss is often gradual and unnoticed. Available at ENT clinics.' },
+      { test: 'Glaucoma Screening', freq: 'Every 2 years from age 40; annually from 60', who: 'Everyone', note: 'Intraocular pressure check + optic nerve assessment at ophthalmology clinic.' },
+    ],
+  },
+  {
+    stage: '65+',
+    range: 'Ages 65 and above',
+    color: '#dc2626',
+    icon: '🌟',
+    items: [
+      { test: 'Comprehensive Geriatric Assessment', freq: 'Annually', who: 'Everyone 65+', note: 'Covers cognition, falls risk, functional status, nutrition, medication review. Ask your family doctor or geriatrician.' },
+      { test: 'Cognitive Screening (MMSE / MoCA)', freq: 'Annually', who: 'Everyone 65+', note: 'Mini-Mental State Exam or Montreal Cognitive Assessment — detect early dementia. Free at KK.' },
+      { test: 'Osteoporosis Monitoring', freq: 'Every 1–2 years', who: 'Post-menopausal women; men 70+', note: 'Continue DEXA monitoring. Falls prevention programme available at government hospitals.' },
+      { test: 'Influenza Vaccination', freq: 'Annually', who: 'Everyone 65+', note: 'Free for 65+ at Klinik Kesihatan under National Immunisation Programme (NIP).' },
+      { test: 'Pneumococcal Vaccination', freq: 'Once (PCV13) + booster after 1 year (PPSV23)', who: 'Everyone 65+', note: 'Available free at government hospitals. Protects against pneumonia and meningitis.' },
+      { test: 'Depression Screening (GDS)', freq: 'Annually', who: 'Everyone 65+', note: 'Geriatric Depression Scale — 15-item questionnaire. Depression is underdiagnosed in the elderly.' },
+    ],
+  },
+]
+
+const SCREENING_PACKAGES = [
+  {
+    tier: 'Basic / Asas',
+    price: 'Free – RM 80',
+    color: '#16a34a',
+    where: 'Klinik Kesihatan (KK), KPMC clinics',
+    items: ['Blood pressure (BP)', 'BMI & waist circumference', 'Fasting blood sugar (FBS)', 'Total cholesterol', 'Urine FEME (dipstick)'],
+    note: 'Available free for Malaysians at Klinik Kesihatan. Peka B40 programme extends this free to B40 households for additional tests.',
+  },
+  {
+    tier: 'Essential / Standard',
+    price: 'RM 100 – RM 300',
+    color: '#0891b2',
+    where: 'Private GP, Pathlab, TMC, KPJ Wellness',
+    items: ['Everything in Basic', 'Full Blood Count (FBC)', 'Liver Function Test (LFT)', 'Kidney Function / Renal Profile', 'Uric acid', 'ECG (resting)', 'HbA1c'],
+    note: 'Most common package at private labs and GP health screenings. Pathlab, DKSH, and hospital-based screening centres offer this range.',
+  },
+  {
+    tier: 'Comprehensive / Lengkap',
+    price: 'RM 300 – RM 800',
+    color: '#7c3aed',
+    where: 'Hospital health screening centres, UMSC, KPJ, Pantai, Gleneagles',
+    items: ['Everything in Essential', 'Full lipid panel (LDL, HDL, TG)', 'Thyroid function (TSH, T4)', 'Hepatitis B & C serology', 'Pap smear (women) / PSA (men)', 'Tumour markers (CEA, CA19-9, AFP, CA-125)', 'Chest X-ray (CXR)', 'Stool FOBT (colorectal screening)', 'Ultrasound abdomen'],
+    note: 'Comprehensive packages vary widely between hospitals. Always confirm exactly what is included and whether a doctor consultation is bundled.',
+  },
+  {
+    tier: 'Executive / Premium',
+    price: 'RM 800 – RM 3,000+',
+    color: '#dc2626',
+    where: 'Gleneagles, Prince Court, Pantai, UMSC, Island Hospital',
+    items: ['Everything in Comprehensive', 'CT Coronary Calcium Scoring (cardiac risk)', 'MRI brain or full-body (varies)', 'DEXA bone density', 'Audiometry (hearing test)', 'Ophthalmology review', 'Full echocardiogram', 'Treadmill stress ECG', 'Dietitian consultation', 'Doctor specialist review'],
+    note: 'Premium packages include specialist consultations and advanced imaging. Best suited for high-risk individuals or those wanting the most thorough annual review.',
+  },
+]
+
+const FREE_PROGRAMMES = [
+  {
+    name: 'Peka B40',
+    desc: 'Free health screening for B40 Malaysians — covers NCD (diabetes, hypertension, kidney disease), cancer screening (breast, cervical, colorectal), and mental health assessment.',
+    who: 'B40 Malaysians aged 40–60 registered in eKasih / Peka B40 app',
+    where: 'Approved Klinik Kesihatan and panel clinics nationwide',
+    url: 'https://www.pekab40.com.my',
+    icon: '🟢',
+  },
+  {
+    name: 'BreastScreen Malaysia',
+    desc: 'Free mammogram for women aged 40–74. Offered at MOH hospitals and mobile mammography units.',
+    who: 'Women aged 40–74, Malaysian citizens',
+    where: 'MOH district and state hospitals; mobile units (schedule varies by state)',
+    url: 'https://www.moh.gov.my',
+    icon: '🩷',
+  },
+  {
+    name: 'BLIS Programme (Cervical Cancer)',
+    desc: 'Free Pap smear / VIA (Visual Inspection with Acetic Acid) at government health clinics. Cervical cancer is the 3rd most common cancer in Malaysian women.',
+    who: 'Women aged 20–65 who are or have been sexually active',
+    where: 'Any Klinik Kesihatan nationwide',
+    url: 'https://www.moh.gov.my',
+    icon: '🩺',
+  },
+  {
+    name: 'KOSPEN (Community NCD Screening)',
+    desc: 'Community-level screening for blood pressure, blood sugar, and BMI. Conducted by trained community health volunteers (KOSPEN officers).',
+    who: 'Any Malaysian, particularly in rural and under-served communities',
+    where: 'Community halls, suraus, schools — check with local KK for schedule',
+    url: 'https://www.moh.gov.my',
+    icon: '🏘️',
+  },
+]
+
+function ScreeningSection() {
+  const [activeAge, setActiveAge] = useState('20s')
+  const [openPkg, setOpenPkg] = useState(null)
+  const [openProg, setOpenProg] = useState(null)
+  const ageGroup = SCREENING_BY_AGE.find(g => g.stage === activeAge)
+
+  return (
+    <div className="space-y-10">
+
+      {/* Intro */}
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+        <p><span className="font-semibold text-ink">Why screen?</span> Most chronic diseases — diabetes, hypertension, high cholesterol, and cancer — have no symptoms in early stages. Screening catches them when treatment is simplest and cheapest. Malaysian MOH guidelines recommend starting basic NCD screening from age 30 (or earlier with risk factors).</p>
+      </div>
+
+      {/* Age-based guide */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🗓️ What to Screen — By Age Group</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">Select your age group to see recommended tests and frequency.</p>
+
+        <div className="flex flex-wrap gap-2 mb-5">
+          {SCREENING_BY_AGE.map(g => (
+            <button key={g.stage} onClick={() => setActiveAge(g.stage)}
+              className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+                activeAge === g.stage
+                  ? 'text-white border-transparent'
+                  : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+              }`}
+              style={activeAge === g.stage ? { background: g.color, borderColor: g.color } : {}}>
+              {g.icon} {g.range}
+            </button>
+          ))}
+        </div>
+
+        {ageGroup && (
+          <div className="space-y-2">
+            {ageGroup.items.map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid ${ageGroup.color}` }}>
+                <div className="flex items-start justify-between gap-3 flex-wrap">
+                  <div className="flex-1">
+                    <div className="flex items-start gap-2 flex-wrap">
+                      <span className="font-semibold text-ink text-[13px]">{item.test}</span>
+                      <span className="text-[11px] px-2 py-0.5 rounded-full font-medium"
+                        style={{ background: `${ageGroup.color}15`, color: ageGroup.color }}>
+                        {item.who}
+                      </span>
+                    </div>
+                    <p className="text-ink-secondary text-[12px] mt-0.5">{item.freq}</p>
+                  </div>
+                </div>
+                <p className="text-ink-tertiary text-[12px] leading-relaxed mt-2 pt-2 border-t border-ink-quaternary">💡 {item.note}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Package tiers */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">📦 Screening Package Tiers</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">What's included at each level — and where to get it in Malaysia.</p>
+        <div className="space-y-2">
+          {SCREENING_PACKAGES.map(pkg => {
+            const isOpen = openPkg === pkg.tier
+            return (
+              <div key={pkg.tier} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${pkg.color}` }}>
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenPkg(isOpen ? null : pkg.tier)}>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="font-semibold text-ink text-[14px]">{pkg.tier}</span>
+                    <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full"
+                      style={{ background: `${pkg.color}15`, color: pkg.color }}>{pkg.price}</span>
+                    <span className="text-ink-tertiary text-[12px]">{pkg.where}</span>
+                  </div>
+                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-2 ${isOpen ? 'rotate-180' : ''}`}
+                    width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 border-t border-ink-quaternary pt-3 space-y-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {pkg.items.map((item, i) => (
+                        <span key={i} className="text-[12px] px-2.5 py-1 rounded-full border border-ink-quaternary bg-surface-secondary text-ink-secondary">{item}</span>
+                      ))}
+                    </div>
+                    <p className="text-[12px] text-ink-secondary bg-amber-50 border border-amber-100 rounded-xl px-3 py-2">
+                      💡 {pkg.note}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Free Government Programmes */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🇲🇾 Free Government Screening Programmes</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">These are fully subsidised — most Malaysians are eligible but unaware.</p>
+        <div className="space-y-2">
+          {FREE_PROGRAMMES.map(prog => {
+            const isOpen = openProg === prog.name
+            return (
+              <div key={prog.name} className="border border-ink-quaternary rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenProg(isOpen ? null : prog.name)}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[18px]">{prog.icon}</span>
+                    <span className="font-semibold text-ink text-[14px]">{prog.name}</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">FREE</span>
+                  </div>
+                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-2 ${isOpen ? 'rotate-180' : ''}`}
+                    width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 border-t border-ink-quaternary pt-3 space-y-2.5">
+                    <p className="text-ink-secondary text-[13px] leading-relaxed">{prog.desc}</p>
+                    <div className="grid sm:grid-cols-2 gap-2">
+                      <div className="bg-surface-secondary rounded-xl p-3">
+                        <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">Who</p>
+                        <p className="text-[12px] text-ink">{prog.who}</p>
+                      </div>
+                      <div className="bg-surface-secondary rounded-xl p-3">
+                        <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">Where</p>
+                        <p className="text-[12px] text-ink">{prog.where}</p>
+                      </div>
+                    </div>
+                    <a href={prog.url} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-brand text-[12px] font-medium hover:underline">
+                      🔗 {prog.url.replace('https://', '')}
+                    </a>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Where to get screened */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[15px] mb-3">📍 Where to Get Screened in Malaysia</h3>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            { place: 'Klinik Kesihatan (KK)', detail: 'Free basic NCD screening for all Malaysians. Walk in or register at your nearest KK. Free for hypertension, diabetes, and cholesterol checks.', badge: 'Free', badgeColor: '#16a34a' },
+            { place: 'Private Labs (Pathlab, DKSH)', detail: 'Walk-in blood tests with same-day or next-day results. Essential packages RM 100–300. No doctor referral needed.', badge: 'RM 100–300', badgeColor: '#0891b2' },
+            { place: 'Hospital Health Screening Centres', detail: 'Comprehensive packages with doctor consultation. KPJ Health Screening, Pantai HealthScreening, Gleneagles Executive Screening.', badge: 'RM 300–800+', badgeColor: '#7c3aed' },
+            { place: 'KPMC / GP Clinics', detail: 'Many private GPs offer bundled packages. Convenient — same doctor reviews results. Often cheaper than hospital packages for essentials.', badge: 'RM 80–250', badgeColor: '#d97706' },
+          ].map(({ place, detail, badge, badgeColor }) => (
+            <div key={place} className="bg-white rounded-xl p-3">
+              <div className="flex items-start justify-between gap-2 mb-1.5">
+                <p className="font-semibold text-ink text-[13px]">{place}</p>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0"
+                  style={{ background: `${badgeColor}15`, color: badgeColor }}>{badge}</span>
+              </div>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-ink-tertiary text-[11px] mt-3">Always fast for 8–12 hours before lipid panel, FBS, and liver/kidney function tests. Bring your IC. Government screening is free but may require a morning appointment.</p>
+      </div>
+
+    </div>
+  )
+}
+
+/* ─── Maternal Health ────────────────────────────────────────────── */
+
+const ANTENATAL_TIMELINE = [
+  {
+    period: 'First Trimester',
+    weeks: 'Weeks 1–13',
+    color: '#16a34a',
+    icon: '🌱',
+    visits: [
+      {
+        week: 'Week 6–8',
+        title: 'Booking / First Antenatal Visit',
+        what: 'Register at Klinik Kesihatan (free) or private OB/GYN clinic. This is your most important early appointment.',
+        tests: ['Full Blood Count (FBC)', 'Blood group & Rhesus factor', 'VDRL (syphilis screen)', 'HIV test', 'Hepatitis B surface antigen (HBsAg)', 'Rubella immunity (IgG)', 'Urine FEME + culture', 'Blood pressure & weight baseline'],
+        actions: ['Start folic acid 400mcg daily (or 5mg if high-risk)', 'Start iron supplement', 'Discuss smoking, alcohol, medications', 'Book first ultrasound'],
+      },
+      {
+        week: 'Week 8–10',
+        title: 'Dating Ultrasound',
+        what: 'Confirms pregnancy viability, gestational age, and number of foetuses. Crown-rump length (CRL) used to confirm due date.',
+        tests: ['Transabdominal or transvaginal ultrasound', 'Foetal heartbeat confirmed', 'Gestational age calculated', 'Due date (EDD) established'],
+        actions: ['Keep a record of your EDD', 'Discuss delivery hospital options with your doctor'],
+      },
+      {
+        week: 'Week 11–13',
+        title: 'First Trimester Screening (Optional)',
+        what: 'Screens for chromosomal abnormalities (Down syndrome, Trisomy 18/13). Not mandatory but strongly recommended, especially for women 35+.',
+        tests: ['Nuchal Translucency (NT) ultrasound — measures fluid at back of baby\'s neck', 'PAPP-A & free beta-hCG blood tests', 'NIPT (Non-Invasive Prenatal Test) — optional, higher accuracy, private only, RM 800–2,000'],
+        actions: ['Discuss results with your OB/GYN — a "high risk" result warrants genetic counselling and possible amniocentesis', 'NIPT detects 99%+ of trisomy 21 with < 0.1% false positive rate'],
+      },
+    ],
+  },
+  {
+    period: 'Second Trimester',
+    weeks: 'Weeks 14–27',
+    color: '#0891b2',
+    icon: '🌿',
+    visits: [
+      {
+        week: 'Week 14–16',
+        title: 'Second Antenatal Visit',
+        what: 'Routine check — blood pressure, weight, urine dipstick, foetal heart rate (Doppler). Review any first trimester results.',
+        tests: ['Urine FEME', 'Blood pressure', 'Weight', 'Foetal heartbeat (Doppler)'],
+        actions: ['Discuss any abnormal results from first trimester', 'Continue folic acid and iron', 'Avoid raw meat, soft cheese, high-mercury fish'],
+      },
+      {
+        week: 'Week 18–22',
+        title: 'Anatomy Scan (Mid-Pregnancy Ultrasound)',
+        what: 'Detailed structural survey of the baby — brain, heart, spine, limbs, kidneys, face. Most comprehensive ultrasound in pregnancy. Baby\'s sex can be determined.',
+        tests: ['4-chamber cardiac view', 'Brain (ventricles, cerebellum)', 'Spine, abdominal wall, kidneys, bladder', 'Limbs, face, lips', 'Placenta location, amniotic fluid level', 'Cervical length (risk of preterm birth)'],
+        actions: ['Structural abnormalities detected here can be referred to a foetal medicine specialist', 'If placenta is low-lying (placenta praevia), repeat scan at 32 weeks'],
+      },
+      {
+        week: 'Week 24–28',
+        title: 'Gestational Diabetes Screening (OGTT)',
+        what: 'Oral Glucose Tolerance Test. MOH Malaysia recommends this for ALL pregnant women. Detects gestational diabetes, which affects 1 in 5 Malaysian pregnancies.',
+        tests: ['Fast for 8–10 hours (water only)', 'Blood drawn at 0, 1, and 2 hours after drinking 75g glucose solution', 'Normal: fasting < 5.1 mmol/L; 1hr < 10.0; 2hr < 8.5 mmol/L'],
+        actions: ['If positive: dietary modification + blood glucose monitoring', 'Some cases require insulin — managed by obstetrician with endocrinologist', 'NIPT detects 99%+ of trisomy 21 with < 0.1% false positive rate'],
+      },
+    ],
+  },
+  {
+    period: 'Third Trimester',
+    weeks: 'Weeks 28–40',
+    color: '#d97706',
+    icon: '🌻',
+    visits: [
+      {
+        week: 'Week 28',
+        title: 'Third Trimester Check',
+        what: 'Repeat blood tests to monitor for anaemia. Rhesus-negative mothers need anti-D immunoglobulin if the baby may be Rh positive.',
+        tests: ['Repeat FBC (check for anaemia)', 'Repeat Hepatitis B if not immune', 'Anti-D immunoglobulin for Rh-negative mothers', 'Growth assessment', 'Blood pressure monitoring for pre-eclampsia'],
+        actions: ['Increase iron intake if anaemic', 'Start kick count monitoring — ≥ 10 movements in 2 hours is reassuring', 'Discuss birth plan and pain relief options'],
+      },
+      {
+        week: 'Week 32–34',
+        title: 'Growth Scan',
+        what: 'Checks baby\'s growth rate, estimated weight, amniotic fluid, and placental function. Not routine in all centres but recommended for high-risk pregnancies.',
+        tests: ['Estimated foetal weight (EFW)', 'Amniotic Fluid Index (AFI)', 'Umbilical artery Doppler (blood flow)', 'Placental grading'],
+        actions: ['Babies measuring < 10th percentile are referred to foetal medicine specialists', 'Discuss timing of delivery if IUGR (intrauterine growth restriction) is suspected'],
+      },
+      {
+        week: 'Week 35–36',
+        title: 'Pre-Delivery Checks',
+        what: 'Confirm baby\'s presentation (head-down vs breech). Group B Streptococcus (GBS) screening. Begin discussions about labour signs and when to go to hospital.',
+        tests: ['Foetal presentation scan', 'GBS vaginal/rectal swab (cultures at 35–37 weeks)', 'Cardiotocography (CTG) if high-risk', 'Cervical assessment if appropriate'],
+        actions: ['If breech at 36 weeks: discuss External Cephalic Version (ECV) to turn baby', 'If GBS positive: IV antibiotics required during labour', 'Finalise birth plan, hospital bag, and transport to hospital'],
+      },
+      {
+        week: 'Week 38–40',
+        title: 'Weekly Visits Until Delivery',
+        what: 'Weekly monitoring of blood pressure, foetal movements, and cervical ripening. Discuss induction if overdue (≥ 41 weeks).',
+        tests: ['Blood pressure and urine (pre-eclampsia watch)', 'CTG (foetal heart rate monitoring)', 'Cervical dilation check', 'Foetal presentation confirm'],
+        actions: ['If BP rises above 140/90 — go to hospital immediately (pre-eclampsia sign)', 'Know your labour signs: regular contractions, water breaking, bloody show', 'Go to hospital if < 10 foetal movements in 2 hours'],
+      },
+    ],
+  },
+]
+
+const POSTNATAL_TIMELINE = [
+  {
+    period: 'In Hospital (Day 0–3)',
+    color: '#16a34a',
+    mother: ['Vital signs monitoring — BP, temperature, bleeding', 'Perineal wound or C-section wound care', 'Breastfeeding initiation and support from lactation consultant', 'Edinburgh Postnatal Depression Scale (EPDS) screening', 'Iron supplementation continued', 'Contraception counselling'],
+    baby: ['APGAR score at 1 and 5 minutes', 'Vitamin K injection (prevents bleeding in newborn)', 'Hepatitis B — Dose 1 (within 24 hours of birth)', 'BCG vaccine (tuberculosis prevention)', 'Newborn hearing screening (OAE test)', 'Neonatal metabolic screening (Guthrie test — detects PKU, hypothyroidism, and other metabolic disorders)'],
+  },
+  {
+    period: '1–2 Weeks After Discharge',
+    color: '#0891b2',
+    mother: ['Home visit by community health nurse (for KK patients)', 'Monitor for postnatal warning signs: fever, heavy bleeding, wound infection, leg pain (DVT)', 'Breastfeeding support — contact lactation consultant or LLLI Malaysia if needed', 'Rest — avoid heavy lifting for 6 weeks after C-section'],
+    baby: ['Baby weigh-in at Klinik Kesihatan', 'Jaundice monitoring — yellowing of skin or eyes in first week (phototherapy if severe)', 'Feeding well — 8–12 feeds per day for breastfed newborns', 'Umbilical cord stump care (keep dry, falls off in 1–3 weeks)'],
+  },
+  {
+    period: '6-Week Postnatal Check',
+    color: '#7c3aed',
+    mother: ['Full postnatal examination — uterus, wound, BP, weight', 'Cervical smear if due', 'Contraception prescription and counselling', 'Mental health screening — postnatal depression affects 1 in 7 Malaysian mothers', 'Return-to-exercise guidance'],
+    baby: ['Growth check — weight, length, head circumference plotted on chart', 'Hepatitis B Dose 2', 'Developmental milestones check — eye contact, response to sound, feeding', 'Discuss childhood immunisation schedule'],
+  },
+]
+
+const WARNING_SIGNS = [
+  { sign: 'Severe headache with visual disturbances (flashing lights, blurred vision)', urgency: 'Emergency', detail: 'Could indicate pre-eclampsia. Go to A&E immediately. Check blood pressure.' },
+  { sign: 'Sudden swelling of face, hands, or feet', urgency: 'Emergency', detail: 'Combined with high blood pressure may indicate pre-eclampsia. Do not wait for your next appointment.' },
+  { sign: 'Vaginal bleeding at any stage', urgency: 'Emergency', detail: 'Any significant vaginal bleeding during pregnancy requires immediate assessment. Light spotting in first trimester can be normal — heavy bleeding is not.' },
+  { sign: 'Decreased or absent foetal movement (after 24 weeks)', urgency: 'Urgent', detail: 'If you notice significantly reduced movements, lie on your left side and count movements for 2 hours. Less than 10 movements: go to hospital immediately.' },
+  { sign: 'Severe abdominal pain or cramping', urgency: 'Emergency', detail: 'May indicate placental abruption, ectopic pregnancy (first trimester), or preterm labour.' },
+  { sign: 'Water breaking (amniotic fluid leakage)', urgency: 'Urgent', detail: 'Go to hospital promptly. Note the time, colour, and amount. Clear fluid is normal. Green or brown-tinged fluid (meconium) requires immediate assessment.' },
+  { sign: 'High fever (> 38°C) during pregnancy', urgency: 'Urgent', detail: 'Fever in pregnancy can harm the foetus. Seek medical care promptly. Do not self-medicate with NSAIDs (ibuprofen) — paracetamol is safer.' },
+  { sign: 'Signs of postnatal depression (persistent sadness, inability to bond with baby, thoughts of self-harm)', urgency: 'Seek Help', detail: 'Postnatal depression is common and treatable. Tell your doctor or nurse honestly. Contact Befrienders Malaysia at 03-7627 2929 (24h) or seek your GP for a referral.' },
+]
+
+const DELIVERY_COSTS = [
+  { type: 'Government Hospital', sector: 'public', normal: 'RM 50–200', csect: 'RM 100–500', note: 'Heavily subsidised. Free for Malaysian citizens in most public hospitals. Book through Klinik Kesihatan booking system.' },
+  { type: 'University Hospital (UMMC, UKMMC)', sector: 'public', normal: 'RM 200–600', csect: 'RM 500–1,500', note: 'Academic hospitals. Subsidised but slightly higher than district hospitals. Antenatal care via specialist outpatient clinic.' },
+  { type: 'FPP Ward at Government Hospital', sector: 'fpp', normal: 'RM 2,000–4,500', csect: 'RM 4,000–8,000', note: 'Private room, direct specialist care, same clinical team as subsidised ward. Apply at the hospital\'s FPP unit.' },
+  { type: 'Private Hospital (Standard)', sector: 'private', normal: 'RM 3,500–7,000', csect: 'RM 8,000–14,000', note: 'KPJ, Columbia Asia, Tropicana Medical Centre, Pantai. Includes 2–3 day stay, standard room.' },
+  { type: 'Private Hospital (Premium)', sector: 'private', normal: 'RM 5,000–10,000', csect: 'RM 12,000–20,000', note: 'Gleneagles, Prince Court, Sunway. Suite rooms, private nurse. Costs vary significantly by surgeon and room type.' },
+]
+
+const SECTOR_COLOR = { public: '#16a34a', fpp: '#0891b2', private: '#7c3aed' }
+
+function MaternalSection() {
+  const [trimester, setTrimester] = useState('First Trimester')
+  const [openVisit, setOpenVisit] = useState(null)
+  const [openPost, setOpenPost] = useState(null)
+  const [openWarn, setOpenWarn] = useState(null)
+  const [view, setView] = useState('antenatal')
+
+  const period = ANTENATAL_TIMELINE.find(t => t.period === trimester)
+
+  const Chevron = ({ open }) => (
+    <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${open ? 'rotate-180' : ''}`}
+      width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+
+  return (
+    <div className="space-y-8">
+
+      {/* View switcher */}
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'antenatal', label: '🤰 Antenatal Care' },
+          { v: 'postnatal', label: '👶 Postnatal Care' },
+          { v: 'warnings',  label: '⚠️ Warning Signs' },
+          { v: 'costs',     label: '💰 Delivery Costs' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {/* ── Antenatal ── */}
+      {view === 'antenatal' && (
+        <div className="space-y-6">
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">Minimum visits recommended by MOH Malaysia:</strong> 8 antenatal visits — at least 1 per trimester at Klinik Kesihatan (free). Private patients typically see their OB/GYN monthly until 28 weeks, fortnightly to 36 weeks, then weekly. More visits if complications arise.
+          </div>
+
+          {/* Trimester tabs */}
+          <div className="flex flex-wrap gap-2">
+            {ANTENATAL_TIMELINE.map(t => (
+              <button key={t.period} onClick={() => { setTrimester(t.period); setOpenVisit(null) }}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-semibold border transition-colors ${
+                  trimester === t.period ? 'text-white border-transparent' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+                }`}
+                style={trimester === t.period ? { background: t.color, borderColor: t.color } : {}}>
+                {t.icon} {t.period}
+                <span className="text-[11px] opacity-70">{t.weeks}</span>
+              </button>
+            ))}
+          </div>
+
+          {period && (
+            <div className="space-y-2">
+              {period.visits.map((visit, i) => {
+                const isOpen = openVisit === i
+                return (
+                  <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${period.color}` }}>
+                    <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                      onClick={() => setOpenVisit(isOpen ? null : i)}>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                            style={{ background: `${period.color}15`, color: period.color }}>{visit.week}</span>
+                          <span className="font-semibold text-ink text-[13px]">{visit.title}</span>
+                        </div>
+                        {!isOpen && <p className="text-ink-tertiary text-[11px] mt-0.5 ml-0.5 line-clamp-1">{visit.what}</p>}
+                      </div>
+                      <Chevron open={isOpen} />
+                    </button>
+                    {isOpen && (
+                      <div className="px-4 pb-4 border-t border-ink-quaternary pt-3 space-y-4">
+                        <p className="text-ink-secondary text-[13px] leading-relaxed">{visit.what}</p>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                          <div>
+                            <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Tests & Investigations</p>
+                            <div className="space-y-1">
+                              {visit.tests.map((t, ti) => (
+                                <div key={ti} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                                  <span className="text-brand mt-0.5 flex-shrink-0">•</span>{t}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          <div>
+                            <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Actions / Notes</p>
+                            <div className="space-y-1">
+                              {visit.actions.map((a, ai) => (
+                                <div key={ai} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                                  <span className="text-emerald-600 mt-0.5 flex-shrink-0">✓</span>{a}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          )}
+
+          {/* Vaccinations in pregnancy */}
+          <div className="bg-surface-secondary rounded-2xl p-4">
+            <h3 className="font-bold text-ink text-[14px] mb-2">💉 Vaccinations During Pregnancy</h3>
+            <div className="space-y-2">
+              {[
+                { name: 'Tdap (Tetanus, Diphtheria, Pertussis)', timing: 'Week 27–36', note: 'Recommended every pregnancy. Protects your newborn from whooping cough (pertussis) before they can be vaccinated at 2 months. Free at government hospitals.' },
+                { name: 'Influenza (Flu) Vaccine', timing: 'Any trimester', note: 'Safe and recommended throughout pregnancy. Reduces risk of flu-related complications for mother and protects newborn via maternal antibodies.' },
+                { name: 'Tetanus Toxoid (TT)', timing: 'If not previously immunised', note: 'For women with incomplete TT immunisation. Assessed at booking visit.' },
+                { name: 'COVID-19 Vaccine', timing: 'After first trimester', note: 'Recommended by MOH Malaysia. mRNA vaccines (Pfizer, Moderna) preferred. Reduces risk of severe illness. Discuss with your OB/GYN.' },
+              ].map(v => (
+                <div key={v.name} className="bg-white rounded-xl p-3">
+                  <div className="flex items-start justify-between gap-2 flex-wrap">
+                    <p className="font-semibold text-ink text-[13px]">{v.name}</p>
+                    <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-brand/10 text-brand flex-shrink-0">{v.timing}</span>
+                  </div>
+                  <p className="text-ink-secondary text-[12px] leading-relaxed mt-1">{v.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Postnatal ── */}
+      {view === 'postnatal' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px] leading-relaxed max-w-[640px]">
+            Postnatal care covers both mother and baby from delivery through the first 6 weeks. KK patients receive a home visit from a community health nurse within the first 2 weeks.
+          </p>
+          {POSTNATAL_TIMELINE.map((period, pi) => {
+            const isOpen = openPost === pi
+            return (
+              <div key={pi} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${period.color}` }}>
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenPost(isOpen ? null : pi)}>
+                  <span className="font-semibold text-ink text-[14px]">{period.period}</span>
+                  <Chevron open={isOpen} />
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 border-t border-ink-quaternary pt-3 grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Mother</p>
+                      <div className="space-y-1">
+                        {period.mother.map((m, mi) => (
+                          <div key={mi} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                            <span style={{ color: period.color }} className="mt-0.5 flex-shrink-0">✓</span>{m}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Baby</p>
+                      <div className="space-y-1">
+                        {period.baby.map((b, bi) => (
+                          <div key={bi} className="flex items-start gap-2 text-[12px] text-ink-secondary">
+                            <span className="text-brand mt-0.5 flex-shrink-0">•</span>{b}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px]">
+            <p className="font-bold text-amber-900 mb-2">Postnatal Depression — Know the Signs</p>
+            <p className="text-amber-800 leading-relaxed">1 in 7 Malaysian mothers experiences postnatal depression (PND). It is different from "baby blues" (days 3–5 of tearfulness and mood swings, which resolve on their own). PND persists beyond 2 weeks and includes persistent sadness, anxiety, difficulty bonding with baby, sleep problems unrelated to baby's schedule, and in severe cases, thoughts of self-harm.</p>
+            <p className="text-amber-700 text-[12px] mt-2"><strong>If you suspect PND:</strong> Tell your doctor or KK nurse honestly during the EPDS screen. It is treatable — counselling, support groups, and medication are all options. Contact Befrienders Malaysia: <strong>03-7627 2929</strong> (24h).</p>
+          </div>
+        </div>
+      )}
+
+      {/* ── Warning Signs ── */}
+      {view === 'warnings' && (
+        <div className="space-y-4">
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-[13px] text-red-800 leading-relaxed">
+            <strong>Any of these signs requires immediate action.</strong> Do not wait for your next scheduled appointment. If in doubt — go to hospital A&E or call 999.
+          </div>
+          <div className="space-y-2">
+            {WARNING_SIGNS.map((w, i) => {
+              const isOpen = openWarn === i
+              const urgencyColor = w.urgency === 'Emergency' ? '#dc2626' : w.urgency === 'Urgent' ? '#d97706' : '#7c3aed'
+              return (
+                <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${urgencyColor}` }}>
+                  <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                    onClick={() => setOpenWarn(isOpen ? null : i)}>
+                    <div className="flex items-center gap-3 flex-wrap pr-2">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0"
+                        style={{ background: `${urgencyColor}15`, color: urgencyColor }}>{w.urgency}</span>
+                      <span className="font-semibold text-ink text-[13px]">{w.sign}</span>
+                    </div>
+                    <Chevron open={isOpen} />
+                  </button>
+                  {isOpen && (
+                    <div className="px-4 pb-3 pt-1 border-t border-ink-quaternary">
+                      <p className="text-ink-secondary text-[13px] leading-relaxed">{w.detail}</p>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* ── Delivery Costs ── */}
+      {view === 'costs' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px] leading-relaxed max-w-[640px]">
+            Estimated cost ranges for delivery in Malaysia (2024–2025). Costs vary by hospital, surgeon, length of stay, and complications. All figures are estimates — always request a written estimate before delivery.
+          </p>
+          <div className="space-y-2">
+            {DELIVERY_COSTS.map(d => (
+              <div key={d.type} className="border border-ink-quaternary rounded-2xl p-4" style={{ borderLeft: `3px solid ${SECTOR_COLOR[d.sector]}` }}>
+                <div className="flex items-start justify-between gap-3 flex-wrap mb-2">
+                  <p className="font-semibold text-ink text-[14px]">{d.type}</p>
+                  <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full"
+                    style={{ background: `${SECTOR_COLOR[d.sector]}15`, color: SECTOR_COLOR[d.sector] }}>
+                    {d.sector === 'fpp' ? 'FPP' : d.sector}
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-3 mb-2">
+                  <div className="bg-surface-secondary rounded-xl p-3 text-center">
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide mb-0.5">Normal Delivery</p>
+                    <p className="font-bold text-ink text-[14px]">{d.normal}</p>
+                  </div>
+                  <div className="bg-surface-secondary rounded-xl p-3 text-center">
+                    <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide mb-0.5">C-Section</p>
+                    <p className="font-bold text-ink text-[14px]">{d.csect}</p>
+                  </div>
+                </div>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{d.note}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-secondary leading-relaxed">
+            💡 <strong className="text-ink">Insurance tip:</strong> Maternity coverage requires a specific <strong>maternity rider</strong> — standard medical cards do not cover normal delivery or C-section. Most riders have a <strong>10–12 month waiting period</strong> from policy start. Buy before you plan to conceive. If already pregnant without a maternity rider, costs are entirely out of pocket.
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
