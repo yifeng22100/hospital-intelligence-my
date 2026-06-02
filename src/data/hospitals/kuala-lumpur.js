@@ -552,6 +552,102 @@ export const HOSPITALS_KL = [
     ]
   },
   {
+    id: "pantai-bangsar",
+    name: "Pantai Hospital Bangsar",
+    nameShort: "Pantai Bangsar",
+    sector: "private",
+    tier: "tertiary",
+    state: "Kuala Lumpur",
+    city: "Kuala Lumpur",
+    intro: "Pantai Hospital Bangsar is a well-established private hospital in the upscale Bangsar neighbourhood, offering a wide range of specialist services. It is particularly accessible from the Bangsar, Damansara, and Mid Valley corridor.",
+    famousFor: ["Well-established private hospital in Bangsar", "Wide specialist panel", "Convenient Bangsar/KL south location"],
+    infrastructure: {
+      yearEstablished: 1981,
+      totalBeds: 200,
+      icuBeds: 16,
+      nicuBeds: 8,
+      operatingTheatres: 8,
+      area: "~2 acres",
+      buildings: "Main Block, Specialist Clinics",
+      helipad: false,
+      parkingBays: "~250 bays",
+      parkingRate: "RM 2/hour"
+    },
+    contact: {
+      address: "2, Jalan Bukit Pantai, 59100 Kuala Lumpur",
+      mainLine: "+603-2296 0888",
+      emergencyLine: "+603-2296 0888 ext. A&E",
+      appointmentLine: "+603-2296 0888",
+      website: "https://www.pantai.com.my/kuala-lumpur",
+      mapQuery: "Pantai Hospital Bangsar Kuala Lumpur"
+    },
+    transport: {
+      nearest: "Bangsar LRT Station — 10 min walk",
+      bus: "Rapid KL Bus along Jalan Bangsar",
+      highway: "Sprint Highway — Exit Bangsar",
+      landmark: "Bangsar commercial area, near Bangsar Shopping Centre"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Level 1, 7am–9pm",
+      atm: "Lobby",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Medical transport available"
+    },
+    visitingHours: {
+      general: "11:00–21:00",
+      icu: "Restricted — check with nurse",
+      paediatric: "Parents: unrestricted",
+      maternity: "Partner/family: flexible",
+      notes: "Private hospital — flexible visiting."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
+        "Cardiology", "General Surgery", "Neurology",
+        "Orthopaedics", "Gastroenterology",
+        "Obstetrics & Gynaecology", "Paediatrics",
+        "Urology", "ENT", "Ophthalmology",
+        "Oncology (selected)", "Endocrinology",
+        "Dermatology", "Rheumatology", "Rehabilitation"
+      ],
+      notAvailable: [
+        { specialty: "Cardiothoracic Surgery", transferTo: "Pantai KL or Gleneagles KL", note: "Refer to larger centre" },
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
+      ],
+      byReferral: ["Complex oncology — refer to Pantai KL or Beacon"]
+    },
+    transferPathway: {
+      summary: "Community-level private hospital. Complex cases referred to Pantai KL or other tertiary centres.",
+      routes: [],
+      howToTransfer: "Specialist-to-specialist referral."
+    },
+    specialtyRanks: {},
+    accreditations: ["MSQH Accredited", "IHH Healthcare Group"],
+    verifiedNotes: "200 beds. Part of Pantai/IHH group.",
+    notableGaps: "Smaller facility than Pantai KL. No cardiothoracic surgery on-site.",
+    primaryExcellence: "Community private hospital — Bangsar corridor",
+    secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics",
+    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
+    roomRate: "RM 180 – RM 500+/night",
+    roomRateRaw: 280,
+    insurance: "Accepts major Malaysian insurance panels.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "Smaller facility. No cardiothoracic surgery.",
+    robotics: "Standard imaging — MRI, CT.",
+    doctorQualifications: "MMC-registered specialists.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Official Website", url: "https://www.pantai.com.my/bangsar" }
+    ]
+  },
+  {
     id: "parkcity-mc",
     name: "ParkCity Medical Centre",
     nameShort: "ParkCity MC",
@@ -2328,7 +2424,6 @@ export const HOSPITALS_KL = [
     wikiLink: null,
     officialSources: [{ label: "MOH Hospital Directory", url: "https://www.moh.gov.my" }]
   },
-
   {
     id: "alty-ortho",
     name: "ALTY Orthopaedic Hospital",
@@ -2356,7 +2451,6 @@ export const HOSPITALS_KL = [
     gaps: "Orthopaedic specialist only.", robotics: "Standard orthopaedic imaging (X-ray, MRI, CT).", doctorQualifications: "MMC-registered orthopaedic specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://altyortho.com" }]
   },
-
   {
     id: "cengild-gi",
     name: "Cengild G.I. Medical Centre",
@@ -2384,7 +2478,6 @@ export const HOSPITALS_KL = [
     gaps: "GI specialist only.", robotics: "Advanced endoscopy. Laparoscopic surgery.", doctorQualifications: "MMC-registered gastroenterology and surgical specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://cengild.com" }]
   },
-
   {
     id: "cvskl",
     name: "Cardiac Vascular Sentral Kuala Lumpur",
@@ -2412,7 +2505,6 @@ export const HOSPITALS_KL = [
     gaps: "Cardiac specialist only.", robotics: "Catheterisation laboratory. Cardiac imaging.", doctorQualifications: "MMC-registered cardiologists and cardiac surgeons.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://cvskl.com" }, { label: "MHTC", url: "https://mhtc.org.my" }]
   },
-
   {
     id: "global-doctors-kl",
     name: "Global Doctors Hospital",
@@ -2440,7 +2532,6 @@ export const HOSPITALS_KL = [
     gaps: "Limited tertiary specialist range.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://globaldoctorshospital.com" }]
   },
-
   {
     id: "kmi-taman-desa",
     name: "KMI Taman Desa Medical Centre",
@@ -2468,7 +2559,6 @@ export const HOSPITALS_KL = [
     gaps: "Limited tertiary specialist range.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://kmihealthcare.com" }]
   },
-
   {
     id: "htabtah-ukm",
     name: "Hospital Tunku Ampuan Besar Tuanku Aishah Rohani",

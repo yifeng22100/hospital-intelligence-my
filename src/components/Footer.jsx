@@ -41,9 +41,9 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 ['/about', 'About'],
-                ['/about', 'Methodology'],
-                ['/about', 'Data Sources'],
+                ['/sources', 'Data Sources'],
                 ['/resources', 'Patient Rights'],
+                ['/terms', 'Terms & Conditions'],
               ].map(([to, label]) => (
                 <li key={label}>
                   <Link to={to} className="text-ink-secondary text-[13px] hover:text-brand transition-colors">

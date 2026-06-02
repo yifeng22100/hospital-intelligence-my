@@ -245,9 +245,116 @@ function TiersSection() {
 
 /* ─── Insurance ────────────────────────────────────────────────── */
 
+const GL_STEPS = [
+  { step: '1', label: "Call your insurer's 24h hotline", detail: 'Call BEFORE admission, not after. Most insurers require pre-authorisation. Have your policy number, IC number, hospital name, and reason for admission ready.' },
+  { step: '2', label: 'Request a Letter of Guarantee (LOG)', detail: 'Formally request a LOG (also called GL — Guarantee Letter). State: "I am being admitted to [Hospital Name] on [date] for [condition/procedure]. I require a Letter of Guarantee." Record the reference number.' },
+  { step: '3', label: 'Hospital submits pre-auth request', detail: "The hospital's billing department faxes or emails a pre-authorisation request to your insurer with diagnosis codes, estimated treatment costs, and attending doctor details." },
+  { step: '4', label: 'Insurer approves and issues GL', detail: 'Urgent admissions: GL typically issued within 2–4 hours. Elective admissions: 24–48 hours. Some insurers have same-day digital GL systems. The GL is sent directly to the hospital.' },
+  { step: '5', label: 'Keep your own copy', detail: 'Request a copy of the GL from hospital billing. The GL states the approved amount — any costs above the GL limit are your responsibility. Read the exclusions on the GL carefully.' },
+  { step: '6', label: 'Discharge & final settlement', detail: 'At discharge, the hospital settles directly with the insurer for approved amounts. You pay only the co-pay, non-covered items, and any amounts above the GL limit. Get an itemised bill regardless.' },
+]
+
+const CLAIM_TYPES = [
+  {
+    type: 'Hospitalisation Claim',
+    color: '#2563eb',
+    docs: [
+      'Original hospitalisation bill (itemised)',
+      'Official receipt of all payments made',
+      'Discharge summary / medical report',
+      "Doctor's prescription receipts (all medications)",
+      'Laboratory and radiology reports',
+      'Copy of GL / LOG issued',
+      'IC copy (front and back)',
+      'Policy number and TPA claim form',
+    ],
+  },
+  {
+    type: 'Pre/Post Hospitalisation Claim',
+    color: '#7c3aed',
+    docs: [
+      'All specialist consultation receipts (within claim window)',
+      'Imaging receipts (MRI, CT, X-ray, ultrasound)',
+      'Laboratory test receipts',
+      'Specialist referral letter linking visits to admission',
+      'Final hospitalisation bill (shows link to pre-admission visits)',
+      'Discharge summary',
+    ],
+  },
+  {
+    type: 'Critical Illness Claim',
+    color: '#dc2626',
+    docs: [
+      'Specialist diagnosis letter on hospital letterhead',
+      'Pathology / biopsy report confirming diagnosis',
+      'Imaging reports (CT, MRI, PET-CT)',
+      "Surgeon's operation report (if applicable)",
+      'IC copy',
+      'Completed critical illness claim form from insurer',
+      'Bank account details for payout',
+    ],
+  },
+  {
+    type: 'Outpatient / Specialist Claim',
+    color: '#0d9488',
+    docs: [
+      'Specialist consultation receipt',
+      'Itemised bill',
+      "Diagnosis code or specialist's letter",
+      'Prescription receipts',
+      'Referral letter (if required by policy)',
+      'Outpatient claim form from insurer',
+    ],
+  },
+]
+
+const EXCLUSIONS = [
+  { exclusion: 'Pre-existing conditions', detail: 'Any condition diagnosed or treated before your policy start date is typically excluded for 24–48 months (varies by insurer). After the waiting period, coverage may apply — check your policy schedule.' },
+  { exclusion: 'Waiting periods', detail: 'New policies have a 30-day general waiting period (no claims at all in first 30 days). Specific conditions like cancer may have a 90–120 day waiting period.' },
+  { exclusion: 'Maternity & pregnancy complications', detail: 'Most basic plans do not cover maternity. You need an explicit maternity rider. Even with a rider, waiting periods of 10–12 months typically apply before claims can be made.' },
+  { exclusion: 'Mental health & psychiatry', detail: 'Older policies frequently exclude all mental health treatment. Newer policies may cover it with a rider. Addiction treatment is almost universally excluded.' },
+  { exclusion: 'Cosmetic & aesthetic procedures', detail: 'Excluded unless reconstructive surgery following an accident or cancer treatment. "Medically necessary" designation by a specialist does not guarantee coverage.' },
+  { exclusion: 'Fertility & IVF', detail: 'Almost universally excluded from standard policies in Malaysia. Some specialised riders exist but are expensive. Check before purchasing if family planning is a priority.' },
+  { exclusion: 'Self-inflicted injuries', detail: 'Injuries intentionally self-inflicted are excluded. Varies by policy on how "self-inflicted" is defined during disputes.' },
+  { exclusion: 'Experimental treatments', detail: 'Treatments not yet approved by Malaysia\'s MOH or not in standard clinical practice guidelines are typically excluded. Some clinical trial costs may be partially covered — confirm with insurer.' },
+  { exclusion: 'Overseas treatment (non-emergency)', detail: 'Planned treatment overseas is typically not covered unless you hold an international plan. Emergency treatment overseas may be covered up to a capped amount — always check.' },
+  { exclusion: 'Dental & optical', detail: 'Standard medical policies exclude dental and optical. These require separate dental/vision riders or standalone dental insurance.' },
+]
+
+const GOV_SCHEMES = [
+  {
+    name: 'MySalam — Free Critical Illness Cover for B40',
+    color: '#16a34a',
+    content: 'MySalam is a free government-backed micro takaful scheme for all Malaysians with household income ≤ RM100,000/year (B40 income bracket). It provides a RM 8,000 lump sum payout upon diagnosis of any of 36 critical illnesses including cancer, heart attack, stroke, end-stage renal failure, and major burns. Coverage is AUTOMATIC — no registration, no premium payment required. Check eligibility and file a claim at mysalam.com.my or call 1-800-88-1234. You need: IC, specialist diagnosis letter, and bank account details. Processing: within 14 working days.',
+  },
+  {
+    name: 'EPF Account 2 — Medical Withdrawal',
+    color: '#1d4ed8',
+    content: "EPF Account 2 savings can be withdrawn for medical expenses covering yourself, your spouse, children, parents, and in-laws. Eligible expenses include: hospitalisation and surgery, specialist treatment, chemotherapy and radiotherapy, dialysis, certain physiotherapy, and approved medical equipment. Apply via i-Akaun (online) or at any EPF branch. Documents required: original bills, doctor's letter certifying medical necessity, and IC. Online processing: 7–14 working days. Counter: 3 working days. No minimum withdrawal amount for medical purposes.",
+  },
+  {
+    name: 'SOCSO (PERKESO) — Employment Injury & Illness',
+    color: '#7c3aed',
+    content: 'If your illness or injury is work-related, SOCSO provides medical benefits, temporary disablement benefit, and permanent disablement benefit. Employers register employees mandatorily. Claims require a report from your employer, medical certificates, and treatment bills. SOCSO also administers the Return to Work programme for injured workers. Contact: perkeso.gov.my or call 1-300-22-8000.',
+  },
+  {
+    name: 'Perlindungan Tenang — Affordable Micro-Insurance',
+    color: '#0891b2',
+    content: 'Bank Negara Malaysia\'s Perlindungan Tenang initiative promotes affordable micro-insurance and micro-takaful products for B40 and M40 Malaysians. Products are available from licensed insurers and takaful operators with premiums typically under RM 100/year. Check bnm.gov.my for a list of approved Perlindungan Tenang products.',
+  },
+  {
+    name: 'Zakat & Baitul Mal — Medical Assistance for Muslims',
+    color: '#d97706',
+    content: 'State Zakat bodies and Baitul Mal (in FT) provide one-off or recurring medical financial assistance for Muslim asnaf (eligible recipients). Types of aid vary by state: hospital bill settlement, dialysis subsidies, cancer treatment support. Contact your state\'s Jabatan Zakat or Majlis Agama Islam for application. Requirements typically include hospital bills, income proof, and IC.',
+  },
+]
+
 function InsuranceSection() {
   const [openRule, setOpenRule] = useState(null)
   const [openIns, setOpenIns] = useState(null)
+  const [openClaim, setOpenClaim] = useState(null)
+  const [openExcl, setOpenExcl] = useState(null)
+  const [openScheme, setOpenScheme] = useState(null)
   const rules = INSURANCE_PANELS?.generalRules || {}
   const insurers = INSURANCE_PANELS?.insurers || []
 
@@ -264,9 +371,100 @@ function InsuranceSection() {
     waitingPeriod: 'Waiting Period',
   }
 
+  const Chevron = ({ open }) => (
+    <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${open ? 'rotate-180' : ''}`}
+      width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+
   return (
-    <div className="space-y-8">
-      {/* General rules */}
+    <div className="space-y-10">
+
+      {/* 1. Cashless vs Reimbursement visual explainer */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-3">💳 Cashless vs. Reimbursement — What's the Difference?</h3>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+            <p className="font-bold text-emerald-800 text-[14px] mb-2">Cashless (Preferred)</p>
+            <ul className="space-y-1.5 text-[13px] text-emerald-900">
+              <li>✓ Hospital bills your insurer directly</li>
+              <li>✓ You pay only co-pay + non-covered items</li>
+              <li>✓ Requires a GL/LOG issued before/at admission</li>
+              <li>✓ Hospital must be on insurer's panel</li>
+              <li>✓ No need to pay then wait for reimbursement</li>
+            </ul>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <p className="font-bold text-amber-800 text-[14px] mb-2">Reimbursement (Fallback)</p>
+            <ul className="space-y-1.5 text-[13px] text-amber-900">
+              <li>→ You pay full bill first, then claim back</li>
+              <li>→ Used when hospital is not on panel</li>
+              <li>→ Reimbursement takes 2–6 weeks typically</li>
+              <li>→ Keep ALL original receipts — copies not accepted</li>
+              <li>→ Submit claim within 90–180 days (check policy)</li>
+            </ul>
+          </div>
+        </div>
+        <p className="text-ink-tertiary text-[12px] mt-3">Always call your insurer's 24h hotline before admission to confirm cashless eligibility and initiate GL — even for emergencies, inform them within 24–48 hours.</p>
+      </div>
+
+      {/* 2. GL/LOG Step-by-Step */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">📄 GL / LOG Process — Step by Step</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">How to get a Letter of Guarantee (GL / LOG) for cashless hospitalisation.</p>
+        <div className="space-y-2">
+          {GL_STEPS.map(({ step, label, detail }) => (
+            <div key={step} className="border border-ink-quaternary rounded-xl overflow-hidden">
+              <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                onClick={() => setOpenRule(openRule === `gl-${step}` ? null : `gl-${step}`)}>
+                <div className="flex items-center gap-3">
+                  <span className="w-6 h-6 rounded-full bg-brand text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0">{step}</span>
+                  <span className="font-semibold text-ink text-[13px]">{label}</span>
+                </div>
+                <Chevron open={openRule === `gl-${step}`} />
+              </button>
+              {openRule === `gl-${step}` && (
+                <div className="px-4 pb-4 text-ink-secondary text-[13px] leading-relaxed border-t border-ink-quaternary pt-3 pl-14">{detail}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. Claim Document Checklists */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">📁 Claim Document Checklists</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">What you need ready for each type of insurance claim.</p>
+        <div className="space-y-2">
+          {CLAIM_TYPES.map(ct => {
+            const isOpen = openClaim === ct.type
+            return (
+              <div key={ct.type} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${ct.color}` }}>
+                <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenClaim(isOpen ? null : ct.type)}>
+                  <span className="font-semibold text-ink text-[13px]">{ct.type}</span>
+                  <Chevron open={isOpen} />
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 border-t border-ink-quaternary pt-3">
+                    <ul className="space-y-1.5">
+                      {ct.docs.map((doc, i) => (
+                        <li key={i} className="flex items-start gap-2 text-[13px] text-ink-secondary">
+                          <span className="text-brand flex-shrink-0 mt-0.5">☐</span>
+                          {doc}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* 4. General rules */}
       <div>
         <h3 className="font-bold text-ink text-[16px] mb-1">📋 10 Rules Every Insurance Holder Must Know</h3>
         <p className="text-ink-secondary text-[13px] mb-4">Understanding these before hospitalisation can save you thousands of ringgit.</p>
@@ -282,10 +480,7 @@ function InsuranceSection() {
                     <span className="text-[11px] font-bold text-ink-tertiary w-5">{String(i+1).padStart(2,'0')}</span>
                     <span className="font-semibold text-ink text-[13px]">{label}</span>
                   </div>
-                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                    width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <Chevron open={isOpen} />
                 </button>
                 {isOpen && <div className="px-4 pb-4 text-ink-secondary text-[13px] leading-relaxed border-t border-ink-quaternary pt-3">{val}</div>}
               </div>
@@ -294,7 +489,31 @@ function InsuranceSection() {
         </div>
       </div>
 
-      {/* Insurers */}
+      {/* 5. Common Exclusions */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🚫 Common Exclusions — Decoded</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">What most policies won't cover, and what to do about it.</p>
+        <div className="space-y-2">
+          {EXCLUSIONS.map(({ exclusion, detail }) => {
+            const isOpen = openExcl === exclusion
+            return (
+              <div key={exclusion} className="border border-ink-quaternary rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenExcl(isOpen ? null : exclusion)}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-red-500 flex-shrink-0">✕</span>
+                    <span className="font-semibold text-ink text-[13px]">{exclusion}</span>
+                  </div>
+                  <Chevron open={isOpen} />
+                </button>
+                {isOpen && <div className="px-4 pb-4 text-ink-secondary text-[13px] leading-relaxed border-t border-ink-quaternary pt-3">{detail}</div>}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* 6. Major Insurers */}
       <div>
         <h3 className="font-bold text-ink text-[16px] mb-1">🏦 Major Insurers in Malaysia</h3>
         <p className="text-ink-secondary text-[13px] mb-4">Panel lists, LOG warnings, and pre-admission windows for {insurers.length} insurers.</p>
@@ -311,10 +530,7 @@ function InsuranceSection() {
                       <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-700">⚠ LOG warning</span>
                     )}
                   </div>
-                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                    width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <Chevron open={isOpen} />
                 </button>
                 {isOpen && (
                   <div className="px-4 pb-4 space-y-3 border-t border-ink-quaternary pt-3">
@@ -350,6 +566,73 @@ function InsuranceSection() {
           })}
         </div>
       </div>
+
+      {/* 7. Government Schemes */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🏛️ Government Schemes & Financial Aid</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">Free and subsidised schemes many Malaysians qualify for but don't know about.</p>
+        <div className="space-y-2">
+          {GOV_SCHEMES.map(({ name, color, content }) => {
+            const isOpen = openScheme === name
+            return (
+              <div key={name} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${color}` }}>
+                <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenScheme(isOpen ? null : name)}>
+                  <span className="font-semibold text-ink text-[13px]">{name}</span>
+                  <Chevron open={isOpen} />
+                </button>
+                {isOpen && <div className="px-4 pb-4 text-ink-secondary text-[13px] leading-relaxed border-t border-ink-quaternary pt-3">{content}</div>}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* 8. Dispute Resolution */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[16px] mb-3">⚖️ Claim Denied? Dispute Resolution Process</h3>
+        <div className="space-y-3">
+          {[
+            { n: '1', label: 'Request written denial', detail: 'Ask your insurer for the written denial with the specific policy exclusion clause cited. They are obligated to provide this.' },
+            { n: '2', label: 'Submit internal appeal', detail: 'File a formal written appeal with all supporting medical documentation, specialist letters, and clinical notes. Address it to the insurer\'s Internal Complaints Unit.' },
+            { n: '3', label: 'Escalate to OFS', detail: 'If internal appeal fails, file with the Ombudsman for Financial Services (OFS): ofs.org.my · +603-2272 2811. Free service, no lawyers needed. OFS adjudicates disputes up to RM 250,000 for insurance matters.' },
+            { n: '4', label: 'Contact Bank Negara', detail: 'For systemic issues or complaints about insurer conduct: BNM LINK & BNMTELELINK: 1-300-88-5465 · bnm.gov.my.' },
+          ].map(({ n, label, detail }) => (
+            <div key={n} className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full bg-ink text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{n}</span>
+              <div>
+                <p className="font-semibold text-ink text-[13px]">{label}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed mt-0.5">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 9. FPP Explained */}
+      <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+        <h3 className="font-bold text-emerald-900 text-[16px] mb-2">✓ FPP Scheme — Full Paying Patient at Government Hospitals</h3>
+        <p className="text-ink-secondary text-[13px] leading-relaxed mb-3">
+          Most government (MOH) hospitals offer an FPP (Full Paying Patient) ward — a private room with direct specialist access at a government facility, typically 30–60% cheaper than private hospitals.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3 text-[13px]">
+          {[
+            { label: 'No deposit required', detail: 'For insured patients — no upfront deposit unlike private hospitals. Bill settled directly with insurer via LOG.' },
+            { label: 'Direct specialist access', detail: 'Skip the general outpatient queue. See the consultant directly. Same clinical team as the subsidised wards.' },
+            { label: 'Private room & A/C', detail: 'Single-occupancy air-conditioned rooms with basic amenities, equivalent to private hospital standard rooms.' },
+            { label: 'How to apply', detail: 'At the FPP unit in the hospital, bring IC, insurance card, and referral letter. Ask for FPP rates in writing — they are not publicly listed.' },
+          ].map(({ label, detail }) => (
+            <div key={label} className="bg-white rounded-xl p-3">
+              <p className="font-semibold text-emerald-800 text-[12px] mb-1">✓ {label}</p>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-emerald-800 text-[12px] mt-3">
+          Use the <strong>FPP Only filter</strong> on Find Care to see all hospitals offering the FPP scheme.
+        </p>
+      </div>
+
     </div>
   )
 }
