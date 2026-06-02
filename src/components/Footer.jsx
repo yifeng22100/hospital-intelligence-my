@@ -26,6 +26,7 @@ export default function Footer() {
                 ['/compare', 'Compare'],
                 ['/intelligence', 'Intelligence'],
                 ['/knowledge', 'Knowledge'],
+                ['/lifestyle', 'Lifestyle'],
                 ['/insurance', 'Insurance'],
                 ['/tools', 'Tools'],
                 ['/resources', 'Resources'],

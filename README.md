@@ -1,6 +1,6 @@
 # Healthcare Intelligence MY
 
-Malaysia's most comprehensive hospital intelligence platform — a React SPA covering **294 verified hospitals across 16 states and federal territories**, with specialty filters, emergency guides, insurance tools, and a public medical education library.
+Malaysia's most comprehensive hospital intelligence platform — a React SPA covering **294 verified hospitals across 16 states and federal territories**, with specialty filters, emergency guides, insurance tools, a medical education library, and a healthy lifestyle hub.
 
 🌐 **Live:** https://yifeng22100.github.io/hospital-intelligence-my/
 
@@ -40,21 +40,36 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 ### Knowledge Hub (10 topics)
 | Topic | What it covers |
 |---|---|
-| 📖 Medical Glossary | Plain-English medical terms + hospital abbreviations decoded |
+| 📖 Medical Glossary | Plain-English medical terms + hospital abbreviations decoded (merged into one section) |
 | 💊 Common Drugs | 20 medications with Mandarin names, pinyin, dosing, emergency use flags |
 | 🔬 Lab Values | Blood test reference ranges (HbA1c, cholesterol, kidney, liver, CBC) |
 | 🩺 Health Screening | Age-by-age screening guide |
 | 🤰 Maternal Health | Antenatal visits, tests, postnatal care and delivery guide |
-| 💉 Vaccination Guide | Full NIP schedule for infants, toddlers, school-age, adults |
+| 💉 Vaccination Guide | NIP schedule (all ages incl. pregnant women) · COVID-19 & Flu vaccines · Dengue & Tropical Diseases (Qdenga, HFMD/EV71, JE, Typhoid) |
 | 👶 Children's Healthcare | Milestones, common illnesses, nutrition, emergency decision tree |
 | 👴 Elderly & OKU Care | Screening, chronic disease management, falls prevention, cognitive health |
 | 🧠 Mental Health Resources | Conditions, Malaysian support services, crisis hotlines |
 | 📋 Reading Medical Reports | How to interpret blood tests, scans, diagnoses, and prescriptions |
 
+### Lifestyle Hub (8 sections)
+| Section | What it covers |
+|---|---|
+| 🥗 Healthy Eating | Malaysian food pyramid, hawker stall smart swaps, hidden sugar/sodium risks |
+| 🏃 Exercise & Activity | WHO guidelines by age, popular Malaysian activities, heat exercise safety |
+| 😴 Sleep Health | Sleep needs by age, Malaysian sleep disruptors, sleep hygiene checklist |
+| 🩺 Chronic Disease Prevention | Diabetes, hypertension, obesity, CVD — stats, risk factors, prevention steps |
+| 🦟 Dengue Prevention | 10-step home guide, Qdenga vaccine info, warning signs, when to go to A&E |
+| 🚭 Quit Smoking & Vaping | Vaping risks, QuitLine Malaysia, NRT/Champix/Zyban comparison |
+| 🧘 Stress & Mental Wellness | Malaysian mental health stats, evidence-based techniques, hotlines |
+| ⚖️ Weight Management | Asian BMI thresholds, sustainable loss guide, common myths debunked |
+
 ### Tools
 - **Cost Estimator** — procedure cost lookup by specialty with public/private comparison
 - **Panel Lookup** — search any private hospital to see which of 13 insurers cover it; search insurers to see their panel, GL hotline (verified 2025), and TPA details
-- **Resources** — emergency contacts, patient rights, NGO support, financial schemes, second opinion guide
+- **Premium Calculator** — interactive insurance premium estimate
+
+### Resources
+- Emergency contacts, patient rights, NGO support, financial assistance schemes, second opinion guide
 
 ---
 
@@ -68,6 +83,8 @@ All hospital entries are individually verified against:
 
 Data coverage: bed counts, ICU/NICU/OT counts, specialty availability, transfer pathways, specialist rankings, room rates, insurance panels, accreditations, robotics/technology, and contact details.
 
+Insurance panel data sourced from official insurer websites and TPA announcements (2024–2025). GL hotlines verified against AIA, Prudential, Great Eastern, Allianz (ACS), Tokio Marine (MiCare), Zurich (MiCare from Apr 2025), Sun Life (MediExpress), Etiqa, Generali (formerly AXA Affin), MSIG, Tune Protect (MiCare), Bupa (IHP from Jan 2025), Cigna.
+
 ---
 
 ## Stack
@@ -78,7 +95,7 @@ Data coverage: bed counts, ICU/NICU/OT counts, specialty availability, transfer 
 | Build | Vite 5 |
 | Styling | Tailwind CSS 3 |
 | Routing | React Router v6 (HashRouter) |
-| Deployment | GitHub Pages via `peaceiris/actions-gh-pages` (gh-pages branch) |
+| Deployment | GitHub Pages via official `actions/deploy-pages@v4` |
 | Data | Static ES module JS files (`src/data/`) |
 
 No backend, no database — fully static. Hospital data lives in `src/data/hospitals/<state>.js`, combined in `src/data/index.js`.
@@ -93,9 +110,9 @@ npm run dev       # dev server at localhost:5173
 npm run build     # production build to dist/
 ```
 
-GitHub Pages deployment triggers automatically on push to `main` via `.github/workflows/deploy.yml` (pushes to `gh-pages` branch).
+GitHub Pages deployment triggers automatically on push to `main` via `.github/workflows/deploy.yml`.
 
-**GitHub Pages settings:** Set Source → Branch: `gh-pages` / `/ (root)` in repository Settings → Pages.
+**GitHub Pages settings:** Go to repo **Settings → Pages → Source** and set to **GitHub Actions** (not a branch).
 
 ---
 
