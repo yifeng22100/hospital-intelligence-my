@@ -1,10 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { INSURANCE_PANELS } from '../data/insurance-panels'
 import { COST_REFERENCE } from '../data/cost-reference'
 import { VERIFY_GUIDE } from '../data/verify-guide'
-import { GLOSSARY } from '../data/glossary'
 import { SPECIALTIES_REFERENCE } from '../data/specialties-reference'
-import { EMERGENCY_PROTOCOLS } from '../data/emergency-protocols'
 
 const TOPICS = [
   { id: 'hacks',       icon: '💡', label: 'Insider Tips',      desc: '12 things most patients don\'t know' },
@@ -15,9 +14,8 @@ const TOPICS = [
   { id: 'trials',      icon: '🔬', label: 'Clinical Trials',   desc: 'Access to experimental treatments' },
   { id: 'night',       icon: '🌙', label: 'Night Cover',       desc: 'Overnight care by hospital type' },
   { id: 'verify',      icon: '✅', label: 'Verify Facilities', desc: 'Nursing homes, dialysis, dental & more' },
-  { id: 'glossary',    icon: '📖', label: 'Medical Glossary',  desc: 'Plain-English guide to medical terms' },
-  { id: 'specialties', icon: '⚕️', label: 'Specialties Guide', desc: 'Where to go for each speciality' },
-  { id: 'emergency',   icon: '🚨', label: 'Emergency Events',  desc: 'What to do in each medical emergency' },
+  { id: 'specialties',  icon: '⚕️', label: 'Specialties Guide', desc: 'Where to go for each speciality' },
+  { id: 'calculators', icon: '🧮', label: 'Calculators',       desc: 'BMI, insurance LOG check, FPP savings' },
 ]
 
 export default function Intelligence() {
@@ -72,10 +70,28 @@ export default function Intelligence() {
         {active === 'trials'      && <TrialsSection />}
         {active === 'night'       && <NightSection />}
         {active === 'verify'      && <VerifySection />}
-        {active === 'glossary'    && <GlossarySection />}
         {active === 'specialties' && <SpecialtiesSection />}
-        {active === 'emergency'   && <EmergencySection />}
+        {active === 'calculators' && <CalculatorsSection />}
       </div>
+    </div>
+  )
+}
+
+/* ─── Crosslink helpers ─────────────────────────────────────────── */
+
+function ResourcesCrosslink({ label, tab }) {
+  const href = tab ? `/resources` : '/resources'
+  return (
+    <div className="bg-brand/5 border border-brand/20 rounded-xl px-4 py-3 flex items-center justify-between gap-3 mb-6">
+      <p className="text-[13px] text-ink-secondary">
+        <span className="text-brand font-semibold">Resources Hub</span> has practical guides on {label}.
+      </p>
+      <Link
+        to={href}
+        className="flex-shrink-0 text-[12px] font-semibold text-brand border border-brand/30 rounded-lg px-3 py-1.5 hover:bg-brand hover:text-white transition-colors"
+      >
+        Open →
+      </Link>
     </div>
   )
 }
@@ -321,40 +337,11 @@ const EXCLUSIONS = [
   { exclusion: 'Dental & optical', detail: 'Standard medical policies exclude dental and optical. These require separate dental/vision riders or standalone dental insurance.' },
 ]
 
-const GOV_SCHEMES = [
-  {
-    name: 'MySalam — Free Critical Illness Cover for B40',
-    color: '#16a34a',
-    content: 'MySalam is a free government-backed micro takaful scheme for all Malaysians with household income ≤ RM100,000/year (B40 income bracket). It provides a RM 8,000 lump sum payout upon diagnosis of any of 36 critical illnesses including cancer, heart attack, stroke, end-stage renal failure, and major burns. Coverage is AUTOMATIC — no registration, no premium payment required. Check eligibility and file a claim at mysalam.com.my or call 1-800-88-1234. You need: IC, specialist diagnosis letter, and bank account details. Processing: within 14 working days.',
-  },
-  {
-    name: 'EPF Account 2 — Medical Withdrawal',
-    color: '#1d4ed8',
-    content: "EPF Account 2 savings can be withdrawn for medical expenses covering yourself, your spouse, children, parents, and in-laws. Eligible expenses include: hospitalisation and surgery, specialist treatment, chemotherapy and radiotherapy, dialysis, certain physiotherapy, and approved medical equipment. Apply via i-Akaun (online) or at any EPF branch. Documents required: original bills, doctor's letter certifying medical necessity, and IC. Online processing: 7–14 working days. Counter: 3 working days. No minimum withdrawal amount for medical purposes.",
-  },
-  {
-    name: 'SOCSO (PERKESO) — Employment Injury & Illness',
-    color: '#7c3aed',
-    content: 'If your illness or injury is work-related, SOCSO provides medical benefits, temporary disablement benefit, and permanent disablement benefit. Employers register employees mandatorily. Claims require a report from your employer, medical certificates, and treatment bills. SOCSO also administers the Return to Work programme for injured workers. Contact: perkeso.gov.my or call 1-300-22-8000.',
-  },
-  {
-    name: 'Perlindungan Tenang — Affordable Micro-Insurance',
-    color: '#0891b2',
-    content: 'Bank Negara Malaysia\'s Perlindungan Tenang initiative promotes affordable micro-insurance and micro-takaful products for B40 and M40 Malaysians. Products are available from licensed insurers and takaful operators with premiums typically under RM 100/year. Check bnm.gov.my for a list of approved Perlindungan Tenang products.',
-  },
-  {
-    name: 'Zakat & Baitul Mal — Medical Assistance for Muslims',
-    color: '#d97706',
-    content: 'State Zakat bodies and Baitul Mal (in FT) provide one-off or recurring medical financial assistance for Muslim asnaf (eligible recipients). Types of aid vary by state: hospital bill settlement, dialysis subsidies, cancer treatment support. Contact your state\'s Jabatan Zakat or Majlis Agama Islam for application. Requirements typically include hospital bills, income proof, and IC.',
-  },
-]
-
 function InsuranceSection() {
   const [openRule, setOpenRule] = useState(null)
   const [openIns, setOpenIns] = useState(null)
   const [openClaim, setOpenClaim] = useState(null)
   const [openExcl, setOpenExcl] = useState(null)
-  const [openScheme, setOpenScheme] = useState(null)
   const rules = INSURANCE_PANELS?.generalRules || {}
   const insurers = INSURANCE_PANELS?.insurers || []
 
@@ -567,26 +554,8 @@ function InsuranceSection() {
         </div>
       </div>
 
-      {/* 7. Government Schemes */}
-      <div>
-        <h3 className="font-bold text-ink text-[16px] mb-1">🏛️ Government Schemes & Financial Aid</h3>
-        <p className="text-ink-secondary text-[13px] mb-4">Free and subsidised schemes many Malaysians qualify for but don't know about.</p>
-        <div className="space-y-2">
-          {GOV_SCHEMES.map(({ name, color, content }) => {
-            const isOpen = openScheme === name
-            return (
-              <div key={name} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${color}` }}>
-                <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
-                  onClick={() => setOpenScheme(isOpen ? null : name)}>
-                  <span className="font-semibold text-ink text-[13px]">{name}</span>
-                  <Chevron open={isOpen} />
-                </button>
-                {isOpen && <div className="px-4 pb-4 text-ink-secondary text-[13px] leading-relaxed border-t border-ink-quaternary pt-3">{content}</div>}
-              </div>
-            )
-          })}
-        </div>
-      </div>
+      {/* 7. Government Schemes → see Resources */}
+      <ResourcesCrosslink label="government financial aid schemes (MySalam, EPF, SOCSO, Zakat)" tab="financial" />
 
       {/* 8. Dispute Resolution */}
       <div className="bg-surface-secondary rounded-2xl p-5">
@@ -1087,74 +1056,6 @@ function VerifySection() {
   )
 }
 
-/* ─── Medical Glossary ───────────────────────────────────────────── */
-
-function GlossarySection() {
-  const [search, setSearch] = useState('')
-  const [cat, setCat] = useState('all')
-
-  const categories = ['all', ...Array.from(new Set(GLOSSARY.map(g => g.category)))]
-  const catLabel = { all: 'All', hospital: 'Hospital Settings', insurance: 'Insurance', procedure: 'Procedures', drug: 'Medications', admin: 'Admin & Billing', financial: 'Financial Aid' }
-
-  const filtered = GLOSSARY.filter(g => {
-    const matchCat = cat === 'all' || g.category === cat
-    const q = search.toLowerCase()
-    const matchSearch = !q || g.term.toLowerCase().includes(q) || g.full?.toLowerCase().includes(q) || g.definition.toLowerCase().includes(q)
-    return matchCat && matchSearch
-  })
-
-  return (
-    <div className="space-y-5">
-      <div className="flex flex-col sm:flex-row gap-3">
-        <input
-          type="search"
-          placeholder="Search terms… (e.g. ICU, deductible, LOS)"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          className="flex-1 border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
-        />
-        <div className="flex flex-wrap gap-1.5">
-          {categories.map(c => (
-            <button key={c} onClick={() => setCat(c)}
-              className={`px-3 py-1.5 rounded-full text-[11px] font-medium border transition-colors ${
-                cat === c ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-              }`}>
-              {catLabel[c] || c}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <p className="text-ink-tertiary text-[12px]">{filtered.length} term{filtered.length !== 1 ? 's' : ''}</p>
-
-      <div className="space-y-2">
-        {filtered.map((g, i) => (
-          <div key={i} className="border border-ink-quaternary rounded-xl p-4">
-            <div className="flex items-start gap-3">
-              <div className="flex-1">
-                <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span className="font-bold text-ink text-[15px]">{g.term}</span>
-                  {g.full && <span className="text-ink-secondary text-[12px]">{g.full}</span>}
-                  <span className="text-[10px] font-medium uppercase tracking-wide bg-surface-secondary text-ink-tertiary px-2 py-0.5 rounded-full">{g.category}</span>
-                </div>
-                <p className="text-ink-secondary text-[13px] leading-relaxed">{g.definition}</p>
-                {g.tip && (
-                  <div className="mt-2 bg-brand/5 border border-brand/20 rounded-lg px-3 py-2">
-                    <p className="text-brand text-[12px] leading-relaxed">💡 {g.tip}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-        {filtered.length === 0 && (
-          <p className="text-center text-ink-tertiary text-[13px] py-8">No terms match your search.</p>
-        )}
-      </div>
-    </div>
-  )
-}
-
 /* ─── Specialties Guide ──────────────────────────────────────────── */
 
 function SpecialtiesSection() {
@@ -1281,115 +1182,325 @@ function SpecialtiesSection() {
   )
 }
 
-/* ─── Emergency Events ──────────────────────────────────────────── */
+/* ─── Calculators ────────────────────────────────────────────────── */
 
-const EMERGENCY_CATEGORIES = ['All', 'Cardiac', 'Neurological', 'Airway', 'Trauma', 'Envenomation', 'Allergy', 'Medical', 'Child']
+const PROCEDURE_COSTS = [
+  { label: 'Appendectomy (open)', public: [800, 1500], fpp: [2500, 4000], private: [8000, 15000] },
+  { label: 'Appendectomy (laparoscopic)', public: [1200, 2000], fpp: [3500, 6000], private: [12000, 20000] },
+  { label: 'Caesarean Section (C-Section)', public: [500, 1000], fpp: [3000, 5000], private: [8000, 15000] },
+  { label: 'Normal Delivery', public: [200, 600], fpp: [2000, 3500], private: [4000, 8000] },
+  { label: 'Hip Replacement (THR)', public: [2000, 5000], fpp: [8000, 15000], private: [25000, 50000] },
+  { label: 'Knee Replacement (TKR)', public: [2000, 5000], fpp: [8000, 15000], private: [22000, 45000] },
+  { label: 'Coronary Angioplasty (PCI + 1 stent)', public: [3000, 8000], fpp: [15000, 25000], private: [25000, 50000] },
+  { label: 'Coronary Bypass (CABG)', public: [5000, 12000], fpp: [25000, 40000], private: [60000, 120000] },
+  { label: 'Cholecystectomy (gallbladder removal)', public: [800, 2000], fpp: [3000, 5000], private: [8000, 15000] },
+  { label: 'Cataract Surgery (per eye)', public: [200, 500], fpp: [1500, 3000], private: [3000, 8000] },
+  { label: 'Hernia Repair', public: [600, 1500], fpp: [2500, 4500], private: [6000, 12000] },
+  { label: 'Colonoscopy', public: [200, 500], fpp: [800, 1500], private: [1500, 3500] },
+  { label: 'Dialysis (per session)', public: [15, 50], fpp: [120, 200], private: [200, 350] },
+  { label: 'MRI Brain', public: [100, 300], fpp: [400, 800], private: [800, 2000] },
+  { label: 'CT Abdomen', public: [80, 200], fpp: [300, 600], private: [600, 1400] },
+]
 
-function EmergencySection() {
-  const [category, setCategory] = useState('All')
-  const [open, setOpen] = useState(null)
-  const scenarios = EMERGENCY_PROTOCOLS.emergencyScenarios
-  const visible = category === 'All' ? scenarios : scenarios.filter(s => s.category === category)
+const HOSPITAL_ROOM_RATES = [
+  { label: 'Government Ward (6-bed)', rate: [5, 25], type: 'public' },
+  { label: 'Government FPP Room', rate: [180, 350], type: 'fpp' },
+  { label: 'Private Hospital Standard (1-bed)', rate: [200, 400], type: 'private' },
+  { label: 'Private Hospital Superior', rate: [350, 600], type: 'private' },
+  { label: 'Private Hospital Suite (Gleneagles, Pantai KL)', rate: [600, 1200], type: 'private' },
+  { label: 'Academic Hospital (UMSC, UKMSC)', rate: [180, 380], type: 'private' },
+]
+
+function CalculatorsSection() {
+  return (
+    <div className="space-y-10 max-w-[820px]">
+      <BmiCalculator />
+      <LogRoomRateCheck />
+      <ProcedureCostCalculator />
+      <FppSavingsCalculator />
+    </div>
+  )
+}
+
+function CalcCard({ title, icon, desc, children }) {
+  return (
+    <div className="border border-ink-quaternary rounded-2xl overflow-hidden">
+      <div className="bg-surface-secondary border-b border-ink-quaternary px-5 py-4">
+        <div className="flex items-center gap-2 mb-0.5">
+          <span className="text-xl">{icon}</span>
+          <h3 className="font-bold text-ink text-[16px]">{title}</h3>
+        </div>
+        {desc && <p className="text-ink-secondary text-[13px] mt-0.5">{desc}</p>}
+      </div>
+      <div className="p-5">{children}</div>
+    </div>
+  )
+}
+
+function BmiCalculator() {
+  const [height, setHeight] = useState('')
+  const [weight, setWeight] = useState('')
+  const bmi = height && weight ? (parseFloat(weight) / ((parseFloat(height) / 100) ** 2)) : null
+  const rounded = bmi ? Math.round(bmi * 10) / 10 : null
+
+  const getCategory = b => {
+    if (b < 18.5) return { label: 'Underweight', color: '#0891b2', risk: 'Risk of nutritional deficiency and osteoporosis.' }
+    if (b < 23.0) return { label: 'Normal weight', color: '#16a34a', risk: 'Healthy range for Asians. Maintain with balanced diet and exercise.' }
+    if (b < 25.0) return { label: 'Overweight (At Risk)', color: '#d97706', risk: 'Increased risk of diabetes, hypertension, and heart disease. Lifestyle review recommended.' }
+    if (b < 30.0) return { label: 'Obese (Class I)', color: '#ef4444', risk: 'High risk. Blood pressure, blood sugar, and cholesterol screening recommended. Seek medical advice.' }
+    return { label: 'Obese (Class II)', color: '#dc2626', risk: 'Very high risk. Medical review strongly recommended. Associated with diabetes, heart disease, sleep apnoea, and joint problems.' }
+  }
+
+  const cat = rounded ? getCategory(rounded) : null
 
   return (
-    <div>
-      {/* Hotlines strip */}
-      <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6">
-        <p className="text-[11px] font-bold text-red-700 uppercase tracking-wider mb-3">Emergency Hotlines — Malaysia</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-          {EMERGENCY_PROTOCOLS.hotlines.slice(0, 4).map(h => (
-            <div key={h.number} className="bg-white rounded-xl px-3 py-2 border border-red-100">
-              <p className="font-bold text-[15px] text-red-700">{h.number}</p>
-              <p className="text-ink-secondary text-[11px] leading-snug">{h.name.split(' (')[0].split(' —')[0]}</p>
-            </div>
-          ))}
+    <CalcCard icon="⚖️" title="BMI Calculator" desc="Uses WHO Asian-Pacific cut-offs (lower thresholds than Western standards — Asians develop metabolic risk at lower BMI).">
+      <div className="grid sm:grid-cols-2 gap-4 mb-5">
+        <div>
+          <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-1.5">Height (cm)</label>
+          <input type="number" placeholder="e.g. 168" value={height} onChange={e => setHeight(e.target.value)}
+            className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-brand" />
         </div>
-        <p className="text-[11px] text-red-600 mt-2.5 font-medium">⚡ Always call 999 first in any life-threatening emergency. 112 also works on all mobile networks.</p>
+        <div>
+          <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-1.5">Weight (kg)</label>
+          <input type="number" placeholder="e.g. 72" value={weight} onChange={e => setWeight(e.target.value)}
+            className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-brand" />
+        </div>
       </div>
 
-      {/* Category filter */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {EMERGENCY_CATEGORIES.map(cat => (
-          <button key={cat} onClick={() => setCategory(cat)}
-            className={`px-3 py-1.5 rounded-full text-[12px] font-medium border transition-colors ${
-              category === cat
-                ? 'bg-ink text-white border-ink'
-                : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-            }`}>{cat}</button>
-        ))}
+      {rounded && cat && (
+        <div className="rounded-2xl overflow-hidden border" style={{ borderColor: cat.color }}>
+          <div className="px-5 py-4" style={{ background: `${cat.color}12` }}>
+            <div className="flex items-baseline gap-3">
+              <span className="text-[40px] font-bold" style={{ color: cat.color }}>{rounded}</span>
+              <span className="text-[14px] text-ink-secondary">BMI</span>
+            </div>
+            <p className="font-bold text-[16px] mt-0.5" style={{ color: cat.color }}>{cat.label}</p>
+          </div>
+          <div className="px-5 py-3 bg-white">
+            <p className="text-ink-secondary text-[13px] leading-relaxed">{cat.risk}</p>
+          </div>
+          <div className="px-5 py-3 border-t border-ink-quaternary bg-surface-secondary">
+            <p className="text-[11px] text-ink-tertiary">Asian cut-offs: Normal 18.5–22.9 · Overweight ≥ 23.0 · Obese ≥ 27.5 (Class I ≥ 25.0 by WHO standard)</p>
+          </div>
+        </div>
+      )}
+      {!rounded && (
+        <div className="rounded-xl border border-ink-quaternary bg-surface-secondary px-4 py-3 text-center text-ink-tertiary text-[13px]">Enter height and weight above to calculate</div>
+      )}
+    </CalcCard>
+  )
+}
+
+function LogRoomRateCheck() {
+  const [logLimit, setLogLimit] = useState('')
+  const [days, setDays] = useState('5')
+  const [selected, setSelected] = useState(null)
+
+  const room = HOSPITAL_ROOM_RATES[selected] || null
+  const log = parseFloat(logLimit) || 0
+  const numDays = parseInt(days) || 5
+
+  const minRate = room?.rate[0] || 0
+  const maxRate = room?.rate[1] || 0
+  const midRate = room ? Math.round((minRate + maxRate) / 2) : 0
+
+  const covered = log >= minRate
+  const gap = Math.max(0, midRate - log)
+  const totalGap = gap * numDays
+
+  return (
+    <CalcCard icon="🛡️" title="Insurance LOG Room Rate Check" desc="Check if your daily room LOG (Letter of Guarantee) limit covers your chosen hospital's room rate. Gaps are your personal liability.">
+      <div className="space-y-4 mb-5">
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-1.5">Your daily room LOG limit (RM)</label>
+            <input type="number" placeholder="e.g. 200" value={logLimit} onChange={e => setLogLimit(e.target.value)}
+              className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-brand" />
+            <p className="text-[11px] text-ink-tertiary mt-1">Find this in your policy schedule or call your insurer.</p>
+          </div>
+          <div>
+            <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-1.5">Estimated stay (days)</label>
+            <input type="number" placeholder="e.g. 5" value={days} onChange={e => setDays(e.target.value)}
+              className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-brand" />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Hospital room type</label>
+          <div className="space-y-1.5">
+            {HOSPITAL_ROOM_RATES.map((r, i) => (
+              <button key={i} onClick={() => setSelected(i)}
+                className={`w-full text-left px-4 py-2.5 rounded-xl border text-[13px] transition-colors ${
+                  selected === i ? 'border-brand bg-brand/5 text-ink' : 'border-ink-quaternary hover:border-brand/40 text-ink-secondary'
+                }`}>
+                <span className="font-medium">{r.label}</span>
+                <span className="ml-2 text-ink-tertiary">RM {r.rate[0]}–{r.rate[1]}/night</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Scenario cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {visible.map(s => {
-          const isOpen = open === s.id
-          return (
-            <div key={s.id}
-              className="bg-white border border-ink-quaternary rounded-2xl overflow-hidden cursor-pointer hover:border-brand/40 transition-colors"
-              style={{ borderLeft: `3px solid ${s.color}` }}
-              onClick={() => setOpen(isOpen ? null : s.id)}
-            >
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg leading-none">{s.icon}</span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                      style={{ background: `${s.color}18`, color: s.color }}>{s.category}</span>
-                    {s.callAmbulance && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-600">Call 999</span>
-                    )}
-                  </div>
-                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform mt-0.5 ${isOpen ? 'rotate-180' : ''}`}
-                    width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-ink text-[13px] leading-snug">{s.label}</h3>
-
-                {isOpen && (
-                  <div className="mt-3 pt-3 border-t border-ink-quaternary space-y-3 text-[12px]">
-                    <div>
-                      <p className="font-semibold text-ink mb-1.5" style={{ color: s.color }}>🔍 Recognise</p>
-                      <ul className="space-y-1">
-                        {s.recognize.map((r, i) => (
-                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
-                            <span className="flex-shrink-0 mt-0.5 text-ink-tertiary">·</span>{r}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-ink mb-1.5 text-green-700">✅ Do Now</p>
-                      <ol className="space-y-1 list-none">
-                        {s.doNow.map((d, i) => (
-                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
-                            <span className="flex-shrink-0 font-semibold text-green-600 mt-0.5">{i + 1}.</span>{d}
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-red-600 mb-1.5">🚫 Do NOT</p>
-                      <ul className="space-y-1">
-                        {s.doNot.map((d, i) => (
-                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
-                            <span className="flex-shrink-0 text-red-400 mt-0.5">✕</span>{d}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    {s.note && (
-                      <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
-                        <p className="text-ink-secondary leading-relaxed">{s.note}</p>
-                      </div>
-                    )}
-                  </div>
-                )}
+      {log > 0 && room && (
+        <div className={`rounded-2xl border overflow-hidden ${covered ? 'border-emerald-200' : 'border-red-200'}`}>
+          <div className={`px-5 py-4 ${covered ? 'bg-emerald-50' : 'bg-red-50'}`}>
+            <p className={`font-bold text-[16px] mb-1 ${covered ? 'text-emerald-800' : 'text-red-800'}`}>
+              {covered ? '✓ Partially or fully covered' : '⚠ Gap risk — not fully covered'}
+            </p>
+            <div className="grid grid-cols-3 gap-3 mt-3">
+              <div className="bg-white rounded-xl p-3 text-center">
+                <p className="text-[11px] text-ink-tertiary mb-0.5">LOG limit/day</p>
+                <p className="font-bold text-ink text-[16px]">RM {log}</p>
+              </div>
+              <div className="bg-white rounded-xl p-3 text-center">
+                <p className="text-[11px] text-ink-tertiary mb-0.5">Typical room rate</p>
+                <p className="font-bold text-ink text-[16px]">RM {midRate}</p>
+              </div>
+              <div className={`rounded-xl p-3 text-center ${gap > 0 ? 'bg-red-100' : 'bg-emerald-100'}`}>
+                <p className="text-[11px] text-ink-tertiary mb-0.5">Gap/day</p>
+                <p className={`font-bold text-[16px] ${gap > 0 ? 'text-red-700' : 'text-emerald-700'}`}>RM {gap}</p>
               </div>
             </div>
-          )
-        })}
+            {gap > 0 && (
+              <div className="mt-3 bg-white rounded-xl px-4 py-3">
+                <p className="text-[13px] text-red-800">
+                  <strong>{numDays}-day stay gap estimate:</strong> RM {totalGap.toLocaleString()} out of pocket for room alone. Upgrade your plan before admission — not after.
+                </p>
+              </div>
+            )}
+          </div>
+          <div className="px-5 py-3 bg-white border-t border-ink-quaternary">
+            <p className="text-[11px] text-ink-tertiary">Room rates are estimates. Always confirm with the hospital directly. LOG gap applies to the room rate component only — other charges (surgeon, anaesthesia, tests) are governed by separate limits.</p>
+          </div>
+        </div>
+      )}
+      {(!log || !room) && (
+        <div className="rounded-xl border border-ink-quaternary bg-surface-secondary px-4 py-3 text-center text-ink-tertiary text-[13px]">Enter your LOG limit and select a room type above</div>
+      )}
+    </CalcCard>
+  )
+}
+
+function ProcedureCostCalculator() {
+  const [selected, setSelected] = useState(null)
+  const proc = selected !== null ? PROCEDURE_COSTS[selected] : null
+
+  const fmtRange = ([lo, hi]) => `RM ${lo.toLocaleString()} – ${hi.toLocaleString()}`
+
+  return (
+    <CalcCard icon="💰" title="Public vs Private Procedure Cost" desc="Estimated cost ranges for common procedures. Public = subsidised ward. FPP = Full Paying Patient at government hospital. Private = private hospital.">
+      <div className="mb-5">
+        <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Select a procedure</label>
+        <select value={selected ?? ''} onChange={e => setSelected(e.target.value === '' ? null : parseInt(e.target.value))}
+          className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand appearance-none bg-white">
+          <option value="">Choose a procedure…</option>
+          {PROCEDURE_COSTS.map((p, i) => <option key={i} value={i}>{p.label}</option>)}
+        </select>
       </div>
-    </div>
+
+      {proc ? (
+        <div className="space-y-3">
+          <div className="grid sm:grid-cols-3 gap-3">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-center">
+              <p className="text-[11px] font-semibold text-emerald-700 uppercase tracking-wide mb-1">Public Hospital</p>
+              <p className="font-bold text-emerald-800 text-[18px]">{fmtRange(proc.public)}</p>
+              <p className="text-[11px] text-emerald-700 mt-1">Subsidised ward (with referral)</p>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 text-center">
+              <p className="text-[11px] font-semibold text-blue-700 uppercase tracking-wide mb-1">FPP (Govt Hospital)</p>
+              <p className="font-bold text-blue-800 text-[18px]">{fmtRange(proc.fpp)}</p>
+              <p className="text-[11px] text-blue-700 mt-1">Full Paying Patient — private room</p>
+            </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-center">
+              <p className="text-[11px] font-semibold text-amber-700 uppercase tracking-wide mb-1">Private Hospital</p>
+              <p className="font-bold text-amber-800 text-[18px]">{fmtRange(proc.private)}</p>
+              <p className="text-[11px] text-amber-700 mt-1">Private hospital standard room</p>
+            </div>
+          </div>
+          <div className="bg-surface-secondary rounded-xl px-4 py-3">
+            <p className="text-[12px] text-ink-secondary leading-relaxed">
+              Choosing <strong>FPP over private</strong> saves approximately <strong className="text-brand">RM {Math.round((proc.private[0] + proc.private[1])/2 - (proc.fpp[0] + proc.fpp[1])/2).toLocaleString()}</strong> on average for this procedure.
+            </p>
+            <p className="text-[11px] text-ink-tertiary mt-1">Estimates only. Actual costs vary by hospital, surgeon, complications, and insurance coverage.</p>
+          </div>
+        </div>
+      ) : (
+        <div className="rounded-xl border border-ink-quaternary bg-surface-secondary px-4 py-3 text-center text-ink-tertiary text-[13px]">Select a procedure above to see cost comparison</div>
+      )}
+    </CalcCard>
+  )
+}
+
+function FppSavingsCalculator() {
+  const [selected, setSelected] = useState(null)
+  const [insured, setInsured] = useState('yes')
+  const proc = selected !== null ? PROCEDURE_COSTS[selected] : null
+
+  const fmtRange = ([lo, hi]) => `RM ${lo.toLocaleString()} – ${hi.toLocaleString()}`
+  const midVal = arr => Math.round((arr[0] + arr[1]) / 2)
+
+  const privateMid = proc ? midVal(proc.private) : 0
+  const fppMid = proc ? midVal(proc.fpp) : 0
+  const saving = privateMid - fppMid
+  const pct = privateMid ? Math.round(saving / privateMid * 100) : 0
+
+  return (
+    <CalcCard icon="✓" title="FPP Savings Estimator" desc="How much you save by choosing the Full Paying Patient (FPP) scheme at a government hospital instead of a private hospital.">
+      <div className="grid sm:grid-cols-2 gap-4 mb-5">
+        <div>
+          <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Procedure</label>
+          <select value={selected ?? ''} onChange={e => setSelected(e.target.value === '' ? null : parseInt(e.target.value))}
+            className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand appearance-none bg-white">
+            <option value="">Choose a procedure…</option>
+            {PROCEDURE_COSTS.map((p, i) => <option key={i} value={i}>{p.label}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-2">Do you have insurance?</label>
+          <div className="flex rounded-xl border border-ink-quaternary overflow-hidden text-[13px]">
+            {[['yes', 'Yes'], ['no', 'No']].map(([val, label]) => (
+              <button key={val} onClick={() => setInsured(val)}
+                className={`flex-1 px-4 py-2.5 font-medium transition-colors ${insured === val ? 'bg-ink text-white' : 'bg-white text-ink-secondary hover:bg-surface-secondary'}`}>
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {proc ? (
+        <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+              <p className="text-[11px] font-semibold text-amber-700 uppercase mb-1">Private Hospital Cost</p>
+              <p className="font-bold text-amber-800 text-[18px]">{fmtRange(proc.private)}</p>
+            </div>
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+              <p className="text-[11px] font-semibold text-emerald-700 uppercase mb-1">FPP at Govt Hospital</p>
+              <p className="font-bold text-emerald-800 text-[18px]">{fmtRange(proc.fpp)}</p>
+            </div>
+          </div>
+
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 text-center">
+            <p className="text-[13px] text-ink-secondary mb-1">Estimated average savings with FPP</p>
+            <p className="font-bold text-brand text-[32px]">RM {saving.toLocaleString()}</p>
+            <p className="text-ink-secondary text-[14px]">{pct}% less than private hospital</p>
+            {insured === 'yes' && (
+              <p className="mt-2 text-[12px] text-ink-tertiary">With insurance, your insurer pays the FPP rate — your out-of-pocket may be near zero if your plan covers it. Confirm FPP is on your insurer's panel list.</p>
+            )}
+          </div>
+
+          <div className="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
+            <p className="text-[12px] text-emerald-800 leading-relaxed">
+              <strong>FPP tip:</strong> FPP rooms are at government hospitals (HKL, HTAR, Hospital Selayang, etc.) — same doctors, private room, air-conditioned. Apply at the FPP unit with your IC. Rates are not publicly listed — ask for a written estimate.
+            </p>
+          </div>
+          <p className="text-[11px] text-ink-tertiary">All figures are estimates based on typical Malaysian hospital charges (2024–2025). Actual costs vary by hospital, surgeon seniority, complications, length of stay, and insurance terms.</p>
+        </div>
+      ) : (
+        <div className="rounded-xl border border-ink-quaternary bg-surface-secondary px-4 py-3 text-center text-ink-tertiary text-[13px]">Select a procedure above to calculate savings</div>
+      )}
+    </CalcCard>
   )
 }

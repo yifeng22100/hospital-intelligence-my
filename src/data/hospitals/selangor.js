@@ -2623,18 +2623,18 @@ export const HOSPITALS_SELANGOR = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "Plaza Masalam, No. 2, Jalan Tengku Ampuan Zabedah C 9/C, Section 9, 40100 Shah Alam, Selangor",
-      mainLine: "+603-5521 8600",
-      emergencyLine: "+603-5521 8600 ext. A&E",
-      appointmentLine: "+603-5521 8600",
-      website: "https://www.msumedical.com.my",
+      address: "Jln Boling Padang 13/64, Seksyen 13, 40100 Shah Alam, Selangor",
+      mainLine: "+603-5526 2600",
+      emergencyLine: "+603-5526 2600 ext. A&E",
+      appointmentLine: "+603-5526 2600",
+      website: "https://www.msumedicalcentre.com",
       mapQuery: "MSU Medical Centre Shah Alam Selangor"
     },
     transport: {
       nearest: "Shah Alam KTM Komuter Station — 10 min taxi",
       bus: "Rapid KL Bus routes (Shah Alam Section 9 area)",
       highway: "NKVE / Federal Highway — Shah Alam Section 9 exit",
-      landmark: "Plaza Masalam, Section 9, Shah Alam — near Shah Alam KTM"
+      landmark: "Seksyen 13, Shah Alam — near MSU campus"
     },
     facilities: {
       pharmacy24h: false,
@@ -2724,18 +2724,18 @@ export const HOSPITALS_SELANGOR = [
       parkingRate: "RM 1/hour"
     },
     contact: {
-      address: "MAHSA Avenue, Jalan Elmu, Off Jalan Universiti, 68100 Jenjarom, Kuala Langat, Selangor",
-      mainLine: "+603-3179 3000",
-      emergencyLine: "+603-3179 3000 ext. A&E",
-      appointmentLine: "+603-3179 3000",
-      website: "https://www.mahsa.edu.my/hospital",
+      address: "Jalan SP 1/3, Bandar Saujana Putra, 42610 Jenjarom, Kuala Langat, Selangor",
+      mainLine: "+603-5651 1888",
+      emergencyLine: "+603-5651 1888 ext. A&E",
+      appointmentLine: "+603-5651 1888",
+      website: "https://www.mahsahospital.com",
       mapQuery: "MAHSA Specialist Hospital Jenjarom Kuala Langat Selangor"
     },
     transport: {
       nearest: "No direct rail. Nearest: Teluk Pulai KTM Station — 25 min taxi; or KLIA2 area — 20 min drive",
       bus: "Limited public transport. Car or taxi strongly recommended.",
       highway: "Coastal Highway (Route 5) / ELITE Highway — Exit Banting / Jenjarom",
-      landmark: "MAHSA University campus, Jenjarom — off Jalan Universiti, Kuala Langat"
+      landmark: "Bandar Saujana Putra, Jenjarom, Kuala Langat, Selangor"
     },
     facilities: {
       pharmacy24h: false,

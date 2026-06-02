@@ -9,6 +9,7 @@ import Resources from './pages/Resources'
 import About from './pages/About'
 import Terms from './pages/Terms'
 import Sources from './pages/Sources'
+import Knowledge from './pages/Knowledge'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/knowledge" element={<Knowledge />} />
             <Route path="/about" element={<About />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/sources" element={<Sources />} />

@@ -13,22 +13,15 @@ const FINANCIAL_SCHEMES = [
   { q: 'JKM Medical Welfare', a: 'Jabatan Kebajikan Masyarakat (JKM) provides financial assistance for medical expenses to eligible low-income individuals and families. Apply at your nearest JKM district office with hospital bills, doctor letter, and income proof.' },
 ]
 
-const INSURANCE_QA = [
-  { q: 'What is a panel hospital?', a: 'A panel hospital has a direct billing arrangement with your insurer. You pay only the co-pay or deductible upfront; the insurer settles the rest directly with the hospital. Always verify your hospital is on panel before admission.' },
-  { q: 'What is a Letter of Guarantee (LOG)?', a: 'A LOG is a written guarantee from your insurer to the hospital that they will cover the costs up to a specified limit. Most hospitals require a LOG before planned admission. Call your insurer 24–48 hours before and keep the reference number.' },
-  { q: 'What if my hospital is not on panel?', a: 'You pay upfront and submit a reimbursement claim. Keep ALL original receipts, itemised bills, discharge summary, and lab/imaging reports. Submit within your policy claim period — usually 90–120 days from discharge. Do not submit photocopies.' },
-  { q: 'Pre-admission expense window', a: 'Specialist visits, scans, and lab tests within 30–90 days before admission (varies by insurer) are claimable as pre-admission expenses if the admission is related. Keep every receipt. AIA: 30–60 days; Prudential: 60–90 days; Great Eastern: 30–60 days.' },
-  { q: 'How to check panel status?', a: "Call your insurer's hotline before visiting. AIA: 1300-88-1899. Prudential: 1800-88-8811. Great Eastern: 1300-1300-88. Allianz: 1800-22-5542. Etiqa: 1300-13-1300. Most insurers also have a panel hospital search in their mobile app." },
-  { q: 'What to do before discharge', a: 'Before leaving a private hospital: obtain an itemised bill (not just the total), confirm your insurer LOG has been settled, keep a copy of your medical report and discharge summary, and ask for all original X-rays/scans on a CD — these belong to you.' },
+const TOPICS = [
+  { id: 'emergency',        icon: '🚨', label: 'Emergency Contacts', desc: 'Hotlines, ambulances, and when to call 999' },
+  { id: 'emergency-events', icon: '⚕️', label: 'Emergency Events',   desc: 'Step-by-step action guides for each emergency' },
+  { id: 'rights',           icon: '⚖️', label: 'Patient Rights',    desc: 'Your rights, complaints, and legal aid' },
+  { id: 'support',          icon: '🤝', label: 'Support Orgs',      desc: 'NGOs and patient support organisations' },
+  { id: 'financial',        icon: '💳', label: 'Financial Aid',     desc: 'Government schemes and welfare assistance' },
 ]
 
-const TOPICS = [
-  { id: 'emergency', icon: '🚨', label: 'Emergency Contacts', desc: 'Hotlines, ambulances, and when to call 999' },
-  { id: 'rights',    icon: '⚖️', label: 'Patient Rights',    desc: 'Your rights, complaints, and legal aid' },
-  { id: 'support',   icon: '🤝', label: 'Support Orgs',      desc: 'NGOs and patient support organisations' },
-  { id: 'financial', icon: '💳', label: 'Financial Aid',     desc: 'Government schemes and welfare assistance' },
-  { id: 'insurance', icon: '🛡️', label: 'Insurance Basics',  desc: 'Panels, LOG, and how to claim' },
-]
+const EMERGENCY_EVENT_CATEGORIES = ['All', 'Cardiac', 'Neurological', 'Airway', 'Trauma', 'Envenomation', 'Allergy', 'Medical', 'Child']
 
 export default function Resources() {
   const [active, setActive] = useState('emergency')
@@ -74,11 +67,11 @@ export default function Resources() {
           <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
         </div>
 
-        {active === 'emergency' && <EmergencySection />}
-        {active === 'rights'    && <PatientRightsSection />}
-        {active === 'support'   && <NgoSection />}
-        {active === 'financial' && <FinancialSection />}
-        {active === 'insurance' && <InsuranceSection />}
+        {active === 'emergency'        && <EmergencySection onShowEvents={() => setActive('emergency-events')} />}
+        {active === 'emergency-events' && <EmergencyEventsSection onShowContacts={() => setActive('emergency')} />}
+        {active === 'rights'           && <PatientRightsSection />}
+        {active === 'support'          && <NgoSection />}
+        {active === 'financial'        && <FinancialSection />}
       </div>
     </div>
   )
@@ -104,12 +97,19 @@ function IntelligenceCrosslink({ to, label }) {
 
 /* ─── Emergency Contacts ────────────────────────────────────────────── */
 
-function EmergencySection() {
+function EmergencySection({ onShowEvents }) {
   const ep = EMERGENCY_PROTOCOLS
 
   return (
     <div className="space-y-8">
-      <IntelligenceCrosslink label="step-by-step emergency action guides (stroke, heart attack, burns, choking, and 7 more)" />
+      <div className="bg-brand/5 border border-brand/20 rounded-xl px-4 py-3 flex items-center justify-between gap-3">
+        <p className="text-[13px] text-ink-secondary">
+          <span className="text-brand font-semibold">Emergency Events</span> has step-by-step action guides for stroke, heart attack, burns, choking, and 9 more scenarios.
+        </p>
+        <button onClick={onShowEvents} className="flex-shrink-0 text-[12px] font-semibold text-brand border border-brand/30 rounded-lg px-3 py-1.5 hover:bg-brand hover:text-white transition-colors">
+          View →
+        </button>
+      </div>
 
       {/* Primary hotlines */}
       <div>
@@ -429,33 +429,107 @@ function FinancialSection() {
   )
 }
 
-/* ─── Insurance Basics ───────────────────────────────────────────── */
+/* ─── Emergency Events ───────────────────────────────────────────── */
 
-function InsuranceSection() {
+function EmergencyEventsSection({ onShowContacts }) {
+  const [category, setCategory] = useState('All')
   const [open, setOpen] = useState(null)
+  const scenarios = EMERGENCY_PROTOCOLS.emergencyScenarios
+  const visible = category === 'All' ? scenarios : scenarios.filter(s => s.category === category)
+
   return (
-    <div className="space-y-3 max-w-[760px]">
-      <IntelligenceCrosslink label="panel limits, LOG caps, and insurance hacks by insurer" />
-      {INSURANCE_QA.map(({ q, a }) => {
-        const isOpen = open === q
-        return (
-          <div key={q} className="border border-ink-quaternary rounded-xl overflow-hidden">
-            <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
-              onClick={() => setOpen(isOpen ? null : q)}>
-              <span className="font-semibold text-ink text-[13px]">{q}</span>
-              <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                width="13" height="13" viewBox="0 0 13 13" fill="none">
-                <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            {isOpen && (
-              <div className="px-4 pb-4 pt-1 border-t border-ink-quaternary">
-                <p className="text-ink-secondary text-[13px] leading-relaxed">{a}</p>
+    <div>
+      <div className="bg-brand/5 border border-brand/20 rounded-xl px-4 py-3 flex items-center justify-between gap-3 mb-6">
+        <p className="text-[13px] text-ink-secondary">
+          <span className="text-brand font-semibold">Emergency Contacts</span> has all hotlines, ambulances, and when to call 999.
+        </p>
+        <button onClick={onShowContacts} className="flex-shrink-0 text-[12px] font-semibold text-brand border border-brand/30 rounded-lg px-3 py-1.5 hover:bg-brand hover:text-white transition-colors">
+          View →
+        </button>
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {EMERGENCY_EVENT_CATEGORIES.map(cat => (
+          <button key={cat} onClick={() => setCategory(cat)}
+            className={`px-3 py-1.5 rounded-full text-[12px] font-medium border transition-colors ${
+              category === cat
+                ? 'bg-ink text-white border-ink'
+                : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{cat}</button>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {visible.map(s => {
+          const isOpen = open === s.id
+          return (
+            <div key={s.id}
+              className="bg-white border border-ink-quaternary rounded-2xl overflow-hidden cursor-pointer hover:border-brand/40 transition-colors"
+              style={{ borderLeft: `3px solid ${s.color}` }}
+              onClick={() => setOpen(isOpen ? null : s.id)}
+            >
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg leading-none">{s.icon}</span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                      style={{ background: `${s.color}18`, color: s.color }}>{s.category}</span>
+                    {s.callAmbulance && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-600">Call 999</span>
+                    )}
+                  </div>
+                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform mt-0.5 ${isOpen ? 'rotate-180' : ''}`}
+                    width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-ink text-[13px] leading-snug">{s.label}</h3>
+
+                {isOpen && (
+                  <div className="mt-3 pt-3 border-t border-ink-quaternary space-y-3 text-[12px]">
+                    <div>
+                      <p className="font-semibold text-ink mb-1.5" style={{ color: s.color }}>🔍 Recognise</p>
+                      <ul className="space-y-1">
+                        {s.recognize.map((r, i) => (
+                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
+                            <span className="flex-shrink-0 mt-0.5 text-ink-tertiary">·</span>{r}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-ink mb-1.5 text-green-700">✅ Do Now</p>
+                      <ol className="space-y-1 list-none">
+                        {s.doNow.map((d, i) => (
+                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
+                            <span className="flex-shrink-0 font-semibold text-green-600 mt-0.5">{i + 1}.</span>{d}
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-red-600 mb-1.5">🚫 Do NOT</p>
+                      <ul className="space-y-1">
+                        {s.doNot.map((d, i) => (
+                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
+                            <span className="flex-shrink-0 text-red-400 mt-0.5">✕</span>{d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {s.note && (
+                      <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
+                        <p className="text-ink-secondary leading-relaxed">{s.note}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        )
-      })}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
+
