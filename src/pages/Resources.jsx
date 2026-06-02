@@ -152,6 +152,7 @@ const TOPICS = [
   { id: 'rights',           icon: '⚖️', label: 'Patient Rights',    desc: 'Your rights, complaints, and legal aid' },
   { id: 'support',          icon: '🤝', label: 'Support Orgs',      desc: 'NGOs and patient support organisations' },
   { id: 'doctor',           icon: '👨‍⚕️', label: 'Doctor Check',      desc: 'Verify qualifications & spot red flags' },
+  { id: 'second-opinion',   icon: '🔍', label: 'Second Opinion',   desc: 'When, how, and where to get a second medical opinion' },
   { id: 'financial',        icon: '💳', label: 'Financial Aid',     desc: 'Government schemes and welfare assistance' },
 ]
 
@@ -206,7 +207,8 @@ export default function Resources() {
         {active === 'rights'           && <PatientRightsSection />}
         {active === 'support'   && <NgoSection />}
         {active === 'doctor'    && <DoctorSection />}
-        {active === 'financial' && <FinancialSection />}
+        {active === 'second-opinion' && <SecondOpinionSection />}
+        {active === 'financial'      && <FinancialSection />}
       </div>
     </div>
   )
@@ -966,6 +968,250 @@ function DoctorSection() {
           ))}
         </ul>
       </div>
+    </div>
+  )
+}
+
+/* ─── Second Opinion ─────────────────────────────────────────────── */
+
+const WHEN_SCENARIOS = [
+  {
+    trigger: 'Diagnosis of a serious or life-altering condition',
+    color: '#dc2626',
+    detail: 'Cancer, heart failure, neurological disease, rare autoimmune conditions — any diagnosis that will significantly change your life warrants a second opinion. Studies show second opinions change the diagnosis or treatment plan in 15–30% of cases.',
+  },
+  {
+    trigger: 'Recommended treatment is invasive, irreversible, or very expensive',
+    color: '#d97706',
+    detail: 'Before agreeing to surgery, amputation, chemotherapy, radiotherapy, or organ removal — get a second opinion. There may be less invasive alternatives, or the timing may differ. This is especially important for elective procedures.',
+  },
+  {
+    trigger: 'Your condition isn\'t improving with current treatment',
+    color: '#7c3aed',
+    detail: 'If you\'ve been treated for weeks or months with little improvement, a fresh perspective may identify a missed diagnosis, a better drug, or a different treatment protocol. Do not stay on a failing plan out of loyalty.',
+  },
+  {
+    trigger: 'You feel uncertain, unheard, or rushed',
+    color: '#0891b2',
+    detail: 'If your doctor does not explain your condition clearly, dismisses your concerns, or rushes you to consent — seek another opinion. You have the right to fully understand and agree to your treatment plan.',
+  },
+  {
+    trigger: 'Multiple treatment options exist with very different outcomes',
+    color: '#059669',
+    detail: 'For example: surgery vs. radiation for early-stage cancer; stenting vs. CABG for coronary disease; mastectomy vs. lumpectomy. Specialists in different centres sometimes have genuinely different approaches — knowing both helps you make an informed choice.',
+  },
+  {
+    trigger: 'The recommended treatment is experimental or off-label',
+    color: '#6366f1',
+    detail: 'If your doctor proposes a drug or procedure not in standard clinical guidelines, or if you\'re being offered a clinical trial, an independent opinion helps assess the evidence base and risks.',
+  },
+]
+
+const SECOND_OPINION_CENTRES = [
+  {
+    category: 'Public (Subsidised / Free)',
+    color: '#16a34a',
+    centres: [
+      { name: 'UMMC (University Malaya Medical Centre)', specialty: 'All specialties — multidisciplinary tumour board for cancer', note: 'Requires referral from a doctor. Ask your current doctor to refer you specifically to the relevant specialist clinic.' },
+      { name: 'Institut Jantung Negara (IJN)', specialty: 'Cardiac — coronary disease, valve surgery, congenital heart', note: 'Accept referrals from any MOH or private hospital. Contact: +603-2617 8200.' },
+      { name: 'Hospital Kuala Lumpur (HKL)', specialty: 'All specialties — neurosurgery, oncology, transplant', note: 'Most referrals come through the public system. Private self-pay patients can access specialist clinics directly.' },
+      { name: 'Institut Kanser Negara (IKN)', specialty: 'Oncology — cancer diagnosis review and treatment planning', note: 'National cancer institute. Specialists review pathology and imaging as part of multidisciplinary team meetings.' },
+    ],
+  },
+  {
+    category: 'Private Specialist Centres',
+    color: '#0891b2',
+    centres: [
+      { name: 'Beacon Hospital (Petaling Jaya)', specialty: 'Oncology — multidisciplinary tumour board (SOLARIS)', note: 'One of Malaysia\'s most active oncology second opinion centres. Tumour board meets weekly. Contact: +603-7787 8888.' },
+      { name: 'Sunway Medical Centre (Petaling Jaya)', specialty: 'All major specialties — cancer, cardiac, neurology, orthopaedics', note: 'Direct specialist booking available. Ask for "Second Opinion Clinic" at reception. Contact: +603-7491 9191.' },
+      { name: 'Gleneagles Kuala Lumpur', specialty: 'All specialties — multi-organ, oncology, cardiac', note: 'Higher cost but broad specialist coverage. Pathology review and imaging review available.' },
+      { name: 'Pantai Hospital Kuala Lumpur', specialty: 'Oncology, neurosurgery, cardiac', note: 'Multidisciplinary Cancer Centre offers tumour board review. Contact: +603-2296 0888.' },
+      { name: 'UKMSC / UMSC (Academic Private)', specialty: 'All specialties — professor-level consultants', note: 'University-affiliated specialists at 20–40% lower cost than pure private hospitals. High expertise, especially complex cases.' },
+    ],
+  },
+  {
+    category: 'International (Remote / Online)',
+    color: '#7c3aed',
+    centres: [
+      { name: 'Mayo Clinic International Second Opinion', specialty: 'All specialties — pathology and imaging reviewed remotely', note: 'Paid service (USD 750–2,000 depending on complexity). Submit records online; receive written report within 3–4 weeks. mayoclinic.org/appointments/international.' },
+      { name: 'Cleveland Clinic MyConsult (Online)', specialty: 'Cardiac, cancer, neurology, orthopaedics', note: 'Online second opinion service. USD 565–750. Written specialist opinion within 2 weeks. my.clevelandclinic.org/online-services/myconsult.' },
+      { name: 'MD Anderson Cancer Center', specialty: 'Oncology only', specialty_note: 'Pathology and imaging review for cancer cases. Contact the International Center for cost estimate. mdanderson.org/international.' },
+      { name: 'Singapore General Hospital (SGH)', specialty: 'All specialties', note: 'Self-referral possible for Malaysians. Shorter travel than US/UK options. Specialist outpatient visit typically SGD 200–500 (consult only, excluding tests).' },
+    ],
+  },
+]
+
+const PREP_DOCS = [
+  { doc: 'All imaging files (MRI, CT, PET-CT, X-ray)', detail: 'Request your imaging on a USB drive or CD from the radiology department. Many hospitals now offer digital access via patient portal. Bring the original images — not just the report.' },
+  { doc: 'All pathology / biopsy reports', detail: 'For cancer: bring the original pathology slides or request a copy of the formal pathology report including tumour grade, stage, receptor status (e.g. ER/PR/HER2 for breast cancer).' },
+  { doc: 'Blood test results (last 6–12 months)', detail: 'Include tumour markers, full blood count, liver and kidney function, and any specialist-ordered panels. The new specialist may spot trends not visible in a single snapshot.' },
+  { doc: 'Discharge summaries and operation reports', detail: 'If you were hospitalised or had surgery previously, bring all discharge summaries and operative reports. These detail exactly what was done and found.' },
+  { doc: 'Current medication list', detail: 'Write down every medication, dose, and how long you\'ve been on it. Include supplements. Drug interactions can be relevant to treatment decisions.' },
+  { doc: 'Your current doctor\'s referral letter', detail: 'Ask your doctor for a referral letter summarising your diagnosis, treatment so far, and the specific clinical question you want the second opinion to address. Not mandatory but helps the new specialist prepare.' },
+  { doc: 'Written list of your questions', detail: 'Write your questions before the appointment. Key questions: "Do you agree with the diagnosis?", "What treatment would you recommend?", "Are there alternatives?", "What happens if I delay treatment?"' },
+]
+
+function SecondOpinionSection() {
+  const [openScenario, setOpenScenario] = useState(null)
+  const [openCentre, setOpenCentre] = useState(null)
+  const [openDoc, setOpenDoc] = useState(null)
+
+  const Chevron = ({ open }) => (
+    <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${open ? 'rotate-180' : ''}`}
+      width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+
+  return (
+    <div className="space-y-10 max-w-[820px]">
+
+      {/* Your right */}
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4">
+        <h3 className="font-bold text-ink text-[15px] mb-2">Your Right to a Second Opinion</h3>
+        <p className="text-ink-secondary text-[13px] leading-relaxed">
+          Under Malaysia's <strong>Patient's Charter (Piagam Pesakit)</strong>, you have the right to seek a second medical opinion at any time. A good doctor will not be offended — it is standard practice and clinically encouraged for serious diagnoses. Studies consistently show second opinions alter diagnosis or treatment plans in <strong>15–30% of cases</strong>.
+        </p>
+      </div>
+
+      {/* When to seek */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🤔 When Should You Seek a Second Opinion?</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">Any of these situations warrants getting another specialist's view.</p>
+        <div className="space-y-2">
+          {WHEN_SCENARIOS.map((s, i) => {
+            const isOpen = openScenario === i
+            return (
+              <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${s.color}` }}>
+                <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenScenario(isOpen ? null : i)}>
+                  <span className="font-semibold text-ink text-[13px] pr-3">{s.trigger}</span>
+                  <Chevron open={isOpen} />
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-4 pt-1 border-t border-ink-quaternary">
+                    <p className="text-ink-secondary text-[13px] leading-relaxed">{s.detail}</p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* How to ask */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[15px] mb-3">💬 How to Ask Your Doctor</h3>
+        <div className="bg-white border border-brand/20 rounded-xl px-4 py-3 mb-3">
+          <p className="text-[12px] font-semibold text-ink-secondary uppercase tracking-wide mb-1">What to say</p>
+          <p className="text-ink text-[14px] italic leading-relaxed">
+            "Thank you, Doctor. Given the seriousness of this diagnosis, I'd like to get a second opinion before we proceed. Could you provide a referral letter and copies of all my test results?"
+          </p>
+        </div>
+        <div className="space-y-2 text-[13px] text-ink-secondary">
+          <div className="flex items-start gap-2"><span className="text-brand mt-0.5 flex-shrink-0">✓</span><span>A referral is not always required — you can book directly at most private centres.</span></div>
+          <div className="flex items-start gap-2"><span className="text-brand mt-0.5 flex-shrink-0">✓</span><span>You do not need to explain at length. "I want a second opinion" is sufficient.</span></div>
+          <div className="flex items-start gap-2"><span className="text-brand mt-0.5 flex-shrink-0">✓</span><span>If your doctor refuses to provide records or becomes dismissive — that itself is a red flag.</span></div>
+          <div className="flex items-start gap-2"><span className="text-brand mt-0.5 flex-shrink-0">✓</span><span>You do not need to tell your current doctor which specialist you are consulting.</span></div>
+        </div>
+      </div>
+
+      {/* What to bring */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">📁 What to Bring — Document Checklist</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">The more complete your records, the more useful the second opinion will be.</p>
+        <div className="space-y-2">
+          {PREP_DOCS.map((d, i) => {
+            const isOpen = openDoc === i
+            return (
+              <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                  onClick={() => setOpenDoc(isOpen ? null : i)}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-brand font-bold text-[13px]">☐</span>
+                    <span className="font-semibold text-ink text-[13px]">{d.doc}</span>
+                  </div>
+                  <Chevron open={isOpen} />
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-3 pt-1 border-t border-ink-quaternary">
+                    <p className="text-ink-secondary text-[13px] leading-relaxed">{d.detail}</p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Where to go */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">🏥 Where to Get a Second Opinion in Malaysia</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">Options range from subsidised public hospitals to remote international consultations.</p>
+        <div className="space-y-4">
+          {SECOND_OPINION_CENTRES.map(cat => (
+            <div key={cat.category}>
+              <h4 className="font-semibold text-[13px] mb-2 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: cat.color }} />
+                {cat.category}
+              </h4>
+              <div className="space-y-1.5">
+                {cat.centres.map((c, i) => {
+                  const key = `${cat.category}-${i}`
+                  const isOpen = openCentre === key
+                  return (
+                    <div key={key} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${cat.color}` }}>
+                      <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                        onClick={() => setOpenCentre(isOpen ? null : key)}>
+                        <div>
+                          <p className="font-semibold text-ink text-[13px]">{c.name}</p>
+                          <p className="text-ink-tertiary text-[11px] mt-0.5">{c.specialty}</p>
+                        </div>
+                        <Chevron open={isOpen} />
+                      </button>
+                      {isOpen && (
+                        <div className="px-4 pb-3 pt-1 border-t border-ink-quaternary">
+                          <p className="text-ink-secondary text-[13px] leading-relaxed">{c.note}</p>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* When opinions differ */}
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+        <h3 className="font-bold text-amber-900 text-[15px] mb-3">⚖️ What to Do When Opinions Differ</h3>
+        <div className="space-y-2.5 text-[13px]">
+          {[
+            { q: 'Same diagnosis, different treatment recommended', a: 'Ask each doctor to explain the evidence for their approach. Request references to clinical guidelines (e.g. NCCN, ESC). Consider which aligns with your values — quality of life vs. aggressive treatment.' },
+            { q: 'Different diagnoses entirely', a: 'Request a third opinion from a subspecialist or a multidisciplinary tumour board. Ask each doctor to review the other\'s records specifically. A pathology re-read at a major academic centre (UMMC, Beacon) is often the tiebreaker.' },
+            { q: 'One doctor says surgery, the other says watch and wait', a: 'Get clear on the downside of delay from the doctor recommending surgery, and the downside of operating from the doctor advising against it. Then decide based on your full understanding of the risks — not just trust in one doctor.' },
+            { q: 'Overseas opinion differs from local opinion', a: 'Local context matters — drug availability, follow-up infrastructure, and cost-effectiveness of certain protocols differ. Discuss the overseas recommendation with your local specialist and ask if it\'s feasible here.' },
+          ].map(({ q, a }) => (
+            <div key={q} className="bg-white rounded-xl p-3">
+              <p className="font-semibold text-ink text-[13px] mb-1">{q}</p>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Insurance */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[15px] mb-3">🛡️ Does Insurance Cover a Second Opinion?</h3>
+        <div className="space-y-2 text-[13px] text-ink-secondary">
+          <div className="flex items-start gap-2"><span className="text-brand mt-0.5 flex-shrink-0">✓</span><span><strong className="text-ink">Specialist outpatient visit at a panel hospital</strong> — typically covered as a normal specialist consultation. Requires your insurer's panel hospital and any applicable outpatient limit.</span></div>
+          <div className="flex items-start gap-2"><span className="text-brand mt-0.5 flex-shrink-0">✓</span><span><strong className="text-ink">Some policies include an explicit "Second Opinion Benefit"</strong> — check your policy schedule under "Additional Benefits" or call your insurer to confirm.</span></div>
+          <div className="flex items-start gap-2"><span className="text-amber-600 mt-0.5 flex-shrink-0">⚠</span><span><strong className="text-ink">International remote second opinions</strong> (Mayo Clinic, Cleveland Clinic) are typically not covered by Malaysian medical insurance — paid out of pocket.</span></div>
+          <div className="flex items-start gap-2"><span className="text-amber-600 mt-0.5 flex-shrink-0">⚠</span><span><strong className="text-ink">Pre-authorisation</strong> may be needed if the second opinion involves tests or procedures — call your insurer before the appointment if imaging or biopsies are likely.</span></div>
+        </div>
+      </div>
+
     </div>
   )
 }
