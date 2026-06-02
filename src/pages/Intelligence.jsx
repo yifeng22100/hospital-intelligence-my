@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { INSURANCE_PANELS } from '../data/insurance-panels'
 const TOPICS = [
   { id: 'hacks',     icon: '💡', label: 'Insider Tips',    desc: '12 things most patients don\'t know' },
   { id: 'tiers',     icon: '🏥', label: 'Hospital Tiers',  desc: 'Public referral system explained' },
-  { id: 'insurance', icon: '🛡️', label: 'Insurance',       desc: 'Panels, LOG limits & claims guide' },
   { id: 'trials',    icon: '🔬', label: 'Clinical Trials', desc: 'Access to experimental treatments' },
   { id: 'night',     icon: '🌙', label: 'Night Cover',     desc: 'Overnight care by hospital type' },
 ]
@@ -55,7 +53,6 @@ export default function Intelligence() {
 
         {active === 'hacks'     && <HacksSection />}
         {active === 'tiers'     && <TiersSection />}
-        {active === 'insurance' && <InsuranceSection />}
         {active === 'trials'    && <TrialsSection />}
         {active === 'night'     && <NightSection />}
       </div>

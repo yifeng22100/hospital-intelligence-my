@@ -154,6 +154,7 @@ const TOPICS = [
   { id: 'doctor',           icon: '👨‍⚕️', label: 'Doctor Check',      desc: 'Verify qualifications & spot red flags' },
   { id: 'second-opinion',   icon: '🔍', label: 'Second Opinion',   desc: 'When, how, and where to get a second medical opinion' },
   { id: 'financial',        icon: '💳', label: 'Financial Aid',     desc: 'Government schemes and welfare assistance' },
+  { id: 'mysejahtera',      icon: '📱', label: 'MySejahtera Guide',  desc: 'How to use MySejahtera for public healthcare' },
 ]
 
 const EMERGENCY_EVENT_CATEGORIES = ['All', 'Cardiac', 'Neurological', 'Airway', 'Trauma', 'Envenomation', 'Allergy', 'Medical', 'Child']
@@ -209,6 +210,7 @@ export default function Resources() {
         {active === 'doctor'    && <DoctorSection />}
         {active === 'second-opinion' && <SecondOpinionSection />}
         {active === 'financial'      && <FinancialSection />}
+        {active === 'mysejahtera'    && <MySejahteraSection />}
       </div>
     </div>
   )
@@ -1212,6 +1214,280 @@ function SecondOpinionSection() {
         </div>
       </div>
 
+    </div>
+  )
+}
+
+/* ─── MySejahtera Guide ──────────────────────────────────────────── */
+
+function MySejahteraSection() {
+  const [openStep, setOpenStep] = useState(null)
+
+  const Chevron = ({ open }) => (
+    <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${open ? 'rotate-180' : ''}`}
+      width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+
+  return (
+    <div className="space-y-8 max-w-[820px]">
+      {/* Overview */}
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+        <h3 className="font-bold text-blue-900 text-[15px] mb-2">What is MySejahtera?</h3>
+        <p className="text-blue-800 text-[13px] leading-relaxed">
+          MySejahtera is Malaysia's official digital health app for managing your public healthcare records. It connects you to government health facilities, lets you book appointments, check vaccination records, and access your health information — all in one app. It's free and works across all MOH clinics and public hospitals.
+        </p>
+      </div>
+
+      {/* Installation & Registration */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">📱 Installation & Registration</h3>
+        <div className="space-y-2">
+          {[
+            {
+              step: '1. Download the app',
+              details: 'Search "MySejahtera" in Google Play Store (Android) or App Store (iOS). Download the official app by Ministry of Health Malaysia. Current version: 1.2+ (check for latest).',
+            },
+            {
+              step: '2. Create an account',
+              details: 'Open the app and select "Register New Account". You will need: MyKad/Passport number, registered phone number (SMS code verification), email address. Fill in your personal data (name, DOB, address).',
+            },
+            {
+              step: '3. Verify your identity',
+              details: 'The app sends an SMS code to your registered phone. Enter the code to verify. You will also receive a confirmation email — confirm that as well. This links your account to your MOH ID number.',
+            },
+            {
+              step: '4. Link your clinical profile',
+              details: 'After login, the app fetches your existing MOH health records if you have previously visited any MOH facility. If this is your first time, your profile is created in the MOH system automatically.',
+            },
+            {
+              step: '5. Set up family members (optional)',
+              details: 'You can add dependent family members\' records if you are the authorised guardian. Parents can link their children\'s MySejahtera for vaccination tracking and appointment booking.',
+            },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden">
+              <button className="w-full flex items-start justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                onClick={() => setOpenStep(openStep === `install-${i}` ? null : `install-${i}`)}>
+                <span className="font-semibold text-ink text-[13px] pr-3">{item.step}</span>
+                <Chevron open={openStep === `install-${i}`} />
+              </button>
+              {openStep === `install-${i}` && (
+                <div className="px-4 pb-3 pt-1 border-t border-ink-quaternary">
+                  <p className="text-ink-secondary text-[13px] leading-relaxed">{item.details}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Booking & Using Services */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">🏥 Booking Appointments & Using Healthcare</h3>
+        <div className="space-y-3 text-[13px] text-ink-secondary">
+          <div className="bg-surface-secondary rounded-xl p-4">
+            <p className="font-semibold text-ink mb-2">For clinic appointments:</p>
+            <ol className="space-y-1.5 ml-4">
+              <li className="list-decimal">Open MySejahtera → Tap "Book Appointment" or "Find Clinics"</li>
+              <li className="list-decimal">Select your nearest clinic (filter by type: GP, dental, chronic disease, etc.)</li>
+              <li className="list-decimal">Choose available date/time slot</li>
+              <li className="list-decimal">Confirm booking — you will get a booking confirmation on screen and SMS</li>
+              <li className="list-decimal">Arrive 5–10 minutes early. Present your MyKad at reception — they will verify your MySejahtera record</li>
+            </ol>
+          </div>
+
+          <div className="bg-surface-secondary rounded-xl p-4">
+            <p className="font-semibold text-ink mb-2">For hospital services:</p>
+            <ol className="space-y-1.5 ml-4">
+              <li className="list-decimal">Some major public hospitals (HKL, UMMC, HTAR) allow specialist booking via MySejahtera</li>
+              <li className="list-decimal">Others require referral from a primary care doctor first — ask your GP to refer you</li>
+              <li className="list-decimal">Once referred, you may receive an appointment notification in MySejahtera</li>
+              <li className="list-decimal">For emergency: do NOT rely on MySejahtera — go directly to the ER / call 999</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      {/* Health Records & Information */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">📋 Viewing Your Health Information</h3>
+        <div className="space-y-2">
+          {[
+            {
+              item: 'Medical history & diagnoses',
+              details: 'Shows all visit records, diagnoses, and treatment notes from all MOH facilities you have attended. You can see the full narrative — not just medication.',
+            },
+            {
+              item: 'Vaccination records',
+              details: 'Complete record of all vaccinations given at MOH clinics and public hospital childhood vaccination programs. Shows vaccine name, date, and facility. Export as PDF for proof (e.g., for school or travel).',
+            },
+            {
+              item: 'Medication & prescriptions',
+              details: 'Current and past medications prescribed at public facilities. Shows drug name, dose, frequency, and validity period. Some clinics allow you to refill prescriptions via MySejahtera.',
+            },
+            {
+              item: 'Lab results & test records',
+              details: 'Blood tests, imaging reports, pathology results from MOH labs are stored here. Not all tests appear immediately — processing delay is 3–7 days depending on the facility.',
+            },
+            {
+              item: 'Allergies & medical alerts',
+              details: 'You can self-report drug allergies and medical conditions. This information is visible to healthcare staff when you visit, reducing errors.',
+            },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden">
+              <button className="w-full flex items-start justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                onClick={() => setOpenStep(openStep === `record-${i}` ? null : `record-${i}`)}>
+                <span className="font-semibold text-ink text-[13px] pr-3">{item.item}</span>
+                <Chevron open={openStep === `record-${i}`} />
+              </button>
+              {openStep === `record-${i}` && (
+                <div className="px-4 pb-3 pt-1 border-t border-ink-quaternary">
+                  <p className="text-ink-secondary text-[13px] leading-relaxed">{item.details}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Vaccination Portal */}
+      <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
+        <h3 className="font-bold text-green-900 text-[15px] mb-3">💉 MySejahtera Vaccination Portal</h3>
+        <div className="space-y-2 text-[13px] text-green-800">
+          <p><strong>For COVID-19 vaccination:</strong> MySejahtera was Malaysia's primary platform for registering, booking, and tracking COVID-19 vaccine appointments and doses. Vaccination certificates are still accessible here.</p>
+          <p><strong>For routine immunisation:</strong> Childhood vaccination records (BCG, polio, MMR, DPT, etc.) are recorded automatically when administered at MOH clinics. Parents can view their child's vaccination status and upcoming schedules.</p>
+          <p><strong>For travel health:</strong> You can request vaccination certificates from MySejahtera for international travel (Yellow Fever, etc.) if administered at MOH.</p>
+          <p><strong>Updating vaccination status:</strong> If you were vaccinated privately, you can manually add vaccination records to your profile for your own tracking (though private vaccination certificates should be kept separately).</p>
+        </div>
+      </div>
+
+      {/* Linked Facilities */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">🔗 Linked MOH Facilities</h3>
+        <p className="text-ink-secondary text-[13px] mb-3">Your MySejahtera profile automatically consolidates health records from all MOH facilities you have visited or registered with. You can view:</p>
+        <div className="space-y-2">
+          {[
+            { name: 'Primary Care Clinics (Klinik Kesihatan)', desc: 'Your nearest government clinic — first point of contact for general health.' },
+            { name: 'Community Health Centres (Pusat Kesihatan Masyarakat)', desc: 'Larger clinics offering specialist clinics (diabetes, hypertension, antenatal) and health screening.' },
+            { name: 'Public Hospitals', desc: 'Government hospitals you have been referred to or admitted. Specialist records and discharge summaries appear here.' },
+            { name: 'Maternity & Child Health (MCH) Centres', desc: 'If you have attended antenatal care or infant health checks, those records are linked.' },
+          ].map((f, i) => (
+            <div key={i} className="bg-surface-secondary rounded-xl p-3">
+              <p className="font-semibold text-ink text-[13px]">{f.name}</p>
+              <p className="text-ink-secondary text-[12px] mt-1">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Eligibility & Access */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">👤 Who Can Use MySejahtera?</h3>
+        <div className="space-y-2">
+          {[
+            {
+              group: 'Malaysian citizens',
+              access: 'Full access. Anyone with a valid MyKad can register and use all features.',
+            },
+            {
+              group: 'Permanent Residents (PR)',
+              access: 'Full access with PR card or passport + approval letter. Register using PR card number.',
+            },
+            {
+              group: 'Long-term visa holders',
+              access: 'May be able to register if you have an e-passport and have visited MOH facilities. Confirmation depends on the facility\'s system.',
+            },
+            {
+              group: 'Foreign visitors',
+              access: 'Can pay at MOH clinics and public hospitals as walk-ins, but do not have persistent MySejahtera records.',
+            },
+            {
+              group: 'Children & infants',
+              access: 'Parents/guardians can register children using their MyKad number. MCH visits and vaccinations are automatically recorded.',
+            },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-3">
+              <p className="font-semibold text-ink text-[13px]">{item.group}</p>
+              <p className="text-ink-secondary text-[12px] mt-1">{item.access}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Troubleshooting */}
+      <div>
+        <h3 className="font-bold text-ink text-[15px] mb-3">🔧 Common Issues & Solutions</h3>
+        <div className="space-y-2">
+          {[
+            {
+              issue: '"Account locked" or "Too many login attempts"',
+              solution: 'Wait 30 minutes before trying again. If locked, use "Forgot Password" to reset your password, then log in again.',
+            },
+            {
+              issue: '"No records found" after login',
+              solution: 'Your account exists but has no MOH visit history yet. Once you visit any MOH clinic, records will be automatically linked (may take 24–48 hours to appear).',
+            },
+            {
+              issue: 'Booking appointment is not available in my area',
+              solution: 'Not all clinics are on the online booking system yet. Smaller clinics require in-person or phone booking. Check the clinic contact in the app or call them directly.',
+            },
+            {
+              issue: 'Vaccination records not showing',
+              solution: 'Private vaccinations do not sync to MySejahtera unless manually added. MOH vaccinations may take 3–7 days to upload. Check back later or contact the clinic.',
+            },
+            {
+              issue: 'Can\'t find my specialist appointment reminder',
+              solution: 'Check SMS and email notifications — they may not appear in the app. You can also call the hospital directly or check your clinic card for appointment dates.',
+            },
+            {
+              issue: 'Forgot MyKad number or cannot verify identity',
+              solution: 'Contact your nearest MOH clinic or MOH call centre (1-800-888-999) with your passport or letter of authority from Ministry of Health.',
+            },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl overflow-hidden">
+              <button className="w-full flex items-start justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
+                onClick={() => setOpenStep(openStep === `faq-${i}` ? null : `faq-${i}`)}>
+                <span className="font-semibold text-ink text-[13px] pr-3">{item.issue}</span>
+                <Chevron open={openStep === `faq-${i}`} />
+              </button>
+              {openStep === `faq-${i}` && (
+                <div className="px-4 pb-3 pt-1 border-t border-ink-quaternary">
+                  <p className="text-ink-secondary text-[13px] leading-relaxed">{item.solution}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Contact & Support */}
+      <div className="bg-surface-secondary rounded-2xl p-5">
+        <h3 className="font-bold text-ink text-[15px] mb-3">📞 Support & Contacts</h3>
+        <div className="space-y-2 text-[13px]">
+          <div className="flex items-start gap-2">
+            <span className="text-brand mt-0.5 flex-shrink-0">📱</span>
+            <div>
+              <p className="font-semibold text-ink">MOH WhatsApp Helpline</p>
+              <p className="text-ink-secondary">+603-8894 4000 (Mon–Fri 9am–5pm)</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-brand mt-0.5 flex-shrink-0">☎️</span>
+            <div>
+              <p className="font-semibold text-ink">MOH Hotline</p>
+              <p className="text-ink-secondary">1-800-888-999 (24 hours)</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-brand mt-0.5 flex-shrink-0">🌐</span>
+            <div>
+              <p className="font-semibold text-ink">MySejahtera Support</p>
+              <p className="text-ink-secondary">In-app "Help" menu or contact your clinic directly for account issues.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
