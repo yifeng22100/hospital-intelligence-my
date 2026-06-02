@@ -276,6 +276,325 @@ export const EMERGENCY_PROTOCOLS = {
       'Continue until emergency services arrive, the patient regains consciousness, or you are physically unable to continue',
       'If no shock is advised, continue CPR and let the AED monitor — it will advise if the rhythm changes'
     ]
-  }
+  },
+
+  emergencyScenarios: [
+    {
+      id: 'heart-attack',
+      icon: '❤️',
+      label: 'Heart Attack',
+      category: 'Cardiac',
+      color: '#dc2626',
+      callAmbulance: true,
+      recognize: [
+        'Central chest pain, pressure, tightness, or squeezing — often "elephant sitting on chest"',
+        'Pain radiating to left arm, jaw, neck, or upper back',
+        'Profuse cold sweating, nausea, or vomiting',
+        'Shortness of breath even at rest',
+        'Women / elderly / diabetic may only feel unusual fatigue or vague discomfort'
+      ],
+      doNow: [
+        'Call 999 immediately — do NOT drive yourself',
+        'Rest sitting upright; loosen tight clothing',
+        'Chew (don\'t swallow whole) one 300 mg aspirin — only if conscious and not allergic',
+        'If prescribed GTN spray, use it as directed',
+        'If unconscious and not breathing, start CPR (30 compressions : 2 breaths)'
+      ],
+      doNot: [
+        'Do NOT eat or drink anything except the aspirin',
+        'Do NOT wait to see if symptoms pass — every minute counts',
+        'Do NOT give aspirin if allergic, bleeding disorder, or recent GI bleeding'
+      ],
+      note: 'Golden window: PCI (angioplasty) within 90 minutes of symptom onset gives the best outcome. IJN (Institut Jantung Negara) and Hospital Serdang (Selangor) have 24/7 catheterisation lab capability.'
+    },
+    {
+      id: 'stroke',
+      icon: '🧠',
+      label: 'Stroke',
+      category: 'Neurological',
+      color: '#7c3aed',
+      callAmbulance: true,
+      recognize: [
+        'Use FAST: Face drooping (uneven smile), Arm weakness (one drifts down), Speech difficulty (slurred or garbled), Time to call 999',
+        'Sudden severe headache — worst headache of life',
+        'Sudden vision loss or double vision',
+        'Sudden dizziness, loss of balance, or inability to walk',
+        'Sudden numbness or weakness on one side of body'
+      ],
+      doNow: [
+        'Call 999 immediately and note the exact time symptoms began',
+        'Keep the person calm; have them lie down with head slightly elevated',
+        'Do NOT give anything to eat or drink — stroke can impair swallowing',
+        'Stay with the person until ambulance arrives; monitor breathing'
+      ],
+      doNot: [
+        'Do NOT wait to see if it "passes" — time is brain (1.9 million brain cells die per minute)',
+        'Do NOT give aspirin — unlike heart attack, aspirin can worsen a haemorrhagic stroke',
+        'Do NOT let the person fall asleep or "sleep it off"'
+      ],
+      note: 'Clot-busting thrombolysis (tPA) must be given within 4.5 hours of symptom onset. Mechanical thrombectomy up to 24 hours in selected patients. Top centres: HKL, Hospital Selayang, HUKM, SJMC, Sunway Medical.'
+    },
+    {
+      id: 'choking',
+      icon: '🫁',
+      label: 'Choking',
+      category: 'Airway',
+      color: '#ea580c',
+      callAmbulance: false,
+      recognize: [
+        'Cannot speak, cry, or make a normal sound',
+        'Clutching the throat (universal choking sign)',
+        'High-pitched wheezing or no air movement',
+        'Skin turning blue (cyanosis) — around lips or fingernails',
+        'Loss of consciousness if obstruction is complete'
+      ],
+      doNow: [
+        'Adult / child over 1 year: Stand behind, give 5 firm back blows between shoulder blades with heel of hand',
+        'Then: Give 5 abdominal thrusts (Heimlich) — hands just above navel, firm upward thrust',
+        'Alternate 5 back blows and 5 abdominal thrusts until object dislodges or person loses consciousness',
+        'Infant under 1 year: Face-down 5 back blows on forearm + face-up 5 chest thrusts (NOT abdominal)',
+        'If unconscious: start CPR — chest compressions may dislodge the object; check mouth before rescue breaths',
+        'Call 999 if not resolved quickly or person loses consciousness'
+      ],
+      doNot: [
+        'Do NOT perform blind finger sweeps in the mouth — you may push the object deeper',
+        'Do NOT use abdominal thrusts on infants under 1 year — use chest thrusts instead',
+        'Do NOT slap the back while upright on an adult — lean them forward first'
+      ],
+      note: 'Partial choking (can cough, speak, or breathe): encourage them to keep coughing vigorously. Intervene only if choking becomes complete (no air, no speech, no cough).'
+    },
+    {
+      id: 'burns',
+      icon: '🔥',
+      label: 'Burns',
+      category: 'Trauma',
+      color: '#b45309',
+      callAmbulance: false,
+      recognize: [
+        'Minor burn: red, painful skin without blisters — less than 5 cm wide',
+        'Moderate burn: blistered, wet, very painful skin',
+        'Severe burn: white, brown, or charred skin; may be painless (nerve damage)',
+        'Call 999 for: burns >10% body area, face/hands/feet/genitals/joints, electrical burns, chemical burns, inhalation of smoke'
+      ],
+      doNow: [
+        'Cool the burn immediately: run cool (not cold or icy) water over it for 20 minutes',
+        'Remove jewellery, watches, or tight clothing near the burn — swelling will occur',
+        'Cover loosely with cling film or a clean non-fluffy cloth; do not wrap tightly',
+        'For chemical burns: brush off dry chemicals first, then flush with water for 20+ minutes; call 999',
+        'For electrical burns: do NOT touch the person until power is off; treat for cardiac arrest if needed',
+        'For fire/smoke inhalation: evacuate immediately; call 999; treat airway injury as priority'
+      ],
+      doNot: [
+        'Do NOT apply toothpaste, butter, ice, or traditional remedies — these cause infection and worsen damage',
+        'Do NOT burst blisters — they protect against infection',
+        'Do NOT remove clothing stuck to the burn — cut around it',
+        'Do NOT use fluffy cotton wool or adhesive plasters directly on the burn'
+      ],
+      note: 'Cool water is the single most effective immediate treatment. Burns specialist centres: HKL (Burns Unit), Hospital Sultanah Aminah JB, Hospital Pulau Pinang. Private: SJMC, Sunway Medical.'
+    },
+    {
+      id: 'drowning',
+      icon: '🌊',
+      label: 'Drowning / Near-Drowning',
+      category: 'Trauma',
+      color: '#0369a1',
+      callAmbulance: true,
+      recognize: [
+        'Person pulled from water is unresponsive or barely conscious',
+        'Not breathing or breathing irregularly after rescue',
+        'Coughing, vomiting, or confusion after near-drowning — still needs emergency care',
+        'Note: secondary drowning can occur hours later even after apparent recovery — watch closely'
+      ],
+      doNow: [
+        'Get the person out of water safely; do NOT put yourself at risk',
+        'Call 999 immediately',
+        'Check for breathing; if absent, start CPR immediately (30 compressions : 2 rescue breaths)',
+        'For a suspected spinal injury (diving/fall), support the neck and keep horizontal during rescue',
+        'All near-drowning victims must go to A&E even if they seem to recover — secondary drowning is real',
+        'Keep the person warm; remove wet clothing and cover with a blanket'
+      ],
+      doNot: [
+        'Do NOT attempt to drain water from lungs — it is not possible and wastes time; start CPR',
+        'Do NOT leave the person alone even if they seem fine',
+        'Do NOT perform abdominal thrusts on drowning victims'
+      ],
+      note: 'Secondary drowning: fluid in lungs can cause breathing failure 1–24 hours after a near-drowning incident. Any person who was submerged and coughed or vomited water must be evaluated at A&E, even if they feel well.'
+    },
+    {
+      id: 'snake-bite',
+      icon: '🐍',
+      label: 'Snake Bite',
+      category: 'Envenomation',
+      color: '#065f46',
+      callAmbulance: true,
+      recognize: [
+        'One or two puncture marks at bite site (may not be visible)',
+        'Rapid swelling, bruising, or tissue discolouration spreading from bite',
+        'Nausea, vomiting, dizziness, or faintness',
+        'Drooping eyelids, double vision, slurred speech, difficulty swallowing (neurotoxic signs)',
+        'Bleeding from bite site or elsewhere (coagulopathic signs)'
+      ],
+      doNow: [
+        'Keep the person calm and still — immobilise the bitten limb below heart level',
+        'Remove rings, watches, or tight clothing from the bitten limb before swelling begins',
+        'Call 999 or get to the nearest A&E immediately',
+        'Try to safely photograph or remember the snake appearance — do NOT attempt to catch it',
+        'Apply a pressure-immobilisation bandage for neurotoxic snakes (elapids like king cobra, banded krait) — firm bandage starting at bite, wrapping up the whole limb; splint the limb',
+        'Do NOT apply pressure bandage for cytotoxic/haemotoxic snakes (pit vipers, most in Malaysia) — it increases local tissue damage'
+      ],
+      doNot: [
+        'Do NOT cut and suck the wound — this causes infection and does not remove venom',
+        'Do NOT apply a tourniquet — this causes tissue death',
+        'Do NOT apply ice to the bite site',
+        'Do NOT give alcohol or traditional medicines',
+        'Do NOT let the person walk if avoidable'
+      ],
+      note: 'Most common venomous snakes in Malaysia: Malayan pit viper (habu), king cobra, Malayan krait, banded krait. Antivenom is available at major government hospitals. National Poison Control Centre: +603-8922 3333.'
+    },
+    {
+      id: 'anaphylaxis',
+      icon: '⚠️',
+      label: 'Severe Allergic Reaction (Anaphylaxis)',
+      category: 'Allergy',
+      color: '#b91c1c',
+      callAmbulance: true,
+      recognize: [
+        'Throat or tongue swelling causing voice change or difficulty swallowing',
+        'Difficulty breathing, wheezing, or stridor',
+        'Hives or widespread red rash appearing rapidly across the body',
+        'Sudden drop in blood pressure: dizziness, fainting, or collapse',
+        'Rapid heartbeat combined with the above symptoms',
+        'Occurs typically within minutes of exposure to trigger (food, medication, insect sting)'
+      ],
+      doNow: [
+        'Call 999 immediately',
+        'If person carries an EpiPen (adrenaline auto-injector): use it immediately on the outer thigh; hold for 10 seconds',
+        'Lay person flat; if breathing difficulty, allow them to sit upright; if faint, lay with legs raised',
+        'A second EpiPen dose can be given after 5–15 minutes if no improvement and 999 has not arrived',
+        'Even after EpiPen use, all anaphylaxis cases must go to A&E — biphasic reaction can occur hours later'
+      ],
+      doNot: [
+        'Do NOT make the person stand or walk — low blood pressure from anaphylaxis causes fainting and injury',
+        'Do NOT give antihistamines alone — they do NOT reverse airway swelling or circulatory shock',
+        'Do NOT delay EpiPen if available — early adrenaline saves lives'
+      ],
+      note: 'Common triggers in Malaysia: shellfish (prawns, crabs, clams), peanuts, bee/wasp stings, penicillin and NSAIDs, latex. If diagnosed with any severe allergy, carry an EpiPen and wear a medical alert bracelet.'
+    },
+    {
+      id: 'hypoglycaemia',
+      icon: '🍬',
+      label: 'Diabetic Emergency — Low Blood Sugar (Hypoglycaemia)',
+      category: 'Medical',
+      color: '#0891b2',
+      callAmbulance: false,
+      recognize: [
+        'Shaking, trembling, or weakness',
+        'Heavy sweating even in cool environment',
+        'Confusion, difficulty speaking, or unusual behaviour',
+        'Pale skin, rapid heartbeat, feeling of extreme hunger',
+        'Dizziness or blurred vision',
+        'Seizures or unconsciousness in severe cases'
+      ],
+      doNow: [
+        'If conscious and can swallow: give 15–20 g of fast-acting sugar immediately — 4 glucose tablets, 150 ml fruit juice, 4–5 teaspoons of sugar dissolved in water, or 3–4 boiled sweets',
+        'Wait 15 minutes; recheck — if no improvement, repeat the sugar dose',
+        'Once improved, give a longer-acting carbohydrate (biscuits, bread) to prevent recurrence',
+        'If unconscious or cannot swallow: call 999; do NOT give anything by mouth (risk of choking)',
+        'Place unconscious person in recovery position; monitor breathing'
+      ],
+      doNot: [
+        'Do NOT give food or drink to an unconscious person',
+        'Do NOT inject insulin — they need sugar, not more insulin',
+        'Do NOT leave the person alone after recovery — monitor for 1–2 hours'
+      ],
+      note: 'Blood glucose below 4.0 mmol/L is hypoglycaemia in a known diabetic. The 15-15 rule: 15 g of fast-acting carbohydrate, wait 15 minutes. Most diabetics on insulin or sulphonylureas are at risk. Glucagon injection kits are available by prescription for high-risk diabetics.'
+    },
+    {
+      id: 'febrile-seizure',
+      icon: '🌡️',
+      label: 'Febrile Seizure (Child)',
+      category: 'Child',
+      color: '#7c3aed',
+      callAmbulance: false,
+      recognize: [
+        'Child aged 6 months – 6 years with high fever suddenly shaking or convulsing',
+        'Eyes rolling, body stiffening or jerking rhythmically',
+        'Child is unresponsive during the episode',
+        'Episode typically lasts 30 seconds to 2 minutes; usually stops on its own',
+        'Child is sleepy, confused, or difficult to wake after the seizure ends'
+      ],
+      doNow: [
+        'Stay calm — febrile seizures are frightening but usually not dangerous',
+        'Place the child on their side (recovery position) on a soft surface; clear the area of hazards',
+        'Time the seizure — note when it starts',
+        'Do NOT hold the child down or restrain the shaking',
+        'After the seizure stops: keep child on their side; comfort them; check breathing',
+        'Call 999 or go to A&E if: seizure lasts more than 5 minutes, child does not wake up normally after, child has two seizures within 24 hours, or child is under 6 months or over 6 years'
+      ],
+      doNot: [
+        'Do NOT put anything in the child\'s mouth during a seizure — they cannot swallow their tongue',
+        'Do NOT put the child in a cold bath to reduce fever during a seizure',
+        'Do NOT give fever medication during the seizure — wait until it stops and the child can swallow safely'
+      ],
+      note: '1 in 25 children will have a febrile seizure. Most are harmless and do not indicate epilepsy. After the seizure, take the child to A&E to identify the cause of the fever and rule out meningitis or other serious infection.'
+    },
+    {
+      id: 'poisoning',
+      icon: '☠️',
+      label: 'Poisoning / Toxic Ingestion',
+      category: 'Medical',
+      color: '#4f46e5',
+      callAmbulance: true,
+      recognize: [
+        'Sudden vomiting, seizures, or loss of consciousness after possible exposure',
+        'Chemical or unusual smell on breath or clothing',
+        'Burns or staining around the mouth (from corrosive substance)',
+        'Empty container, tablets, or chemicals nearby',
+        'Confusion, breathing difficulty, or irregular heartbeat after suspected ingestion'
+      ],
+      doNow: [
+        'Call National Poison Control Centre immediately: +603-8922 3333',
+        'If person is unconscious or not breathing: call 999 and start CPR if needed',
+        'Have the substance, container, or packaging ready to describe to the operator',
+        'For skin or eye exposure: remove contaminated clothing (protect yourself with gloves); flush with large amounts of water for 15–20 minutes',
+        'For inhalation: move person to fresh air immediately; call 999'
+      ],
+      doNot: [
+        'Do NOT induce vomiting unless specifically instructed by Poison Control — corrosives and petroleum products cause more damage coming back up',
+        'Do NOT give milk, water, or home remedies without advice from Poison Control',
+        'Do NOT leave the person alone'
+      ],
+      note: 'Keep all medications, cleaning products, and pesticides locked and out of reach of children. Common poisoning cases in Malaysia: paracetamol overdose, organophosphate (pesticide), rat poison (brodifacoum), and traditional herbal remedies. Poison Control Centre: +603-8922 3333 (24/7).'
+    },
+    {
+      id: 'road-accident',
+      icon: '🚗',
+      label: 'Road Accident / Major Trauma',
+      category: 'Trauma',
+      color: '#92400e',
+      callAmbulance: true,
+      recognize: [
+        'Person involved in significant collision, fall from height, or violent impact',
+        'Visible serious injury: heavy bleeding, obvious fractures, crush injuries',
+        'Person is unconscious, confused, or unable to move',
+        'Bystander — vehicle accident at the scene'
+      ],
+      doNow: [
+        'Call 999 immediately and clearly state your location (road name, KM marker, nearby landmark)',
+        'Ensure scene safety — turn on hazard lights, set up warning triangle, do NOT stand on the road',
+        'If person is conscious and breathing: do NOT move them — spinal injury is possible in high-impact trauma',
+        'Control heavy bleeding: apply firm direct pressure with a clean cloth; do NOT remove the cloth if soaked — add more on top',
+        'If unconscious and not breathing: gently open airway and begin CPR; the risk of inaction outweighs spinal precautions',
+        'Keep the casualty warm; prevent shock: lay flat, elevate legs if no spinal injury suspected'
+      ],
+      doNot: [
+        'Do NOT move the person unnecessarily unless there is immediate danger (fire, oncoming traffic)',
+        'Do NOT remove a helmet from a motorcycle rider unless airway is blocked',
+        'Do NOT remove objects impaled in the body — stabilise them in place',
+        'Do NOT give food, drink, or medication'
+      ],
+      note: 'JALAN SELAMAT: All major highways in Malaysia have PLUS emergency telephones every 2 km. You can also call 1-800-88-0000 (PLUS Expressways) for highway emergencies. Trauma centres: HKL, Hospital Kuala Lumpur, Hospital Raja Perempuan Zainab II (Kelantan), Hospital Sungai Buloh.'
+    }
+  ]
 
 }

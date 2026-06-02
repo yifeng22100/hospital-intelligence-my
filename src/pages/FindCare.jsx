@@ -3,6 +3,29 @@ import { useSearchParams } from 'react-router-dom'
 import { ALL_HOSPITALS, ALL_STATES } from '../data/index'
 import HospitalModal from '../components/HospitalModal'
 
+const SPECIALTY_FILTERS = [
+  { label: 'Cardiology / Cardiac',      keywords: ['cardia', 'cardiac'] },
+  { label: 'Oncology / Cancer',         keywords: ['oncology', 'cancer', 'bmt', 'bone marrow'] },
+  { label: 'Orthopaedics',              keywords: ['orthopaedic', 'spine surgery', 'foot & ankle', 'hand surgery', 'joint replacement'] },
+  { label: 'Neurology / Neurosurgery',  keywords: ['neurology', 'neurosurgery', 'neurophysiology', 'neurorehabilitation', 'stroke'] },
+  { label: 'Obstetrics & Maternity',    keywords: ['obstetrics', 'maternity', 'antenatal', 'postnatal', 'labour', 'delivery'] },
+  { label: 'Paediatrics / Children',    keywords: ['paediatric', 'pediatric', 'child', 'neonatal', 'nicu', 'infant'] },
+  { label: 'Emergency & A&E',           keywords: ['emergency', 'a&e', 'accident & emergency'] },
+  { label: 'Psychiatry / Mental Health',keywords: ['psychiatry', 'psychology', 'mental health', 'addiction', 'ecт', 'electroconvulsive'] },
+  { label: 'Ophthalmology / Eyes',      keywords: ['ophthalmology', 'eye', 'refractive', 'retina', 'cataract', 'glaucoma'] },
+  { label: 'ENT',                       keywords: ['ent', 'otorhin', 'cochlear', 'hearing', 'laryngology'] },
+  { label: 'Nephrology / Urology',      keywords: ['nephrology', 'urology', 'dialysis', 'kidney', 'renal'] },
+  { label: 'Endocrinology / Diabetes',  keywords: ['endocrinology', 'diabetes', 'thyroid', 'metabolism'] },
+  { label: 'Gastroenterology',          keywords: ['gastroenterology', 'hepatology', 'colorectal', 'liver', 'endoscopy', 'gi ', 'gastro'] },
+  { label: 'Respiratory / Lungs',       keywords: ['respiratory', 'pulmonol', 'thoracic', 'lung', 'sleep apnoea'] },
+  { label: 'Fertility / IVF',           keywords: ['fertility', 'ivf', 'reproductive'] },
+  { label: 'Rehabilitation / Physio',   keywords: ['rehabilitation', 'physiotherapy', 'physio', 'occupational therapy'] },
+  { label: 'Transplant',               keywords: ['transplant'] },
+  { label: 'Burns & Plastic Surgery',   keywords: ['burns', 'plastic surgery', 'reconstructive', 'aesthetic'] },
+  { label: 'Haematology / Blood',       keywords: ['haematology', 'hematology', 'blood bank', 'thalassaemia'] },
+  { label: 'Rheumatology / Immunology', keywords: ['rheumatology', 'immunology', 'autoimmune'] },
+]
+
 const SECTOR_STYLES = {
   public: 'text-emerald-700 bg-emerald-50 border border-emerald-200',
   private: 'text-blue-700 bg-blue-50 border border-blue-200',
@@ -20,6 +43,7 @@ export default function FindCare() {
   const [query, setQuery] = useState(searchParams.get('q') || '')
   const [state, setState] = useState(searchParams.get('state') || '')
   const [sector, setSector] = useState('')
+  const [specialty, setSpecialty] = useState('')
   const [selected, setSelected] = useState(null)
 
   // Keep URL in sync when filters change externally (e.g. back/forward)
@@ -44,8 +68,16 @@ export default function FindCare() {
     }
     if (state) list = list.filter(h => h.state === state)
     if (sector) list = list.filter(h => h.sector === sector)
+    if (specialty) {
+      const kws = SPECIALTY_FILTERS.find(f => f.label === specialty)?.keywords || []
+      list = list.filter(h =>
+        (h.specialtyCoverage?.available || []).some(s =>
+          kws.some(kw => s.toLowerCase().includes(kw.toLowerCase()))
+        )
+      )
+    }
     return list
-  }, [query, state, sector])
+  }, [query, state, sector, specialty])
 
   const updateQuery = val => {
     setQuery(val)
@@ -132,10 +164,27 @@ export default function FindCare() {
               ))}
             </div>
 
+            {/* Specialty */}
+            <div className="relative">
+              <select
+                value={specialty}
+                onChange={e => setSpecialty(e.target.value)}
+                className="appearance-none bg-white border border-ink-quaternary rounded-xl px-4 py-2 pr-8 text-[13px] text-ink focus:border-brand focus:ring-2 focus:ring-brand/10 outline-none cursor-pointer"
+              >
+                <option value="">All Specialties</option>
+                {SPECIALTY_FILTERS.map(f => (
+                  <option key={f.label} value={f.label}>{f.label}</option>
+                ))}
+              </select>
+              <svg className="absolute right-2.5 top-1/2 -translate-y-1/2 text-ink-tertiary pointer-events-none" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
             {/* Clear */}
-            {(query || state || sector) && (
+            {(query || state || sector || specialty) && (
               <button
-                onClick={() => { updateQuery(''); updateState(''); setSector('') }}
+                onClick={() => { updateQuery(''); updateState(''); setSector(''); setSpecialty('') }}
                 className="text-[13px] text-ink-secondary hover:text-brand transition-colors"
               >
                 Clear filters
@@ -152,6 +201,7 @@ export default function FindCare() {
           {query && <span className="font-medium text-ink"> for "{query}"</span>}
           {state && <span> · {state}</span>}
           {sector && <span> · {sector}</span>}
+          {specialty && <span> · {specialty}</span>}
         </p>
 
         {filtered.length === 0 ? (
