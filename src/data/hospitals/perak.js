@@ -591,6 +591,114 @@ export const HOSPITALS_PERAK = [
   },
 
   {
+    id: "sunway-medical-ipoh",
+    name: "Sunway Medical Centre Ipoh",
+    nameShort: "Sunway Ipoh",
+    sector: "private",
+    tier: "tertiary",
+    state: "Perak",
+    city: "Ipoh",
+    intro: "Sunway Medical Centre Ipoh (SMCI) is Perak's newest and most advanced private tertiary hospital, opened in 2025 as part of the RM430 million Sunway City Ipoh development. It is the first hospital in Perak to offer PET-CT scanning and a surgical robot, with 37 medical specialties, a dedicated Cancer Centre, and a Nuclear Medicine Centre serving the greater Ipoh and north Perak region.",
+    famousFor: [
+      "First hospital in Perak with PET-CT scanner and surgical robot",
+      "Dedicated Cancer Centre + Nuclear Medicine Centre",
+      "Newest tertiary private hospital in Perak (opened 2025) — RM430m investment",
+      "Sunway Healthcare Group — same group as Sunway Medical Subang and Sunway Velocity KL",
+      "Women's health and wellness centre of excellence"
+    ],
+    infrastructure: {
+      yearEstablished: 2025,
+      totalBeds: 259,
+      icuBeds: 24,
+      nicuBeds: 8,
+      operatingTheatres: 8,
+      area: "~6 acres (Sunway City Ipoh)",
+      buildings: "Sunway Medical Centre Ipoh Tower, Cancer Centre, Specialist Clinics",
+      helipad: false,
+      parkingBays: "~500 bays (Sunway City Ipoh)",
+      parkingRate: "RM 2/hour (est.)"
+    },
+    contact: {
+      address: "2, Persiaran Sunway, Sunway City, 31150 Ipoh, Perak",
+      mainLine: "+605-871 1919",
+      emergencyLine: "+605-871 1919 ext. A&E",
+      appointmentLine: "+605-871 1919",
+      website: "https://www.sunwaymedicalipoh.com.my/en/",
+      mapQuery: "Sunway Medical Centre Ipoh Perak"
+    },
+    transport: {
+      nearest: "No direct rail to Sunway City Ipoh. Nearest: Ipoh Railway Station (KTM/ETS) — 15 min taxi",
+      bus: "Limited public transport. Grab/taxi recommended.",
+      highway: "North-South Highway — Exit Ipoh (Sunway City Ipoh direction)",
+      landmark: "Sunway City Ipoh development, Tambun area, Ipoh"
+    },
+    facilities: {
+      pharmacy24h: true,
+      cafeteria: "Available within Sunway City Ipoh complex",
+      atm: "Lobby / Sunway City complex",
+      surau: "Available",
+      chapel: false,
+      buddhistRoom: false,
+      disabledAccess: true,
+      wifi: "Free WiFi",
+      patientTransport: "Available — ambulance service"
+    },
+    visitingHours: {
+      general: "11:00–20:00",
+      icu: "Restricted — confirm with ward",
+      paediatric: "Parents: unrestricted",
+      maternity: "Flexible",
+      notes: "New hospital (2025) — confirm visiting hours with ward directly."
+    },
+    specialtyCoverage: {
+      available: [
+        "Emergency Medicine & A&E (24/7)", "ICU / Critical Care (24 units)", "General Medicine",
+        "General Surgery", "Cardiology", "Cardiothoracic Surgery",
+        "Orthopaedic Surgery", "Obstetrics & Gynaecology",
+        "Paediatrics", "Gastroenterology", "Nephrology",
+        "Neurology", "Oncology", "Radiation Oncology",
+        "Nuclear Medicine (PET-CT)", "Robotic Surgery",
+        "ENT", "Ophthalmology", "Dermatology",
+        "Urology", "Psychiatry", "Rehabilitation Medicine",
+        "Women's Health & Wellness Centre"
+      ],
+      notAvailable: [
+        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre only" }
+      ],
+      byReferral: ["Quaternary subspecialties — KL / Subang referral if needed"]
+    },
+    transferPathway: {
+      summary: "Perak's most advanced private hospital. Quaternary and rare cases referred to Sunway Subang or KL tertiary centres.",
+      routes: [],
+      howToTransfer: "Specialist-to-specialist referral."
+    },
+    specialtyRanks: {
+      "Ipoh Private": { rank: "Perak #1 Private", desc: "Most advanced private hospital in Perak — first PET-CT, first surgical robot" },
+      "Cancer": { rank: "Perak Best", desc: "Dedicated Cancer Centre + Nuclear Medicine + PET-CT" }
+    },
+    accreditations: ["Sunway Healthcare Group", "MOH Licensed (2025)"],
+    verifiedNotes: "259 beds. Opened 2025. RM430m investment. First PET-CT and surgical robot in Perak. 37 specialties, 63 consultation suites, 8 OTs, 24 critical care units. Source: NST / The Edge Malaysia 2025.",
+    notableGaps: "New hospital (2025) — full specialist panel still being assembled. Verify specific subspecialties directly.",
+    primaryExcellence: "Perak's most advanced private hospital — Cancer Centre, PET-CT, Robotic Surgery",
+    secondarySpecialties: "Women's Health, Cardiology, Orthopaedics",
+    fullSpecialties: ["Oncology", "Cardiology", "Orthopaedic Surgery", "Obstetrics", "Neurology", "Robotic Surgery"],
+    roomRate: "RM 300 – RM 800+/night (est.)",
+    roomRateRaw: 450,
+    insurance: "Accepts major Malaysian insurance panels. Sunway Healthcare Group panel hospitals.",
+    fppScheme: false,
+    fppDeposit: "N/A",
+    gaps: "New hospital — verify full specialist availability. No liver transplant.",
+    robotics: "Surgical robot. PET-CT. Full digital imaging suite.",
+    doctorQualifications: "MMC-registered specialists. Sunway Healthcare Group consultants.",
+    imageUrl: null,
+    imageCredit: "N/A",
+    officialSources: [
+      { label: "Official Website", url: "https://www.sunwaymedicalipoh.com.my/en/" },
+      { label: "Sunway Healthcare Group", url: "https://sunwayhealthcaregroup.com/sunwaymedicalipoh/" }
+    ]
+  },
+
+  {
     id: "kmc-ipoh",
     name: "KMC Medical Centre",
     nameShort: "KMC Ipoh",

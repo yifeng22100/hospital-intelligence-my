@@ -7,9 +7,11 @@ import Intelligence from './pages/Intelligence'
 import Compare from './pages/Compare'
 import Knowledge from './pages/Knowledge'
 import Resources from './pages/Resources'
+import Insurance from './pages/Insurance'
 import About from './pages/About'
 import Terms from './pages/Terms'
 import Sources from './pages/Sources'
+import Tools from './pages/Tools'
 
 export default function App() {
   return (
@@ -23,7 +25,9 @@ export default function App() {
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/knowledge" element={<Knowledge />} />
+            <Route path="/insurance" element={<Insurance />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/tools" element={<Tools />} />
             <Route path="/about" element={<About />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/sources" element={<Sources />} />

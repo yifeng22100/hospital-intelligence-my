@@ -5,6 +5,9 @@ const NAV_LINKS = [
   { to: '/find-care', label: 'Find Care' },
   { to: '/compare', label: 'Compare' },
   { to: '/intelligence', label: 'Intelligence' },
+  { to: '/knowledge', label: 'Knowledge' },
+  { to: '/insurance', label: 'Insurance' },
+  { to: '/tools', label: 'Tools' },
   { to: '/resources', label: 'Resources' },
   { to: '/about', label: 'About' },
 ]

@@ -25,6 +25,9 @@ export default function Footer() {
                 ['/find-care', 'Find Care'],
                 ['/compare', 'Compare'],
                 ['/intelligence', 'Intelligence'],
+                ['/knowledge', 'Knowledge'],
+                ['/insurance', 'Insurance'],
+                ['/tools', 'Tools'],
                 ['/resources', 'Resources'],
               ].map(([to, label]) => (
                 <li key={to}>

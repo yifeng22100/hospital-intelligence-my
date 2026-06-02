@@ -1,23 +1,10 @@
 import { useState } from 'react'
-import { INSURANCE_PANELS } from '../data/insurance-panels'
-import { COST_REFERENCE } from '../data/cost-reference'
-import { VERIFY_GUIDE } from '../data/verify-guide'
-import { GLOSSARY } from '../data/glossary'
-import { SPECIALTIES_REFERENCE } from '../data/specialties-reference'
-import { EMERGENCY_PROTOCOLS } from '../data/emergency-protocols'
-
+import { Link } from 'react-router-dom'
 const TOPICS = [
-  { id: 'hacks',       icon: '💡', label: 'Insider Tips',      desc: '12 things most patients don\'t know' },
-  { id: 'tiers',       icon: '🏥', label: 'Hospital Tiers',    desc: 'Public referral system explained' },
-  { id: 'insurance',   icon: '🛡️', label: 'Insurance',         desc: 'Panels, LOG limits & claims guide' },
-  { id: 'costs',       icon: '💰', label: 'Cost Reference',    desc: 'Procedure costs public vs. private' },
-  { id: 'doctor',      icon: '👨‍⚕️', label: 'Doctor Check',      desc: 'Verify qualifications & spot red flags' },
-  { id: 'trials',      icon: '🔬', label: 'Clinical Trials',   desc: 'Access to experimental treatments' },
-  { id: 'night',       icon: '🌙', label: 'Night Cover',       desc: 'Overnight care by hospital type' },
-  { id: 'verify',      icon: '✅', label: 'Verify Facilities', desc: 'Nursing homes, dialysis, dental & more' },
-  { id: 'glossary',    icon: '📖', label: 'Medical Glossary',  desc: 'Plain-English guide to medical terms' },
-  { id: 'specialties', icon: '⚕️', label: 'Specialties Guide', desc: 'Where to go for each speciality' },
-  { id: 'emergency',   icon: '🚨', label: 'Emergency Events',  desc: 'What to do in each medical emergency' },
+  { id: 'hacks',     icon: '💡', label: 'Insider Tips',    desc: '12 things most patients don\'t know' },
+  { id: 'tiers',     icon: '🏥', label: 'Hospital Tiers',  desc: 'Public referral system explained' },
+  { id: 'trials',    icon: '🔬', label: 'Clinical Trials', desc: 'Access to experimental treatments' },
+  { id: 'night',     icon: '🌙', label: 'Night Cover',     desc: 'Overnight care by hospital type' },
 ]
 
 export default function Intelligence() {
@@ -32,7 +19,7 @@ export default function Intelligence() {
           <p className="text-brand text-[12px] font-semibold uppercase tracking-[0.12em] mb-1">Healthcare Intelligence</p>
           <h1 className="text-[26px] font-bold text-ink tracking-tight">Insider knowledge for smarter healthcare decisions.</h1>
           <p className="text-ink-secondary text-[14px] mt-1.5 max-w-[600px]">
-            Everything patients wish they knew before navigating Malaysia's healthcare system — from insurance hacks to hospital verification.
+            The 5 things that matter most — insider tips, the public referral system, insurance navigation, clinical trials access, and overnight care intelligence.
           </p>
         </div>
       </div>
@@ -64,18 +51,30 @@ export default function Intelligence() {
           <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
         </div>
 
-        {active === 'hacks'       && <HacksSection />}
-        {active === 'tiers'       && <TiersSection />}
-        {active === 'insurance'   && <InsuranceSection />}
-        {active === 'costs'       && <CostsSection />}
-        {active === 'doctor'      && <DoctorSection />}
-        {active === 'trials'      && <TrialsSection />}
-        {active === 'night'       && <NightSection />}
-        {active === 'verify'      && <VerifySection />}
-        {active === 'glossary'    && <GlossarySection />}
-        {active === 'specialties' && <SpecialtiesSection />}
-        {active === 'emergency'   && <EmergencySection />}
+        {active === 'hacks'     && <HacksSection />}
+        {active === 'tiers'     && <TiersSection />}
+        {active === 'trials'    && <TrialsSection />}
+        {active === 'night'     && <NightSection />}
       </div>
+    </div>
+  )
+}
+
+/* ─── Crosslink helpers ─────────────────────────────────────────── */
+
+function ResourcesCrosslink({ label, tab }) {
+  const href = tab ? `/resources` : '/resources'
+  return (
+    <div className="bg-brand/5 border border-brand/20 rounded-xl px-4 py-3 flex items-center justify-between gap-3 mb-6">
+      <p className="text-[13px] text-ink-secondary">
+        <span className="text-brand font-semibold">Resources Hub</span> has practical guides on {label}.
+      </p>
+      <Link
+        to={href}
+        className="flex-shrink-0 text-[12px] font-semibold text-brand border border-brand/30 rounded-lg px-3 py-1.5 hover:bg-brand hover:text-white transition-colors"
+      >
+        Open →
+      </Link>
     </div>
   )
 }
@@ -321,40 +320,11 @@ const EXCLUSIONS = [
   { exclusion: 'Dental & optical', detail: 'Standard medical policies exclude dental and optical. These require separate dental/vision riders or standalone dental insurance.' },
 ]
 
-const GOV_SCHEMES = [
-  {
-    name: 'MySalam — Free Critical Illness Cover for B40',
-    color: '#16a34a',
-    content: 'MySalam is a free government-backed micro takaful scheme for all Malaysians with household income ≤ RM100,000/year (B40 income bracket). It provides a RM 8,000 lump sum payout upon diagnosis of any of 36 critical illnesses including cancer, heart attack, stroke, end-stage renal failure, and major burns. Coverage is AUTOMATIC — no registration, no premium payment required. Check eligibility and file a claim at mysalam.com.my or call 1-800-88-1234. You need: IC, specialist diagnosis letter, and bank account details. Processing: within 14 working days.',
-  },
-  {
-    name: 'EPF Account 2 — Medical Withdrawal',
-    color: '#1d4ed8',
-    content: "EPF Account 2 savings can be withdrawn for medical expenses covering yourself, your spouse, children, parents, and in-laws. Eligible expenses include: hospitalisation and surgery, specialist treatment, chemotherapy and radiotherapy, dialysis, certain physiotherapy, and approved medical equipment. Apply via i-Akaun (online) or at any EPF branch. Documents required: original bills, doctor's letter certifying medical necessity, and IC. Online processing: 7–14 working days. Counter: 3 working days. No minimum withdrawal amount for medical purposes.",
-  },
-  {
-    name: 'SOCSO (PERKESO) — Employment Injury & Illness',
-    color: '#7c3aed',
-    content: 'If your illness or injury is work-related, SOCSO provides medical benefits, temporary disablement benefit, and permanent disablement benefit. Employers register employees mandatorily. Claims require a report from your employer, medical certificates, and treatment bills. SOCSO also administers the Return to Work programme for injured workers. Contact: perkeso.gov.my or call 1-300-22-8000.',
-  },
-  {
-    name: 'Perlindungan Tenang — Affordable Micro-Insurance',
-    color: '#0891b2',
-    content: 'Bank Negara Malaysia\'s Perlindungan Tenang initiative promotes affordable micro-insurance and micro-takaful products for B40 and M40 Malaysians. Products are available from licensed insurers and takaful operators with premiums typically under RM 100/year. Check bnm.gov.my for a list of approved Perlindungan Tenang products.',
-  },
-  {
-    name: 'Zakat & Baitul Mal — Medical Assistance for Muslims',
-    color: '#d97706',
-    content: 'State Zakat bodies and Baitul Mal (in FT) provide one-off or recurring medical financial assistance for Muslim asnaf (eligible recipients). Types of aid vary by state: hospital bill settlement, dialysis subsidies, cancer treatment support. Contact your state\'s Jabatan Zakat or Majlis Agama Islam for application. Requirements typically include hospital bills, income proof, and IC.',
-  },
-]
-
 function InsuranceSection() {
   const [openRule, setOpenRule] = useState(null)
   const [openIns, setOpenIns] = useState(null)
   const [openClaim, setOpenClaim] = useState(null)
   const [openExcl, setOpenExcl] = useState(null)
-  const [openScheme, setOpenScheme] = useState(null)
   const rules = INSURANCE_PANELS?.generalRules || {}
   const insurers = INSURANCE_PANELS?.insurers || []
 
@@ -567,26 +537,8 @@ function InsuranceSection() {
         </div>
       </div>
 
-      {/* 7. Government Schemes */}
-      <div>
-        <h3 className="font-bold text-ink text-[16px] mb-1">🏛️ Government Schemes & Financial Aid</h3>
-        <p className="text-ink-secondary text-[13px] mb-4">Free and subsidised schemes many Malaysians qualify for but don't know about.</p>
-        <div className="space-y-2">
-          {GOV_SCHEMES.map(({ name, color, content }) => {
-            const isOpen = openScheme === name
-            return (
-              <div key={name} className="border border-ink-quaternary rounded-xl overflow-hidden" style={{ borderLeft: `3px solid ${color}` }}>
-                <button className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-surface-secondary transition-colors"
-                  onClick={() => setOpenScheme(isOpen ? null : name)}>
-                  <span className="font-semibold text-ink text-[13px]">{name}</span>
-                  <Chevron open={isOpen} />
-                </button>
-                {isOpen && <div className="px-4 pb-4 text-ink-secondary text-[13px] leading-relaxed border-t border-ink-quaternary pt-3">{content}</div>}
-              </div>
-            )
-          })}
-        </div>
-      </div>
+      {/* 7. Government Schemes → see Resources */}
+      <ResourcesCrosslink label="government financial aid schemes (MySalam, EPF, SOCSO, Zakat)" tab="financial" />
 
       {/* 8. Dispute Resolution */}
       <div className="bg-surface-secondary rounded-2xl p-5">
@@ -633,203 +585,6 @@ function InsuranceSection() {
         </p>
       </div>
 
-    </div>
-  )
-}
-
-/* ─── Cost Reference ────────────────────────────────────────────── */
-
-function CostsSection() {
-  const [openCat, setOpenCat] = useState(null)
-  const cats = COST_REFERENCE?.categories || []
-
-  return (
-    <div className="space-y-6">
-      <div>
-        <p className="text-[13px] text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 leading-relaxed">
-          ⚠ {COST_REFERENCE?.disclaimer}
-        </p>
-      </div>
-
-      {/* Legend */}
-      <div className="flex flex-wrap gap-2">
-        {[
-          { label: 'Public (Subsidised)', cls: 'bg-green-50 text-green-700 border-green-200' },
-          { label: 'Public FPP', cls: 'bg-teal-50 text-teal-700 border-teal-200' },
-          { label: 'Private Mid-tier', cls: 'bg-blue-50 text-blue-700 border-blue-200' },
-          { label: 'Private Premium', cls: 'bg-purple-50 text-purple-700 border-purple-200' },
-        ].map(({ label, cls }) => (
-          <span key={label} className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border ${cls}`}>{label}</span>
-        ))}
-      </div>
-
-      {/* Categories */}
-      <div className="space-y-2">
-        {cats.map(cat => {
-          const isOpen = openCat === cat.id
-          return (
-            <div key={cat.id} className="border border-ink-quaternary rounded-xl overflow-hidden">
-              <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
-                onClick={() => setOpenCat(isOpen ? null : cat.id)}>
-                <div>
-                  <span className="font-semibold text-ink text-[14px]">{cat.title}</span>
-                  {cat.titleZH && <span className="text-ink-tertiary text-[12px] ml-2">{cat.titleZH}</span>}
-                </div>
-                <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                  width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              {isOpen && (
-                <div className="border-t border-ink-quaternary overflow-x-auto">
-                  <table className="w-full text-[12px] min-w-[600px]">
-                    <thead>
-                      <tr className="bg-surface-secondary">
-                        <th className="text-left px-4 py-2.5 font-semibold text-ink-secondary">Procedure</th>
-                        <th className="text-left px-3 py-2.5 font-semibold text-green-700">Public</th>
-                        <th className="text-left px-3 py-2.5 font-semibold text-teal-700">Public FPP</th>
-                        <th className="text-left px-3 py-2.5 font-semibold text-blue-700">Private Mid</th>
-                        <th className="text-left px-3 py-2.5 font-semibold text-purple-700">Private Premium</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {(cat.procedures || []).map((p, pi) => (
-                        <>
-                          <tr key={pi} className="border-t border-ink-quaternary">
-                            <td className="px-4 py-2.5 font-medium text-ink">{p.name}
-                              {p.nameZH && <span className="block text-ink-tertiary font-normal text-[11px]">{p.nameZH}</span>}
-                            </td>
-                            <td className="px-3 py-2.5 text-green-700">{p.publicCost || '—'}</td>
-                            <td className="px-3 py-2.5 text-teal-700">{p.publicFPP || '—'}</td>
-                            <td className="px-3 py-2.5 text-blue-700">{p.privateMid || '—'}</td>
-                            <td className="px-3 py-2.5 text-purple-700">{p.privatePremium || '—'}</td>
-                          </tr>
-                          {p.notes && (
-                            <tr key={`${pi}-note`} className="bg-surface-secondary">
-                              <td colSpan={5} className="px-4 py-2 text-[11px] text-ink-secondary italic">
-                                💡 {p.notes}
-                              </td>
-                            </tr>
-                          )}
-                        </>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-/* ─── Doctor Verification ────────────────────────────────────────── */
-
-const QUAL_ABBREV = [
-  { abbr:'MBBS / MD', meaning:'Basic medical degree (5–6 years). All registered doctors hold this.' },
-  { abbr:'MRCP', meaning:'Member of the Royal College of Physicians — UK postgraduate internal medicine qualification.' },
-  { abbr:'FRCP', meaning:'Fellow of the Royal College of Physicians — senior, higher recognition.' },
-  { abbr:'MRCS / FRCS', meaning:'Member/Fellow of the Royal College of Surgeons — surgical postgraduate qualifications.' },
-  { abbr:'MS (Surgery)', meaning:'Master of Surgery — Malaysian/UK surgical postgraduate qualification.' },
-  { abbr:'MMed', meaning:'Master of Medicine — Malaysian specialist qualification (UM, UKM, USM).' },
-  { abbr:'MRCOG / FRCOG', meaning:'Member/Fellow Royal College of Obstetricians & Gynaecologists.' },
-  { abbr:'FRCR', meaning:'Fellow of the Royal College of Radiologists — radiology and oncology.' },
-  { abbr:'FAMS', meaning:'Fellow of the Academy of Medicine Singapore — Singapore senior specialist.' },
-  { abbr:'AM(Mal)', meaning:'Academy of Medicine Malaysia Fellow — Malaysian senior specialist recognition.' },
-  { abbr:'FANZCA', meaning:'Fellow of the Australian/NZ College of Anaesthetists.' },
-  { abbr:'PhD', meaning:'Doctor of Philosophy — research doctorate, not a clinical medical degree on its own.' },
-  { abbr:"Dato' / Tan Sri", meaning:'Malaysian honorific title — indicates civic recognition, NOT a medical qualification.' },
-  { abbr:'Adj Prof / Prof Madya', meaning:'Adjunct/Associate Professor — academic rank, indicates teaching at a university hospital.' },
-]
-
-function DoctorSection() {
-  return (
-    <div className="space-y-7">
-      {/* How to verify */}
-      <div className="bg-surface-secondary rounded-2xl p-5">
-        <h3 className="font-bold text-ink text-[15px] mb-3">🔍 How to Verify a Doctor (MMC Registry)</h3>
-        <ol className="space-y-2">
-          {[
-            <>Go to <a href="https://www.mmc.gov.my" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline font-medium">mmc.gov.my</a> → "Semak Pengamal Perubatan Berdaftar" (Check Registered Medical Practitioners)</>,
-            'Search by full name or MMC registration number (ask the doctor for their MMC number).',
-            'The result will show: registration status (active/lapsed/suspended), specialty, qualification, and any disciplinary actions.',
-            <><strong>If the doctor does NOT appear or their status is "suspended"</strong> — do not proceed. Report to MMC: <a href="tel:+60340496000" className="text-brand hover:underline">+603-4049 6000</a></>,
-          ].map((step, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-[13px] text-ink-secondary">
-              <span className="w-5 h-5 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-white text-[10px] font-bold mt-0.5">{i+1}</span>
-              <span className="leading-relaxed">{step}</span>
-            </li>
-          ))}
-        </ol>
-        <a href="https://www.mmc.gov.my" target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 mt-3 text-brand text-[13px] font-semibold hover:underline">
-          🔗 Open MMC Registry →
-        </a>
-      </div>
-
-      {/* Qualification table */}
-      <div>
-        <h3 className="font-bold text-ink text-[15px] mb-3">🎓 Understanding Doctor Qualifications</h3>
-        <p className="text-ink-secondary text-[13px] mb-3">Malaysian doctors' name cards often list multiple qualifications. Here is what they mean:</p>
-        <div className="overflow-x-auto rounded-xl border border-ink-quaternary">
-          <table className="w-full text-[12px]">
-            <thead>
-              <tr className="bg-surface-secondary border-b border-ink-quaternary">
-                <th className="text-left px-4 py-2.5 font-semibold text-ink-secondary">Abbreviation</th>
-                <th className="text-left px-4 py-2.5 font-semibold text-ink-secondary">Meaning</th>
-              </tr>
-            </thead>
-            <tbody>
-              {QUAL_ABBREV.map(({ abbr, meaning }) => (
-                <tr key={abbr} className="border-t border-ink-quaternary">
-                  <td className="px-4 py-2.5 font-mono font-semibold text-brand whitespace-nowrap">{abbr}</td>
-                  <td className="px-4 py-2.5 text-ink-secondary">{meaning}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Other boards */}
-      <div>
-        <h3 className="font-bold text-ink text-[15px] mb-3">📌 Other Regulatory Boards</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {[
-            { title:'Dentists', body:'Malaysian Dental Council (MDC)', url:'https://www.mdc.gov.my' },
-            { title:'Nurses & Midwives', body:'Lembaga Jururawat Malaysia (LJM)', url:'https://www.ljm.moh.gov.my' },
-            { title:'Pharmacists', body:'Pharmacy Board Malaysia', url:'https://pharmacy.gov.my' },
-            { title:'Traditional Medicine (T&CM)', body:'T&CM Division, MOH Malaysia', url:'https://www.tcm.moh.gov.my' },
-            { title:'Allied Health (Physio, OT, etc.)', body:'Allied Health Professions Board, MOH', url:'https://www.moh.gov.my' },
-          ].map(({ title, body, url }) => (
-            <div key={title} className="bg-surface-secondary rounded-xl p-3">
-              <p className="font-semibold text-ink text-[13px]">{title}</p>
-              <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand text-[12px] hover:underline">{body}</a>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Red flags */}
-      <div className="bg-red-50 border border-red-200 rounded-2xl p-5">
-        <h3 className="font-bold text-red-900 text-[15px] mb-3">🚩 Red Flags</h3>
-        <ul className="space-y-1.5">
-          {[
-            'Doctor cannot provide their MMC registration number when asked.',
-            'Qualifications listed that do not appear in the MMC database.',
-            'Practising at a facility that is not licensed by MOH.',
-            'Using the title "Dr." without an MBBS, MD, or equivalent degree.',
-            'Offering guaranteed cure rates for serious illnesses (medically unethical).',
-            'Requesting large upfront cash payments without itemised billing.',
-          ].map((flag, i) => (
-            <li key={i} className="flex items-start gap-2 text-[12px] text-red-800">
-              <span className="mt-0.5 flex-shrink-0">⚠</span>{flag}
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   )
 }
@@ -988,408 +743,3 @@ function NightSection() {
   )
 }
 
-/* ─── Verify Facilities ──────────────────────────────────────────── */
-
-function VerifySection() {
-  const [openFac, setOpenFac] = useState(null)
-  const facilities = VERIFY_GUIDE.filter(g => !g.isMasterTip)
-  const masterTip = VERIFY_GUIDE.find(g => g.isMasterTip)
-
-  return (
-    <div className="space-y-5">
-      {masterTip && (
-        <div className="bg-brand-light border border-brand/20 rounded-2xl p-4 text-[13px] text-brand leading-relaxed">
-          🌐 <strong>Universal tip:</strong> {masterTip.content}
-        </div>
-      )}
-
-      <p className="text-ink-secondary text-[14px]">
-        How to verify any healthcare facility in Malaysia — from nursing homes to dialysis centres to dental clinics.
-      </p>
-
-      <div className="space-y-2">
-        {facilities.map(fac => {
-          const isOpen = openFac === fac.id
-          return (
-            <div key={fac.id} className="border border-ink-quaternary rounded-xl overflow-hidden">
-              <button className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-surface-secondary transition-colors"
-                onClick={() => setOpenFac(isOpen ? null : fac.id)}>
-                <div>
-                  <span className="font-semibold text-ink text-[14px]">{fac.title}</span>
-                  {fac.titleZH && <span className="text-ink-tertiary text-[12px] ml-2">{fac.titleZH}</span>}
-                </div>
-                <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                  width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              {isOpen && (
-                <div className="px-4 pb-5 space-y-4 border-t border-ink-quaternary pt-4">
-                  {fac.why && <p className="text-ink-secondary text-[13px] leading-relaxed">{fac.why}</p>}
-
-                  {fac.howToVerify?.length > 0 && (
-                    <div>
-                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wider mb-2">How to Verify</h5>
-                      <div className="space-y-1.5">
-                        {fac.howToVerify.map((s, i) => (
-                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
-                            <span className="text-brand mt-0.5 flex-shrink-0">✓</span>{s}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {fac.redFlags?.length > 0 && (
-                    <div className="bg-red-50 border border-red-100 rounded-xl p-3">
-                      <h5 className="font-semibold text-red-900 text-[12px] uppercase tracking-wider mb-2">🚩 Red Flags</h5>
-                      <div className="space-y-1">
-                        {fac.redFlags.map((f, i) => (
-                          <div key={i} className="flex items-start gap-2 text-[12px] text-red-800">
-                            <span className="mt-0.5 flex-shrink-0">×</span>{f}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {fac.minimumStandards?.length > 0 && (
-                    <div>
-                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wider mb-2">Minimum Standards Required by Law</h5>
-                      <div className="space-y-1">
-                        {fac.minimumStandards.map((s, i) => (
-                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
-                            <span className="text-emerald-600 mt-0.5 flex-shrink-0">✓</span>{s}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {fac.complaintChannel && (
-                    <p className="text-[12px] text-ink-secondary bg-surface-secondary rounded-xl p-3">
-                      <span className="font-medium text-ink">Complaint channel: </span>{fac.complaintChannel}
-                    </p>
-                  )}
-
-                  {fac.subsidizedOptions && (
-                    <div className="bg-green-50 border border-green-100 rounded-xl p-3 text-[12px] text-green-800">
-                      💚 <strong>Subsidised options:</strong> {fac.subsidizedOptions}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-/* ─── Medical Glossary ───────────────────────────────────────────── */
-
-function GlossarySection() {
-  const [search, setSearch] = useState('')
-  const [cat, setCat] = useState('all')
-
-  const categories = ['all', ...Array.from(new Set(GLOSSARY.map(g => g.category)))]
-  const catLabel = { all: 'All', hospital: 'Hospital Settings', insurance: 'Insurance', procedure: 'Procedures', drug: 'Medications', admin: 'Admin & Billing', financial: 'Financial Aid' }
-
-  const filtered = GLOSSARY.filter(g => {
-    const matchCat = cat === 'all' || g.category === cat
-    const q = search.toLowerCase()
-    const matchSearch = !q || g.term.toLowerCase().includes(q) || g.full?.toLowerCase().includes(q) || g.definition.toLowerCase().includes(q)
-    return matchCat && matchSearch
-  })
-
-  return (
-    <div className="space-y-5">
-      <div className="flex flex-col sm:flex-row gap-3">
-        <input
-          type="search"
-          placeholder="Search terms… (e.g. ICU, deductible, LOS)"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          className="flex-1 border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
-        />
-        <div className="flex flex-wrap gap-1.5">
-          {categories.map(c => (
-            <button key={c} onClick={() => setCat(c)}
-              className={`px-3 py-1.5 rounded-full text-[11px] font-medium border transition-colors ${
-                cat === c ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-              }`}>
-              {catLabel[c] || c}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <p className="text-ink-tertiary text-[12px]">{filtered.length} term{filtered.length !== 1 ? 's' : ''}</p>
-
-      <div className="space-y-2">
-        {filtered.map((g, i) => (
-          <div key={i} className="border border-ink-quaternary rounded-xl p-4">
-            <div className="flex items-start gap-3">
-              <div className="flex-1">
-                <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span className="font-bold text-ink text-[15px]">{g.term}</span>
-                  {g.full && <span className="text-ink-secondary text-[12px]">{g.full}</span>}
-                  <span className="text-[10px] font-medium uppercase tracking-wide bg-surface-secondary text-ink-tertiary px-2 py-0.5 rounded-full">{g.category}</span>
-                </div>
-                <p className="text-ink-secondary text-[13px] leading-relaxed">{g.definition}</p>
-                {g.tip && (
-                  <div className="mt-2 bg-brand/5 border border-brand/20 rounded-lg px-3 py-2">
-                    <p className="text-brand text-[12px] leading-relaxed">💡 {g.tip}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-        {filtered.length === 0 && (
-          <p className="text-center text-ink-tertiary text-[13px] py-8">No terms match your search.</p>
-        )}
-      </div>
-    </div>
-  )
-}
-
-/* ─── Specialties Guide ──────────────────────────────────────────── */
-
-function SpecialtiesSection() {
-  const [search, setSearch] = useState('')
-  const [openSpec, setOpenSpec] = useState(null)
-
-  const filtered = SPECIALTIES_REFERENCE.filter(s => {
-    const q = search.toLowerCase()
-    return !q || s.name.toLowerCase().includes(q) || s.description?.toLowerCase().includes(q)
-  })
-
-  return (
-    <div className="space-y-5">
-      <p className="text-ink-secondary text-[14px] max-w-[640px]">
-        22 medical specialties — when to see each specialist, what they do, top centres in Malaysia, and what to expect.
-      </p>
-
-      <input
-        type="search"
-        placeholder="Search specialties… (e.g. heart, cancer, eye)"
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        className="w-full sm:max-w-sm border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
-      />
-
-      <div className="space-y-2">
-        {filtered.map(spec => {
-          const isOpen = openSpec === spec.id
-          return (
-            <div key={spec.id} className="border border-ink-quaternary rounded-xl overflow-hidden">
-              <button className="w-full flex items-center justify-between px-4 py-4 text-left hover:bg-surface-secondary transition-colors"
-                onClick={() => setOpenSpec(isOpen ? null : spec.id)}>
-                <div className="flex items-center gap-3">
-                  <span className="text-[20px]">{spec.icon}</span>
-                  <div>
-                    <p className="font-semibold text-ink text-[14px]">{spec.name}</p>
-                    <p className="text-ink-tertiary text-[12px] mt-0.5 line-clamp-1 max-w-[480px]">{spec.description?.substring(0, 85)}…</p>
-                  </div>
-                </div>
-                <svg className={`flex-shrink-0 text-ink-tertiary transition-transform ml-3 ${isOpen ? 'rotate-180' : ''}`}
-                  width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-
-              {isOpen && (
-                <div className="px-4 pb-5 border-t border-ink-quaternary pt-4 space-y-5">
-                  {spec.emergencyNote && (
-                    <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2.5">
-                      <p className="font-semibold text-red-900 text-[12px] mb-0.5">🚨 Emergency</p>
-                      <p className="text-red-800 text-[12px] leading-relaxed">{spec.emergencyNote}</p>
-                    </div>
-                  )}
-
-                  <p className="text-ink-secondary text-[13px] leading-relaxed">{spec.description}</p>
-
-                  {spec.symptoms?.length > 0 && (
-                    <div>
-                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">When to See This Specialist</h5>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
-                        {spec.symptoms.map((s, i) => (
-                          <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
-                            <span className="text-brand mt-0.5 flex-shrink-0">•</span>{s}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {spec.commonProcedures?.length > 0 && (
-                    <div>
-                      <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">Common Procedures / Investigations</h5>
-                      <div className="flex flex-wrap gap-1.5">
-                        {spec.commonProcedures.map((p, i) => (
-                          <span key={i} className="bg-surface-secondary text-ink-secondary text-[11px] px-2.5 py-1 rounded-full border border-ink-quaternary">{p}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {spec.topPublicCentres?.length > 0 && (
-                      <div>
-                        <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">🏥 Top Public Centres</h5>
-                        <div className="space-y-1">
-                          {spec.topPublicCentres.map((c, i) => (
-                            <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
-                              <span className="text-brand mt-0.5 flex-shrink-0">✓</span>{c}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {spec.topPrivateCentres?.length > 0 && (
-                      <div>
-                        <h5 className="font-semibold text-ink text-[12px] uppercase tracking-wide mb-2">🏢 Top Private Centres</h5>
-                        <div className="space-y-1">
-                          {spec.topPrivateCentres.map((c, i) => (
-                            <div key={i} className="flex items-start gap-2 text-[12px] text-ink-secondary">
-                              <span className="text-ink-tertiary mt-0.5 flex-shrink-0">›</span>{c}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {spec.notes && (
-                    <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
-                      <p className="font-semibold text-ink text-[12px] mb-0.5">ℹ️ Notes</p>
-                      <p className="text-ink-secondary text-[12px] leading-relaxed">{spec.notes}</p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )
-        })}
-        {filtered.length === 0 && (
-          <p className="text-center text-ink-tertiary text-[13px] py-8">No specialties match your search.</p>
-        )}
-      </div>
-    </div>
-  )
-}
-
-/* ─── Emergency Events ──────────────────────────────────────────── */
-
-const EMERGENCY_CATEGORIES = ['All', 'Cardiac', 'Neurological', 'Airway', 'Trauma', 'Envenomation', 'Allergy', 'Medical', 'Child']
-
-function EmergencySection() {
-  const [category, setCategory] = useState('All')
-  const [open, setOpen] = useState(null)
-  const scenarios = EMERGENCY_PROTOCOLS.emergencyScenarios
-  const visible = category === 'All' ? scenarios : scenarios.filter(s => s.category === category)
-
-  return (
-    <div>
-      {/* Hotlines strip */}
-      <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6">
-        <p className="text-[11px] font-bold text-red-700 uppercase tracking-wider mb-3">Emergency Hotlines — Malaysia</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-          {EMERGENCY_PROTOCOLS.hotlines.slice(0, 4).map(h => (
-            <div key={h.number} className="bg-white rounded-xl px-3 py-2 border border-red-100">
-              <p className="font-bold text-[15px] text-red-700">{h.number}</p>
-              <p className="text-ink-secondary text-[11px] leading-snug">{h.name.split(' (')[0].split(' —')[0]}</p>
-            </div>
-          ))}
-        </div>
-        <p className="text-[11px] text-red-600 mt-2.5 font-medium">⚡ Always call 999 first in any life-threatening emergency. 112 also works on all mobile networks.</p>
-      </div>
-
-      {/* Category filter */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {EMERGENCY_CATEGORIES.map(cat => (
-          <button key={cat} onClick={() => setCategory(cat)}
-            className={`px-3 py-1.5 rounded-full text-[12px] font-medium border transition-colors ${
-              category === cat
-                ? 'bg-ink text-white border-ink'
-                : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-            }`}>{cat}</button>
-        ))}
-      </div>
-
-      {/* Scenario cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {visible.map(s => {
-          const isOpen = open === s.id
-          return (
-            <div key={s.id}
-              className="bg-white border border-ink-quaternary rounded-2xl overflow-hidden cursor-pointer hover:border-brand/40 transition-colors"
-              style={{ borderLeft: `3px solid ${s.color}` }}
-              onClick={() => setOpen(isOpen ? null : s.id)}
-            >
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg leading-none">{s.icon}</span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                      style={{ background: `${s.color}18`, color: s.color }}>{s.category}</span>
-                    {s.callAmbulance && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-600">Call 999</span>
-                    )}
-                  </div>
-                  <svg className={`flex-shrink-0 text-ink-tertiary transition-transform mt-0.5 ${isOpen ? 'rotate-180' : ''}`}
-                    width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <path d="M2 4.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-ink text-[13px] leading-snug">{s.label}</h3>
-
-                {isOpen && (
-                  <div className="mt-3 pt-3 border-t border-ink-quaternary space-y-3 text-[12px]">
-                    <div>
-                      <p className="font-semibold text-ink mb-1.5" style={{ color: s.color }}>🔍 Recognise</p>
-                      <ul className="space-y-1">
-                        {s.recognize.map((r, i) => (
-                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
-                            <span className="flex-shrink-0 mt-0.5 text-ink-tertiary">·</span>{r}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-ink mb-1.5 text-green-700">✅ Do Now</p>
-                      <ol className="space-y-1 list-none">
-                        {s.doNow.map((d, i) => (
-                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
-                            <span className="flex-shrink-0 font-semibold text-green-600 mt-0.5">{i + 1}.</span>{d}
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-red-600 mb-1.5">🚫 Do NOT</p>
-                      <ul className="space-y-1">
-                        {s.doNot.map((d, i) => (
-                          <li key={i} className="text-ink-secondary leading-relaxed flex gap-1.5">
-                            <span className="flex-shrink-0 text-red-400 mt-0.5">✕</span>{d}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    {s.note && (
-                      <div className="bg-surface-secondary rounded-xl px-3 py-2.5">
-                        <p className="text-ink-secondary leading-relaxed">{s.note}</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
