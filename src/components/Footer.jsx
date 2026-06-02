@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ALL_HOSPITALS } from '../data/index'
 
 export default function Footer() {
   return (
@@ -40,9 +41,9 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 ['/about', 'About'],
-                ['/about', 'Methodology'],
-                ['/about', 'Data Sources'],
+                ['/sources', 'Data Sources'],
                 ['/resources', 'Patient Rights'],
+                ['/terms', 'Terms & Conditions'],
               ].map(([to, label]) => (
                 <li key={label}>
                   <Link to={to} className="text-ink-secondary text-[13px] hover:text-brand transition-colors">
@@ -58,16 +59,16 @@ export default function Footer() {
             <p className="text-ink-secondary text-[13px] leading-relaxed">
               Verified against MOH Malaysia official records and hospital websites.
             </p>
-            <p className="text-ink-tertiary text-[12px] mt-2">Updated 2024–2025</p>
+            <p className="text-ink-tertiary text-[12px] mt-2">Updated 2025–2026</p>
           </div>
         </div>
 
         <div className="border-t border-ink-quaternary pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-ink-tertiary text-[12px]">
-            © 2025 Healthcare Intelligence MY. For reference only — not medical advice.
+            © 2026 Healthcare Intelligence MY. For reference only — not medical advice.
           </p>
           <p className="text-ink-tertiary text-[12px]">
-            273 hospitals · 16 states · Public information
+            {ALL_HOSPITALS.length} hospitals · 16 states · Public information
           </p>
         </div>
       </div>

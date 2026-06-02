@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import { ALL_HOSPITALS, ALL_STATES } from '../data/index'
 import HospitalModal from '../components/HospitalModal'
 
@@ -44,7 +44,11 @@ export default function FindCare() {
   const [state, setState] = useState(searchParams.get('state') || '')
   const [sector, setSector] = useState('')
   const [specialty, setSpecialty] = useState('')
+  const [fppOnly, setFppOnly] = useState(false)
   const [selected, setSelected] = useState(null)
+  const [compareIds, setCompareIds] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('compareIds') || '[]') } catch { return [] }
+  })
 
   // Keep URL in sync when filters change externally (e.g. back/forward)
   useEffect(() => {
@@ -76,8 +80,20 @@ export default function FindCare() {
         )
       )
     }
+    if (fppOnly) list = list.filter(h => h.fppScheme === true)
     return list
-  }, [query, state, sector, specialty])
+  }, [query, state, sector, specialty, fppOnly])
+
+  const toggleCompare = (e, h) => {
+    e.stopPropagation()
+    setCompareIds(prev => {
+      const next = prev.includes(h.id)
+        ? prev.filter(id => id !== h.id)
+        : prev.length < 5 ? [...prev, h.id] : prev
+      localStorage.setItem('compareIds', JSON.stringify(next))
+      return next
+    })
+  }
 
   const updateQuery = val => {
     setQuery(val)
@@ -181,10 +197,22 @@ export default function FindCare() {
               </svg>
             </div>
 
+            {/* FPP toggle */}
+            <button
+              onClick={() => setFppOnly(v => !v)}
+              className={`px-4 py-2 rounded-xl border text-[13px] font-medium transition-colors ${
+                fppOnly
+                  ? 'bg-emerald-600 text-white border-emerald-600'
+                  : 'bg-white text-ink-secondary border-ink-quaternary hover:border-emerald-500 hover:text-emerald-700'
+              }`}
+            >
+              ✓ FPP Only
+            </button>
+
             {/* Clear */}
-            {(query || state || sector || specialty) && (
+            {(query || state || sector || specialty || fppOnly) && (
               <button
-                onClick={() => { updateQuery(''); updateState(''); setSector(''); setSpecialty('') }}
+                onClick={() => { updateQuery(''); updateState(''); setSector(''); setSpecialty(''); setFppOnly(false) }}
                 className="text-[13px] text-ink-secondary hover:text-brand transition-colors"
               >
                 Clear filters
@@ -196,13 +224,24 @@ export default function FindCare() {
 
       {/* Results */}
       <div className="max-w-[1200px] mx-auto px-5 py-7">
-        <p className="text-ink-secondary text-[13px] mb-5">
-          {filtered.length.toLocaleString()} hospital{filtered.length !== 1 ? 's' : ''}
-          {query && <span className="font-medium text-ink"> for "{query}"</span>}
-          {state && <span> · {state}</span>}
-          {sector && <span> · {sector}</span>}
-          {specialty && <span> · {specialty}</span>}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <p className="text-ink-secondary text-[13px]">
+            {filtered.length.toLocaleString()} hospital{filtered.length !== 1 ? 's' : ''}
+            {query && <span className="font-medium text-ink"> for "{query}"</span>}
+            {state && <span> · {state}</span>}
+            {sector && <span> · {sector}</span>}
+            {specialty && <span> · {specialty}</span>}
+            {fppOnly && <span> · FPP only</span>}
+          </p>
+          {compareIds.length > 0 && (
+            <Link
+              to="/compare"
+              className="inline-flex items-center gap-2 bg-brand text-white px-4 py-1.5 rounded-xl text-[13px] font-semibold hover:bg-brand-dark transition-colors"
+            >
+              Compare {compareIds.length} selected →
+            </Link>
+          )}
+        </div>
 
         {filtered.length === 0 ? (
           <div className="text-center py-20">
@@ -213,7 +252,14 @@ export default function FindCare() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filtered.map(h => (
-              <HospitalCard key={h.id} h={h} onClick={() => setSelected(h)} />
+              <HospitalCard
+                key={h.id}
+                h={h}
+                onClick={() => setSelected(h)}
+                inCompare={compareIds.includes(h.id)}
+                onToggleCompare={e => toggleCompare(e, h)}
+                compareFull={compareIds.length >= 5 && !compareIds.includes(h.id)}
+              />
             ))}
           </div>
         )}
@@ -224,7 +270,11 @@ export default function FindCare() {
   )
 }
 
-function HospitalCard({ h, onClick }) {
+function HospitalCard({ h, onClick, inCompare, onToggleCompare, compareFull }) {
+  const keyAccreditations = (h.accreditations || []).filter(
+    a => a.includes('JCI') || a.includes('MSQH')
+  )
+
   return (
     <button
       onClick={onClick}
@@ -253,13 +303,53 @@ function HospitalCard({ h, onClick }) {
         {h.name}
       </h3>
 
-      <p className="text-ink-secondary text-[12px] mb-2.5">{h.city}, {h.state}</p>
+      <p className="text-ink-secondary text-[12px] mb-2">{h.city}, {h.state}</p>
 
-      {h.infrastructure?.totalBeds && (
-        <p className="text-ink-tertiary text-[11px]">
-          🛏 {Number(h.infrastructure.totalBeds).toLocaleString()} beds
-        </p>
+      {/* Accreditation + FPP badges */}
+      {(h.fppScheme || keyAccreditations.length > 0) && (
+        <div className="flex flex-wrap items-center gap-1 mb-2.5">
+          {h.fppScheme && (
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md text-emerald-700 bg-emerald-50 border border-emerald-200">
+              ✓ FPP
+            </span>
+          )}
+          {keyAccreditations.map((a, i) => (
+            <span
+              key={i}
+              className={`text-[10px] font-semibold px-2 py-0.5 rounded-md ${
+                a.includes('JCI')
+                  ? 'text-amber-700 bg-amber-50 border border-amber-200'
+                  : 'text-blue-700 bg-blue-50 border border-blue-200'
+              }`}
+            >
+              {a.includes('JCI') ? 'JCI' : 'MSQH'}
+            </span>
+          ))}
+        </div>
       )}
+
+      <div className="flex items-center justify-between gap-2">
+        {h.infrastructure?.totalBeds ? (
+          <p className="text-ink-tertiary text-[11px]">
+            🛏 {Number(h.infrastructure.totalBeds).toLocaleString()} beds
+          </p>
+        ) : <span />}
+
+        <button
+          onClick={onToggleCompare}
+          disabled={compareFull}
+          title={compareFull ? 'Compare is full (max 5)' : inCompare ? 'Remove from compare' : 'Add to compare'}
+          className={`flex-shrink-0 text-[10px] font-semibold px-2 py-1 rounded-lg border transition-colors ${
+            inCompare
+              ? 'bg-brand text-white border-brand'
+              : compareFull
+              ? 'bg-surface-secondary text-ink-tertiary border-ink-quaternary cursor-not-allowed'
+              : 'bg-white text-ink-tertiary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}
+        >
+          {inCompare ? '✓' : '+'} Compare
+        </button>
+      </div>
     </button>
   )
 }

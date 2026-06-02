@@ -7,6 +7,8 @@ import Intelligence from './pages/Intelligence'
 import Compare from './pages/Compare'
 import Resources from './pages/Resources'
 import About from './pages/About'
+import Terms from './pages/Terms'
+import Sources from './pages/Sources'
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
             <Route path="/compare" element={<Compare />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/sources" element={<Sources />} />
           </Routes>
         </main>
         <Footer />

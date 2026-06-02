@@ -60,6 +60,17 @@ export default function HospitalModal({ hospital: h, onClose }) {
                     {h.tier}
                   </span>
                 )}
+                {h.fppScheme && (
+                  <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md text-emerald-700 bg-emerald-50 border border-emerald-200">
+                    ✓ FPP
+                  </span>
+                )}
+                {(h.accreditations || []).some(a => a.includes('JCI')) && (
+                  <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md text-amber-700 bg-amber-50 border border-amber-200">JCI</span>
+                )}
+                {(h.accreditations || []).some(a => a.includes('MSQH')) && (
+                  <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md text-blue-700 bg-blue-50 border border-blue-200">MSQH</span>
+                )}
                 <span className="text-[12px] text-ink-tertiary">{h.state}</span>
               </div>
               <h2 className="text-[20px] font-bold text-ink tracking-tight leading-snug">
