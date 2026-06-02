@@ -5,12 +5,12 @@ import Home from './pages/Home'
 import FindCare from './pages/FindCare'
 import Intelligence from './pages/Intelligence'
 import Compare from './pages/Compare'
+import Knowledge from './pages/Knowledge'
 import Resources from './pages/Resources'
 import Insurance from './pages/Insurance'
 import About from './pages/About'
 import Terms from './pages/Terms'
 import Sources from './pages/Sources'
-import Knowledge from './pages/Knowledge'
 import Tools from './pages/Tools'
 
 export default function App() {

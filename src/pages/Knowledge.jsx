@@ -3,12 +3,16 @@ import { GLOSSARY } from '../data/glossary'
 import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
 
 const TOPICS = [
-  { id: 'glossary',      icon: '📖', label: 'Medical Glossary',  desc: 'Plain-English guide to medical terms and abbreviations' },
-  { id: 'drugs',         icon: '💊', label: 'Common Drugs',      desc: 'Common medications — Mandarin names, what they do, where to get them' },
-  { id: 'lab-values',    icon: '🔬', label: 'Lab Values',        desc: 'What your blood test results mean — normal ranges explained' },
-  { id: 'abbreviations', icon: '🔤', label: 'Abbreviations',     desc: 'Common Malaysian hospital and medical shorthand decoded' },
-  { id: 'screening',     icon: '🩺', label: 'Health Screening',  desc: 'What to screen for, when, and where — age-by-age guide' },
-  { id: 'maternal',      icon: '🤰', label: 'Maternal Health',   desc: 'Antenatal visits, tests, postnatal care & delivery guide' },
+  { id: 'medical-reference', icon: '📖', label: 'Medical & Insurance Reference', desc: 'Medical glossary, abbreviations & insurance terms decoded' },
+  { id: 'drugs',             icon: '💊', label: 'Common Drugs',                  desc: 'Common medications — Mandarin names, what they do, where to get them' },
+  { id: 'lab-values',        icon: '🔬', label: 'Lab Values',                   desc: 'What your blood test results mean — normal ranges explained' },
+  { id: 'screening',         icon: '🩺', label: 'Health Screening',             desc: 'What to screen for, when, and where — age-by-age guide' },
+  { id: 'maternal',          icon: '🤰', label: 'Maternal Health',              desc: 'Antenatal visits, tests, postnatal care & delivery guide' },
+  { id: 'vaccination',       icon: '💉', label: 'Vaccination Guide',            desc: 'Complete immunisation schedule for all ages' },
+  { id: 'children',          icon: '👶', label: 'Children\'s Healthcare',       desc: 'Growth, milestones, common illnesses & when to seek help' },
+  { id: 'elderly',           icon: '👴', label: 'Elderly & OKU Care',           desc: 'Healthcare, mobility, chronic disease management & support' },
+  { id: 'mental-health',     icon: '🧠', label: 'Mental Health Resources',      desc: 'Mental wellness, counselling services & crisis support' },
+  { id: 'medical-reports',   icon: '📋', label: 'Reading Medical Reports',      desc: 'Understand your lab results, scans, diagnoses & prescriptions' },
 ]
 
 const LAB_VALUES = [
@@ -261,7 +265,7 @@ const ABBREVIATIONS = [
 const ABBR_CONTEXTS = ['All', 'Location', 'Organisation', 'Accreditation', 'Scheme', 'Insurance', 'Vital Signs', 'Assessment', 'Lab Tests', 'Tests', 'Imaging', 'Documentation', 'Medication Dosing', 'Admin', 'Roles']
 
 export default function Knowledge() {
-  const [active, setActive] = useState('glossary')
+  const [active, setActive] = useState('medical-reference')
   const topic = TOPICS.find(t => t.id === active)
 
   return (
@@ -304,12 +308,16 @@ export default function Knowledge() {
           <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
         </div>
 
-        {active === 'glossary'      && <GlossarySection />}
-        {active === 'drugs'         && <DrugsSection />}
-        {active === 'lab-values'    && <LabValuesSection />}
-        {active === 'abbreviations' && <AbbreviationsSection />}
-        {active === 'screening'     && <ScreeningSection />}
-        {active === 'maternal'      && <MaternalSection />}
+        {active === 'medical-reference' && <MedicalReferenceSection />}
+        {active === 'drugs'             && <DrugsSection />}
+        {active === 'lab-values'        && <LabValuesSection />}
+        {active === 'screening'         && <ScreeningSection />}
+        {active === 'maternal'          && <MaternalSection />}
+        {active === 'vaccination'       && <VaccinationSection />}
+        {active === 'children'          && <ChildrenSection />}
+        {active === 'elderly'           && <ElderlySection />}
+        {active === 'mental-health'     && <MentalHealthSection />}
+        {active === 'medical-reports'   && <MedicalReportSection />}
       </div>
     </div>
   )
@@ -1382,6 +1390,587 @@ function MaternalSection() {
         </div>
       )}
 
+    </div>
+  )
+}
+
+/* ─── Medical & Insurance Reference (Consolidated) ───────────────── */
+
+function MedicalReferenceSection() {
+  const [refTab, setRefTab] = useState('glossary')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2 border-b border-ink-quaternary pb-4">
+        <button onClick={() => setRefTab('glossary')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            refTab === 'glossary' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>📖 Medical Glossary</button>
+        <button onClick={() => setRefTab('abbreviations')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            refTab === 'abbreviations' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🔤 Abbreviations</button>
+      </div>
+
+      {refTab === 'glossary' && <GlossarySection />}
+      {refTab === 'abbreviations' && <AbbreviationsSection />}
+    </div>
+  )
+}
+
+/* ─── Vaccination Guide ──────────────────────────────────────────── */
+
+function VaccinationSection() {
+  const [ageGroup, setAgeGroup] = useState('infants')
+
+  const VACCINATION_SCHEDULE = {
+    infants: {
+      label: '👶 Infants (0–12 months)',
+      color: '#16a34a',
+      vaccines: [
+        { age: 'At birth', vaccines: ['Hepatitis B (Dose 1)', 'BCG (TB protection)'], govt: 'Free', private: 'RM 50–100' },
+        { age: '1 month', vaccines: ['Hepatitis B (Dose 2)', 'Polio (IPV 1)', 'Rotavirus (Dose 1)'], govt: 'Free', private: 'RM 80–150' },
+        { age: '2 months', vaccines: ['DPT-Hib-HepB (Pentaxim Dose 1)', 'Pneumococcal (Dose 1)', 'Rotavirus (Dose 2)'], govt: 'Free', private: 'RM 150–250' },
+        { age: '3 months', vaccines: ['DPT-Hib-HepB (Dose 2)', 'Polio (IPV 2)', 'Pneumococcal (Dose 2)'], govt: 'Free', private: 'RM 150–250' },
+        { age: '4 months', vaccines: ['DPT-Hib-HepB (Dose 3)', 'Rotavirus (Dose 3)'], govt: 'Free', private: 'RM 100–150' },
+        { age: '5–6 months', vaccines: ['Pneumococcal (Dose 3)', 'Polio (IPV 3)'], govt: 'Free', private: 'RM 80–120' },
+        { age: '9 months', vaccines: ['Measles (Dose 1)', 'Japanese Encephalitis (optional, private)'], govt: 'Free', private: 'RM 100–200' },
+        { age: '12 months', vaccines: ['MMR (Dose 1)', 'Hepatitis A (optional, private)'], govt: 'Free', private: 'RM 100–250' },
+      ],
+    },
+    toddlers: {
+      label: '🧒 Toddlers (1–6 years)',
+      color: '#0891b2',
+      vaccines: [
+        { age: '15–18 months', vaccines: ['DPT (Booster 1)', 'Polio (Booster 1)', 'Pneumococcal (Booster)'], govt: 'Free', private: 'RM 100–180' },
+        { age: '18–24 months', vaccines: ['Hepatitis B (Booster)', 'Varicella (Chickenpox) — optional'], govt: 'Free', private: 'RM 80–150' },
+        { age: '2 years', vaccines: ['Japanese Encephalitis (optional, private)', 'Typhoid (Typhim Vi)'], govt: 'Free', private: 'RM 100–180' },
+        { age: '4–6 years', vaccines: ['DPT (Booster 2)', 'Polio (Booster 2)', 'MMR (Dose 2)'], govt: 'Free', private: 'RM 100–180' },
+      ],
+    },
+    schoolage: {
+      label: '🎒 School Age (7–17 years)',
+      color: '#d97706',
+      vaccines: [
+        { age: '11–12 years', vaccines: ['HPV (Cervical Cancer, girls)', '3 doses over 6 months'], govt: 'Free (NIP)', private: 'RM 400–800/3 doses' },
+        { age: '13 years', vaccines: ['Tdap (Booster)', 'Polio (booster if incomplete)'], govt: 'Free', private: 'RM 60–100' },
+        { age: '15 years onwards', vaccines: ['Meningococcal (ACWY)', 'Typhoid booster every 2–3 years'], govt: 'Private only', private: 'RM 100–300' },
+      ],
+    },
+    adults: {
+      label: '👨 Adults (18+ years)',
+      color: '#7c3aed',
+      vaccines: [
+        { age: 'Every 10 years', vaccines: ['Td (Tetanus-Diphtheria Booster)'], govt: 'Free', private: 'RM 40–80' },
+        { age: '18–49 (one dose)', vaccines: ['COVID-19 Vaccine', 'Check MOH latest guidance — policies change'], govt: 'Free', private: 'Free/Covered' },
+        { age: '50+ years', vaccines: ['Pneumococcal (Pneumovax 23)', 'Shingles (Recombivax — age 50+)', 'Influenza (annual)'], govt: 'Some coverage', private: 'RM 80–250' },
+        { age: 'Anytime', vaccines: ['Rabies (post-exposure)', 'Hepatitis A (for travellers)', 'Yellow Fever (for travellers to endemic areas)'], govt: 'Post-exposure only', private: 'RM 50–300' },
+      ],
+    },
+  }
+
+  const currentGroup = VACCINATION_SCHEDULE[ageGroup]
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {Object.entries(VACCINATION_SCHEDULE).map(([key, val]) => (
+          <button key={key} onClick={() => setAgeGroup(key)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              ageGroup === key ? 'text-white border-transparent' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}
+            style={ageGroup === key ? { background: val.color, borderColor: val.color } : {}}>
+            {val.label.split(' ')[0]} {val.label.split(' ').slice(1).join(' ')}
+          </button>
+        ))}
+      </div>
+
+      <div className="space-y-3">
+        {currentGroup.vaccines.map((item, i) => (
+          <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid ${currentGroup.color}` }}>
+            <div className="flex items-start justify-between gap-3 flex-wrap mb-2">
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${currentGroup.color}15`, color: currentGroup.color }}>{item.age}</span>
+            </div>
+            <p className="text-ink-secondary text-[12px] mb-2 space-y-1">
+              {item.vaccines.map((v, vi) => <div key={vi} className="flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span><span>{v}</span></div>)}
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-surface-secondary rounded-lg p-2">
+                <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide">Government</p>
+                <p className="text-ink text-[12px] font-semibold">{item.govt}</p>
+              </div>
+              <div className="bg-surface-secondary rounded-lg p-2">
+                <p className="text-[10px] font-semibold text-ink-secondary uppercase tracking-wide">Private</p>
+                <p className="text-ink text-[12px] font-semibold">{item.private}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary">
+        <strong className="text-ink">💡 MOH Recommendation:</strong> Malaysia's National Immunisation Programme (NIP) covers 12 basic vaccines free at Klinik Kesihatan. Private clinics offer additional optional vaccines (e.g., Varicella, HPV, Meningococcal). Check with your doctor which vaccines are right for you.
+      </div>
+    </div>
+  )
+}
+
+/* ─── Children's Healthcare Guide ────────────────────────────────── */
+
+function ChildrenSection() {
+  const [childTab, setChildTab] = useState('milestones')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2 border-b border-ink-quaternary pb-4">
+        <button onClick={() => setChildTab('milestones')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            childTab === 'milestones' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>📈 Growth & Milestones</button>
+        <button onClick={() => setChildTab('common-issues')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            childTab === 'common-issues' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🤒 Common Illnesses</button>
+        <button onClick={() => setChildTab('nutrition')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            childTab === 'nutrition' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🍎 Nutrition</button>
+        <button onClick={() => setChildTab('when-to-see')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            childTab === 'when-to-see' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🏥 When to See a Doctor</button>
+      </div>
+
+      {childTab === 'milestones' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px]">Children develop at different rates. These are typical ranges — discuss concerns with your paediatrician.</p>
+          {[
+            { month: '0–3 months', milestones: ['Fixes gaze & follows objects', 'Smiles socially (6 weeks)', 'Lifts head briefly when on belly', 'Startles at loud sounds'] },
+            { month: '4–6 months', milestones: ['Rolls over (one direction)', 'Sits with support', 'Babbles (ba, ma, da)', 'Reaches for objects', 'Puts objects in mouth'] },
+            { month: '7–12 months', milestones: ['Sits without support', 'Stands with help', 'Crawls or scoots', 'Says first words (mama, dada)', 'Waves goodbye'] },
+            { month: '1–2 years', milestones: ['Walks alone', 'Climbs stairs with help', 'Points to pictures', 'Vocabulary: 10–50 words', 'Follows simple instructions'] },
+            { month: '2–3 years', milestones: ['Runs & jumps', 'Kicks a ball', 'Combines 2–3 words', 'Shows interest in toilet training', 'Plays alongside other children'] },
+            { month: '3–5 years', milestones: ['Pedals a tricycle', 'Copies a cross', 'Understands 3–4 part instructions', 'Knows first & last name', 'Engages in imaginative play'] },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-2">{item.month}</p>
+              <ul className="space-y-1">
+                {item.milestones.map((m, mi) => (
+                  <li key={mi} className="flex items-start gap-2 text-[13px] text-ink-secondary">
+                    <span className="text-brand flex-shrink-0 mt-0.5">✓</span> {m}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {childTab === 'common-issues' && (
+        <div className="space-y-3">
+          {[
+            { illness: 'Fever', cause: 'Normal in viral infections; body\'s defence mechanism', when: 'See doctor if > 38.5°C, persistent > 5 days, or with severe symptoms', home: 'Paracetamol or ibuprofen; light clothing; cool bath; plenty of fluids' },
+            { illness: 'Cough & Cold', cause: 'Viral, rarely bacterial. Usually self-limiting', when: 'Seek help if: wheezing, difficulty breathing, cough > 2 weeks, green/yellow phlegm', home: 'Fluids, honey (age > 1 yr), steam inhalation; avoid antibiotics' },
+            { illness: 'Diarrhoea', cause: 'Viral or bacterial; food poisoning; poor hygiene', when: 'See doctor if: bloody stools, extreme weakness, dehydration signs, fever > 38.5°C', home: 'ORS (oral rehydration salts) solution; continue breastfeeding if applicable' },
+            { illness: 'Vomiting', cause: 'Viral gastroenteritis, overeating, motion sickness', when: 'Seek help if: persistent > 4 hours, blood in vomit, severe dehydration, abdominal pain', home: 'Small frequent feeds; ORS; rest stomach; monitor hydration' },
+            { illness: 'Rashes', cause: 'Viral (measles, chickenpox), allergies, heat rash, eczema', when: 'See doctor if: fever + rash, rapid spread, blistering, intense itching, difficulty breathing', home: 'Keep clean & dry; calamine lotion; avoid scratching; antihistamines if allergic' },
+            { illness: 'Ear Infections', cause: 'Viral or bacterial; blocked eustachian tube', when: 'See doctor if: ear pain > 48 hrs, discharge, fever, hearing loss', home: 'Pain relief (paracetamol); warm compress; observe for improvement' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-2">🤒 {item.illness}</p>
+              <div className="space-y-2 text-[13px]">
+                <div><strong className="text-ink-secondary">Cause:</strong> <span className="text-ink-tertiary">{item.cause}</span></div>
+                <div><strong className="text-ink-secondary">When to see doctor:</strong> <span className="text-ink-tertiary">{item.when}</span></div>
+                <div><strong className="text-ink-secondary">Home care:</strong> <span className="text-ink-tertiary">{item.home}</span></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {childTab === 'nutrition' && (
+        <div className="space-y-3">
+          {[
+            { age: '0–6 months', feed: 'Exclusive breastfeeding recommended. If formula: follow WHO guidelines (6 scoops : 1 oz water)' },
+            { age: '6 months onwards', feed: 'Introduce iron-fortified cereal, pureed fruits/veg, then soft finger foods. Continue breastfeeding until 2 years (WHO)' },
+            { age: '1–3 years', feed: 'Family foods (soft, no added salt/sugar). Whole milk 350–500 ml/day. Avoid honey (botulism risk < 1yr), choking hazards, peanuts' },
+            { age: '3–5 years', feed: '3 balanced meals + 2 healthy snacks. Include protein (eggs, fish, legumes), whole grains, fruits, veg, dairy. Limit sugary drinks' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-2">🍎 {item.age}</p>
+              <p className="text-ink-secondary text-[13px]">{item.feed}</p>
+            </div>
+          ))}
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px]">
+            <strong className="text-amber-900">⚠️ Common Choking Hazards:</strong>
+            <p className="text-amber-800 mt-1">Avoid until age 4+: whole peanuts, popcorn, grapes (halve them), hard candy, hot dogs (chop lengthwise), raw apple pieces</p>
+          </div>
+        </div>
+      )}
+
+      {childTab === 'when-to-see' && (
+        <div className="space-y-2">
+          {[
+            { severity: '🚨 EMERGENCY', signs: ['Difficulty breathing or wheezing', 'Unconsciousness or unresponsiveness', 'Severe allergic reaction (hives, throat swelling)', 'Seizures or convulsions', 'Suspected poisoning'], action: 'Go to A&E immediately or call 999' },
+            { severity: '⚠️ URGENT (same day)', signs: ['High fever > 39°C', 'Severe headache + fever + neck stiffness (meningitis)', 'Persistent vomiting (unable to keep fluids)', 'Severe diarrhoea with dehydration signs', 'Rash that doesn\'t blanch (press it)'], action: 'Seek medical attention within hours' },
+            { severity: '👨‍⚕️ ROUTINE (within days)', signs: ['Fever 38–38.5°C lasting > 3 days', 'Cough > 1 week', 'Ear pain lasting > 48 hrs', 'Rash without fever', 'Developmental concerns'], action: 'Call clinic for appointment' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-bold text-ink text-[14px] mb-2">{item.severity}</p>
+              <ul className="space-y-1 mb-3">
+                {item.signs.map((sign, si) => (
+                  <li key={si} className="text-[13px] text-ink-secondary flex items-start gap-2">
+                    <span className="flex-shrink-0 mt-0.5">•</span> {sign}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[13px] font-semibold text-ink">{item.action}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Elderly & OKU Care ─────────────────────────────────────────── */
+
+function ElderlySection() {
+  const [elderlyTab, setElderlyTab] = useState('screening')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2 border-b border-ink-quaternary pb-4">
+        <button onClick={() => setElderlyTab('screening')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            elderlyTab === 'screening' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🩺 Screening & Prevention</button>
+        <button onClick={() => setElderlyTab('chronic')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            elderlyTab === 'chronic' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>💊 Chronic Disease Management</button>
+        <button onClick={() => setElderlyTab('mobility')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            elderlyTab === 'mobility' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🚶 Mobility & Falls Prevention</button>
+        <button onClick={() => setElderlyTab('mental')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            elderlyTab === 'mental' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🧠 Cognitive Health</button>
+      </div>
+
+      {elderlyTab === 'screening' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px]">Recommended screening tests for adults 60+ (annually or as advised by doctor)</p>
+          {[
+            { test: 'Blood Pressure Monitoring', why: 'Detect hypertension; target < 130/80 mmHg', freq: 'At every visit (KK or clinic)' },
+            { test: 'Fasting Blood Sugar & HbA1c', why: 'Screen for diabetes; common in aging population', freq: 'Annually if normal; 3–6 monthly if diabetic' },
+            { test: 'Lipid Profile', why: 'Assess cardiovascular risk', freq: 'Annually' },
+            { test: 'Full Blood Count (FBC)', why: 'Detect anaemia, infections', freq: 'Annually' },
+            { test: 'Liver & Kidney Function Tests', why: 'Monitor organ health; critical before starting medications', freq: 'Annually' },
+            { test: 'Bone Density Scan (DEXA)', why: 'Detect osteoporosis; fracture risk', freq: 'Once baseline, repeat every 2–3 years if abnormal' },
+            { test: 'Cancer Screening', why: 'Cervical (women < 65), Colorectal, Breast (women)', freq: 'Per MOH Malaysia guidelines' },
+            { test: 'Vision & Hearing Checks', why: 'Detect cataracts, glaucoma, hearing loss', freq: 'Annually' },
+            { test: 'Falls Risk Assessment', why: 'Assess balance, strength, medication effects', freq: 'Annually or if recurrent falls' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[13px] mb-1">{item.test}</p>
+              <p className="text-ink-secondary text-[12px] mb-1"><strong>Why:</strong> {item.why}</p>
+              <p className="text-ink-tertiary text-[12px]"><strong>Frequency:</strong> {item.freq}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {elderlyTab === 'chronic' && (
+        <div className="space-y-3">
+          {[
+            { condition: 'Hypertension (High Blood Pressure)', goals: 'Target BP < 130/80 mmHg (or 140/90 if very elderly)', meds: 'ACE inhibitors, ARBs, calcium channel blockers, diuretics', lifestyle: 'Salt restriction, weight loss, exercise, reduce stress', risks: 'Stroke, heart attack, kidney disease' },
+            { condition: 'Diabetes Type 2', goals: 'HbA1c target 6.5–7%; fasting glucose 5–7 mmol/L', meds: 'Metformin, sulfonylureas, DPP-4 inhibitors, insulins', lifestyle: 'Low-sugar diet, regular movement, weight management', risks: 'Eye damage (retinopathy), kidney disease, neuropathy' },
+            { condition: 'High Cholesterol', goals: 'LDL < 1.8–2.6 mmol/L (depends on risk)', meds: 'Statins (atorvastatin, simvastatin), ezetimibe', lifestyle: 'Reduce saturated fats, plant sterols, exercise', risks: 'Heart attack, stroke, atherosclerosis' },
+            { condition: 'Osteoporosis', goals: 'Prevent fractures; improve bone density', meds: 'Bisphosphonates (alendronate), calcium, Vitamin D', lifestyle: 'Weight-bearing exercise, adequate calcium/Vit D intake', risks: 'Hip, spine, wrist fractures; disability' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-2">{item.condition}</p>
+              <div className="space-y-1 text-[12px]">
+                <p><strong className="text-ink-secondary">Goals:</strong> <span className="text-ink-tertiary">{item.goals}</span></p>
+                <p><strong className="text-ink-secondary">Medications:</strong> <span className="text-ink-tertiary">{item.meds}</span></p>
+                <p><strong className="text-ink-secondary">Lifestyle:</strong> <span className="text-ink-tertiary">{item.lifestyle}</span></p>
+                <p><strong className="text-ink-secondary">If untreated:</strong> <span className="text-red-600">{item.risks}</span></p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {elderlyTab === 'mobility' && (
+        <div className="space-y-3">
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px]">
+            <strong className="text-ink">Falls are a major cause of disability in elderly.</strong> 1 in 4 Malaysians 60+ fall annually; most are preventable.
+          </div>
+          <div className="space-y-2">
+            {[
+              { risk: 'Weak leg muscles', prevention: 'Strength training 2–3×/week (squats, steps); balance exercises (tai chi, standing on one leg)' },
+              { risk: 'Poor balance or dizziness', prevention: 'Check blood pressure lying & standing; review medications; vitamin B12 levels' },
+              { risk: 'Medication side effects', prevention: 'Review all meds with doctor; some increase fall risk (sedatives, blood pressure meds)' },
+              { risk: 'Poor vision', prevention: 'Annual eye check; update glasses; adequate lighting at home' },
+              { risk: 'Tripping hazards', prevention: 'Remove loose rugs, secure cables, non-slip mats in bathroom, adequate handrails' },
+              { risk: 'Footwear', prevention: 'Wear proper shoes with grip; avoid loose slippers or high heels' },
+              { risk: 'Home hazards', prevention: 'Single-step modifications: grab bars, raised toilet seats, shower chairs' },
+            ].map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-3">
+                <p className="font-semibold text-ink text-[13px] mb-1">⚠️ {item.risk}</p>
+                <p className="text-ink-secondary text-[12px]">{item.prevention}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {elderlyTab === 'mental' && (
+        <div className="space-y-3">
+          {[
+            { issue: 'Mild Cognitive Impairment (MCI)', signs: 'Occasional memory lapses; difficulty with complex tasks; but independent in daily activities', what: 'See neurologist if progressive; cognitive stimulation helps; memory games, reading, learning new skills' },
+            { issue: 'Dementia (Alzheimer\'s)', signs: 'Progressive memory loss; difficulty with familiar tasks; confusion about time/place', what: 'Early diagnosis crucial; medications (memantine, donepezil); cognitive therapy; caregiver support essential' },
+            { issue: 'Depression', signs: 'Persistent sadness, fatigue, social withdrawal, loss of interest in hobbies', what: 'Common but treatable; antidepressants + therapy; exercise helps; talk to doctor' },
+            { issue: 'Sleep Problems', signs: 'Insomnia, frequent nighttime waking, excessive daytime sleepiness', what: 'Sleep hygiene (regular bedtime, avoid caffeine); check for sleep apnea; avoid sleeping tablets if possible' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-2">🧠 {item.issue}</p>
+              <p className="text-ink-secondary text-[12px] mb-2"><strong>Signs:</strong> {item.signs}</p>
+              <p className="text-ink-secondary text-[12px]"><strong>What to do:</strong> {item.what}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Mental Health Resources ────────────────────────────────────── */
+
+function MentalHealthSection() {
+  const [mentalTab, setMentalTab] = useState('conditions')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2 border-b border-ink-quaternary pb-4">
+        <button onClick={() => setMentalTab('conditions')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            mentalTab === 'conditions' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🧠 Common Conditions</button>
+        <button onClick={() => setMentalTab('support')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            mentalTab === 'support' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>💬 Getting Help</button>
+        <button onClick={() => setMentalTab('crisis')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            mentalTab === 'crisis' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🆘 Crisis Resources</button>
+      </div>
+
+      {mentalTab === 'conditions' && (
+        <div className="space-y-3">
+          {[
+            { condition: 'Depression', signs: 'Persistent sadness, hopelessness, fatigue, difficulty concentrating, changes in sleep/appetite, loss of interest', treatment: 'Antidepressants (SSRIs, SNRIs) + counselling; therapy; lifestyle changes (exercise, social support)' },
+            { condition: 'Anxiety Disorders', signs: 'Excessive worry, panic attacks, physical symptoms (racing heart, sweating, trembling), avoidance behaviours', treatment: 'Cognitive-Behavioral Therapy (CBT); antidepressants (SSRIs); relaxation techniques; breathing exercises' },
+            { condition: 'Bipolar Disorder', signs: 'Extreme mood swings: periods of high energy/euphoria (mania) alternating with depression', treatment: 'Mood stabilizers (lithium, valproate); antipsychotics; careful med management; therapy; regular sleep' },
+            { condition: 'Schizophrenia', signs: 'Hallucinations (hearing voices), delusions, disorganized thinking, withdrawal from social activities', treatment: 'Antipsychotic medications; psychotherapy; family support; rehabilitation programs' },
+            { condition: 'Post-Traumatic Stress Disorder (PTSD)', signs: 'Intrusive memories, nightmares, flashbacks, hypervigilance, avoidance of trauma reminders', treatment: 'Trauma-focused CBT; EMDR; antidepressants; graded exposure therapy' },
+            { condition: 'Obsessive-Compulsive Disorder (OCD)', signs: 'Intrusive unwanted thoughts (obsessions); repetitive behaviors (compulsions) to reduce anxiety', treatment: 'Exposure and Response Prevention (ERP) therapy; SSRIs; may take months to see improvement' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-2">{item.condition}</p>
+              <p className="text-ink-secondary text-[12px] mb-2"><strong>Signs:</strong> {item.signs}</p>
+              <p className="text-ink-secondary text-[12px]"><strong>Treatment:</strong> {item.treatment}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {mentalTab === 'support' && (
+        <div className="space-y-3">
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px]">
+            <strong className="text-ink">Mental health is health.</strong> Seeking help is a sign of strength, not weakness. Treatment works.
+          </div>
+          {[
+            { service: 'Government Clinics (Klinik Kesihatan)', coverage: 'Free or subsidised mental health screening & basic counselling', note: 'Book appointment; referral to psychiatrist at public hospital if needed (waiting list may be long)' },
+            { service: 'University Hospital Psychiatry Departments', coverage: 'Government-subsidised psychiatric care, therapy', note: 'Referral from doctor; can take months to get appointment' },
+            { service: 'Private Psychiatrists & Counsellors', coverage: 'Mental health assessment, medications, therapy (varies by provider)', note: 'Usually RM 150–400/session; insurance may cover with rider' },
+            { service: 'NGOs & Counselling Services', coverage: 'Low-cost or free counselling, support groups, crisis support', note: 'Befrienders Malaysia, Malaysian Mental Health Association (MMHA), Suara Equality' },
+            { service: 'Online Therapy Platforms', coverage: 'Licensed therapists via video call (varies by service)', note: 'Mindvalley, Talkspace (if available in Malaysia); privacy depends on platform' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-1">{item.service}</p>
+              <p className="text-ink-secondary text-[12px] mb-1"><strong>What:</strong> {item.coverage}</p>
+              <p className="text-ink-tertiary text-[12px]">{item.note}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {mentalTab === 'crisis' && (
+        <div className="space-y-3">
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-[13px] text-red-800">
+            <strong>If you are having thoughts of self-harm or suicide, please reach out immediately. You are not alone.</strong>
+          </div>
+          {[
+            { service: 'Befrienders Malaysia', number: '03-7627 2929 (24/7)', note: 'Free, confidential, trained counsellors; also SMS at 60000' },
+            { service: 'Relate Malaysia', number: '017-262 4444 (24/7)', note: 'Crisis support, trauma counselling' },
+            { service: 'Samaritans Malaysia', number: '1800-20-6161 (24/7)', note: 'Suicide & mental health crisis support' },
+            { service: 'Police Emergency', number: '999 or 112', note: 'For immediate danger; police can arrange urgent psychiatric admission' },
+            { service: 'Hospital A&E / Accident & Emergency Department', number: 'Go directly to any government hospital', note: 'Psychiatric emergency assessment; mental health ward admission if needed' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid #dc2626` }}>
+              <p className="font-bold text-ink text-[14px]">{item.service}</p>
+              <p className="text-[13px] font-semibold text-ink-secondary mt-1">{item.number}</p>
+              <p className="text-ink-tertiary text-[12px] mt-1">{item.note}</p>
+            </div>
+          ))}
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px]">
+            <p className="text-amber-900"><strong>💡 Recovery is possible.</strong> Many people with mental health conditions live full, meaningful lives with proper support and treatment. Take it one day at a time.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── How to Read Medical Reports ────────────────────────────────── */
+
+function MedicalReportSection() {
+  const [reportTab, setReportTab] = useState('bloodwork')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2 border-b border-ink-quaternary pb-4">
+        <button onClick={() => setReportTab('bloodwork')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            reportTab === 'bloodwork' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>🧪 Blood Tests</button>
+        <button onClick={() => setReportTab('imaging')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            reportTab === 'imaging' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>📸 Imaging (X-Ray, Scan)</button>
+        <button onClick={() => setReportTab('diagnosis')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            reportTab === 'diagnosis' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>📝 Diagnosis</button>
+        <button onClick={() => setReportTab('prescription')}
+          className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+            reportTab === 'prescription' ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+          }`}>💊 Prescription</button>
+      </div>
+
+      {reportTab === 'bloodwork' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px]">What to look for on your blood test report:</p>
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px]">
+            <p className="text-ink mb-2"><strong>Three key things:</strong></p>
+            <ol className="space-y-1 text-ink-secondary list-decimal list-inside">
+              <li><strong>Test name</strong> — what was measured (e.g. Total Cholesterol, HbA1c)</li>
+              <li><strong>Your result</strong> — the actual value (e.g. 5.2 mmol/L)</li>
+              <li><strong>Reference range</strong> — what's "normal" (e.g. &lt; 5.2 mmol/L is desirable). Usually has "L" (Low), "N" (Normal), "H" (High) flag</li>
+            </ol>
+          </div>
+          <div className="space-y-2">
+            {[
+              { test: 'FBC (Full Blood Count)', whatitis: 'Checks red cells, white cells, platelets', read: 'Hemoglobin (Hb) 12–16 g/dL (women), 13.5–17.5 (men). Low = anaemia. WBC 4–11 K/uL; high = infection/stress' },
+              { test: 'Fasting Glucose (FBS)', whatitis: 'Blood sugar level (must be fasted)', read: 'Normal < 5.6 mmol/L; Pre-diabetes 5.6–6.9; Diabetes ≥ 7.0 mmol/L' },
+              { test: 'HbA1c', whatitis: 'Average blood sugar over 2–3 months', read: 'Normal < 5.7%; Pre-diabetes 5.7–6.4%; Diabetes ≥ 6.5%' },
+              { test: 'Total Cholesterol', whatitis: 'All cholesterol in blood', read: 'Desirable < 5.2 mmol/L. High ≥ 6.2 mmol/L increases heart disease risk' },
+              { test: 'LDL ("Bad" Cholesterol)', whatitis: 'Clogs arteries; lower is better', read: 'Optimal < 2.6 mmol/L. High ≥ 4.1 mmol/L may need medication' },
+              { test: 'Liver Function (ALT, AST)', whatitis: 'Liver enzyme levels', read: 'ALT/AST < 40 U/L normal. High may indicate hepatitis, fatty liver, or medication toxicity' },
+              { test: 'Kidney Function (Creatinine, eGFR)', whatitis: 'Kidney filtration ability', read: 'Creatinine < 106 μmol/L normal; eGFR > 60 mL/min normal kidney function' },
+            ].map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+                <p className="font-semibold text-ink text-[13px] mb-1">{item.test}</p>
+                <p className="text-ink-secondary text-[12px] mb-1"><strong>What it is:</strong> {item.whatitis}</p>
+                <p className="text-ink-secondary text-[12px]"><strong>How to read:</strong> {item.read}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px]">
+            <p className="text-amber-900"><strong>💡 Single abnormal result:</strong> Don\'t panic. Many tests have normal variation. Your doctor will advise if a retest is needed or if treatment is necessary.</p>
+          </div>
+        </div>
+      )}
+
+      {reportTab === 'imaging' && (
+        <div className="space-y-3">
+          {[
+            { imaging: 'X-Ray (Chest, Limbs, Spine)', whatitis: 'Uses radiation to create 2D images of bones and lungs', read: 'Look for "No acute abnormality" = normal. "Findings:" describes what radiologist sees (e.g. "mild degenerative disc disease")' },
+            { imaging: 'CT Scan (Computed Tomography)', whatitis: '3D X-ray images; shows internal organs, soft tissue', read: 'Very detailed. Radiologist describes structures, looks for masses, bleeding, inflammation. "No focal lesion" = good' },
+            { imaging: 'MRI (Magnetic Resonance Imaging)', whatitis: 'Magnetic field (no radiation); best for soft tissue, brain, spine', read: 'Excellent for tumours, ligament tears, brain lesions. Often divided into sections (e.g. cervical spine, thoracic spine)' },
+            { imaging: 'Ultrasound', whatitis: 'Sound waves; images liver, kidney, pregnancy, thyroid, vessels', read: 'Real-time imaging. Look for normal organ size, no masses/cysts, normal blood flow' },
+          ].map((item, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-semibold text-ink text-[14px] mb-1">{item.imaging}</p>
+              <p className="text-ink-secondary text-[12px] mb-1"><strong>What:</strong> {item.whatitis}</p>
+              <p className="text-ink-secondary text-[12px]"><strong>How to read:</strong> {item.read}</p>
+            </div>
+          ))}
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px]">
+            <p className="text-ink-secondary"><strong className="text-ink">Key phrases:</strong> "No acute abnormality", "No significant findings", "Within normal limits" = all good. "Findings" = something is present (may or may not need treatment). Always ask your doctor what it means for you.</p>
+          </div>
+        </div>
+      )}
+
+      {reportTab === 'diagnosis' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px]">Your diagnosis should clearly state:</p>
+          <div className="space-y-2">
+            {[
+              { section: 'Primary Diagnosis', example: 'e.g. "Type 2 Diabetes Mellitus", "Hypertension", "Pneumonia"' },
+              { section: 'Secondary/Comorbid Conditions', example: 'Other health conditions (e.g. "with dyslipidaemia")' },
+              { section: 'Severity/Classification', example: 'Mild, moderate, severe (e.g. "Stage 2 hypertension")' },
+              { section: 'Duration/Onset', example: 'Acute (sudden) vs chronic (long-term)' },
+            ].map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-3">
+                <p className="font-semibold text-ink text-[13px]">{item.section}</p>
+                <p className="text-ink-secondary text-[12px]">{item.example}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px]">
+            <p className="text-amber-900"><strong>What to ask your doctor:</strong> "What does this mean?", "Will it get worse?", "Can it be cured or just managed?", "What do I need to do?", "When should I follow up?" Write down their answers.</p>
+          </div>
+        </div>
+      )}
+
+      {reportTab === 'prescription' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px]">How to read your prescription:</p>
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] space-y-2">
+            <div><strong className="text-ink">Medication name</strong><br/><span className="text-ink-secondary">e.g. "Atorvastatin 20mg"</span></div>
+            <div><strong className="text-ink">Strength (dose)</strong><br/><span className="text-ink-secondary">e.g. "20mg" = amount per tablet</span></div>
+            <div><strong className="text-ink">Quantity</strong><br/><span className="text-ink-secondary">e.g. "30 tablets" = how many you get</span></div>
+            <div><strong className="text-ink">Instructions (sig.)</strong><br/><span className="text-ink-secondary">e.g. "Take 1 tablet ONCE daily with food" = how many, how often, when</span></div>
+            <div><strong className="text-ink">Duration</strong><br/><span className="text-ink-secondary">e.g. "Repeat x 3 months" = how long to take it</span></div>
+            <div><strong className="text-ink">Refills</strong><br/><span className="text-ink-secondary">Usually "x5" or "No refills" after this fill</span></div>
+          </div>
+          <div className="space-y-2">
+            {[
+              { abbr: 'OD / QD', meaning: 'Once daily (morning)', note: 'Some doctors still use these older abbreviations' },
+              { abbr: 'BD / BID', meaning: 'Twice daily (morning + evening)', note: 'Usually 8–12 hours apart' },
+              { abbr: 'TDS / TID', meaning: 'Three times daily (morning, noon, evening)', note: '6–8 hours apart' },
+              { abbr: 'QID', meaning: 'Four times daily', note: 'Uncommon in Malaysia' },
+              { abbr: 'PRN', meaning: 'As needed', note: 'e.g. painkillers when you have pain' },
+              { abbr: 'AC', meaning: 'Before meals', note: 'Take 30 min before eating' },
+              { abbr: 'PC', meaning: 'After meals', note: 'Take 1 hour after eating' },
+            ].map((item, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-3">
+                <p className="font-semibold text-ink text-[13px]">{item.abbr}</p>
+                <p className="text-ink-secondary text-[12px]">{item.meaning}</p>
+                <p className="text-ink-tertiary text-[11px]">{item.note}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px]">
+            <p className="text-ink-secondary"><strong className="text-ink">Important:</strong> Always ask: "When should I take this?", "Can I take it with food?", "Are there foods/drinks/medications I should avoid?", "What are side effects?", "What do I do if I miss a dose?"</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
