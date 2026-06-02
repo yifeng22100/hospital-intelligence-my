@@ -552,102 +552,6 @@ export const HOSPITALS_KL = [
     ]
   },
   {
-    id: "pantai-bangsar",
-    name: "Pantai Hospital Bangsar",
-    nameShort: "Pantai Bangsar",
-    sector: "private",
-    tier: "tertiary",
-    state: "Kuala Lumpur",
-    city: "Kuala Lumpur",
-    intro: "Pantai Hospital Bangsar is a well-established private hospital in the upscale Bangsar neighbourhood, offering a wide range of specialist services. It is particularly accessible from the Bangsar, Damansara, and Mid Valley corridor.",
-    famousFor: ["Well-established private hospital in Bangsar", "Wide specialist panel", "Convenient Bangsar/KL south location"],
-    infrastructure: {
-      yearEstablished: 1981,
-      totalBeds: 200,
-      icuBeds: 16,
-      nicuBeds: 8,
-      operatingTheatres: 8,
-      area: "~2 acres",
-      buildings: "Main Block, Specialist Clinics",
-      helipad: false,
-      parkingBays: "~250 bays",
-      parkingRate: "RM 2/hour"
-    },
-    contact: {
-      address: "2, Jalan Bukit Pantai, 59100 Kuala Lumpur",
-      mainLine: "+603-2296 0888",
-      emergencyLine: "+603-2296 0888 ext. A&E",
-      appointmentLine: "+603-2296 0888",
-      website: "https://www.pantai.com.my/kuala-lumpur",
-      mapQuery: "Pantai Hospital Bangsar Kuala Lumpur"
-    },
-    transport: {
-      nearest: "Bangsar LRT Station — 10 min walk",
-      bus: "Rapid KL Bus along Jalan Bangsar",
-      highway: "Sprint Highway — Exit Bangsar",
-      landmark: "Bangsar commercial area, near Bangsar Shopping Centre"
-    },
-    facilities: {
-      pharmacy24h: true,
-      cafeteria: "Level 1, 7am–9pm",
-      atm: "Lobby",
-      surau: "Available",
-      chapel: false,
-      buddhistRoom: false,
-      disabledAccess: true,
-      wifi: "Free WiFi",
-      patientTransport: "Medical transport available"
-    },
-    visitingHours: {
-      general: "11:00–21:00",
-      icu: "Restricted — check with nurse",
-      paediatric: "Parents: unrestricted",
-      maternity: "Partner/family: flexible",
-      notes: "Private hospital — flexible visiting."
-    },
-    specialtyCoverage: {
-      available: [
-        "Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU",
-        "Cardiology", "General Surgery", "Neurology",
-        "Orthopaedics", "Gastroenterology",
-        "Obstetrics & Gynaecology", "Paediatrics",
-        "Urology", "ENT", "Ophthalmology",
-        "Oncology (selected)", "Endocrinology",
-        "Dermatology", "Rheumatology", "Rehabilitation"
-      ],
-      notAvailable: [
-        { specialty: "Cardiothoracic Surgery", transferTo: "Pantai KL or Gleneagles KL", note: "Refer to larger centre" },
-        { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
-      ],
-      byReferral: ["Complex oncology — refer to Pantai KL or Beacon"]
-    },
-    transferPathway: {
-      summary: "Community-level private hospital. Complex cases referred to Pantai KL or other tertiary centres.",
-      routes: [],
-      howToTransfer: "Specialist-to-specialist referral."
-    },
-    specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "IHH Healthcare Group"],
-    verifiedNotes: "200 beds. Part of Pantai/IHH group.",
-    notableGaps: "Smaller facility than Pantai KL. No cardiothoracic surgery on-site.",
-    primaryExcellence: "Community private hospital — Bangsar corridor",
-    secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics",
-    fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-    roomRate: "RM 180 – RM 500+/night",
-    roomRateRaw: 280,
-    insurance: "Accepts major Malaysian insurance panels.",
-    fppScheme: false,
-    fppDeposit: "N/A",
-    gaps: "Smaller facility. No cardiothoracic surgery.",
-    robotics: "Standard imaging — MRI, CT.",
-    doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null,
-    imageCredit: "N/A",
-    officialSources: [
-      { label: "Official Website", url: "https://www.pantai.com.my/bangsar" }
-    ]
-  },
-  {
     id: "parkcity-mc",
     name: "ParkCity Medical Centre",
     nameShort: "ParkCity MC",
@@ -1050,8 +954,8 @@ export const HOSPITALS_KL = [
   },
   {
     id: "smcv-velocity",
-    name: "Sunway Medical Centre Velocity (Cheras KL)",
-    nameShort: "Sunway Velocity KL",
+    name: "Sunway Medical Centre Velocity (SMCV)",
+    nameShort: "Sunway Velocity SMCV",
     sector: "private",
     tier: "tertiary",
     state: "Kuala Lumpur",
@@ -2459,7 +2363,7 @@ export const HOSPITALS_KL = [
     intro: "Cengild G.I. Medical Centre is a specialist centre established in October 2017, focused on gastrointestinal, hepatobiliary, metabolic and surgical care. Located in the Nexus building at Bangsar South, it provides advanced endoscopy, minimally invasive GI surgery, and metabolic surgery.",
     famousFor: ["GI/liver specialist centre", "Metabolic surgery"],
     infrastructure: { yearEstablished: 2017, totalBeds: 40, icuBeds: 4, nicuBeds: 0, operatingTheatres: 2, area: "N/A", buildings: "Nexus, Bangsar South", helipad: false, parkingBays: "~100 bays (Nexus building)", parkingRate: "RM 2/hour (est.)" },
-    contact: { address: "Unit 2-3 & 2-4, Nexus, 7 Jalan Kerinchi, Bangsar South, 59200 Kuala Lumpur", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://cengild.com", mapQuery: "Cengild GI Medical Centre Bangsar South Kuala Lumpur" },
+    contact: { address: "Unit 2-3 & 2-4, Nexus, 7 Jalan Kerinchi, Bangsar South, 59200 Kuala Lumpur", mainLine: "+60 3-2858 2727", emergencyLine: "+60 3-2858 2727", appointmentLine: "+60 3-2858 2727", website: "https://cengild.com", mapQuery: "Cengild GI Medical Centre Bangsar South Kuala Lumpur" },
     transport: { nearest: "Kerinchi LRT (Kelana Jaya Line) — ~5 min walk", bus: "Rapid KL routes to Bangsar South / Kerinchi", highway: "SPRINT Highway — Bangsar South exit", landmark: "Bangsar South, Nexus building; near Mid Valley / Kerinchi LRT" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Building lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
     visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "N/A", maternity: "N/A", notes: "Specialist GI centre. Confirm with hospital." },
@@ -2486,7 +2390,7 @@ export const HOSPITALS_KL = [
     intro: "Cardiac Vascular Sentral Kuala Lumpur (CVSKL) is a 60-bed dedicated cardiac and vascular specialist hospital located at KL Sentral. It is a MHTC-featured (Malaysia Healthcare Travel Council) hospital focusing exclusively on heart and vascular conditions, offering interventional cardiology, cardiac surgery, and vascular surgery.",
     famousFor: ["Dedicated cardiac and vascular specialist hospital", "60-bed heart hospital at KL Sentral"],
     infrastructure: { yearEstablished: null, totalBeds: 60, icuBeds: 12, nicuBeds: 0, operatingTheatres: 4, area: "N/A", buildings: "KL Sentral specialist tower", helipad: false, parkingBays: "~100 bays (KL Sentral)", parkingRate: "RM 3/hour (est.)" },
-    contact: { address: "Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur", mainLine: "N/A (verify)", emergencyLine: "N/A (verify)", appointmentLine: "N/A (verify)", website: "https://cvskl.com", mapQuery: "Cardiac Vascular Sentral Kuala Lumpur CVSKL KL Sentral" },
+    contact: { address: "Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur", mainLine: "+603 2276 7000", emergencyLine: "+603 2276 7000", appointmentLine: "+603 2276 7000", website: "https://cvskl.com", mapQuery: "Cardiac Vascular Sentral Kuala Lumpur CVSKL KL Sentral" },
     transport: { nearest: "KL Sentral (KTM Komuter, LRT Kelana Jaya, KLIA Ekspres, MRT Putrajaya Line, Monorail) — ~5 min walk", bus: "Multiple Rapid KL bus routes at KL Sentral hub", highway: "Federal Highway / KESAS — KL Sentral access", landmark: "KL Sentral transport hub; near Nu Sentral Mall" },
     facilities: { pharmacy24h: false, cafeteria: "Available", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted (cardiac ICU)", paediatric: "N/A", maternity: "N/A", notes: "Dedicated cardiac hospital. Confirm with hospital." },
