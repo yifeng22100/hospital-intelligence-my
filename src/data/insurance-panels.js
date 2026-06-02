@@ -18,21 +18,23 @@ export const INSURANCE_PANELS = {
     {
       id: "aia",
       name: "AIA Malaysia",
-      tiers: ["AIA Vitality Basic", "A-Life Income Goal", "A-Life Med Saver", "A-Plus Health", "A-Plus Health Max"],
+      tiers: ["A-Plus Health", "A-Plus Health Max", "A-Life Med Saver", "AIA Vitality"],
       cashlessHospitals: [
-        // KL
+        // KL — SMART Panel
         "gleneagles-kl", "prince-court", "pantai-kl", "pantai-ampang", "parkcity-mc",
-        "beacon-hospital", "umsc", "ukmsc", "imu-hospital", "pusrawi", "tawakal-kl",
-        "kpj-sentosa", "kpj-dsh2", "smcv-velocity",
-        // Selangor
+        "beacon-hospital", "umsc", "tawakal-kl", "kpj-sentosa", "kpj-dsh2", "smcv-velocity",
+        // KL — General Panel
+        "pusrawi", "imu-hospital", "ukmsc",
+        // Selangor — SMART Panel
         "sunway-mc", "sunway-mc-damansara", "sjmc", "ara-damansara", "assunta-hospital",
-        "kpj-damansara", "kpj-klang", "kpj-ap", "kpj-kajang", "kpj-selayang",
+        "kpj-damansara", "kpj-ap", "kpj-klang", "kpj-kajang", "kpj-selayang",
         "kpj-selangor-shah-alam", "thomson-thkd", "columbia-bukit-rimau",
         "columbia-asia-bukit-jalil", "columbia-cheras", "columbia-pj",
         "pantai-cheras", "pantai-klang",
-        // Penang
-        "island-hospital", "gleneagles-penang", "loh-guan-lye", "penang-adventist",
-        "pantai-penang", "kpj-penang", "sunway-mc-penang", "lam-wah-ee",
+        // Penang — SMART Panel
+        "island-hospital", "gleneagles-penang", "pantai-penang", "kpj-penang", "sunway-mc-penang",
+        // Penang — General Panel
+        "loh-guan-lye", "penang-adventist", "lam-wah-ee",
         // Johor
         "gleneagles-medini", "kpj-johor", "regency-johor", "columbia-asia-iskputeri",
         "kpj-puteri", "kpj-pasir-gudang", "pantai-batu-pahat",
@@ -51,9 +53,9 @@ export const INSURANCE_PANELS = {
         // Sabah
         "gleneagles-kk", "jesselton-mc", "kpj-sabah", "damai-specialist-kk",
         // Sarawak
-        "normah-kuching", "kpj-kuching", "timberland-kuching"
+        "normah-kuching", "kpj-kuching", "timberland-kuching", "bmc-kuching"
       ],
-      generalNote: "AIA has one of the widest private hospital panel networks in Malaysia. Most major private hospitals — KPJ group, Gleneagles, Pantai, Beacon, Sunway — accept AIA cashless. AIA Vitality integrates health incentives with insurance. Panel exceeds 300 hospitals nationwide.",
+      generalNote: "AIA has one of Malaysia's widest hospital panels — 120 hospitals in two tiers: SMART Panel (75 hospitals with priority lanes, waived deposits, dedicated liaisons) and General Panel (45 hospitals with standard cashless). Sunway Medical Damansara and Sunway Medical Ipoh were added to SMART Panel in August 2025. All managed in-house by AIA Health Services Sdn Bhd (no external TPA).",
       logLimitWarning: "AIA A-Plus basic plans may have daily room limits of RM 150–250/day — insufficient for premium hospitals like Gleneagles KL (RM 350–600/night) or Prince Court. Upgrade to A-Plus Health Max or ensure your plan's room limit matches your preferred hospital.",
       preAdmissionWindow: "AIA typically covers pre-admission outpatient expenses 30–60 days before related hospitalisation. Confirm exact window in your Certificate of Insurance.",
       website: "https://www.aia.com.my"
@@ -95,7 +97,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Prudential has a very wide panel network across Malaysia. PRUSmart Medical and PRUMedik series cover most major private hospitals. PRUBSNTakaful offers Shariah-compliant versions. Panel exceeds 280 hospitals nationwide.",
+      generalNote: "Prudential has a very wide panel across Malaysia managed in-house by HAS (Hospital Alliance Services) — no external TPA. PRUPanel Plus (~100 hospitals) offers waived admin fees and deposits. PRUBSNTakaful offers Shariah-compliant versions with broadly the same panel.",
       logLimitWarning: "Entry-level PRU plans have lower room and board limits. Confirm room limit against your preferred hospital's daily rate — especially for premium hospitals.",
       preAdmissionWindow: "Pre-admission expenses typically covered 30–90 days before admission for the related condition.",
       website: "https://www.prudential.com.my"
@@ -131,7 +133,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Great Eastern has a solid panel network covering all major hospital groups. All flagship hospitals included. Slightly fewer community-level hospitals compared to AIA or Prudential. Strong in Klang Valley and Penang.",
+      generalNote: "Great Eastern manages all GL/cashless in-house via its Healthcare Services Division (HSD) — no external TPA. 'The Great Journey' premium tier (85 hospitals, updated November 2025) offers streamlined admission and priority service. General panel covers 150+ hospitals nationwide.",
       logLimitWarning: "GREAT MedProtect plans have varying room limits. For hospitalisation at premium hospitals, ensure your daily room limit covers the hospital's room rate.",
       preAdmissionWindow: "Pre-admission expenses covered for related outpatient visits typically within 60 days before admission.",
       website: "https://www.greateasternlife.com/my"
@@ -141,34 +143,47 @@ export const INSURANCE_PANELS = {
       name: "Allianz Malaysia",
       tiers: ["LifeBest", "SmartMed Plus", "Allianz Critical Care", "PrimeLink"],
       cashlessHospitals: [
-        // KL
-        "gleneagles-kl", "prince-court", "pantai-kl", "pantai-ampang", "parkcity-mc",
-        "beacon-hospital", "umsc", "kpj-sentosa", "kpj-dsh2",
-        // Selangor
-        "sunway-mc", "sjmc", "ara-damansara", "assunta-hospital",
-        "kpj-damansara", "kpj-klang", "kpj-ap", "thomson-thkd",
-        "columbia-bukit-rimau", "columbia-asia-bukit-jalil",
-        "pantai-cheras", "pantai-klang",
-        // Penang
-        "island-hospital", "gleneagles-penang", "loh-guan-lye", "pantai-penang",
-        "sunway-mc-penang",
-        // Johor
-        "gleneagles-medini", "kpj-johor", "regency-johor", "columbia-asia-iskputeri",
-        "kpj-puteri",
-        // Perak
-        "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh",
-        // Melaka
-        "mahkota", "pantai-ayer-keroh",
-        // Negeri Sembilan
+        // KL — Blue Ribbon
+        "prince-court", "pantai-kl", "beacon-hospital",
+        // KL — General
+        "gleneagles-kl", "pantai-ampang", "parkcity-mc", "umsc", "kpj-sentosa", "kpj-dsh2",
+        // Selangor — Blue Ribbon
+        "sunway-mc", "sjmc", "columbia-bukit-rimau",
+        // Selangor — General
+        "ara-damansara", "assunta-hospital", "kpj-damansara", "kpj-klang", "kpj-ap",
+        "thomson-thkd", "columbia-asia-bukit-jalil", "pantai-cheras", "pantai-klang",
+        // Penang — Blue Ribbon
+        "gleneagles-penang", "pantai-penang",
+        // Penang — General
+        "island-hospital", "loh-guan-lye", "sunway-mc-penang",
+        // Johor — Blue Ribbon
+        "gleneagles-medini",
+        // Johor — General
+        "kpj-johor", "regency-johor", "columbia-asia-iskputeri", "kpj-puteri",
+        // Perak — Blue Ribbon
+        "kpj-ipoh",
+        // Perak — General
+        "pantai-ipoh", "fatimah-ipoh",
+        // Melaka — Blue Ribbon
+        "mahkota",
+        // Melaka — General
+        "pantai-ayer-keroh",
+        // Negeri Sembilan — Blue Ribbon
+        "mawar-mc",
+        // Negeri Sembilan — General
         "kpj-seremban",
         // Pahang
         "kpj-pahang",
-        // Sabah
-        "gleneagles-kk", "kpj-sabah",
-        // Sarawak
+        // Sabah — Blue Ribbon
+        "kpj-sabah",
+        // Sabah — General
+        "gleneagles-kk",
+        // Sarawak — Blue Ribbon
+        "bmc-kuching",
+        // Sarawak — General
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Allianz Malaysia has a wide panel covering major hospitals across all states. Known for efficient claims processing. Strong in motor, health, and corporate insurance. Uses both in-house and MediExpress TPA for GL processing.",
+      generalNote: "Allianz manages all GL in-house via ACS (Allianz Care Services) — no external TPA. Blue Ribbon Programme: 16 premium hospitals with priority admission, bedside check-in, and cashless outpatient cancer/radiotherapy. General panel covers 200+ hospitals nationwide.",
       logLimitWarning: "Confirm daily room benefit versus hospital room rates. Allianz SmartMed Plus has tiered room benefits — ensure your tier matches your hospital preference.",
       preAdmissionWindow: "Pre-admission covered 30–90 days before related admission depending on plan.",
       website: "https://www.allianz.com.my"
@@ -200,7 +215,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Tokio Marine has a solid Malaysia-wide panel covering all major hospital groups. Part of Tokio Marine Group (Japan). GL processing is handled via MiCare Sdn Bhd (24/7). Good track record for straightforward claims.",
+      generalNote: "Tokio Marine uses MiCare Sdn Bhd as its exclusive TPA for both hospital cashless and GP panel clinic services. MiCare hotline 1300-88-8690 is printed on new medical cards. MiCare MyMed App available for e-card, GL requests, and hospital locator.",
       logLimitWarning: "Check specific plan room benefit. Tokio Marine plans vary in hospital tier coverage.",
       preAdmissionWindow: "Pre-admission expenses within 30–60 days of related hospitalisation.",
       website: "https://www.tokiomarine.com.my"
@@ -290,38 +305,35 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Etiqa is backed by Maybank — accessible via Maybank branches and app. Solid panel across Malaysia. Popular for competitive pricing and digital-first approach. Takaful MySejahtera is Shariah-compliant. GL typically issued within 1–4 hours.",
+      generalNote: "Etiqa (backed by Maybank) has 140 panel hospitals with a fully cardless cashless system — just show the eTiQa+ App QR code at admission, no physical card required. Etiqa and Etiqa Takaful share the same panel. GL managed in-house by Etiqa Healthcare Call Centre (1800-88-9998, 24/7).",
       logLimitWarning: "Etiqa eMedic entry-level plans have daily room limits around RM 150–200 — check against your hospital preference.",
       preAdmissionWindow: "30 days pre-admission for related condition. Confirm with Etiqa helpline.",
       website: "https://www.etiqa.com.my"
     },
     {
       id: "axa-affin",
-      name: "Generali Life Insurance Malaysia (formerly AXA Affin Life)",
+      name: "Generali Life / Generali Insurance Malaysia (formerly AXA Affin)",
       tiers: ["Generali MedCover", "AXA MediCare", "Affin Life MediPlus", "SmartHealth"],
       cashlessHospitals: [
-        // KL
-        "gleneagles-kl", "pantai-kl", "beacon-hospital", "parkcity-mc",
-        "umsc", "kpj-sentosa",
-        // Selangor
-        "sunway-mc", "sjmc", "kpj-damansara", "kpj-ap", "thomson-thkd",
-        "columbia-bukit-rimau",
-        // Penang
-        "gleneagles-penang", "island-hospital", "pantai-penang",
-        "loh-guan-lye",
-        // Johor
-        "kpj-johor", "gleneagles-medini", "regency-johor",
+        // KL — cashless confirmed post-Jul 2025
+        "gleneagles-kl", "beacon-hospital", "parkcity-mc", "umsc",
+        // Selangor — cashless confirmed
+        "sunway-mc", "sjmc", "thomson-thkd", "columbia-bukit-rimau", "ara-damansara",
+        // Penang — cashless confirmed
+        "gleneagles-penang", "island-hospital", "loh-guan-lye",
+        // Johor — cashless confirmed
+        "gleneagles-medini", "regency-johor",
         // Perak
-        "kpj-ipoh", "pantai-ipoh",
+        "fatimah-ipoh",
         // Melaka
         "mahkota",
         // Sabah
-        "gleneagles-kk", "kpj-sabah",
+        "gleneagles-kk",
         // Sarawak
-        "normah-kuching"
+        "normah-kuching", "bmc-kuching"
       ],
-      generalNote: "AXA Affin Life rebranded to Generali Life Insurance Malaysia in 2024. Panel covers major hospitals in Peninsular Malaysia. GL handled via IHP (Integrated Health Plans) / MiCare. Panel is adequate for most urban patients. Less coverage in East Malaysia.",
-      logLimitWarning: "Verify panel for hospitals outside Klang Valley and Penang.",
+      generalNote: "⚠ IMPORTANT (July 18, 2025): Generali discontinued cashless facility at selected Pantai Group and KPJ Group hospitals. Policyholders can still use those hospitals but must pay upfront and claim via reimbursement. AXA Affin rebranded to Generali (General Insurance 2023, Life Insurance 2024). Generali Life switching TPA from IHP to MiCare on January 1, 2026.",
+      logLimitWarning: "Verify cashless status before any Pantai or KPJ admission — as of July 2025, selected hospitals in these groups no longer offer cashless GL under Generali. Call 1300-88-9979 to confirm.",
       preAdmissionWindow: "Typically 30–60 days. Confirm in policy document.",
       website: "https://www.generali.com.my"
     },
@@ -349,30 +361,40 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching"
       ],
-      generalNote: "MSIG is better known for general insurance (motor, travel, fire) but has a solid hospital panel for health insurance products. GL processed in-house via MSIG Assist (24/7). Good for existing MSIG customers consolidating insurance.",
+      generalNote: "MSIG FlexiHealth (individual) uses MSIG Assist Card for cashless GL at ~117 panel hospitals (listing updated July 1, 2024). Group products may use IHP or MiCare. MSIG Healthcare International (expat plan) has no fixed panel — direct billing arranged case by case.",
       logLimitWarning: "MSIG health products have clear room benefit tiers — select the tier matching your preferred hospital.",
       preAdmissionWindow: "30 days pre-admission for related hospitalisation.",
       website: "https://www.msig.com.my"
     },
     {
       id: "tune-protect",
-      name: "Tune Protect / AirAsia Insurance",
-      tiers: ["Tune Health Pro", "Travel Insurance", "Tune Air Protection"],
+      name: "Tune Protect (PRO-Health Medical)",
+      tiers: ["Tune PRO-Health Medical", "Travel Insurance", "Tune Air Protection"],
       cashlessHospitals: [
-        // KL
-        "gleneagles-kl", "pantai-kl", "beacon-hospital",
-        // Selangor
-        "sunway-mc", "sjmc",
-        // Penang
-        "gleneagles-penang", "island-hospital",
-        // Johor
-        "gleneagles-medini",
+        // KL (via MiCare panel)
+        "gleneagles-kl", "pantai-kl", "pantai-ampang", "beacon-hospital", "parkcity-mc",
+        "kpj-sentosa", "tawakal-kl", "kpj-dsh2", "pusrawi",
+        // Selangor (via MiCare panel)
+        "sunway-mc", "sjmc", "kpj-damansara", "kpj-ap", "kpj-klang", "kpj-selangor-shah-alam",
+        "thomson-thkd", "columbia-bukit-rimau", "ara-damansara", "pantai-cheras",
+        // Penang (via MiCare panel)
+        "gleneagles-penang", "island-hospital", "kpj-penang", "pantai-penang", "loh-guan-lye",
+        // Johor (via MiCare panel)
+        "gleneagles-medini", "kpj-johor", "regency-johor", "pantai-batu-pahat",
+        // Perak
+        "kpj-ipoh", "fatimah-ipoh",
+        // Melaka
+        "mahkota",
+        // Kedah
+        "kpj-kedah",
         // Sabah
-        "gleneagles-kk"
+        "kpj-sabah", "gleneagles-kk",
+        // Sarawak
+        "bmc-kuching", "kpj-kuching"
       ],
-      generalNote: "Tune Protect is primarily a travel insurance provider. Its hospital panel for medical insurance is LIMITED compared to dedicated health insurers. Tune Health Pro (launched 2022, GL via MiCare) has a growing panel but remains smaller than market leaders. NOT recommended as primary health insurance for serious medical conditions.",
-      logLimitWarning: "Tune Protect travel insurance may not cover pre-existing conditions. For comprehensive local health coverage, choose a dedicated health insurer (AIA, Prudential, Great Eastern, Allianz).",
-      preAdmissionWindow: "Not typically applicable for travel insurance products.",
+      generalNote: "Tune Protect PRO-Health Medical uses the full MiCare hospital panel (~106 hospitals nationwide). GL processed 24/7 via MiCare on dedicated Tune Protect line 1800-88-7940. MiCare MyMed App available. Note: Tune Protect travel insurance has a different (much smaller) scope — confirm you're on a PRO-Health plan for full hospital coverage.",
+      logLimitWarning: "Tune Protect travel insurance does not cover pre-existing conditions and has limited hospital scope. PRO-Health Medical is the standalone medical product. For comprehensive coverage, consider dedicated health insurers (AIA, Prudential, Great Eastern, Allianz).",
+      preAdmissionWindow: "For PRO-Health: 30 days pre-admission for related condition. Travel insurance: not applicable.",
       website: "https://www.tuneprotect.com"
     },
     {
