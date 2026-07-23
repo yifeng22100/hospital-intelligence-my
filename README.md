@@ -15,12 +15,14 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 - Hospital cards with 4-tab detail modal: Overview · Specialties · Facilities · Intelligence
 - FPP badge, MSQH/JCI accreditation badges, side-by-side comparison (up to 5)
 
-### Intelligence Hub (5 topics)
+### Intelligence Hub (7 topics)
 | Topic | What it covers |
 |---|---|
 | 💡 Insider Tips | Healthcare navigation hacks (FPP, insurance pre-admission window, academic-hybrid pricing, transfer protocol) |
 | 🏥 Hospital Tiers | Public referral pyramid: Klinik → District → State → Tertiary |
 | 🎯 Specialist Directory | Which hospitals lead on cardiology, oncology, fertility, neurology, orthopaedics, and transplant services, with named centres of excellence and accreditations |
+| ✈️ Medical Tourism Hub | JCI-accredited hospitals (pulled live from hospital data), MHTC entry/visa process, cost comparisons, language support by hospital |
+| 📰 What's New | Manually-curated, dated log of notable hospital/insurer/regulatory changes (2024–2026) |
 | 🔬 Clinical Trials | NMRR, ClinicalTrials.gov, top trial centres |
 | 🌙 Night Cover | Who is on duty overnight by hospital type |
 
@@ -34,7 +36,7 @@ Panel lists and LOG claims guidance live in **Tools → Panel Lookup**; procedur
 - Takaful vs Conventional comparison
 - Insurance terms decoder (20 glossary entries)
 
-### Knowledge Hub (16 topics)
+### Knowledge Hub (18 topics)
 | Topic | What it covers |
 |---|---|
 | 🚑 A&E Triage Guide | Malaysian Triage Scale (5-level, 2026 rollout), 999 vs A&E vs clinic decision ladder, common emergency scenarios, public vs private A&E costs |
@@ -53,16 +55,19 @@ Panel lists and LOG claims guidance live in **Tools → Panel Lookup**; procedur
 | 📋 Reading Medical Reports | How to interpret blood tests, scans, diagnoses, and prescriptions |
 | 🏡 Post-Discharge Care | Wound care & red-flag symptoms, medication management, MC/hospitalisation leave entitlements, home care providers |
 | ⚠️ Drug Interaction Checker | ~18 commonly-flagged interaction categories (incl. TCM & OTC "ubat selsema" combos) with a two-drug search — not medical advice |
+| 📈 Chronic Disease Self-Monitoring | Home BP targets (Malaysian CPG), glucometer targets and testing frequency, peak flow meter zones for asthma |
+| 🔍 Second Opinion Navigator | When to seek one, your legal rights to medical records (Act 586, MMC Guideline 002/2006), how record transfer works in practice |
 
-### Lifestyle Hub (8 sections)
+### Lifestyle Hub (9 sections)
 | Section | What it covers |
 |---|---|
 | 🥗 Healthy Eating | Malaysian food pyramid, hawker stall smart swaps, hidden sugar/sodium risks |
+| 🍽️ Diet Therapy by Condition | Diabetic, renal, low-sodium, and GERD diets, with Malaysian food swaps and hawker-stall tips |
 | 🏃 Exercise & Activity | WHO guidelines by age, popular Malaysian activities, heat exercise safety |
 | 😴 Sleep Health | Sleep needs by age, Malaysian sleep disruptors, sleep hygiene checklist |
 | 🩺 Chronic Disease Prevention | Diabetes, hypertension, obesity, CVD — stats, risk factors, prevention steps |
 | 🦟 Dengue Prevention | 10-step home guide, Qdenga vaccine info, warning signs, when to go to A&E |
-| 🚭 Quit Smoking & Vaping | Vaping risks, QuitLine Malaysia, NRT/Champix/Zyban comparison |
+| 🚭 Quit Smoking & Vaping | Vaping risks, JomQuit MOH quitline, NRT/Champix/Zyban comparison |
 | 🧘 Stress & Mental Wellness | Malaysian mental health stats, evidence-based techniques, hotlines |
 | ⚖️ Weight Management | Asian BMI thresholds, sustainable loss guide, common myths debunked |
 

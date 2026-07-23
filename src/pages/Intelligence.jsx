@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { ALL_HOSPITALS } from '../data/index'
 const TOPICS = [
   { id: 'hacks',       icon: '💡', label: 'Insider Tips',        desc: '12 things most patients don\'t know' },
   { id: 'tiers',       icon: '🏥', label: 'Hospital Tiers',      desc: 'Public referral system explained' },
   { id: 'specialists', icon: '🎯', label: 'Specialist Directory', desc: 'Which hospitals are known for which specialty' },
+  { id: 'tourism',     icon: '✈️', label: 'Medical Tourism Hub', desc: 'For international patients: JCI hospitals, visa process, cost comparisons' },
+  { id: 'changelog',   icon: '📰', label: "What's New",          desc: 'Dated log of notable hospital, insurer & regulatory changes' },
   { id: 'trials',      icon: '🔬', label: 'Clinical Trials',     desc: 'Access to experimental treatments' },
   { id: 'night',       icon: '🌙', label: 'Night Cover',         desc: 'Overnight care by hospital type' },
 ]
@@ -20,7 +23,7 @@ export default function Intelligence() {
           <p className="text-brand text-[12px] font-semibold uppercase tracking-[0.12em] mb-1">Healthcare Intelligence</p>
           <h1 className="text-[26px] font-bold text-ink tracking-tight">Insider knowledge for smarter healthcare decisions.</h1>
           <p className="text-ink-secondary text-[14px] mt-1.5 max-w-[600px]">
-            Insider tips, the public referral system, which hospitals lead on which specialty, clinical trials access, and overnight care intelligence.
+            Insider tips, the public referral system, which hospitals lead on which specialty, medical tourism for international patients, what's changed recently, clinical trials access, and overnight care intelligence.
           </p>
         </div>
       </div>
@@ -55,6 +58,8 @@ export default function Intelligence() {
         {active === 'hacks'       && <HacksSection />}
         {active === 'tiers'       && <TiersSection />}
         {active === 'specialists' && <SpecialistsSection />}
+        {active === 'tourism'     && <TourismSection />}
+        {active === 'changelog'   && <ChangelogSection />}
         {active === 'trials'      && <TrialsSection />}
         {active === 'night'       && <NightSection />}
       </div>
@@ -672,6 +677,188 @@ function SpecialistsSection() {
                   <p className="text-ink-secondary text-[12px] leading-relaxed mt-0.5">{h.note}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ─── Medical Tourism Hub ────────────────────────────────────────── */
+
+const TOURISM_LANGUAGES = [
+  { hospital: 'Gleneagles Hospital Kuala Lumpur', languages: 'Arabic, Bahasa Indonesia, Japanese, Korean, Mandarin' },
+  { hospital: 'Sunway Medical Centre', languages: 'Dedicated International Patient Centre — served 113,000+ international patients from 170+ countries' },
+  { hospital: 'Beacon Hospital', languages: 'Bahasa Indonesia, Mandarin, Cantonese, Tamil, Hokkien' },
+  { hospital: 'Penang Adventist Hospital', languages: 'Japanese and Indonesian in-house; Vietnamese/Arabic and others on request' },
+  { hospital: 'Subang Jaya Medical Centre (SJMC)', languages: 'Dedicated Healthcare Interpreter Services' },
+]
+
+const TOURISM_COSTS = [
+  { procedure: 'IVF (per cycle)', malaysia: 'RM 14,000 – 20,000', note: 'Cited as 50–70% less than equivalent Western treatment' },
+  { procedure: 'Dental implant (per tooth)', malaysia: '≈ USD 1,200 – 2,500', note: 'vs Singapore ≈ SGD 4,000–6,000+ (2–3x pricier)' },
+  { procedure: 'Dental veneer (per tooth)', malaysia: 'RM 1,500 – 3,500', note: 'vs Singapore SGD 800–1,500+/tooth' },
+  { procedure: 'All-on-4 dental (per jaw)', malaysia: 'from ≈ USD 7,500', note: '—' },
+]
+
+function TourismSection() {
+  const [view, setView] = useState('overview')
+
+  const jciHospitals = useMemo(() =>
+    ALL_HOSPITALS.filter(h => (h.accreditations || []).some(a => a.toLowerCase().includes('jci accredited')))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  [])
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'overview', label: '📊 Overview' },
+          { v: 'jci',      label: '🏅 JCI Hospitals' },
+          { v: 'visa',     label: '🛂 Entry Process' },
+          { v: 'costs',    label: '💰 Cost Comparison' },
+          { v: 'language', label: '🗣️ Language Support' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {view === 'overview' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px] leading-relaxed">Malaysia Healthcare Travel Council (MHTC), under MOH, actively promotes Malaysia as a medical tourism destination — 2026 has been declared "Malaysia's first Medical Tourism Year" (MYMT 2026).</p>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {[
+              { val: '1.6M+', label: 'Healthcare travellers (2024)', sub: '+14% YoY' },
+              { val: 'RM2.72B', label: 'Industry revenue (2024)', sub: '+21% YoY' },
+              { val: 'RM12B', label: 'Long-term target by 2030', sub: 'MHTC industry goal' },
+            ].map((s, i) => (
+              <div key={i} className="bg-surface-secondary rounded-xl p-4 text-center">
+                <p className="font-bold text-ink text-[20px]">{s.val}</p>
+                <p className="text-ink text-[12px] font-semibold mt-0.5">{s.label}</p>
+                <p className="text-ink-tertiary text-[11px]">{s.sub}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-ink-secondary text-[13px]">Top source markets: roughly 60–70% of inbound patients come from <strong className="text-ink">Indonesia</strong>, followed by the Middle East, India, China, Japan, Australia, and New Zealand.</p>
+        </div>
+      )}
+
+      {view === 'jci' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px] mb-1">JCI (Joint Commission International) accreditation is a globally recognised healthcare quality benchmark. This list is pulled live from our own hospital data:</p>
+          {jciHospitals.map(h => (
+            <div key={h.id} className="border border-ink-quaternary rounded-xl p-3 flex items-center justify-between gap-3 flex-wrap">
+              <div>
+                <p className="font-semibold text-ink text-[13px]">{h.name}</p>
+                <p className="text-ink-tertiary text-[11px]">{h.city}, {h.state}</p>
+              </div>
+              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 flex-shrink-0">JCI Accredited</span>
+            </div>
+          ))}
+          <p className="text-ink-tertiary text-[11px]">This reflects accreditation data in our own hospital records and may not be fully exhaustive or current — confirm directly with jointcommissioninternational.org or the hospital before making travel decisions.</p>
+        </div>
+      )}
+
+      {view === 'visa' && (
+        <div className="space-y-3">
+          {[
+            { step: '1', title: 'Schedule treatment & get a Doctor\'s Letter', detail: 'Arrange treatment with an MHTC-member private hospital, which issues a Doctor\'s Letter confirming your planned treatment.' },
+            { step: '2', title: 'Hospital submits your entry application', detail: 'The hospital submits required documents plus an application for "Permission to Enter Malaysia for Medical Treatment" to MHTC on your behalf.' },
+            { step: '3', title: 'MHTC issues an Entry Approval Letter', detail: 'Many nationalities can then enter visa-free via a Social Visit Pass and proceed directly to consultation/treatment; others apply for an eVisa or medical visa with hospital/MHTC support.' },
+            { step: '4', title: 'Arrive via a Medical Concierge & Lounge', detail: 'Malaysia Healthcare Medical Concierge & Lounges operate at KLIA, KLIA2, and Penang International Airport as first points of contact for international patients.' },
+            { step: '5', title: 'Extend your stay if needed', detail: 'Stay extensions are possible with a doctor\'s report plus a supporting letter from MHTC-member hospitals.' },
+          ].map((s, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4 flex items-start gap-3">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-[13px] font-bold bg-brand">{s.step}</span>
+              <div>
+                <p className="font-bold text-ink text-[13px] mb-1">{s.title}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{s.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {view === 'costs' && (
+        <div className="space-y-3">
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+            Figures below are indicative ranges compiled from third-party medical-tourism sources, not an official MHTC cost-comparison table — confirm current pricing directly with the hospital before travelling.
+          </div>
+          <div className="overflow-x-auto -mx-5 px-5">
+            <table className="w-full text-[12px] border-collapse min-w-[520px]">
+              <thead>
+                <tr className="border-b-2 border-ink-quaternary">
+                  <th className="text-left py-2 pr-3 font-bold text-ink">Procedure</th>
+                  <th className="text-left py-2 pr-3 font-bold text-ink">Malaysia price</th>
+                  <th className="text-left py-2 font-bold text-ink">Comparison note</th>
+                </tr>
+              </thead>
+              <tbody>
+                {TOURISM_COSTS.map((c, i) => (
+                  <tr key={i} className="border-b border-ink-quaternary/60">
+                    <td className="py-2.5 pr-3 font-semibold text-ink">{c.procedure}</td>
+                    <td className="py-2.5 pr-3 text-ink-secondary whitespace-nowrap">{c.malaysia}</td>
+                    <td className="py-2.5 text-ink-secondary">{c.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-ink-secondary text-[13px]">General positioning: Malaysia procedures typically cost <strong className="text-ink">30–70% less</strong> than the US, UK, or Australia, and are broadly on par with Thailand.</p>
+        </div>
+      )}
+
+      {view === 'language' && (
+        <div className="space-y-3">
+          {TOURISM_LANGUAGES.map((l, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-bold text-ink text-[13px] mb-1">{l.hospital}</p>
+              <p className="text-ink-secondary text-[12px]">{l.languages}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── What's New (Changelog) ─────────────────────────────────────── */
+
+const CHANGELOG_ENTRIES = [
+  { date: '2026-07', title: 'MOH overhauls emergency triage to a 5-tier scale', detail: 'The Malaysian Triage Scale (MTS) replaces the older 3-tier system, alongside tightened patient-flow guidelines for non-critical A&E cases. See the Knowledge Hub → A&E Triage Guide.', tag: 'Regulatory' },
+  { date: '2026-03', title: 'Sunway Healthcare Holdings lists on Bursa Malaysia', detail: 'IPO raised up to RM2.86 billion — one of Malaysia\'s largest listings in years, valuing the group at ~RM16.68 billion.', tag: 'Industry' },
+  { date: '2026-01', title: 'Generali Malaysia switches TPA to MiCare', detail: 'Hospitalisation and claims administration moved from IHP to MiCare; old physical medical cards were valid only through 31 Dec 2025.', tag: 'Insurance' },
+  { date: '2025-12', title: 'Tunku Laksamana Johor Cancer Centre and Hospital opens', detail: 'RM500 million development in Larkin Sentral, Johor Bahru — PET-CT and radiotherapy, with plans for nuclear medicine facilities outside the Klang Valley.', tag: 'New Facility' },
+  { date: '2025-04', title: 'Zurich Malaysia switches TPA from IHP to MiCare', detail: 'Individual/takaful policies moved first; group policies transitioned at next renewal.', tag: 'Insurance' },
+  { date: '2025-03', title: 'KPJ Kuala Selangor Specialist Hospital opens', detail: 'KPJ\'s 30th hospital — the first multidisciplinary private hospital in Kuala Selangor.', tag: 'New Facility' },
+  { date: '2025-01', title: 'Bupa Global switches TPA from Fullerton to IHP', detail: 'Applies to all Malaysia claims/coordination services.', tag: 'Insurance' },
+  { date: '2024-12', title: 'Bank Negara Malaysia caps medical insurance premium hikes at 10%', detail: 'Increases driven by ~15% 2024 medical cost inflation are now spread over a minimum of 3 years for most policyholders.', tag: 'Regulatory' },
+  { date: '2024-09', title: 'Columbia Asia rebrands as Asia OneHealthcare (A1Health)', detail: 'Followed its acquisition of Ramsay Sime Darby Health Care; the group also folded in ALTY Orthopaedic, Beacon, CVSKL, and other TE Asia Healthcare hospitals. Individual hospital signage largely unchanged.', tag: 'Industry' },
+  { date: '2024-09', title: 'BNM mandates a co-payment option for medical insurance', detail: 'Insurers must offer a minimum 5% co-payment or RM 500 deductible option, in exchange for materially lower premiums.', tag: 'Regulatory' },
+]
+
+function ChangelogSection() {
+  return (
+    <div className="space-y-6">
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+        A manually-curated log of notable, dated changes across Malaysian hospitals, insurers, and healthcare regulation — not a live feed. We add entries periodically rather than in real time, so treat this as a starting point and confirm time-sensitive details directly with the hospital or insurer.
+      </div>
+      <div className="space-y-3">
+        {CHANGELOG_ENTRIES.map((e, i) => (
+          <div key={i} className="border border-ink-quaternary rounded-xl p-4 flex items-start gap-3">
+            <div className="flex-shrink-0 w-[70px] text-center">
+              <p className="text-ink-tertiary text-[11px] font-semibold">{e.date}</p>
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <p className="font-bold text-ink text-[13px]">{e.title}</p>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-surface-secondary text-ink-secondary border border-ink-quaternary">{e.tag}</span>
+              </div>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{e.detail}</p>
             </div>
           </div>
         ))}
