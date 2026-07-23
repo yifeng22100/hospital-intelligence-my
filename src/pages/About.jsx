@@ -57,9 +57,13 @@ const ROADMAP = [
   { status: 'live', label: 'Tools — Cost Estimator, Panel Lookup (13 insurers, verified 2026 hotlines), Premium Calculator, Insurer Comparison table (annual limits, room tiers, waiting periods)' },
   { status: 'live', label: 'Resources: emergency contacts, patient rights, NGO support, second opinions (incl. your legal right to medical records)' },
   { status: 'live', label: 'FPP and MSQH/JCI accreditation badges' },
+  { status: 'live', label: 'Site-wide search (Ctrl/Cmd+K) across every Hub, guide, and hospital, with deep links into Find Care' },
+  { status: 'live', label: 'Print-friendly guides — one-click printing for checklist-heavy pages (A&E Triage, Post-Discharge Care, Second Opinion)' },
+  { status: 'live', label: '"Last verified" freshness notes on fact-heavy sections (insurer data, vaccine info, changelog, medical tourism stats)' },
+  { status: 'live', label: 'Route-level code-splitting and a skip-to-content link for faster loads and better keyboard/screen-reader navigation' },
   { status: 'planned', label: 'Geolocation — find nearest hospitals to you' },
-  { status: 'planned', label: 'Specialist directory — individual consultant profiles' },
-  { status: 'planned', label: 'A&E triage colour guide and wait time context' },
+  { status: 'planned', label: 'Specialist directory — individual consultant profiles (hospital-level directory is already live in the Intelligence Hub)' },
+  { status: 'planned', label: 'Bahasa Malaysia translation for the highest-traffic pages' },
   { status: 'planned', label: 'Interactive referral ladder flowchart' },
 ]
 

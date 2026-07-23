@@ -452,7 +452,7 @@ function ChronicSection() {
         'Limit alcohol to 1–2 drinks/day maximum (if at all)',
         'Monitor your BP: normal is below 120/80 mmHg',
       ],
-      screening: 'Normal: <120/<80 mmHg. Elevated: 120–129/<80. Stage 1 HTN: 130–139/80–89. Stage 2: ≥140/≥90.',
+      screening: 'Optimal: <120/<80 mmHg. Normal: 120–129/80–84. High normal: 130–139/85–89. Stage 1 hypertension: 140–159/90–99. Stage 2: ≥160/≥100 (per Malaysian CPG — see Knowledge Hub → Lab Values for the full reference table).',
     },
     {
       disease: 'Obesity',

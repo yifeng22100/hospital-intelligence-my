@@ -3,7 +3,7 @@ import { ALL_HOSPITALS } from '../data/index'
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-secondary border-t border-ink-quaternary mt-auto">
+    <footer className="bg-surface-secondary border-t border-ink-quaternary mt-auto print:hidden">
       <div className="max-w-[1200px] mx-auto px-5 py-10">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
           <div className="col-span-2 sm:col-span-1">

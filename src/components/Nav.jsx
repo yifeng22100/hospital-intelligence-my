@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import SearchModal from './SearchModal'
 
 const NAV_LINKS = [
   { to: '/find-care', label: 'Find Care' },
@@ -16,7 +17,7 @@ const NAV_LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const navigate = useNavigate()
+  const [searchOpen, setSearchOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -24,9 +25,20 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const onKey = e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setSearchOpen(true)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-200 ${
+      className={`sticky top-0 z-50 transition-all duration-200 print:hidden ${
         scrolled
           ? 'bg-white/90 backdrop-blur-xl border-b border-ink-quaternary'
           : 'bg-white'
@@ -65,11 +77,11 @@ export default function Nav() {
         <div className="flex-1" />
 
         <button
-          onClick={() => { navigate('/find-care'); setMobileOpen(false) }}
+          onClick={() => { setSearchOpen(true); setMobileOpen(false) }}
           className="p-2 rounded-full hover:bg-surface-secondary transition-colors text-ink-secondary hover:text-ink"
-          aria-label="Search"
+          aria-label="Search the site (Ctrl+K)"
         >
-          <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
+          <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <circle cx="7.5" cy="7.5" r="6" stroke="currentColor" strokeWidth="1.6" />
             <path d="M12 12L16 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
           </svg>
@@ -120,6 +132,8 @@ export default function Nav() {
           ))}
         </div>
       )}
+
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   )
 }

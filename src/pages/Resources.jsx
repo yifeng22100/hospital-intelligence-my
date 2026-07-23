@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { LEGAL_SUPPORT } from '../data/legal-support'
 import { EMERGENCY_PROTOCOLS } from '../data/emergency-protocols'
 import { NGO_SUPPORT } from '../data/ngo-support'
+import PrintButton from '../components/PrintButton'
 
 const LHDN_RELIEFS = [
   {
@@ -1067,6 +1068,8 @@ function SecondOpinionSection() {
 
   return (
     <div className="space-y-10 max-w-[820px]">
+
+      <div className="flex justify-end"><PrintButton label="Print this guide" /></div>
 
       {/* Your right */}
       <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4">

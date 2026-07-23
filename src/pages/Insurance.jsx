@@ -566,6 +566,9 @@ function ChooseSection() {
           <p><strong>6. What's your risk profile?</strong> (Healthy & young? Chronic disease? High-risk job?)</p>
         </div>
       </div>
+      <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+        Once you've narrowed down a type, compare actual insurers side-by-side (annual limits, room tiers, hotlines) at <Link to="/tools" className="text-brand font-semibold hover:underline">Tools → Insurer Comparison</Link>, or check which hospitals a specific insurer covers at <Link to="/tools" className="text-brand font-semibold hover:underline">Tools → Panel Lookup</Link>.
+      </div>
       {INSURANCE_TYPES.map(t => (
         <div key={t.type} className="bg-surface rounded-xl border border-ink-quaternary p-6">
           <div className="flex items-center gap-2 mb-3">

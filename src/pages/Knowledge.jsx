@@ -1,6 +1,9 @@
 import { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { GLOSSARY } from '../data/glossary'
 import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
+import LastVerified from '../components/LastVerified'
+import PrintButton from '../components/PrintButton'
 
 const TOPICS = [
   { id: 'ae-triage',         icon: '🚑', label: 'A&E Triage Guide',              desc: 'When to call 999, go to A&E, or see a clinic — triage system & costs explained' },
@@ -380,7 +383,7 @@ function AETriageSection() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {[
           { v: 'triage', label: '🚦 Triage System' },
           { v: 'where',  label: '🗺️ Where to Go' },
@@ -392,6 +395,7 @@ function AETriageSection() {
               view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
             }`}>{label}</button>
         ))}
+        <div className="ml-auto"><PrintButton label="Print this guide" /></div>
       </div>
 
       <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-[13px] text-red-800 leading-relaxed">
@@ -456,6 +460,9 @@ function AETriageSection() {
               <p className="text-ink-secondary text-[12px] leading-relaxed">{s.detail}</p>
             </div>
           ))}
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-secondary leading-relaxed">
+            This is a quick "what do I do right now" reference. For step-by-step recognise/do-now/do-not-do protocols covering these and more emergencies, see <Link to="/resources" className="text-brand font-semibold hover:underline">Resources → Emergency Events</Link>.
+          </div>
         </div>
       )}
 
@@ -485,6 +492,7 @@ function AETriageSection() {
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
             <strong>Ask for an itemised bill.</strong> Private A&E costs can escalate quickly once scans, procedures, and observation beds are added. If your condition allows, ask staff for a running cost estimate — especially if you're paying out of pocket or your insurance panel status is uncertain.
           </div>
+          <LastVerified date="July 2026" />
         </div>
       )}
     </div>
@@ -523,7 +531,7 @@ const PATIENT_JOURNEYS = {
     intro: 'Recommended for screening from age 45–50, earlier with family history or red-flag symptoms (rectal bleeding, unexplained weight loss, change in bowel habit, anaemia).',
     steps: [
       { step: '1', title: 'Get referred or self-refer', color: '#0891b2', detail: 'A GP referral is often required for insurer/panel claims, but you can also book directly with a gastroenterologist or colorectal surgeon at a private hospital.' },
-      { step: '2', title: 'Understand the cost', color: '#d97706', detail: 'Private colonoscopy in Malaysia typically runs RM 1,400–RM 3,000 depending on hospital, sedation type, and whether a polyp is removed during the procedure (polypectomy).' },
+      { step: '2', title: 'Understand the cost', color: '#d97706', detail: 'Private colonoscopy in Malaysia typically runs RM 800–RM 3,000 depending on hospital and sedation; adding a polypectomy (polyp removal) adds RM 300–800 more. See Tools → Cost Reference for the full public/private breakdown.' },
       { step: '3', title: 'Prepare', color: '#7c3aed', detail: 'Bowel preparation (a special diet plus a prep solution) 1–2 days before the procedure — follow your hospital\'s instructions exactly, as inadequate prep is the most common reason for a repeat procedure.' },
       { step: '4', title: 'Day of procedure', color: '#16a34a', detail: 'Usually a day procedure under sedation with same-day discharge — you\'ll need someone to accompany you home, as you can\'t drive after sedation.' },
       { step: '5', title: 'Public sector option', color: '#dc2626', detail: 'Available at government hospitals too, generally at lower or no cost, but with a longer wait for non-urgent screening cases — ask your Klinik Kesihatan or hospital for current wait times.' },
@@ -535,7 +543,7 @@ const PATIENT_JOURNEYS = {
     intro: 'Baseline screening is worth starting in your 20s–30s; adults 35+ are strongly encouraged to screen regularly.',
     steps: [
       { step: '1', title: 'Know your frequency', color: '#0891b2', detail: 'Healthy adults under 50: every 2 years. Age 50+: annually. Living with a chronic condition (diabetes, hypertension): every 6 months, or as your doctor advises.' },
-      { step: '2', title: 'Pick a package that fits your age/risk', color: '#7c3aed', detail: 'Basic packages (bloods, urinalysis, BMI) start from roughly RM 600; comprehensive packages with imaging or a stress test can run RM 1,000–2,000+. See the Tools → Cost Reference tab for specifics.' },
+      { step: '2', title: 'Pick a package that fits your age/risk', color: '#7c3aed', detail: 'Basic packages (bloods, urinalysis, BMI) run roughly RM 200–800 at private providers; comprehensive executive packages with imaging or a stress test can run RM 1,000–2,000+. See Tools → Cost Reference for the exact public/FPP/private breakdown.' },
       { step: '3', title: 'Public vs private', color: '#16a34a', detail: 'Government facilities offer core screening tests at low/no cost; private hospitals offer faster turnaround and broader packages (incl. imaging) for a fee.' },
       { step: '4', title: 'Follow up on results', color: '#d97706', detail: 'Book a follow-up consult to go through results with a doctor — don\'t just read the report. See "Reading Medical Reports" in this Knowledge Hub for how to interpret common findings.' },
     ],
@@ -627,19 +635,7 @@ function BookingGuideSection() {
         <div className="space-y-4">
           <div className="border border-ink-quaternary rounded-2xl p-4">
             <p className="font-bold text-ink text-[14px] mb-2">📱 MySejahtera</p>
-            <p className="text-ink-secondary text-[13px] leading-relaxed mb-2">Still MOH's primary digital health app. You can use it to:</p>
-            <ul className="space-y-1.5">
-              {[
-                'Book Klinik Kesihatan appointments — in-person or virtual',
-                'Get a digital appointment card with QR check-in and a reminder ~24 hours ahead',
-                'View your appointment history',
-                'Book on behalf of registered dependants (18+)',
-                'Book free influenza vaccination if you\'re 60+ (a recurring government programme)',
-                'Access newer modules — e.g. the Malaysian Stem Cell Registry and MyMINDA mental-health appointment booking',
-              ].map((t, i) => (
-                <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
-              ))}
-            </ul>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Still MOH's primary digital health app — used to book Klinik Kesihatan appointments, check in with a QR code, and manage bookings for registered dependants. For a full install-to-booking walkthrough, see the <Link to="/resources" className="text-brand font-semibold hover:underline">Resources → MySejahtera Guide</Link>.</p>
           </div>
           <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
             <strong className="text-ink">MyHEALTH portal</strong> (myhealth.moh.gov.my) is MOH's general health-information site — education content rather than a booking tool. Use it for reference material, not to book appointments.
@@ -1945,7 +1941,7 @@ function VaccinationSection() {
       disease: 'Dengue Fever',
       icon: '🦟',
       color: '#dc2626',
-      vaccine: 'Qdenga (TAK-003) — 2 doses, 3 months apart. RM 240–500/dose at private clinics (RM 480–1,000 full course). Ages 4–60. Does not require prior dengue testing.',
+      vaccine: 'Qdenga (TAK-003) vaccine available, ages 4–60. Full pricing, dosing, and a complete home-prevention guide: Lifestyle Hub → Dengue Prevention.',
       spread: 'Aedes aegypti mosquito bite (daytime biter)',
       symptoms: 'High fever, severe headache behind eyes, muscle/joint pain, skin rash 3–4 days after fever onset',
       risk: '~100,000+ cases/year in Malaysia; urban areas highest risk',
@@ -2068,7 +2064,8 @@ function VaccinationSection() {
           {/* COVID section */}
           <div>
             <h3 className="text-[17px] font-bold text-ink mb-1">🦠 COVID-19 Vaccination in Malaysia</h3>
-            <p className="text-ink-secondary text-[13px] mb-4">Malaysia's national COVID-19 vaccination programme (PICK) vaccinated over 27 million Malaysians. COVID-19 has since moved to a targeted, largely paid booster model — free boosters are now reserved for priority/high-risk groups, not the general public.</p>
+            <p className="text-ink-secondary text-[13px] mb-2">Malaysia's national COVID-19 vaccination programme (PICK) vaccinated over 27 million Malaysians. COVID-19 has since moved to a targeted, largely paid booster model — free boosters are now reserved for priority/high-risk groups, not the general public.</p>
+            <div className="mb-4"><LastVerified date="July 2026" note="vaccine formulations and eligibility change seasonally" /></div>
 
             <div className="space-y-2 mb-5">
               {COVID_VACCINES.map((v, i) => (
@@ -2701,7 +2698,7 @@ function PostDischargeSection() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {[
           { v: 'wound',  label: '🩹 Wound Care & Red Flags' },
           { v: 'meds',   label: '💊 Medication & Activity' },
@@ -2713,6 +2710,7 @@ function PostDischargeSection() {
               view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
             }`}>{label}</button>
         ))}
+        <div className="ml-auto"><PrintButton label="Print this guide" /></div>
       </div>
 
       {/* ── Wound care & red flags ── */}

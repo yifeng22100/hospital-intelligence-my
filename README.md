@@ -96,6 +96,14 @@ Navigation redesigned as a grouped sidebar (matching the Lifestyle Hub pattern) 
 - Emergency contacts, patient rights, NGO support, financial assistance schemes
 - Second opinion guide — when to seek one, your legal right to your medical records (Act 586, MMC Guideline 002/2006), named centres in Malaysia and internationally, document checklist, and insurance coverage
 
+### Platform-wide
+
+- **Site-wide search** (search icon or Ctrl/Cmd+K) — indexes every Hub topic and section plus all 295 hospitals; hospital results deep-link into Find Care with the query pre-filled
+- **Print-friendly guides** — a "Print this guide" button on checklist-heavy pages (A&E Triage Guide, Post-Discharge Care, Second Opinion) hides navigation and preserves colour-coded content for a clean printout
+- **"Last verified" notes** on fact-heavy sections (insurer hotlines, vaccine info, medical tourism stats, the changelog) so readers can judge freshness at a glance
+- **Route-level code-splitting** — each page loads as its own chunk instead of one large bundle
+- **Accessibility basics** — a skip-to-content link, ARIA labels on icon-only controls, and dialog semantics on modals
+
 ---
 
 ## Data
