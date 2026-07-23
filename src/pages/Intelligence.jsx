@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ALL_HOSPITALS } from '../data/index'
+import LastVerified from '../components/LastVerified'
 const TOPICS = [
   { id: 'hacks',       icon: '💡', label: 'Insider Tips',        desc: '12 things most patients don\'t know' },
   { id: 'tiers',       icon: '🏥', label: 'Hospital Tiers',      desc: 'Public referral system explained' },
@@ -744,6 +745,7 @@ function TourismSection() {
             ))}
           </div>
           <p className="text-ink-secondary text-[13px]">Top source markets: roughly 60–70% of inbound patients come from <strong className="text-ink">Indonesia</strong>, followed by the Middle East, India, China, Japan, Australia, and New Zealand.</p>
+          <LastVerified date="July 2026" note="MHTC stats and cost figures" />
         </div>
       )}
 
@@ -847,6 +849,7 @@ function ChangelogSection() {
       <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
         A manually-curated log of notable, dated changes across Malaysian hospitals, insurers, and healthcare regulation — not a live feed. We add entries periodically rather than in real time, so treat this as a starting point and confirm time-sensitive details directly with the hospital or insurer.
       </div>
+      <LastVerified date="July 2026" note="list last reviewed on this date" />
       <div className="space-y-3">
         {CHANGELOG_ENTRIES.map((e, i) => (
           <div key={i} className="border border-ink-quaternary rounded-xl p-4 flex items-start gap-3">

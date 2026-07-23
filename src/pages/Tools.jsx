@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { COST_REFERENCE } from '../data/cost-reference'
 import { INSURANCE_PANELS } from '../data/insurance-panels'
 import { ALL_HOSPITALS } from '../data/index'
+import LastVerified from '../components/LastVerified'
 
 const TOPICS = [
   { id: 'costs',       icon: '💰', label: 'Cost Reference',    desc: 'Procedure costs across public, FPP and private' },
@@ -537,6 +538,7 @@ function PanelLookupSection() {
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
         <strong>Important:</strong> Insurance panels change regularly. This lookup uses data from hospital and insurer records but may not reflect the latest panel status. <strong>Always call your insurer's 24h hotline on the day of admission</strong> to confirm panel status and request a Letter of Guarantee (LOG). Do not assume — panels change without notice.
       </div>
+      <LastVerified date="July 2026" note="hotlines & TPA data cross-checked against insurer announcements" />
 
       {/* View switcher */}
       <div className="flex flex-wrap gap-2">
@@ -790,6 +792,7 @@ function ComparisonSection() {
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
         <strong>Important:</strong> Figures below are general market ranges compiled from public plan brochures and Product Disclosure Sheets — not a quote. Exact annual limits, room tiers, and waiting periods vary by the specific plan you buy, your age, and underwriting. <strong>Always confirm against the current Product Disclosure Sheet before purchasing.</strong>
       </div>
+      <LastVerified date="July 2026" />
 
       <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
         <strong className="text-ink">💡 Regulatory context (Bank Negara Malaysia):</strong> Since 1 September 2024, insurers must offer a co-payment option — typically a minimum 5% co-payment or RM 500 deductible — in exchange for premiums 19–68% lower than non-co-payment plans. Emergency treatment, critical-illness follow-up, and government-facility treatment are exempt from co-payment. BNM has also capped premium hikes at 10% for most policyholders, phased over a minimum 3 years.

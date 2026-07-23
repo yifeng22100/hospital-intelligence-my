@@ -66,7 +66,7 @@ export const EMERGENCY_PROTOCOLS = {
 
   whenToCallAmbulance: [
     'Chest pain or pressure lasting more than 5 minutes — possible heart attack; do not wait or drive yourself',
-    'Signs of stroke (use FAST: Face drooping, Arm weakness, Speech difficulty, Time to call 999)',
+    'Signs of stroke (use BE-FAST: Balance loss, Eyesight changes, Face drooping, Arm weakness, Speech difficulty, Time to call 999)',
     'Difficulty breathing or severe shortness of breath at rest',
     'Uncontrolled or severe bleeding that does not stop with direct pressure',
     'Unconsciousness or unresponsiveness — person cannot be woken',
@@ -83,8 +83,19 @@ export const EMERGENCY_PROTOCOLS = {
   ],
 
   strokeProtocol: {
-    acronym: 'FAST',
+    acronym: 'BE-FAST',
+    note: 'Malaysia\'s stroke campaigns (Malaysian Stroke Council + World Stroke Organisation) extend the classic FAST to BE-FAST, adding Balance and Eyesight — Bahasa Malaysia version: PeRMATA.',
     steps: [
+      {
+        letter: 'B',
+        word: 'Balance',
+        description: 'Sudden loss of balance or coordination, or trouble walking. Ask the person to walk a straight line if safe to do so.'
+      },
+      {
+        letter: 'E',
+        word: 'Eyesight',
+        description: 'Sudden blurred, double, or lost vision in one or both eyes.'
+      },
       {
         letter: 'F',
         word: 'Face',
@@ -218,7 +229,7 @@ export const EMERGENCY_PROTOCOLS = {
   aeVsClinic: {
     goToAE: [
       'Chest pain, pressure, or tightness — especially with sweating, breathlessness, or arm/jaw pain',
-      'Suspected stroke (FAST signs: face drooping, arm weakness, speech difficulty)',
+      'Suspected stroke (BE-FAST signs: balance loss, eyesight changes, face drooping, arm weakness, speech difficulty)',
       'Severe difficulty breathing or respiratory distress',
       'Unconsciousness, unresponsiveness, or altered mental state',
       'Seizures — especially first seizure, prolonged seizure (>5 min), or post-seizure confusion',
@@ -315,7 +326,7 @@ export const EMERGENCY_PROTOCOLS = {
       color: '#7c3aed',
       callAmbulance: true,
       recognize: [
-        'Use FAST: Face drooping (uneven smile), Arm weakness (one drifts down), Speech difficulty (slurred or garbled), Time to call 999',
+        'Use BE-FAST: Balance loss, Eyesight changes, Face drooping (uneven smile), Arm weakness (one drifts down), Speech difficulty (slurred or garbled), Time to call 999',
         'Sudden severe headache — worst headache of life',
         'Sudden vision loss or double vision',
         'Sudden dizziness, loss of balance, or inability to walk',

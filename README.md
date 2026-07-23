@@ -36,27 +36,42 @@ Panel lists and LOG claims guidance live in **Tools → Panel Lookup**; procedur
 - Takaful vs Conventional comparison
 - Insurance terms decoder (20 glossary entries)
 
-### Knowledge Hub (18 topics)
+### Knowledge Hub (17 topics, in 4 groups)
+
+Navigation redesigned as a grouped sidebar (matching the Lifestyle Hub pattern) rather than a single wrapping tab bar, since the topic count had grown large enough to need clearer structure.
+
+**Emergencies & Getting Care**
 | Topic | What it covers |
 |---|---|
 | 🚑 A&E Triage Guide | Malaysian Triage Scale (5-level, 2026 rollout), 999 vs A&E vs clinic decision ladder, common emergency scenarios, public vs private A&E costs |
 | 🗺️ Patient Journey Guides | Step-by-step pathways for 5 common situations: suspected diabetes, child with HFMD, colonoscopy, health screening, newly pregnant |
 | 📅 Appointment Booking Guide | MySejahtera & MyHEALTH explained, private hospital group booking apps (KPJ Cares, MyHealth360, and others), typical wait times |
 | 🏪 Pharmacy & Vaccination Locator | 24-hour pharmacy chains, hospital pharmacies serving walk-ins, where vaccination is actually available (with a legal note on pharmacist-administered vaccination) |
+
+**Understanding Your Care**
+| Topic | What it covers |
+|---|---|
 | 📖 Medical Glossary | Plain-English medical terms + hospital abbreviations decoded (merged into one section) |
 | 💊 Common Drugs | 20 medications with Mandarin names, pinyin, dosing, emergency use flags |
 | 🔬 Lab Values | Blood test reference ranges (HbA1c, cholesterol, kidney, liver, CBC) |
+| 📋 Reading Medical Reports | How to interpret blood tests, scans, diagnoses, and prescriptions |
+| ⚠️ Drug Interaction Checker | ~18 commonly-flagged interaction categories (incl. TCM & OTC "ubat selsema" combos) with a two-drug search — not medical advice |
+
+**Life Stage Care**
+| Topic | What it covers |
+|---|---|
 | 🩺 Health Screening | Age-by-age screening guide |
 | 🤰 Maternal Health | Antenatal visits, tests, postnatal care and delivery guide |
 | 💉 Vaccination Guide | NIP schedule (all ages incl. pregnant women) · COVID-19 & Flu vaccines · Dengue & Tropical Diseases (Qdenga, HFMD/EV71, JE, Typhoid) |
 | 👶 Children's Healthcare | Milestones, common illnesses, nutrition, emergency decision tree |
 | 👴 Elderly & OKU Care | Screening, chronic disease management, falls prevention, cognitive health |
-| 🧠 Mental Health Resources | Conditions, Malaysian support services, crisis hotlines |
-| 📋 Reading Medical Reports | How to interpret blood tests, scans, diagnoses, and prescriptions |
-| 🏡 Post-Discharge Care | Wound care & red-flag symptoms, medication management, MC/hospitalisation leave entitlements, home care providers |
-| ⚠️ Drug Interaction Checker | ~18 commonly-flagged interaction categories (incl. TCM & OTC "ubat selsema" combos) with a two-drug search — not medical advice |
+
+**Ongoing & Chronic Care**
+| Topic | What it covers |
+|---|---|
 | 📈 Chronic Disease Self-Monitoring | Home BP targets (Malaysian CPG), glucometer targets and testing frequency, peak flow meter zones for asthma |
-| 🔍 Second Opinion Navigator | When to seek one, your legal rights to medical records (Act 586, MMC Guideline 002/2006), how record transfer works in practice |
+| 🏡 Post-Discharge Care | Wound care & red-flag symptoms, medication management, MC/hospitalisation leave entitlements, home care providers |
+| 🧠 Mental Health Resources | Conditions, Malaysian support services, crisis hotlines |
 
 ### Lifestyle Hub (9 sections)
 | Section | What it covers |
@@ -78,7 +93,16 @@ Panel lists and LOG claims guidance live in **Tools → Panel Lookup**; procedur
 - **Premium Calculator** — interactive insurance premium estimate
 
 ### Resources
-- Emergency contacts, patient rights, NGO support, financial assistance schemes, second opinion guide
+- Emergency contacts, patient rights, NGO support, financial assistance schemes
+- Second opinion guide — when to seek one, your legal right to your medical records (Act 586, MMC Guideline 002/2006), named centres in Malaysia and internationally, document checklist, and insurance coverage
+
+### Platform-wide
+
+- **Site-wide search** (search icon or Ctrl/Cmd+K) — indexes every Hub topic and section plus all 295 hospitals; hospital results deep-link into Find Care with the query pre-filled
+- **Print-friendly guides** — a "Print this guide" button on checklist-heavy pages (A&E Triage Guide, Post-Discharge Care, Second Opinion) hides navigation and preserves colour-coded content for a clean printout
+- **"Last verified" notes** on fact-heavy sections (insurer hotlines, vaccine info, medical tourism stats, the changelog) so readers can judge freshness at a glance
+- **Route-level code-splitting** — each page loads as its own chunk instead of one large bundle
+- **Accessibility basics** — a skip-to-content link, ARIA labels on icon-only controls, and dialog semantics on modals
 
 ---
 

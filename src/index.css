@@ -31,3 +31,16 @@
     overflow: hidden;
   }
 }
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sticky {
+    position: static !important;
+  }
+  body {
+    background: #fff;
+  }
+}
