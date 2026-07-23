@@ -103,6 +103,7 @@ Navigation redesigned as a grouped sidebar (matching the Lifestyle Hub pattern) 
 - **"Last verified" notes** on fact-heavy sections (insurer hotlines, vaccine info, medical tourism stats, the changelog) so readers can judge freshness at a glance
 - **Route-level code-splitting** — each page loads as its own chunk instead of one large bundle
 - **Accessibility basics** — a skip-to-content link, ARIA labels on icon-only controls, and dialog semantics on modals
+- **Consistent sidebar navigation** — every multi-topic Hub (Intelligence, Insurance, Knowledge, Lifestyle, Tools, Resources) uses the same frozen sidebar pattern: it stays pinned in view while you scroll through content, capped to the viewport height with its own internal scroll so it never runs off-screen regardless of how many topics a Hub has
 
 ---
 
