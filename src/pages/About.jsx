@@ -21,7 +21,7 @@ const FAQ = [
   },
   {
     q: 'Can I use this to find a specific doctor?',
-    a: 'Not directly — we cover hospitals, not individual practitioners. For doctor verification, use the MMC (Malaysian Medical Council) registry at mmc.gov.my. The Intelligence Hub → Doctor Check section has a guide on how to verify qualifications and spot red flags.',
+    a: 'Not directly — we cover hospitals, not individual practitioners. For doctor verification, use the MMC (Malaysian Medical Council) registry at mmc.gov.my. The Intelligence Hub → Specialist Directory section shows which hospitals are known for which specialty, if you\'re trying to find the right centre rather than a specific name.',
   },
   {
     q: 'How do I report an error or missing hospital?',
@@ -50,9 +50,9 @@ const ROADMAP = [
   { status: 'live', label: 'Hospital directory (294 hospitals, 16 states)' },
   { status: 'live', label: 'Specialty, state, sector, and FPP filters' },
   { status: 'live', label: 'Hospital comparison (up to 5 side-by-side)' },
-  { status: 'live', label: 'Intelligence Hub (11 topics including emergency events)' },
+  { status: 'live', label: 'Intelligence Hub — 5 topics: insider tips, hospital tiers, specialist directory by hospital, clinical trials, overnight care' },
   { status: 'live', label: 'Insurance Hub — premiums, takaful vs conventional, terms, interactive premium calculator' },
-  { status: 'live', label: 'Knowledge Hub — 13 topics: A&E triage guide, glossary, drugs, lab values, screening, maternal, vaccination (COVID-19/Flu/Dengue & Tropical), children, elderly, mental health, medical reports, post-discharge care, and a drug interaction checker' },
+  { status: 'live', label: 'Knowledge Hub — 16 topics: A&E triage guide, patient journey guides, appointment booking guide, pharmacy & vaccination locator, glossary, drugs, lab values, screening, maternal, vaccination (COVID-19/Flu/Dengue & Tropical), children, elderly, mental health, medical reports, post-discharge care, and a drug interaction checker' },
   { status: 'live', label: 'Lifestyle Hub — 8 sections: healthy eating, exercise, sleep, chronic disease prevention, dengue prevention, quit smoking, stress & mental wellness, weight management' },
   { status: 'live', label: 'Tools — Cost Estimator, Panel Lookup (13 insurers, verified 2026 hotlines), Premium Calculator, Insurer Comparison table (annual limits, room tiers, waiting periods)' },
   { status: 'live', label: 'Resources: emergency contacts, patient rights, NGO support, second opinions' },
