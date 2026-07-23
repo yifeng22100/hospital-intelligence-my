@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { GLOSSARY } from '../data/glossary'
 import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
 
@@ -19,6 +20,8 @@ const TOPICS = [
   { id: 'medical-reports',   icon: '📋', label: 'Reading Medical Reports',      desc: 'Understand your lab results, scans, diagnoses & prescriptions' },
   { id: 'post-discharge',    icon: '🏡', label: 'Post-Discharge Care',          desc: 'Wound care, red-flag symptoms, MC entitlement & home care services' },
   { id: 'drug-interactions', icon: '⚠️', label: 'Drug Interaction Checker',     desc: 'Common medication combinations to be aware of — not medical advice' },
+  { id: 'self-monitoring',   icon: '📈', label: 'Chronic Disease Self-Monitoring', desc: 'Know your numbers — home BP, glucometer, and peak flow targets' },
+  { id: 'second-opinion',    icon: '🔍', label: 'Second Opinion Navigator',     desc: 'When and how to get a second opinion, and how to transfer your records' },
 ]
 
 const LAB_VALUES = [
@@ -329,6 +332,8 @@ export default function Knowledge() {
         {active === 'medical-reports'   && <MedicalReportSection />}
         {active === 'post-discharge'    && <PostDischargeSection />}
         {active === 'drug-interactions' && <DrugInteractionSection />}
+        {active === 'self-monitoring'   && <SelfMonitoringSection />}
+        {active === 'second-opinion'    && <SecondOpinionSection />}
       </div>
     </div>
   )
@@ -2900,6 +2905,198 @@ function DrugInteractionSection() {
       <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-tertiary leading-relaxed">
         This list covers ~18 commonly-flagged interaction categories relevant to Malaysia (including TCM and common "ubat selsema" combo products) — it is not exhaustive. For a full check of your actual medication list, bring everything (including supplements) to your pharmacist.
       </div>
+    </div>
+  )
+}
+
+/* ─── Chronic Disease Self-Monitoring ────────────────────────────── */
+
+function SelfMonitoringSection() {
+  const [view, setView] = useState('bp')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'bp',   label: '🩺 Blood Pressure' },
+          { v: 'glucose', label: '🩸 Blood Glucose' },
+          { v: 'peak', label: '🫁 Peak Flow (Asthma)' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {view === 'bp' && (
+        <div className="space-y-4">
+          <div className="grid sm:grid-cols-3 gap-3">
+            {[
+              { label: 'General population', val: '< 140/90 mmHg', color: '#16a34a' },
+              { label: 'Diabetics', val: '< 140/80 mmHg', color: '#d97706' },
+              { label: 'Ischaemic heart / cerebrovascular / renal disease', val: '< 130/80 mmHg', color: '#dc2626' },
+            ].map((t, i) => (
+              <div key={i} className="rounded-2xl p-4 text-center" style={{ background: `${t.color}0d`, border: `1px solid ${t.color}30` }}>
+                <p className="font-bold text-[20px]" style={{ color: t.color }}>{t.val}</p>
+                <p className="text-ink-secondary text-[11px] mt-1">{t.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-ink-tertiary text-[11px]">Targets per Malaysian CPG Management of Hypertension (MOH). Your doctor may set a different personal target based on your health history — these are general reference points, not a diagnosis.</p>
+
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">How to get an accurate reading</p>
+            <ul className="space-y-1.5">
+              {[
+                'Sit with your back supported and feet flat on the floor',
+                'Rest your arm at heart level, supported on a table',
+                'Avoid caffeine, exercise, or smoking for 30 minutes beforehand',
+                'Take 2 readings, 1 minute apart, at the same time each day, and record both',
+              ].map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-tertiary leading-relaxed">
+            Home BP monitors (e.g. Omron) are widely available at pharmacies and online in Malaysia — check current pricing directly with the retailer, as it varies.
+          </div>
+        </div>
+      )}
+
+      {view === 'glucose' && (
+        <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="rounded-2xl p-4 text-center bg-brand/5 border border-brand/20">
+              <p className="font-bold text-[20px] text-brand">4.4 – 7.0 mmol/L</p>
+              <p className="text-ink-secondary text-[11px] mt-1">Fasting blood glucose — general self-monitoring target</p>
+            </div>
+            <div className="rounded-2xl p-4 text-center bg-surface-secondary border border-ink-quaternary">
+              <p className="font-bold text-[16px] text-ink">Ask your doctor</p>
+              <p className="text-ink-secondary text-[11px] mt-1">Post-meal (2hr) and HbA1c targets are individualised per the Malaysian CPG — get your personal target confirmed</p>
+            </div>
+          </div>
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">How often should I test?</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Testing frequency varies by diabetes type and control: Type 1 and insulin-treated Type 2 typically test multiple times a day; diet/oral-medication-controlled Type 2 often tests a few times a week. Follow the specific schedule your doctor sets for you.</p>
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-tertiary leading-relaxed">
+            Glucometers and test strips (Accu-Chek, OneTouch, Contour, and others) are widely available at Malaysian pharmacies and clinics — check current pricing directly with the retailer.
+          </div>
+        </div>
+      )}
+
+      {view === 'peak' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px]">A peak flow meter measures how fast you can exhale — tracking it against your own "personal best" helps catch an asthma flare-up before it becomes an emergency.</p>
+          <div className="space-y-2.5">
+            {[
+              { zone: 'Green Zone', range: '80–100% of personal best', meaning: 'Good control — normal activity, continue your usual medication plan.', color: '#16a34a' },
+              { zone: 'Yellow Zone', range: '50–80% of personal best', meaning: 'Caution — your asthma is worsening. Follow your action plan to adjust medication.', color: '#d97706' },
+              { zone: 'Red Zone', range: '< 50% of personal best', meaning: 'Danger — use rescue medication now and seek emergency care if it doesn\'t improve quickly.', color: '#dc2626' },
+            ].map((z, i) => (
+              <div key={i} className="border rounded-xl p-4" style={{ borderColor: `${z.color}40`, borderLeftWidth: '3px' }}>
+                <div className="flex items-center justify-between gap-2 flex-wrap mb-1">
+                  <p className="font-bold text-[13px]" style={{ color: z.color }}>{z.zone}</p>
+                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full" style={{ background: `${z.color}15`, color: z.color }}>{z.range}</span>
+                </div>
+                <p className="text-ink-secondary text-[12px]">{z.meaning}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">Finding your personal best:</strong> measure at the same time each day (mid-day is common) for 2–3 weeks while your asthma is well-controlled, taking the highest of 3 attempts each time. Use that number as your 100% baseline going forward.
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Second Opinion Navigator ───────────────────────────────────── */
+
+function SecondOpinionSection() {
+  const [view, setView] = useState('when')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'when',    label: '🤔 When to Seek One' },
+          { v: 'rights',  label: '⚖️ Your Rights to Records' },
+          { v: 'transfer',label: '📤 How to Transfer Records' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {view === 'when' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px] leading-relaxed">A second opinion is a normal, expected part of good healthcare — not a sign of distrust in your current doctor. It's especially worth considering for:</p>
+          <ul className="space-y-2">
+            {[
+              'A cancer diagnosis or any diagnosis that\'s uncertain or unusual',
+              'A recommendation for major surgery',
+              'A rare disease diagnosis',
+              'When you have several treatment options and aren\'t sure which is right for you',
+            ].map((t, i) => (
+              <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+            ))}
+          </ul>
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">Practical step:</strong> tell your current doctor you'd like a second opinion — most doctors expect and welcome this, especially for serious diagnoses. Ask whether it's safe to wait for the second review before starting treatment.
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            Not sure which hospital to approach? See the <Link to="/intelligence" className="text-brand font-semibold hover:underline">Intelligence Hub → Specialist Directory</Link> for which Malaysian hospitals are known for which specialty.
+          </div>
+        </div>
+      )}
+
+      {view === 'rights' && (
+        <div className="space-y-4">
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">⚖️ Private Healthcare Facilities and Services Act 1998 (Act 586)</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Under Regulation 44(1) of the Act's regulations, your medical records are legally the property of the healthcare facility — but you have a qualified right to access your own data within those records.</p>
+          </div>
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">📋 MMC Guideline 002/2006 (Malaysian Medical Council)</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Explicitly lists "seeking a second opinion" and "seeking further treatment elsewhere" as valid, protected reasons to request your medical records or reports. MMC encourages disclosure, and only allows withholding where disclosure would be detrimental to your health, endanger life, or lacks consent.</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+            <strong>Public vs private:</strong> private hospitals are generally more ready to release full medical records on request. Public/government hospitals often only issue a summary "medical report" rather than the full record, unless a court order is obtained.
+          </div>
+          <p className="text-ink-tertiary text-[11px]">If access is denied without a valid reason, your recourse is ultimately to seek a court order compelling production of records — an uncommon last resort, not the typical path.</p>
+        </div>
+      )}
+
+      {view === 'transfer' && (
+        <div className="space-y-4">
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">What to request</p>
+            <div className="flex flex-wrap gap-1.5">
+              {['Discharge summary', 'Consultation notes', 'Lab/pathology reports', 'Imaging reports + original files (CD/USB)', 'Operative reports', 'Medication list', 'Allergy information'].map((t, i) => (
+                <span key={i} className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-brand/8 text-brand border border-brand/20">{t}</span>
+              ))}
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-bold text-ink text-[13px] mb-1">⏱ Typical turnaround</p>
+              <p className="text-ink-secondary text-[12px]">Roughly 2–4 weeks for a standard request at most private hospitals; some offer an expedited 3–7 working day option for an extra fee. Specialist/legal reports can take up to ~30 working days.</p>
+            </div>
+            <div className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-bold text-ink text-[13px] mb-1">💰 Typical fees</p>
+              <p className="text-ink-secondary text-[12px]">Roughly RM 40–250 depending on the hospital and report type.</p>
+            </div>
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">Format:</strong> ask for imaging in DICOM format on CD/DVD/USB, or via a secure download link if the hospital offers one. Private-to-private transfers are generally simpler and faster than public-to-private, which may involve more formal request procedures.
+          </div>
+        </div>
+      )}
     </div>
   )
 }

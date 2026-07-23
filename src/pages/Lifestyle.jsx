@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const TOPICS = [
   { id: 'eat',      icon: '🥗', label: 'Healthy Eating',          desc: 'Malaysian diet guide — eat well without giving up your favourites' },
+  { id: 'diet-therapy', icon: '🍽️', label: 'Diet Therapy by Condition', desc: 'Diabetic, renal, low-sodium, and GERD diets — with Malaysian food swaps' },
   { id: 'move',     icon: '🏃', label: 'Exercise & Activity',      desc: 'How much movement you actually need and how to get started' },
   { id: 'sleep',    icon: '😴', label: 'Sleep Health',             desc: 'Why sleep is medicine — and what disrupts it in Malaysian life' },
   { id: 'chronic',  icon: '🩺', label: 'Chronic Disease Prevention', desc: 'Diabetes, hypertension, and obesity — stop them before they start' },
@@ -57,6 +58,7 @@ export default function Lifestyle() {
             </div>
 
             {active === 'eat'    && <EatSection />}
+            {active === 'diet-therapy' && <DietTherapySection />}
             {active === 'move'   && <MoveSection />}
             {active === 'sleep'  && <SleepSection />}
             {active === 'chronic'&& <ChronicSection />}
@@ -158,6 +160,97 @@ function EatSection() {
 
       <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary">
         <strong className="text-ink">💡 MOH MyPlate:</strong> Malaysia's official healthy eating guide recommends: ¼ plate carbs (whole grain preferred), ¼ plate protein, ½ plate vegetables and fruits, plus 8 glasses of plain water daily. Download the MyPlate guide at nutrition.moh.gov.my.
+      </div>
+    </div>
+  )
+}
+
+/* ─── Diet Therapy by Condition ──────────────────────────────────── */
+
+const DIET_THERAPIES = {
+  diabetic: {
+    label: 'Diabetic Diet',
+    icon: '🩸',
+    color: '#0891b2',
+    principle: 'The "quarter-quarter-half" plate method: ¼ plate protein, ¼ plate carbohydrates, ½ plate vegetables. Choosing lower-glycemic-index (GI) carbs matters as much as portion size.',
+    favour: ['Wholegrain rice or basmati (lower GI than white rice)', 'Capati over roti canai', 'Fruits with medium/low GI in modest portions — rambutan, papaya', 'Extra vegetables at every meal', 'Water or unsweetened drinks over sweetened kopi/teh'],
+    limit: ['White rice in large portions (GI ≈72, high)', 'Pineapple (GI ≈82, high) in large amounts', 'Roti canai and other oil-heavy fried breads', 'Sweetened drinks — teh tarik, kopi, bubble tea', 'Sugary sauces/sambal that hide added sugar'],
+    hawkerTip: 'Order rice "kurang" (less), ask for capati instead of roti canai, and request "kurang manis" or "kosong" for drinks.',
+  },
+  renal: {
+    label: 'Renal (Kidney) Diet',
+    icon: '🫘',
+    color: '#7c3aed',
+    principle: 'Chronic kidney disease (CKD) diets typically restrict potassium, phosphorus, and sodium — and in later stages, protein. Requirements are highly individual: always follow your renal dietitian\'s specific targets rather than a generic list.',
+    favour: ['Fresh fish and lean meat in dietitian-advised portions', 'Leached vegetables — cut and soak in water 1–2 hours, then discard the water before cooking, to reduce potassium', 'Rice, bread, and other lower-potassium staples in advised portions'],
+    limit: ['High-potassium fruits — durian, banana, coconut water/milk', 'Salted and dried fish (ikan masin) — high in sodium and phosphorus', 'Canned fish/meat and malt drinks (Milo, Horlicks, Ovaltine) — flagged high-potassium', 'Nuts, beans, and dairy in excess'],
+    hawkerTip: 'This diet needs individual calibration — bring your dietitian\'s specific limits with you and ask hawker stalls to leave out sauces and gravies you can\'t verify the content of.',
+  },
+  sodium: {
+    label: 'Low-Sodium Diet (Hypertension)',
+    icon: '🧂',
+    color: '#dc2626',
+    principle: 'Malaysians consume roughly 3,500–5,000mg of sodium a day — well above the WHO-recommended max of ~2,000mg. A tablespoon of sambal belacan alone can carry around 690mg of sodium, about 35% of a full day\'s recommended intake.',
+    favour: ['Steamed or grilled dishes over sauced/fried ones', 'Sauces and gravy served on the side, so you control the amount', 'Fresh herbs and spices (chilli, lime, ginger) for flavour instead of salt', 'Fresh ingredients over canned, salted, or preserved ones'],
+    limit: ['Soy sauce, oyster sauce, and belacan-based sambal in large amounts', 'Salted/preserved/canned foods', 'Instant noodle seasoning packets', 'Extra table salt or seasoning added out of habit rather than taste'],
+    hawkerTip: 'Ask for "kurang garam" (less salt), request sauces on the side, and skip the extra soy sauce or seasoning packet at the table.',
+  },
+  gerd: {
+    label: 'GERD / Acid Reflux Diet',
+    icon: '🔥',
+    color: '#d97706',
+    principle: 'Trigger foods vary by individual — keeping a simple food diary to spot your own patterns is often more useful than following a universal ban list. Common Malaysian triggers include spicy, fried, and caffeinated items, plus eating late or lying down soon after meals.',
+    favour: ['Smaller, more frequent meals rather than large ones', 'Non-citrus fruits, oats, and lean proteins', 'A gap of 2–3 hours between eating and lying down'],
+    limit: ['Very spicy dishes (capsaicin can slow gastric emptying and irritate the oesophagus)', 'Fried mamak/hawker fare', 'Teh tarik, coffee, and carbonated drinks', 'Chocolate, tomato-based sauces, and late-night supper'],
+    hawkerTip: 'Ask for "kurang pedas" (less spicy), avoid supper-hour heavy meals, and notice which specific dishes trigger you — tolerance varies a lot person to person.',
+  },
+}
+
+function DietTherapySection() {
+  const [active, setActive] = useState('diabetic')
+  const diet = DIET_THERAPIES[active]
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+        These are general starting points, not a prescribed diet plan. Condition-specific diets — especially renal diets — need individual calibration from your doctor or a registered dietitian based on your test results and stage of disease.
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {Object.entries(DIET_THERAPIES).map(([key, d]) => (
+          <button key={key} onClick={() => setActive(key)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              active === key ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{d.icon} {d.label}</button>
+        ))}
+      </div>
+
+      <div className="border border-ink-quaternary rounded-2xl p-5" style={{ borderLeft: `3px solid ${diet.color}` }}>
+        <p className="font-bold text-ink text-[16px] mb-2">{diet.icon} {diet.label}</p>
+        <p className="text-ink-secondary text-[13px] leading-relaxed mb-4">{diet.principle}</p>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div>
+            <p className="font-semibold text-emerald-700 text-[13px] mb-2">✓ Favour</p>
+            <ul className="space-y-1.5">
+              {diet.favour.map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-emerald-600">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold text-red-700 text-[13px] mb-2">✗ Limit</p>
+            <ul className="space-y-1.5">
+              {diet.limit.map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-red-500">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="bg-surface-secondary rounded-xl p-3 mt-4">
+          <p className="text-ink-secondary text-[12px]"><strong className="text-ink">🍜 At a hawker stall:</strong> {diet.hawkerTip}</p>
+        </div>
       </div>
     </div>
   )
