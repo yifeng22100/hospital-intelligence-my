@@ -1118,6 +1118,36 @@ function SecondOpinionSection() {
         </div>
       </div>
 
+      {/* Legal rights to records */}
+      <div>
+        <h3 className="font-bold text-ink text-[16px] mb-1">📋 Your Legal Right to Medical Records</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">Getting a second opinion usually means requesting your own records from your current hospital first — here's what the law actually says.</p>
+        <div className="space-y-3">
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">Private Healthcare Facilities and Services Act 1998 (Act 586)</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Under Regulation 44(1) of the Act's regulations, your medical records are legally the property of the healthcare facility — but you have a qualified right to access your own data within those records.</p>
+          </div>
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">MMC Guideline 002/2006 (Malaysian Medical Council)</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Explicitly lists "seeking a second opinion" and "seeking further treatment elsewhere" as valid, protected reasons to request your medical records or reports. MMC encourages disclosure, and only allows withholding where disclosure would be detrimental to your health, endanger life, or lacks consent.</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+            <strong>Public vs private:</strong> private hospitals are generally more ready to release full medical records on request. Public/government hospitals often only issue a summary "medical report" rather than the full record, unless a court order is obtained.
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3 mt-3">
+          <div className="border border-ink-quaternary rounded-xl p-4">
+            <p className="font-bold text-ink text-[13px] mb-1">⏱ Typical turnaround</p>
+            <p className="text-ink-secondary text-[12px]">Roughly 2–4 weeks for a standard request at most private hospitals; some offer an expedited 3–7 working day option for an extra fee. Specialist/legal reports can take up to ~30 working days.</p>
+          </div>
+          <div className="border border-ink-quaternary rounded-xl p-4">
+            <p className="font-bold text-ink text-[13px] mb-1">💰 Typical fees</p>
+            <p className="text-ink-secondary text-[12px]">Roughly RM 40–250 depending on the hospital and report type.</p>
+          </div>
+        </div>
+        <p className="text-ink-tertiary text-[11px] mt-3">Ask for imaging in DICOM format on CD/DVD/USB, or via a secure download link if the hospital offers one — this is on top of the imaging files already listed in the document checklist below. If access is denied without a valid reason, your ultimate recourse is a court order compelling production of records — an uncommon last resort, not the typical path.</p>
+      </div>
+
       {/* What to bring */}
       <div>
         <h3 className="font-bold text-ink text-[16px] mb-1">📁 What to Bring — Document Checklist</h3>

@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react'
-import { Link } from 'react-router-dom'
 import { GLOSSARY } from '../data/glossary'
 import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
 
@@ -21,7 +20,13 @@ const TOPICS = [
   { id: 'post-discharge',    icon: '🏡', label: 'Post-Discharge Care',          desc: 'Wound care, red-flag symptoms, MC entitlement & home care services' },
   { id: 'drug-interactions', icon: '⚠️', label: 'Drug Interaction Checker',     desc: 'Common medication combinations to be aware of — not medical advice' },
   { id: 'self-monitoring',   icon: '📈', label: 'Chronic Disease Self-Monitoring', desc: 'Know your numbers — home BP, glucometer, and peak flow targets' },
-  { id: 'second-opinion',    icon: '🔍', label: 'Second Opinion Navigator',     desc: 'When and how to get a second opinion, and how to transfer your records' },
+]
+
+const TOPIC_GROUPS = [
+  { label: 'Emergencies & Getting Care', ids: ['ae-triage', 'journeys', 'booking', 'pharmacy-locator'] },
+  { label: 'Understanding Your Care', ids: ['glossary', 'drugs', 'lab-values', 'medical-reports', 'drug-interactions'] },
+  { label: 'Life Stage Care', ids: ['screening', 'maternal', 'vaccination', 'children', 'elderly'] },
+  { label: 'Ongoing & Chronic Care', ids: ['self-monitoring', 'post-discharge', 'mental-health'] },
 ]
 
 const LAB_VALUES = [
@@ -273,67 +278,79 @@ const ABBREVIATIONS = [
 const ABBR_CONTEXTS = ['All', 'Location', 'Organisation', 'Accreditation', 'Scheme', 'Vital Signs', 'Assessment', 'Lab Tests', 'Tests', 'Imaging', 'Documentation', 'Medication Dosing', 'Admin', 'Roles']
 
 export default function Knowledge() {
-  const [active, setActive] = useState('glossary')
+  const [active, setActive] = useState('ae-triage')
   const topic = TOPICS.find(t => t.id === active)
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-surface-secondary border-b border-ink-quaternary pt-10 pb-6 px-5">
-        <div className="max-w-[1200px] mx-auto">
+      <div className="bg-surface-secondary border-b border-ink-quaternary pt-10 pb-8 px-5">
+        <div className="max-w-[1100px] mx-auto">
           <p className="text-brand text-[12px] font-semibold uppercase tracking-[0.12em] mb-1">Knowledge Hub</p>
-          <h1 className="text-[26px] font-bold text-ink tracking-tight">Your medical reference library.</h1>
-          <p className="text-ink-secondary text-[14px] mt-1.5 max-w-[600px]">
+          <h1 className="text-[28px] font-bold text-ink tracking-tight">Your medical reference library.</h1>
+          <p className="text-ink-secondary text-[14px] mt-2 max-w-[560px]">
             Medical glossary, common drug names in English and Mandarin — everything you need to understand and navigate your healthcare.
           </p>
         </div>
       </div>
 
-      {/* Tab nav */}
-      <div className="border-b border-ink-quaternary bg-white sticky top-14 z-30 overflow-x-auto">
-        <div className="max-w-[1200px] mx-auto px-5 flex gap-0 min-w-max sm:min-w-0 sm:flex-wrap">
-          {TOPICS.map(t => (
-            <button
-              key={t.id}
-              onClick={() => setActive(t.id)}
-              className={`flex items-center gap-1.5 px-4 py-3 text-[13px] font-medium border-b-2 whitespace-nowrap transition-colors ${
-                active === t.id
-                  ? 'border-brand text-brand'
-                  : 'border-transparent text-ink-secondary hover:text-ink'
-              }`}
-            >
-              <span>{t.icon}</span>
-              {t.label}
-            </button>
-          ))}
-        </div>
-      </div>
+      <div className="max-w-[1100px] mx-auto px-5 py-8">
+        <div className="flex gap-8 flex-col lg:flex-row">
 
-      {/* Content */}
-      <div className="max-w-[1200px] mx-auto px-5 py-8">
-        <div className="mb-6">
-          <h2 className="text-[20px] font-bold text-ink">{topic.icon} {topic.label}</h2>
-          <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
-        </div>
+          {/* Sidebar */}
+          <aside className="lg:w-[250px] flex-shrink-0">
+            <div className="lg:sticky lg:top-20 space-y-4">
+              {TOPIC_GROUPS.map(group => (
+                <div key={group.label}>
+                  <p className="px-3 text-[10px] font-bold uppercase tracking-wide text-ink-tertiary mb-1">{group.label}</p>
+                  <div className="space-y-0.5">
+                    {group.ids.map(id => {
+                      const t = TOPICS.find(tp => tp.id === id)
+                      if (!t) return null
+                      return (
+                        <button key={t.id} onClick={() => setActive(t.id)}
+                          className={`w-full text-left px-3 py-2.5 rounded-xl transition-colors ${
+                            active === t.id
+                              ? 'bg-brand text-white'
+                              : 'text-ink-secondary hover:bg-surface-secondary hover:text-ink'
+                          }`}>
+                          <span className="text-[16px] mr-2">{t.icon}</span>
+                          <span className="text-[13px] font-semibold">{t.label}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
 
-        {active === 'ae-triage'         && <AETriageSection />}
-        {active === 'journeys'          && <PatientJourneysSection />}
-        {active === 'booking'           && <BookingGuideSection />}
-        {active === 'pharmacy-locator'  && <PharmacyLocatorSection />}
-        {active === 'glossary'          && <GlossaryAndAbbreviationsSection />}
-        {active === 'drugs'             && <DrugsSection />}
-        {active === 'lab-values'        && <LabValuesSection />}
-        {active === 'screening'         && <ScreeningSection />}
-        {active === 'maternal'          && <MaternalSection />}
-        {active === 'vaccination'       && <VaccinationSection />}
-        {active === 'children'          && <ChildrenSection />}
-        {active === 'elderly'           && <ElderlySection />}
-        {active === 'mental-health'     && <MentalHealthSection />}
-        {active === 'medical-reports'   && <MedicalReportSection />}
-        {active === 'post-discharge'    && <PostDischargeSection />}
-        {active === 'drug-interactions' && <DrugInteractionSection />}
-        {active === 'self-monitoring'   && <SelfMonitoringSection />}
-        {active === 'second-opinion'    && <SecondOpinionSection />}
+          {/* Content */}
+          <main className="flex-1 min-w-0">
+            <div className="mb-6">
+              <h2 className="text-[22px] font-bold text-ink mb-1">{topic.icon} {topic.label}</h2>
+              <p className="text-ink-secondary text-[14px]">{topic.desc}</p>
+            </div>
+
+            {active === 'ae-triage'         && <AETriageSection />}
+            {active === 'journeys'          && <PatientJourneysSection />}
+            {active === 'booking'           && <BookingGuideSection />}
+            {active === 'pharmacy-locator'  && <PharmacyLocatorSection />}
+            {active === 'glossary'          && <GlossaryAndAbbreviationsSection />}
+            {active === 'drugs'             && <DrugsSection />}
+            {active === 'lab-values'        && <LabValuesSection />}
+            {active === 'screening'         && <ScreeningSection />}
+            {active === 'maternal'          && <MaternalSection />}
+            {active === 'vaccination'       && <VaccinationSection />}
+            {active === 'children'          && <ChildrenSection />}
+            {active === 'elderly'           && <ElderlySection />}
+            {active === 'mental-health'     && <MentalHealthSection />}
+            {active === 'medical-reports'   && <MedicalReportSection />}
+            {active === 'post-discharge'    && <PostDischargeSection />}
+            {active === 'drug-interactions' && <DrugInteractionSection />}
+            {active === 'self-monitoring'   && <SelfMonitoringSection />}
+          </main>
+        </div>
       </div>
     </div>
   )
@@ -3006,94 +3023,6 @@ function SelfMonitoringSection() {
           </div>
           <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
             <strong className="text-ink">Finding your personal best:</strong> measure at the same time each day (mid-day is common) for 2–3 weeks while your asthma is well-controlled, taking the highest of 3 attempts each time. Use that number as your 100% baseline going forward.
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
-/* ─── Second Opinion Navigator ───────────────────────────────────── */
-
-function SecondOpinionSection() {
-  const [view, setView] = useState('when')
-
-  return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap gap-2">
-        {[
-          { v: 'when',    label: '🤔 When to Seek One' },
-          { v: 'rights',  label: '⚖️ Your Rights to Records' },
-          { v: 'transfer',label: '📤 How to Transfer Records' },
-        ].map(({ v, label }) => (
-          <button key={v} onClick={() => setView(v)}
-            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
-              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
-            }`}>{label}</button>
-        ))}
-      </div>
-
-      {view === 'when' && (
-        <div className="space-y-4">
-          <p className="text-ink-secondary text-[13px] leading-relaxed">A second opinion is a normal, expected part of good healthcare — not a sign of distrust in your current doctor. It's especially worth considering for:</p>
-          <ul className="space-y-2">
-            {[
-              'A cancer diagnosis or any diagnosis that\'s uncertain or unusual',
-              'A recommendation for major surgery',
-              'A rare disease diagnosis',
-              'When you have several treatment options and aren\'t sure which is right for you',
-            ].map((t, i) => (
-              <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
-            ))}
-          </ul>
-          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
-            <strong className="text-ink">Practical step:</strong> tell your current doctor you'd like a second opinion — most doctors expect and welcome this, especially for serious diagnoses. Ask whether it's safe to wait for the second review before starting treatment.
-          </div>
-          <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
-            Not sure which hospital to approach? See the <Link to="/intelligence" className="text-brand font-semibold hover:underline">Intelligence Hub → Specialist Directory</Link> for which Malaysian hospitals are known for which specialty.
-          </div>
-        </div>
-      )}
-
-      {view === 'rights' && (
-        <div className="space-y-4">
-          <div className="border border-ink-quaternary rounded-2xl p-4">
-            <p className="font-bold text-ink text-[14px] mb-2">⚖️ Private Healthcare Facilities and Services Act 1998 (Act 586)</p>
-            <p className="text-ink-secondary text-[13px] leading-relaxed">Under Regulation 44(1) of the Act's regulations, your medical records are legally the property of the healthcare facility — but you have a qualified right to access your own data within those records.</p>
-          </div>
-          <div className="border border-ink-quaternary rounded-2xl p-4">
-            <p className="font-bold text-ink text-[14px] mb-2">📋 MMC Guideline 002/2006 (Malaysian Medical Council)</p>
-            <p className="text-ink-secondary text-[13px] leading-relaxed">Explicitly lists "seeking a second opinion" and "seeking further treatment elsewhere" as valid, protected reasons to request your medical records or reports. MMC encourages disclosure, and only allows withholding where disclosure would be detrimental to your health, endanger life, or lacks consent.</p>
-          </div>
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
-            <strong>Public vs private:</strong> private hospitals are generally more ready to release full medical records on request. Public/government hospitals often only issue a summary "medical report" rather than the full record, unless a court order is obtained.
-          </div>
-          <p className="text-ink-tertiary text-[11px]">If access is denied without a valid reason, your recourse is ultimately to seek a court order compelling production of records — an uncommon last resort, not the typical path.</p>
-        </div>
-      )}
-
-      {view === 'transfer' && (
-        <div className="space-y-4">
-          <div className="border border-ink-quaternary rounded-2xl p-4">
-            <p className="font-bold text-ink text-[14px] mb-2">What to request</p>
-            <div className="flex flex-wrap gap-1.5">
-              {['Discharge summary', 'Consultation notes', 'Lab/pathology reports', 'Imaging reports + original files (CD/USB)', 'Operative reports', 'Medication list', 'Allergy information'].map((t, i) => (
-                <span key={i} className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-brand/8 text-brand border border-brand/20">{t}</span>
-              ))}
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-3">
-            <div className="border border-ink-quaternary rounded-xl p-4">
-              <p className="font-bold text-ink text-[13px] mb-1">⏱ Typical turnaround</p>
-              <p className="text-ink-secondary text-[12px]">Roughly 2–4 weeks for a standard request at most private hospitals; some offer an expedited 3–7 working day option for an extra fee. Specialist/legal reports can take up to ~30 working days.</p>
-            </div>
-            <div className="border border-ink-quaternary rounded-xl p-4">
-              <p className="font-bold text-ink text-[13px] mb-1">💰 Typical fees</p>
-              <p className="text-ink-secondary text-[12px]">Roughly RM 40–250 depending on the hospital and report type.</p>
-            </div>
-          </div>
-          <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
-            <strong className="text-ink">Format:</strong> ask for imaging in DICOM format on CD/DVD/USB, or via a secure download link if the hospital offers one. Private-to-private transfers are generally simpler and faster than public-to-private, which may involve more formal request procedures.
           </div>
         </div>
       )}
