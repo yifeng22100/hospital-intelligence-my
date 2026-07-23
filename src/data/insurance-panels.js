@@ -332,8 +332,8 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "bmc-kuching"
       ],
-      generalNote: "⚠ IMPORTANT (July 18, 2025): Generali discontinued cashless facility at selected Pantai Group and KPJ Group hospitals. Policyholders can still use those hospitals but must pay upfront and claim via reimbursement. AXA Affin rebranded to Generali (General Insurance 2023, Life Insurance 2024). Generali Life switching TPA from IHP to MiCare on January 1, 2026.",
-      logLimitWarning: "Verify cashless status before any Pantai or KPJ admission — as of July 2025, selected hospitals in these groups no longer offer cashless GL under Generali. Call 1300-88-9979 to confirm.",
+      generalNote: "⚠ IMPORTANT (July 18, 2025): Generali discontinued cashless facility at selected Pantai Group and KPJ Group hospitals. Policyholders can still use those hospitals but must pay upfront and claim via reimbursement. AXA Affin rebranded to Generali (General Insurance 2023, Life Insurance 2024). Generali Life's TPA switched from IHP to MiCare effective January 1, 2026 — old physical GL cards were valid only until 31 December 2025; use the MiCare hotline for hospitalisation claims going forward.",
+      logLimitWarning: "Verify cashless status before any Pantai or KPJ admission — as of July 2025, selected hospitals in these groups no longer offer cashless GL under Generali. Call 1300-88-9979 (general) or 1300-88-8690 (MiCare hospitalisation line, since Jan 2026) to confirm.",
       preAdmissionWindow: "Typically 30–60 days. Confirm in policy document.",
       website: "https://www.generali.com.my"
     },

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { GLOSSARY } from '../data/glossary'
 import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
 
 const TOPICS = [
+  { id: 'ae-triage',         icon: '🚑', label: 'A&E Triage Guide',              desc: 'When to call 999, go to A&E, or see a clinic — triage system & costs explained' },
   { id: 'glossary',          icon: '📖', label: 'Medical Glossary',              desc: 'Plain-English medical terms and hospital abbreviations decoded' },
   { id: 'drugs',             icon: '💊', label: 'Common Drugs',                  desc: 'Common medications — Mandarin names, what they do, where to get them' },
   { id: 'lab-values',        icon: '🔬', label: 'Lab Values',                   desc: 'What your blood test results mean — normal ranges explained' },
@@ -13,6 +14,8 @@ const TOPICS = [
   { id: 'elderly',           icon: '👴', label: 'Elderly & OKU Care',           desc: 'Healthcare, mobility, chronic disease management & support' },
   { id: 'mental-health',     icon: '🧠', label: 'Mental Health Resources',      desc: 'Mental wellness, counselling services & crisis support' },
   { id: 'medical-reports',   icon: '📋', label: 'Reading Medical Reports',      desc: 'Understand your lab results, scans, diagnoses & prescriptions' },
+  { id: 'post-discharge',    icon: '🏡', label: 'Post-Discharge Care',          desc: 'Wound care, red-flag symptoms, MC entitlement & home care services' },
+  { id: 'drug-interactions', icon: '⚠️', label: 'Drug Interaction Checker',     desc: 'Common medication combinations to be aware of — not medical advice' },
 ]
 
 const LAB_VALUES = [
@@ -307,6 +310,7 @@ export default function Knowledge() {
           <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
         </div>
 
+        {active === 'ae-triage'         && <AETriageSection />}
         {active === 'glossary'          && <GlossaryAndAbbreviationsSection />}
         {active === 'drugs'             && <DrugsSection />}
         {active === 'lab-values'        && <LabValuesSection />}
@@ -317,7 +321,144 @@ export default function Knowledge() {
         {active === 'elderly'           && <ElderlySection />}
         {active === 'mental-health'     && <MentalHealthSection />}
         {active === 'medical-reports'   && <MedicalReportSection />}
+        {active === 'post-discharge'    && <PostDischargeSection />}
+        {active === 'drug-interactions' && <DrugInteractionSection />}
       </div>
+    </div>
+  )
+}
+
+/* ─── A&E Triage Guide ───────────────────────────────────────────── */
+
+const TRIAGE_LEVELS = [
+  { level: 'Level 1 — Resuscitation', color: '#dc2626', response: 'Immediate', meaning: 'Life-threatening — cardiac arrest, severe trauma, not breathing. Treated on arrival.' },
+  { level: 'Level 2 — Emergency', color: '#ea580c', response: 'Within ~10 minutes', meaning: 'Could deteriorate rapidly — chest pain, stroke signs, severe breathing difficulty, major bleeding.' },
+  { level: 'Level 3 — Urgent', color: '#d97706', response: 'Within ~30–60 minutes', meaning: 'Needs prompt care but stable for now — moderate injuries, persistent vomiting, high fever with lethargy.' },
+  { level: 'Level 4 — Early Care', color: '#65a30d', response: 'Within ~1–2 hours', meaning: 'Minor injuries/illness — small wounds, minor sprains, mild infections.' },
+  { level: 'Level 5 — Routine', color: '#0891b2', response: 'When capacity allows', meaning: 'Non-urgent — chronic issues, medication refills, minor complaints better suited to a clinic.' },
+]
+
+const AE_SCENARIOS = [
+  { title: 'Chest pain / suspected heart attack', action: '999 — do NOT self-drive', color: '#dc2626', detail: 'Pressure, squeezing or fullness in the chest, radiating to arm/jaw/back, shortness of breath, cold sweat. Treat as an emergency and call 999 — paramedics can start ECG and treatment on the way. The "golden hour" (first 60 minutes) matters for limiting heart muscle damage; thrombolysis is most effective within 4.5 hours of onset. If a doctor has previously told you to and you are not allergic, chew (don\'t swallow) 300mg aspirin while waiting.' },
+  { title: 'Stroke — use BE-FAST', action: '999 immediately', color: '#dc2626', detail: 'Balance difficulties, Eyesight changes, Face drooping, Arm weakness, Speech difficulty — Time to call 999. Malaysia\'s stroke campaigns use "BE-FAST" (Bahasa: PeRMATA). Note the exact time symptoms started — this determines eligibility for clot-busting treatment, ideally within 4.5 hours.' },
+  { title: 'Severe allergic reaction (anaphylaxis)', action: '999 immediately', color: '#dc2626', detail: 'Swelling of face/throat, difficulty breathing, widespread hives, dizziness after a sting/food/drug exposure. Use an adrenaline auto-injector (EpiPen) if available while waiting for the ambulance.' },
+  { title: 'High fever in an infant', action: 'A&E — don\'t wait for clinic hours', color: '#ea580c', detail: 'Any fever in an infant under 3 months old, or fever at any age with lethargy, rash, breathing difficulty, or refusal to feed, needs same-day A&E assessment.' },
+  { title: 'Deep cuts / suspected fracture', action: 'A&E same-day', color: '#d97706', detail: 'Wounds that won\'t stop bleeding after firm pressure, gape open, or expose deeper tissue need stitches. Visible deformity or inability to bear weight suggests a fracture. Not urgent enough for 999 unless bleeding is uncontrolled or there is other major trauma.' },
+  { title: 'Severe abdominal pain', action: 'A&E promptly', color: '#d97706', detail: 'Sudden-onset severe pain, pain with rigidity/guarding, or abdominal pain during pregnancy can signal appendicitis, ectopic pregnancy, or perforation — go to A&E rather than waiting it out.' },
+]
+
+function AETriageSection() {
+  const [view, setView] = useState('triage')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'triage', label: '🚦 Triage System' },
+          { v: 'where',  label: '🗺️ Where to Go' },
+          { v: 'scenarios', label: '⚡ Common Scenarios' },
+          { v: 'costs',  label: '💰 A&E Costs' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-[13px] text-red-800 leading-relaxed">
+        <strong>In any life-threatening emergency, call 999 (MERS 999) immediately.</strong> It's free, dispatches the nearest ambulance/fire/police response, and connects you to trained emergency officers. Don't Google symptoms first — call.
+      </div>
+
+      {/* ── Triage System ── */}
+      {view === 'triage' && (
+        <div className="space-y-4">
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">📋 Malaysian Triage Scale (MTS):</strong> In 2026, MOH began rolling out a new 5-level triage scale, replacing the older 3-colour system (Red/Yellow/Green) many people still recognise. Every A&E uses a two-stage process — a quick first-glance "primary triage," then a detailed "secondary triage" with vital signs — to assign you a level. Your level determines how soon you're seen, not the order you arrived in.
+          </div>
+          <div className="space-y-2.5">
+            {TRIAGE_LEVELS.map((t, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-3.5 flex items-start gap-3" style={{ borderLeft: `3px solid ${t.color}` }}>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                    <p className="font-bold text-ink text-[13px]">{t.level}</p>
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full" style={{ background: `${t.color}15`, color: t.color }}>{t.response}</span>
+                  </div>
+                  <p className="text-ink-secondary text-[12px]">{t.meaning}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-ink-tertiary text-[11px]">Response-time bands above are indicative — MOH's 2026 rollout has not published exact per-level wait-time targets. Older Malaysian Triage Category (2011) bands were Red ≤5 min, Yellow ≤30 min, Green ≤90 min. Actual wait depends on ED load — a low triage level does not mean no wait.</p>
+        </div>
+      )}
+
+      {/* ── Where to Go ── */}
+      {view === 'where' && (
+        <div className="space-y-3">
+          {[
+            { step: '1', title: 'Life-threatening', color: '#dc2626', detail: 'Chest pain, stroke signs, severe bleeding, unconsciousness, anaphylaxis, major trauma → call 999 or go to the nearest A&E (government or private) immediately, whichever is closer.' },
+            { step: '2', title: 'Urgent, not immediately life-threatening', color: '#ea580c', detail: 'High fever with lethargy in an infant, deep laceration needing stitches, suspected fracture, severe abdominal pain → A&E. Private A&E is usually faster and less crowded but costs more; government A&E is free/near-free for citizens but can have longer waits at lower triage levels.' },
+            { step: '3', title: 'Non-urgent, needs same-day care outside clinic hours', color: '#d97706', detail: '24-hour private clinics ("klinik 24 jam") — chains like Klinik Utama 24 Jam and Dr Prevents run dozens of branches across KL/Selangor. Klinik Kesihatan (government clinics) are typically open 8am–5pm weekdays only, closed weekends/public holidays.' },
+            { step: '4', title: 'Routine', color: '#16a34a', detail: 'Minor cough/cold, follow-up visits, chronic medication refills → private GP (most open 8am–10pm daily) or Klinik Kesihatan during operating hours.' },
+          ].map((s, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4 flex items-start gap-3">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-[13px] font-bold" style={{ background: s.color }}>{s.step}</span>
+              <div>
+                <p className="font-bold text-ink text-[13px] mb-1">{s.title}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{s.detail}</p>
+              </div>
+            </div>
+          ))}
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">💡 Ambulance tip:</strong> 999 ambulance dispatch is free; private ambulance transfer typically costs from RM 250+ depending on distance and level of care. In rural areas with sparser 999 coverage, driving directly to the nearest hospital may sometimes be faster than waiting for dispatch — use judgement based on your location and the patient's condition.
+          </div>
+        </div>
+      )}
+
+      {/* ── Common Scenarios ── */}
+      {view === 'scenarios' && (
+        <div className="space-y-3">
+          {AE_SCENARIOS.map((s, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4" style={{ borderLeft: `3px solid ${s.color}` }}>
+              <div className="flex items-center justify-between gap-2 flex-wrap mb-1.5">
+                <p className="font-bold text-ink text-[13px]">{s.title}</p>
+                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full" style={{ background: `${s.color}15`, color: s.color }}>{s.action}</span>
+              </div>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{s.detail}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── Costs ── */}
+      {view === 'costs' && (
+        <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="border border-ink-quaternary rounded-2xl p-4">
+              <p className="font-bold text-ink text-[14px] mb-2">🏛 Government hospital</p>
+              <ul className="space-y-1.5">
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Malaysian citizens: RM 1 registration/outpatient fee — a rate held for roughly 45 years</li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Non-citizens/stateless persons: RM 40</li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Ward stays: RM 3–RM 120/day depending on class</li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Extra materials/implants/scans can add RM 50–RM 100</li>
+              </ul>
+            </div>
+            <div className="border border-ink-quaternary rounded-2xl p-4">
+              <p className="font-bold text-ink text-[14px] mb-2">🏥 Private hospital A&E</p>
+              <ul className="space-y-1.5">
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Government-regulated medical officer consult fee: RM 30–RM 125 (private specialist consult capped at RM 35–RM 235 first visit)</li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Facility fees, triage fees, equipment/procedure fees and basic tests are <strong>not fee-capped</strong></li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Roughly 70% of a typical private hospital bill is made up of these unregulated charges — total A&E bills routinely exceed the consult fee alone by a wide margin</li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Private ambulance transfer: from RM 250+ (vs free 999)</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+            <strong>Ask for an itemised bill.</strong> Private A&E costs can escalate quickly once scans, procedures, and observation beds are added. If your condition allows, ask staff for a running cost estimate — especially if you're paying out of pocket or your insurance panel status is uncertain.
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -1463,7 +1604,7 @@ function VaccinationSection() {
       vaccines: [
         { age: 'Every 10 years', vaccines: ['Td (Tetanus-Diphtheria Booster)'], govt: 'Free', private: 'RM 40–80' },
         { age: 'Annually', vaccines: ['Influenza (Flu) Vaccine — strongly recommended for all adults', 'Especially important for 65+, pregnant, chronic illness, healthcare workers'], govt: 'Free for 65+ at KK', private: 'RM 50–120' },
-        { age: '18+ (primary series)', vaccines: ['COVID-19 Vaccine — primary series + boosters per MOH guidance', 'Free at government facilities; updated XBB/JN.1 formulations available'], govt: 'Free', private: 'Free/Covered' },
+        { age: '18+ (primary series)', vaccines: ['COVID-19 Vaccine — primary series + boosters per MOH guidance', 'Free only for priority groups (60+, immunocompromised, healthcare workers, pregnant); other adults pay out-of-pocket'], govt: 'Free for priority groups', private: 'RM 50–200' },
         { age: '50+ years', vaccines: ['Pneumococcal (PCV20 or PPSV23)', 'Shingles (Shingrix — 2 doses, preferred; or Zostavax)', 'Influenza (annual — free for 65+ at Klinik Kesihatan)'], govt: 'Limited coverage', private: 'RM 80–400' },
         { age: 'Special groups', vaccines: ['Hepatitis B (if unvaccinated)', 'Hepatitis A (travellers, food handlers)', 'Yellow Fever (travellers to Africa/South America — mandatory for some countries)', 'Rabies post-exposure (if animal bite)'], govt: 'Post-exposure/special', private: 'RM 50–350' },
       ],
@@ -1483,10 +1624,10 @@ function VaccinationSection() {
   const currentGroup = VACCINATION_SCHEDULE[ageGroup]
 
   const COVID_VACCINES = [
-    { name: 'Pfizer-BioNTech (Comirnaty)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Most widely used in Malaysia; available at government and private facilities', status: 'Available' },
-    { name: 'Moderna (Spikevax)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Available at most private clinics and hospitals; updated XBB formulations', status: 'Available' },
-    { name: 'AstraZeneca (Vaxzevria)', type: 'Viral vector', doses: '2 primary doses', notes: 'Used during 2021–2022 campaign; no longer primary recommendation', status: 'Phase out' },
-    { name: 'Sinovac (CoronaVac)', type: 'Inactivated', doses: '2 primary doses', notes: 'Used widely in Cansino/Sinovac phase; Moderna/Pfizer preferred for boosters', status: 'Phase out' },
+    { name: 'Pfizer-BioNTech (Comirnaty)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Most widely used in Malaysia; current formulation targets the LP.8.1 Omicron sublineage (2025–26 season)', status: 'Available' },
+    { name: 'Moderna (Spikevax)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Available at most private clinics and hospitals; current formulation targets LP.8.1', status: 'Available' },
+    { name: 'AstraZeneca (Vaxzevria)', type: 'Viral vector', doses: '2 primary doses', notes: 'Withdrawn worldwide by the manufacturer in May 2024 due to falling demand — no longer available', status: 'Discontinued' },
+    { name: 'Sinovac (CoronaVac)', type: 'Inactivated', doses: '2 primary doses', notes: 'Used widely in the 2021–2022 phase; Pfizer/Moderna are now preferred for boosters', status: 'Phase out' },
   ]
 
   const TROPICAL_DISEASES = [
@@ -1494,7 +1635,7 @@ function VaccinationSection() {
       disease: 'Dengue Fever',
       icon: '🦟',
       color: '#dc2626',
-      vaccine: 'Qdenga (TAK-003) — 2 doses, 3 months apart. RM 350–500/dose at private clinics. Ages 4–60. Does not require prior dengue testing.',
+      vaccine: 'Qdenga (TAK-003) — 2 doses, 3 months apart. RM 240–500/dose at private clinics (RM 480–1,000 full course). Ages 4–60. Does not require prior dengue testing.',
       spread: 'Aedes aegypti mosquito bite (daytime biter)',
       symptoms: 'High fever, severe headache behind eyes, muscle/joint pain, skin rash 3–4 days after fever onset',
       risk: '~100,000+ cases/year in Malaysia; urban areas highest risk',
@@ -1514,7 +1655,7 @@ function VaccinationSection() {
       disease: 'COVID-19',
       icon: '🦠',
       color: '#0891b2',
-      vaccine: 'Primary series (2 doses mRNA) + boosters recommended by MOH. Updated bivalent formulations available free at Klinik Kesihatan and MySejahtera-registered sites.',
+      vaccine: 'Primary series (2 doses mRNA) + boosters recommended by MOH. Current LP.8.1-targeted formulations free at Klinik Kesihatan for priority groups (60+, immunocompromised, healthcare workers, pregnant); others pay privately.',
       spread: 'Airborne (respiratory droplets and aerosols); close contact with infected person',
       symptoms: 'Fever, cough, shortness of breath, loss of taste/smell, fatigue. Omicron variants often milder in vaccinated individuals',
       risk: 'Long COVID (fatigue, brain fog, breathlessness >12 weeks) affects ~10% of infected. Vaccination significantly reduces long COVID risk',
@@ -1617,7 +1758,7 @@ function VaccinationSection() {
           {/* COVID section */}
           <div>
             <h3 className="text-[17px] font-bold text-ink mb-1">🦠 COVID-19 Vaccination in Malaysia</h3>
-            <p className="text-ink-secondary text-[13px] mb-4">Malaysia's national COVID-19 vaccination programme (PICK) vaccinated over 27 million Malaysians. Updated bivalent boosters are now recommended for at-risk groups.</p>
+            <p className="text-ink-secondary text-[13px] mb-4">Malaysia's national COVID-19 vaccination programme (PICK) vaccinated over 27 million Malaysians. COVID-19 has since moved to a targeted, largely paid booster model — free boosters are now reserved for priority/high-risk groups, not the general public.</p>
 
             <div className="space-y-2 mb-5">
               {COVID_VACCINES.map((v, i) => (
@@ -1626,7 +1767,7 @@ function VaccinationSection() {
                     <p className="font-bold text-ink text-[13px]">{v.name}</p>
                     <div className="flex gap-2">
                       <span className="text-[11px] bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-full">{v.type}</span>
-                      <span className={`text-[11px] px-2 py-0.5 rounded-full border ${v.status === 'Available' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-amber-50 text-amber-700 border-amber-200'}`}>{v.status}</span>
+                      <span className={`text-[11px] px-2 py-0.5 rounded-full border ${v.status === 'Available' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : v.status === 'Discontinued' ? 'bg-red-50 text-red-700 border-red-200' : 'bg-amber-50 text-amber-700 border-amber-200'}`}>{v.status}</span>
                     </div>
                   </div>
                   <p className="text-ink-secondary text-[11px]"><strong>Doses:</strong> {v.doses}</p>
@@ -1638,7 +1779,7 @@ function VaccinationSection() {
             <div className="grid sm:grid-cols-2 gap-3">
               {[
                 { title: 'Who should get boosted?', items: ['Adults 60+: strongly recommended annually', 'Immunocompromised individuals (any age)', 'Healthcare workers', 'Pregnant women (after 1st trimester)', 'Those with chronic conditions (diabetes, heart disease, lung disease)'] },
-                { title: 'Where to get COVID vaccine in Malaysia', items: ['Free: all Klinik Kesihatan and government hospitals', 'Book via MySejahtera App or walk-in', 'Private: Caring Pharmacy, Alpro, hospital vaccination centres (paid — RM 50–200)', 'Pfizer and Moderna XBB/JN.1 bivalent formulations available'] },
+                { title: 'Where to get COVID vaccine in Malaysia', items: ['Free at Klinik Kesihatan and government hospitals — priority groups only (60+, immunocompromised, healthcare workers, pregnant)', 'Book via MySejahtera App or walk-in', 'Private: Caring Pharmacy, Alpro, hospital vaccination centres (RM 50–200) — general public pays here', 'Pfizer and Moderna current formulations target the LP.8.1 sublineage (2025–26 season)'] },
               ].map((box, i) => (
                 <div key={i} className="bg-surface-secondary rounded-xl p-4">
                   <p className="font-bold text-ink text-[13px] mb-2">{box.title}</p>
@@ -2222,6 +2363,255 @@ function MedicalReportSection() {
           </div>
         </div>
       )}
+    </div>
+  )
+}
+
+/* ─── Post-Discharge Care ────────────────────────────────────────── */
+
+const REDFLAG_SYMPTOMS = [
+  { symptom: 'Fever ≥38°C, persisting', why: 'Can signal infection at the surgical site or elsewhere' },
+  { symptom: 'Increasing wound redness, warmth or swelling', why: 'Classic signs of a developing wound infection' },
+  { symptom: 'Pus or foul-smelling wound discharge', why: 'Strongly suggests infection — needs assessment same day' },
+  { symptom: 'Wound reopening, or bleeding not stopped by 5 minutes of firm pressure', why: 'May need re-suturing or further intervention' },
+  { symptom: 'Breathing difficulty or shortness of breath', why: 'Could indicate a clot, infection, or cardiac/respiratory complication' },
+  { symptom: 'Chest pain', why: 'Never ignore — could be cardiac or a blood clot' },
+  { symptom: 'Severe or worsening pain not controlled by prescribed painkillers', why: 'Pain that escalates instead of improving is not normal recovery' },
+  { symptom: 'Confusion, reduced consciousness, or big blood-pressure changes', why: 'Needs immediate assessment — do not wait for your follow-up date' },
+]
+
+const HOME_CARE_PROVIDERS = [
+  { name: 'Homage Malaysia', detail: 'Post-hospitalisation nursing, rehab and respite care; covers KL, Selangor, Kedah, Penang, Johor. Sometimes partners directly with hospitals for discharge transition.' },
+  { name: 'Sunway Home Healthcare', detail: 'Registered-nurse-led home nursing — wound/ostomy care, post-stroke and post-surgery rehab. Runs a "Hospital@Home" programme for hospital-grade care at home.' },
+  { name: 'Universal Nursing Care (Petaling Jaya)', detail: 'Skilled nursing and post-op assistance.' },
+]
+
+function PostDischargeSection() {
+  const [view, setView] = useState('wound')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'wound',  label: '🩹 Wound Care & Red Flags' },
+          { v: 'meds',   label: '💊 Medication & Activity' },
+          { v: 'mc',     label: '📄 MC & Sick Leave' },
+          { v: 'home',   label: '🏡 Home Care Services' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {/* ── Wound care & red flags ── */}
+      {view === 'wound' && (
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-[17px] font-bold text-ink mb-2">Wound care basics</h3>
+            <ul className="space-y-1.5">
+              {[
+                'Follow the hospital\'s specific written instructions — dressing schedule and cleaning protocol vary by procedure.',
+                'Keep the wound clean and dry. If permitted, clean gently with mild soap and water only — don\'t scrub.',
+                'Many surgical wounds can be showered (not soaked or swum) after the first ~24 hours, but confirm with your surgical team first.',
+                'Wash your hands and use clean supplies before touching any dressing.',
+              ].map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
+            <p className="font-bold text-red-900 text-[14px] mb-3">🚨 Red flags — return to A&E immediately</p>
+            <div className="space-y-2">
+              {REDFLAG_SYMPTOMS.map((r, i) => (
+                <div key={i} className="bg-white border border-red-200 rounded-xl p-3">
+                  <p className="font-semibold text-red-800 text-[12.5px]">{r.symptom}</p>
+                  <p className="text-red-700/80 text-[11.5px] mt-0.5">{r.why}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary">
+            <strong className="text-ink">📅 Follow-up:</strong> Wound checks and suture removal are typically scheduled 7–14 days after discharge — timing varies by procedure complexity. Your exact date is usually printed on the discharge summary; confirm before you leave the hospital.
+          </div>
+        </div>
+      )}
+
+      {/* ── Meds & activity ── */}
+      {view === 'meds' && (
+        <div className="space-y-4">
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">💊 Medication management</p>
+            <ul className="space-y-1.5">
+              {[
+                'Take discharge medications exactly as prescribed, even once you feel better — don\'t stop antibiotics early.',
+                'Reconcile your discharge medication list against what you were taking before admission — duplicates or interactions are a known risk at care transitions. See the Drug Interaction Checker for common combinations to flag with your pharmacist.',
+                'Ask what to do if you miss a dose, and which side effects need urgent attention vs. can wait for your follow-up.',
+              ].map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">🏃 Activity restrictions</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed">Restrictions are procedure-specific — commonly no heavy lifting, driving, or strenuous exercise for a defined period. Follow your surgeon's specific written restriction rather than assuming "feeling fine" means you're cleared to resume normal activity.</p>
+          </div>
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">📋 What your discharge summary should contain</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed mb-2">Request a copy before leaving the hospital — you'll need it for insurance claims and future doctors. It should cover:</p>
+            <ul className="space-y-1">
+              {['Diagnosis', 'Procedures/treatment performed during admission', 'Medications prescribed at discharge, with dose and duration', 'Follow-up appointment details', 'Red-flag symptoms to watch for', 'Contact information for questions'].map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[12.5px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* ── MC & sick leave ── */}
+      {view === 'mc' && (
+        <div className="space-y-4">
+          <div className="bg-surface-secondary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">Ordinary paid sick leave (Employment Act 1955)</p>
+            <div className="grid sm:grid-cols-3 gap-2">
+              {[
+                { years: '< 2 years service', days: '14 days/year' },
+                { years: '2–<5 years service', days: '18 days/year' },
+                { years: '≥5 years service', days: '22 days/year' },
+              ].map((r, i) => (
+                <div key={i} className="bg-white rounded-xl p-3 text-center border border-ink-quaternary">
+                  <p className="font-bold text-ink text-[15px]">{r.days}</p>
+                  <p className="text-ink-tertiary text-[11px]">{r.years}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">🏥 Hospitalisation leave is separate — up to 60 days/year.</strong> Since the Employment (Amendment) Act 2022 (effective 1 Jan 2023), hospitalisation leave no longer counts against your ordinary sick-leave days — it's an additional entitlement.
+          </div>
+          <ul className="space-y-2">
+            {[
+              'Only MCs from government hospitals, your employer\'s panel clinics, or (if unavailable) any registered doctor count for paid leave — employers aren\'t obliged to accept others.',
+              'Common practice: submit your MC to your employer within 48 hours, or risk it being treated as unauthorised absence (an HR convention, not itself in the Act).',
+              'Doctors cannot issue an MC based solely on a teleconsultation without a physical examination.',
+            ].map((t, i) => (
+              <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* ── Home care ── */}
+      {view === 'home' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px]">Many private hospitals arrange in-house or partnered home-nursing referrals directly at discharge — ask your discharge planner/nurse before leaving, since hospital-arranged referrals are often faster and pre-vetted. Independent providers include:</p>
+          {HOME_CARE_PROVIDERS.map((p, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <p className="font-bold text-ink text-[13px] mb-1">{p.name}</p>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{p.detail}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Drug Interaction Checker ───────────────────────────────────── */
+
+const DRUG_INTERACTIONS = [
+  { a: 'Warfarin', b: 'NSAIDs (ibuprofen, diclofenac, naproxen)', severity: 'High', effect: 'Significantly increased bleeding risk.' },
+  { a: 'Warfarin', b: 'Antibiotics (penicillins, ciprofloxacin, co-trimoxazole, azithromycin/clarithromycin)', severity: 'High', effect: 'Many antibiotic classes raise INR and bleeding risk — needs closer monitoring.' },
+  { a: 'Warfarin', b: 'Paracetamol (regular/high dose)', severity: 'Moderate', effect: 'Even the "safe" OTC painkiller can potentiate warfarin\'s effect — monitor INR if used regularly.' },
+  { a: 'Warfarin', b: 'TCM / herbal products (Dan Shen, Dang Gui, Chuan Xiong, Dong Quai)', severity: 'High', effect: 'Can raise bleeding risk or destabilise INR unpredictably. Avoid combining without medical guidance.' },
+  { a: 'Aspirin', b: 'Other blood thinners (clopidogrel/Plavix, warfarin)', severity: 'High', effect: 'Dual antiplatelet/anticoagulant therapy raises bleeding risk 2–3x vs. one alone — must be doctor-supervised.' },
+  { a: 'Low-dose aspirin (cardioprotective)', b: 'Ibuprofen / other NSAIDs', severity: 'Moderate', effect: 'Ibuprofen can block aspirin\'s access to platelets, reducing its heart-protective effect.' },
+  { a: 'Statins (simvastatin, atorvastatin)', b: 'Certain antibiotics/antifungals (macrolides, azoles)', severity: 'High', effect: 'Raises statin blood levels via CYP3A4 inhibition — risk of muscle damage (rhabdomyolysis).' },
+  { a: 'Statins (especially simvastatin)', b: 'Grapefruit / grapefruit juice', severity: 'Moderate', effect: 'Grapefruit blocks CYP3A4 — simvastatin levels can rise ~16-fold, atorvastatin ~2.5-fold. Effect can last up to 72 hours. Fluvastatin, rosuvastatin, and pravastatin are largely unaffected.' },
+  { a: 'ACE inhibitors / ARBs (e.g. perindopril, lisinopril)', b: 'Potassium supplements or potassium-sparing diuretics', severity: 'High', effect: 'Risk of dangerous hyperkalaemia (abnormal heart rhythm).' },
+  { a: 'ACE inhibitors / ARBs', b: 'NSAIDs', severity: 'Moderate', effect: 'Combined risk of kidney impairment — worse if a diuretic is also involved ("triple whammy").' },
+  { a: 'Metformin', b: 'IV contrast dye (CT scan / angiogram)', severity: 'High', effect: 'Risk of lactic acidosis, especially with reduced kidney function. Tell your radiology team you\'re on metformin — it\'s usually withheld around contrast procedures.' },
+  { a: 'MAOIs', b: 'SSRIs or tramadol', severity: 'High', effect: 'Risk of serotonin syndrome (confusion, rapid heart rate, high BP, in severe cases seizures). MAOI effects can persist up to 2 weeks after stopping.' },
+  { a: 'Paracetamol', b: 'Alcohol (chronic/heavy use)', severity: 'Moderate', effect: 'Increased risk of liver damage (hepatotoxicity).' },
+  { a: 'Sedatives / benzodiazepines / antihistamines', b: 'Alcohol', severity: 'Moderate', effect: 'Additive sedation and respiratory depression risk.' },
+  { a: 'Ubat selsema (decongestants: pseudoephedrine/phenylephrine)', b: 'Hypertension medication or MAOIs', severity: 'Moderate', effect: 'Can raise blood pressure, counteracting BP treatment. Pseudoephedrine is a controlled (Poison Group A) item in Malaysia.' },
+  { a: 'Amoxicillin / other antibiotics', b: 'Oral contraceptives', severity: 'Low', effect: 'Commonly cited, though evidence is debated for most non-rifampicin antibiotics — a soft caution rather than a strong risk. Use backup contraception if unsure.' },
+  { a: 'Azithromycin / other macrolides', b: 'Other QT-prolonging drugs', severity: 'Moderate', effect: 'Combined QT-prolongation risk — tell your doctor about all other medicines you\'re taking.' },
+  { a: 'NSAIDs (e.g. ibuprofen)', b: 'Other NSAIDs, including hidden ones in combo cold/flu products', severity: 'Moderate', effect: 'Many OTC "ubat selsema" combo products already contain paracetamol or ibuprofen — stacking with a separate standalone painkiller risks accidental overdose.' },
+  { a: 'TCM / herbal supplements (general)', b: 'Prescription drugs (general)', severity: 'Moderate', effect: 'TCM\'s multi-compound formulations can interact unpredictably with many Western drugs. Always disclose all TCM/herbal/supplement use to your doctor and pharmacist.' },
+]
+
+const SEVERITY_STYLE = {
+  High:     { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' },
+  Moderate: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+  Low:      { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+}
+
+function DrugInteractionSection() {
+  const [drugA, setDrugA] = useState('')
+  const [drugB, setDrugB] = useState('')
+
+  const matches = useMemo(() => {
+    const qa = drugA.trim().toLowerCase()
+    const qb = drugB.trim().toLowerCase()
+    if (!qa && !qb) return DRUG_INTERACTIONS
+    return DRUG_INTERACTIONS.filter(d => {
+      const hay = `${d.a} ${d.b}`.toLowerCase()
+      const matchA = qa ? hay.includes(qa) : true
+      const matchB = qb ? hay.includes(qb) : true
+      return matchA && matchB
+    })
+  }, [drugA, drugB])
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+        <strong>This tool is not medical advice.</strong> It provides general, plain-English information about commonly known drug interactions in Malaysia and is not a substitute for consulting a doctor or pharmacist. It does not cover every drug, dose, or individual health condition — interaction risk depends on your specific medications, dosage, kidney/liver function, and other conditions. <strong>Always tell your doctor and pharmacist about every medicine, supplement, and traditional/herbal remedy (TCM) you take</strong>, including OTC products. If you experience severe symptoms — breathing difficulty, chest pain, severe bleeding, confusion, facial/throat swelling — seek emergency care immediately; do not rely on this tool.
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-3">
+        <input
+          type="search"
+          placeholder="Search a medicine (e.g. warfarin)…"
+          value={drugA}
+          onChange={e => setDrugA(e.target.value)}
+          className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
+          autoComplete="off"
+        />
+        <input
+          type="search"
+          placeholder="Search a second medicine (optional)…"
+          value={drugB}
+          onChange={e => setDrugB(e.target.value)}
+          className="w-full border border-ink-quaternary rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-brand"
+          autoComplete="off"
+        />
+      </div>
+
+      <div className="space-y-2.5">
+        {matches.length === 0 && (
+          <p className="text-ink-tertiary text-[13px] text-center py-8">No known combinations found in this list for your search — that doesn't mean it's safe. Ask your pharmacist directly.</p>
+        )}
+        {matches.map((d, i) => {
+          const style = SEVERITY_STYLE[d.severity]
+          return (
+            <div key={i} className={`border rounded-xl p-4 ${style.border}`}>
+              <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
+                <p className="font-bold text-ink text-[13px]">{d.a} <span className="text-ink-tertiary font-normal">+</span> {d.b}</p>
+                <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${style.bg} ${style.text} border ${style.border}`}>{d.severity} concern</span>
+              </div>
+              <p className="text-ink-secondary text-[12.5px] leading-relaxed">{d.effect}</p>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-tertiary leading-relaxed">
+        This list covers ~18 commonly-flagged interaction categories relevant to Malaysia (including TCM and common "ubat selsema" combo products) — it is not exhaustive. For a full check of your actual medication list, bring everything (including supplements) to your pharmacist.
+      </div>
     </div>
   )
 }
