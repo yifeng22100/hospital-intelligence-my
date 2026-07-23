@@ -7,6 +7,7 @@ const TOPICS = [
   { id: 'costs',       icon: '💰', label: 'Cost Reference',    desc: 'Procedure costs across public, FPP and private' },
   { id: 'calculators', icon: '🧮', label: 'Calculators',       desc: 'BMI, LOG room check, procedure costs & FPP savings' },
   { id: 'panel',       icon: '🏦', label: 'Panel Lookup',      desc: 'Find which insurers panel your hospital — and what LOG limits apply' },
+  { id: 'compare',     icon: '📊', label: 'Insurer Comparison',desc: 'Side-by-side view of annual limits, room tiers, waiting periods & hotlines' },
 ]
 
 export default function Tools() {
@@ -52,6 +53,7 @@ export default function Tools() {
         {active === 'costs'       && <CostsSection />}
         {active === 'calculators' && <CalculatorsSection />}
         {active === 'panel'       && <PanelLookupSection />}
+        {active === 'compare'     && <ComparisonSection />}
       </div>
     </div>
   )
@@ -479,7 +481,7 @@ const INSURER_HOTLINES = {
   'zurich':       { hotline: '1800-88-2318',  tpa: 'MiCare Sdn Bhd (individual, from Apr 14 2025)', note: '24/7; individual/takaful on MiCare from Apr 14 2025; group still on IHP until renewal', panelUrl: 'https://www.zurich.com.my/customer-hub/my-claims/panel-hospitals' },
   'sun-life':     { hotline: '03-7884-1818',  tpa: 'MediExpress (M) Sdn Bhd',                 note: '24/7 cashless admission; panel updated Feb 2025', panelUrl: 'https://www.sunlifemalaysia.com/client-care/make-a-claim/panel-hospitals/' },
   'etiqa':        { hotline: '1800-88-9998',  tpa: 'In-house (Etiqa Healthcare Call Centre)',  note: '24/7; 140 panel hospitals; fully cardless via eTiQa+ App QR code', panelUrl: 'https://www.etiqa.com.my/panels/panel-hospitals' },
-  'axa-affin':    { hotline: '1300-88-9979',  tpa: 'IHP (General) / MiCare (Life, from Jan 1 2026)', note: '⚠ Cashless DISCONTINUED at selected Pantai & KPJ hospitals from Jul 18 2025 — those are reimbursement only now', panelUrl: 'https://www.generali.com.my' },
+  'axa-affin':    { hotline: '1300-88-9979 (general) / 1300-88-8690 (MiCare)', tpa: 'IHP (General) / MiCare (Life, since Jan 1 2026)', note: '⚠ Cashless DISCONTINUED at selected Pantai & KPJ hospitals from Jul 18 2025 — those are reimbursement only now', panelUrl: 'https://www.generali.com.my' },
   'msig':         { hotline: '1800-88-6744',  tpa: 'In-house (MSIG Assist)',                   note: '24/7 cashless via MSIG Assist Card; group products may use IHP or MiCare', panelUrl: 'https://www.msig.com.my/claims/healthcare.html' },
   'tune-protect': { hotline: '1800-88-7940',  tpa: 'MiCare Sdn Bhd',                          note: '24/7 MiCare dedicated line for Tune Protect customers; MiCare MyMed App available', panelUrl: 'https://www.tuneprotect.com/my/products/pro-health-medical/' },
   'bupa':         { hotline: '1800-82-6100',  tpa: 'IHP Malaysia (from Jan 1 2025)',           note: 'TPA changed from Fullerton to IHP on Jan 1 2025; allow 1h for cashless approval', panelUrl: 'https://www.bupaglobal.com/en/facilities/full-list' },
@@ -757,6 +759,80 @@ function PanelLookupSection() {
         </div>
       )}
 
+    </div>
+  )
+}
+
+/* ─── Insurer Comparison ─────────────────────────────────────────── */
+
+const INSURER_COMPARISON = [
+  { id: 'aia',          name: 'AIA',           annualLimit: 'RM 500,000 – RM 2,000,000', roomBoard: 'RM 150 – RM 500/night (Vitality can upgrade tier)', asCharged: 'Yes, up to plan limit', waiting: '30 days / 120 days (specified illness)', deductible: 'None on standard plans' },
+  { id: 'prudential',   name: 'Prudential',    annualLimit: 'Up to RM 8,000,000 (PRUMillion Med 2.0, refreshes yearly)', roomBoard: 'RM 200 – RM 400/night, up to 150 days/year', asCharged: 'Yes', waiting: '30 days / 120 days (specified illness)', deductible: 'None on standard plans' },
+  { id: 'great-eastern',name: 'Great Eastern', annualLimit: 'Base plan + optional Medic Million Extender rider to RM 1,500,000', roomBoard: 'RM 150 or RM 200/night (selectable tier)', asCharged: 'Yes, up to plan limit', waiting: '30 days / 120 days (specified illness) — explicit in PDS', deductible: 'None on standard plans' },
+  { id: 'allianz',      name: 'Allianz',       annualLimit: 'Varies by plan tier (SmartMed Plus / LifeBest / MediSafe Infinite+)', roomBoard: 'HealthAssured: unlimited R&B/ICU with capped co-insurance', asCharged: 'Mixed — high-deductible cost-control variant available', waiting: '30 days / 120 days (specified illness)', deductible: 'Optional RM 5,000 / 10,000 / 30,000 tiers for lower premium' },
+  { id: 'tokio-marine', name: 'Tokio Marine',  annualLimit: 'RM 500,000 – RM 1,500,000 (plan-dependent)', roomBoard: 'RM 150 – RM 400/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'zurich',       name: 'Zurich',        annualLimit: 'RM 500,000 – RM 1,500,000 (plan-dependent)', roomBoard: 'RM 150 – RM 400/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'sun-life',     name: 'Sun Life',      annualLimit: 'RM 500,000 – RM 1,500,000 (plan-dependent)', roomBoard: 'RM 150 – RM 400/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'etiqa',        name: 'Etiqa',         annualLimit: 'RM 500,000 – RM 1,500,000 (plan-dependent)', roomBoard: 'RM 150 – RM 400/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'axa-affin',    name: 'Generali (formerly AXA Affin)', annualLimit: 'RM 500,000 – RM 1,500,000 (plan-dependent)', roomBoard: 'RM 150 – RM 400/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'msig',         name: 'MSIG',          annualLimit: 'RM 500,000 – RM 1,500,000 (plan-dependent)', roomBoard: 'RM 150 – RM 400/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'tune-protect', name: 'Tune Protect',  annualLimit: 'RM 500,000 – RM 1,000,000 (plan-dependent)', roomBoard: 'RM 150 – RM 300/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'None on standard plans' },
+  { id: 'bupa',         name: 'Bupa',          annualLimit: 'RM 500,000 – RM 2,000,000 (plan-dependent, global plans higher)', roomBoard: 'RM 200 – RM 600/night (plan-dependent)', asCharged: 'Yes on mid/premium tiers', waiting: '30 days / 120 days (specified illness) — industry standard', deductible: 'Optional, per policy' },
+  { id: 'cigna',        name: 'Cigna',         annualLimit: 'Varies — global plan, no fixed local range', roomBoard: 'Varies — global plan', asCharged: 'Yes on Global plans', waiting: 'Per policy — confirm with Cigna Global', deductible: 'Optional, per policy' },
+]
+
+function ComparisonSection() {
+  const insurers = INSURANCE_PANELS?.insurers || []
+  const panelCountFor = (id) => (insurers.find(i => i.id === id)?.cashlessHospitals || []).length
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+        <strong>Important:</strong> Figures below are general market ranges compiled from public plan brochures and Product Disclosure Sheets — not a quote. Exact annual limits, room tiers, and waiting periods vary by the specific plan you buy, your age, and underwriting. <strong>Always confirm against the current Product Disclosure Sheet before purchasing.</strong>
+      </div>
+
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+        <strong className="text-ink">💡 Regulatory context (Bank Negara Malaysia):</strong> Since 1 September 2024, insurers must offer a co-payment option — typically a minimum 5% co-payment or RM 500 deductible — in exchange for premiums 19–68% lower than non-co-payment plans. Emergency treatment, critical-illness follow-up, and government-facility treatment are exempt from co-payment. BNM has also capped premium hikes at 10% for most policyholders, phased over a minimum 3 years.
+      </div>
+
+      <div className="overflow-x-auto -mx-5 px-5">
+        <table className="w-full text-[12px] border-collapse min-w-[900px]">
+          <thead>
+            <tr className="border-b-2 border-ink-quaternary">
+              <th className="text-left py-2 pr-3 font-bold text-ink">Insurer</th>
+              <th className="text-left py-2 pr-3 font-bold text-ink">Panel size</th>
+              <th className="text-left py-2 pr-3 font-bold text-ink">Annual limit range</th>
+              <th className="text-left py-2 pr-3 font-bold text-ink">Room & board</th>
+              <th className="text-left py-2 pr-3 font-bold text-ink">"As charged"?</th>
+              <th className="text-left py-2 pr-3 font-bold text-ink">Waiting period</th>
+              <th className="text-left py-2 pr-3 font-bold text-ink">Deductible/co-pay</th>
+              <th className="text-left py-2 font-bold text-ink">24h GL hotline</th>
+            </tr>
+          </thead>
+          <tbody>
+            {INSURER_COMPARISON.map(row => {
+              const hotline = INSURER_HOTLINES[row.id]
+              const panelCount = panelCountFor(row.id)
+              return (
+                <tr key={row.id} className="border-b border-ink-quaternary/60 align-top">
+                  <td className="py-2.5 pr-3 font-semibold text-ink whitespace-nowrap">{row.name}</td>
+                  <td className="py-2.5 pr-3 text-ink-secondary whitespace-nowrap">{panelCount > 0 ? `${panelCount} hospitals` : '—'}</td>
+                  <td className="py-2.5 pr-3 text-ink-secondary">{row.annualLimit}</td>
+                  <td className="py-2.5 pr-3 text-ink-secondary">{row.roomBoard}</td>
+                  <td className="py-2.5 pr-3 text-ink-secondary">{row.asCharged}</td>
+                  <td className="py-2.5 pr-3 text-ink-secondary">{row.waiting}</td>
+                  <td className="py-2.5 pr-3 text-ink-secondary">{row.deductible}</td>
+                  <td className="py-2.5 text-ink-secondary whitespace-nowrap">{hotline?.hotline || '—'}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-tertiary leading-relaxed">
+        Panel size is pulled live from the Panel Lookup tab's data. Pre-existing condition exclusions typically run 2–4 years from policy start across all insurers. Medical inflation in Malaysia reached roughly 15% in 2024, well above the ~10% global average — review your annual limit periodically.
+      </div>
     </div>
   )
 }

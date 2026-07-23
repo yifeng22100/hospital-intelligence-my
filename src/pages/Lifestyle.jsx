@@ -529,7 +529,7 @@ function DengueSection() {
             {[
               { label: 'Who can take it', val: 'Ages 4–60 years; recommended for ages 6+ in Malaysia' },
               { label: 'Doses', val: '2 doses, 3 months apart (subcutaneous injection)' },
-              { label: 'Estimated cost', val: 'RM 350–500 per dose; RM 700–1,000 for full course (private clinics/hospitals)' },
+              { label: 'Estimated cost', val: 'RM 240–500 per dose; RM 480–1,000 for full course, depending on hospital/promotion' },
             ].map((d, i) => (
               <div key={i} className="bg-white rounded-xl p-3 border border-brand/20">
                 <p className="text-[11px] font-semibold text-brand uppercase tracking-wide mb-1">{d.label}</p>
@@ -602,7 +602,7 @@ function SmokeSection() {
             { method: 'Combination NRT (most effective)', detail: 'Nicotine Replacement Therapy: patch + fast-acting form (gum/lozenge/inhaler). Combining two NRT forms doubles quit rates vs single NRT. Available OTC at pharmacies — Guardian, Watson, Caring.', tag: '25–30% quit rate' },
             { method: 'Varenicline (Champix / Chantix)', detail: 'Prescription medication — reduces nicotine cravings and withdrawal. Most effective single pharmacotherapy. Get prescription from your GP or Klinik Kesihatan (subsidised under MySihat programme).', tag: '33% quit rate' },
             { method: 'Bupropion (Zyban)', detail: 'Antidepressant that reduces withdrawal symptoms. Prescription required. Often used when varenicline is not tolerated.', tag: '20–25% quit rate' },
-            { method: 'Behavioural counselling', detail: 'Free Quitline: 1800-88-2472 (QuitLine Malaysia, Mon–Fri 8am–5pm). WhatsApp: wa.me/60128668472. Face-to-face cessation clinics at most Klinik Kesihatan — free, with medication support.', tag: 'Doubles success rate' },
+            { method: 'Behavioural counselling', detail: 'Free JomQuit line: 04-653 5999 (MOH national quit-smoking service, 24-hour chatbot at jomquit.moh.gov.my). Face-to-face cessation clinics at most Klinik Kesihatan (mQuit network) — free, with medication support.', tag: 'Doubles success rate' },
             { method: 'Set a Quit Date', detail: 'Pick a date within 2 weeks. Tell family and friends. Remove all tobacco products from home, car, and workplace on quit day. Identify your triggers and plan alternatives.', tag: 'First step' },
           ].map((m, i) => (
             <div key={i} className="border border-ink-quaternary rounded-xl p-4">

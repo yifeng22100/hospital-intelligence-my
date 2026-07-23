@@ -37,9 +37,10 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 - Takaful vs Conventional comparison
 - Insurance terms decoder (20 glossary entries)
 
-### Knowledge Hub (10 topics)
+### Knowledge Hub (13 topics)
 | Topic | What it covers |
 |---|---|
+| 🚑 A&E Triage Guide | Malaysian Triage Scale (5-level, 2026 rollout), 999 vs A&E vs clinic decision ladder, common emergency scenarios, public vs private A&E costs |
 | 📖 Medical Glossary | Plain-English medical terms + hospital abbreviations decoded (merged into one section) |
 | 💊 Common Drugs | 20 medications with Mandarin names, pinyin, dosing, emergency use flags |
 | 🔬 Lab Values | Blood test reference ranges (HbA1c, cholesterol, kidney, liver, CBC) |
@@ -50,6 +51,8 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 | 👴 Elderly & OKU Care | Screening, chronic disease management, falls prevention, cognitive health |
 | 🧠 Mental Health Resources | Conditions, Malaysian support services, crisis hotlines |
 | 📋 Reading Medical Reports | How to interpret blood tests, scans, diagnoses, and prescriptions |
+| 🏡 Post-Discharge Care | Wound care & red-flag symptoms, medication management, MC/hospitalisation leave entitlements, home care providers |
+| ⚠️ Drug Interaction Checker | ~18 commonly-flagged interaction categories (incl. TCM & OTC "ubat selsema" combos) with a two-drug search — not medical advice |
 
 ### Lifestyle Hub (8 sections)
 | Section | What it covers |
@@ -65,7 +68,8 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 
 ### Tools
 - **Cost Estimator** — procedure cost lookup by specialty with public/private comparison
-- **Panel Lookup** — search any private hospital to see which of 13 insurers cover it; search insurers to see their panel, GL hotline (verified 2025), and TPA details
+- **Panel Lookup** — search any private hospital to see which of 13 insurers cover it; search insurers to see their panel, GL hotline (verified 2026), and TPA details
+- **Insurer Comparison** — side-by-side table of all 13 insurers: annual limit ranges, room & board tiers, "as charged" status, waiting periods, deductibles, and GL hotlines, plus current Bank Negara Malaysia co-payment/premium-cap regulatory context
 - **Premium Calculator** — interactive insurance premium estimate
 
 ### Resources
@@ -83,7 +87,7 @@ All hospital entries are individually verified against:
 
 Data coverage: bed counts, ICU/NICU/OT counts, specialty availability, transfer pathways, specialist rankings, room rates, insurance panels, accreditations, robotics/technology, and contact details.
 
-Insurance panel data sourced from official insurer websites and TPA announcements (2024–2025). GL hotlines verified against AIA, Prudential, Great Eastern, Allianz (ACS), Tokio Marine (MiCare), Zurich (MiCare from Apr 2025), Sun Life (MediExpress), Etiqa, Generali (formerly AXA Affin), MSIG, Tune Protect (MiCare), Bupa (IHP from Jan 2025), Cigna.
+Insurance panel data sourced from official insurer websites and TPA announcements (2024–2026). GL hotlines verified against AIA, Prudential, Great Eastern, Allianz (ACS), Tokio Marine (MiCare), Zurich (MiCare from Apr 2025), Sun Life (MediExpress), Etiqa, Generali (formerly AXA Affin — TPA switched from IHP to MiCare, effective Jan 1 2026), MSIG, Tune Protect (MiCare), Bupa (IHP from Jan 2025), Cigna.
 
 ---
 
