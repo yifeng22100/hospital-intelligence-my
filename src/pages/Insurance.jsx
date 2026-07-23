@@ -412,39 +412,41 @@ export default function Insurance() {
         </div>
       </div>
 
-      {/* Topic nav */}
-      <div className="border-b border-ink-quaternary bg-white sticky top-14 z-30 overflow-x-auto">
-        <div className="max-w-[1200px] mx-auto px-5 flex gap-0 min-w-max sm:min-w-0 sm:flex-wrap">
-          {TOPICS.map(t => (
-            <button
-              key={t.id}
-              onClick={() => setActive(t.id)}
-              className={`flex items-center gap-1.5 px-4 py-3 text-[13px] font-medium border-b-2 whitespace-nowrap transition-colors ${
-                active === t.id
-                  ? 'border-brand text-brand'
-                  : 'border-transparent text-ink-secondary hover:text-ink'
-              }`}
-            >
-              <span>{t.icon}</span>
-              {t.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Content */}
       <div className="max-w-[1200px] mx-auto px-5 py-8">
-        <div className="mb-6">
-          <h2 className="text-[20px] font-bold text-ink">{topic.icon} {topic.label}</h2>
-          <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
-        </div>
+        <div className="flex gap-8 flex-col lg:flex-row">
 
-        {active === 'access'       && <AccessSection />}
-        {active === 'importance'   && <ImportanceSection />}
-        {active === 'choose'       && <ChooseSection />}
-        {active === 'premium'      && <PremiumSection />}
-        {active === 'comparison'   && <ComparisonSection />}
-        {active === 'glossary'     && <GlossarySection />}
+          {/* Sidebar */}
+          <aside className="lg:w-[230px] flex-shrink-0">
+            <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto space-y-1">
+              {TOPICS.map(t => (
+                <button key={t.id} onClick={() => setActive(t.id)}
+                  className={`w-full text-left px-3 py-2.5 rounded-xl transition-colors ${
+                    active === t.id
+                      ? 'bg-brand text-white'
+                      : 'text-ink-secondary hover:bg-surface-secondary hover:text-ink'
+                  }`}>
+                  <span className="text-[16px] mr-2">{t.icon}</span>
+                  <span className="text-[13px] font-semibold">{t.label}</span>
+                </button>
+              ))}
+            </div>
+          </aside>
+
+          {/* Content */}
+          <main className="flex-1 min-w-0">
+            <div className="mb-6">
+              <h2 className="text-[20px] font-bold text-ink">{topic.icon} {topic.label}</h2>
+              <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
+            </div>
+
+            {active === 'access'       && <AccessSection />}
+            {active === 'importance'   && <ImportanceSection />}
+            {active === 'choose'       && <ChooseSection />}
+            {active === 'premium'      && <PremiumSection />}
+            {active === 'comparison'   && <ComparisonSection />}
+            {active === 'glossary'     && <GlossarySection />}
+          </main>
+        </div>
       </div>
     </div>
   )

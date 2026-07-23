@@ -302,7 +302,7 @@ export default function Knowledge() {
 
           {/* Sidebar */}
           <aside className="lg:w-[250px] flex-shrink-0">
-            <div className="lg:sticky lg:top-20 space-y-4">
+            <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto space-y-4">
               {TOPIC_GROUPS.map(group => (
                 <div key={group.label}>
                   <p className="px-3 text-[10px] font-bold uppercase tracking-wide text-ink-tertiary mb-1">{group.label}</p>

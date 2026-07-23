@@ -35,7 +35,7 @@ export default function Lifestyle() {
 
           {/* Sidebar */}
           <aside className="lg:w-[230px] flex-shrink-0">
-            <div className="lg:sticky lg:top-20 space-y-1">
+            <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto space-y-1">
               {TOPICS.map(t => (
                 <button key={t.id} onClick={() => setActive(t.id)}
                   className={`w-full text-left px-3 py-2.5 rounded-xl transition-colors ${
