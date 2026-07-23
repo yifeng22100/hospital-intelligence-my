@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 const TOPICS = [
-  { id: 'hacks',     icon: '💡', label: 'Insider Tips',    desc: '12 things most patients don\'t know' },
-  { id: 'tiers',     icon: '🏥', label: 'Hospital Tiers',  desc: 'Public referral system explained' },
-  { id: 'trials',    icon: '🔬', label: 'Clinical Trials', desc: 'Access to experimental treatments' },
-  { id: 'night',     icon: '🌙', label: 'Night Cover',     desc: 'Overnight care by hospital type' },
+  { id: 'hacks',       icon: '💡', label: 'Insider Tips',        desc: '12 things most patients don\'t know' },
+  { id: 'tiers',       icon: '🏥', label: 'Hospital Tiers',      desc: 'Public referral system explained' },
+  { id: 'specialists', icon: '🎯', label: 'Specialist Directory', desc: 'Which hospitals are known for which specialty' },
+  { id: 'trials',      icon: '🔬', label: 'Clinical Trials',     desc: 'Access to experimental treatments' },
+  { id: 'night',       icon: '🌙', label: 'Night Cover',         desc: 'Overnight care by hospital type' },
 ]
 
 export default function Intelligence() {
@@ -19,7 +20,7 @@ export default function Intelligence() {
           <p className="text-brand text-[12px] font-semibold uppercase tracking-[0.12em] mb-1">Healthcare Intelligence</p>
           <h1 className="text-[26px] font-bold text-ink tracking-tight">Insider knowledge for smarter healthcare decisions.</h1>
           <p className="text-ink-secondary text-[14px] mt-1.5 max-w-[600px]">
-            The 5 things that matter most — insider tips, the public referral system, insurance navigation, clinical trials access, and overnight care intelligence.
+            Insider tips, the public referral system, which hospitals lead on which specialty, clinical trials access, and overnight care intelligence.
           </p>
         </div>
       </div>
@@ -51,10 +52,11 @@ export default function Intelligence() {
           <p className="text-ink-secondary text-[13px] mt-0.5">{topic.desc}</p>
         </div>
 
-        {active === 'hacks'     && <HacksSection />}
-        {active === 'tiers'     && <TiersSection />}
-        {active === 'trials'    && <TrialsSection />}
-        {active === 'night'     && <NightSection />}
+        {active === 'hacks'       && <HacksSection />}
+        {active === 'tiers'       && <TiersSection />}
+        {active === 'specialists' && <SpecialistsSection />}
+        {active === 'trials'      && <TrialsSection />}
+        {active === 'night'       && <NightSection />}
       </div>
     </div>
   )
@@ -585,6 +587,95 @@ function InsuranceSection() {
         </p>
       </div>
 
+    </div>
+  )
+}
+
+/* ─── Specialist Directory ───────────────────────────────────────── */
+
+const SPECIALTY_CENTRES = [
+  {
+    specialty: 'Cardiology & Cardiac Surgery',
+    icon: '❤️',
+    color: '#dc2626',
+    hospitals: [
+      { name: 'Institut Jantung Negara (IJN)', note: 'National Heart Institute, KL — ~12,000 cardiology procedures and ~4,500 cardiac surgeries/year. The only hospital in Malaysia offering heart and lung transplantation and mechanical heart implantation.' },
+      { name: 'Prince Court Medical Centre', note: 'Cardiothoracic surgery, interventional cardiology, electrophysiology, and Pulse Field Ablation (PFA) for arrhythmias. Newsweek World\'s Best Hospitals 2025.' },
+      { name: 'Gleneagles (KL & Penang)', note: 'Cardiac surgery and cardiology services across multiple locations.' },
+    ],
+  },
+  {
+    specialty: 'Oncology & Cancer Care',
+    icon: '🎗️',
+    color: '#7c3aed',
+    hospitals: [
+      { name: 'Beacon Hospital', note: 'First and only Malaysian hospital with an ESMO Designated Centre of Integrated Oncology and Palliative Care accreditation. Treats 37+ cancer types; radiotherapy benchmarked against MD Anderson standards by IROC Houston.' },
+      { name: 'Subang Jaya Medical Centre (SJMC)', note: 'Oncology services certified by ACHS International as a Centre of Excellence; JCI + MSQH accredited.' },
+      { name: 'Sunway Medical Centre / Pantai Hospital KL', note: 'Also offer comprehensive oncology services.' },
+    ],
+  },
+  {
+    specialty: 'Fertility & IVF',
+    icon: '👶',
+    color: '#db2777',
+    hospitals: [
+      { name: 'Sunway Fertility Centre', note: 'Part of Sunway Medical Centre (Newsweek Malaysia\'s #1 hospital). Won International Fertility Clinic of the Year, IMTJ Awards 2020.' },
+      { name: 'TMC Fertility', note: 'Established 1994 — one of Malaysia\'s most established fertility groups. Its Thomson Hospital Kota Damansara clinic is one of Southeast Asia\'s largest IVF facilities; also in Ipoh, Penang, Johor Bahru.' },
+      { name: 'KPJ Damansara Fertility Centre', note: 'Positioned on combining affordability with strong success rates.' },
+    ],
+  },
+  {
+    specialty: 'Neurology & Neurosurgery',
+    icon: '🧠',
+    color: '#0891b2',
+    hospitals: [
+      { name: 'Gleneagles KL', note: 'Dedicated Neuroscience Centre bringing together neurologists, neurosurgeons, psychiatrists, and radiologists. Offers Gamma Knife radiosurgery for brain tumours/lesions, trigeminal neuralgia, Parkinson\'s, and epilepsy.' },
+    ],
+  },
+  {
+    specialty: 'Orthopaedics',
+    icon: '🦴',
+    color: '#d97706',
+    hospitals: [
+      { name: 'Sunway Medical Centre', note: 'Performed Malaysia\'s first robot-assisted joint replacement surgery; 24 orthopaedic surgeons (10 robotic-trained), uses ROSA Knee System and Mako SmartRobotics.' },
+      { name: 'ALTY Orthopaedic Hospital', note: 'One of Malaysia\'s first single-specialty orthopaedic hospitals — robotic-assisted hip/knee replacement, endoscopic spine surgery, sports surgery, complex revision surgery.' },
+    ],
+  },
+  {
+    specialty: 'Transplant Services',
+    icon: '🫀',
+    color: '#16a34a',
+    hospitals: [
+      { name: 'IJN — heart & lung', note: 'The sole Malaysian provider of heart and lung transplantation.' },
+      { name: 'Hospital Selayang — liver', note: 'Malaysia\'s designated national centre for hepatopancreatobiliary surgery and liver transplantation; performed the first liver transplant in a Malaysian public hospital (2002).' },
+      { name: 'Hospital Selayang / HKL — kidney', note: 'Public sector living-donor kidney transplant centres. Privately, Prince Court Medical Centre also lists kidney transplant among its services.' },
+      { name: 'Prince Court / Gleneagles (KL & Penang) — liver', note: 'Private liver transplant services, including for international patients.' },
+    ],
+  },
+]
+
+function SpecialistsSection() {
+  return (
+    <div className="space-y-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+        This directory reflects publicly reported centres of excellence, accreditations, and "first in Malaysia" claims — it is not exhaustive, and other hospitals may offer excellent care in these specialties too. Always discuss the right hospital for your case with your referring doctor.
+      </div>
+
+      <div className="space-y-5">
+        {SPECIALTY_CENTRES.map((sc, i) => (
+          <div key={i} className="border border-ink-quaternary rounded-2xl p-5" style={{ borderLeft: `3px solid ${sc.color}` }}>
+            <p className="font-bold text-ink text-[15px] mb-3">{sc.icon} {sc.specialty}</p>
+            <div className="space-y-2.5">
+              {sc.hospitals.map((h, j) => (
+                <div key={j} className="bg-surface-secondary rounded-xl p-3">
+                  <p className="font-semibold text-ink text-[13px]">{h.name}</p>
+                  <p className="text-ink-secondary text-[12px] leading-relaxed mt-0.5">{h.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

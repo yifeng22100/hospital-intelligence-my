@@ -15,19 +15,16 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 - Hospital cards with 4-tab detail modal: Overview · Specialties · Facilities · Intelligence
 - FPP badge, MSQH/JCI accreditation badges, side-by-side comparison (up to 5)
 
-### Intelligence Hub (11 topics)
+### Intelligence Hub (5 topics)
 | Topic | What it covers |
 |---|---|
-| 💡 Insider Tips | 12 healthcare navigation hacks (FPP, insurance pre-admission, EPF, MySalam) |
+| 💡 Insider Tips | Healthcare navigation hacks (FPP, insurance pre-admission window, academic-hybrid pricing, transfer protocol) |
 | 🏥 Hospital Tiers | Public referral pyramid: Klinik → District → State → Tertiary |
-| 🛡️ Insurance Panels | Panel lists, LOG limits, claims guide for 13 Malaysian insurers |
-| 💰 Cost Reference | Procedure costs — Public vs FPP vs Private Mid vs Premium |
-| 👨‍⚕️ Doctor Check | MMC registry verification, qualification decoder, red flags |
+| 🎯 Specialist Directory | Which hospitals lead on cardiology, oncology, fertility, neurology, orthopaedics, and transplant services, with named centres of excellence and accreditations |
 | 🔬 Clinical Trials | NMRR, ClinicalTrials.gov, top trial centres |
 | 🌙 Night Cover | Who is on duty overnight by hospital type |
-| ✅ Verify Facilities | How to verify nursing homes, dialysis, dental, and specialist centres |
-| ⚕️ Specialties Guide | 22 specialties with symptoms, procedures, and top centres |
-| 🚨 Emergency Events | Step-by-step guides for 11 emergencies |
+
+Panel lists and LOG claims guidance live in **Tools → Panel Lookup**; procedure cost comparisons live in **Tools → Cost Reference**; doctor/qualification verification is covered in the About page FAQ (points to the MMC registry at mmc.gov.my) — see below.
 
 ### Insurance Hub
 - Healthcare access matrix: Citizens · PRs · Foreigners
@@ -37,10 +34,13 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 - Takaful vs Conventional comparison
 - Insurance terms decoder (20 glossary entries)
 
-### Knowledge Hub (13 topics)
+### Knowledge Hub (16 topics)
 | Topic | What it covers |
 |---|---|
 | 🚑 A&E Triage Guide | Malaysian Triage Scale (5-level, 2026 rollout), 999 vs A&E vs clinic decision ladder, common emergency scenarios, public vs private A&E costs |
+| 🗺️ Patient Journey Guides | Step-by-step pathways for 5 common situations: suspected diabetes, child with HFMD, colonoscopy, health screening, newly pregnant |
+| 📅 Appointment Booking Guide | MySejahtera & MyHEALTH explained, private hospital group booking apps (KPJ Cares, MyHealth360, and others), typical wait times |
+| 🏪 Pharmacy & Vaccination Locator | 24-hour pharmacy chains, hospital pharmacies serving walk-ins, where vaccination is actually available (with a legal note on pharmacist-administered vaccination) |
 | 📖 Medical Glossary | Plain-English medical terms + hospital abbreviations decoded (merged into one section) |
 | 💊 Common Drugs | 20 medications with Mandarin names, pinyin, dosing, emergency use flags |
 | 🔬 Lab Values | Blood test reference ranges (HbA1c, cholesterol, kidney, liver, CBC) |

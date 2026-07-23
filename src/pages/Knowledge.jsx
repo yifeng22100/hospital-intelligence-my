@@ -4,6 +4,9 @@ import { DRUGS, DRUG_CATEGORIES } from '../data/drugs'
 
 const TOPICS = [
   { id: 'ae-triage',         icon: '🚑', label: 'A&E Triage Guide',              desc: 'When to call 999, go to A&E, or see a clinic — triage system & costs explained' },
+  { id: 'journeys',          icon: '🗺️', label: 'Patient Journey Guides',        desc: 'Step-by-step: what to do first for common health situations' },
+  { id: 'booking',           icon: '📅', label: 'Appointment Booking Guide',     desc: 'MySejahtera, government clinics, and private hospital apps explained' },
+  { id: 'pharmacy-locator',  icon: '🏪', label: 'Pharmacy & Vaccination Locator', desc: '24-hour pharmacies, hospital pharmacies & where to get vaccinated' },
   { id: 'glossary',          icon: '📖', label: 'Medical Glossary',              desc: 'Plain-English medical terms and hospital abbreviations decoded' },
   { id: 'drugs',             icon: '💊', label: 'Common Drugs',                  desc: 'Common medications — Mandarin names, what they do, where to get them' },
   { id: 'lab-values',        icon: '🔬', label: 'Lab Values',                   desc: 'What your blood test results mean — normal ranges explained' },
@@ -311,6 +314,9 @@ export default function Knowledge() {
         </div>
 
         {active === 'ae-triage'         && <AETriageSection />}
+        {active === 'journeys'          && <PatientJourneysSection />}
+        {active === 'booking'           && <BookingGuideSection />}
+        {active === 'pharmacy-locator'  && <PharmacyLocatorSection />}
         {active === 'glossary'          && <GlossaryAndAbbreviationsSection />}
         {active === 'drugs'             && <DrugsSection />}
         {active === 'lab-values'        && <LabValuesSection />}
@@ -456,6 +462,288 @@ function AETriageSection() {
           </div>
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
             <strong>Ask for an itemised bill.</strong> Private A&E costs can escalate quickly once scans, procedures, and observation beds are added. If your condition allows, ask staff for a running cost estimate — especially if you're paying out of pocket or your insurance panel status is uncertain.
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Patient Journey Guides ─────────────────────────────────────── */
+
+const PATIENT_JOURNEYS = {
+  diabetes: {
+    label: 'I think I have diabetes',
+    icon: '🩸',
+    intro: 'Excessive thirst, frequent urination, unexplained fatigue, blurred vision, slow-healing wounds, or unexplained weight loss — here\'s what to do.',
+    steps: [
+      { step: '1', title: 'See a GP or Klinik Kesihatan', color: '#0891b2', detail: 'Describe your symptoms. They\'ll order a fasting blood sugar (FBS) or HbA1c test — no specialist referral needed at this stage.' },
+      { step: '2', title: 'Get tested', color: '#7c3aed', detail: 'Diabetes is diagnosed at FBS ≥7.0 mmol/L or HbA1c ≥6.5% (see the Lab Values topic for the full reference ranges). A borderline result is usually repeated on a separate day to confirm before diagnosis.' },
+      { step: '3', title: 'Start primary-care management', color: '#16a34a', detail: 'Most Type 2 diabetes is managed at GP/Klinik Kesihatan level — diet and lifestyle changes plus first-line oral medication (usually metformin). You don\'t automatically need an endocrinologist.' },
+      { step: '4', title: 'Specialist referral if needed', color: '#d97706', detail: 'Referred to an endocrinologist mainly if your sugar stays uncontrolled on oral medication, or complications develop.' },
+      { step: '5', title: 'Ongoing monitoring', color: '#dc2626', detail: 'Periodic HbA1c checks, plus annual screening for retinopathy (eyes), nephropathy (kidneys), and neuropathy (nerves) — these are the complications diabetes causes silently over years.' },
+    ],
+  },
+  hfmd: {
+    label: 'My child has HFMD',
+    icon: '✋',
+    intro: 'Mouth ulcers, a rash or blisters on hands/feet (sometimes buttocks/knees), fever, and poor feeding — mostly in under-6s, and it spreads fast in childcare settings.',
+    steps: [
+      { step: '1', title: 'Recognise the signs', color: '#d97706', detail: 'Fever followed by mouth ulcers and a rash/blisters on hands, feet, and sometimes buttocks or knees. Usually mild and self-limiting over 7–10 days.' },
+      { step: '2', title: 'See a GP or paediatrician', color: '#0891b2', detail: 'Routine cases can be managed with rest, fluids, and fever/pain control at home under a doctor\'s guidance.' },
+      { step: '3', title: 'Watch for red flags → A&E', color: '#dc2626', detail: 'High persistent fever, lethargy or drowsiness, seizures, or refusal to drink (signs of dehydration or, rarely, EV71-strain neurological complications) need urgent hospital assessment — see the A&E Triage Guide.' },
+      { step: '4', title: 'Keep your child home', color: '#7c3aed', detail: 'Common practice is to stay home until fever-free for 24 hours and blisters have dried/crusted — check with your child\'s school/childcare, as exact exclusion rules can vary by state health office.' },
+    ],
+  },
+  colonoscopy: {
+    label: 'I need a colonoscopy',
+    icon: '🔬',
+    intro: 'Recommended for screening from age 45–50, earlier with family history or red-flag symptoms (rectal bleeding, unexplained weight loss, change in bowel habit, anaemia).',
+    steps: [
+      { step: '1', title: 'Get referred or self-refer', color: '#0891b2', detail: 'A GP referral is often required for insurer/panel claims, but you can also book directly with a gastroenterologist or colorectal surgeon at a private hospital.' },
+      { step: '2', title: 'Understand the cost', color: '#d97706', detail: 'Private colonoscopy in Malaysia typically runs RM 1,400–RM 3,000 depending on hospital, sedation type, and whether a polyp is removed during the procedure (polypectomy).' },
+      { step: '3', title: 'Prepare', color: '#7c3aed', detail: 'Bowel preparation (a special diet plus a prep solution) 1–2 days before the procedure — follow your hospital\'s instructions exactly, as inadequate prep is the most common reason for a repeat procedure.' },
+      { step: '4', title: 'Day of procedure', color: '#16a34a', detail: 'Usually a day procedure under sedation with same-day discharge — you\'ll need someone to accompany you home, as you can\'t drive after sedation.' },
+      { step: '5', title: 'Public sector option', color: '#dc2626', detail: 'Available at government hospitals too, generally at lower or no cost, but with a longer wait for non-urgent screening cases — ask your Klinik Kesihatan or hospital for current wait times.' },
+    ],
+  },
+  screening: {
+    label: 'I need a health screening',
+    icon: '🩺',
+    intro: 'Baseline screening is worth starting in your 20s–30s; adults 35+ are strongly encouraged to screen regularly.',
+    steps: [
+      { step: '1', title: 'Know your frequency', color: '#0891b2', detail: 'Healthy adults under 50: every 2 years. Age 50+: annually. Living with a chronic condition (diabetes, hypertension): every 6 months, or as your doctor advises.' },
+      { step: '2', title: 'Pick a package that fits your age/risk', color: '#7c3aed', detail: 'Basic packages (bloods, urinalysis, BMI) start from roughly RM 600; comprehensive packages with imaging or a stress test can run RM 1,000–2,000+. See the Tools → Cost Reference tab for specifics.' },
+      { step: '3', title: 'Public vs private', color: '#16a34a', detail: 'Government facilities offer core screening tests at low/no cost; private hospitals offer faster turnaround and broader packages (incl. imaging) for a fee.' },
+      { step: '4', title: 'Follow up on results', color: '#d97706', detail: 'Book a follow-up consult to go through results with a doctor — don\'t just read the report. See "Reading Medical Reports" in this Knowledge Hub for how to interpret common findings.' },
+    ],
+  },
+  pregnant: {
+    label: 'I\'m pregnant, what now',
+    icon: '🤰',
+    intro: 'As soon as pregnancy is confirmed (clinic or a reliable home test), here\'s the first move.',
+    steps: [
+      { step: '1', title: 'Register at your Klinik Kesihatan (KK)', color: '#db2777', detail: 'Register at the KK assigned to your home address to get your free "Buku Pink" (Pink Book) — Malaysia\'s official antenatal record, needed for free mandatory tests regardless of where you eventually deliver.' },
+      { step: '2', title: 'Decide: government, private, or shared care', color: '#0891b2', detail: 'KK antenatal care is free/low-cost but can involve longer waits. Private O&G antenatal packages run roughly RM 2,000–5,000+ for the full course (excluding delivery), or RM 200–400 per visit à la carte. Many Malaysians do "shared care" — KK for the Pink Book and free screening, private O&G for convenience.' },
+      { step: '3', title: 'Attend your scheduled antenatal visits', color: '#7c3aed', detail: 'See the Maternal Health topic in this Knowledge Hub for the full antenatal visit and test schedule by trimester.' },
+      { step: '4', title: 'Get your vaccinations', color: '#16a34a', detail: 'Flu vaccine (any trimester) and Tdap (week 27–36) are recommended in pregnancy — see the Vaccination Guide topic for the full pregnant-women schedule.' },
+    ],
+  },
+}
+
+function PatientJourneysSection() {
+  const [active, setActive] = useState('diabetes')
+  const journey = PATIENT_JOURNEYS[active]
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+        Having chest pain or think you're having a heart attack? Go straight to the <strong className="text-ink">A&E Triage Guide</strong> topic — don't wait to read a journey guide first.
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {Object.entries(PATIENT_JOURNEYS).map(([key, j]) => (
+          <button key={key} onClick={() => setActive(key)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              active === key ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{j.icon} {j.label}</button>
+        ))}
+      </div>
+
+      <div>
+        <h3 className="text-[17px] font-bold text-ink mb-1">{journey.icon} {journey.label}</h3>
+        <p className="text-ink-secondary text-[13px] mb-4">{journey.intro}</p>
+        <div className="space-y-3">
+          {journey.steps.map((s, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4 flex items-start gap-3">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-[13px] font-bold" style={{ background: s.color }}>{s.step}</span>
+              <div>
+                <p className="font-bold text-ink text-[13px] mb-1">{s.title}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{s.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+        These guides describe a typical, general pathway — not medical advice. Timelines, referral requirements, and costs vary by hospital, insurer, and individual case.
+      </div>
+    </div>
+  )
+}
+
+/* ─── Appointment Booking Guide ──────────────────────────────────── */
+
+const PRIVATE_BOOKING_APPS = [
+  { group: 'KPJ Healthcare', app: 'KPJ Cares', detail: 'Search by hospital, specialty, or doctor name; book appointments; membership perks (concierge, room upgrades, medication delivery). Covers all KPJ hospitals nationwide.' },
+  { group: 'IHH Healthcare Malaysia (Gleneagles + Pantai)', app: 'MyHealth360', detail: 'Request-based booking (confirmed by hospital staff, typically next working day), medical records access, family member booking, reschedule/cancel in-app.' },
+  { group: 'Sunway Healthcare', app: 'Sunway Medical (per-facility apps)', detail: 'Separate apps for Sunway Medical Centre and Sunway Medical Centre Penang — doctor availability, slot booking, reminders.' },
+  { group: 'Columbia Asia (A1Health group)', app: 'Columbia Asia Malaysia', detail: 'Hospital/consultant selection, slot booking, appointment status, lab/radiology report access, health-trend tracking.' },
+  { group: 'Ramsay Sime Darby Health Care', app: 'Ramsay Sime Darby Health Care', detail: 'Online appointment booking across the group\'s hospitals.' },
+]
+
+function BookingGuideSection() {
+  const [view, setView] = useState('govt')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'govt',    label: '🏛 Government (MySejahtera)' },
+          { v: 'private', label: '🏥 Private Hospital Apps' },
+          { v: 'tips',    label: '⏱ Wait Times & Tips' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {view === 'govt' && (
+        <div className="space-y-4">
+          <div className="border border-ink-quaternary rounded-2xl p-4">
+            <p className="font-bold text-ink text-[14px] mb-2">📱 MySejahtera</p>
+            <p className="text-ink-secondary text-[13px] leading-relaxed mb-2">Still MOH's primary digital health app. You can use it to:</p>
+            <ul className="space-y-1.5">
+              {[
+                'Book Klinik Kesihatan appointments — in-person or virtual',
+                'Get a digital appointment card with QR check-in and a reminder ~24 hours ahead',
+                'View your appointment history',
+                'Book on behalf of registered dependants (18+)',
+                'Book free influenza vaccination if you\'re 60+ (a recurring government programme)',
+                'Access newer modules — e.g. the Malaysian Stem Cell Registry and MyMINDA mental-health appointment booking',
+              ].map((t, i) => (
+                <li key={i} className="text-ink-secondary text-[13px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">MyHEALTH portal</strong> (myhealth.moh.gov.my) is MOH's general health-information site — education content rather than a booking tool. Use it for reference material, not to book appointments.
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
+            Government hospital specialist clinic appointments (as opposed to Klinik Kesihatan primary care) are usually referral-based and scheduled by the receiving hospital — you generally can't self-book these directly.
+          </div>
+        </div>
+      )}
+
+      {view === 'private' && (
+        <div className="space-y-3">
+          <p className="text-ink-secondary text-[13px] mb-1">Major Malaysian private hospital groups each run their own booking app:</p>
+          {PRIVATE_BOOKING_APPS.map((a, i) => (
+            <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+              <div className="flex items-center justify-between gap-2 flex-wrap mb-1">
+                <p className="font-bold text-ink text-[13px]">{a.group}</p>
+                <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand/8 text-brand border border-brand/20">{a.app}</span>
+              </div>
+              <p className="text-ink-secondary text-[12px] leading-relaxed">{a.detail}</p>
+            </div>
+          ))}
+          <p className="text-ink-tertiary text-[11px]">App names and features change — confirm the current app on your hospital's official website before downloading.</p>
+        </div>
+      )}
+
+      {view === 'tips' && (
+        <div className="space-y-3">
+          <div className="border border-ink-quaternary rounded-xl p-4">
+            <p className="font-bold text-ink text-[13px] mb-1">Private specialist: ~1–2 weeks booked ahead</p>
+            <p className="text-ink-secondary text-[12px]">Booking in advance is generally faster and more reliable than walking in.</p>
+          </div>
+          <div className="border border-ink-quaternary rounded-xl p-4">
+            <p className="font-bold text-ink text-[13px] mb-1">Public/government specialist referral: ~2–3 months</p>
+            <p className="text-ink-secondary text-[12px]">Non-urgent referrals to government specialist clinics can take significantly longer — plan ahead, especially for screening-type appointments (e.g. colonoscopy).</p>
+          </div>
+          <div className="border border-ink-quaternary rounded-xl p-4">
+            <p className="font-bold text-ink text-[13px] mb-1">Walk-ins for imaging</p>
+            <p className="text-ink-secondary text-[12px]">Some private hospitals accept walk-ins for X-ray/ultrasound subject to same-day availability — call ahead to check before travelling.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Pharmacy & Vaccination Locator ─────────────────────────────── */
+
+function PharmacyLocatorSection() {
+  const [view, setView] = useState('pharmacy')
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {[
+          { v: 'pharmacy', label: '🏪 24-Hour Pharmacies' },
+          { v: 'hospital',  label: '🏥 Hospital Pharmacies' },
+          { v: 'vaccine',   label: '💉 Vaccination Access' },
+        ].map(({ v, label }) => (
+          <button key={v} onClick={() => setView(v)}
+            className={`px-4 py-2 rounded-xl text-[13px] font-semibold border transition-colors ${
+              view === v ? 'bg-ink text-white border-ink' : 'bg-white text-ink-secondary border-ink-quaternary hover:border-brand hover:text-brand'
+            }`}>{label}</button>
+        ))}
+      </div>
+
+      {view === 'pharmacy' && (
+        <div className="space-y-4">
+          <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
+            <strong className="text-ink">Official source:</strong> MOH runs a "24 Hours Pharmacy Services" directory listing 24-hour pharmacy facilities by state at <span className="font-mono text-[12px]">pharmacy.moh.gov.my</span>. Branch lists change often — check there for the current nearest location rather than relying on a fixed list.
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              { name: 'Caring Pharmacy (CARiNG)', detail: 'Confirmed to run 24-hour branches, concentrated in the Klang Valley (e.g. Puchong, Damansara, Subang Jaya, Bangsar South).' },
+              { name: 'Watsons', detail: '550+ stores nationwide; positioned more toward beauty/lifestyle retail — check individual branch hours.' },
+              { name: 'Guardian', detail: '440+ stores nationwide — check individual branch hours for 24-hour availability.' },
+              { name: 'Alpro Pharmacy', detail: '300+ outlets, pharmacy-first positioning — check individual branch hours.' },
+            ].map((p, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+                <p className="font-bold text-ink text-[13px] mb-1">{p.name}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{p.detail}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-surface-secondary rounded-2xl p-4 text-[12px] text-ink-tertiary leading-relaxed">
+            <strong className="text-ink">Compounding pharmacies</strong> are a distinct, MOH-regulated category (governed by the Poisons Act 1952 and MOH's Good Compounding Practice guideline) — licensed pharmacies that prepare custom-dosage or discontinued formulations against a valid prescription when a registered product isn't suitable. Ask your doctor if you need one; they're not a general walk-in retail category.
+          </div>
+        </div>
+      )}
+
+      {view === 'hospital' && (
+        <div className="space-y-4">
+          <p className="text-ink-secondary text-[13px]">Most private hospital pharmacies serve walk-in (non-admitted) customers, and many run 24 hours because they're co-located with A&E:</p>
+          <div className="space-y-2.5">
+            {[
+              { name: 'CVSKL (Consultant & Specialist Clinic KL)', detail: 'Pharmacy operates 24/7/365 and explicitly processes walk-ins, including outside prescriptions.' },
+              { name: 'Prince Court Medical Centre', detail: '24-hour "Satellite Pharmacy" at the A&E department, serving outpatients.' },
+              { name: 'Pantai Hospital Melaka', detail: '24-hour dispensing for both inpatients and outpatients.' },
+              { name: 'Gleneagles KL', detail: 'Separate Inpatient / Outpatient / A&E Satellite / Oncology / Retail pharmacy divisions.' },
+            ].map((h, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+                <p className="font-bold text-ink text-[13px] mb-1">{h.name}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{h.detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-ink-tertiary text-[11px]">Coverage varies widely by hospital — call ahead to confirm 24-hour walk-in dispensing before travelling for a non-urgent need.</p>
+        </div>
+      )}
+
+      {view === 'vaccine' && (
+        <div className="space-y-4">
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-[13px] text-red-800 leading-relaxed">
+            <strong>Important legal note:</strong> As of late 2025, Malaysia's Health Director-General has stated it is illegal for pharmacists to administer vaccines by injection generally — vaccine injection is treated as a clinical procedure reserved for registered medical practitioners. This is an active, unresolved policy debate (the Malaysian Pharmacists Society is pushing for pharmacist vaccination rights; the Malaysian Medical Association opposes it). Retail pharmacies that offer vaccination do so via an on-site doctor or nurse, not the pharmacist personally — the pharmacy is the venue, not (currently) the legal vaccinator.
+          </div>
+          <div className="space-y-2.5">
+            {[
+              { title: 'Free flu vaccine for seniors 60+', detail: 'Bookable via MySejahtera as a recurring government/Klinik Kesihatan programme.' },
+              { title: 'Qdenga (dengue) vaccine', detail: 'Available at selected private clinics (e.g. bookable via the Qualitas Plus App) and many private hospitals — see the Vaccination Guide topic for pricing.' },
+              { title: 'COVID-19 & flu boosters', detail: 'Free at Klinik Kesihatan for priority groups (60+, immunocompromised, healthcare workers, pregnant); private hospitals and clinics offer paid vaccination for everyone else — see the Vaccination Guide topic.' },
+            ].map((v, i) => (
+              <div key={i} className="border border-ink-quaternary rounded-xl p-4">
+                <p className="font-bold text-ink text-[13px] mb-1">{v.title}</p>
+                <p className="text-ink-secondary text-[12px] leading-relaxed">{v.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
       )}
