@@ -1,9 +1,9 @@
 // data/cost-reference.js
 export const COST_REFERENCE = {
 
-  disclaimer: "All costs are approximate estimates based on 2023–2024 data. Actual costs vary significantly by hospital, surgeon, anaesthetist, case complexity, complications, implant choice, and length of stay. Always obtain a formal written estimate from the hospital before proceeding. Private hospital estimates in Malaysia are itemised by law on request.",
+  disclaimer: "All costs are approximate estimates, cross-checked against published hospital packages and price lists in 2026. Malaysian private healthcare costs have risen significantly in recent years (medical inflation ran around 15% in 2024 alone) — these ranges are a starting point, not a quote. Actual costs vary significantly by hospital, surgeon, anaesthetist, case complexity, complications, implant choice, and length of stay. Promotional packages can understate the real cost if they exclude doctor or anaesthetist fees. Always obtain a formal written estimate from the hospital before proceeding — private hospital estimates in Malaysia are itemised by law on request.",
   currency: "MYR",
-  lastUpdated: "2024",
+  lastUpdated: "2026",
 
   tiers: {
     public: "Subsidised rate for Malaysian citizens at government hospitals (MOH / university hospitals). Rates are heavily subsidised — costs reflect patient co-payment, not actual cost.",
@@ -36,9 +36,9 @@ export const COST_REFERENCE = {
           nameZH: "剖腹产",
           publicCost: "RM 5–150 (subsidised)",
           publicFPP: "RM 3,000–6,000",
-          privateMid: "RM 6,000–12,000",
-          privatePremium: "RM 12,000–22,000",
-          notes: "Includes surgery, anaesthesia, 3–4 night stay, paediatrician, and basic nursery care. Emergency C-section at night or involving complex complications (e.g., placenta praevia, severe pre-eclampsia) will be at the higher end."
+          privateMid: "RM 6,000–15,000",
+          privatePremium: "RM 12,000–35,000",
+          notes: "Includes surgery, anaesthesia, 3–4 night stay, paediatrician, and basic nursery care. Emergency C-section at night or involving complex complications (e.g., placenta praevia, severe pre-eclampsia) will be at the higher end. Promotional packages (e.g. some Pantai hospitals) can start lower than the range above but typically exclude doctor/anaesthetist fees — check what's included before comparing prices."
         },
         {
           name: "Epidural Anaesthesia (during labour)",
@@ -292,9 +292,9 @@ export const COST_REFERENCE = {
           nameZH: "结肠镜检查",
           publicCost: "RM 5–30 (subsidised, referral required)",
           publicFPP: "RM 500–1,500",
-          privateMid: "RM 800–1,800",
-          privatePremium: "RM 1,500–3,000",
-          notes: "Therapeutic colonoscopy (with polypectomy) adds RM 300–800. Sedation/anaesthesia fee (RM 400–800) may be charged separately. Day procedure typically."
+          privateMid: "RM 1,500–2,500",
+          privatePremium: "RM 2,200–3,500",
+          notes: "Therapeutic colonoscopy (with polypectomy) adds RM 300–800. Sedation/anaesthesia fee (RM 400–800) may be charged separately, though some hospital packages bundle it in. Day procedure typically."
         },
         {
           name: "Gastroscopy / OGD (Upper GI Endoscopy)",
@@ -370,9 +370,9 @@ export const COST_REFERENCE = {
           nameZH: "白内障手术（单眼）",
           publicCost: "RM 5–50 (subsidised; may have waiting list)",
           publicFPP: "RM 1,500–4,000 per eye",
-          privateMid: "RM 3,000–6,000 per eye",
-          privatePremium: "RM 5,000–12,000 per eye",
-          notes: "IOL (intraocular lens) type significantly affects cost: monofocal (standard) vs. multifocal/toric (premium) IOL. Premium IOL adds RM 2,000–6,000 per eye. Both eyes typically done 1–2 weeks apart. Free National Cataract Programme for eligible B40 Malaysians."
+          privateMid: "RM 3,000–7,000 per eye",
+          privatePremium: "RM 6,000–15,000 per eye (monofocal); up to ~RM 21,000 with a premium multifocal/toric IOL",
+          notes: "IOL (intraocular lens) type significantly affects cost: monofocal (standard) vs. multifocal/toric (premium) IOL. Premium IOL adds RM 2,000–6,000 per eye on top of the base surgery cost. Both eyes typically done 1–2 weeks apart. Free National Cataract Programme for eligible B40 Malaysians."
         },
         {
           name: "LASIK (Laser Vision Correction)",
@@ -410,8 +410,8 @@ export const COST_REFERENCE = {
           publicCost: "Not available at public hospitals in Malaysia",
           publicFPP: "Not applicable",
           privateMid: "RM 15,000–22,000",
-          privatePremium: "RM 22,000–35,000",
-          notes: "Includes ovarian stimulation, egg retrieval, fertilisation, embryo culture, and fresh transfer. Medications (FSH injections, GnRH agonist/antagonist): RM 3,000–8,000 additional. Frozen Embryo Transfer (FET) in subsequent cycles: RM 3,000–6,000. Success rate per cycle varies — ask the clinic for their age-stratified live birth rates."
+          privatePremium: "RM 22,000–40,000",
+          notes: "Base package price — includes ovarian stimulation, egg retrieval, fertilisation, embryo culture, and fresh transfer. Medications (FSH injections, GnRH agonist/antagonist): RM 3,000–8,000 additional. ICSI (intracytoplasmic sperm injection) is now used in most cycles and typically adds RM 2,000–5,000 on top of the base price — ask whether it's already included in any quoted package. Frozen Embryo Transfer (FET) in subsequent cycles: RM 3,000–6,000. A \"fully loaded\" cycle with medications and ICSI commonly totals RM 30,000–45,000 all-in. Success rate per cycle varies — ask the clinic for their age-stratified live birth rates."
         },
         {
           name: "IVF with Pre-implantation Genetic Testing (PGT)",
