@@ -77,6 +77,7 @@ function CostsSection() {
           ⚠ {COST_REFERENCE?.disclaimer}
         </p>
       </div>
+      <LastVerified date="2026" note="cross-checked against published hospital packages" />
 
       {/* Legend */}
       <div className="flex flex-wrap gap-2">
@@ -466,7 +467,7 @@ function FppSavingsCalculator() {
               <strong>FPP tip:</strong> FPP rooms are at government hospitals (HKL, HTAR, Hospital Selayang, etc.) — same doctors, private room, air-conditioned. Apply at the FPP unit with your IC. Rates are not publicly listed — ask for a written estimate.
             </p>
           </div>
-          <p className="text-[11px] text-ink-tertiary">All figures are estimates based on typical Malaysian hospital charges (2024–2025). Actual costs vary by hospital, surgeon seniority, complications, length of stay, and insurance terms.</p>
+          <p className="text-[11px] text-ink-tertiary">All figures are estimates cross-checked against typical Malaysian hospital charges as of 2026. Actual costs vary by hospital, surgeon seniority, complications, length of stay, and insurance terms.</p>
         </div>
       ) : (
         <div className="rounded-xl border border-ink-quaternary bg-surface-secondary px-4 py-3 text-center text-ink-tertiary text-[13px]">Select a procedure above to calculate savings</div>
