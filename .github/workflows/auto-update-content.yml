@@ -23,6 +23,9 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  # Note: no id-token permission — this workflow authenticates to the
+  # Anthropic API with a plain API key (ANTHROPIC_API_KEY), not via
+  # GitHub's OIDC token exchange, so it isn't needed here.
 
 concurrency:
   group: auto-update-content
@@ -41,6 +44,9 @@ jobs:
           node-version: "22"
           cache: "npm"
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Create dated branch
         id: branch
         run: |
@@ -49,20 +55,20 @@ jobs:
           echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
 
       - name: Run Claude Code to research and refresh content
-        uses: anthropics/claude-code-action@v1
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          allowed_tools: "Read,Edit,Write,Grep,Glob,Bash(npm run build),WebSearch,WebFetch"
-          prompt: |
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # A YAML block scalar handles multi-line indentation correctly,
+          # unlike a shell heredoc nested inside an indented `run:` block
+          # (whose terminator would end up indented too, and never match).
+          REFRESH_PROMPT: |
             You are doing a periodic maintenance pass on a Malaysian healthcare
             information site (React SPA, no backend, static data in src/data/).
             Your job is to re-verify facts that are likely to have drifted since
             they were last checked, and correct anything that's actually wrong —
             not to rewrite content that's still accurate.
 
-            Do NOT run git commands, do NOT commit, and do NOT open a PR — the
-            workflow that invoked you handles all of that after you're done.
-            Only edit files.
+            Do NOT run git commands, do NOT commit. Only edit files — the
+            workflow that invoked you handles git and PR mechanics afterward.
 
             Priority order (stop early if you run low on budget — do the top
             categories properly rather than skimming everything shallowly):
@@ -102,15 +108,17 @@ jobs:
 
             When you're done, run `npm run build` yourself as a sanity check
             before finishing, so obvious syntax errors don't reach the outer
-            build gate. Leave a brief written summary of what you changed and
-            why in your final message (the workflow will use it as context, not
-            as a commit message).
-
-      - name: Install dependencies and build
-        id: build
+            build gate. Print a brief summary of what you changed and why as
+            your final message.
         run: |
-          npm ci
-          npm run build
+          npm install -g @anthropic-ai/claude-code
+          claude --bare -p "$REFRESH_PROMPT" \
+            --permission-mode acceptEdits \
+            --allowedTools "WebSearch,WebFetch,Bash(npm run build)"
+
+      - name: Build (gate for merge)
+        id: build
+        run: npm run build
         continue-on-error: true
 
       - name: Commit, push, and open PR (only if something changed)
