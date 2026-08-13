@@ -62,6 +62,7 @@ const ROADMAP = [
   { status: 'live', label: '"Last verified" freshness notes on fact-heavy sections (insurer data, vaccine info, changelog, medical tourism stats)' },
   { status: 'live', label: 'Route-level code-splitting and a skip-to-content link for faster loads and better keyboard/screen-reader navigation' },
   { status: 'live', label: 'Consistent sidebar navigation across every multi-topic Hub (Intelligence, Insurance, Knowledge, Lifestyle, Tools, Resources) — a frozen sidebar that stays in view while you scroll, instead of a top tab bar' },
+  { status: 'live', label: 'Monthly automated content refresh — a scheduled GitHub Action re-verifies insurer data, procedure costs, vaccine guidance, and a rotating slice of the hospital directory, auto-merging only if the build passes' },
   { status: 'planned', label: 'Geolocation — find nearest hospitals to you' },
   { status: 'planned', label: 'Specialist directory — individual consultant profiles (hospital-level directory is already live in the Intelligence Hub)' },
   { status: 'planned', label: 'Bahasa Malaysia translation for the highest-traffic pages' },

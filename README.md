@@ -150,6 +150,16 @@ GitHub Pages deployment triggers automatically on push to `main` via `.github/wo
 
 ---
 
+## Automated content refresh
+
+`.github/workflows/auto-update-content.yml` runs Claude Code on a schedule (monthly, 1st of the month, or on-demand via **Actions → Auto-Update Site Content → Run workflow**) to re-verify time-sensitive facts — insurer hotlines/panels, procedure costs, vaccine/health guidance, and a rotating slice of the hospital directory — and correct anything that's drifted.
+
+**Setup required:** add a repository secret named `ANTHROPIC_API_KEY` (**Settings → Secrets and variables → Actions → New repository secret**) with a valid Anthropic API key. The workflow does nothing (and costs nothing) until this is set. Running it accrues normal Anthropic API usage costs each time it fires.
+
+**Safety policy:** changes are made on a dated branch (`auto-update/YYYY-MM-DD`), then `npm run build` runs as a gate. The PR is **auto-merged only if the build succeeds** — a failed build blocks the merge entirely and opens a GitHub issue linking to the branch for manual review instead. There is no human review step before a successful build merges to `main` and deploys; if you'd prefer a manual review step, remove the "Auto-merge" step from the workflow and it will stop there, leaving the PR open.
+
+---
+
 ## Disclaimer
 
 For personal reference only. Verify all clinical, specialist, and insurance details directly with the respective hospital or insurer before making any medical decisions. Not a substitute for professional medical advice.
