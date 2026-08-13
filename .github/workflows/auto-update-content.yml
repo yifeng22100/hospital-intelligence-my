@@ -113,6 +113,8 @@ jobs:
             before finishing, so obvious syntax errors don't reach the outer
             build gate. Print a brief summary of what you changed and why as
             your final message.
+        id: claude
+        continue-on-error: true
         run: |
           npm install -g @anthropic-ai/claude-code
           claude --bare -p "$REFRESH_PROMPT" \
@@ -120,6 +122,11 @@ jobs:
             --allowedTools "WebSearch,WebFetch,Bash(npm run build)"
 
       - name: Build (gate for merge)
+        # Only runs if Claude's own step actually succeeded — otherwise
+        # this would build an unmodified checkout for no reason and mask
+        # the real failure (e.g. an expired/exhausted API key) behind an
+        # unrelated-looking "build passed, nothing to commit" no-op.
+        if: steps.claude.outcome == 'success'
         id: build
         run: npm run build
         continue-on-error: true
@@ -155,14 +162,28 @@ jobs:
           git push origin --delete "${{ steps.branch.outputs.branch }}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Report build failure (do not merge)
-        if: steps.build.outcome == 'failure'
+      - name: Report failure (Claude step or build — nothing merged)
+        # Catches BOTH failure modes so a bad run is never silent: Claude's
+        # own step failing outright (e.g. an exhausted/invalid API key —
+        # this is what actually happened the first two times this ran) as
+        # well as a build failure after Claude made changes. Previously
+        # only the build-failure case opened an issue, so an API-level
+        # failure would just show a red X in the Actions tab with nothing
+        # alerting a human to look at it.
+        if: steps.claude.outcome == 'failure' || steps.build.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add -A
-          git commit -m "Automated content refresh (BUILD FAILED, not merged) — $(date -u +%Y-%m-%d)" || true
-          git push origin "${{ steps.branch.outputs.branch }}" || true
-          gh issue create \
-            --title "Auto-update content refresh failed to build — $(date -u +%Y-%m-%d)" \
-            --body "The scheduled content-refresh workflow made changes that failed \`npm run build\`, so nothing was merged. The attempted changes are on branch \`${{ steps.branch.outputs.branch }}\` for manual review — see the failed run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "${{ steps.claude.outcome }}" = "failure" ]; then
+            gh issue create \
+              --title "Auto-update content refresh: Claude Code step failed — $(date -u +%Y-%m-%d)" \
+              --body "The scheduled content-refresh workflow's Claude Code step failed outright — most likely an Anthropic API key/billing issue (e.g. exhausted credit balance) rather than a code problem. Nothing was changed or merged. Check the failed run's logs for the exact error: $RUN_URL"
+          else
+            git add -A
+            git commit -m "Automated content refresh (BUILD FAILED, not merged) — $(date -u +%Y-%m-%d)" || true
+            git push origin "${{ steps.branch.outputs.branch }}" || true
+            gh issue create \
+              --title "Auto-update content refresh failed to build — $(date -u +%Y-%m-%d)" \
+              --body "The scheduled content-refresh workflow made changes that failed \`npm run build\`, so nothing was merged. The attempted changes are on branch \`${{ steps.branch.outputs.branch }}\` for manual review — see the failed run: $RUN_URL"
+          fi
