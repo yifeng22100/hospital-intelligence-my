@@ -1951,7 +1951,7 @@ function VaccinationSection() {
       disease: 'Influenza (Flu)',
       icon: '🤧',
       color: '#7c3aed',
-      vaccine: 'Annual flu vaccine; new formulation each year. Free for 65+ at Klinik Kesihatan. RM 50–120 at private clinics. Quadrivalent vaccine covers 4 strains.',
+      vaccine: 'Annual flu vaccine; new formulation each year. Free for 65+ at Klinik Kesihatan. RM 50–120 at private clinics. Now typically trivalent (2 influenza A + 1 B) — WHO dropped the B/Yamagata lineage from its recommended composition, so most current supply is 3-strain rather than the older 4-strain quadrivalent. Ask your clinic which formulation they stock.',
       spread: 'Respiratory droplets; highly contagious. Peak seasons: rainy season (Oct–Feb) and school terms',
       symptoms: 'Sudden high fever, body aches, fatigue, dry cough, sore throat. Unlike common cold — starts very abruptly',
       risk: 'Malaysia reports 2,000–5,000 flu-related hospitalisations/year. High risk: pregnant, elderly, immunocompromised',
@@ -2112,7 +2112,7 @@ function VaccinationSection() {
                 <p className="font-bold text-ink text-[13px] mb-2">Flu vaccine basics</p>
                 <ul className="space-y-1">
                   {[
-                    'Quadrivalent vaccine covers 4 influenza strains (2 A + 2 B)',
+                    'Most current vaccines are trivalent — 3 strains (2 influenza A + 1 B). WHO dropped B/Yamagata from its recommended composition, so the older 4-strain quadrivalent is being phased out; either may still be in stock locally',
                     'Reformulated annually — last year\'s vaccine may not cover this year\'s strain',
                     'Best time to vaccinate: before rainy season (Sept–Oct) or any time',
                     'Takes 2 weeks to build immunity after vaccination',

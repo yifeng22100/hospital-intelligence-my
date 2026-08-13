@@ -156,7 +156,9 @@ GitHub Pages deployment triggers automatically on push to `main` via `.github/wo
 
 **Setup required:** add a repository secret named `ANTHROPIC_API_KEY` (**Settings → Secrets and variables → Actions → New repository secret**) with a valid Anthropic API key. The workflow does nothing (and costs nothing) until this is set. Running it accrues normal Anthropic API usage costs each time it fires.
 
-**Safety policy:** changes are made on a dated branch (`auto-update/YYYY-MM-DD`), then `npm run build` runs as a gate. The PR is **auto-merged only if the build succeeds** — a failed build blocks the merge entirely and opens a GitHub issue linking to the branch for manual review instead. There is no human review step before a successful build merges to `main` and deploys; if you'd prefer a manual review step, remove the "Auto-merge" step from the workflow and it will stop there, leaving the PR open.
+**Safety policy:** changes are made on a dated branch (`auto-update/YYYY-MM-DD`), then `npm run build` runs as a gate. **Only if the build succeeds** are the changes pushed directly to `main` (which triggers `deploy.yml`, so the refresh goes live in the same run) — a failed build is never merged; instead it's pushed to the dated branch for manual review and a GitHub issue is opened linking to it. There is no human review step before a successful build reaches the live site.
+
+Changes push directly to `main` rather than via a pull request because this repo's default **"Allow GitHub Actions to create and approve pull requests"** setting (Settings → Actions → General → Workflow permissions) is off, which blocks Actions from calling `gh pr create` — a separate, repo-level policy that a workflow's own `permissions:` block can't override. If you'd prefer a PR-based audit trail (with or without requiring manual review), enable that setting and swap the "Commit and push directly to main" step back to `gh pr create` + `gh pr merge` — see the comment above that step in the workflow file for the exact swap.
 
 ---
 
