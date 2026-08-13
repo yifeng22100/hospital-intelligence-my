@@ -9,10 +9,13 @@ name: Auto-Update Site Content
 # will fail at the "Run Claude Code" step — everything else is inert until
 # that key is added.
 #
-# Policy: changes are committed to a dated branch, the site is built, and
-# the PR is auto-merged ONLY if the build succeeds. A failed build blocks
-# the merge and opens an issue instead, so a bad edit can never reach the
-# live site unreviewed by a human — the build is the only gate.
+# Policy: changes are made on a dated branch, then the site is built.
+# Only if the build succeeds are they pushed directly to main (which
+# triggers deploy.yml, so the refresh goes live in the same run). A
+# failed build is never merged — instead it's pushed to the dated branch
+# for manual review and a GitHub issue is opened. The build is the only
+# gate; there is no human review step before a successful run reaches
+# the live site.
 
 on:
   schedule:
@@ -121,11 +124,22 @@ jobs:
         run: npm run build
         continue-on-error: true
 
-      - name: Commit, push, and open PR (only if something changed)
+      - name: Commit and push directly to main (build passed)
+        # No PR/merge step here on purpose: this repo's default "Allow
+        # GitHub Actions to create and approve pull requests" setting is
+        # off (a common GitHub security default), which blocks `gh pr
+        # create` from the built-in GITHUB_TOKEN with "GitHub Actions is
+        # not permitted to create or approve pull requests" — separate
+        # from, and not fixable via, this workflow's own `permissions:`
+        # block. Since the agreed policy is "auto-merge with no human
+        # review anyway," a PR-then-immediate-merge would be a detour to
+        # the same place a direct push reaches directly — and pushing to
+        # main also triggers deploy.yml, so the refreshed content goes
+        # live in the same run. If you later enable that repo setting and
+        # want a PR audit trail instead, swap this step back to
+        # `gh pr create` + `gh pr merge`.
         if: steps.build.outcome == 'success'
         id: commit
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -135,20 +149,11 @@ jobs:
           fi
           git add -A
           git commit -m "Automated content refresh — $(date -u +%Y-%m-%d)"
-          git push origin "${{ steps.branch.outputs.branch }}"
-          PR_URL=$(gh pr create \
-            --title "Automated content refresh — $(date -u +%Y-%m-%d)" \
-            --body "Scheduled fact-check pass by Claude Code. Build passed before this PR was opened, so it will auto-merge — review the diff afterward if you want to spot-check what changed." \
-            --base main \
-            --head "${{ steps.branch.outputs.branch }}")
-          echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
+          git checkout main
+          git merge --ff-only "${{ steps.branch.outputs.branch }}"
+          git push origin main
+          git push origin --delete "${{ steps.branch.outputs.branch }}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
-
-      - name: Auto-merge (build passed)
-        if: steps.build.outcome == 'success' && steps.commit.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge "${{ steps.commit.outputs.pr_url }}" --squash --delete-branch
 
       - name: Report build failure (do not merge)
         if: steps.build.outcome == 'failure'
