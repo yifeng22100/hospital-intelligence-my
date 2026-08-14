@@ -97,6 +97,7 @@ jobs:
         # `gh pr create` + `gh pr merge`.
         if: steps.build.outcome == 'success'
         id: commit
+        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -108,19 +109,49 @@ jobs:
           git commit -m "Automated content refresh — $(date -u +%Y-%m-%d)"
           git checkout main
           git merge --ff-only "${{ steps.branch.outputs.branch }}"
-          git push origin main
+
+          # This can race against scripts/auto-update.sh running locally at
+          # the same time — both authenticate independently (this step uses
+          # ANTHROPIC_API_KEY, the local script uses subscription login) and
+          # both push straight to main with no coordination between them.
+          # If the local run pushes first, a plain `git push` here would be
+          # rejected as non-fast-forward and this step would just fail
+          # silently (nothing else was checking steps.commit.outcome).
+          # Retry: re-fetch main and rebase our one commit onto whatever
+          # landed first. If that's a real conflict rather than a clean
+          # race, abort the rebase and let the step fail loudly instead of
+          # guessing at a resolution — the failure step below then alerts
+          # and preserves the commit on the dated branch.
+          MAX_ATTEMPTS=5
+          attempt=1
+          until git push origin main; do
+            if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
+              echo "::error::Push to main failed after $MAX_ATTEMPTS attempts — likely a repeated race with a concurrent run, or a real conflict."
+              exit 1
+            fi
+            echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetching and rebasing onto the new tip of main..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort
+              echo "::error::Rebase onto origin/main hit a real conflict — not just a race."
+              exit 1
+            fi
+            attempt=$((attempt + 1))
+            sleep $((attempt * 3))
+          done
           git push origin --delete "${{ steps.branch.outputs.branch }}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Report failure (Claude step or build — nothing merged)
-        # Catches BOTH failure modes so a bad run is never silent: Claude's
-        # own step failing outright (e.g. an exhausted/invalid API key —
-        # this is what actually happened the first two times this ran) as
-        # well as a build failure after Claude made changes. Previously
-        # only the build-failure case opened an issue, so an API-level
-        # failure would just show a red X in the Actions tab with nothing
-        # alerting a human to look at it.
-        if: steps.claude.outcome == 'failure' || steps.build.outcome == 'failure'
+      - name: Report failure (Claude step, build, or push — nothing merged)
+        # Catches all three failure modes so a bad run is never silent:
+        # Claude's own step failing outright (e.g. an exhausted/invalid API
+        # key — this is what actually happened the first two times this
+        # ran), a build failure after Claude made changes, and a commit/push
+        # failure (most likely a race with scripts/auto-update.sh running
+        # locally at the same time — see the comment on the commit step).
+        # Earlier versions of this workflow only checked claude/build, so a
+        # push failure would just show a red X with nothing alerting anyone.
+        if: steps.claude.outcome == 'failure' || steps.build.outcome == 'failure' || steps.commit.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -129,11 +160,20 @@ jobs:
             gh issue create \
               --title "Auto-update content refresh: Claude Code step failed — $(date -u +%Y-%m-%d)" \
               --body "The scheduled content-refresh workflow's Claude Code step failed outright — most likely an Anthropic API key/billing issue (e.g. exhausted credit balance) rather than a code problem. Nothing was changed or merged. Check the failed run's logs for the exact error: $RUN_URL"
-          else
+          elif [ "${{ steps.build.outcome }}" = "failure" ]; then
             git add -A
             git commit -m "Automated content refresh (BUILD FAILED, not merged) — $(date -u +%Y-%m-%d)" || true
             git push origin "${{ steps.branch.outputs.branch }}" || true
             gh issue create \
               --title "Auto-update content refresh failed to build — $(date -u +%Y-%m-%d)" \
               --body "The scheduled content-refresh workflow made changes that failed \`npm run build\`, so nothing was merged. The attempted changes are on branch \`${{ steps.branch.outputs.branch }}\` for manual review — see the failed run: $RUN_URL"
+          else
+            # The commit step got as far as building and committing locally
+            # (checked out on main with the commit applied) but couldn't
+            # push after retries. Push what we have to the dated branch
+            # instead of losing it when the runner is torn down.
+            git push origin HEAD:"${{ steps.branch.outputs.branch }}" || true
+            gh issue create \
+              --title "Auto-update content refresh: push to main failed — $(date -u +%Y-%m-%d)" \
+              --body "The scheduled content-refresh workflow built and committed changes successfully, but repeatedly failed to push to \`main\` after retrying — most likely a race with \`scripts/auto-update.sh\` running locally at the same time (it pushed first), or a real merge conflict. The committed changes have been pushed to branch \`${{ steps.branch.outputs.branch }}\` for manual review/merge — see the failed run: $RUN_URL"
           fi

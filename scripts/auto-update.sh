@@ -93,7 +93,38 @@ if [ "$PUSH" = true ]; then
   git commit -m "Automated content refresh (local) — $(date -u +%Y-%m-%d)"
   git checkout "$ORIGINAL_BRANCH"
   git merge --ff-only "$BRANCH"
-  git push origin "$ORIGINAL_BRANCH"
+
+  # This can race against .github/workflows/auto-update-content.yml running
+  # on GitHub at the same time — both push straight to the same branch with
+  # no coordination. If the Action pushes first, a plain `git push` here
+  # gets rejected. Retry: re-fetch and rebase onto whatever landed first;
+  # abort on a real conflict rather than guessing at a resolution.
+  MAX_ATTEMPTS=5
+  attempt=1
+  until git push origin "$ORIGINAL_BRANCH"; do
+    if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
+      echo "" >&2
+      echo "Error: push to $ORIGINAL_BRANCH failed after $MAX_ATTEMPTS attempts —" >&2
+      echo "likely a repeated race with the GitHub Action running at the same" >&2
+      echo "time, or a real conflict. Your changes are safe and committed on" >&2
+      echo "branch $BRANCH. Once things settle, resolve manually with:" >&2
+      echo "  git checkout $BRANCH && git rebase $ORIGINAL_BRANCH" >&2
+      echo "  git checkout $ORIGINAL_BRANCH && git merge --ff-only $BRANCH && git push" >&2
+      exit 1
+    fi
+    echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetching and rebasing onto the new tip..."
+    git fetch origin "$ORIGINAL_BRANCH"
+    if ! git rebase "origin/$ORIGINAL_BRANCH"; then
+      git rebase --abort
+      echo "" >&2
+      echo "Error: rebase onto origin/$ORIGINAL_BRANCH hit a real conflict — not just a race." >&2
+      echo "Your changes are safe and committed on branch $BRANCH. Resolve manually:" >&2
+      echo "  git checkout $BRANCH && git rebase $ORIGINAL_BRANCH" >&2
+      exit 1
+    fi
+    attempt=$((attempt + 1))
+    sleep $((attempt * 3))
+  done
   git branch -d "$BRANCH"
   echo ""
   echo "Pushed directly to $ORIGINAL_BRANCH."
