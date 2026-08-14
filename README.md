@@ -160,6 +160,22 @@ GitHub Pages deployment triggers automatically on push to `main` via `.github/wo
 
 Changes push directly to `main` rather than via a pull request because this repo's default **"Allow GitHub Actions to create and approve pull requests"** setting (Settings → Actions → General → Workflow permissions) is off, which blocks Actions from calling `gh pr create` — a separate, repo-level policy that a workflow's own `permissions:` block can't override. If you'd prefer a PR-based audit trail (with or without requiring manual review), enable that setting and swap the "Commit and push directly to main" step back to `gh pr create` + `gh pr merge` — see the comment above that step in the workflow file for the exact swap.
 
+**If a run fails**, a GitHub issue is opened automatically — whether Claude's own step failed (most commonly an Anthropic API key/billing problem) or the build failed after Claude made changes. Failures are never silent.
+
+**⚠️ This does not protect against running out of Anthropic credits.** The GitHub Action and the local script below both use the same `ANTHROPIC_API_KEY` — if the account behind it runs out of balance, both stop working, since that's a limit on the key itself, not on where the request comes from. The actual fix is enabling auto-reload or a low-balance alert at [console.anthropic.com/settings/billing](https://console.anthropic.com/settings/billing).
+
+### Running it locally
+
+`scripts/auto-update.sh` is the same pass, runnable on demand from your own machine — useful if you want to trigger a refresh without waiting for the monthly schedule, or without depending on GitHub Actions being available. Both the workflow and this script read the same prompt from `scripts/auto-update-prompt.txt`, so they never drift apart.
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+npm run auto-update            # research, edit, build — then stops for you to review the diff
+npm run auto-update -- --push  # ...then also commit and push straight to main, same as the GitHub Action
+```
+
+The script refuses to run over an uncommitted working tree, works on a fresh dated branch so it can't be confused with your own in-progress edits, and (without `--push`) leaves the result for you to review rather than pushing automatically — a local run is attended, so it defaults to more caution than the unattended GitHub Action does.
+
 ---
 
 ## Disclaimer

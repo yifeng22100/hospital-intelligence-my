@@ -58,68 +58,25 @@ jobs:
           echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
 
       - name: Run Claude Code to research and refresh content
+        # The prompt lives in scripts/auto-update-prompt.txt, shared with
+        # scripts/auto-update.sh (the local equivalent of this workflow) —
+        # edit that file, not this step, so the two never drift apart.
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          # A YAML block scalar handles multi-line indentation correctly,
-          # unlike a shell heredoc nested inside an indented `run:` block
-          # (whose terminator would end up indented too, and never match).
-          REFRESH_PROMPT: |
-            You are doing a periodic maintenance pass on a Malaysian healthcare
-            information site (React SPA, no backend, static data in src/data/).
-            Your job is to re-verify facts that are likely to have drifted since
-            they were last checked, and correct anything that's actually wrong —
-            not to rewrite content that's still accurate.
-
-            Do NOT run git commands, do NOT commit. Only edit files — the
-            workflow that invoked you handles git and PR mechanics afterward.
-
-            Priority order (stop early if you run low on budget — do the top
-            categories properly rather than skimming everything shallowly):
-
-            1. Insurance data — src/data/insurance-panels.js and the
-               INSURER_HOTLINES constant in src/pages/Tools.jsx. Verify GL
-               hotlines, TPA arrangements, and any panel hospital changes for
-               all 13 insurers against current insurer announcements.
-            2. Cost reference — src/data/cost-reference.js. Spot-check a sample
-               of procedures across different categories against current
-               published Malaysian private hospital pricing. Only change figures
-               you've actually verified have moved — don't apply blanket
-               inflation math. Update the `lastUpdated` field and disclaimer
-               to reflect today's date once you're done.
-            3. Vaccine & health guidance — the Vaccination Guide topic in
-               src/pages/Knowledge.jsx (COVID/flu formulations, eligibility,
-               dosing) and the Drug Interaction Checker's entries. These are
-               higher-stakes if wrong — only change something if you can
-               confirm it from a credible source (MOH, WHO, a named hospital,
-               a reputable news outlet).
-            4. Hospital directory — src/data/hospitals/*.js. Do not attempt to
-               re-verify all 295 hospitals in one run. Pick roughly 15-20
-               hospitals you have not touched in a prior run (look at git log
-               for src/data/hospitals/ to see what's been recently touched, and
-               favour ones that haven't) and verify bed counts, accreditations,
-               specialties, and contact details against official sources.
-            5. Everything else — the Intelligence Hub changelog, regulatory
-               notes (BNM, MOH), and any other page — if you have budget left
-               after 1-4, do a lighter pass here.
-
-            For every fact-heavy section that already has a `<LastVerified
-            date="..." />` badge (see src/components/LastVerified.jsx), update
-            its date to today if you touched that section, or leave it alone if
-            you didn't. Follow the same standard used throughout this codebase:
-            cite what you found, don't fabricate precision, and prefer widening
-            a range or adding a caveat over asserting a number you can't back up.
-
-            When you're done, run `npm run build` yourself as a sanity check
-            before finishing, so obvious syntax errors don't reach the outer
-            build gate. Print a brief summary of what you changed and why as
-            your final message.
+        id: claude
+        continue-on-error: true
         run: |
           npm install -g @anthropic-ai/claude-code
-          claude --bare -p "$REFRESH_PROMPT" \
+          claude --bare -p "$(cat scripts/auto-update-prompt.txt)" \
             --permission-mode acceptEdits \
             --allowedTools "WebSearch,WebFetch,Bash(npm run build)"
 
       - name: Build (gate for merge)
+        # Only runs if Claude's own step actually succeeded — otherwise
+        # this would build an unmodified checkout for no reason and mask
+        # the real failure (e.g. an expired/exhausted API key) behind an
+        # unrelated-looking "build passed, nothing to commit" no-op.
+        if: steps.claude.outcome == 'success'
         id: build
         run: npm run build
         continue-on-error: true
@@ -155,14 +112,28 @@ jobs:
           git push origin --delete "${{ steps.branch.outputs.branch }}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Report build failure (do not merge)
-        if: steps.build.outcome == 'failure'
+      - name: Report failure (Claude step or build — nothing merged)
+        # Catches BOTH failure modes so a bad run is never silent: Claude's
+        # own step failing outright (e.g. an exhausted/invalid API key —
+        # this is what actually happened the first two times this ran) as
+        # well as a build failure after Claude made changes. Previously
+        # only the build-failure case opened an issue, so an API-level
+        # failure would just show a red X in the Actions tab with nothing
+        # alerting a human to look at it.
+        if: steps.claude.outcome == 'failure' || steps.build.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add -A
-          git commit -m "Automated content refresh (BUILD FAILED, not merged) — $(date -u +%Y-%m-%d)" || true
-          git push origin "${{ steps.branch.outputs.branch }}" || true
-          gh issue create \
-            --title "Auto-update content refresh failed to build — $(date -u +%Y-%m-%d)" \
-            --body "The scheduled content-refresh workflow made changes that failed \`npm run build\`, so nothing was merged. The attempted changes are on branch \`${{ steps.branch.outputs.branch }}\` for manual review — see the failed run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "${{ steps.claude.outcome }}" = "failure" ]; then
+            gh issue create \
+              --title "Auto-update content refresh: Claude Code step failed — $(date -u +%Y-%m-%d)" \
+              --body "The scheduled content-refresh workflow's Claude Code step failed outright — most likely an Anthropic API key/billing issue (e.g. exhausted credit balance) rather than a code problem. Nothing was changed or merged. Check the failed run's logs for the exact error: $RUN_URL"
+          else
+            git add -A
+            git commit -m "Automated content refresh (BUILD FAILED, not merged) — $(date -u +%Y-%m-%d)" || true
+            git push origin "${{ steps.branch.outputs.branch }}" || true
+            gh issue create \
+              --title "Auto-update content refresh failed to build — $(date -u +%Y-%m-%d)" \
+              --body "The scheduled content-refresh workflow made changes that failed \`npm run build\`, so nothing was merged. The attempted changes are on branch \`${{ steps.branch.outputs.branch }}\` for manual review — see the failed run: $RUN_URL"
+          fi
