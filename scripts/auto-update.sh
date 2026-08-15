@@ -3,25 +3,20 @@
 # run the same scheduled content-refresh pass on demand, from your own
 # machine, without waiting for GitHub Actions or depending on it being up.
 #
-# Does NOT protect against Anthropic API credit exhaustion — that's a
-# limit on the API key itself, the same key this script uses, so it fails
-# the same way here as it does in CI. Enable auto-reload or a low-balance
-# alert at https://console.anthropic.com/settings/billing if that's what
-# you're trying to guard against.
+# Unlike the GitHub Action, this authenticates via your Claude subscription
+# (Pro/Max/Team/Enterprise) login on this machine, NOT an API key — so it
+# draws from a genuinely separate resource/pool than the GitHub Action's
+# ANTHROPIC_API_KEY. That's the actual point of having both: if the account
+# behind the API key runs out of credit, this still works, and vice versa.
 #
-# Requires: ANTHROPIC_API_KEY set in your environment, Node/npm, and a
-# clean git working tree (uncommitted changes are left alone — the script
-# refuses to run over them rather than risk mixing your in-progress edits
-# with Claude's).
+# Requires: `claude auth login` already run once on this machine (this
+# script checks and tells you if not), Node/npm, and a clean git working
+# tree (uncommitted changes are left alone — the script refuses to run
+# over them rather than risk mixing your in-progress edits with Claude's).
 #
 # Usage:
 #   npm run auto-update            # research, edit, build — stops for you to review
 #   npm run auto-update -- --push  # ...then also commit and push straight to main
-#
-# Default behaviour is intentionally more cautious than the GitHub Action:
-# a local run is attended (you're at the keyboard), so it leaves the diff
-# for you to look at instead of assuming you want it pushed immediately.
-# Pass --push for full parity with the unattended GitHub Actions behaviour.
 
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
@@ -31,17 +26,24 @@ for arg in "$@"; do
   if [ "$arg" = "--push" ]; then PUSH=true; fi
 done
 
-if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
-  echo "Error: ANTHROPIC_API_KEY is not set in your environment." >&2
-  echo "  export ANTHROPIC_API_KEY=sk-ant-..." >&2
-  exit 1
-fi
-
 if ! command -v claude >/dev/null 2>&1; then
   echo "Claude Code CLI not found on PATH — running it via npx instead (no global install)."
   CLAUDE_CMD="npx --yes @anthropic-ai/claude-code"
 else
   CLAUDE_CMD="claude"
+fi
+
+# ANTHROPIC_API_KEY always overrides subscription login when present, even
+# if you're logged in via `claude auth login` — so unset it here regardless
+# of what's in your shell, to guarantee this actually bills against your
+# subscription and not an API key you (or an earlier `export`) left set.
+unset ANTHROPIC_API_KEY
+
+if ! $CLAUDE_CMD auth status >/dev/null 2>&1; then
+  echo "Error: not logged in to Claude Code on this machine." >&2
+  echo "  Run: claude auth login" >&2
+  echo "This uses your Claude subscription (Pro/Max/Team/Enterprise), not an API key." >&2
+  exit 1
 fi
 
 if [ -n "$(git status --porcelain)" ]; then
@@ -61,8 +63,8 @@ cleanup_on_failure() {
 }
 trap cleanup_on_failure ERR
 
-echo "Running Claude Code (this can take a few minutes)..."
-$CLAUDE_CMD --bare -p "$(cat scripts/auto-update-prompt.txt)" \
+echo "Running Claude Code via your subscription login (this can take a few minutes)..."
+$CLAUDE_CMD -p "$(cat scripts/auto-update-prompt.txt)" \
   --permission-mode acceptEdits \
   --allowedTools "WebSearch,WebFetch,Bash(npm run build)"
 
@@ -91,7 +93,38 @@ if [ "$PUSH" = true ]; then
   git commit -m "Automated content refresh (local) — $(date -u +%Y-%m-%d)"
   git checkout "$ORIGINAL_BRANCH"
   git merge --ff-only "$BRANCH"
-  git push origin "$ORIGINAL_BRANCH"
+
+  # This can race against .github/workflows/auto-update-content.yml running
+  # on GitHub at the same time — both push straight to the same branch with
+  # no coordination. If the Action pushes first, a plain `git push` here
+  # gets rejected. Retry: re-fetch and rebase onto whatever landed first;
+  # abort on a real conflict rather than guessing at a resolution.
+  MAX_ATTEMPTS=5
+  attempt=1
+  until git push origin "$ORIGINAL_BRANCH"; do
+    if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
+      echo "" >&2
+      echo "Error: push to $ORIGINAL_BRANCH failed after $MAX_ATTEMPTS attempts —" >&2
+      echo "likely a repeated race with the GitHub Action running at the same" >&2
+      echo "time, or a real conflict. Your changes are safe and committed on" >&2
+      echo "branch $BRANCH. Once things settle, resolve manually with:" >&2
+      echo "  git checkout $BRANCH && git rebase $ORIGINAL_BRANCH" >&2
+      echo "  git checkout $ORIGINAL_BRANCH && git merge --ff-only $BRANCH && git push" >&2
+      exit 1
+    fi
+    echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetching and rebasing onto the new tip..."
+    git fetch origin "$ORIGINAL_BRANCH"
+    if ! git rebase "origin/$ORIGINAL_BRANCH"; then
+      git rebase --abort
+      echo "" >&2
+      echo "Error: rebase onto origin/$ORIGINAL_BRANCH hit a real conflict — not just a race." >&2
+      echo "Your changes are safe and committed on branch $BRANCH. Resolve manually:" >&2
+      echo "  git checkout $BRANCH && git rebase $ORIGINAL_BRANCH" >&2
+      exit 1
+    fi
+    attempt=$((attempt + 1))
+    sleep $((attempt * 3))
+  done
   git branch -d "$BRANCH"
   echo ""
   echo "Pushed directly to $ORIGINAL_BRANCH."

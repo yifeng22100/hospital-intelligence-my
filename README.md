@@ -160,16 +160,28 @@ GitHub Pages deployment triggers automatically on push to `main` via `.github/wo
 
 Changes push directly to `main` rather than via a pull request because this repo's default **"Allow GitHub Actions to create and approve pull requests"** setting (Settings → Actions → General → Workflow permissions) is off, which blocks Actions from calling `gh pr create` — a separate, repo-level policy that a workflow's own `permissions:` block can't override. If you'd prefer a PR-based audit trail (with or without requiring manual review), enable that setting and swap the "Commit and push directly to main" step back to `gh pr create` + `gh pr merge` — see the comment above that step in the workflow file for the exact swap.
 
-**If a run fails**, a GitHub issue is opened automatically — whether Claude's own step failed (most commonly an Anthropic API key/billing problem) or the build failed after Claude made changes. Failures are never silent.
+**If a run fails**, a GitHub issue is opened automatically — whether Claude's own step failed (most commonly an Anthropic API key/billing problem), the build failed after Claude made changes, or the final push to `main` failed. Failures are never silent.
 
-**⚠️ This does not protect against running out of Anthropic credits.** The GitHub Action and the local script below both use the same `ANTHROPIC_API_KEY` — if the account behind it runs out of balance, both stop working, since that's a limit on the key itself, not on where the request comes from. The actual fix is enabling auto-reload or a low-balance alert at [console.anthropic.com/settings/billing](https://console.anthropic.com/settings/billing).
+**Running both the Action and the local script regularly is intentional and safe, but not a true no-op if they ever overlap.** Each only commits when it finds real changes, so most of the time an overlapping run just finds nothing new. But if both happen to find changes in the same window, whichever pushes second gets rejected (`main` moved from under it) — both sides retry automatically (re-fetch, rebase onto the new tip, retry, up to 5 attempts with backoff), which resolves a same-time race cleanly in almost all cases. If retries are exhausted (a real conflict, or a very unlucky sustained race), the run fails loudly instead of silently: its changes are pushed to its dated branch and a GitHub issue is opened pointing to it, same as any other failure.
+
+**⚠️ The GitHub Action alone does not protect against running out of Anthropic API credits** — it bills against `ANTHROPIC_API_KEY`, a pay-per-use API key, and stops if that account runs out of balance. Enabling auto-reload or a low-balance alert at [console.anthropic.com/settings/billing](https://console.anthropic.com/settings/billing) is the direct fix. The local script below is a genuinely separate fallback, not just a copy — see why below.
 
 ### Running it locally
 
-`scripts/auto-update.sh` is the same pass, runnable on demand from your own machine — useful if you want to trigger a refresh without waiting for the monthly schedule, or without depending on GitHub Actions being available. Both the workflow and this script read the same prompt from `scripts/auto-update-prompt.txt`, so they never drift apart.
+`scripts/auto-update.sh` is the same pass, runnable on demand from your own machine. Both the workflow and this script read the same prompt from `scripts/auto-update-prompt.txt`, so they never drift apart — but they authenticate differently **on purpose**:
+
+| | GitHub Action | Local script |
+|---|---|---|
+| Auth | `ANTHROPIC_API_KEY` (pay-per-use API credit) | Your `claude auth login` subscription (Pro/Max/Team/Enterprise) |
+| Billing pool | Anthropic Console API balance | Your Claude subscription's included usage |
+| Runs | Monthly schedule, or manual dispatch | Whenever you run it |
+
+Because these draw from **completely separate pools**, the local script keeps working even if the API key's account runs dry, and vice versa — this is the actual fallback for the credit-exhaustion worry, not just a copy of the same mechanism running somewhere else.
+
+Setup: run `claude auth login` once on your machine (uses your existing Claude subscription, not an API key). The script checks for this and tells you clearly if it's missing. It also explicitly `unset`s `ANTHROPIC_API_KEY` before running, even if one is set in your shell — Claude Code always prefers an API key over subscription login when both are present, so this guarantees the local run actually bills against your subscription rather than silently falling back to a key you forgot was exported.
 
 ```bash
-export ANTHROPIC_API_KEY=sk-ant-...
+claude auth login              # one-time setup, if you haven't already
 npm run auto-update            # research, edit, build — then stops for you to review the diff
 npm run auto-update -- --push  # ...then also commit and push straight to main, same as the GitHub Action
 ```
