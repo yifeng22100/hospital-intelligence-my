@@ -77,7 +77,7 @@ function CostsSection() {
           ⚠ {COST_REFERENCE?.disclaimer}
         </p>
       </div>
-      <LastVerified date="2026" note="cross-checked against published hospital packages" />
+      <LastVerified date="November 2026" note="cross-checked against published hospital packages and the Jan 2026 insurer claims price guide" />
 
       {/* Legend */}
       <div className="flex flex-wrap gap-2">
@@ -157,14 +157,14 @@ function CostsSection() {
 
 const PROCEDURE_COSTS = [
   { label: 'Appendectomy (open)', public: [800, 1500], fpp: [2500, 4000], private: [8000, 15000] },
-  { label: 'Appendectomy (laparoscopic)', public: [1200, 2000], fpp: [3500, 6000], private: [12000, 20000] },
+  { label: 'Appendectomy (laparoscopic)', public: [1200, 2000], fpp: [3500, 6000], private: [12000, 30000] },
   { label: 'Caesarean Section (C-Section)', public: [500, 1000], fpp: [3000, 5000], private: [8000, 15000] },
   { label: 'Normal Delivery', public: [200, 600], fpp: [2000, 3500], private: [4000, 8000] },
   { label: 'Hip Replacement (THR)', public: [2000, 5000], fpp: [8000, 15000], private: [25000, 50000] },
   { label: 'Knee Replacement (TKR)', public: [2000, 5000], fpp: [8000, 15000], private: [22000, 45000] },
   { label: 'Coronary Angioplasty (PCI + 1 stent)', public: [3000, 8000], fpp: [15000, 25000], private: [25000, 50000] },
   { label: 'Coronary Bypass (CABG)', public: [5000, 12000], fpp: [25000, 40000], private: [60000, 120000] },
-  { label: 'Cholecystectomy (gallbladder removal)', public: [800, 2000], fpp: [3000, 5000], private: [8000, 15000] },
+  { label: 'Cholecystectomy (gallbladder removal)', public: [800, 2000], fpp: [3000, 5000], private: [12000, 35000] },
   { label: 'Cataract Surgery (per eye)', public: [200, 500], fpp: [1500, 3000], private: [3000, 8000] },
   { label: 'Hernia Repair', public: [600, 1500], fpp: [2500, 4500], private: [6000, 12000] },
   { label: 'Colonoscopy', public: [200, 500], fpp: [800, 1500], private: [1500, 3500] },
@@ -479,16 +479,16 @@ function FppSavingsCalculator() {
 /* ─── Panel Lookup ───────────────────────────────────────────────── */
 
 const INSURER_HOTLINES = {
-  'aia':          { hotline: '1300-888-860',  tpa: 'In-house (AIA Health Services Sdn Bhd)',  note: '24/7 GL; SMART Panel (75 hospitals) + General Panel (45) = 120 total', panelUrl: 'https://www.aia.com.my/en/help-support/claims-and-support/smart-journey.html' },
+  'aia':          { hotline: '1300-888-860',  tpa: 'In-house (AIA Health Services Sdn Bhd)',  note: '24/7 GL; SMART Panel (~75 hospitals) + General Panel (~45) ≈ 120 total; some individual IHH consultants excluded from panel (Oct 2026) — check the specialist listing', panelUrl: 'https://www.aia.com.my/en/help-support/claims-and-support/smart-journey.html' },
   'prudential':   { hotline: '03-2771-0228',  tpa: 'In-house (HAS — Hospital Alliance Services)', note: '24/7 via HAS system; PruBSN admission line: 03-2166-7377', panelUrl: 'https://www.prudential.com.my/en/claims-and-support/medical-card-services/panel-hospital/' },
-  'great-eastern':{ hotline: '1300-1300-18',  tpa: 'In-house (Healthcare Services Div — HSD)', note: '24/7 GL; "The Great Journey" premium tier (85 hospitals, updated Nov 2025)', panelUrl: 'https://www.greateasternlife.com/my/en/customer-services/healthcare-services/healthcare-overview/locators-search-page.html' },
-  'allianz':      { hotline: '1300-88-8322',  tpa: 'In-house (ACS — Allianz Care Services)',  note: '24/7 GL; Blue Ribbon Programme (16 premium hospitals with priority admission)', panelUrl: 'https://www.allianz.com.my/personal/help-and-services/ways-to-get-in-touch/allianz-locator.html' },
-  'tokio-marine': { hotline: '1300-88-8690',  tpa: 'MiCare Sdn Bhd',                          note: '24/7 GL via MiCare (printed on card); MiCare MyMed App available', panelUrl: 'https://www.tokiomarine.com/my/en/life/resources/locators/private-hospital-medicalcard-locator.html' },
-  'zurich':       { hotline: '1800-88-2318',  tpa: 'MiCare Sdn Bhd (individual, from Apr 14 2025)', note: '24/7; individual/takaful on MiCare from Apr 14 2025; group still on IHP until renewal', panelUrl: 'https://www.zurich.com.my/customer-hub/my-claims/panel-hospitals' },
+  'great-eastern':{ hotline: '1300-1300-18',  tpa: 'In-house (Healthcare Services Div — HSD)', note: '24/7 GL; "The Great Journey" premium tier (85 hospitals/centres, listing updated Jul 2026)', panelUrl: 'https://www.greateasternlife.com/my/en/customer-services/healthcare-services/healthcare-overview/locators-search-page.html' },
+  'allianz':      { hotline: '1300-88-8322',  tpa: 'Mainly in-house (Customer HealthCare Administration); some cards list a TPA (Asia Assistance / MiCare)',  note: 'GL status line; use the number on your card if a TPA is listed; Blue Ribbon Programme (16 premium hospitals with priority admission)', panelUrl: 'https://www.allianz.com.my/personal/help-and-services/ways-to-get-in-touch/allianz-locator.html' },
+  'tokio-marine': { hotline: '03-7843-9459',  tpa: 'MiCare Sdn Bhd',                          note: '24/7 GL via MiCare (Tokio Marine Life); check the number printed on your card', panelUrl: 'https://www.tokiomarine.com/my/en/life/resources/locators/private-hospital-medicalcard-locator.html' },
+  'zurich':       { hotline: '1800-88-2318',  tpa: 'MiCare Sdn Bhd (individual, from Apr 14 2025)', note: '24/7; individual/takaful on MiCare from Apr 14 2025; general insurance/takaful group policies moved from IHP to MiCare at their first renewal after that', panelUrl: 'https://www.zurich.com.my/customer-hub/my-claims/panel-hospitals' },
   'sun-life':     { hotline: '03-7884-1818',  tpa: 'MediExpress (M) Sdn Bhd',                 note: '24/7 cashless admission; panel updated Feb 2025', panelUrl: 'https://www.sunlifemalaysia.com/client-care/make-a-claim/panel-hospitals/' },
   'etiqa':        { hotline: '1800-88-9998',  tpa: 'In-house (Etiqa Healthcare Call Centre)',  note: '24/7; 140 panel hospitals; fully cardless via eTiQa+ App QR code', panelUrl: 'https://www.etiqa.com.my/panels/panel-hospitals' },
-  'axa-affin':    { hotline: '1300-88-9979 (general) / 1300-88-8690 (MiCare)', tpa: 'IHP (General) / MiCare (Life, since Jan 1 2026)', note: '⚠ Cashless DISCONTINUED at selected Pantai & KPJ hospitals from Jul 18 2025 — those are reimbursement only now', panelUrl: 'https://www.generali.com.my' },
-  'msig':         { hotline: '1800-88-6744',  tpa: 'In-house (MSIG Assist)',                   note: '24/7 cashless via MSIG Assist Card; group products may use IHP or MiCare', panelUrl: 'https://www.msig.com.my/claims/healthcare.html' },
+  'axa-affin':    { hotline: '1300-88-8690 (Life, 24/7) / 1300-88-9979 (General, MiCare)', tpa: 'MiCare (Life, since Jan 1 2026); General: MiCare, MediExpress, IHP or PMCare depending on product', note: '⚠ Cashless DISCONTINUED at selected Pantai & KPJ hospitals from Jul 18 2025 — those are reimbursement only now', panelUrl: 'https://www.generali.com.my' },
+  'msig':         { hotline: '1800-88-7940',  tpa: 'MiCare Sdn Bhd (individual H&S)',          note: '24h GL line for FlexiHealth & most individual H&S plans; FlexiCo Medical: 1-300-80-0020; 129 panel hospitals (list wef 29 Jul 2026)', panelUrl: 'https://www.msig.com.my/claims/healthcare.html' },
   'tune-protect': { hotline: '1800-88-7940',  tpa: 'MiCare Sdn Bhd',                          note: '24/7 MiCare dedicated line for Tune Protect customers; MiCare MyMed App available', panelUrl: 'https://www.tuneprotect.com/my/products/pro-health-medical/' },
   'bupa':         { hotline: '1800-82-6100',  tpa: 'IHP Malaysia (from Jan 1 2025)',           note: 'TPA changed from Fullerton to IHP on Jan 1 2025; allow 1h for cashless approval', panelUrl: 'https://www.bupaglobal.com/en/facilities/full-list' },
   'cigna':        { hotline: 'See your card', tpa: 'In-house (Cigna Global)',                   note: 'No fixed Malaysian hotline — prior authorisation required via cignaglobal.com/contact', panelUrl: 'https://www.cignaglobal.com/customer-area' },
@@ -543,7 +543,7 @@ function PanelLookupSection() {
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
         <strong>Important:</strong> Insurance panels change regularly. This lookup uses data from hospital and insurer records but may not reflect the latest panel status. <strong>Always call your insurer's 24h hotline on the day of admission</strong> to confirm panel status and request a Letter of Guarantee (LOG). Do not assume — panels change without notice.
       </div>
-      <LastVerified date="July 2026" note="hotlines & TPA data cross-checked against insurer announcements" />
+      <LastVerified date="November 2026" note="hotlines & TPA data cross-checked against insurer announcements" />
 
       {/* View switcher */}
       <div className="flex flex-wrap gap-2">
@@ -800,7 +800,7 @@ function ComparisonSection() {
       <LastVerified date="July 2026" />
 
       <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
-        <strong className="text-ink">💡 Regulatory context (Bank Negara Malaysia):</strong> Since 1 September 2024, insurers must offer a co-payment option — typically a minimum 5% co-payment or RM 500 deductible — in exchange for premiums 19–68% lower than non-co-payment plans. Emergency treatment, critical-illness follow-up, and government-facility treatment are exempt from co-payment. BNM has also capped premium hikes at 10% for most policyholders, phased over a minimum 3 years.
+        <strong className="text-ink">💡 Regulatory context (Bank Negara Malaysia):</strong> Since 1 September 2024, insurers must offer a co-payment option — typically a minimum 5% co-payment or RM 500 deductible — in exchange for premiums 19–68% lower than non-co-payment plans. Emergency treatment, critical-illness follow-up, and government-facility treatment are exempt from co-payment. Under BNM's interim measures (in place until end-2026), repricing increases must be staggered over at least 3 years, keeping yearly claims-inflation increases below 10% for most policyholders (age-band increases are not covered). From late January 2027 insurers will also offer MediAsas, the government-designed base MHIT plan (Teras standard / Fleksi standard-plus; entry up to age 70, cover to 85), which repriced policyholders can switch to with their current insurer without fresh underwriting.
       </div>
 
       <div className="overflow-x-auto -mx-5 px-5">

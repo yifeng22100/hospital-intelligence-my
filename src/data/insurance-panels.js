@@ -55,7 +55,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching", "timberland-kuching", "bmc-kuching"
       ],
-      generalNote: "AIA has one of Malaysia's widest hospital panels — 120 hospitals in two tiers: SMART Panel (75 hospitals with priority lanes, waived deposits, dedicated liaisons) and General Panel (45 hospitals with standard cashless). Sunway Medical Damansara and Sunway Medical Ipoh were added to SMART Panel in August 2025. All managed in-house by AIA Health Services Sdn Bhd (no external TPA).",
+      generalNote: "AIA has one of Malaysia's widest hospital panels — roughly 120 hospitals in two tiers: SMART Panel (about 75 hospitals with priority lanes, waived deposits, dedicated liaisons) and General Panel (about 45 hospitals with standard cashless; at General Panel hospitals cashless may be limited to specific departments/specialists). Sunway Medical Damansara and Sunway Medical Ipoh were added to SMART Panel in August 2025. In October 2026 AIA was reported to have excluded some individual IHH (Pantai/Gleneagles group) consultants from its panel while keeping the hospitals on panel — check AIA's Panel Provider Specialist Listing for your specific doctor before admission. All managed in-house by AIA Health Services Sdn Bhd (no external TPA).",
       logLimitWarning: "AIA A-Plus basic plans may have daily room limits of RM 150–250/day — insufficient for premium hospitals like Gleneagles KL (RM 350–600/night) or Prince Court. Upgrade to A-Plus Health Max or ensure your plan's room limit matches your preferred hospital.",
       preAdmissionWindow: "AIA typically covers pre-admission outpatient expenses 30–60 days before related hospitalisation. Confirm exact window in your Certificate of Insurance.",
       website: "https://www.aia.com.my"
@@ -133,7 +133,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Great Eastern manages all GL/cashless in-house via its Healthcare Services Division (HSD) — no external TPA. 'The Great Journey' premium tier (85 hospitals, updated November 2025) offers streamlined admission and priority service. General panel covers 150+ hospitals nationwide.",
+      generalNote: "Great Eastern manages all GL/cashless in-house via its Healthcare Services Division (HSD) — no external TPA. 'The Great Journey' premium tier (85 hospitals and specialist centres per the listing updated 14 July 2026; Aurelius Hospital Alor Setar and Columbia Asia Hospital Petaling Jaya left this tier on 1 July 2026) offers streamlined admission and priority service. General panel covers 150+ hospitals nationwide.",
       logLimitWarning: "GREAT MedProtect plans have varying room limits. For hospitalisation at premium hospitals, ensure your daily room limit covers the hospital's room rate.",
       preAdmissionWindow: "Pre-admission expenses covered for related outpatient visits typically within 60 days before admission.",
       website: "https://www.greateasternlife.com/my"
@@ -183,7 +183,7 @@ export const INSURANCE_PANELS = {
         // Sarawak — General
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Allianz manages all GL in-house via ACS (Allianz Care Services) — no external TPA. Blue Ribbon Programme: 16 premium hospitals with priority admission, bedside check-in, and cashless outpatient cancer/radiotherapy. General panel covers 200+ hospitals nationwide.",
+      generalNote: "Allianz handles individual medical-card GL mainly in-house (Customer HealthCare Administration, 1-300-88-8322), but some policies list a third-party administrator on the card (Allianz's claims FAQ names Asia Assistance and MiCare) — use the GL number printed on your card. Blue Ribbon Programme: 16 premium hospitals with priority admission, bedside check-in, and cashless outpatient cancer/radiotherapy. General panel covers 200+ hospitals nationwide.",
       logLimitWarning: "Confirm daily room benefit versus hospital room rates. Allianz SmartMed Plus has tiered room benefits — ensure your tier matches your hospital preference.",
       preAdmissionWindow: "Pre-admission covered 30–90 days before related admission depending on plan.",
       website: "https://www.allianz.com.my"
@@ -215,7 +215,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching", "kpj-kuching"
       ],
-      generalNote: "Tokio Marine uses MiCare Sdn Bhd as its exclusive TPA for both hospital cashless and GP panel clinic services. MiCare hotline 1300-88-8690 is printed on new medical cards. MiCare MyMed App available for e-card, GL requests, and hospital locator.",
+      generalNote: "Tokio Marine Life uses MiCare Sdn Bhd as its TPA for hospital cashless (GL) services. Tokio Marine Life lists the MiCare GL line as 03-7843 9459 (24/7) — always use the number printed on your own medical card. MiCare MyMed App available for e-card, GL requests, and hospital locator.",
       logLimitWarning: "Check specific plan room benefit. Tokio Marine plans vary in hospital tier coverage.",
       preAdmissionWindow: "Pre-admission expenses within 30–60 days of related hospitalisation.",
       website: "https://www.tokiomarine.com.my"
@@ -333,7 +333,7 @@ export const INSURANCE_PANELS = {
         "normah-kuching", "bmc-kuching"
       ],
       generalNote: "⚠ IMPORTANT (July 18, 2025): Generali discontinued cashless facility at selected Pantai Group and KPJ Group hospitals. Policyholders can still use those hospitals but must pay upfront and claim via reimbursement. AXA Affin rebranded to Generali (General Insurance 2023, Life Insurance 2024). Generali Life's TPA switched from IHP to MiCare effective January 1, 2026 — old physical GL cards were valid only until 31 December 2025; use the MiCare hotline for hospitalisation claims going forward.",
-      logLimitWarning: "Verify cashless status before any Pantai or KPJ admission — as of July 2025, selected hospitals in these groups no longer offer cashless GL under Generali. Call 1300-88-9979 (general) or 1300-88-8690 (MiCare hospitalisation line, since Jan 2026) to confirm.",
+      logLimitWarning: "Verify cashless status before any Pantai or KPJ admission — as of July 2025, selected hospitals in these groups no longer offer cashless GL under Generali. Call 1300-88-8690 (Generali Life 24/7 hospitalisation line) or, for Generali Insurance (general) medical policies, the TPA line on your card (e.g. MiCare 1-300-88-9979) to confirm.",
       preAdmissionWindow: "Typically 30–60 days. Confirm in policy document.",
       website: "https://www.generali.com.my"
     },
@@ -343,7 +343,7 @@ export const INSURANCE_PANELS = {
       tiers: ["MediPlus Individual", "MediPlus Family", "MSIG HealthShield"],
       cashlessHospitals: [
         // KL
-        "gleneagles-kl", "pantai-kl", "pantai-ampang", "beacon-hospital", "parkcity-mc",
+        "gleneagles-kl", "pantai-kl", "pantai-ampang", "parkcity-mc",
         "umsc",
         // Selangor
         "sunway-mc", "sjmc", "kpj-damansara", "pantai-cheras",
@@ -361,7 +361,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "normah-kuching"
       ],
-      generalNote: "MSIG FlexiHealth (individual) uses MSIG Assist Card for cashless GL at ~117 panel hospitals (listing updated July 1, 2024). Group products may use IHP or MiCare. MSIG Healthcare International (expat plan) has no fixed panel — direct billing arranged case by case.",
+      generalNote: "MSIG individual health products (FlexiHealth, Healthcare International, Edu Medicare, Healthnet, Gluco Safeguard) get cashless GL via the 24-hour service line 1800-88-7940 (MiCare) at 129 panel hospitals (listing effective 29 July 2026); FlexiCo Medical uses 1-300-80-0020. Group products may use IHP or MiCare. MSIG Healthcare International (expat plan) has no fixed panel — direct billing arranged case by case.",
       logLimitWarning: "MSIG health products have clear room benefit tiers — select the tier matching your preferred hospital.",
       preAdmissionWindow: "30 days pre-admission for related hospitalisation.",
       website: "https://www.msig.com.my"
@@ -392,7 +392,7 @@ export const INSURANCE_PANELS = {
         // Sarawak
         "bmc-kuching", "kpj-kuching"
       ],
-      generalNote: "Tune Protect PRO-Health Medical uses the full MiCare hospital panel (~106 hospitals nationwide). GL processed 24/7 via MiCare on dedicated Tune Protect line 1800-88-7940. MiCare MyMed App available. Note: Tune Protect travel insurance has a different (much smaller) scope — confirm you're on a PRO-Health plan for full hospital coverage.",
+      generalNote: "Tune Protect PRO-Health Medical uses the MiCare hospital panel (150+ panel hospitals per Tune Protect). GL processed 24/7 via MiCare on dedicated Tune Protect line 1800-88-7940. MiCare MyMed App available. Note: Tune Protect travel insurance has a different (much smaller) scope — confirm you're on a PRO-Health plan for full hospital coverage.",
       logLimitWarning: "Tune Protect travel insurance does not cover pre-existing conditions and has limited hospital scope. PRO-Health Medical is the standalone medical product. For comprehensive coverage, consider dedicated health insurers (AIA, Prudential, Great Eastern, Allianz).",
       preAdmissionWindow: "For PRO-Health: 30 days pre-admission for related condition. Travel insurance: not applicable.",
       website: "https://www.tuneprotect.com"

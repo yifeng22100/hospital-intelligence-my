@@ -7,45 +7,45 @@ import PrintButton from '../components/PrintButton'
 
 const LHDN_RELIEFS = [
   {
-    id: 'medical-self',
-    title: 'Medical Treatment — Self, Spouse & Children',
-    limit: 'RM 1,000',
-    color: '#16a34a',
-    what: 'Doctor and specialist consultation fees, hospitalisation charges, prescribed medication, physiotherapy, dental treatment (excluding cosmetics), optical (glasses/contact lenses up to RM 800).',
-    includes: ['GP / specialist consultation fees', 'Private hospital bills (co-pay and non-insured portion)', 'Prescribed medications', 'Physiotherapy treatment', 'Dental treatment (non-cosmetic)', 'Optical: frames, lenses, contact lenses (up to RM 800 sub-limit)'],
-    note: 'Sub-limit: Full medical check-up is capped at RM 500 within this RM 1,000 relief. Keep all official receipts from hospitals, clinics, and pharmacies.',
-  },
-  {
     id: 'serious-disease',
-    title: 'Serious Diseases — Self, Spouse & Children',
-    limit: 'RM 8,000',
+    title: 'Medical Expenses — Self, Spouse & Children (Serious Diseases, Fertility, Vaccination, Dental)',
+    limit: 'RM 10,000',
     color: '#dc2626',
-    what: 'Medical treatment costs for serious diseases including cancer, kidney failure, heart disease, stroke, Parkinson\'s, AIDS, leukaemia, liver cirrhosis, fulminant hepatitis, tumour, and mental illness (including depression, anxiety disorders).',
-    includes: ['Cancer treatment (chemo, radiotherapy, immunotherapy, targeted therapy)', 'Kidney dialysis (all sessions in the year)', 'Cardiac surgery, angioplasty, stenting', 'Stroke rehabilitation', 'Mental health treatment (psychiatrist fees, medication)', 'Fertility treatment (IVF, IUI) — sub-limit applies'],
-    note: 'This RM 8,000 is separate from the RM 1,000 general medical relief. Both can be claimed in the same year. Fertility treatment for self or spouse is included under this category.',
-  },
-  {
-    id: 'parents-medical',
-    title: 'Parents\' Medical Treatment',
-    limit: 'RM 8,000',
-    color: '#7c3aed',
-    what: 'Medical treatment expenses paid for your mother and/or father. Covers the same range as the self/spouse/children categories above.',
-    includes: ['Hospitalisation for parents', 'Specialist treatment for parents', 'Surgery and procedures', 'Nursing home fees (if medically necessitated)', 'Medication and physiotherapy for parents'],
-    note: 'Must be a Malaysian resident claiming. Both parents\' expenses are pooled under this single RM 8,000 limit. Keep receipts in the parent\'s name. Parents do not need to live with you.',
+    what: 'Medical treatment costs for serious diseases (self, spouse or child) — e.g. cancer, kidney failure, heart disease, stroke, Parkinson\'s, AIDS, leukaemia, chronic liver disease, fulminant hepatitis, brain tumour — plus fertility treatment (self or spouse), vaccination and dental treatment. This RM 10,000 is the overall cap for this category (YA 2025).',
+    includes: ['Cancer treatment (chemo, radiotherapy, immunotherapy, targeted therapy)', 'Kidney dialysis (all sessions in the year)', 'Cardiac surgery, angioplasty, stenting', 'Stroke rehabilitation', 'Fertility treatment (IVF, IUI) — self or spouse', 'Vaccination (RM 1,000 sub-limit)', 'Dental examination and treatment (RM 1,000 sub-limit)'],
+    note: 'The RM 1,000 medical-examination / mental-health sub-limit and the RM 6,000 child learning-disability sub-limit (below) sit INSIDE this same RM 10,000 cap — they are not additional. General GP visits and medicines for ordinary illnesses are not claimable. Claims need receipts and certification from an MMC-registered doctor.',
   },
   {
     id: 'medical-checkup',
-    title: 'Complete Medical Examination',
-    limit: 'RM 500',
+    title: 'Complete Medical Exam, Mental Health & Health Screening — Self, Spouse & Children',
+    limit: 'RM 1,000',
     color: '#0891b2',
-    what: 'Annual health screening and full medical check-up for yourself. Sub-limit within the RM 1,000 medical relief above.',
-    includes: ['Full blood panel', 'Health screening packages at hospitals or private labs', 'Preventive health check-ups'],
-    note: 'RM 500 is a sub-limit within the RM 1,000 general medical relief — not an additional RM 500 on top. Claim your health screening receipts under the medical treatment category.',
+    what: 'Complete medical examination, mental health examination or consultation, COVID-19 tests (including self-test kits), self-health monitoring equipment, and fees for disease detection tests. Sub-limit within the RM 10,000 medical expenses relief above.',
+    includes: ['Full blood panel / health screening packages at hospitals or private labs', 'Psychiatrist or psychologist consultation', 'Self-health monitoring equipment (e.g. BP monitor, glucometer)', 'Disease detection test fees'],
+    note: 'RM 1,000 is a sub-limit within the RM 10,000 medical expenses relief — not an additional RM 1,000 on top.',
+  },
+  {
+    id: 'learning-disability',
+    title: 'Child Learning Disability — Assessment & Early Intervention',
+    limit: 'RM 6,000',
+    color: '#16a34a',
+    what: 'Assessment for intellectual disability diagnosis and early intervention / rehabilitation treatment for a child aged 18 and below.',
+    includes: ['Diagnostic assessment for intellectual / learning disability', 'Early intervention programmes', 'Rehabilitation treatment'],
+    note: 'RM 6,000 sub-limit within the RM 10,000 medical expenses relief (raised from RM 4,000 in YA 2024).',
+  },
+  {
+    id: 'parents-medical',
+    title: 'Parents\' & Grandparents\' Medical Treatment and Care',
+    limit: 'RM 8,000',
+    color: '#7c3aed',
+    what: 'Medical treatment, dental treatment, special needs and carer expenses paid for your parents or grandparents (medical condition certified by a medical practitioner). Complete medical examination is capped at RM 1,000 within this relief.',
+    includes: ['Hospitalisation for parents', 'Specialist treatment for parents', 'Surgery and procedures', 'Nursing home fees (if medically necessitated)', 'Medication and physiotherapy for parents'],
+    note: 'Parents/grandparents must be resident in Malaysia. All parents\' expenses are pooled under this single RM 8,000 limit. Keep receipts in the parent\'s name. Parents do not need to live with you.',
   },
   {
     id: 'insurance-premium',
     title: 'Medical & Education Insurance Premiums',
-    limit: 'RM 3,000',
+    limit: 'RM 4,000',
     color: '#d97706',
     what: 'Annual premiums paid for medical insurance or education insurance covering yourself, spouse, and children.',
     includes: ['Medical card / hospitalisation insurance premiums (AIA, Prudential, Great Eastern, Allianz, etc.)', 'Critical illness rider premiums', 'Education insurance premiums', 'Takaful medical premiums'],
@@ -58,7 +58,7 @@ const LHDN_RELIEFS = [
     color: '#059669',
     what: 'Employee EPF contributions and life insurance premiums are pooled under one RM 7,000 relief.',
     includes: ['Employee EPF / KWSP contribution (shown on EA form)', 'Life insurance annual premiums', 'Takaful contributions (life / family takaful)'],
-    note: 'If your EPF contribution alone exceeds RM 7,000, the full relief is used. Life insurance premiums are only claimable if EPF contribution leaves room within the RM 7,000 cap.',
+    note: 'Split sub-limits: EPF contributions up to RM 4,000 and life insurance / family takaful premiums up to RM 3,000. Unused EPF room cannot be transferred to life insurance (or vice versa).',
   },
   {
     id: 'oku',
@@ -77,10 +77,10 @@ const GOV_SCHEMES = [
     title: 'MySalam — Free B40 Critical Illness Cover',
     badge: 'Automatic — No Registration',
     color: '#16a34a',
-    payout: 'RM 8,000',
-    who: 'B40 Malaysians (household income ≤ RM 100,000/year)',
-    covers: '36 critical illnesses including cancer, heart attack, stroke, kidney failure, HIV from medical procedure',
-    how: 'Automatic — no registration or premium payment. Submit claim with diagnosis letter, IC, and bank account at mysalam.com.my or call 1-800-88-1234. Processed within 14 working days.',
+    payout: 'RM 8,000 (critical illness) · RM 50/day hospitalisation (max RM 700/yr) · up to RM 30,000 medical devices',
+    who: 'Sumbangan Tunai Rahmah (STR) recipients and their spouses, up to age 65',
+    covers: '50 critical illnesses including cancer, heart attack, stroke, kidney failure; hospitalisation at government hospitals; approved medical devices. Continues in 2027 (Budget 2027).',
+    how: 'Automatic — no registration or premium payment. Check eligibility with your MyKad number and submit claims (diagnosis letter, IC, bank account) at mysalam.com.my, at mySalam kiosks in panel hospitals, or call 1-300-88-8938.',
     url: 'https://www.mysalam.com.my',
   },
   {
@@ -107,13 +107,13 @@ const GOV_SCHEMES = [
   },
   {
     id: 'epf',
-    title: 'EPF Account 2 Medical Withdrawal',
+    title: 'EPF Akaun Sejahtera (formerly Account 2) Health Withdrawal',
     badge: 'For EPF Contributors',
     color: '#7c3aed',
-    payout: 'Up to full Account 2 balance',
-    who: 'EPF contributors — for self, spouse, children, parents, in-laws',
+    payout: 'Lower of uncovered treatment cost or Akaun Sejahtera balance',
+    who: 'EPF members below 55 — for self, spouse, children, parents (incl. in-laws), siblings',
     covers: 'Hospitalisation, surgery, specialist treatment, dialysis, chemo, radiotherapy, physiotherapy, purchase of medical equipment',
-    how: 'Apply online at i-Akaun (i-Akaun.kwsp.gov.my) or any EPF branch. Documents: original hospital bills, doctor\'s letter, IC, EPF member number. Processing: 7–14 working days online, 3 working days in-branch.',
+    how: 'Apply via the KWSP i-Akaun app or any EPF branch. Documents: original hospital bills, doctor\'s letter, IC, EPF member number. Processing: 7–14 working days online, 3 working days in-branch.',
     url: 'https://www.kwsp.gov.my',
   },
   {
@@ -583,7 +583,7 @@ function FinancialSection() {
               Malaysia's income tax law allows you to deduct specific medical and insurance expenses from your taxable income. Many taxpayers miss these reliefs, especially for parents' treatment, serious disease costs, and insurance premiums. Claim these on your annual e-Filing (ezHASiL).
             </p>
             <p className="text-emerald-700 text-[12px] mt-2">
-              Tax year = Year of Assessment (YA). Claim for expenses in YA 2024 during e-Filing in 2025 (March–April submission deadline).
+              Tax year = Year of Assessment (YA). Limits shown are LHDN's published YA 2025 figures (filed in 2026). Expenses incurred in 2026 (YA 2026) are claimed during e-Filing in 2027 — check hasil.gov.my for any YA 2026 changes before filing.
             </p>
           </div>
 

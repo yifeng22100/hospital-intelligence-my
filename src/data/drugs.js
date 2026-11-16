@@ -93,7 +93,7 @@ export const DRUGS = [
     prescription: true,
     whereToGet: 'Prescription required. Available at government clinics (free/subsidised for diabetics with red referral book) and private pharmacies.',
     dose: 'Starting: 500mg once or twice daily with meals. Adjusted by doctor up to 2g/day.',
-    notes: 'Take with or after food to reduce stomach upset. Stop before contrast scans (CT with dye) — inform your radiologist. Not for kidney failure patients.',
+    notes: 'Take with or after food to reduce stomach upset. Tell your radiologist before contrast scans (CT with dye) — it may be paused if your kidney function is reduced. Not for kidney failure patients.',
     emergency: false,
   },
   {

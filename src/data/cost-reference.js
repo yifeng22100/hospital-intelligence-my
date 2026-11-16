@@ -1,9 +1,9 @@
 // data/cost-reference.js
 export const COST_REFERENCE = {
 
-  disclaimer: "All costs are approximate estimates, cross-checked against published hospital packages and price lists in 2026. Malaysian private healthcare costs have risen significantly in recent years (medical inflation ran around 15% in 2024 alone) — these ranges are a starting point, not a quote. Actual costs vary significantly by hospital, surgeon, anaesthetist, case complexity, complications, implant choice, and length of stay. Promotional packages can understate the real cost if they exclude doctor or anaesthetist fees. Always obtain a formal written estimate from the hospital before proceeding — private hospital estimates in Malaysia are itemised by law on request.",
+  disclaimer: "All costs are approximate estimates, last cross-checked in November 2026 against published hospital packages and price lists, and against the insurance industry's 'Price Ranges for Common Private Healthcare Services' guide (LIAM/MTA/PIAM, January 2026, based on 2024 insurer claims). Malaysian private healthcare costs have risen significantly in recent years (medical inflation ran around 15% in 2024 alone; insurers' medical claims rose a further 12.3% in 2025, and consultancies project a 15–16% medical trend rate for 2026) — these ranges are a starting point, not a quote. Actual costs vary significantly by hospital, state, surgeon, anaesthetist, case complexity, complications, implant choice, and length of stay. Self-pay promotional packages are often well below what hospitals bill insurers for the same procedure, and can understate the real cost if they exclude doctor or anaesthetist fees, biopsies, or complications. Diagnosis-Related Group (DRG) fixed pricing at private hospitals is slated to start from January 2027 only for the new base MHIT (MediAsas) insurance plan — ordinary fee-for-service billing is unaffected for now. Always obtain a formal written estimate from the hospital before proceeding — private hospital estimates in Malaysia are itemised by law on request.",
   currency: "MYR",
-  lastUpdated: "2026",
+  lastUpdated: "November 2026",
 
   tiers: {
     public: "Subsidised rate for Malaysian citizens at government hospitals (MOH / university hospitals). Rates are heavily subsidised — costs reflect patient co-payment, not actual cost.",
@@ -85,9 +85,9 @@ export const COST_REFERENCE = {
           nameZH: "冠状动脉造影",
           publicCost: "RM 30–200 (subsidised)",
           publicFPP: "RM 3,000–6,000",
-          privateMid: "RM 5,000–9,000",
-          privatePremium: "RM 8,000–15,000",
-          notes: "Diagnostic procedure to visualise coronary arteries. If angioplasty (stenting) is needed, performed immediately in same session. Includes 1-day admission typically."
+          privateMid: "RM 5,000–12,000",
+          privatePremium: "RM 6,500–18,000",
+          notes: "Diagnostic procedure to visualise coronary arteries. If angioplasty (stenting) is needed, performed immediately in same session. Includes 1-day admission typically. Elective self-pay packages start around RM 6,800 (e.g. Pantai Hospital KL, 2 days/1 night incl. cardiologist fee). Insurer claims data (2024) puts the median private-hospital bill at RM 11,700 (middle 50% of bills: RM 8,800–18,300; ~2-day stay) — lower in Penang (RM 8,400) and Sarawak (RM 7,100), higher in Selangor and Johor (RM 13,400)."
         },
         {
           name: "Coronary Angioplasty / PTCA (Percutaneous Coronary Intervention) — Single Stent",
@@ -145,8 +145,8 @@ export const COST_REFERENCE = {
           publicCost: "RM 50–500 (subsidised; waiting list common)",
           publicFPP: "RM 12,000–22,000",
           privateMid: "RM 20,000–35,000",
-          privatePremium: "RM 35,000–60,000",
-          notes: "One knee. Both knees (bilateral) approximately 1.5–1.8x single knee cost. Implant brand/tier (standard vs. high-flex vs. custom-fit) significantly affects price. Includes 3–5 day admission and initial physiotherapy. Robotic-assisted TKR adds RM 8,000–15,000."
+          privatePremium: "RM 26,000–60,000",
+          notes: "One knee. Both knees (bilateral) approximately 1.5–1.8x single knee cost. Implant brand/tier (standard vs. high-flex vs. custom-fit) significantly affects price. Includes 3–5 day admission and initial physiotherapy. Robotic-assisted TKR adds RM 8,000–15,000. Premium hospitals outside the Klang Valley can be markedly cheaper — e.g. Sunway Medical Penang's 2026 self-pay single-knee package is RM 26,000 (incl. implant, surgeon/anaesthetist fees, 5-day stay). Insurer claims data (2024): median private-hospital TKR bill RM 33,400 (middle 50%: RM 28,100–38,200; ~4-day stay), from RM 26,900 in Penang to RM 38,000 in Selangor."
         },
         {
           name: "Total Hip Replacement (THR)",
@@ -184,9 +184,9 @@ export const COST_REFERENCE = {
           nameZH: "骨折切开复位内固定术",
           publicCost: "RM 30–300 (subsidised)",
           publicFPP: "RM 5,000–15,000",
-          privateMid: "RM 10,000–22,000",
+          privateMid: "RM 14,000–28,000",
           privatePremium: "RM 20,000–40,000",
-          notes: "Highly variable by fracture type, location, and implant used (titanium locking plate, intramedullary nail, etc.). Implant cost alone can range RM 1,500–12,000. Commonly covered by motor insurance (trauma) or SOCSO (workplace)."
+          notes: "Highly variable by fracture type, location, and implant used (titanium locking plate, intramedullary nail, etc.). Implant cost alone can range RM 1,500–12,000. Commonly covered by motor insurance (trauma) or SOCSO (workplace). Insurer claims data (2024, all fracture sites): median private-hospital ORIF bill RM 23,400 (middle 50%: RM 18,500–30,400), from RM 15,300 in Sarawak and RM 20,000 in Penang to RM 27,200 in Johor."
         }
       ]
     },
@@ -262,9 +262,9 @@ export const COST_REFERENCE = {
           nameZH: "腹腔镜阑尾切除术",
           publicCost: "RM 5–100 (subsidised)",
           publicFPP: "RM 3,000–7,000",
-          privateMid: "RM 6,000–12,000",
-          privatePremium: "RM 12,000–20,000",
-          notes: "Open appendectomy is slightly less expensive but less common for uncomplicated cases. Perforated appendix with peritonitis will significantly increase costs (longer admission, higher surgical complexity)."
+          privateMid: "RM 12,000–22,000",
+          privatePremium: "RM 18,000–30,000",
+          notes: "Open appendectomy is slightly less expensive but less common for uncomplicated cases. Perforated appendix with peritonitis will significantly increase costs (longer admission, higher surgical complexity). Insurer claims data (2024, open and laparoscopic combined): median private-hospital bill RM 20,700 (middle 50%: RM 17,000–25,500; ~2.7-day stay), from RM 12,900 in Sarawak and RM 16,700 in Penang to RM 24,500 in KL."
         },
         {
           name: "Laparoscopic Cholecystectomy (Gallbladder Removal)",
@@ -272,9 +272,9 @@ export const COST_REFERENCE = {
           nameZH: "腹腔镜胆囊切除术",
           publicCost: "RM 5–100 (subsidised)",
           publicFPP: "RM 3,000–8,000",
-          privateMid: "RM 7,000–14,000",
-          privatePremium: "RM 14,000–25,000",
-          notes: "Typically 1–2 day admission. If bile duct stones are present (requiring ERCP), add RM 3,000–8,000."
+          privateMid: "RM 12,000–24,000",
+          privatePremium: "RM 18,000–35,000",
+          notes: "Typically 1–2 day admission. If bile duct stones are present (requiring ERCP), add RM 3,000–8,000. Insurer claims data (2024): median private-hospital gallbladder removal bill RM 21,300 (middle 50%: RM 16,900–27,800; ~2.8-day stay), from RM 12,500 in Sarawak and RM 17,800 in Penang to RM 24,000 in Selangor."
         },
         {
           name: "Hernia Repair (Inguinal — Laparoscopic with Mesh)",
@@ -294,7 +294,7 @@ export const COST_REFERENCE = {
           publicFPP: "RM 500–1,500",
           privateMid: "RM 1,500–2,500",
           privatePremium: "RM 2,200–3,500",
-          notes: "Therapeutic colonoscopy (with polypectomy) adds RM 300–800. Sedation/anaesthesia fee (RM 400–800) may be charged separately, though some hospital packages bundle it in. Day procedure typically."
+          notes: "Therapeutic colonoscopy (with polypectomy) adds RM 300–800. Sedation/anaesthesia fee (RM 400–800) may be charged separately, though some hospital packages bundle it in. Day procedure typically. 2026 self-pay packages: e.g. from RM 1,899 (Mahkota Medical), from RM 2,200 (Sunway Medical Centre, incl. standard sedation, excl. biopsy/polypectomy). Bills charged to insurers run well above package prices — 2024 claims data puts the median daycare colonoscopy-with-biopsy bill at RM 4,700 (middle 50%: RM 3,700–5,900)."
         },
         {
           name: "Gastroscopy / OGD (Upper GI Endoscopy)",
@@ -302,9 +302,9 @@ export const COST_REFERENCE = {
           nameZH: "胃镜检查",
           publicCost: "RM 5–30 (subsidised)",
           publicFPP: "RM 300–800",
-          privateMid: "RM 500–1,200",
-          privatePremium: "RM 1,000–2,000",
-          notes: "HP test (Helicobacter pylori rapid urease test) adds RM 50–150. Biopsy adds RM 100–300. Sedation adds RM 300–600 at private centres."
+          privateMid: "RM 1,000–1,600",
+          privatePremium: "RM 1,500–2,500",
+          notes: "HP test (Helicobacter pylori rapid urease test) adds RM 50–150. Biopsy adds RM 100–300. Sedation adds RM 300–600 at private centres if not bundled. 2026 self-pay packages: e.g. from RM 1,299 (Mahkota Medical), from RM 1,700 (Sunway Medical Centre, incl. standard sedation, excl. biopsy). Bills charged to insurers run well above package prices — 2024 claims data puts the median daycare gastroscopy-with-biopsy bill at RM 4,700 (middle 50%: RM 3,300–6,100)."
         }
       ]
     },
@@ -372,7 +372,7 @@ export const COST_REFERENCE = {
           publicFPP: "RM 1,500–4,000 per eye",
           privateMid: "RM 3,000–7,000 per eye",
           privatePremium: "RM 6,000–15,000 per eye (monofocal); up to ~RM 21,000 with a premium multifocal/toric IOL",
-          notes: "IOL (intraocular lens) type significantly affects cost: monofocal (standard) vs. multifocal/toric (premium) IOL. Premium IOL adds RM 2,000–6,000 per eye on top of the base surgery cost. Both eyes typically done 1–2 weeks apart. Free National Cataract Programme for eligible B40 Malaysians."
+          notes: "IOL (intraocular lens) type significantly affects cost: monofocal (standard) vs. multifocal/toric (premium) IOL. Premium IOL adds RM 2,000–6,000 per eye on top of the base surgery cost. Both eyes typically done 1–2 weeks apart. Free National Cataract Programme for eligible B40 Malaysians. 2026 self-pay packages range from about RM 3,400–4,500 per eye at mid-tier hospitals (some exclude the lens) to RM 7,800 (Ara Damansara, phaco) and RM 9,500–15,000 (Gleneagles Penang estimate, monofocal). Insurer claims data (2024): median daycare cataract bill RM 8,400 (middle 50%: RM 6,800–10,300)."
         },
         {
           name: "LASIK (Laser Vision Correction)",
@@ -427,7 +427,7 @@ export const COST_REFERENCE = {
           name: "Intrauterine Insemination (IUI)",
           nameBM: "Inseminasi Intra-uterin (IUI)",
           nameZH: "人工授精（IUI）",
-          publicCost: "Not routinely available at public hospitals",
+          publicCost: "Free for eligible couples via LPPKN's BuAI programme (up to 2 IUI cycles; household income below RM 10,000/month, age 35 or below, first child); otherwise not routinely available at public hospitals",
           publicFPP: "Not applicable",
           privateMid: "RM 1,500–3,500 per cycle",
           privatePremium: "RM 2,500–5,000 per cycle",
@@ -450,7 +450,7 @@ export const COST_REFERENCE = {
           publicFPP: "RM 100–300",
           privateMid: "RM 200–500",
           privatePremium: "RM 400–800",
-          notes: "Typically includes: FBC, fasting glucose, lipid profile, uric acid, liver function, renal function, urine FEME. MyHealth screening (Skim Peduli Sihat B40) provides free screening at KKM clinics for eligible Malaysians."
+          notes: "Typically includes: FBC, fasting glucose, lipid profile, uric acid, liver function, renal function, urine FEME. PeKa B40 (run by ProtectHealth for MOH) provides free screening at participating private GP clinics and Klinik Kesihatan for Sumbangan Tunai Rahmah (STR) recipients and their spouses aged 40 and above."
         },
         {
           name: "Executive Health Screening (Full-Day Comprehensive)",
@@ -487,9 +487,9 @@ export const COST_REFERENCE = {
           nameZH: "扁桃体切除术",
           publicCost: "RM 5–50 (subsidised)",
           publicFPP: "RM 2,500–5,000",
-          privateMid: "RM 4,000–8,000",
-          privatePremium: "RM 8,000–14,000",
-          notes: "Often performed with adenoidectomy (adenoid removal): add RM 1,000–2,500. Day surgery for uncomplicated cases. Children require paediatric anaesthesia — factor into cost estimate."
+          privateMid: "RM 6,000–12,000",
+          privatePremium: "RM 10,000–18,000",
+          notes: "Often performed with adenoidectomy (adenoid removal): add RM 1,000–2,500. Day surgery for uncomplicated cases. Children require paediatric anaesthesia — factor into cost estimate. Pantai Hospital Ipoh has listed a tonsillectomy package at RM 9,788 (2 days/1 night). Insurer claims data (2024): median private-hospital adenotonsillectomy bill RM 12,400 (middle 50%: RM 10,200–15,700)."
         },
         {
           name: "FESS (Functional Endoscopic Sinus Surgery)",
@@ -497,9 +497,9 @@ export const COST_REFERENCE = {
           nameZH: "鼻腔内窥镜鼻窦手术（FESS）",
           publicCost: "RM 30–200 (subsidised)",
           publicFPP: "RM 4,000–10,000",
-          privateMid: "RM 8,000–18,000",
+          privateMid: "RM 10,000–22,000",
           privatePremium: "RM 18,000–35,000",
-          notes: "Unilateral vs. bilateral and number of sinuses involved significantly affects cost. Septoplasty (for deviated septum) performed simultaneously: add RM 2,000–5,000. Image-guided navigation system: add RM 2,000–5,000."
+          notes: "Unilateral vs. bilateral and number of sinuses involved significantly affects cost. Septoplasty (for deviated septum) performed simultaneously: add RM 2,000–5,000. Image-guided navigation system: add RM 2,000–5,000. Insurer claims data (2024): median private-hospital sinus surgery bill RM 21,900 (middle 50%: RM 17,400–27,200), from RM 12,100 in Sarawak and RM 17,100 in Penang to RM 24,600 in KL; septoplasty alone has a median bill of RM 20,100."
         },
         {
           name: "Cochlear Implant (Unilateral — Surgery + Device)",
@@ -595,10 +595,10 @@ export const COST_REFERENCE = {
   ],
 
   systemHacks: [
-    "EPF Account 2 (Akaun 2 KWSP) withdrawal: You can withdraw from your Account 2 to pay for yourself, your spouse, parents, parents-in-law, or children's medical expenses — including major surgeries, cancer treatment, and chronic disease management. Apply at any EPF counter or online via i-Akaun. There is no minimum withdrawal amount for approved medical purposes.",
+    "EPF Akaun Sejahtera (formerly Account 2 / Akaun 2 KWSP) health withdrawal: You can withdraw from your Akaun Sejahtera to pay for yourself, your spouse, parents, parents-in-law, or children's medical expenses — including major surgeries, cancer treatment, and chronic disease management. Apply at any EPF counter or online via i-Akaun. The amount is capped at the treatment cost not covered by your employer or insurance (or your Akaun Sejahtera balance, if lower), and a medical report is required.",
     "SOCSO/PERKESO covers 100% of hospitalisation costs from work-related illness or injury — claim via your employer (they must report within 48 hours) or directly at any PERKESO office. Coverage includes post-hospitalisation rehabilitation. perkeso.gov.my or call 1-800-22-8000.",
-    "MySalam Takaful: The government's MySalam scheme pays RM8,000 lump sum on diagnosis of any of 36 critical illnesses AND RM4,000 for B40 hospital admission due to covered conditions. Eligible: Malaysians earning less than RM100,000/year with active tax filing. No claim needed — payout is automatic via MyKad registration. Check eligibility at mysalam.com.my.",
-    "Peka B40 Health Screening: Eligible Malaysians in the B40 income group receive FREE health screening and early cancer detection including mammogram, Pap smear, and colorectal cancer screening. No referral needed — just register at a clinic participating in the Skim Peduli Sihat programme. pekab40.com.my.",
+    "mySalam: The government's mySalam scheme pays a one-off RM8,000 on diagnosis of any of 50 listed critical illnesses, RM50/day (up to 14 days, max RM700 a year) for admission to government, military or university hospitals, and up to RM30,000 for approved medical devices (e.g. cardiac stents). Eligible: Sumbangan Tunai Rahmah (STR) recipients and their spouses, up to age 65. The scheme has been extended through 2026. Check eligibility and how to claim at mysalam.com.my.",
+    "PeKa B40 Health Screening: Sumbangan Tunai Rahmah (STR) recipients and their spouses aged 40 and above are automatically eligible for FREE health screening at around 5,600 participating private GP clinics and Klinik Kesihatan — no registration or referral needed, just bring your MyKad. Completing screening also unlocks PeKa B40's medical device aid (up to RM20,000), a RM1,000 cancer-treatment completion incentive at MOH hospitals, and transport aid (up to RM1,000). Participating clinics: bms.pekab40.com.my/provider.",
     "National Specialist Register (NSR) consultation at government university hospitals (UMMC, HUKM, HUSM, etc.) — specialists are senior academic doctors. Costs are subsidised compared to private hospitals and quality is often equivalent. Waiting times are longer but acceptable for non-emergency conditions.",
     "Zakat for medical treatment: Many state zakat boards (Lembaga Zakat Selangor, MAIWP, etc.) provide financial assistance for medical treatment for eligible Muslims. Apply at your state Islamic religious council. Non-Muslims: Yayasan Kebajikan Negara (JKM) has a medical assistance fund.",
     "JKM Medical Assistance (Bantuan Perubatan JKM): Low-income Malaysians (B40 and below) can apply for JKM medical financial assistance to cover hospital bills. Contact the nearest JKM district office or call Talian Kasih 15999.",

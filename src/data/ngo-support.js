@@ -356,16 +356,16 @@ export const NGO_SUPPORT = {
     },
     {
       name: 'MySalam (Skim Perlindungan Kesihatan Nasional)',
-      phone: '1300-13-6262',
+      phone: '1-300-88-8938',
       website: 'https://www.mysalam.com.my',
       services: [
-        'Automatic free takaful coverage for B40 households',
-        'Cash payout for 45 critical illness diagnoses (RM 8,000 lump sum)',
-        'Hospitalisation income replacement (RM 50 per day for up to 14 days per year)',
-        'Coverage for in-hospital death',
+        'Automatic free takaful coverage for B40 households — continues in 2027 (Budget 2027)',
+        'Cash payout for 50 critical illness diagnoses (RM 8,000 lump sum)',
+        'Hospitalisation income replacement (RM 50 per day for up to 14 days per year, max RM 700)',
+        'Medical device benefit of up to RM 30,000',
         'Claims processed through Great Eastern Takaful branches or via MySalam portal'
       ],
-      eligibility: 'Malaysian citizens aged 18–65 in the B40 income category. Eligibility determined by government household income database — no registration or premium payment required. Check eligibility at mysalam.com.my.'
+      eligibility: 'Sumbangan Tunai Rahmah (STR) recipients and their spouses, up to age 65. Eligibility determined by government records — no registration or premium payment required. Check eligibility at mysalam.com.my.'
     },
     {
       name: 'Tabung Haji Medical Financial Assistance',
