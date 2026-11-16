@@ -482,7 +482,7 @@ function AETriageSection() {
             <div className="border border-ink-quaternary rounded-2xl p-4">
               <p className="font-bold text-ink text-[14px] mb-2">🏥 Private hospital A&E</p>
               <ul className="space-y-1.5">
-                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Government-regulated medical officer consult fee: RM 30–RM 125 (private specialist consult capped at RM 35–RM 235 first visit)</li>
+                <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Government-regulated medical officer consult fee: RM 30–RM 125 (private specialist first-visit consult capped at RM 80–RM 235)</li>
                 <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Facility fees, triage fees, equipment/procedure fees and basic tests are <strong>not fee-capped</strong></li>
                 <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Roughly 70% of a typical private hospital bill is made up of these unregulated charges — total A&E bills routinely exceed the consult fee alone by a wide margin</li>
                 <li className="text-ink-secondary text-[12px] flex items-start gap-2"><span className="flex-shrink-0 text-brand">•</span>Private ambulance transfer: from RM 250+ (vs free 999)</li>
@@ -492,7 +492,7 @@ function AETriageSection() {
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] text-amber-800 leading-relaxed">
             <strong>Ask for an itemised bill.</strong> Private A&E costs can escalate quickly once scans, procedures, and observation beds are added. If your condition allows, ask staff for a running cost estimate — especially if you're paying out of pocket or your insurance panel status is uncertain.
           </div>
-          <LastVerified date="July 2026" />
+          <LastVerified date="November 2026" />
         </div>
       )}
     </div>
@@ -1202,8 +1202,8 @@ const SCREENING_BY_AGE = [
       { test: 'Comprehensive Geriatric Assessment', freq: 'Annually', who: 'Everyone 65+', note: 'Covers cognition, falls risk, functional status, nutrition, medication review. Ask your family doctor or geriatrician.' },
       { test: 'Cognitive Screening (MMSE / MoCA)', freq: 'Annually', who: 'Everyone 65+', note: 'Mini-Mental State Exam or Montreal Cognitive Assessment — detect early dementia. Free at KK.' },
       { test: 'Osteoporosis Monitoring', freq: 'Every 1–2 years', who: 'Post-menopausal women; men 70+', note: 'Continue DEXA monitoring. Falls prevention programme available at government hospitals.' },
-      { test: 'Influenza Vaccination', freq: 'Annually', who: 'Everyone 65+', note: 'Free for 65+ at Klinik Kesihatan under National Immunisation Programme (NIP).' },
-      { test: 'Pneumococcal Vaccination', freq: 'Once (PCV13) + booster after 1 year (PPSV23)', who: 'Everyone 65+', note: 'Available free at government hospitals. Protects against pneumonia and meningitis.' },
+      { test: 'Influenza Vaccination', freq: 'Annually', who: 'Everyone 65+', note: 'Free at Klinik Kesihatan for all Malaysians 60+ (and 50–59 with a chronic condition) under the National Influenza Immunisation Programme — book via MySejahtera, subject to stock.' },
+      { test: 'Pneumococcal Vaccination', freq: 'Once: PCV20 or PCV21 alone, or PCV15 followed by PPSV23 ≥1 year later', who: 'Everyone 65+', note: 'Available free at government hospitals. Protects against pneumonia and meningitis.' },
       { test: 'Depression Screening (GDS)', freq: 'Annually', who: 'Everyone 65+', note: 'Geriatric Depression Scale — 15-item questionnaire. Depression is underdiagnosed in the elderly.' },
     ],
   },
@@ -1874,33 +1874,32 @@ function VaccinationSection() {
       label: '👶 Infants (0–12 months)',
       color: '#16a34a',
       vaccines: [
-        { age: 'At birth', vaccines: ['Hepatitis B (Dose 1)', 'BCG (TB protection)'], govt: 'Free', private: 'RM 50–100' },
-        { age: '1 month', vaccines: ['Hepatitis B (Dose 2)', 'Polio (IPV 1)', 'Rotavirus (Dose 1)'], govt: 'Free', private: 'RM 80–150' },
-        { age: '2 months', vaccines: ['DPT-Hib-HepB (Pentaxim Dose 1)', 'Pneumococcal (Dose 1)', 'Rotavirus (Dose 2)'], govt: 'Free', private: 'RM 150–250' },
-        { age: '3 months', vaccines: ['DPT-Hib-HepB (Dose 2)', 'Polio (IPV 2)', 'Pneumococcal (Dose 2)'], govt: 'Free', private: 'RM 150–250' },
-        { age: '4 months', vaccines: ['DPT-Hib-HepB (Dose 3)', 'Rotavirus (Dose 3)'], govt: 'Free', private: 'RM 100–150' },
-        { age: '5–6 months', vaccines: ['Pneumococcal (Dose 3)', 'Polio (IPV 3)'], govt: 'Free', private: 'RM 80–120' },
-        { age: '9 months', vaccines: ['Measles (Dose 1)', 'Japanese Encephalitis (JE Dose 1 — optional)'], govt: 'Free', private: 'RM 100–200' },
-        { age: '12 months', vaccines: ['MMR (Dose 1)', 'Hepatitis A (optional)', 'Varicella/Chickenpox (optional)'], govt: 'Free', private: 'RM 100–250' },
+        { age: 'At birth', vaccines: ['Hepatitis B (birth dose)', 'BCG (TB protection)'], govt: 'Free', private: 'RM 50–100' },
+        { age: '2 months', vaccines: ['6-in-1 DTaP-IPV-Hib-HepB (Dose 1)', 'Rotavirus — optional, private only (not in NIP; 2–3 oral doses from 6 weeks)'], govt: 'Free (6-in-1)', private: 'RM 150–250' },
+        { age: '3 months', vaccines: ['6-in-1 DTaP-IPV-Hib-HepB (Dose 2)'], govt: 'Free', private: 'RM 150–250' },
+        { age: '4 months', vaccines: ['Pneumococcal PCV (Dose 1)'], govt: 'Free', private: 'RM 100–150' },
+        { age: '5–6 months', vaccines: ['6-in-1 DTaP-IPV-Hib-HepB (Dose 3) — 5 months', 'Pneumococcal PCV (Dose 2) — 6 months', 'Measles (Sabah only) — 6 months'], govt: 'Free', private: 'RM 80–120' },
+        { age: '9 months', vaccines: ['MMR (Dose 1)', 'Japanese Encephalitis (JE Dose 1 — NIP in Sarawak only; optional/private elsewhere)'], govt: 'Free', private: 'RM 100–200' },
+        { age: '12 months', vaccines: ['MMR (Dose 2)', 'Hepatitis A (optional, private)', 'Varicella/Chickenpox (optional, private)'], govt: 'Free (MMR only)', private: 'RM 100–250' },
       ],
     },
     toddlers: {
       label: '🧒 Toddlers (1–6 years)',
       color: '#0891b2',
       vaccines: [
-        { age: '15–18 months', vaccines: ['DPT (Booster 1)', 'Polio (Booster 1)', 'Pneumococcal (Booster)'], govt: 'Free', private: 'RM 100–180' },
-        { age: '18–24 months', vaccines: ['Hepatitis B (Booster)', 'Varicella (Chickenpox) Dose 2 — optional', 'Japanese Encephalitis (JE Dose 2 — optional)'], govt: 'Free', private: 'RM 80–150' },
+        { age: '15–18 months', vaccines: ['Pneumococcal PCV (Booster) — 15 months', '6-in-1 DTaP-IPV-Hib-HepB (Booster) — 18 months'], govt: 'Free', private: 'RM 100–180' },
+        { age: '18–24 months', vaccines: ['Japanese Encephalitis (JE Dose 2 — 21 months; NIP in Sarawak only)', 'Varicella (Chickenpox) Dose 2 — optional, private'], govt: 'Free (JE, Sarawak only)', private: 'RM 80–150' },
         { age: '2 years', vaccines: ['Typhoid (Typhim Vi) — optional', 'Hepatitis A Dose 2 — optional'], govt: 'n/a', private: 'RM 100–180' },
-        { age: '4–6 years', vaccines: ['DPT (Booster 2)', 'Polio (Booster 2)', 'MMR (Dose 2)'], govt: 'Free', private: 'RM 100–180' },
+        { age: '4–6 years', vaccines: ['No NIP doses due at this age — catch up any missed doses at Klinik Kesihatan', 'Optional (private): annual influenza; varicella/Hepatitis A if not yet given'], govt: 'Catch-up only', private: 'RM 100–180' },
       ],
     },
     schoolage: {
       label: '🎒 School Age (7–17 years)',
       color: '#d97706',
       vaccines: [
-        { age: '10–11 years', vaccines: ['Td Booster (Tetanus-Diphtheria)', 'Influenza (annual) — recommended'], govt: 'Free (school)', private: 'RM 50–100' },
-        { age: '11–12 years (girls)', vaccines: ['HPV (Gardasil 4 or 9) — 2 doses, 6–12 months apart', 'Protects against cervical cancer and genital warts'], govt: 'Free (NIP, girls)', private: 'RM 400–800/course' },
-        { age: '13 years', vaccines: ['Tdap (Booster)', 'Polio (if incomplete)'], govt: 'Free', private: 'RM 60–100' },
+        { age: '7 years (Year 1)', vaccines: ['DT Booster (Diphtheria-Tetanus) — school programme', 'Influenza (annual) — optional, private'], govt: 'Free (school)', private: 'RM 50–100' },
+        { age: '12 years (Year 6 girls)', vaccines: ['HPV — single dose under the NIP (moved from Form 1/13 years to Year 6 from 2026)', 'Protects against cervical cancer and genital warts; boys can be vaccinated privately'], govt: 'Free (NIP, girls)', private: 'RM 400–800/course' },
+        { age: '15 years (Form 3)', vaccines: ['Tetanus toxoid (ATT) Booster — school programme', 'Catch up any missed NIP doses (e.g. MMR, HPV)'], govt: 'Free (school)', private: 'RM 60–100' },
         { age: '15+ years', vaccines: ['Meningococcal (ACWY) — for hostel/boarding students', 'Typhoid booster every 2–3 years'], govt: 'Private only', private: 'RM 100–300' },
       ],
     },
@@ -1909,9 +1908,9 @@ function VaccinationSection() {
       color: '#7c3aed',
       vaccines: [
         { age: 'Every 10 years', vaccines: ['Td (Tetanus-Diphtheria Booster)'], govt: 'Free', private: 'RM 40–80' },
-        { age: 'Annually', vaccines: ['Influenza (Flu) Vaccine — strongly recommended for all adults', 'Especially important for 65+, pregnant, chronic illness, healthcare workers'], govt: 'Free for 65+ at KK', private: 'RM 50–120' },
+        { age: 'Annually', vaccines: ['Influenza (Flu) Vaccine — strongly recommended for all adults', 'Especially important for 65+, pregnant, chronic illness, healthcare workers'], govt: 'Free at KK for 60+ (and 50–59 with chronic illness)', private: 'RM 50–120' },
         { age: '18+ (primary series)', vaccines: ['COVID-19 Vaccine — primary series + boosters per MOH guidance', 'Free only for priority groups (60+, immunocompromised, healthcare workers, pregnant); other adults pay out-of-pocket'], govt: 'Free for priority groups', private: 'RM 50–200' },
-        { age: '50+ years', vaccines: ['Pneumococcal (PCV20 or PPSV23)', 'Shingles (Shingrix — 2 doses, preferred; or Zostavax)', 'Influenza (annual — free for 65+ at Klinik Kesihatan)'], govt: 'Limited coverage', private: 'RM 80–400' },
+        { age: '50+ years', vaccines: ['Pneumococcal (PCV20 or PCV21 alone, or PCV15 followed by PPSV23 a year later)', 'Shingles (Shingrix — 2 doses; the older Zostavax was discontinued globally in 2024)', 'Influenza (annual — free at Klinik Kesihatan for 60+, and 50–59 with a chronic condition)'], govt: 'Limited coverage', private: 'RM 80–400' },
         { age: 'Special groups', vaccines: ['Hepatitis B (if unvaccinated)', 'Hepatitis A (travellers, food handlers)', 'Yellow Fever (travellers to Africa/South America — mandatory for some countries)', 'Rabies post-exposure (if animal bite)'], govt: 'Post-exposure/special', private: 'RM 50–350' },
       ],
     },
@@ -1930,8 +1929,8 @@ function VaccinationSection() {
   const currentGroup = VACCINATION_SCHEDULE[ageGroup]
 
   const COVID_VACCINES = [
-    { name: 'Pfizer-BioNTech (Comirnaty)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Most widely used in Malaysia; current formulation targets the LP.8.1 Omicron sublineage (2025–26 season)', status: 'Available' },
-    { name: 'Moderna (Spikevax)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Available at most private clinics and hospitals; current formulation targets LP.8.1', status: 'Available' },
+    { name: 'Pfizer-BioNTech (Comirnaty)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Most widely used in Malaysia; recent formulations target the LP.8.1 Omicron sublineage (still WHO\'s recommended antigen as of May 2026). Newer XFG-targeted 2026–27 versions are used in the US/EU — ask which version is stocked', status: 'Available' },
+    { name: 'Moderna (Spikevax)', type: 'mRNA', doses: '2 primary + boosters', notes: 'Available at most private clinics and hospitals; recent formulations target LP.8.1 (XFG-targeted 2026–27 versions used in the US/EU)', status: 'Available' },
     { name: 'AstraZeneca (Vaxzevria)', type: 'Viral vector', doses: '2 primary doses', notes: 'Withdrawn worldwide by the manufacturer in May 2024 due to falling demand — no longer available', status: 'Discontinued' },
     { name: 'Sinovac (CoronaVac)', type: 'Inactivated', doses: '2 primary doses', notes: 'Used widely in the 2021–2022 phase; Pfizer/Moderna are now preferred for boosters', status: 'Phase out' },
   ]
@@ -1941,17 +1940,17 @@ function VaccinationSection() {
       disease: 'Dengue Fever',
       icon: '🦟',
       color: '#dc2626',
-      vaccine: 'Qdenga (TAK-003) vaccine available, ages 4–60. Full pricing, dosing, and a complete home-prevention guide: Lifestyle Hub → Dengue Prevention.',
+      vaccine: 'Qdenga (TAK-003) vaccine approved in Malaysia for ages 4 and above — 2 doses ~3 months apart, private clinics/hospitals only (not in the NIP; MOH is still doing a cost-benefit review as of Aug 2026). Full pricing, dosing, and a complete home-prevention guide: Lifestyle Hub → Dengue Prevention.',
       spread: 'Aedes aegypti mosquito bite (daytime biter)',
       symptoms: 'High fever, severe headache behind eyes, muscle/joint pain, skin rash 3–4 days after fever onset',
-      risk: '~100,000+ cases/year in Malaysia; urban areas highest risk',
+      risk: 'Cases swing year to year: 122,423 in 2024, 55,399 in 2025. 2026 has surged again: 65,979 cases and 62 deaths by epidemiological week 35, up ~66% on the same period of 2025, with DENV-3 dominant. Urban areas highest risk',
       emergency: 'Severe abdominal pain, persistent vomiting, bleeding gums/nose, blood in stool/urine → go to A&E immediately',
     },
     {
       disease: 'Influenza (Flu)',
       icon: '🤧',
       color: '#7c3aed',
-      vaccine: 'Annual flu vaccine; new formulation each year. Free for 65+ at Klinik Kesihatan. RM 50–120 at private clinics. Now typically trivalent (2 influenza A + 1 B) — WHO dropped the B/Yamagata lineage from its recommended composition, so most current supply is 3-strain rather than the older 4-strain quadrivalent. Ask your clinic which formulation they stock.',
+      vaccine: 'Annual flu vaccine; new formulation each year. Free at Klinik Kesihatan for all Malaysians 60+ and those 50–59 with a chronic condition (expanded April 2026; book via MySejahtera, subject to stock). RM 50–120 at private clinics. Now typically trivalent (2 influenza A + 1 B) — WHO dropped the B/Yamagata lineage from its recommended composition, so most current supply is 3-strain rather than the older 4-strain quadrivalent. Ask your clinic which formulation they stock.',
       spread: 'Respiratory droplets; highly contagious. Peak seasons: rainy season (Oct–Feb) and school terms',
       symptoms: 'Sudden high fever, body aches, fatigue, dry cough, sore throat. Unlike common cold — starts very abruptly',
       risk: 'Malaysia reports 2,000–5,000 flu-related hospitalisations/year. High risk: pregnant, elderly, immunocompromised',
@@ -1961,7 +1960,7 @@ function VaccinationSection() {
       disease: 'COVID-19',
       icon: '🦠',
       color: '#0891b2',
-      vaccine: 'Primary series (2 doses mRNA) + boosters recommended by MOH. Current LP.8.1-targeted formulations free at Klinik Kesihatan for priority groups (60+, immunocompromised, healthcare workers, pregnant); others pay privately.',
+      vaccine: 'Primary series (2 doses mRNA) + boosters recommended by MOH. Recent LP.8.1-targeted formulations free at Klinik Kesihatan for priority groups (60+, immunocompromised, healthcare workers, pregnant); others pay privately.',
       spread: 'Airborne (respiratory droplets and aerosols); close contact with infected person',
       symptoms: 'Fever, cough, shortness of breath, loss of taste/smell, fatigue. Omicron variants often milder in vaccinated individuals',
       risk: 'Long COVID (fatigue, brain fog, breathlessness >12 weeks) affects ~10% of infected. Vaccination significantly reduces long COVID risk',
@@ -2052,7 +2051,7 @@ function VaccinationSection() {
           </div>
 
           <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary">
-            <strong className="text-ink">💡 MOH NIP:</strong> Malaysia's National Immunisation Programme covers 12 core vaccines free at Klinik Kesihatan. Private clinics offer additional optional vaccines (Varicella, HPV for boys, Meningococcal, Dengue, HFMD). Check mysejahtera.gov.my for your vaccination records.
+            <strong className="text-ink">💡 MOH NIP:</strong> Malaysia's National Immunisation Programme protects against 13 diseases, free at Klinik Kesihatan (JE in Sarawak only). Private clinics offer additional optional vaccines (Varicella, HPV for boys, Meningococcal, Dengue, HFMD). Check mysejahtera.gov.my for your vaccination records.
           </div>
         </div>
       )}
@@ -2065,7 +2064,7 @@ function VaccinationSection() {
           <div>
             <h3 className="text-[17px] font-bold text-ink mb-1">🦠 COVID-19 Vaccination in Malaysia</h3>
             <p className="text-ink-secondary text-[13px] mb-2">Malaysia's national COVID-19 vaccination programme (PICK) vaccinated over 27 million Malaysians. COVID-19 has since moved to a targeted, largely paid booster model — free boosters are now reserved for priority/high-risk groups, not the general public.</p>
-            <div className="mb-4"><LastVerified date="July 2026" note="vaccine formulations and eligibility change seasonally" /></div>
+            <div className="mb-4"><LastVerified date="November 2026" note="vaccine formulations and eligibility change seasonally" /></div>
 
             <div className="space-y-2 mb-5">
               {COVID_VACCINES.map((v, i) => (
@@ -2086,7 +2085,7 @@ function VaccinationSection() {
             <div className="grid sm:grid-cols-2 gap-3">
               {[
                 { title: 'Who should get boosted?', items: ['Adults 60+: strongly recommended annually', 'Immunocompromised individuals (any age)', 'Healthcare workers', 'Pregnant women (after 1st trimester)', 'Those with chronic conditions (diabetes, heart disease, lung disease)'] },
-                { title: 'Where to get COVID vaccine in Malaysia', items: ['Free at Klinik Kesihatan and government hospitals — priority groups only (60+, immunocompromised, healthcare workers, pregnant)', 'Book via MySejahtera App or walk-in', 'Private: Caring Pharmacy, Alpro, hospital vaccination centres (RM 50–200) — general public pays here', 'Pfizer and Moderna current formulations target the LP.8.1 sublineage (2025–26 season)'] },
+                { title: 'Where to get COVID vaccine in Malaysia', items: ['Free at Klinik Kesihatan and government hospitals — priority groups only (60+, immunocompromised, healthcare workers, pregnant)', 'Book via MySejahtera App or walk-in', 'Private: Caring Pharmacy, Alpro, hospital vaccination centres (RM 50–200) — general public pays here', 'Recent Pfizer and Moderna formulations target LP.8.1 (WHO\'s recommended antigen, reaffirmed May 2026); US FDA and EU EMA picked XFG for 2026–27 — ask which version your clinic stocks'] },
               ].map((box, i) => (
                 <div key={i} className="bg-surface-secondary rounded-xl p-4">
                   <p className="font-bold text-ink text-[13px] mb-2">{box.title}</p>
@@ -2129,7 +2128,7 @@ function VaccinationSection() {
                 <ul className="space-y-1">
                   {[
                     '✅ Everyone 6 months+ (annual)',
-                    '🔴 Priority: 65+ (free at KK under NIP)',
+                    '🔴 Priority: 60+, and 50–59 with chronic illness (free at KK)',
                     '🔴 Priority: Pregnant women (any trimester)',
                     '🔴 Priority: Children 6 months–8 years (2 doses first time)',
                     '🔴 Priority: Healthcare workers (annual)',
@@ -2841,7 +2840,7 @@ const DRUG_INTERACTIONS = [
   { a: 'Statins (especially simvastatin)', b: 'Grapefruit / grapefruit juice', severity: 'Moderate', effect: 'Grapefruit blocks CYP3A4 — simvastatin levels can rise ~16-fold, atorvastatin ~2.5-fold. Effect can last up to 72 hours. Fluvastatin, rosuvastatin, and pravastatin are largely unaffected.' },
   { a: 'ACE inhibitors / ARBs (e.g. perindopril, lisinopril)', b: 'Potassium supplements or potassium-sparing diuretics', severity: 'High', effect: 'Risk of dangerous hyperkalaemia (abnormal heart rhythm).' },
   { a: 'ACE inhibitors / ARBs', b: 'NSAIDs', severity: 'Moderate', effect: 'Combined risk of kidney impairment — worse if a diuretic is also involved ("triple whammy").' },
-  { a: 'Metformin', b: 'IV contrast dye (CT scan / angiogram)', severity: 'High', effect: 'Risk of lactic acidosis, especially with reduced kidney function. Tell your radiology team you\'re on metformin — it\'s usually withheld around contrast procedures.' },
+  { a: 'Metformin', b: 'IV contrast dye (CT scan / angiogram)', severity: 'Moderate', effect: 'Small risk of lactic acidosis if kidney function is poor. Current radiology guidance only withholds metformin around contrast if eGFR is below 30 or there is acute kidney injury — tell your radiology team you\'re on metformin so they can check.' },
   { a: 'MAOIs', b: 'SSRIs or tramadol', severity: 'High', effect: 'Risk of serotonin syndrome (confusion, rapid heart rate, high BP, in severe cases seizures). MAOI effects can persist up to 2 weeks after stopping.' },
   { a: 'Paracetamol', b: 'Alcohol (chronic/heavy use)', severity: 'Moderate', effect: 'Increased risk of liver damage (hepatotoxicity).' },
   { a: 'Sedatives / benzodiazepines / antihistamines', b: 'Alcohol', severity: 'Moderate', effect: 'Additive sedation and respiratory depression risk.' },
