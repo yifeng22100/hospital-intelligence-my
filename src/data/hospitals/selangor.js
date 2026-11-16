@@ -673,11 +673,11 @@ export const HOSPITALS_SELANGOR = [
     tier: "tertiary",
     state: "Selangor",
     city: "Petaling Jaya",
-    intro: "Sunway Medical Centre is one of Malaysia's largest and most advanced private hospitals, located in Sunway City. With 1,100 beds, it is the largest private hospital by bed count in Malaysia and offers comprehensive tertiary and quaternary services.",
-    famousFor: ["Malaysia's largest private hospital (1,100 beds)", "Comprehensive cardiothoracic and cancer programme", "Strong paediatric and NICU services", "Gamma Knife radiosurgery available"],
+    intro: "Sunway Medical Centre is one of Malaysia's largest and most advanced private hospitals, located in Sunway City. With 961 beds in operation (expanding beyond 1,000 with Tower F), it is the largest private hospital by bed count in Malaysia and offers comprehensive tertiary and quaternary services.",
+    famousFor: ["Malaysia's largest private hospital (961 beds)", "Comprehensive cardiothoracic and cancer programme", "Strong paediatric and NICU services", "Gamma Knife radiosurgery available"],
     infrastructure: {
       yearEstablished: 1999,
-      totalBeds: 1100,
+      totalBeds: 961,
       icuBeds: 80,
       nicuBeds: 25,
       operatingTheatres: 24,
@@ -724,10 +724,10 @@ export const HOSPITALS_SELANGOR = [
     },
     transferPathway: { summary: "Comprehensive private hospital — few referrals needed. Liver transplant to Selayang.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {
-      "Private Hospital Size": { rank: "Largest private hospital Malaysia (1,100 beds)", desc: "Largest private hospital by bed count in Malaysia" }
+      "Private Hospital Size": { rank: "Largest private hospital Malaysia (961 beds)", desc: "Largest private hospital by bed count in Malaysia" }
     },
     accreditations: ["MSQH Accredited", "JCI Accredited"],
-    verifiedNotes: "1,100 beds (largest private hospital in Malaysia). JCI accreditation confirmed. Gamma Knife available.",
+    verifiedNotes: "961 beds in operation (Sunway Healthcare expansion page, Nov 2026); >1,000 planned with Tower F. Largest private hospital in Malaysia. JCI, ACHSI and MSQH accredited (official site). Gamma Knife available.",
     notableGaps: "No liver transplant.",
     primaryExcellence: "Malaysia's largest private hospital — comprehensive tertiary/quaternary care",
     secondarySpecialties: "Cardiology, Oncology, Neurosurgery, Gamma Knife, IVF",
@@ -752,11 +752,11 @@ export const HOSPITALS_SELANGOR = [
     tier: "tertiary",
     state: "Selangor",
     city: "Subang Jaya",
-    intro: "Subang Jaya Medical Centre (SJMC) is a longstanding and highly reputed private hospital in the heart of Subang Jaya, offering comprehensive specialist services. Part of the Ramsay Sime Darby Health Care group, it is a preferred choice for KL Selatan and Subang Jaya residents.",
-    famousFor: ["Trusted private hospital in Subang Jaya since 1996", "Strong cardiology and oncology programme", "Wide insurance panel acceptance", "Ramsay Sime Darby group"],
+    intro: "Subang Jaya Medical Centre (SJMC) is a longstanding and highly reputed private hospital in the heart of Subang Jaya, offering comprehensive specialist services. Part of CAH Medical Centres (Columbia Asia group; formerly Ramsay Sime Darby Health Care), it is a preferred choice for KL Selatan and Subang Jaya residents.",
+    famousFor: ["Trusted private hospital in Subang Jaya since 1996", "Strong cardiology and oncology programme", "Wide insurance panel acceptance", "CAH Medical Centres (Columbia Asia group)"],
     infrastructure: {
       yearEstablished: 1996,
-      totalBeds: 440,
+      totalBeds: 442,
       icuBeds: 36,
       nicuBeds: 12,
       operatingTheatres: 14,
@@ -798,8 +798,8 @@ export const HOSPITALS_SELANGOR = [
     },
     transferPathway: { summary: "Comprehensive private hospital. Complex transplant cases refer to national centres.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "Ramsay Sime Darby Group"],
-    verifiedNotes: "440 beds. Ramsay Sime Darby group.",
+    accreditations: ["MSQH Accredited", "JCI Accredited", "ACHSI Accredited", "CAH Medical Centres (Columbia Asia group)"],
+    verifiedNotes: "442 licensed beds (official site, Nov 2026). Accredited by JCI, ACHSI, MSQH (and SAMM lab). Operated by SJP Medical Centres, subsidiary of CAH Medical Centres — Columbia Asia acquired Ramsay Sime Darby Health Care (completed Dec 2023).",
     notableGaps: "No liver transplant. No Gamma Knife.",
     primaryExcellence: "Trusted private hospital — Subang Jaya / PJ south",
     secondarySpecialties: "Cardiology, Oncology, Neurosurgery",
@@ -814,7 +814,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.rsdh.com.my/sjmc" }]
+    officialSources: [{ label: "Official Website", url: "https://www.subangjayamedicalcentre.com" }]
   },
   {
     id: "kpj-damansara",
@@ -908,7 +908,7 @@ export const HOSPITALS_SELANGOR = [
     famousFor: ["Formerly Tropicana Medical Centre — rebranded to THKD in 2018", "Thomson Medical Group (Singapore) flagship Malaysian hospital", "559 beds — one of the largest private hospitals in Malaysia", "Strong obstetrics, paediatrics and cardiology"],
     infrastructure: {
       yearEstablished: 2013,
-      totalBeds: 559,
+      totalBeds: 554,
       icuBeds: 45,
       nicuBeds: 18,
       operatingTheatres: 18,
@@ -952,7 +952,7 @@ export const HOSPITALS_SELANGOR = [
     transferPathway: { summary: "Comprehensive private hospital. Complex transplant cases referred.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited", "Thomson Medical Group"],
-    verifiedNotes: "559 beds confirmed. Part of Thomson Medical Group (Singapore).",
+    verifiedNotes: "554 beds (official site, Nov 2026). Flagship of TMC Life Sciences Berhad. Part of Thomson Medical Group (Singapore).",
     notableGaps: "No liver transplant. No Gamma Knife.",
     primaryExcellence: "Large private hospital — northern KL / Kota Damansara",
     secondarySpecialties: "Cardiology, Oncology, Obstetrics, Paediatrics",
@@ -967,7 +967,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hospital_Thomson_Kota_Damansara.jpg",
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.thomsonhospital.com" }]
+    officialSources: [{ label: "Official Website", url: "https://www.thomsonhospitals.com" }]
   },
   {
     id: "columbia-bukit-rimau",
@@ -1019,7 +1019,7 @@ export const HOSPITALS_SELANGOR = [
     city: "Shah Alam",
     intro: "Ara Damansara Medical Centre is a modern private hospital in the Ara Damansara area, offering comprehensive specialist services for the upscale Ara Damansara, Subang, and Petaling Jaya north communities.",
     famousFor: ["Modern private hospital in Ara Damansara / Subang area", "Growing specialist services"],
-    infrastructure: { yearEstablished: 2015, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "Main Tower", helipad: false, parkingBays: "~250 bays", parkingRate: "1st hr: RM2.00; subsequent 30 min: RM1.00" },
+    infrastructure: { yearEstablished: 2015, totalBeds: 165, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "Main Tower", helipad: false, parkingBays: "~250 bays", parkingRate: "1st hr: RM2.00; subsequent 30 min: RM1.00" },
     contact: { address: "Lot 2, Jalan Lapangan Terbang Subang, Seksyen U2, 40150 Shah Alam, Selangor", mainLine: "+603-5639 1888", emergencyLine: "+603-7839 9210", appointmentLine: "+603-5639 1888", website: "https://aradamansaramedicalcentre.com", mapQuery: "Ara Damansara Medical Centre Jalan Lapangan Terbang Subang Shah Alam" },
     transport: { nearest: "Ara Damansara LRT Station (Kelana Jaya Line) — ~1 km / 12-min walk; Glenmarie LRT Station — ~1.5 km", bus: "Rapid KL 772, T782 (bus stop: Bulatan Subang Airport area)", highway: "NKVE — Exit Subang Airport / Ara Damansara; also accessible via LDP", landmark: "Opposite Oasis Ara Damansara Mall; near Sultan Abdul Aziz Shah (Subang) Airport" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Available" },
@@ -1032,7 +1032,7 @@ export const HOSPITALS_SELANGOR = [
     transferPathway: { summary: "Community private hospital.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited"],
-    verifiedNotes: "200 beds. Private hospital in Ara Damansara.",
+    verifiedNotes: "165-bed capacity (official site, Nov 2026). Subsidiary of CAH Medical Centres (Columbia Asia group; formerly Ramsay Sime Darby Health Care).",
     notableGaps: "No cardiothoracic surgery on site.",
     primaryExcellence: "Private specialist care — Ara Damansara / PJ north",
     secondarySpecialties: "Obstetrics, Cardiology, Paediatrics",
@@ -1047,7 +1047,7 @@ export const HOSPITALS_SELANGOR = [
     doctorQualifications: "MMC-registered specialists.",
     imageUrl: null,
     imageCredit: "N/A",
-    officialSources: [{ label: "Official Website", url: "https://www.aradamansara.com.my" }]
+    officialSources: [{ label: "Official Website", url: "https://aradamansaramedicalcentre.com" }]
   },
   {
     id: "assunta-hospital",
@@ -1135,13 +1135,13 @@ export const HOSPITALS_SELANGOR = [
   },
   {
     id: "kpj-ap",
-    name: "KPJ Ampang Puteri Specialist Hospital",
-    nameShort: "KPJ Ampang Puteri",
+    name: "Ampang Puteri Specialist Hospital",
+    nameShort: "Ampang Puteri",
     sector: "private",
     tier: "tertiary",
     state: "Selangor",
     city: "Ampang",
-    intro: "KPJ Ampang Puteri Specialist Hospital is one of KPJ Healthcare's largest and most established flagship hospitals, providing comprehensive specialist services for the Ampang and greater KL east corridor.",
+    intro: "Ampang Puteri Specialist Hospital (formerly branded KPJ Ampang Puteri) is one of KPJ Healthcare's largest and most established flagship hospitals, providing comprehensive specialist services for the Ampang and greater KL east corridor.",
     famousFor: ["One of KPJ Healthcare's flagship hospitals", "Comprehensive specialist services for Ampang / KL east", "Strong obstetrics and oncology programme"],
     infrastructure: {
       yearEstablished: 1994,

@@ -56,12 +56,12 @@ export const HOSPITALS_MELAKA = [
   },
   {
     id: "mahkota",
-    name: "Mahkota Medical Centre",
-    nameShort: "Mahkota Medical",
+    name: "Mahkota Specialist Hospital",
+    nameShort: "Mahkota",
     sector: "private", tier: "tertiary", state: "Melaka", city: "Melaka",
-    intro: "Mahkota Medical Centre is Melaka's leading private hospital and a major medical tourism destination, attracting patients from Indonesia, Myanmar, and other ASEAN countries. With 285 beds, it offers comprehensive specialist services and is internationally recognised for quality care.",
+    intro: "Mahkota Specialist Hospital (formerly Mahkota Medical Centre; rebranded Oct 2026) is Melaka's leading private hospital and a major medical tourism destination, attracting patients from Indonesia, Myanmar, and other ASEAN countries. With 288 beds, it offers comprehensive specialist services and is internationally recognised for quality care.",
     famousFor: ["Melaka's leading private hospital", "Major medical tourism destination in ASEAN", "Serves large Indonesian patient base", "JCI accreditation — international recognition"],
-    infrastructure: { yearEstablished: 1994, totalBeds: 285, icuBeds: 24, nicuBeds: 8, operatingTheatres: 12, area: "~3 acres", buildings: "Main Tower, Cancer Centre", helipad: false, parkingBays: "~350 bays", parkingRate: "RM 2/hour" },
+    infrastructure: { yearEstablished: 1994, totalBeds: 288, icuBeds: 24, nicuBeds: 8, operatingTheatres: 12, area: "~3 acres", buildings: "Main Tower, Cancer Centre", helipad: false, parkingBays: "~350 bays", parkingRate: "RM 2/hour" },
     contact: { address: "3, Mahkota Melaka, Jalan Merdeka, 75000 Melaka", mainLine: "+606-285 2999", emergencyLine: "+606-285 2991", appointmentLine: "+606-285 2999", website: "https://www.mahkotamedical.com", mapQuery: "Mahkota Medical Centre Melaka" },
     transport: { nearest: "Melaka Sentral — 10 min taxi", bus: "Melaka bus routes", highway: "North-South Highway — Exit Ayer Keroh", landmark: "Jalan Merdeka, Melaka heritage zone" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor, multiple F&B options", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical tourism transport and international coordination" },
@@ -74,7 +74,7 @@ export const HOSPITALS_MELAKA = [
     transferPathway: { summary: "Comprehensive private hospital. Liver transplant to national centre.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: { "Medical Tourism Melaka": { rank: "#1 Private — Melaka", desc: "Melaka's premier medical tourism hospital with ASEAN-wide patient base" } },
     accreditations: ["MSQH Accredited", "JCI Accredited"],
-    verifiedNotes: "285 beds. JCI accredited. Major ASEAN medical tourism destination.",
+    verifiedNotes: "288 beds (official site); new block to take capacity to 430 beds by 2029. Rebranded from Mahkota Medical Centre (Oct 2026, HMI Medical). JCI re-accredited 2026–2029; MSQH since 2008. Major ASEAN medical tourism destination.",
     notableGaps: "No liver transplant.",
     primaryExcellence: "Melaka's premier private hospital — ASEAN medical tourism hub", secondarySpecialties: "Cardiology, Oncology, Neurosurgery",
     fullSpecialties: ["Cardiology", "Oncology", "Neurosurgery", "Orthopaedics", "Obstetrics"],
@@ -162,9 +162,9 @@ export const HOSPITALS_MELAKA = [
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU", "General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Gastroenterology", "Nephrology (Haemodialysis)", "Urology", "ENT", "Ophthalmology", "Dermatology", "Oncology (selected)", "Rehabilitation Medicine", "Physiotherapy"],
       notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }],
-      byReferral: ["Complex oncology — Mahkota Medical Centre or Beacon KL", "Highly complex cardiothoracic — Hospital Melaka or KL"]
+      byReferral: ["Complex oncology — Mahkota Specialist Hospital or Beacon KL", "Highly complex cardiothoracic — Hospital Melaka or KL"]
     },
-    transferPathway: { summary: "Comprehensive private hospital. Complex cases → Mahkota Medical Centre or Hospital Melaka.", routes: [], howToTransfer: "Specialist referral." },
+    transferPathway: { summary: "Comprehensive private hospital. Complex cases → Mahkota Specialist Hospital or Hospital Melaka.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited", "ISO 9001:2015 Certified", "Baby-Friendly Hospital (WHO/UNICEF)"],
     verifiedNotes: "241 beds. Established 1995. MSQH accredited. ISO 9001:2015 certified. Jalan Bendahara, Melaka city centre.",
@@ -195,7 +195,7 @@ export const HOSPITALS_MELAKA = [
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU", "General Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "Gastroenterology", "Nephrology (Haemodialysis)", "Urology", "ENT", "Ophthalmology", "Oncology (selected)", "Rehabilitation Medicine"],
       notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }],
-      byReferral: ["Complex oncology — Mahkota Medical Centre or Beacon KL"]
+      byReferral: ["Complex oncology — Mahkota Specialist Hospital or Beacon KL"]
     },
     transferPathway: { summary: "Full-service private tertiary hospital in Melaka. Complex transplant cases → national centres.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},

@@ -748,7 +748,7 @@ export const HOSPITALS_SABAH = [
     intro: "Gleneagles Hospital Kota Kinabalu is the leading private hospital in Sabah, part of the IHH Healthcare group. With 150 beds, it offers comprehensive private specialist services for Kota Kinabalu and Sabah, serving both local patients and medical tourists from Brunei and the region.",
     famousFor: ["Leading private hospital in Sabah (IHH Healthcare)", "Most recognised private brand in Kota Kinabalu", "Comprehensive private specialist services", "Attracts patients from Brunei and regional medical tourism"],
     infrastructure: {
-      yearEstablished: 1994,
+      yearEstablished: 2015,
       totalBeds: 150,
       icuBeds: 14,
       nicuBeds: 6,

@@ -621,7 +621,7 @@ export const HOSPITALS_PERAK = [
     contact: {
       address: "2, Persiaran Sunway, Sunway City, 31150 Ipoh, Perak",
       mainLine: "+605-871 1919",
-      emergencyLine: "+605-871 1919 ext. A&E",
+      emergencyLine: "+605-871 1515",
       appointmentLine: "+605-871 1919",
       website: "https://www.sunwaymedicalipoh.com.my/en/",
       mapQuery: "Sunway Medical Centre Ipoh Perak"

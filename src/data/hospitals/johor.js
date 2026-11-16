@@ -244,13 +244,13 @@ export const HOSPITALS_JOHOR = [
   },
   {
     id: "gleneagles-medini",
-    name: "Gleneagles Hospital Medini",
-    nameShort: "Gleneagles Medini",
+    name: "Gleneagles Hospital Johor",
+    nameShort: "Gleneagles Johor",
     sector: "private", tier: "tertiary", state: "Johor", city: "Iskandar Puteri",
-    intro: "Gleneagles Hospital Medini is a modern IHH Healthcare private hospital in Iskandar Puteri (formerly Nusajaya), serving the rapidly growing Iskandar Malaysia development corridor and cross-border patients from Singapore.",
+    intro: "Gleneagles Hospital Johor (formerly branded Gleneagles Hospital Medini) is a modern IHH Healthcare private hospital in Iskandar Puteri (formerly Nusajaya), serving the rapidly growing Iskandar Malaysia development corridor and cross-border patients from Singapore.",
     famousFor: ["Modern IHH hospital in Iskandar Malaysia", "Serves Singapore cross-border patients", "Growing specialist services in Johor's new development corridor"],
-    infrastructure: { yearEstablished: 2016, totalBeds: 350, icuBeds: 28, nicuBeds: 10, operatingTheatres: 12, area: "~4 acres", buildings: "Main Tower", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "No. 2, Jalan Medini Utara 4, 79250 Iskandar Puteri, Johor", mainLine: "+607-560 1000", emergencyLine: "+607-560 1111", appointmentLine: "+607-560 1000", website: "https://www.gleneagles.com.my/medini", mapQuery: "Gleneagles Hospital Medini Iskandar Puteri Johor" },
+    infrastructure: { yearEstablished: 2016, totalBeds: 300, icuBeds: 28, nicuBeds: 10, operatingTheatres: 12, area: "~4 acres", buildings: "Main Tower", helipad: false, parkingBays: "~400 bays", parkingRate: "RM 2/hour" },
+    contact: { address: "No. 2, Jalan Medini Utara 4, Medini Iskandar, 79250 Iskandar Puteri, Johor", mainLine: "+607-560 1000", emergencyLine: "+607-560 1111", appointmentLine: "+607-560 1000", website: "https://gleneagles.com.my/johor", mapQuery: "Gleneagles Hospital Johor Medini Iskandar Puteri" },
     transport: { nearest: "Kota Iskandar bus terminal — taxi recommended", bus: "Bus routes (Iskandar Puteri area)", highway: "Malaysia-Singapore Second Link (Tuas) — 15 min from Tuas", landmark: "Medini Central, Iskandar Puteri, Johor" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor F&B", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport and Singapore cross-border services" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible." },
@@ -261,8 +261,8 @@ export const HOSPITALS_JOHOR = [
     },
     transferPathway: { summary: "IHH private hospital. Complex transplant cases to national centres.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "JCI Accredited", "IHH Healthcare Group"],
-    verifiedNotes: "350 beds. IHH group. Serves Singapore cross-border patients.",
+    accreditations: ["MSQH Accredited", "IHH Healthcare Group"],
+    verifiedNotes: "300 beds (official site, Nov 2026); IHH plans ~350 inpatient beds after Afiniti Wellness ambulatory-care campus (announced Oct 2026). Now branded Gleneagles Hospital Johor. IHH lists MSQH (not JCI) for this hospital. IHH group. Serves Singapore cross-border patients.",
     notableGaps: "No liver transplant.",
     primaryExcellence: "Modern IHH private hospital — Iskandar Puteri / Singapore border", secondarySpecialties: "Cardiology, Oncology, Neurosurgery",
     fullSpecialties: ["Cardiology", "Oncology", "Neurosurgery", "Orthopaedics", "Obstetrics"],
@@ -272,7 +272,7 @@ export const HOSPITALS_JOHOR = [
     gaps: "No liver transplant.",
     robotics: "Radiation therapy. 3T MRI.",
     doctorQualifications: "MMC-registered specialists.",
-    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gleneagles_Hospital_Medini_Johor.jpg", imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://www.gleneagles.com.my/medini" }]
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gleneagles_Hospital_Medini_Johor.jpg", imageCredit: "N/A", officialSources: [{ label: "Official Website", url: "https://gleneagles.com.my/johor" }]
   },
   {
     id: "kpj-johor",
@@ -289,7 +289,7 @@ export const HOSPITALS_JOHOR = [
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU/CCU", "NICU", "Cardiology", "General Surgery", "Neurology", "Orthopaedics", "Obstetrics", "Paediatrics", "Gastroenterology", "Oncology (selected)", "ENT", "Ophthalmology", "Urology"],
       notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre" }],
-      byReferral: ["Complex oncology — refer to Gleneagles Medini"]
+      byReferral: ["Complex oncology — refer to Gleneagles Johor"]
     },
     transferPathway: { summary: "Comprehensive private hospital in JB.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
@@ -321,7 +321,7 @@ export const HOSPITALS_JOHOR = [
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology"],
       notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre" }],
-      byReferral: ["Complex cases — refer to Gleneagles Medini or KPJ Johor"]
+      byReferral: ["Complex cases — refer to Gleneagles Johor or KPJ Johor"]
     },
     transferPathway: { summary: "Community private hospital in JB.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
@@ -352,8 +352,8 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology"],
-      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles Medini", note: "Refer to larger centre" }],
-      byReferral: ["Complex cases — refer to Gleneagles Medini"]
+      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Gleneagles Johor", note: "Refer to larger centre" }],
+      byReferral: ["Complex cases — refer to Gleneagles Johor"]
     },
     transferPathway: { summary: "Community private hospital.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
@@ -586,10 +586,10 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible visiting. Confirm with ward." },
     specialtyCoverage: {
       available: ["Accident & Emergency (24/7)", "ICU (Adult)", "NICU", "Internal Medicine", "General Surgery", "Cardiology", "Orthopaedics & Trauma Surgery", "Obstetrics & Gynaecology", "Paediatrics & Paediatric Surgery", "Neonatology", "Thoracic Surgery", "Nephrology", "Urology", "ENT (Otorhinolaryngology)", "Neurology", "Rehabilitation Medicine", "Diagnostic Imaging", "Physiotherapy", "Audiology"],
-      notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }, { specialty: "Complex open-heart surgery", transferTo: "KPJ Johor Specialist or Gleneagles Medini", note: "Refer for complex cardiac surgery" }],
-      byReferral: ["Highly complex oncology — KPJ Johor or Gleneagles Medini"]
+      notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }, { specialty: "Complex open-heart surgery", transferTo: "KPJ Johor Specialist or Gleneagles Johor", note: "Refer for complex cardiac surgery" }],
+      byReferral: ["Highly complex oncology — KPJ Johor or Gleneagles Johor"]
     },
-    transferPathway: { summary: "Comprehensive KPJ private hospital. Complex cases → KPJ Johor Specialist or Gleneagles Medini.", routes: [], howToTransfer: "Specialist referral via KPJ network." },
+    transferPathway: { summary: "Comprehensive KPJ private hospital. Complex cases → KPJ Johor Specialist or Gleneagles Johor.", routes: [], howToTransfer: "Specialist referral via KPJ network." },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
     verifiedNotes: "151 beds. KPJ Healthcare group. Larkin, Johor Bahru. Phone: +607-225 3222.",

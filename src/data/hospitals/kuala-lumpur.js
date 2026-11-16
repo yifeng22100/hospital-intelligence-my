@@ -257,7 +257,7 @@ export const HOSPITALS_KL = [
     contact: {
       address: "286 & 288, Jalan Ampang, 50450 Kuala Lumpur",
       mainLine: "+603-4141 3000",
-      emergencyLine: "+603-4141 3000 ext. A&E",
+      emergencyLine: "+603-4141 3131",
       appointmentLine: "+603-4141 3000",
       website: "https://www.gleneagles.com.my/kuala-lumpur",
       mapQuery: "Gleneagles Hospital Kuala Lumpur Jalan Ampang"
@@ -355,7 +355,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Multiple Best Hospital in Malaysia awards (Frost & Sullivan)", "Premier medical tourism destination", "Strong cardiac and orthopaedic programme", "Known for exceptional patient experience and private room standards"],
     infrastructure: {
       yearEstablished: 2008,
-      totalBeds: 270,
+      totalBeds: 277,
       icuBeds: 24,
       nicuBeds: 8,
       operatingTheatres: 12,
@@ -430,8 +430,8 @@ export const HOSPITALS_KL = [
     specialtyRanks: {
       "Patient Experience": { rank: "Multiple award winner", desc: "Frost & Sullivan Best Hospital Malaysia multiple years" }
     },
-    accreditations: ["MSQH Accredited", "JCI Accredited", "Frost & Sullivan Best Hospital Malaysia"],
-    verifiedNotes: "270 beds confirmed. JCI accreditation verified. Petrol awards for patient experience verified.",
+    accreditations: ["MSQH Accredited", "ACHSI Accredited (Oncology Services)", "Frost & Sullivan Best Hospital Malaysia"],
+    verifiedNotes: "277 beds (official site, Nov 2026). MSQH 2024–2028. JCI no longer listed by hospital or IHH (held 2008–; lapsed). Petrol awards for patient experience verified.",
     notableGaps: "No liver transplant. Limited radiation oncology. Premium pricing.",
     primaryExcellence: "Premium private hospital — cardiac, orthopaedics, medical tourism",
     secondarySpecialties: "Neurosurgery, Oncology, IVF",
@@ -462,7 +462,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Comprehensive cancer centre", "Wide panel of specialist consultants", "Strong outpatient specialist services", "Major private hospital serving KL south"],
     infrastructure: {
       yearEstablished: 1974,
-      totalBeds: 300,
+      totalBeds: 499,
       icuBeds: 28,
       nicuBeds: 10,
       operatingTheatres: 12,
@@ -475,7 +475,7 @@ export const HOSPITALS_KL = [
     contact: {
       address: "8, Jalan Bukit Pantai, 59100 Kuala Lumpur",
       mainLine: "+603-2296 0888",
-      emergencyLine: "+603-2296 0888 ext. A&E",
+      emergencyLine: "+603-2296 0999",
       appointmentLine: "+603-2296 0888",
       website: "https://www.pantai.com.my/kuala-lumpur",
       mapQuery: "Pantai Hospital Kuala Lumpur Bukit Pantai"
@@ -531,8 +531,8 @@ export const HOSPITALS_KL = [
     specialtyRanks: {
       "Oncology": { rank: "Top 5 Private KL", desc: "Comprehensive cancer programme with radiation oncology" }
     },
-    accreditations: ["MSQH Accredited", "IHH Healthcare Group"],
-    verifiedNotes: "300 beds confirmed. Part of Pantai/IHH group.",
+    accreditations: ["MSQH Accredited", "JCI Accredited", "IHH Healthcare Group"],
+    verifiedNotes: "Licensed for 499 beds (official site, Nov 2026). MSQH + JCI accredited. Part of Pantai/IHH group.",
     notableGaps: "No liver transplant. No Gamma Knife.",
     primaryExcellence: "Comprehensive private hospital — oncology and wide specialist coverage",
     secondarySpecialties: "Cardiology, Neurosurgery, IVF",
@@ -563,7 +563,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Modern hospital in Desa ParkCity", "Strong paediatric and obstetric services", "Comfortable facilities in a park setting"],
     infrastructure: {
       yearEstablished: 2010,
-      totalBeds: 100,
+      totalBeds: 300,
       icuBeds: 10,
       nicuBeds: 6,
       operatingTheatres: 6,
@@ -576,7 +576,7 @@ export const HOSPITALS_KL = [
     contact: {
       address: "2, Jalan Intisari Perdana, Desa ParkCity, 52200 Kuala Lumpur",
       mainLine: "+603-5639 1616",
-      emergencyLine: "+603-6279 1212 ext. A&E",
+      emergencyLine: "+603-6279 3085",
       appointmentLine: "+603-6279 1212",
       website: "https://www.parkcitymedicalcentre.com",
       mapQuery: "ParkCity Medical Centre Desa ParkCity Kuala Lumpur"
@@ -627,8 +627,8 @@ export const HOSPITALS_KL = [
       howToTransfer: "Specialist referral."
     },
     specialtyRanks: {},
-    accreditations: ["MSQH Accredited"],
-    verifiedNotes: "100 beds. Modern private hospital in Desa ParkCity.",
+    accreditations: ["MSQH Accredited", "JCI Accredited", "CAH Medical Centres (Columbia Asia group)"],
+    verifiedNotes: "300 beds (official site, Nov 2026). JCI accredited since Feb 2021. Operated by SJP Medical Centres, subsidiary of CAH Medical Centres (Columbia Asia acquired Ramsay Sime Darby Health Care, Dec 2023).",
     notableGaps: "No cardiothoracic surgery. Limited neurosurgery. Smaller capacity.",
     primaryExcellence: "Community private hospital — northern KL / Desa ParkCity",
     secondarySpecialties: "Obstetrics, Paediatrics, Cardiology",
@@ -644,7 +644,7 @@ export const HOSPITALS_KL = [
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [
-      { label: "Official Website", url: "https://www.parkcitymedical.com" }
+      { label: "Official Website", url: "https://www.parkcitymedicalcentre.com" }
     ]
   },
   {
@@ -964,7 +964,7 @@ export const HOSPITALS_KL = [
     famousFor: ["Sunway Medical Group Cheras campus — opened 2020", "MRT-connected private hospital (Cochrane Station)", "Integrated with Sunway Velocity Mall development"],
     infrastructure: {
       yearEstablished: 2020,
-      totalBeds: 200,
+      totalBeds: 323,
       icuBeds: 16,
       nicuBeds: 6,
       operatingTheatres: 8,
@@ -975,11 +975,11 @@ export const HOSPITALS_KL = [
       parkingRate: "RM 2/hour"
     },
     contact: {
-      address: "Sunway Velocity Mall, Lingkaran SV, 55100 Cheras, Kuala Lumpur",
-      mainLine: "+603-9772 6888",
-      emergencyLine: "+603-9772 6888 ext. A&E",
-      appointmentLine: "+603-9772 6888",
-      website: "https://www.sunwaymedical.com/smcv",
+      address: "Pusat Perubatan Sunway Velocity, Lingkaran SV, Sunway Velocity, 55100 Kuala Lumpur",
+      mainLine: "+603-9772 9191",
+      emergencyLine: "+603-9772 9111",
+      appointmentLine: "+603-9772 9191",
+      website: "https://www.sunwaymedicalvelocity.com.my",
       mapQuery: "Sunway Medical Centre Velocity Cheras Kuala Lumpur"
     },
     transport: {
@@ -1029,7 +1029,7 @@ export const HOSPITALS_KL = [
     },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited", "Sunway Medical Group"],
-    verifiedNotes: "200 beds. Opened 2020. Sunway Medical Group's second campus, located in Cheras WP Kuala Lumpur.",
+    verifiedNotes: "323 beds in operation (Sunway Healthcare expansion page, Nov 2026). Opened 2020. Sunway Medical Group's second campus, located in Cheras WP Kuala Lumpur.",
     notableGaps: "Newer campus — growing specialist range. No cardiothoracic surgery on site.",
     primaryExcellence: "Sunway Medical private hospital — Cheras / KL east corridor",
     secondarySpecialties: "General Medicine, Obstetrics, Paediatrics, Cardiology",
@@ -1259,10 +1259,10 @@ export const HOSPITALS_KL = [
   },
   {
     id: "tawakal-kl",
-    name: "KPJ Tawakkal Specialist Hospital",
-    nameShort: "KPJ Tawakkal Specialist Hospital",
+    name: "Tawakkal Specialist Hospital",
+    nameShort: "Tawakkal Specialist Hospital",
     sector: "private", tier: "secondary", state: "Kuala Lumpur", city: "Kuala Lumpur",
-    intro: "KPJ Tawakkal Specialist Hospital is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
+    intro: "Tawakkal Specialist Hospital (formerly branded KPJ Tawakkal; still part of KPJ Healthcare) is a private hospital in Jalan Pahang, Kuala Lumpur, offering specialist services with an Islamic-oriented approach.",
     famousFor: ["Private hospital — Jalan Pahang area, Kuala Lumpur", "Long-established private hospital in KL"],
     infrastructure: { yearEstablished: 1985, totalBeds: 200, icuBeds: 12, nicuBeds: 6, operatingTheatres: 6, area: "~4 acres", buildings: "Main Block", helipad: false, parkingBays: "~300 bays", parkingRate: "RM 2/hour" },
     contact: { address: "1, Jalan Pahang Barat, Pekeliling, 53000 Kuala Lumpur", mainLine: "+603-4026 7777", emergencyLine: "+603-4026 7777 ext. A&E", appointmentLine: "+603-4026 7777", website: "https://kpjhealth.com.my/tawakkal", mapQuery: "KPJ Tawakkal Specialist Hospital Kuala Lumpur" },
@@ -1634,10 +1634,10 @@ export const HOSPITALS_KL = [
     tier: "secondary",
     state: "Kuala Lumpur",
     city: "Setapak, Kuala Lumpur",
-    intro: "Columbia Asia Hospital Setapak is a private community hospital located in Setapak, north-east Kuala Lumpur. Part of the Columbia Asia group (now rebranded under Ramsay Sime Darby Health Care), it provides accessible and affordable specialist care for the Setapak, Wangsa Maju, and surrounding communities.",
+    intro: "Columbia Asia Hospital Setapak is a private community hospital located in Setapak, north-east Kuala Lumpur. Part of the Columbia Asia group, it provides accessible and affordable specialist care for the Setapak, Wangsa Maju, and surrounding communities.",
     famousFor: [
       "Affordable private community hospital — Setapak, north-east KL",
-      "Columbia Asia / Ramsay Sime Darby group — consistent care standards",
+      "Columbia Asia group — consistent care standards",
       "Conveniently serving Setapak, Wangsa Maju, Keramat corridor"
     ],
     infrastructure: {
@@ -1704,8 +1704,8 @@ export const HOSPITALS_KL = [
       howToTransfer: "Specialist referral."
     },
     specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "Columbia Asia / Ramsay Sime Darby Group"],
-    verifiedNotes: "Columbia Asia Hospital Setapak — community hospital in Setapak, WP Kuala Lumpur. ~100 beds (est.). Part of Columbia Asia / Ramsay Sime Darby Health Care network.",
+    accreditations: ["MSQH Accredited", "Columbia Asia Group"],
+    verifiedNotes: "Columbia Asia Hospital Setapak — community hospital in Setapak, WP Kuala Lumpur. ~100 beds (est.). Part of the Columbia Asia network.",
     notableGaps: "No cardiothoracic surgery. No neurosurgery. Limited subspecialist range. Smaller facility.",
     primaryExcellence: "Affordable community private hospital — Setapak / north-east KL",
     secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
@@ -1717,7 +1717,7 @@ export const HOSPITALS_KL = [
     fppDeposit: "N/A",
     gaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
     robotics: "Standard imaging — CT, X-ray.",
-    doctorQualifications: "MMC-registered specialists. Columbia Asia / Ramsay Sime Darby group standards.",
+    doctorQualifications: "MMC-registered specialists. Columbia Asia group standards.",
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [
@@ -1732,10 +1732,10 @@ export const HOSPITALS_KL = [
     tier: "secondary",
     state: "Kuala Lumpur",
     city: "Bukit Jalil, Kuala Lumpur",
-    intro: "Columbia Asia Hospital Bukit Jalil is a private community hospital in Bukit Jalil, south Kuala Lumpur, serving the growing residential communities of Bukit Jalil, Sri Petaling, and Puchong North. Part of the Columbia Asia group (Ramsay Sime Darby Health Care), it offers affordable specialist care in a modern facility.",
+    intro: "Columbia Asia Hospital Bukit Jalil is a private community hospital in Bukit Jalil, south Kuala Lumpur, serving the growing residential communities of Bukit Jalil, Sri Petaling, and Puchong North. Part of the Columbia Asia group, it offers affordable specialist care in a modern facility.",
     famousFor: [
       "Affordable private community hospital — Bukit Jalil, south KL",
-      "Columbia Asia / Ramsay Sime Darby group network",
+      "Columbia Asia group network",
       "Serving Bukit Jalil, Sri Petaling, Puchong North catchment"
     ],
     infrastructure: {
@@ -1802,8 +1802,8 @@ export const HOSPITALS_KL = [
       howToTransfer: "Specialist referral."
     },
     specialtyRanks: {},
-    accreditations: ["MSQH Accredited", "Columbia Asia / Ramsay Sime Darby Group"],
-    verifiedNotes: "Columbia Asia Hospital Bukit Jalil — community hospital in Bukit Jalil, WP Kuala Lumpur. ~100 beds (est.). Part of Columbia Asia / Ramsay Sime Darby Health Care network.",
+    accreditations: ["MSQH Accredited", "Columbia Asia Group"],
+    verifiedNotes: "Columbia Asia Hospital Bukit Jalil — community hospital in Bukit Jalil, WP Kuala Lumpur. ~100 beds (est.). Part of the Columbia Asia network.",
     notableGaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
     primaryExcellence: "Affordable community private hospital — Bukit Jalil / south KL",
     secondarySpecialties: "General Medicine, Obstetrics, Paediatrics",
@@ -1815,7 +1815,7 @@ export const HOSPITALS_KL = [
     fppDeposit: "N/A",
     gaps: "No cardiothoracic surgery. No neurosurgery. Community-level capacity.",
     robotics: "Standard imaging — CT, X-ray.",
-    doctorQualifications: "MMC-registered specialists. Columbia Asia / Ramsay Sime Darby group standards.",
+    doctorQualifications: "MMC-registered specialists. Columbia Asia group standards.",
     imageUrl: null,
     imageCredit: "N/A",
     officialSources: [
