@@ -33,16 +33,16 @@ export const EMERGENCY_PROTOCOLS = {
       note: 'Confidential, non-judgmental emotional support helpline. For anyone in distress, experiencing suicidal thoughts, or supporting someone in crisis. Free call; no referral needed.'
     },
     {
-      name: 'National Poison Control Centre (NPCC)',
-      number: '+603-8922 3333',
-      available: '24/7',
-      note: 'Based at Hospital Sultanah Bahiyah, Alor Setar (national centre). Call immediately for any suspected poisoning, medication overdose, chemical exposure, or snake bite. Have the substance or packaging ready to describe.'
+      name: 'National Poison Centre (Pusat Racun Negara)',
+      number: '+604-653 6999',
+      available: 'Mon–Fri 8am–10pm; Sat, Sun & public holidays 8am–5pm',
+      note: 'Based at Universiti Sains Malaysia (USM), Penang. Poison information and advice for suspected poisoning, medication overdose, chemical exposure, or snake bite. Have the substance or packaging ready to describe. If the person is unconscious, seizing, or not breathing — call 999 first.'
     },
     {
       name: 'IJN (Institut Jantung Negara) — Cardiac Emergency',
-      number: '+603-2600 1500',
+      number: '1-300-88-5111',
       available: '24/7',
-      note: 'National Heart Institute emergency line. For cardiac emergencies and triage advice. Located in Kuala Lumpur. Has 24/7 catheterisation lab capability.'
+      note: 'National Heart Institute 24/7 emergency line (main line: +603-2617 8200). For cardiac emergencies and triage advice. Located in Kuala Lumpur. Has 24/7 catheterisation lab capability.'
     },
     {
       name: 'HUKM (Hospital Universiti Kebangsaan Malaysia) — Emergency Department',

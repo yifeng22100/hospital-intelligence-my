@@ -28,7 +28,7 @@ const INTEL_CARDS = [
     icon: '💰',
     bg: 'bg-amber-50',
     title: 'Financial Aid',
-    desc: 'EPF Account 2 withdrawals, MySalam B40 coverage, and cost-saving strategies.',
+    desc: 'EPF Akaun Sejahtera health withdrawals, MySalam B40 coverage, and cost-saving strategies.',
   },
 ]
 

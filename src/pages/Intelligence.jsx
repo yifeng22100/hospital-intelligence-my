@@ -117,11 +117,11 @@ const HACKS = [
     title:'HTAR Highest Outpatient Volume (Klang Valley)',
     body:'Hospital Tengku Ampuan Rahimah (HTAR) in Klang has the highest outpatient volume of any hospital in the Klang Valley. Waiting time for specialist clinics: 4–8 hours. Plan a full-day visit; arrive by 7:30am (some clinics fill by 8am). However, HTAR doctors see more cases than almost any other hospital — particularly internal medicine, O&G, and paediatrics. High volume = high experience. Bring a book, snacks, and a portable charger.' },
   { num:'09', tag:'Financial Aid',    color:'#4f46e5',
-    title:'EPF Account 2 Medical Withdrawal',
-    body:'EPF Account 2 can be withdrawn for medical expenses covering yourself, spouse, parents, children, and in-laws. Eligible: hospitalisation, surgery, specialist treatment, dialysis, chemotherapy, physiotherapy, and certain medical equipment. Apply via i-Akaun (i-Akaun.kwsp.gov.my) or at any EPF branch. Bring: original hospital bills, doctor letter, IC. Processing: 7–14 working days online, 3 working days at counter. No minimum withdrawal amount for medical purposes.' },
+    title:'EPF Akaun Sejahtera (formerly Account 2) Health Withdrawal',
+    body:'Since EPF\'s May 2024 account restructuring, health withdrawals come from Akaun Sejahtera (formerly Account 2) for members below age 55. It can cover medical expenses for yourself, spouse, children, parents (including in-laws) and siblings — capped at the uncovered treatment cost or your Akaun Sejahtera balance, whichever is lower. Eligible: approved critical illnesses and treatments such as surgery, dialysis, chemotherapy, and certain medical equipment. Apply via the KWSP i-Akaun app or at any EPF branch. Bring: original hospital bills, doctor letter, IC. Processing: 7–14 working days online, 3 working days at counter. No minimum withdrawal amount for medical purposes.' },
   { num:'10', tag:'Financial Aid',    color:'#16a34a',
     title:'MySalam Automatic B40 Coverage',
-    body:'MySalam is a free government-funded critical illness insurance for B40 Malaysians (household income ≤ RM100,000/year). RM 8,000 payout upon diagnosis of any of 36 critical illnesses including cancer, heart attack, stroke, and kidney failure. It is AUTOMATIC — no registration, no premium payment. Check eligibility at mysalam.com.my or call 1-800-88-1234. Submit diagnosis letter + IC + bank account details. Processed within 14 working days. Many B40 families are unaware they are covered.' },
+    body:'MySalam is free government-funded health protection for Sumbangan Tunai Rahmah (STR) recipients and their spouses (up to age 65). RM 8,000 one-off payout upon diagnosis of any of 50 critical illnesses including cancer, heart attack, stroke, and kidney failure; RM 50/day hospitalisation allowance at government hospitals (max RM 700/year); and up to RM 30,000 for approved medical devices. It is AUTOMATIC — no registration, no premium payment. Budget 2027 confirmed it continues in 2027. Check eligibility at mysalam.com.my or call 1-300-88-8938. Submit diagnosis letter + IC + bank account details. Many B40 families are unaware they are covered.' },
   { num:'11', tag:'Safety',           color:'#7c3aed',
     title:'Night Cover Intelligence (MO vs Specialist Overnight)',
     body:'Private hospital night cover (10pm–7am): at most private hospitals, the overnight on-call is a Medical Officer (MO) or Registrar — your specialist is called only if the MO deems it necessary. At academic hospitals (UMMC, UKMSC, UKMMC) and IJN, residents and fellows cover overnight with specialist consultants on backup call. At small private hospitals and day-surgery centres: there may be NO doctor on-site — only a nurse with a GP on phone. ALWAYS ask before admission: "Who is the overnight doctor — is a specialist on-site or on phone call?" This is your right as a patient.' },
@@ -735,8 +735,8 @@ function TourismSection() {
           <p className="text-ink-secondary text-[13px] leading-relaxed">Malaysia Healthcare Travel Council (MHTC), under MOH, actively promotes Malaysia as a medical tourism destination — 2026 has been declared "Malaysia's first Medical Tourism Year" (MYMT 2026).</p>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
-              { val: '1.6M+', label: 'Healthcare travellers (2024)', sub: '+14% YoY' },
-              { val: 'RM2.72B', label: 'Industry revenue (2024)', sub: '+21% YoY' },
+              { val: '1.85M', label: 'Healthcare travellers (2025)', sub: '+15.6% YoY' },
+              { val: 'RM3.35B', label: 'Industry revenue (2025)', sub: '+23.2% YoY' },
               { val: 'RM12B', label: 'Long-term target by 2030', sub: 'MHTC industry goal' },
             ].map((s, i) => (
               <div key={i} className="bg-surface-secondary rounded-xl p-4 text-center">
@@ -747,7 +747,7 @@ function TourismSection() {
             ))}
           </div>
           <p className="text-ink-secondary text-[13px]">Top source markets: roughly 60–70% of inbound patients come from <strong className="text-ink">Indonesia</strong>, followed by the Middle East, India, China, Japan, Australia, and New Zealand.</p>
-          <LastVerified date="July 2026" note="MHTC stats and cost figures" />
+          <LastVerified date="November 2026" note="MHTC stats and cost figures" />
         </div>
       )}
 
@@ -833,6 +833,9 @@ function TourismSection() {
 /* ─── What's New (Changelog) ─────────────────────────────────────── */
 
 const CHANGELOG_ENTRIES = [
+  { date: '2026-10', title: 'Budget 2027: RM47.7 billion for the Health Ministry, MediAsas from January 2027', detail: 'Up from RM46.5 billion in 2026. Voluntary MediAsas medical insurance/takaful plan to launch nationwide in January 2027 (EPF members under 55 can pay premiums from Akaun Sejahtera); private hospital bills to move to standardised, transparent charge categories from 2027; mySalam continues and PeKa B40 gets RM80 million; RM200 million to outsource patients and cut waiting times; 400 new ambulances; 9,000+ contract doctors to be offered permanent posts.', tag: 'Regulatory' },
+  { date: '2026-07', title: 'MediAsas pilot begins in the Klang Valley', detail: 'Government-backed base medical plan (MediAsas Teras and MediAsas Fleksi) piloted from end-July 2026 with six insurers/takaful operators and selected hospitals, ahead of the nationwide launch. Final premiums and terms were still being set at pilot stage.', tag: 'Insurance' },
+  { date: '2026-07', title: "PERKESO's LINDUNG 24 Jam made voluntary for local workers", detail: 'The non-work accident protection scheme (medical, disability and dependants\' benefits) started on 1 June 2026 with automatic enrolment at a 0.75% employee-paid contribution; after a July 2026 Cabinet decision it became voluntary for Malaysian workers and remains mandatory for foreign workers.', tag: 'Regulatory' },
   { date: '2026-07', title: 'MOH overhauls emergency triage to a 5-tier scale', detail: 'The Malaysian Triage Scale (MTS) replaces the older 3-tier system, alongside tightened patient-flow guidelines for non-critical A&E cases. See the Knowledge Hub → A&E Triage Guide.', tag: 'Regulatory' },
   { date: '2026-03', title: 'Sunway Healthcare Holdings lists on Bursa Malaysia', detail: 'IPO raised up to RM2.86 billion — one of Malaysia\'s largest listings in years, valuing the group at ~RM16.68 billion.', tag: 'Industry' },
   { date: '2026-01', title: 'Generali Malaysia switches TPA to MiCare', detail: 'Hospitalisation and claims administration moved from IHP to MiCare; old physical medical cards were valid only through 31 Dec 2025.', tag: 'Insurance' },
@@ -851,7 +854,7 @@ function ChangelogSection() {
       <div className="bg-brand/5 border border-brand/20 rounded-2xl p-4 text-[13px] text-ink-secondary leading-relaxed">
         A manually-curated log of notable, dated changes across Malaysian hospitals, insurers, and healthcare regulation — not a live feed. We add entries periodically rather than in real time, so treat this as a starting point and confirm time-sensitive details directly with the hospital or insurer.
       </div>
-      <LastVerified date="July 2026" note="list last reviewed on this date" />
+      <LastVerified date="November 2026" note="list last reviewed on this date" />
       <div className="space-y-3">
         {CHANGELOG_ENTRIES.map((e, i) => (
           <div key={i} className="border border-ink-quaternary rounded-xl p-4 flex items-start gap-3">

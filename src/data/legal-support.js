@@ -337,7 +337,7 @@ export const LEGAL_SUPPORT = {
       socso: {
         name: "PERKESO / SOCSO (Social Security Organisation)",
         for: "Workers injured at work or who contract occupational diseases — covers medical expenses, temporary disability, permanent disability, and dependants' benefit",
-        phone: "1-800-22-8000 (toll-free)",
+        phone: "1-300-22-8000 (Careline)",
         website: "https://www.perkeso.gov.my",
         howToClaim: [
           "Employer must report the accident to SOCSO within 48 hours via ASSIST portal",
@@ -346,7 +346,7 @@ export const LEGAL_SUPPORT = {
           "If employer does not report, worker can report directly via PERKESO portal or office",
           "SOCSO covers 100% of medical treatment costs at panel hospitals for work-related injuries"
         ],
-        notes: "Covers employees earning up to RM5,000/month who contribute to SOCSO. Self-employed coverage available since 2022."
+        notes: "Covers private-sector employees registered with SOCSO; contributions are calculated on wages up to a RM6,000/month ceiling (raised from RM5,000 on 1 October 2024). Self-employed workers are covered under the Self-Employment Social Security Scheme. Since 1 June 2026, LINDUNG 24 Jam extends cover to non-work accidents (voluntary for Malaysian workers since July 2026)."
       },
       dosh: {
         name: "DOSH (Department of Occupational Safety and Health / JKKP)",

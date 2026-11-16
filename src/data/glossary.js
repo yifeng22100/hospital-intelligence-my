@@ -254,14 +254,14 @@ export const GLOSSARY = [
     term: 'MySalam',
     full: 'MySalam — Skim Perlindungan Kesihatan Nasional',
     category: 'malaysian',
-    definition: 'Malaysia\'s national health protection scheme launched in 2019, providing free takaful coverage for B40 (bottom 40%) income group households. Covers 45 critical illnesses and hospitalisation income replacement (RM 50 per day, up to 14 days per year). Managed by Great Eastern Takaful under the Ministry of Finance.',
+    definition: 'Malaysia\'s national health protection scheme launched in 2019, providing free takaful coverage for B40 (bottom 40%) income group households. Covers 50 critical illnesses (RM 8,000 one-off), hospitalisation income replacement (RM 50 per day, up to 14 days per year) and medical devices (up to RM 30,000) for Sumbangan Tunai Rahmah (STR) recipients and their spouses; extended into 2027 under Budget 2027. Managed by Great Eastern Takaful under the Ministry of Finance.',
     tip: 'Eligibility is automatic for eligible B40 households — no registration required. Check your eligibility and claim status at mysalam.com.my or through participating hospitals. Claims must be submitted within 60 days of discharge.'
   },
   {
     term: 'PERKESO / SOCSO',
     full: 'Pertubuhan Keselamatan Sosial / Social Security Organisation',
     category: 'malaysian',
-    definition: 'Malaysia\'s social security body providing employment injury insurance and invalidity scheme to formal sector workers. Benefits include medical care for work injuries, temporary/permanent disablement benefits, invalidity pension, and rehabilitation services. Contributions are mandatory for employees earning below RM 5,000/month.',
+    definition: 'Malaysia\'s social security body providing employment injury insurance and invalidity scheme to formal sector workers. Benefits include medical care for work injuries, temporary/permanent disablement benefits, invalidity pension, and rehabilitation services. Contributions are mandatory for private-sector employees, calculated on wages up to a RM 6,000/month ceiling (raised from RM 5,000 on 1 October 2024).',
     tip: 'If injured at work, file a SOCSO claim immediately through your employer. SOCSO\'s Rehabilitation Centre (PERKESO Rehabilitation Centre) in Bangi provides free rehabilitation services for injured workers. Self-employed workers can now opt into the Self-Employment Social Security Scheme (SKSPS).'
   },
   {
