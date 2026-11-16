@@ -1,6 +1,6 @@
 # Healthcare Intelligence MY
 
-Malaysia's most comprehensive hospital intelligence platform — a React SPA covering **294 verified hospitals across 16 states and federal territories**, with specialty filters, emergency guides, insurance tools, a medical education library, and a healthy lifestyle hub.
+Malaysia's most comprehensive hospital intelligence platform — a React SPA covering **303 verified hospitals across 16 states and federal territories**, with specialty filters, emergency guides, insurance tools, a medical education library, and a healthy lifestyle hub.
 
 🌐 **Live:** https://yifeng22100.github.io/hospital-intelligence-my/
 
@@ -9,7 +9,7 @@ Malaysia's most comprehensive hospital intelligence platform — a React SPA cov
 ## Features
 
 ### Hospital Directory
-- **294 hospitals** — 155 public · 139 private — across all 16 Malaysian states and territories
+- **303 hospitals** — 155 public · 148 private — across all 16 Malaysian states and territories
 - Filter by **state**, **specialty** (20 curated categories), and **sector** (public / private)
 - Full-text search across hospital names, cities, and specialties
 - Hospital cards with 4-tab detail modal: Overview · Specialties · Facilities · Intelligence

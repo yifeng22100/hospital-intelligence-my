@@ -513,6 +513,58 @@ export const HOSPITALS_JOHOR = [
     verifiedNotes: "~100 beds (est.). Private specialist hospital, Muar.", notableGaps: "Complex cases → KPJ Johor."
   },
   {
+    id: "kpj-bandar-dato-onn",
+    name: "Bandar Dato' Onn Specialist Hospital",
+    nameShort: "Bandar Dato' Onn",
+    sector: "private", tier: "tertiary", state: "Johor", city: "Johor Bahru",
+    intro: "Bandar Dato' Onn Specialist Hospital (formerly branded KPJ Bandar Dato' Onn Specialist Hospital) is a KPJ Healthcare private specialist hospital in the Bandar Dato' Onn township in northern Johor Bahru. Opened in 2019, it provides single rooms only and runs centres for cardiac, oncology and radiotherapy, bone/joint/spine, children's health, and obstetrics and gynaecology, plus neurosurgery and vitreo-retinal eye surgery.",
+    famousFor: ["KPJ Healthcare hospital in Bandar Dato' Onn, Johor Bahru", "All single-room inpatient accommodation (150 single beds)", "First KPJ hospital in Johor with vitreo-retinal (VR) eye surgery", "Robotic visualisation (ZEISS KINEVO 900) for brain tumour surgery"],
+    infrastructure: { yearEstablished: 2019, totalBeds: 150, icuBeds: null, nicuBeds: null, operatingTheatres: null, area: "~5.34 hectares", buildings: "10-storey main block", helipad: false, parkingBays: "N/A (verify)", parkingRate: "N/A (verify)" },
+    contact: { address: "Jalan Bukit Mutiara, Bandar Dato' Onn, 81100 Johor Bahru, Johor", mainLine: "+607-301 1000", emergencyLine: "+607-301 1000", appointmentLine: "+607-301 1000", website: "https://www.kpjhealth.com.my/bdo", mapQuery: "Bandar Dato' Onn Specialist Hospital KPJ Johor Bahru" },
+    transport: { nearest: "No rail link — car, taxi or e-hailing recommended", bus: "N/A (verify)", highway: "N/A (verify)", landmark: "Bandar Dato' Onn township, northern Johor Bahru" },
+    facilities: { pharmacy24h: false, cafeteria: "N/A (verify)", atm: "N/A (verify)", surau: "Available (verify)", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "N/A (verify)", patientTransport: "Ambulance (verify)" },
+    visitingHours: { general: "N/A (verify)", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm current visiting hours with the hospital." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Medicine", "Cardiology", "Oncology & Radiotherapy", "Orthopaedics (Bone, Joint & Spine)", "Neurosurgery", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology (incl. vitreo-retinal)", "Dermatology"],
+      notAvailable: [{ specialty: "Organ transplant", transferTo: "Hospital Sultanah Aminah (HSA) Johor Bahru", note: "Refer to public tertiary centre (verify)" }],
+      byReferral: ["Highly complex cases — Hospital Sultanah Aminah (HSA) Johor Bahru or KPJ Johor Specialist Hospital"]
+    },
+    transferPathway: { summary: "KPJ private specialist hospital in northern JB. Complex cases → KPJ Johor Specialist Hospital (KPJ network) or Hospital Sultanah Aminah (HSA) Johor Bahru.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed", "KPJ Healthcare Group"],
+    primaryExcellence: "KPJ private specialist hospital — Bandar Dato' Onn, Johor Bahru", secondarySpecialties: "Cardiology, Oncology & Radiotherapy, Orthopaedics, Neurosurgery, Ophthalmology",
+    fullSpecialties: ["General Medicine", "Cardiology", "Oncology", "Radiotherapy", "Orthopaedics", "Neurosurgery", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Dermatology"],
+    roomRate: "RM 200–500/night (est.)", roomRateRaw: 300, insurance: "KPJ group insurance panels (verify with insurer).", fppScheme: false, fppDeposit: "N/A (verify)",
+    gaps: "Bed/ICU/OT counts and accreditation status not published on official page.", robotics: "ZEISS KINEVO 900 robotic visualisation system for brain tumour surgery (official site).", doctorQualifications: "MMC-registered specialists; KPJ credentialing.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Bandar Dato' Onn Specialist Hospital (KPJ)", url: "https://www.kpjhealth.com.my/bdo" }, { label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "Name, address, phone (+607-301 1000), 150 single beds, clinics/centres, VR eye surgery and KINEVO 900 checked on KPJ hospital page (official site, Nov 2026). Opened 2019 (Sinar Harian, Feb 2019: 10-storey, 5.34 ha). Beds raised from 90 to 150 via 2024 ward renovation (KPJ filing, Jun 2024). ICU/OT counts, MSQH status and room rates unverified (est.).", notableGaps: "Transplant and highest-acuity cases → HSA JB."
+  },
+  {
+    id: "kpj-batu-pahat",
+    name: "KPJ Batu Pahat Specialist Hospital",
+    nameShort: "KPJ Batu Pahat",
+    sector: "private", tier: "secondary", state: "Johor", city: "Batu Pahat",
+    intro: "KPJ Batu Pahat Specialist Hospital is a KPJ Healthcare private specialist hospital in Taman Mutiara Gading, Sri Gading, Batu Pahat. It opened for outpatient and inpatient services on 23 September 2019 and offers specialist care including cardiac, renal/dialysis, endocrine and diabetes, orthopaedic, and women's and children's services. It is a separate hospital from Pantai Hospital Batu Pahat.",
+    famousFor: ["KPJ Healthcare hospital for Batu Pahat district", "Renal & dialysis and endocrine/diabetes centres", "VIP suites and multidisciplinary wards"],
+    infrastructure: { yearEstablished: 2019, totalBeds: 90, icuBeds: null, nicuBeds: null, operatingTheatres: null, area: "N/A", buildings: "Seven-storey main block", helipad: false, parkingBays: "N/A (verify)", parkingRate: "N/A (verify)" },
+    contact: { address: "No. 1, Jalan Mutiara Gading Utama 1, Taman Mutiara Gading, 83000 Sri Gading, Batu Pahat, Johor", mainLine: "+607-459 1000", emergencyLine: "+607-459 1000", appointmentLine: "+607-459 1000", website: "https://www.kpjhealth.com.my/batupahat", mapQuery: "KPJ Batu Pahat Specialist Hospital Taman Mutiara Gading" },
+    transport: { nearest: "No rail link — car, taxi or e-hailing recommended", bus: "N/A (verify)", highway: "N/A (verify)", landmark: "Taman Mutiara Gading, Sri Gading, Batu Pahat" },
+    facilities: { pharmacy24h: false, cafeteria: "N/A (verify)", atm: "N/A (verify)", surau: "Available (verify)", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "N/A (verify)", patientTransport: "Ambulance (verify)" },
+    visitingHours: { general: "N/A (verify)", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm current visiting hours with the hospital." },
+    specialtyCoverage: {
+      available: ["General Medicine", "Cardiology", "Nephrology & Dialysis", "Endocrinology & Diabetes", "Orthopaedics (Bone, Joint & Spine)", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology & Interventional"],
+      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "KPJ Johor Specialist Hospital or Hospital Sultanah Aminah (HSA) Johor Bahru", note: "Refer to larger centre" }],
+      byReferral: ["Complex → Hospital Sultanah Nora Ismail (HSNI) or KPJ Johor Specialist Hospital"]
+    },
+    transferPathway: { summary: "KPJ private specialist in Batu Pahat. Complex cases → Hospital Sultanah Nora Ismail (HSNI) locally, or KPJ Johor Specialist Hospital / HSA JB.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed", "KPJ Healthcare Group"],
+    primaryExcellence: "KPJ private specialist — Batu Pahat", secondarySpecialties: "Cardiology, Nephrology & Dialysis, Orthopaedics, Obstetrics",
+    fullSpecialties: ["General Medicine", "Cardiology", "Nephrology", "Endocrinology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology"],
+    roomRate: "RM 180–450/night (est.)", roomRateRaw: 250, insurance: "KPJ group insurance panels (verify with insurer).", fppScheme: false, fppDeposit: "N/A (verify)",
+    gaps: "Limited subspecialties; emergency/ICU/OT details not published on official page.", robotics: "None reported.", doctorQualifications: "MMC-registered specialists; KPJ credentialing.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Batu Pahat Specialist Hospital", url: "https://www.kpjhealth.com.my/batupahat" }, { label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "Name, address, phone (+607-459 1000), 90-bed capacity, opening date (23 Sep 2019) and clinic list checked on KPJ hospital page (official site, Nov 2026). Seven-storey, 90-bed plan per The Star (Oct 2016). MOH private hospital list (2022) showed 29 licensed beds — likely pre-expansion. ICU/OT counts, 24h A&E, MSQH status and room rates unverified (est.).", notableGaps: "Complex cases → HSNI Batu Pahat or KPJ Johor."
+  },
+  {
     id: "hjohor-senior",
     name: "Hospital Tangkak",
     nameShort: "Hospital Tangkak",
