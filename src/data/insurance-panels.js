@@ -38,8 +38,10 @@ export const INSURANCE_PANELS = {
         // Johor
         "gleneagles-medini", "kpj-johor", "regency-johor", "columbia-asia-iskputeri",
         "kpj-puteri", "kpj-pasir-gudang", "pantai-batu-pahat",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
         "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh", "sunway-medical-ipoh",
+        "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota", "pantai-ayer-keroh",
         // Negeri Sembilan
@@ -47,13 +49,14 @@ export const INSURANCE_PANELS = {
         // Pahang
         "kpj-pahang",
         // Kedah
-        "kpj-kedah",
+        "kpj-kedah", "pantai-sungai-petani", "pantai-laguna-merbok",
         // Kelantan
         "kpj-kota-bharu",
         // Sabah
         "gleneagles-kk", "jesselton-mc", "kpj-sabah",
         // Sarawak
-        "normah-kuching", "kpj-kuching", "timberland-kuching", "bmc-kuching"
+        "normah-kuching", "kpj-kuching", "timberland-kuching", "bmc-kuching",
+        "kpj-miri"
       ],
       generalNote: "AIA has one of Malaysia's widest hospital panels — roughly 120 hospitals in two tiers: SMART Panel (about 75 hospitals with priority lanes, waived deposits, dedicated liaisons) and General Panel (about 45 hospitals with standard cashless; at General Panel hospitals cashless may be limited to specific departments/specialists). Sunway Medical Damansara and Sunway Medical Ipoh were added to SMART Panel in August 2025. In October 2026 AIA was reported to have excluded some individual IHH (Pantai/Gleneagles group) consultants from its panel while keeping the hospitals on panel — check AIA's Panel Provider Specialist Listing for your specific doctor before admission. All managed in-house by AIA Health Services Sdn Bhd (no external TPA).",
       logLimitWarning: "AIA A-Plus basic plans may have daily room limits of RM 150–250/day — insufficient for premium hospitals like Gleneagles KL (RM 350–600/night) or Prince Court. Upgrade to A-Plus Health Max or ensure your plan's room limit matches your preferred hospital.",
@@ -74,14 +77,16 @@ export const INSURANCE_PANELS = {
         "kpj-damansara", "kpj-klang", "kpj-ap", "kpj-kajang",
         "kpj-selangor-shah-alam", "thomson-thkd", "columbia-bukit-rimau",
         "columbia-asia-bukit-jalil", "pantai-cheras", "pantai-klang",
+        "kpj-kuala-selangor",
         // Penang
         "island-hospital", "gleneagles-penang", "loh-guan-lye", "penang-adventist",
         "pantai-penang", "kpj-penang", "sunway-mc-penang",
         // Johor
         "gleneagles-medini", "kpj-johor", "regency-johor", "columbia-asia-iskputeri",
-        "kpj-puteri", "kpj-pasir-gudang",
+        "kpj-puteri", "kpj-pasir-gudang", "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
         "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh", "sunway-medical-ipoh",
+        "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota", "pantai-ayer-keroh",
         // Negeri Sembilan
@@ -89,13 +94,13 @@ export const INSURANCE_PANELS = {
         // Pahang
         "kpj-pahang",
         // Kedah
-        "kpj-kedah",
+        "kpj-kedah", "pantai-sungai-petani",
         // Kelantan
         "kpj-kota-bharu",
         // Sabah
         "gleneagles-kk", "jesselton-mc", "kpj-sabah",
         // Sarawak
-        "normah-kuching", "kpj-kuching"
+        "normah-kuching", "kpj-kuching", "kpj-miri"
       ],
       generalNote: "Prudential has a very wide panel across Malaysia managed in-house by HAS (Hospital Alliance Services) — no external TPA. PRUPanel Plus (~100 hospitals) offers waived admin fees and deposits. PRUBSNTakaful offers Shariah-compliant versions with broadly the same panel.",
       logLimitWarning: "Entry-level PRU plans have lower room and board limits. Confirm room limit against your preferred hospital's daily rate — especially for premium hospitals.",
@@ -113,13 +118,15 @@ export const INSURANCE_PANELS = {
         // Selangor
         "sunway-mc", "sjmc", "ara-damansara", "kpj-damansara", "kpj-klang",
         "kpj-ap", "thomson-thkd", "columbia-bukit-rimau", "pantai-cheras",
+        "kpj-kuala-selangor",
         // Penang
         "island-hospital", "gleneagles-penang", "loh-guan-lye", "pantai-penang",
         "sunway-mc-penang",
         // Johor
         "gleneagles-medini", "kpj-johor", "regency-johor",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
-        "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh",
+        "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota", "pantai-ayer-keroh",
         // Negeri Sembilan
@@ -127,11 +134,11 @@ export const INSURANCE_PANELS = {
         // Pahang
         "kpj-pahang",
         // Kedah
-        "kpj-kedah",
+        "kpj-kedah", "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk", "kpj-sabah",
         // Sarawak
-        "normah-kuching", "kpj-kuching"
+        "normah-kuching", "kpj-kuching", "kpj-miri"
       ],
       generalNote: "Great Eastern manages all GL/cashless in-house via its Healthcare Services Division (HSD) — no external TPA. 'The Great Journey' premium tier (85 hospitals and specialist centres per the listing updated 14 July 2026; Aurelius Hospital Alor Setar and Columbia Asia Hospital Petaling Jaya left this tier on 1 July 2026) offers streamlined admission and priority service. General panel covers 150+ hospitals nationwide.",
       logLimitWarning: "GREAT MedProtect plans have varying room limits. For hospitalisation at premium hospitals, ensure your daily room limit covers the hospital's room rate.",
@@ -152,6 +159,7 @@ export const INSURANCE_PANELS = {
         // Selangor — General
         "ara-damansara", "assunta-hospital", "kpj-damansara", "kpj-klang", "kpj-ap",
         "thomson-thkd", "columbia-asia-bukit-jalil", "pantai-cheras", "pantai-klang",
+        "kpj-kuala-selangor",
         // Penang — Blue Ribbon
         "gleneagles-penang", "pantai-penang",
         // Penang — General
@@ -160,10 +168,11 @@ export const INSURANCE_PANELS = {
         "gleneagles-medini",
         // Johor — General
         "kpj-johor", "regency-johor", "columbia-asia-iskputeri", "kpj-puteri",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak — Blue Ribbon
         "kpj-ipoh",
         // Perak — General
-        "pantai-ipoh", "fatimah-ipoh",
+        "pantai-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka — Blue Ribbon
         "mahkota",
         // Melaka — General
@@ -174,6 +183,8 @@ export const INSURANCE_PANELS = {
         "kpj-seremban",
         // Pahang
         "kpj-pahang",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah — Blue Ribbon
         "kpj-sabah",
         // Sabah — General
@@ -181,7 +192,7 @@ export const INSURANCE_PANELS = {
         // Sarawak — Blue Ribbon
         "bmc-kuching",
         // Sarawak — General
-        "normah-kuching", "kpj-kuching"
+        "normah-kuching", "kpj-kuching", "kpj-miri"
       ],
       generalNote: "Allianz handles individual medical-card GL mainly in-house (Customer HealthCare Administration, 1-300-88-8322), but some policies list a third-party administrator on the card (Allianz's claims FAQ names Asia Assistance and MiCare) — use the GL number printed on your card. Blue Ribbon Programme: 16 premium hospitals with priority admission, bedside check-in, and cashless outpatient cancer/radiotherapy. General panel covers 200+ hospitals nationwide.",
       logLimitWarning: "Confirm daily room benefit versus hospital room rates. Allianz SmartMed Plus has tiered room benefits — ensure your tier matches your hospital preference.",
@@ -204,16 +215,19 @@ export const INSURANCE_PANELS = {
         "sunway-mc-penang",
         // Johor
         "gleneagles-medini", "kpj-johor", "regency-johor",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
-        "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh",
+        "pantai-ipoh", "kpj-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota", "pantai-ayer-keroh",
         // Negeri Sembilan
         "kpj-seremban",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk", "kpj-sabah",
         // Sarawak
-        "normah-kuching", "kpj-kuching"
+        "normah-kuching", "kpj-kuching", "kpj-miri"
       ],
       generalNote: "Tokio Marine Life uses MiCare Sdn Bhd as its TPA for hospital cashless (GL) services. Tokio Marine Life lists the MiCare GL line as 03-7843 9459 (24/7) — always use the number printed on your own medical card. MiCare MyMed App available for e-card, GL requests, and hospital locator.",
       logLimitWarning: "Check specific plan room benefit. Tokio Marine plans vary in hospital tier coverage.",
@@ -235,14 +249,17 @@ export const INSURANCE_PANELS = {
         "island-hospital", "gleneagles-penang", "pantai-penang",
         // Johor
         "kpj-johor", "gleneagles-medini", "regency-johor",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
-        "kpj-ipoh", "pantai-ipoh", "fatimah-ipoh",
+        "kpj-ipoh", "pantai-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk", "kpj-sabah",
         // Sarawak
-        "normah-kuching"
+        "normah-kuching", "kpj-miri"
       ],
       generalNote: "Zurich Malaysia (formerly MCTIS/Zurich Takaful) has a medium-to-wide panel. As of April 2025, GL processing switched from 1800-82-6100 to MiCare Sdn Bhd (1800-88-2318). Takaful options available. Smaller panel than AIA/Prudential but covers all major cities.",
       logLimitWarning: "Verify panel status and LOG limit before admission — especially outside Klang Valley.",
@@ -264,14 +281,17 @@ export const INSURANCE_PANELS = {
         "gleneagles-penang", "island-hospital", "pantai-penang",
         // Johor
         "gleneagles-medini", "kpj-johor", "regency-johor",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
-        "kpj-ipoh", "fatimah-ipoh",
+        "kpj-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk",
         // Sarawak
-        "normah-kuching"
+        "normah-kuching", "kpj-miri"
       ],
       generalNote: "Sun Life Malaysia is a growing insurer with an expanding panel. GL processing via MediExpress (M) Sdn Bhd (24/7). Coverage is solid at major hospitals but the panel is smaller than market leaders. Best for those who plan to use flagship hospitals in major cities.",
       logLimitWarning: "Panel may be limited outside major cities. Verify panel status for hospitals in East Malaysia and smaller towns.",
@@ -288,22 +308,25 @@ export const INSURANCE_PANELS = {
         "umsc", "kpj-sentosa", "pusrawi", "tawakal-kl",
         // Selangor
         "sunway-mc", "sjmc", "kpj-damansara", "kpj-klang", "kpj-ap",
-        "thomson-thkd", "columbia-bukit-rimau", "ara-damansara",
+        "thomson-thkd", "columbia-bukit-rimau", "ara-damansara", "kpj-kuala-selangor",
         // Penang
         "island-hospital", "gleneagles-penang", "pantai-penang", "kpj-penang",
         "loh-guan-lye",
         // Johor
         "kpj-johor", "gleneagles-medini", "regency-johor",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
-        "kpj-ipoh", "pantai-ipoh", "fatimah-ipoh",
+        "kpj-ipoh", "pantai-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota", "pantai-ayer-keroh",
         // Negeri Sembilan
         "kpj-seremban",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk", "kpj-sabah",
         // Sarawak
-        "normah-kuching", "kpj-kuching"
+        "normah-kuching", "kpj-kuching", "kpj-miri"
       ],
       generalNote: "Etiqa (backed by Maybank) has 140 panel hospitals with a fully cardless cashless system — just show the eTiQa+ App QR code at admission, no physical card required. Etiqa and Etiqa Takaful share the same panel. GL managed in-house by Etiqa Healthcare Call Centre (1800-88-9998, 24/7).",
       logLimitWarning: "Etiqa eMedic entry-level plans have daily room limits around RM 150–200 — check against your hospital preference.",
@@ -319,18 +342,21 @@ export const INSURANCE_PANELS = {
         "gleneagles-kl", "beacon-hospital", "parkcity-mc", "umsc",
         // Selangor — cashless confirmed
         "sunway-mc", "sjmc", "thomson-thkd", "columbia-bukit-rimau", "ara-damansara",
+        "kpj-kuala-selangor",
         // Penang — cashless confirmed
         "gleneagles-penang", "island-hospital", "loh-guan-lye",
         // Johor — cashless confirmed
-        "gleneagles-medini", "regency-johor",
+        "gleneagles-medini", "regency-johor", "kpj-bandar-dato-onn",
         // Perak
-        "fatimah-ipoh",
+        "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk",
         // Sarawak
-        "normah-kuching", "bmc-kuching"
+        "normah-kuching", "bmc-kuching", "kpj-miri"
       ],
       generalNote: "⚠ IMPORTANT (July 18, 2025): Generali discontinued cashless facility at selected Pantai Group and KPJ Group hospitals. Policyholders can still use those hospitals but must pay upfront and claim via reimbursement. AXA Affin rebranded to Generali (General Insurance 2023, Life Insurance 2024). Generali Life's TPA switched from IHP to MiCare effective January 1, 2026 — old physical GL cards were valid only until 31 December 2025; use the MiCare hotline for hospitalisation claims going forward.",
       logLimitWarning: "Verify cashless status before any Pantai or KPJ admission — as of July 2025, selected hospitals in these groups no longer offer cashless GL under Generali. Call 1300-88-8690 (Generali Life 24/7 hospitalisation line) or, for Generali Insurance (general) medical policies, the TPA line on your card (e.g. MiCare 1-300-88-9979) to confirm.",
@@ -352,14 +378,17 @@ export const INSURANCE_PANELS = {
         "island-hospital", "gleneagles-penang", "pantai-penang", "loh-guan-lye",
         // Johor
         "kpj-johor", "gleneagles-medini", "regency-johor",
+        "kpj-bandar-dato-onn", "kpj-batu-pahat",
         // Perak
-        "kpj-ipoh", "fatimah-ipoh",
+        "kpj-ipoh", "fatimah-ipoh", "kpj-taiping", "pantai-manjung",
         // Melaka
         "mahkota",
+        // Kedah
+        "pantai-sungai-petani", "pantai-laguna-merbok",
         // Sabah
         "gleneagles-kk", "kpj-sabah",
         // Sarawak
-        "normah-kuching"
+        "normah-kuching", "kpj-miri"
       ],
       generalNote: "MSIG individual health products (FlexiHealth, Healthcare International, Edu Medicare, Healthnet, Gluco Safeguard) get cashless GL via the 24-hour service line 1800-88-7940 (MiCare) at 129 panel hospitals (listing effective 29 July 2026); FlexiCo Medical uses 1-300-80-0020. Group products may use IHP or MiCare. MSIG Healthcare International (expat plan) has no fixed panel — direct billing arranged case by case.",
       logLimitWarning: "MSIG health products have clear room benefit tiers — select the tier matching your preferred hospital.",
