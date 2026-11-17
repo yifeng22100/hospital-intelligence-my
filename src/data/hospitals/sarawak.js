@@ -1540,6 +1540,30 @@ export const HOSPITALS_SARAWAK = [
     verifiedNotes: "~100 beds (est.). KPJ Healthcare Group private specialist hospital in Sibu, Sarawak. Address: No. 52A-G, Persiaran Brooke (Brooke Drive), 96000 Sibu. Also referred to as KPJ Sibu Specialist Hospital in some directories.", notableGaps: "~100 beds est. Confirm current specialist list with hospital directly."
   },
   {
+    id: "kpj-miri", name: "KPJ Miri Specialist Hospital", nameShort: "KPJ Miri",
+    sector: "private", tier: "secondary", state: "Sarawak", city: "Miri",
+    intro: "KPJ Miri Specialist Hospital is a KPJ Healthcare private specialist hospital in Bandar Baru Permyjaya, Miri — the group's third hospital in Sarawak. The 41-bed, seven-storey hospital offers 24-hour emergency services, ICU, labour suite, health screening, and imaging including a 1.5T MRI and 160-slice CT, and also serves patients from neighbouring Brunei.",
+    famousFor: ["KPJ Healthcare's hospital in Miri, northern Sarawak", "Third KPJ hospital in Sarawak", "Medical tourism for Brunei (about 20 minutes from the border)"],
+    infrastructure: { yearEstablished: null, totalBeds: 41, icuBeds: null, nicuBeds: 0, operatingTheatres: null, area: "~4 acres", buildings: "Seven-storey main block", helipad: false, parkingBays: "Available (verify)", parkingRate: "N/A (verify)" },
+    contact: { address: "Lot 8836, Block 11, Kuala Baram By Pass Road, Bandar Baru Permyjaya, 98000 Miri, Sarawak", mainLine: "+6085-649 999", emergencyLine: "+6085-649 999", appointmentLine: "+6085-649 999", website: "https://www.kpjhealth.com.my/miri", mapQuery: "KPJ Miri Specialist Hospital Permyjaya" },
+    transport: { nearest: "Miri city centre — car or taxi", bus: "N/A (verify)", highway: "Kuala Baram By Pass Road / Pan Borneo Highway", landmark: "Bandar Baru Permyjaya, Miri" },
+    facilities: { pharmacy24h: false, cafeteria: "N/A (verify)", atm: "N/A (verify)", surau: "Available (verify)", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "N/A (verify)", patientTransport: "Ambulance (verify)" },
+    visitingHours: { general: "N/A (verify)", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm current visiting hours with the hospital." },
+    specialtyCoverage: {
+      available: ["Emergency (24/7)", "General Surgery", "Internal Medicine", "Obstetrics & Gynaecology", "Orthopaedics", "Paediatrics", "ENT", "Ophthalmology", "Radiology", "Anaesthesiology", "Plastic & Reconstructive Surgery (visiting)"],
+      notAvailable: [{ specialty: "Complex cardiothoracic / neurosurgery", transferTo: "Hospital Miri (public) or Hospital Umum Sarawak (HUS) Kuching", note: "Complex cases refer to public sector or HUS Kuching" }],
+      byReferral: ["Complex specialist cases → Hospital Miri (public) or Hospital Umum Sarawak (HUS) Kuching"]
+    },
+    transferPathway: { summary: "Private specialist hospital in Miri. Complex cases transfer to Hospital Miri (public) or Hospital Umum Sarawak (HUS) Kuching.", routes: [], howToTransfer: "Self-referral or GP referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed Private Hospital"],
+    primaryExcellence: "KPJ Healthcare Group private specialist hospital in Miri, northern Sarawak", secondarySpecialties: "Obstetrics & Gynaecology, Orthopaedics, Paediatrics",
+    fullSpecialties: ["General Surgery", "Internal Medicine", "Obstetrics & Gynaecology", "Orthopaedics", "Paediatrics", "ENT", "Ophthalmology", "Radiology", "Anaesthesiology", "Urology"],
+    roomRate: "RM 180 – RM 350/night (est.)", roomRateRaw: 250, insurance: "KPJ group insurance panels (verify with insurer).", fppScheme: false, fppDeposit: "N/A",
+    gaps: "Small 41-bed hospital. No cardiothoracic surgery. No neurosurgery.", robotics: "1.5T MRI, 160-slice CT.", doctorQualifications: "Close to 20 specialist consultants (official site); credentialed specialists.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Miri Specialist Hospital", url: "https://www.kpjhealth.com.my/miri" }, { label: "KPJ Healthcare Group", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "Name, address, phone (+6085-649 999), 41 beds, specialties and ~20 consultants checked on KPJ hospital page (official site, Nov 2026). Seven-storey building on 4 acres, 24h emergency, ICU, 1.5T MRI and 160-slice CT per The Scoop (Aug 2022). Opening year not confirmed (operating by 2022). ICU/OT counts, MSQH status and room rates unverified (est.).", notableGaps: "41 beds. Complex cases → Hospital Miri or HUS Kuching."
+  },
+  {
     id: "rejang-mc", name: "Rejang Medical Centre", nameShort: "Rejang MC",
     sector: "private", tier: "secondary", state: "Sarawak", city: "Sibu",
     intro: "Rejang Medical Centre is the largest private hospital in central Sarawak, located in Sibu along Jalan Dr Wong Soon Kai (Jalan Pedada). Established in 1997, it has 62 beds and 21 resident specialists, providing multi-discipline specialist and surgical services for the Sibu Division and wider central Sarawak. It is also referred to as Rejang Specialist Hospital.",

@@ -1428,6 +1428,32 @@ export const HOSPITALS_SELANGOR = [
     verifiedNotes: "~160 beds (est.). Private specialist, Kajang. On Jalan Cheras (Batu 14), near Stadium Kajang MRT.", notableGaps: "Complex → SJMC or Sunway MC."
   },
   {
+    id: "kpj-kuala-selangor",
+    name: "KPJ Kuala Selangor Specialist Hospital",
+    nameShort: "KPJ Kuala Selangor",
+    sector: "private", tier: "secondary", state: "Selangor", city: "Kuala Selangor",
+    intro: "KPJ Kuala Selangor Specialist Hospital (KPJKS) is KPJ Healthcare's 30th hospital and the first multidisciplinary private hospital in Kuala Selangor. It began operations on 22 March 2025 and was officially launched by the Health Minister on 14 April 2025, with 60 beds, 4 ICU beds, two operating theatres, a 1.5T MRI and a 160-slice CT scanner.",
+    famousFor: ["First multidisciplinary private hospital in Kuala Selangor", "KPJ Healthcare's 30th hospital (launched April 2025)", "1.5 Tesla MRI and 160-slice CT for the Kuala Selangor district"],
+    infrastructure: { yearEstablished: 2025, totalBeds: 60, icuBeds: 4, nicuBeds: null, operatingTheatres: 2, area: "N/A", buildings: "Main Block", helipad: false, parkingBays: "N/A (verify)", parkingRate: "N/A (verify)" },
+    contact: { address: "No. 1, Jalan Peninsula Tanjung, Peninsula Utama, 45000 Kuala Selangor, Selangor", mainLine: "+603-6078 5888", emergencyLine: "+603-6078 5888", appointmentLine: "+603-6078 5888", website: "https://www.kpjhealth.com.my/kualaselangor", mapQuery: "KPJ Kuala Selangor Specialist Hospital Peninsula Utama" },
+    transport: { nearest: "No rail in Kuala Selangor — car, taxi or e-hailing recommended", bus: "N/A (verify)", highway: "Route 5 / LATAR Expressway — Kuala Selangor", landmark: "Peninsula Utama, Kuala Selangor" },
+    facilities: { pharmacy24h: false, cafeteria: "N/A (verify)", atm: "N/A (verify)", surau: "Available (verify)", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "N/A (verify)", patientTransport: "Ambulance (verify)" },
+    visitingHours: { general: "N/A (verify)", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm current visiting hours with the hospital." },
+    specialtyCoverage: {
+      available: ["Internal Medicine", "General Surgery", "Orthopaedics", "Paediatrics", "Obstetrics & Gynaecology", "ENT", "Ophthalmology", "Radiology", "Anaesthesiology", "Gastroenterology & Hepatology", "Urology", "Cardiology", "Dermatology"],
+      notAvailable: [{ specialty: "Cardiothoracic surgery / complex tertiary care", transferTo: "KPJ Selangor Specialist Hospital or Hospital Tengku Ampuan Rahimah (HTAR) Klang", note: "Refer to larger centre" }],
+      byReferral: ["Complex → KPJ Selangor Specialist Hospital, KPJ Klang Specialist Hospital or Hospital Tengku Ampuan Rahimah (HTAR) Klang"]
+    },
+    transferPathway: { summary: "KPJ private specialist in Kuala Selangor. Complex cases → KPJ Selangor Specialist Hospital / KPJ Klang Specialist Hospital (KPJ network) or Hospital Tengku Ampuan Rahimah (HTAR) Klang.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
+    specialtyRanks: {}, accreditations: ["MOH Licensed", "KPJ Healthcare Group"],
+    primaryExcellence: "KPJ private specialist — Kuala Selangor district", secondarySpecialties: "Internal Medicine, General Surgery, Obstetrics, Orthopaedics",
+    fullSpecialties: ["Internal Medicine", "General Surgery", "Orthopaedics", "Paediatrics", "Obstetrics & Gynaecology", "ENT", "Ophthalmology", "Radiology", "Anaesthesiology", "Gastroenterology & Hepatology", "Urology"],
+    roomRate: "RM 180–450/night (est.)", roomRateRaw: 250, insurance: "KPJ group insurance panels (verify with insurer).", fppScheme: false, fppDeposit: "N/A (verify)",
+    gaps: "New 60-bed hospital — limited subspecialties; no cardiothoracic surgery.", robotics: "None reported.", doctorQualifications: "22 specialist consultants (14 resident, 8 sessional) at launch; KPJ credentialing.",
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Kuala Selangor Specialist Hospital", url: "https://www.kpjhealth.com.my/kualaselangor" }, { label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
+    verifiedNotes: "Name, address, phone (+603-6078 5888) and clinic list checked on KPJ hospital page (official site, Nov 2026). 60 beds, 4 ICU beds, 2 OTs, 1.5T MRI, 160-slice CT, 22 consultants per launch coverage (FMT / Malaysiakini, 14 Apr 2025). Operations began 22 Mar 2025 (Malaysiakini, Bernama); the KPJ page says 22 Mar 2024 — news sources preferred. MSQH status, NICU and room rates unverified (est.).", notableGaps: "Complex cases → KPJ Selangor (Shah Alam), KPJ Klang or HTAR Klang."
+  },
+  {
     id: "an-nur-specialist",
     name: "An-Nur Specialist Hospital",
     nameShort: "An-Nur Specialist",

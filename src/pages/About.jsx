@@ -47,7 +47,7 @@ const DATA_FIELDS = [
 ]
 
 const ROADMAP = [
-  { status: 'live', label: 'Hospital directory (294 hospitals, 16 states)' },
+  { status: 'live', label: 'Hospital directory (303 hospitals, 16 states)' },
   { status: 'live', label: 'Specialty, state, sector, and FPP filters' },
   { status: 'live', label: 'Hospital comparison (up to 5 side-by-side)' },
   { status: 'live', label: 'Intelligence Hub — 7 topics: insider tips, hospital tiers, specialist directory by hospital, medical tourism hub (JCI hospitals, visa process, cost comparisons), a dated changelog of industry changes, clinical trials, overnight care' },
