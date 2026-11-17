@@ -27,7 +27,7 @@ export const INSURANCE_PANELS = {
         "pusrawi", "imu-hospital", "ukmsc",
         // Selangor — SMART Panel
         "sunway-mc", "sunway-mc-damansara", "sjmc", "ara-damansara", "assunta-hospital",
-        "kpj-damansara", "kpj-ap", "kpj-klang", "kpj-kajang", "kpj-selayang",
+        "kpj-damansara", "kpj-ap", "kpj-klang", "kpj-kajang",
         "kpj-selangor-shah-alam", "thomson-thkd", "columbia-bukit-rimau",
         "columbia-asia-bukit-jalil", "columbia-cheras", "columbia-pj",
         "pantai-cheras", "pantai-klang",
@@ -51,7 +51,7 @@ export const INSURANCE_PANELS = {
         // Kelantan
         "kpj-kota-bharu",
         // Sabah
-        "gleneagles-kk", "jesselton-mc", "kpj-sabah", "damai-specialist-kk",
+        "gleneagles-kk", "jesselton-mc", "kpj-sabah",
         // Sarawak
         "normah-kuching", "kpj-kuching", "timberland-kuching", "bmc-kuching"
       ],
@@ -71,7 +71,7 @@ export const INSURANCE_PANELS = {
         "smcv-velocity", "tawakal-kl",
         // Selangor
         "sunway-mc", "sunway-mc-damansara", "sjmc", "ara-damansara", "assunta-hospital",
-        "kpj-damansara", "kpj-klang", "kpj-ap", "kpj-kajang", "kpj-selayang",
+        "kpj-damansara", "kpj-klang", "kpj-ap", "kpj-kajang",
         "kpj-selangor-shah-alam", "thomson-thkd", "columbia-bukit-rimau",
         "columbia-asia-bukit-jalil", "pantai-cheras", "pantai-klang",
         // Penang
