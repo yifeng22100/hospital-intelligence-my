@@ -818,16 +818,16 @@ export const HOSPITALS_SELANGOR = [
   },
   {
     id: "kpj-damansara",
-    name: "KPJ Damansara Specialist Hospital",
-    nameShort: "KPJ Damansara",
+    name: "Damansara Specialist Hospital",
+    nameShort: "Damansara Specialist (KPJ)",
     sector: "private",
     tier: "tertiary",
     state: "Selangor",
     city: "Petaling Jaya",
-    intro: "KPJ Damansara Specialist Hospital is one of KPJ Healthcare's flagship hospitals, offering comprehensive specialist services in Petaling Jaya. It is a trusted choice for the Damansara and Petaling Jaya community.",
+    intro: "Damansara Specialist Hospital (formerly branded KPJ Damansara Specialist Hospital) is one of KPJ Healthcare's flagship hospitals, offering comprehensive specialist services in Petaling Jaya. It is a trusted choice for the Damansara and Petaling Jaya community.",
     famousFor: ["KPJ Healthcare flagship — Damansara/PJ corridor", "Comprehensive specialist services", "Strong obstetrics and paediatrics programme"],
     infrastructure: { yearEstablished: 1995, totalBeds: 300, icuBeds: 24, nicuBeds: 8, operatingTheatres: 10, area: "~3 acres", buildings: "Main Tower, Specialist Clinics", helipad: false, parkingBays: "~350 bays", parkingRate: "1st 2 hrs: RM3.00; subsequent hrs: RM1.00; max/day: RM5.00" },
-    contact: { address: "119, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor", mainLine: "+603-7718 1000", emergencyLine: "+603-7718 1112", appointmentLine: "+603-7718 1000", website: "https://kpjhealth.com.my/damansara", mapQuery: "KPJ Damansara Specialist Hospital Petaling Jaya" },
+    contact: { address: "119, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor", mainLine: "+603-7718 1000", emergencyLine: "+603-7718 1112", appointmentLine: "+603-7718 1000", website: "https://kpjhealth.com.my/damansara", mapQuery: "Damansara Specialist Hospital Petaling Jaya" },
     transport: { nearest: "TTDI MRT Station (Putrajaya Line) — 7-min walk (~478 m); also Mutiara Damansara MRT — 15-min walk", bus: "Rapid KL T786, T813, T814, 780 (bus stop: Glo Damansara, 2-min walk)", highway: "NKVE — Exit Damansara Utama / Mutiara Damansara; LDP accessible", landmark: "Damansara Utama, PJ — near Glo Damansara Mall, SS20" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible." },
@@ -1418,7 +1418,7 @@ export const HOSPITALS_SELANGOR = [
       notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "SJMC / Sunway Medical", note: "KPJ referral network" }],
       byReferral: ["Complex → SJMC or Sunway Medical Centre"]
     },
-    transferPathway: { summary: "Private specialist. Complex → Sunway Medical or KPJ Damansara.", routes: [], howToTransfer: "Private referral." },
+    transferPathway: { summary: "Private specialist. Complex → Sunway Medical or Damansara Specialist Hospital.", routes: [], howToTransfer: "Private referral." },
     specialtyRanks: {}, accreditations: ["MOH Licensed", "MSQH Accredited"],
     primaryExcellence: "Private specialist — Kajang / Hulu Langat", secondarySpecialties: "General Medicine, Orthopaedics",
     fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
@@ -1546,9 +1546,9 @@ export const HOSPITALS_SELANGOR = [
     specialtyCoverage: {
       available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Orthopaedics", "Obstetrics", "Paediatrics"],
       notAvailable: [{ specialty: "Liver transplant", transferTo: "Hospital Selayang", note: "National centre nearby" }],
-      byReferral: ["Complex → KPJ Damansara or Hospital Selayang"]
+      byReferral: ["Complex → Damansara Specialist Hospital or Hospital Selayang"]
     },
-    transferPathway: { summary: "Private specialist. Complex → KPJ Damansara or Hospital Selayang.", routes: [], howToTransfer: "Private referral." },
+    transferPathway: { summary: "Private specialist. Complex → Damansara Specialist Hospital or Hospital Selayang.", routes: [], howToTransfer: "Private referral." },
     specialtyRanks: {}, accreditations: ["MOH Licensed"],
     primaryExcellence: "Private specialist — Selayang area", secondarySpecialties: "General Medicine, Orthopaedics",
     fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
@@ -1875,10 +1875,10 @@ export const HOSPITALS_SELANGOR = [
         { specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical Centre or SJMC", note: "Refer to larger tertiary centre" },
         { specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre only" }
       ],
-      byReferral: ["Complex subspecialties → KPJ Damansara or Sunway Medical"]
+      byReferral: ["Complex subspecialties → Damansara Specialist Hospital or Sunway Medical"]
     },
     transferPathway: {
-      summary: "Community private specialist hospital. Complex cases referred to KPJ Damansara or Sunway Medical.",
+      summary: "Community private specialist hospital. Complex cases referred to Damansara Specialist Hospital or Sunway Medical.",
       routes: [],
       howToTransfer: "Specialist referral."
     },

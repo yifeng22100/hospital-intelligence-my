@@ -629,7 +629,7 @@ const SPECIALTY_CENTRES = [
     hospitals: [
       { name: 'Sunway Fertility Centre', note: 'Part of Sunway Medical Centre (Newsweek Malaysia\'s #1 hospital). Won International Fertility Clinic of the Year, IMTJ Awards 2020.' },
       { name: 'TMC Fertility', note: 'Established 1994 — one of Malaysia\'s most established fertility groups. Its Thomson Hospital Kota Damansara clinic is one of Southeast Asia\'s largest IVF facilities; also in Ipoh, Penang, Johor Bahru.' },
-      { name: 'KPJ Damansara Fertility Centre', note: 'Positioned on combining affordability with strong success rates.' },
+      { name: 'Damansara Specialist Hospital Fertility Centre', note: 'Positioned on combining affordability with strong success rates.' },
     ],
   },
   {

@@ -842,13 +842,13 @@ export const HOSPITALS_SARAWAK = [
   },
   {
     id: "kpj-kuching",
-    name: "KPJ Kuching Specialist Hospital",
-    nameShort: "KPJ Kuching",
+    name: "Kuching Specialist Hospital",
+    nameShort: "Kuching Specialist (KPJ)",
     sector: "private",
     tier: "tertiary",
     state: "Sarawak",
     city: "Kuching",
-    intro: "KPJ Kuching Specialist Hospital is part of the KPJ Healthcare group, offering private specialist care in Kuching with the benefit of the nationwide KPJ group's insurance panel and clinical network.",
+    intro: "Kuching Specialist Hospital (formerly branded KPJ Kuching Specialist Hospital) is part of the KPJ Healthcare group, offering private specialist care in Kuching with the benefit of the nationwide KPJ group's insurance panel and clinical network.",
     famousFor: ["KPJ Healthcare group presence in Sarawak", "Wide insurance panel acceptance"],
     infrastructure: {
       yearEstablished: 2005,
@@ -868,7 +868,7 @@ export const HOSPITALS_SARAWAK = [
       emergencyLine: "+6082-365 777 ext. A&E (verify)",
       appointmentLine: "+6082-365 777 (verify)",
       website: "https://kpjhealth.com.my/kuching/",
-      mapQuery: "KPJ Kuching Specialist Hospital Sarawak"
+      mapQuery: "Kuching Specialist Hospital Sarawak"
     },
     transport: {
       nearest: "Kuching city — 15 min taxi",
