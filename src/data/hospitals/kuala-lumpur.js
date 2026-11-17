@@ -2498,7 +2498,7 @@ export const HOSPITALS_KL = [
     tier: "tertiary",
     state: "Kuala Lumpur",
     city: "Bukit Lanjan, Kuala Lumpur",
-    intro: "Damansara Specialist Hospital 2 (DSH2) is a modern KPJ Healthcare hospital in Bukit Lanjan, providing additional specialist capacity for the Damansara, Petaling Jaya, and northwest KL communities. Opened around 2020, it is distinct from KPJ Damansara Specialist Hospital (DSH1) in Petaling Jaya.",
+    intro: "Damansara Specialist Hospital 2 (DSH2) is a modern KPJ Healthcare hospital in Bukit Lanjan, providing additional specialist capacity for the Damansara, Petaling Jaya, and northwest KL communities. Opened around 2020, it is distinct from Damansara Specialist Hospital (DSH1) in Petaling Jaya.",
     famousFor: ["KPJ expansion hospital — Bukit Lanjan, northwest KL", "Modern tertiary private hospital serving Damansara/PJ corridor"],
     infrastructure: { yearEstablished: 2020, totalBeds: 200, icuBeds: 16, nicuBeds: 6, operatingTheatres: 8, area: "~2 acres", buildings: "New specialist tower", helipad: false, parkingBays: "~250 bays", parkingRate: "RM 3/hr; max/day RM 7; inpatient RM 7/day; valet RM 15/day" },
     contact: { address: "No. 1, Jalan Bukit Lanjan 3, Bukit Lanjan, 60000 Kuala Lumpur", mainLine: "+603-7717 3000", emergencyLine: "+603-7717 3000", appointmentLine: "+603-7717 3000", website: "https://kpjhealth.com.my/damansara2/", mapQuery: "Damansara Specialist Hospital 2 DSH2 Bukit Lanjan Kuala Lumpur" },
@@ -2508,9 +2508,9 @@ export const HOSPITALS_KL = [
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "General Surgery", "Cardiology", "Obstetrics & Gynaecology", "Paediatrics", "Orthopaedics", "Gastroenterology", "ENT", "Ophthalmology"],
       notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "Sunway Medical Centre or SJMC", note: "Refer to larger centre" }],
-      byReferral: ["Complex cases — KPJ Damansara (DSH1) or Sunway Medical"]
+      byReferral: ["Complex cases — Damansara Specialist Hospital (DSH1) or Sunway Medical"]
     },
-    transferPathway: { summary: "Modern KPJ tertiary private hospital. Complex cases refer to KPJ Damansara (DSH1) or Sunway Medical.", routes: [], howToTransfer: "Specialist referral." },
+    transferPathway: { summary: "Modern KPJ tertiary private hospital. Complex cases refer to Damansara Specialist Hospital (DSH1) or Sunway Medical.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
     verifiedNotes: "200 beds. KPJ Healthcare group expansion hospital in Bukit Lanjan, state: Kuala Lumpur. Opened ~2020.", notableGaps: "Newer hospital — verify full specialist coverage with hospital.",

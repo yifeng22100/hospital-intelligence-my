@@ -276,13 +276,13 @@ export const HOSPITALS_JOHOR = [
   },
   {
     id: "kpj-johor",
-    name: "KPJ Johor Specialist Hospital",
-    nameShort: "KPJ Johor",
+    name: "Johor Specialist Hospital",
+    nameShort: "Johor Specialist (KPJ)",
     sector: "private", tier: "tertiary", state: "Johor", city: "Johor Bahru",
-    intro: "KPJ Johor Specialist Hospital is part of KPJ Healthcare group, one of the leading private specialist hospitals in Johor Bahru.",
+    intro: "Johor Specialist Hospital (formerly branded Johor Specialist Hospital) is part of KPJ Healthcare group, one of the leading private specialist hospitals in Johor Bahru.",
     famousFor: ["KPJ Healthcare flagship in Johor Bahru", "Comprehensive private specialist care"],
     infrastructure: { yearEstablished: 1994, totalBeds: 300, icuBeds: 24, nicuBeds: 8, operatingTheatres: 10, area: "~3 acres", buildings: "Main Tower", helipad: false, parkingBays: "~350 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "39-B, Jalan Abdul Samad, 80100 Johor Bahru, Johor", mainLine: "+607-225 3000", emergencyLine: "+607-220 7505", appointmentLine: "+607-225 3000", website: "https://www.kpjjohor.com", mapQuery: "KPJ Johor Specialist Hospital Johor Bahru" },
+    contact: { address: "39-B, Jalan Abdul Samad, 80100 Johor Bahru, Johor", mainLine: "+607-225 3000", emergencyLine: "+607-220 7505", appointmentLine: "+607-225 3000", website: "https://www.kpjjohor.com", mapQuery: "Johor Specialist Hospital Johor Bahru" },
     transport: { nearest: "JB Sentral — 10 min taxi", bus: "Causeway Link bus (JB town)", highway: "North-South Highway — Exit JB", landmark: "JB town centre" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor", atm: "Lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Medical transport available" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },
@@ -321,7 +321,7 @@ export const HOSPITALS_JOHOR = [
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT", "Ophthalmology"],
       notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "Government centre" }],
-      byReferral: ["Complex cases — refer to Gleneagles Johor or KPJ Johor"]
+      byReferral: ["Complex cases — refer to Gleneagles Johor or Johor Specialist Hospital"]
     },
     transferPathway: { summary: "Community private hospital in JB.", routes: [], howToTransfer: "Specialist referral." },
     specialtyRanks: {},
@@ -384,7 +384,7 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Cardiology", "Obstetrics", "Paediatrics", "Orthopaedics", "ENT"],
-      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "HSA JB or KPJ Johor", note: "Refer to larger centre" }],
+      notAvailable: [{ specialty: "Cardiothoracic Surgery", transferTo: "HSA JB or Johor Specialist Hospital", note: "Refer to larger centre" }],
       byReferral: ["Complex cases — refer to HSA JB"]
     },
     transferPathway: { summary: "Community private hospital.", routes: [], howToTransfer: "Specialist referral." },
@@ -416,7 +416,7 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "11:00–20:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital." },
     specialtyCoverage: {
       available: ["Emergency Medicine & A&E (24/7)", "ICU", "General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Most subspecialties", transferTo: "HSA JB or KPJ Johor", note: "Small private hospital — refer to larger centres" }],
+      notAvailable: [{ specialty: "Most subspecialties", transferTo: "HSA JB or Johor Specialist Hospital", note: "Small private hospital — refer to larger centres" }],
       byReferral: ["Complex cases — refer to larger centres"]
     },
     transferPathway: { summary: "Small community private hospital.", routes: [], howToTransfer: "Specialist referral." },
@@ -474,17 +474,17 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
       available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Orthopaedics", "Obstetrics", "Paediatrics"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "KPJ Johor Specialist", note: "KPJ referral" }],
-      byReferral: ["Complex → KPJ Johor or HSA JB"]
+      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "Johor Specialist Hospital", note: "KPJ referral" }],
+      byReferral: ["Complex → Johor Specialist Hospital or HSA JB"]
     },
-    transferPathway: { summary: "Private specialist. Complex → KPJ Johor or HSA JB.", routes: [], howToTransfer: "Private referral." },
+    transferPathway: { summary: "Private specialist. Complex → Johor Specialist Hospital or HSA JB.", routes: [], howToTransfer: "Private referral." },
     specialtyRanks: {}, accreditations: ["MOH Licensed", "MSQH Accredited"],
     primaryExcellence: "Private specialist — Pasir Gudang", secondarySpecialties: "General Medicine, Orthopaedics",
     fullSpecialties: ["General Medicine", "Surgery", "Orthopaedics", "Obstetrics"],
     roomRate: "RM 180–450/night", roomRateRaw: 250, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
     gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
-    verifiedNotes: "~120 beds (est.). KPJ Pasir Gudang Specialist Hospital.", notableGaps: "Complex subspecialties → KPJ Johor."
+    verifiedNotes: "~120 beds (est.). KPJ Pasir Gudang Specialist Hospital.", notableGaps: "Complex subspecialties → Johor Specialist Hospital."
   },
   {
     id: "kpj-bandar-maharani",
@@ -500,17 +500,17 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "11:00–14:00, 17:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Standard", notes: "Confirm with ward." },
     specialtyCoverage: {
       available: ["Emergency (24/7)", "General Medicine", "General Surgery", "Obstetrics", "Paediatrics", "Orthopaedics"],
-      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "KPJ Johor Specialist", note: "KPJ network referral" }],
-      byReferral: ["Complex → KPJ Johor or HSA JB"]
+      notAvailable: [{ specialty: "Complex subspecialties", transferTo: "Johor Specialist Hospital", note: "KPJ network referral" }],
+      byReferral: ["Complex → Johor Specialist Hospital or HSA JB"]
     },
-    transferPathway: { summary: "Private specialist in Muar. Complex → KPJ Johor.", routes: [], howToTransfer: "Private referral." },
+    transferPathway: { summary: "Private specialist in Muar. Complex → Johor Specialist Hospital.", routes: [], howToTransfer: "Private referral." },
     specialtyRanks: {}, accreditations: ["MOH Licensed"],
     primaryExcellence: "Private specialist — Muar", secondarySpecialties: "General Medicine, Obstetrics",
     fullSpecialties: ["General Medicine", "Surgery", "Obstetrics", "Paediatrics"],
     roomRate: "RM 180–400/night", roomRateRaw: 220, insurance: "Panel insurance accepted.", fppScheme: false, fppDeposit: "RM 3,000",
     gaps: "Limited subspecialties.", robotics: "None.", doctorQualifications: "MOH-registered specialists.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
-    verifiedNotes: "~100 beds (est.). Private specialist hospital, Muar.", notableGaps: "Complex cases → KPJ Johor."
+    verifiedNotes: "~100 beds (est.). Private specialist hospital, Muar.", notableGaps: "Complex cases → Johor Specialist Hospital."
   },
   {
     id: "kpj-bandar-dato-onn",
@@ -520,16 +520,16 @@ export const HOSPITALS_JOHOR = [
     intro: "Bandar Dato' Onn Specialist Hospital (formerly branded KPJ Bandar Dato' Onn Specialist Hospital) is a KPJ Healthcare private specialist hospital in the Bandar Dato' Onn township in northern Johor Bahru. Opened in 2019, it provides single rooms only and runs centres for cardiac, oncology and radiotherapy, bone/joint/spine, children's health, and obstetrics and gynaecology, plus neurosurgery and vitreo-retinal eye surgery.",
     famousFor: ["KPJ Healthcare hospital in Bandar Dato' Onn, Johor Bahru", "All single-room inpatient accommodation (150 single beds)", "First KPJ hospital in Johor with vitreo-retinal (VR) eye surgery", "Robotic visualisation (ZEISS KINEVO 900) for brain tumour surgery"],
     infrastructure: { yearEstablished: 2019, totalBeds: 150, icuBeds: null, nicuBeds: null, operatingTheatres: null, area: "~5.34 hectares", buildings: "10-storey main block", helipad: false, parkingBays: "N/A (verify)", parkingRate: "N/A (verify)" },
-    contact: { address: "Jalan Bukit Mutiara, Bandar Dato' Onn, 81100 Johor Bahru, Johor", mainLine: "+607-301 1000", emergencyLine: "+607-301 1000", appointmentLine: "+607-301 1000", website: "https://www.kpjhealth.com.my/bdo", mapQuery: "Bandar Dato' Onn Specialist Hospital KPJ Johor Bahru" },
+    contact: { address: "Jalan Bukit Mutiara, Bandar Dato' Onn, 81100 Johor Bahru, Johor", mainLine: "+607-301 1000", emergencyLine: "+607-301 1000", appointmentLine: "+607-301 1000", website: "https://www.kpjhealth.com.my/bdo", mapQuery: "Bandar Dato' Onn Specialist Hospital Johor Specialist Hospital Bahru" },
     transport: { nearest: "No rail link — car, taxi or e-hailing recommended", bus: "N/A (verify)", highway: "N/A (verify)", landmark: "Bandar Dato' Onn township, northern Johor Bahru" },
     facilities: { pharmacy24h: false, cafeteria: "N/A (verify)", atm: "N/A (verify)", surau: "Available (verify)", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "N/A (verify)", patientTransport: "Ambulance (verify)" },
     visitingHours: { general: "N/A (verify)", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm current visiting hours with the hospital." },
     specialtyCoverage: {
       available: ["Emergency (24/7)", "General Medicine", "Cardiology", "Oncology & Radiotherapy", "Orthopaedics (Bone, Joint & Spine)", "Neurosurgery", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology (incl. vitreo-retinal)", "Dermatology"],
       notAvailable: [{ specialty: "Organ transplant", transferTo: "Hospital Sultanah Aminah (HSA) Johor Bahru", note: "Refer to public tertiary centre (verify)" }],
-      byReferral: ["Highly complex cases — Hospital Sultanah Aminah (HSA) Johor Bahru or KPJ Johor Specialist Hospital"]
+      byReferral: ["Highly complex cases — Hospital Sultanah Aminah (HSA) Johor Bahru or Johor Specialist Hospital"]
     },
-    transferPathway: { summary: "KPJ private specialist hospital in northern JB. Complex cases → KPJ Johor Specialist Hospital (KPJ network) or Hospital Sultanah Aminah (HSA) Johor Bahru.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
+    transferPathway: { summary: "KPJ private specialist hospital in northern JB. Complex cases → Johor Specialist Hospital (KPJ network) or Hospital Sultanah Aminah (HSA) Johor Bahru.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
     specialtyRanks: {}, accreditations: ["MOH Licensed", "KPJ Healthcare Group"],
     primaryExcellence: "KPJ private specialist hospital — Bandar Dato' Onn, Johor Bahru", secondarySpecialties: "Cardiology, Oncology & Radiotherapy, Orthopaedics, Neurosurgery, Ophthalmology",
     fullSpecialties: ["General Medicine", "Cardiology", "Oncology", "Radiotherapy", "Orthopaedics", "Neurosurgery", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Ophthalmology", "Dermatology"],
@@ -552,17 +552,17 @@ export const HOSPITALS_JOHOR = [
     visitingHours: { general: "N/A (verify)", icu: "Restricted", paediatric: "Parents: by arrangement", maternity: "Standard", notes: "Confirm current visiting hours with the hospital." },
     specialtyCoverage: {
       available: ["General Medicine", "Cardiology", "Nephrology & Dialysis", "Endocrinology & Diabetes", "Orthopaedics (Bone, Joint & Spine)", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology & Interventional"],
-      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "KPJ Johor Specialist Hospital or Hospital Sultanah Aminah (HSA) Johor Bahru", note: "Refer to larger centre" }],
-      byReferral: ["Complex → Hospital Sultanah Nora Ismail (HSNI) or KPJ Johor Specialist Hospital"]
+      notAvailable: [{ specialty: "Cardiothoracic surgery", transferTo: "Johor Specialist Hospital or Hospital Sultanah Aminah (HSA) Johor Bahru", note: "Refer to larger centre" }],
+      byReferral: ["Complex → Hospital Sultanah Nora Ismail (HSNI) or Johor Specialist Hospital"]
     },
-    transferPathway: { summary: "KPJ private specialist in Batu Pahat. Complex cases → Hospital Sultanah Nora Ismail (HSNI) locally, or KPJ Johor Specialist Hospital / HSA JB.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
+    transferPathway: { summary: "KPJ private specialist in Batu Pahat. Complex cases → Hospital Sultanah Nora Ismail (HSNI) locally, or Johor Specialist Hospital / HSA JB.", routes: [], howToTransfer: "Specialist referral via KPJ network or private referral." },
     specialtyRanks: {}, accreditations: ["MOH Licensed", "KPJ Healthcare Group"],
     primaryExcellence: "KPJ private specialist — Batu Pahat", secondarySpecialties: "Cardiology, Nephrology & Dialysis, Orthopaedics, Obstetrics",
     fullSpecialties: ["General Medicine", "Cardiology", "Nephrology", "Endocrinology", "Orthopaedics", "Obstetrics & Gynaecology", "Paediatrics", "ENT", "Radiology"],
     roomRate: "RM 180–450/night (est.)", roomRateRaw: 250, insurance: "KPJ group insurance panels (verify with insurer).", fppScheme: false, fppDeposit: "N/A (verify)",
     gaps: "Limited subspecialties; emergency/ICU/OT details not published on official page.", robotics: "None reported.", doctorQualifications: "MMC-registered specialists; KPJ credentialing.",
     imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Batu Pahat Specialist Hospital", url: "https://www.kpjhealth.com.my/batupahat" }, { label: "KPJ Healthcare", url: "https://www.kpjhealth.com.my" }],
-    verifiedNotes: "Name, address, phone (+607-459 1000), 90-bed capacity, opening date (23 Sep 2019) and clinic list checked on KPJ hospital page (official site, Nov 2026). Seven-storey, 90-bed plan per The Star (Oct 2016). MOH private hospital list (2022) showed 29 licensed beds — likely pre-expansion. ICU/OT counts, 24h A&E, MSQH status and room rates unverified (est.).", notableGaps: "Complex cases → HSNI Batu Pahat or KPJ Johor."
+    verifiedNotes: "Name, address, phone (+607-459 1000), 90-bed capacity, opening date (23 Sep 2019) and clinic list checked on KPJ hospital page (official site, Nov 2026). Seven-storey, 90-bed plan per The Star (Oct 2016). MOH private hospital list (2022) showed 29 licensed beds — likely pre-expansion. ICU/OT counts, 24h A&E, MSQH status and room rates unverified (est.).", notableGaps: "Complex cases → HSNI Batu Pahat or Johor Specialist Hospital."
   },
   {
     id: "hjohor-senior",
@@ -623,36 +623,36 @@ export const HOSPITALS_JOHOR = [
   },
   {
     id: "kpj-puteri",
-    name: "KPJ Puteri Specialist Hospital",
-    nameShort: "KPJ Puteri",
+    name: "Puteri Specialist Hospital",
+    nameShort: "Puteri Specialist (KPJ)",
     sector: "private",
     tier: "tertiary",
     state: "Johor",
     city: "Johor Bahru",
-    intro: "KPJ Puteri Specialist Hospital is a private specialist hospital in the Larkin area of Johor Bahru, part of the KPJ Healthcare network. Strategically located near Larkin Central Bus Terminal and accessible from Senai International Airport, it offers a comprehensive range of specialist services with 151 beds, including ICU, NICU, cardiology, orthopaedics, and full surgical capabilities.",
+    intro: "Puteri Specialist Hospital (formerly branded KPJ Puteri Specialist Hospital) is a private specialist hospital in the Larkin area of Johor Bahru, part of the KPJ Healthcare network. Strategically located near Larkin Central Bus Terminal and accessible from Senai International Airport, it offers a comprehensive range of specialist services with 151 beds, including ICU, NICU, cardiology, orthopaedics, and full surgical capabilities.",
     famousFor: ["KPJ Healthcare private specialist hospital in Larkin, JB", "Convenient location near Larkin bus terminal and Senai Airport", "Full specialist care including ICU, NICU, Cardiology and Thoracic Surgery", "KPJ group — Malaysia's largest private hospital network"],
     infrastructure: { yearEstablished: 1994, totalBeds: 151, icuBeds: 12, nicuBeds: 6, operatingTheatres: 6, area: "~2 acres", buildings: "Main Tower", helipad: false, parkingBays: "~200 bays", parkingRate: "RM 2/hour" },
-    contact: { address: "33, Jalan Tun Abdul Razak (Susur 5), Larkin Jaya, 80350 Johor Bahru, Johor", mainLine: "+607-225 3222", emergencyLine: "+607-225 3222 ext. A&E", appointmentLine: "+607-225 3222", website: "https://www.kpjputeri.com", mapQuery: "KPJ Puteri Specialist Hospital Larkin Johor Bahru" },
+    contact: { address: "33, Jalan Tun Abdul Razak (Susur 5), Larkin Jaya, 80350 Johor Bahru, Johor", mainLine: "+607-225 3222", emergencyLine: "+607-225 3222 ext. A&E", appointmentLine: "+607-225 3222", website: "https://www.kpjputeri.com", mapQuery: "Puteri Specialist Hospital Larkin Johor Bahru" },
     transport: { nearest: "Larkin Central Bus Terminal — 2 min drive. JB Sentral KTM — 10 min taxi.", bus: "Causeway Link and local bus routes via Larkin terminal", highway: "North-South Highway — Exit JB/Larkin", landmark: "Larkin area, Johor Bahru (near Larkin Sentral bus hub)" },
     facilities: { pharmacy24h: true, cafeteria: "Ground floor café", atm: "Main lobby", surau: "Available", chapel: false, buddhistRoom: false, disabledAccess: true, wifi: "Free WiFi", patientTransport: "Ambulance and medical transport" },
     visitingHours: { general: "11:00–21:00", icu: "Restricted", paediatric: "Parents: unrestricted", maternity: "Flexible", notes: "Private hospital — flexible visiting. Confirm with ward." },
     specialtyCoverage: {
       available: ["Accident & Emergency (24/7)", "ICU (Adult)", "NICU", "Internal Medicine", "General Surgery", "Cardiology", "Orthopaedics & Trauma Surgery", "Obstetrics & Gynaecology", "Paediatrics & Paediatric Surgery", "Neonatology", "Thoracic Surgery", "Nephrology", "Urology", "ENT (Otorhinolaryngology)", "Neurology", "Rehabilitation Medicine", "Diagnostic Imaging", "Physiotherapy", "Audiology"],
-      notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }, { specialty: "Complex open-heart surgery", transferTo: "KPJ Johor Specialist or Gleneagles Johor", note: "Refer for complex cardiac surgery" }],
-      byReferral: ["Highly complex oncology — KPJ Johor or Gleneagles Johor"]
+      notAvailable: [{ specialty: "Liver Transplant", transferTo: "Hospital Selayang", note: "National centre" }, { specialty: "Complex open-heart surgery", transferTo: "Johor Specialist Hospital or Gleneagles Johor", note: "Refer for complex cardiac surgery" }],
+      byReferral: ["Highly complex oncology — Johor Specialist Hospital or Gleneagles Johor"]
     },
-    transferPathway: { summary: "Comprehensive KPJ private hospital. Complex cases → KPJ Johor Specialist or Gleneagles Johor.", routes: [], howToTransfer: "Specialist referral via KPJ network." },
+    transferPathway: { summary: "Comprehensive KPJ private hospital. Complex cases → Johor Specialist Hospital or Gleneagles Johor.", routes: [], howToTransfer: "Specialist referral via KPJ network." },
     specialtyRanks: {},
     accreditations: ["MSQH Accredited", "KPJ Healthcare Group"],
     verifiedNotes: "151 beds. KPJ Healthcare group. Larkin, Johor Bahru. Phone: +607-225 3222.",
-    notableGaps: "Smaller capacity than KPJ Johor Specialist. No liver transplant. Complex cardiac surgery → KPJ Johor.",
+    notableGaps: "Smaller capacity than Johor Specialist Hospital. No liver transplant. Complex cardiac surgery → Johor Specialist Hospital.",
     primaryExcellence: "KPJ private specialist hospital — Larkin, Johor Bahru", secondarySpecialties: "Cardiology, Orthopaedics, Obstetrics, Paediatrics",
     fullSpecialties: ["Internal Medicine", "General Surgery", "Cardiology", "Orthopaedics", "Obstetrics", "Paediatrics", "Neonatology", "Nephrology", "Urology", "ENT", "Neurology"],
     roomRate: "RM 180 – RM 600+/night", roomRateRaw: 320,
     insurance: "KPJ Healthcare group insurance panels. Major Malaysian insurers.",
     fppScheme: false, fppDeposit: "N/A",
     gaps: "Smaller capacity than larger JB private hospitals.", robotics: "Standard imaging.", doctorQualifications: "MMC-registered specialists.",
-    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "KPJ Puteri Official Website", url: "https://www.kpjputeri.com" }, { label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }]
+    imageUrl: null, imageCredit: "N/A", officialSources: [{ label: "Puteri Specialist Hospital Official Website", url: "https://www.kpjputeri.com" }, { label: "KPJ Healthcare Group", url: "https://www.kpj.com.my" }]
   },
   {
     id: "hpenawar",
